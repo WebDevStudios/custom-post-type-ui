@@ -12,8 +12,7 @@ Admin UI for creating custom post types and custom taxonomies in WordPress
 
 This plugin provides an easy to use interface to create and administer custom post types and taxonomies in WordPress.  This plugin is created for WordPress 3.x.
 
-Below is a slightly outdated example video showing Custom Post Type UI in action!
-[vimeo http://vimeo.com/10187055]
+All official development on this plugin is on GitHub. Version bumps will still be published here on WordPress.org. You can find the repo at [https://github.com/WebDevStudios/custom-post-type-ui](https://github.com/WebDevStudios/custom-post-type-ui). Please file issues, bugs, and enhancement ideas there, when possible.
 
 == Screenshots ==
 
