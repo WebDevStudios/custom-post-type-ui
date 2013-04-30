@@ -1,0 +1,484 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Custom Post Type UI\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-06-30 12:19-0500\n"
+"PO-Revision-Date: 2010-06-30 12:19-0500\n"
+"Last-Translator: Brad Williams <brad@webdevstudios.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+
+#: C:\WDS\Project
+#: Files\Plugins\Custom Post Type
+#: UI\trunk/custom-post-type-ui.php:420
+msgid "Custom Post Types UI"
+msgstr ""
+
+#: C:\WDS\Project
+#: Files\Plugins\Custom Post Type
+#: UI\trunk/custom-post-type-ui.php:421
+msgid "Plugin version"
+msgstr ""
+
+#: C:\WDS\Project
+#: Files\Plugins\Custom Post Type
+#: UI\trunk/custom-post-type-ui.php:422
+msgid "WordPress version"
+msgstr ""
+
+#: C:\WDS\Project
+#: Files\Plugins\Custom Post Type
+#: UI\trunk/custom-post-type-ui.php:423
+msgid "Slightly Outdated Demo Video"
+msgstr ""
+
+#: C:\WDS\Project
+#: Files\Plugins\Custom Post Type
+#: UI\trunk/custom-post-type-ui.php:445
+msgid "Custom post type deleted successfully"
+msgstr ""
+
+#: C:\WDS\Project
+#: Files\Plugins\Custom Post Type
+#: UI\trunk/custom-post-type-ui.php:450
+msgid "Manage Custom Post Types"
+msgstr ""
+
+#: C:\WDS\Project
+#: Files\Plugins\Custom Post Type
+#: UI\trunk/custom-post-type-ui.php:451
+msgid "Deleting custom post types does <strong>NOT</strong> delete any content added to those post types.  You can easily recreate your post types and the content will still exist."
+msgstr ""
+
+#: C:\WDS\Project
+#: Files\Plugins\Custom Post Type
+#: UI\trunk/custom-post-type-ui.php:458
+#: UI\trunk/custom-post-type-ui.php:670
+msgid "Action"
+msgstr ""
+
+#: C:\WDS\Project
+#: Files\Plugins\Custom Post Type
+#: UI\trunk/custom-post-type-ui.php:459
+#: UI\trunk/custom-post-type-ui.php:592
+#: UI\trunk/custom-post-type-ui.php:671
+msgid "Name"
+msgstr ""
+
+#: C:\WDS\Project
+#: Files\Plugins\Custom Post Type
+#: UI\trunk/custom-post-type-ui.php:460
+#: UI\trunk/custom-post-type-ui.php:593
+#: UI\trunk/custom-post-type-ui.php:672
+#: UI\trunk/custom-post-type-ui.php:896
+#: UI\trunk/custom-post-type-ui.php:1113
+msgid "Label"
+msgstr ""
+
+#: C:\WDS\Project
+#: Files\Plugins\Custom Post Type
+#: UI\trunk/custom-post-type-ui.php:461
+#: UI\trunk/custom-post-type-ui.php:595
+#: UI\trunk/custom-post-type-ui.php:981
+msgid "Public"
+msgstr ""
+
+#: C:\WDS\Project
+#: Files\Plugins\Custom Post Type
+#: UI\trunk/custom-post-type-ui.php:462
+#: UI\trunk/custom-post-type-ui.php:596
+#: UI\trunk/custom-post-type-ui.php:676
+#: UI\trunk/custom-post-type-ui.php:991
+#: UI\trunk/custom-post-type-ui.php:1231
+msgid "Show UI"
+msgstr ""
+
+#: C:\WDS\Project
+#: Files\Plugins\Custom Post Type
+#: UI\trunk/custom-post-type-ui.php:463
+#: UI\trunk/custom-post-type-ui.php:598
+#: UI\trunk/custom-post-type-ui.php:675
+#: UI\trunk/custom-post-type-ui.php:1006
+#: UI\trunk/custom-post-type-ui.php:1221
+msgid "Hierarchical"
+msgstr ""
+
+#: C:\WDS\Project
+#: Files\Plugins\Custom Post Type
+#: UI\trunk/custom-post-type-ui.php:464
+#: UI\trunk/custom-post-type-ui.php:599
+#: UI\trunk/custom-post-type-ui.php:677
+#: UI\trunk/custom-post-type-ui.php:1016
+#: UI\trunk/custom-post-type-ui.php:1251
+msgid "Rewrite"
+msgstr ""
+
+#: C:\WDS\Project
+#: Files\Plugins\Custom Post Type
+#: UI\trunk/custom-post-type-ui.php:465
+#: UI\trunk/custom-post-type-ui.php:600
+#: UI\trunk/custom-post-type-ui.php:678
+msgid "Rewrite Slug"
+msgstr ""
+
+#: C:\WDS\Project
+#: Files\Plugins\Custom Post Type
+#: UI\trunk/custom-post-type-ui.php:466
+msgid "Total Published"
+msgstr ""
+
+#: C:\WDS\Project
+#: Files\Plugins\Custom Post Type
+#: UI\trunk/custom-post-type-ui.php:467
+msgid "Total Drafts"
+msgstr ""
+
+#: C:\WDS\Project
+#: Files\Plugins\Custom Post Type
+#: UI\trunk/custom-post-type-ui.php:468
+#: UI\trunk/custom-post-type-ui.php:1046
+msgid "Supports"
+msgstr ""
+
+#: C:\WDS\Project
+#: Files\Plugins\Custom Post Type
+#: UI\trunk/custom-post-type-ui.php:572
+msgid "Place the below code in your themes functions.php file to manually create this custom post type"
+msgstr ""
+
+#: C:\WDS\Project
+#: Files\Plugins\Custom Post Type
+#: UI\trunk/custom-post-type-ui.php:588
+msgid "Additional Custom Post Types"
+msgstr ""
+
+#: C:\WDS\Project
+#: Files\Plugins\Custom Post Type
+#: UI\trunk/custom-post-type-ui.php:589
+msgid "The custom post types below are registered in WordPress but were not created by the Custom Post Type UI Plugin."
+msgstr ""
+
+#: C:\WDS\Project
+#: Files\Plugins\Custom Post Type
+#: UI\trunk/custom-post-type-ui.php:594
+#: UI\trunk/custom-post-type-ui.php:673
+#: UI\trunk/custom-post-type-ui.php:901
+#: UI\trunk/custom-post-type-ui.php:1118
+msgid "Singular Label"
+msgstr ""
+
+#: C:\WDS\Project
+#: Files\Plugins\Custom Post Type
+#: UI\trunk/custom-post-type-ui.php:597
+#: UI\trunk/custom-post-type-ui.php:1001
+msgid "Capability Type"
+msgstr ""
+
+#: C:\WDS\Project
+#: Files\Plugins\Custom Post Type
+#: UI\trunk/custom-post-type-ui.php:601
+#: UI\trunk/custom-post-type-ui.php:1031
+#: UI\trunk/custom-post-type-ui.php:1241
+msgid "Query Var"
+msgstr ""
+
+#: C:\WDS\Project
+#: Files\Plugins\Custom Post Type
+#: UI\trunk/custom-post-type-ui.php:656
+msgid "Custom taxonomy deleted successfully"
+msgstr ""
+
+#: C:\WDS\Project
+#: Files\Plugins\Custom Post Type
+#: UI\trunk/custom-post-type-ui.php:661
+msgid "Manage Custom Taxonomies"
+msgstr ""
+
+#: C:\WDS\Project
+#: Files\Plugins\Custom Post Type
+#: UI\trunk/custom-post-type-ui.php:662
+msgid "Deleting custom taxonomies does <strong>NOT</strong> delete any content added to those taxonomies.  You can easily recreate your taxonomies and the content will still exist."
+msgstr ""
+
+#: C:\WDS\Project
+#: Files\Plugins\Custom Post Type
+#: UI\trunk/custom-post-type-ui.php:674
+msgid "Attached Post Types"
+msgstr ""
+
+#: C:\WDS\Project
+#: Files\Plugins\Custom Post Type
+#: UI\trunk/custom-post-type-ui.php:749
+msgid "Place the below code in your themes functions.php file to manually create this custom taxonomy"
+msgstr ""
+
+#: C:\WDS\Project
+#: Files\Plugins\Custom Post Type
+#: UI\trunk/custom-post-type-ui.php:850
+msgid "Custom post type created successfully.  You may need to refresh to view the new post type."
+msgstr ""
+
+#: C:\WDS\Project
+#: Files\Plugins\Custom Post Type
+#: UI\trunk/custom-post-type-ui.php:855
+msgid "Custom taxonomy created successfully.  You may need to refresh to view the new taxonomy."
+msgstr ""
+
+#: C:\WDS\Project
+#: Files\Plugins\Custom Post Type
+#: UI\trunk/custom-post-type-ui.php:861
+msgid "Post type name is a required field."
+msgstr ""
+
+#: C:\WDS\Project
+#: Files\Plugins\Custom Post Type
+#: UI\trunk/custom-post-type-ui.php:865
+msgid "Taxonomy name is a required field."
+msgstr ""
+
+#: C:\WDS\Project
+#: Files\Plugins\Custom Post Type
+#: UI\trunk/custom-post-type-ui.php:869
+msgid "You must assign your custom taxonomy to at least one post type."
+msgstr ""
+
+#: C:\WDS\Project
+#: Files\Plugins\Custom Post Type
+#: UI\trunk/custom-post-type-ui.php:878
+msgid "Edit Custom Post Type"
+msgstr ""
+
+#: C:\WDS\Project
+#: Files\Plugins\Custom Post Type
+#: UI\trunk/custom-post-type-ui.php:878
+#: UI\trunk/custom-post-type-ui.php:880
+#: UI\trunk/custom-post-type-ui.php:1095
+#: UI\trunk/custom-post-type-ui.php:1097
+msgid "Reset"
+msgstr ""
+
+#: C:\WDS\Project
+#: Files\Plugins\Custom Post Type
+#: UI\trunk/custom-post-type-ui.php:880
+msgid "Create New Custom Post Type"
+msgstr ""
+
+#: C:\WDS\Project
+#: Files\Plugins\Custom Post Type
+#: UI\trunk/custom-post-type-ui.php:882
+msgid "If you are unfamiliar with the options below only fill out the <strong>Post Type Name</strong> and <strong>Label</strong> fields and check which meta boxes to support.  The other settings are set to the most common defaults for custom post types."
+msgstr ""
+
+#: C:\WDS\Project
+#: Files\Plugins\Custom Post Type
+#: UI\trunk/custom-post-type-ui.php:891
+msgid "Post Type Name"
+msgstr ""
+
+#: C:\WDS\Project
+#: Files\Plugins\Custom Post Type
+#: UI\trunk/custom-post-type-ui.php:906
+msgid "Description"
+msgstr ""
+
+#: C:\WDS\Project
+#: Files\Plugins\Custom Post Type
+#: UI\trunk/custom-post-type-ui.php:911
+#: UI\trunk/custom-post-type-ui.php:1147
+msgid "View Advanced Label Options"
+msgstr ""
+
+#: C:\WDS\Project
+#: Files\Plugins\Custom Post Type
+#: UI\trunk/custom-post-type-ui.php:912
+#: UI\trunk/custom-post-type-ui.php:1148
+msgid "View Advanced Options"
+msgstr ""
+
+#: C:\WDS\Project
+#: Files\Plugins\Custom Post Type
+#: UI\trunk/custom-post-type-ui.php:918
+msgid "Below are the advanced label options for custom post types.  If you are unfamiliar with these labels the plugin will automatically create labels based off of your custom post type name"
+msgstr ""
+
+#: C:\WDS\Project
+#: Files\Plugins\Custom Post Type
+#: UI\trunk/custom-post-type-ui.php:921
+msgid "Add New"
+msgstr ""
+
+#: C:\WDS\Project
+#: Files\Plugins\Custom Post Type
+#: UI\trunk/custom-post-type-ui.php:926
+#: UI\trunk/custom-post-type-ui.php:1192
+msgid "Add New Item"
+msgstr ""
+
+#: C:\WDS\Project
+#: Files\Plugins\Custom Post Type
+#: UI\trunk/custom-post-type-ui.php:931
+msgid "Edit"
+msgstr ""
+
+#: C:\WDS\Project
+#: Files\Plugins\Custom Post Type
+#: UI\trunk/custom-post-type-ui.php:936
+#: UI\trunk/custom-post-type-ui.php:1182
+msgid "Edit Item"
+msgstr ""
+
+#: C:\WDS\Project
+#: Files\Plugins\Custom Post Type
+#: UI\trunk/custom-post-type-ui.php:941
+msgid "New Item"
+msgstr ""
+
+#: C:\WDS\Project
+#: Files\Plugins\Custom Post Type
+#: UI\trunk/custom-post-type-ui.php:946
+msgid "View"
+msgstr ""
+
+#: C:\WDS\Project
+#: Files\Plugins\Custom Post Type
+#: UI\trunk/custom-post-type-ui.php:951
+msgid "View Item"
+msgstr ""
+
+#: C:\WDS\Project
+#: Files\Plugins\Custom Post Type
+#: UI\trunk/custom-post-type-ui.php:956
+#: UI\trunk/custom-post-type-ui.php:1157
+msgid "Search Items"
+msgstr ""
+
+#: C:\WDS\Project
+#: Files\Plugins\Custom Post Type
+#: UI\trunk/custom-post-type-ui.php:961
+msgid "Not Found"
+msgstr ""
+
+#: C:\WDS\Project
+#: Files\Plugins\Custom Post Type
+#: UI\trunk/custom-post-type-ui.php:966
+msgid "Not Found in Trash"
+msgstr ""
+
+#: C:\WDS\Project
+#: Files\Plugins\Custom Post Type
+#: UI\trunk/custom-post-type-ui.php:971
+msgid "Parent"
+msgstr ""
+
+#: C:\WDS\Project
+#: Files\Plugins\Custom Post Type
+#: UI\trunk/custom-post-type-ui.php:1026
+#: UI\trunk/custom-post-type-ui.php:1261
+msgid "Custom Rewrite Slug"
+msgstr ""
+
+#: C:\WDS\Project
+#: Files\Plugins\Custom Post Type
+#: UI\trunk/custom-post-type-ui.php:1041
+msgid "Menu Position"
+msgstr ""
+
+#: C:\WDS\Project
+#: Files\Plugins\Custom Post Type
+#: UI\trunk/custom-post-type-ui.php:1062
+msgid "Built-in Taxonomies"
+msgstr ""
+
+#: C:\WDS\Project
+#: Files\Plugins\Custom Post Type
+#: UI\trunk/custom-post-type-ui.php:1095
+msgid "Edit Custom Taxonomy"
+msgstr ""
+
+#: C:\WDS\Project
+#: Files\Plugins\Custom Post Type
+#: UI\trunk/custom-post-type-ui.php:1097
+msgid "Create Custom Taxonomy"
+msgstr ""
+
+#: C:\WDS\Project
+#: Files\Plugins\Custom Post Type
+#: UI\trunk/custom-post-type-ui.php:1099
+msgid "If you are unfamiliar with the options below only fill out the <strong>Taxonomy Name</strong> and <strong>Post Type Name</strong> fields.  The other settings are set to the most common defaults for custom taxonomies."
+msgstr ""
+
+#: C:\WDS\Project
+#: Files\Plugins\Custom Post Type
+#: UI\trunk/custom-post-type-ui.php:1108
+msgid "Taxonomy Name"
+msgstr ""
+
+#: C:\WDS\Project
+#: Files\Plugins\Custom Post Type
+#: UI\trunk/custom-post-type-ui.php:1123
+msgid "Attach to Post Type"
+msgstr ""
+
+#: C:\WDS\Project
+#: Files\Plugins\Custom Post Type
+#: UI\trunk/custom-post-type-ui.php:1154
+msgid "Below are the advanced label options for custom taxonomies.  If you are unfamiliar with these labels the plugin will automatically create labels based off of your custom taxonomy name"
+msgstr ""
+
+#: C:\WDS\Project
+#: Files\Plugins\Custom Post Type
+#: UI\trunk/custom-post-type-ui.php:1162
+msgid "Popular Items"
+msgstr ""
+
+#: C:\WDS\Project
+#: Files\Plugins\Custom Post Type
+#: UI\trunk/custom-post-type-ui.php:1167
+msgid "All Items"
+msgstr ""
+
+#: C:\WDS\Project
+#: Files\Plugins\Custom Post Type
+#: UI\trunk/custom-post-type-ui.php:1172
+msgid "Parent Item"
+msgstr ""
+
+#: C:\WDS\Project
+#: Files\Plugins\Custom Post Type
+#: UI\trunk/custom-post-type-ui.php:1177
+msgid "Parent Item Colon"
+msgstr ""
+
+#: C:\WDS\Project
+#: Files\Plugins\Custom Post Type
+#: UI\trunk/custom-post-type-ui.php:1187
+msgid "Update Item"
+msgstr ""
+
+#: C:\WDS\Project
+#: Files\Plugins\Custom Post Type
+#: UI\trunk/custom-post-type-ui.php:1197
+msgid "New Item Name"
+msgstr ""
+
+#: C:\WDS\Project
+#: Files\Plugins\Custom Post Type
+#: UI\trunk/custom-post-type-ui.php:1202
+msgid "Separate Items with Commas"
+msgstr ""
+
+#: C:\WDS\Project
+#: Files\Plugins\Custom Post Type
+#: UI\trunk/custom-post-type-ui.php:1207
+msgid "Add or Remove Items"
+msgstr ""
+
+#: C:\WDS\Project
+#: Files\Plugins\Custom Post Type
+#: UI\trunk/custom-post-type-ui.php:1212
+msgid "Choose From Most Used"
+msgstr ""
+
