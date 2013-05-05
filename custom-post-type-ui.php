@@ -700,22 +700,20 @@ if ( isset($_GET['cpt_msg'] ) && $_GET['cpt_msg'] == 'del' ) { ?>
 		$thecounter++;
 		$cpt_names[] = strtolower( $cpt_post_type["name"] );
 		}
-
 			$args=array(
 			  'public'   => true,
 			  '_builtin' => false
 			);
 			$output = 'objects'; // or objects
-			$post_types=get_post_types($args,$output);
+			$post_types = get_post_types( $args, $output );
+			$cpt_first = false;
 			if ( $post_types ) {
 
 				?></table>
-				<?php screen_icon( 'plugins' ); ?>
-				<h2><?php _e('Additional Custom Post Types', 'cpt-plugin') ?></h2>
+				<h3><?php _e('Additional Custom Post Types', 'cpt-plugin') ?></h3>
 				<p><?php _e('The custom post types below are registered in WordPress but were not created by the Custom Post Type UI Plugin.', 'cpt-plugin') ?></p>
 					<?php
-					foreach ($post_types  as $post_type ) {
-
+					foreach ( $post_types as $post_type ) {
 						  if ( !in_array( strtolower( $post_type->name ), $cpt_names ) ) {
 							if ( isset( $cpt_first ) && !$cpt_first ) {
 								?>
@@ -724,12 +722,10 @@ if ( isset($_GET['cpt_msg'] ) && $_GET['cpt_msg'] == 'del' ) { ?>
 										<tr>
 											<th><?php _e('Name', 'cpt-plugin');?></th>
 											<th><?php _e('Label', 'cpt-plugin');?></th>
-											<th><?php _e('Singular Label', 'cpt-plugin');?></th>
 											<th><?php _e('Public', 'cpt-plugin');?></th>
 											<th><?php _e('Show UI', 'cpt-plugin');?></th>
-											<th><?php _e('Capability Type', 'cpt-plugin');?></th>
 											<th><?php _e('Hierarchical', 'cpt-plugin');?></th>
-											<th><?php _e('Rewrite Slug', 'cpt-plugin');?></th>
+											<th><?php _e('Rewrite', 'cpt-plugin');?></th>
 											<th><?php _e('Rewrite Slug', 'cpt-plugin');?></th>
 											<th><?php _e('Query Var', 'cpt-plugin');?></th>
 										</tr>
@@ -738,12 +734,10 @@ if ( isset($_GET['cpt_msg'] ) && $_GET['cpt_msg'] == 'del' ) { ?>
 										<tr>
 											<th><?php _e('Name', 'cpt-plugin');?></th>
 											<th><?php _e('Label', 'cpt-plugin');?></th>
-											<th><?php _e('Singular Label', 'cpt-plugin');?></th>
 											<th><?php _e('Public', 'cpt-plugin');?></th>
 											<th><?php _e('Show UI', 'cpt-plugin');?></th>
-											<th><?php _e('Capability Type', 'cpt-plugin');?></th>
 											<th><?php _e('Hierarchical', 'cpt-plugin');?></th>
-											<th><?php _e('Rewrite Slug', 'cpt-plugin');?></th>
+											<th><?php _e('Rewrite', 'cpt-plugin');?></th>
 											<th><?php _e('Rewrite Slug', 'cpt-plugin');?></th>
 											<th><?php _e('Query Var', 'cpt-plugin');?></th>
 										</tr>
@@ -756,10 +750,8 @@ if ( isset($_GET['cpt_msg'] ) && $_GET['cpt_msg'] == 'del' ) { ?>
 							<tr>
 								<td valign="top"><?php echo $post_type->name; ?></td>
 								<td valign="top"><?php echo $post_type->label; ?></td>
-								<td valign="top"><?php echo $post_type->singular_label; ?></td>
 								<td valign="top"><?php echo disp_boolean($post_type->public); ?></td>
 								<td valign="top"><?php echo disp_boolean($post_type->show_ui); ?></td>
-								<td valign="top"><?php echo $post_type->capability_type; ?></td>
 								<td valign="top"><?php echo disp_boolean($post_type->hierarchical); ?></td>
 								<td valign="top"><?php echo disp_boolean($post_type->rewrite); ?></td>
 								<td valign="top"><?php echo $rewrite_slug; ?></td>
@@ -1005,12 +997,12 @@ function cpt_add_new() {
 	//check for success/error messages
 	if (isset($_GET['cpt_msg']) && $_GET['cpt_msg']==1) { ?>
 		<div id="message" class="updated">
-			<?php _e('Custom post type created successfully.  You may need to refresh to view the new post type.  <a href="' .cpt_check_return( 'cpt' ) .'">Manage custom post types</a>', 'cpt-plugin'); ?>
+			<?php _e('Custom post type created successfully.  You may need to refresh to view the new post type in the admin menu.  <a href="' .cpt_check_return( 'cpt' ) .'">Manage custom post types</a>', 'cpt-plugin'); ?>
 		</div>
 		<?php
 	} elseif (isset($_GET['cpt_msg']) && $_GET['cpt_msg']==2) { ?>
 		<div id="message" class="updated">
-			<?php _e('Custom taxonomy created successfully.  You may need to refresh to view the new taxonomy.  <a href="' .cpt_check_return( 'tax' ) .'">Manage custom taxonomies</a>', 'cpt-plugin'); ?>
+			<?php _e('Custom taxonomy created successfully.  You may need to refresh to view the new taxonomy in the admin menu.  <a href="' .cpt_check_return( 'tax' ) .'">Manage custom taxonomies</a>', 'cpt-plugin'); ?>
 		</div>
 		<?php
 	} else {
