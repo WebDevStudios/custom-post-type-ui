@@ -886,17 +886,17 @@ if (isset($_GET['cpt_msg']) && $_GET['cpt_msg']=='del') { ?>
 									$cpt_singular_label = esc_html($cpt_tax_type["singular_label"]);
 								}
 
-				$cpt_post_types = ( !$cpt_tax_type[1] ) ? $cpt_tax_type["cpt_name"] : var_export( $cpt_tax_type[1], true );
+								$cpt_post_types = ( !$cpt_tax_type[1] ) ? $cpt_tax_type["cpt_name"] : var_export( $cpt_tax_type[1], true );
 
 								//register our custom taxonomies
-								$custom_tax = 'register_taxonomy(\'' .$cpt_tax_type["name"]. '\',';
-								$custom_tax .= $cpt_post_types .',';
-								$custom_tax .= 'array( \'hierarchical\' => '.disp_boolean($cpt_tax_type["hierarchical"]).', ';
-								$custom_tax .= 	'\'label\' => \''.$cpt_label.'\',';
-								$custom_tax .= 	'\'show_ui\' => '.disp_boolean($cpt_tax_type["show_ui"]).',';
-								$custom_tax .= 	'\'query_var\' => '. disp_boolean($cpt_tax_type["query_var"]).',';
-				$custom_tax .= 	'\'rewrite\' => array(\'slug\' => \'' .$cpt_tax_type["rewrite_slug"]. '\'),';
-								$custom_tax .= 	'\'singular_label\' => \''.$cpt_singular_label.'\'';
+								$custom_tax = 'register_taxonomy(\'' . $cpt_tax_type["name"] . '\',';
+								$custom_tax .= $cpt_post_types . ',';
+								$custom_tax .= 'array( \'hierarchical\' => ' . disp_boolean($cpt_tax_type["hierarchical"]) . ',';
+								$custom_tax .= '\'label\' => \'' . $cpt_label . '\',';
+								$custom_tax .= '\'show_ui\' => ' . disp_boolean($cpt_tax_type["show_ui"]) . ',';
+								$custom_tax .= '\'query_var\' => ' . disp_boolean($cpt_tax_type["query_var"]) . ',';
+								$custom_tax .= '\'rewrite\' => array(\'slug\' => \'' . $rewrite_slug . '\'),';
+								$custom_tax .= '\'singular_label\' => \'' . $cpt_singular_label . '\'';
 								$custom_tax .= ') );';
 
 				echo '<br>';
@@ -1278,7 +1278,7 @@ function cpt_add_new() {
 				</div>
 
 				<p class="submit">
-				<input type="submit" class="button-primary" tabindex="21" name="cpt_submit" value="<?php _e($cpt_submit_name, 'cpt-plugin') ?>" />
+				<input type="submit" class="button-primary" tabindex="21" name="cpt_submit" value="<?php echo $cpt_submit_name; ?>" />
 				</p>
 
 			</form>
@@ -1464,7 +1464,7 @@ function cpt_add_new() {
 				</div>
 
 				<p class="submit">
-					<input type="submit" class="button-primary" tabindex="29" name="cpt_add_tax" value="<?php $cpt_tax_submit_name; ?>" />
+					<input type="submit" class="button-primary" tabindex="29" name="cpt_add_tax" value="<?php echo $cpt_tax_submit_name; ?>" />
 				</p>
 			</form>
 		</td>
