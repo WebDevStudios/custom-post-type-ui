@@ -276,6 +276,7 @@ function cpt_register_settings() {
 			array_push( $cpt_options, $cpt_form_fields );
 
 			$cpt_options = array_values( $cpt_options );
+			$cpt_options = stripslashes_deep( $cpt_options );
 
 			//save custom post types
 			update_option( 'cpt_custom_post_types', $cpt_options );
@@ -331,6 +332,7 @@ function cpt_register_settings() {
 
 		//insert new custom post type into the array
 		array_push( $cpt_options, $cpt_form_fields );
+		$cpt_options = stripslashes_deep( $cpt_options );
 
 		//save new custom post type array in the CPT option
 		update_option( 'cpt_custom_post_types', $cpt_options );
@@ -895,7 +897,7 @@ if (isset($_GET['cpt_msg']) && $_GET['cpt_msg']=='del') { ?>
 								$custom_tax .= '\'label\' => \'' . $cpt_label . '\',';
 								$custom_tax .= '\'show_ui\' => ' . disp_boolean($cpt_tax_type["show_ui"]) . ',';
 								$custom_tax .= '\'query_var\' => ' . disp_boolean($cpt_tax_type["query_var"]) . ',';
-								$custom_tax .= '\'rewrite\' => array(\'slug\' => \'' . $rewrite_slug . '\'),';
+								$custom_tax .= '\'rewrite\' => array(\'slug\' => \'' . $cpt_tax_type["rewrite_slug"] . '\'),';
 								$custom_tax .= '\'singular_label\' => \'' . $cpt_singular_label . '\'';
 								$custom_tax .= ') );';
 
@@ -1075,7 +1077,7 @@ function cpt_add_new() {
 
 				</table>
 
-		<div style="display:none;" id="slidepanel1">
+				<div style="display:none;" id="slidepanel1">
 				<p><?php _e('Below are the advanced label options for custom post types.  If you are unfamiliar with these labels the plugin will automatically create labels based off of your custom post type name', 'cpt-plugin'); ?></p>
 				<table class="form-table">
 
