@@ -1306,7 +1306,9 @@ function cpt_add_new() {
 				<table class="form-table">
 					<tr valign="top">
 					<th scope="row"><?php _e('Taxonomy Name', 'cpt-plugin') ?> <span style="color:red;">*</span></th>
-					<td><input type="text" name="cpt_custom_tax[name]" tabindex="21" value="<?php if (isset($cpt_tax_name)) { echo esc_attr($cpt_tax_name); } ?>" /> <a href="#" title="<?php esc_attr_e( 'The taxonomy name.  Used to retrieve custom taxonomy content.  Should be short and sweet', 'cpt-plugin' ); ?>" style="cursor: help;">?</a> <?php _e( '(e.g. actors)', 'cpt-plugin' ); ?></td>
+					<td><input type="text" name="cpt_custom_tax[name]" maxlength="32" onblur="this.value=this.value.toLowerCase()" tabindex="21" value="<?php if (isset($cpt_tax_name)) { echo esc_attr($cpt_tax_name); } ?>" /> <a href="#" title="<?php esc_attr_e( 'The taxonomy name.  Used to retrieve custom taxonomy content.  Should be short and sweet', 'cpt-plugin' ); ?>" style="cursor: help;">?</a> <?php _e( '(e.g. actors)', 'cpt-plugin' ); ?>
+					<p><strong><?php _e( 'Max 32 characters, can not contain capital letters or spaces', 'cpt-plugin' ); ?></strong></p>
+					</td>
 					</tr>
 
 				   <tr valign="top">
