@@ -498,7 +498,7 @@ function cpt_settings() {
 				</form>
 				</p>
 			</td>
-			<td valign="top" width="33%"><a href="http://bit.ly/pro-wp" target="_blank"><img src="<?php echo plugins_url( '/images/professional-wordpress-secondedition.jpg', __FILE__ ); ?>" width="200"></a><br /><?php _e( 'The leading book on WordPress design and development!<br /><strong>Second Edition coming December 2012!', 'cpt-plugin'); ?></strong></td>
+			<td valign="top" width="33%"><a href="http://bit.ly/prowp2" target="_blank"><img src="<?php echo plugins_url( '/images/professional-wordpress-secondedition.jpg', __FILE__ ); ?>" width="200"></a><br /><?php _e( 'The leading book on WordPress design and development!<br /><strong>Second Edition coming December 2012!', 'cpt-plugin'); ?></strong></td>
 			<td valign="top" width="33%"><a href="http://amzn.to/plugindevbook" target="_blank"><img src="<?php echo plugins_url( '/images/professional-wordpress-plugin-development.png', __FILE__ ); ?>" width="200"></a><br /><?php _e( 'Check out my new book all about plugin development!', 'cpt-plugin' ); ?></td>
 			</tr>
 		</table>
