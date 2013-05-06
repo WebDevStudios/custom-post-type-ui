@@ -478,7 +478,7 @@ function cpt_settings() {
 		<p><?php _e( 'A: You can either change the custom post type name back to the original name or try the Post Type Switcher plugin: ', 'cpt-plugin' ); ?><a href="http://wordpress.org/extend/plugins/post-type-switcher/" target="_blank">http://wordpress.org/extend/plugins/post-type-switcher/</a></p>
 		<div class="cp-rss-widget">
 
-		<table border="0" width="60%">
+		<table border="0">
 			<tr>
 			<td colspan="3"><h2><?php _e( 'Help Support This Plugin!', 'cpt-plugin' ); ?></h2></td>
 			</tr>
