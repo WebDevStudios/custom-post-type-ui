@@ -464,9 +464,10 @@ function cpt_settings() {
 ?>
 	<div class="wrap">
 		<?php screen_icon( 'plugins' ); ?>
-		<h2><?php _e('Custom Post Type UI', 'cpt-plugin'); ?> <?php _e('version', 'cpt-plugin'); ?>: <?php echo CPT_VERSION; ?></h2>
+		<h2><?php _e( 'Custom Post Type UI', 'cpt-plugin' ); ?> <?php _e( 'version', 'cpt-plugin' ); ?>: <?php echo CPT_VERSION; ?></h2>
 
-		<h2><?php _e('Frequently Asked Questions', 'cpt-plugin'); ?></h2>
+		<h2><?php _e( 'Frequently Asked Questions', 'cpt-plugin' ); ?></h2>
+		<p><?php _e( 'Please note that this plugin will NOT handle display of registered post types or taxonomies in your current theme. It will simply register them for you.', 'cpt-plugin' ); ?>
 		<p><?php _e( 'Q: <strong>How can I display content from a custom post type on my website?</strong>', 'cpt-plugin' ); ?></p>
 		<p>
 			<?php _e( 'A: Justin Tadlock has written some great posts on the topic:', 'cpt-plugin' ); ?><br />
