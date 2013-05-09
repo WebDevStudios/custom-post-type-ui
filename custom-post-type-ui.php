@@ -1095,7 +1095,7 @@ function cpt_add_new() {
 							<tr valign="top">
 								<td colspan="2">
 									<p align="center">
-										<?php echo '<a href="#" class="comment_button" id="1">' . __( 'Advanced Label Options', 'cpt-plugin' ) . '</a>'; ?> &middot;
+										<?php echo '<a href="#" class="comment_button" id="1">' . __( 'Advanced Label Options', 'cpt-plugin' ) . '</a>'; ?> |
 										<?php echo '<a href="#" class="comment_button" id="2">' . __( 'Advanced Options', 'cpt-plugin' ) . '</a>'; ?>
 									</p>
 								</td>
@@ -1380,7 +1380,7 @@ function cpt_add_new() {
 							<tr valign="top">
 								<td colspan="2">
 									<p align="center">
-									<?php echo '<a href="#" class="comment_button" id="3">' . __('Advanced Label Options', 'cpt-plugin') . '</a>'; ?> &middot;
+									<?php echo '<a href="#" class="comment_button" id="3">' . __('Advanced Label Options', 'cpt-plugin') . '</a>'; ?> |
 									<?php echo '<a href="#" class="comment_button" id="4">' . __('Advanced Options', 'cpt-plugin') . '</a>'; ?>
 									</p>
 								</td>

@@ -3,8 +3,8 @@ Contributors: williamsba1, tw2113
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3084056
 Tags: custom post types, CPT, CMS, post, types, post type, cck, taxonomy, tax, custom
 Requires at least: 3.1
-Tested up to: 3.4.1
-Stable tag: 0.7.2
+Tested up to: 3.5.1
+Stable tag: 0.8
 
 Admin UI for creating custom post types and custom taxonomies in WordPress
 
@@ -204,6 +204,12 @@ That's it! Now you can easily start creating custom post types and taxonomies in
 
 == Frequently Asked Questions ==
 
+= How can I display content from a custom post type on my website? =
+
+Justin Tadlock has written some great posts on the topic:
+[Showing Custom Post Types on your Home Page](https://github.com/WebDevStudios/custom-post-type-ui)
+[Custom Post Types in WordPress](http://justintadlock.com/archives/2010/04/29/custom-post-types-in-wordpress)
+
 = How can I add custom meta boxes to my custom post types? =
 
 The More Fields plugin does a great job at creating custom meta boxes and fully supports custom post types: http://wordpress.org/extend/plugins/more-fields/
@@ -219,6 +225,3 @@ This is usually caused if the rewrite slug was changed.  To fix this issue simpl
 = Will this work in previous version of WordPress =
 
 The register_post_type function was added in WordPress 2.9 so technically it should work in 2.9, but there is no admin menu UI so all post types are created and used behind the scenes.
-
-== Plugin Support ==
-[Custom Post Type UI Support](http://webdevstudios.com/support/forum/custom-post-type-ui/ "WordPress Plugins and Support Services")
