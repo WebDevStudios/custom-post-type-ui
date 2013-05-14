@@ -1220,7 +1220,7 @@ function cpt_add_new() {
 							</tr>
 
 							<tr valign="top">
-							<th scope="row"><?php _e('Hierarchical', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Whether the post type is hierarchical', 'cpt-plugin' ); ?>" class="help">?</a></th>
+							<th scope="row"><?php _e('Hierarchical', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Whether the post type can have parent-child relationships', 'cpt-plugin' ); ?>" class="help">?</a></th>
 							<td>
 								<select name="cpt_custom_post_type[hierarchical]" tabindex="7">
 									<option value="0" <?php if (isset($cpt_hierarchical)) { if ($cpt_hierarchical == 0) { echo 'selected="selected"'; } } else { echo 'selected="selected"'; } ?>>False</option>
@@ -1230,7 +1230,7 @@ function cpt_add_new() {
 							</tr>
 
 							<tr valign="top">
-							<th scope="row"><?php _e('Rewrite', 'cpt-plugin') ?> <a href="#" title="" class="help">?</a></th>
+							<th scope="row"><?php _e('Rewrite', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Triggers the handling of rewrites for this post type', 'cpt-plugin' ); ?>" class="help">?</a></th>
 							<td>
 								<select name="cpt_custom_post_type[rewrite]" tabindex="8">
 									<option value="0" <?php if (isset($cpt_rewrite)) { if ($cpt_rewrite == 0 && $cpt_rewrite != '') { echo 'selected="selected"'; } } ?>>False</option>
@@ -1240,7 +1240,7 @@ function cpt_add_new() {
 							</tr>
 
 							<tr valign="top">
-							<th scope="row"><?php _e('Custom Rewrite Slug', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Custom Post Type Rewrite Slug' ,'cpt-plugin' ); ?>" class="help">?</a></th>
+							<th scope="row"><?php _e('Custom Rewrite Slug', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Custom slug to use instead of the default.' ,'cpt-plugin' ); ?>" class="help">?</a></th>
 							<td><input type="text" name="cpt_custom_post_type[rewrite_slug]" tabindex="9" value="<?php if (isset($cpt_rewrite_slug)) { echo esc_attr($cpt_rewrite_slug); } ?>" /> <?php _e( '(default: post type name)', 'cpt-plugin' ); ?></td>
 							</tr>
 
@@ -1265,7 +1265,9 @@ function cpt_add_new() {
 							</tr>
 
 							<tr valign="top">
-							<th scope="row"><?php _e('Menu Position', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'The menu position of the custom post type', 'cpt-plugin' ); ?>" class="help">?</a></th>
+							<th scope="row"><?php _e('Menu Position', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'The position in the menu order the post type should appear. show_in_menu must be true.', 'cpt-plugin' ); ?>" class="help">?</a>
+							<p><?php _e( 'See <a href="http://codex.wordpress.org/Function_Reference/register_post_type#Parameters">Available options</a> in the "menu_position" section. Range of 5-100', 'cpt-plugin' ); ?></p>
+							</th>
 							<td><input type="text" name="cpt_custom_post_type[menu_position]" tabindex="11" size="5" value="<?php if (isset($cpt_menu_position)) { echo esc_attr($cpt_menu_position); } ?>" /></td>
 							</tr>
 
@@ -1356,7 +1358,7 @@ function cpt_add_new() {
 							</tr>
 
 						   <tr valign="top">
-							<th scope="row"><?php _e('Attach to Post Type', 'cpt-plugin') ?> <span class="required">*</span> <a href="#" title="<?php esc_attr_e ('What object to attach the custom taxonomy to.  Can be post, page, or link by default.  Can also be any custom post type name.', 'cpt-plugin' ); ?>" class="help">?</a></th>
+							<th scope="row"><?php _e('Attach to Post Type', 'cpt-plugin') ?> <span class="required">*</span> <a href="#" title="<?php esc_attr_e ('What post type object to attach the custom taxonomy to.  Can be post, page, or link by default.  Can also be any custom post type name.', 'cpt-plugin' ); ?>" class="help">?</a></th>
 							<td>
 							<?php if ( isset( $cpt_tax_object_type ) ) { ?>
 								<strong><?php _e( 'This is the old method.  Delete the post type from the textbox and check which post type to attach this taxonomy to</strong>', 'cpt-plugin' ); ?>
@@ -1458,7 +1460,7 @@ function cpt_add_new() {
 						<div style="display:none;" id="slidepanel4">
 						<table class="form-table">
 							<tr valign="top">
-							<th scope="row"><?php _e('Hierarchical', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Whether the taxonomy is hierarchical', 'cpt-plugin' ); ?>" class="help">?</a></th>
+							<th scope="row"><?php _e('Hierarchical', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Whether the taxonomy can have parent-child relationships', 'cpt-plugin' ); ?>" class="help">?</a></th>
 							<td>
 								<select name="cpt_custom_tax[hierarchical]" tabindex="25">
 									<option value="0" <?php if (isset($cpt_tax_hierarchical)) { if ($cpt_tax_hierarchical == 0) { echo 'selected="selected"'; } } else { echo 'selected="selected"'; } ?>>False</option>
@@ -1488,7 +1490,7 @@ function cpt_add_new() {
 							</tr>
 
 							<tr valign="top">
-							<th scope="row"><?php _e('Rewrite', 'cpt-plugin') ?> <a href="#" title="" class="help">?</a></th>
+							<th scope="row"><?php _e('Rewrite', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Triggers the handling of rewrites for this taxonomy', 'cpt-plugin' ); ?>" class="help">?</a></th>
 							<td>
 								<select name="cpt_custom_tax[rewrite]" tabindex="28">
 									<option value="0" <?php if (isset($cpt_tax_rewrite)) { if ($cpt_tax_rewrite == 0 && $cpt_tax_rewrite != '') { echo 'selected="selected"'; } } ?>>False</option>
@@ -1557,19 +1559,8 @@ function disp_boolean($booText) {
 
 function cpt_help_style() { ?>
 	<style>
-		.help {
-			background: rgb(0,0,0);
-		    border: solid rgb(255, 255, 255) 1px;
-		    border-radius: 50%;
-		    color: white;
-		    display: inline-block;
-		    height: 15px;
-		    margin-left: 5px;
-		    text-align: center;
-		    width: 15px;
-		}
 		.help:hover {
-			color: rgb(255,255,255);
+			font-weight: bold;
 		}
 		.required { color: rgb(255,0,0); }
 	</style>
