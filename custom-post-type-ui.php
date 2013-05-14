@@ -659,43 +659,44 @@ if ( isset($_GET['cpt_msg'] ) && $_GET['cpt_msg'] == 'del' ) { ?>
 								$cpt_tax_array .= '\''.$cpt_taxes.'\',';
 							}
 						}
-
-						$custom_post_type = 'register_post_type(\'' .$cpt_post_type["name"]. '\', array(	\'label\' => \''.__($cpt_label).'\',';
-						$custom_post_type .= 	'\'description\' => \''. $cpt_post_type["description"].'\',';
-						$custom_post_type .= 	'\'public\' => '.disp_boolean($cpt_post_type["public"]).',';
-						$custom_post_type .= 	'\'show_ui\' => '.disp_boolean($cpt_post_type["show_ui"]).',';
-						$custom_post_type .= 	'\'show_in_menu\' => ' .$cpt_show_in_menu .',';
-						$custom_post_type .= 	'\'capability_type\' => \''.$cpt_post_type["capability_type"].'\',';
-						$custom_post_type .= 	'\'hierarchical\' => '.disp_boolean($cpt_post_type["hierarchical"]).',';
-						$custom_post_type .= 	'\'rewrite\' => array(\'slug\' => \'' .$cpt_post_type["rewrite_slug"]. '\', \'with_front\' => ' . $cpt_post_type['rewrite_withfront'] . '),';
-						$custom_post_type .= 	'\'query_var\' => '. disp_boolean($cpt_post_type["query_var"]).',';
+						$custom_post_type = "add_action('init', 'cptui_register_my_cpt');\n";
+						$custom_post_type .= "function cptui_register_my_cpt() {\n";
+						$custom_post_type .= "register_post_type('" . $cpt_post_type["name"] . "', array( \n'label' => '__('$cpt_label')',\n";
+						$custom_post_type .= "'description' => '" . $cpt_post_type["description"] . "',\n";
+						$custom_post_type .= "'public' => '" . disp_boolean($cpt_post_type["public"]) . "',\n";
+						$custom_post_type .= "'show_ui' => '" . disp_boolean($cpt_post_type["show_ui"]) . "',\n";
+						$custom_post_type .= "'show_in_menu' => '" . $cpt_show_in_menu . "',\n";
+						$custom_post_type .= "'capability_type' => '" . $cpt_post_type["capability_type"] . "',\n";
+						$custom_post_type .= "'hierarchical' => '" . disp_boolean($cpt_post_type["hierarchical"]) . "',\n";
+						$custom_post_type .= "'rewrite' => array('slug' => '" . $cpt_post_type["rewrite_slug"] . "', 'with_front' => '" . $cpt_post_type['rewrite_withfront'] . "'),\n";
+						$custom_post_type .= "'query_var' => '" . disp_boolean($cpt_post_type["query_var"]) . "',\n";
 
 						if ( $cpt_post_type["has_archive"] ) {
-							$custom_post_type .= '\'has_archive\' => '. disp_boolean( $cpt_post_type["has_archive"] ).',';
+							$custom_post_type .= "'has_archive\' => '" . disp_boolean( $cpt_post_type["has_archive"] ) . "',\n";
 						}
 
 						if ( isset( $cpt_post_type["exclude_from_search"] ) ) {
-							$custom_post_type .= '\'exclude_from_search\' => '. disp_boolean( $cpt_post_type["exclude_from_search"] ).',';
+							$custom_post_type .= "'exclude_from_search' => '" . disp_boolean( $cpt_post_type["exclude_from_search"] ) . "',\n";
 						}
 
 						if ( $cpt_post_type["menu_position"] ) {
-							$custom_post_type .= '\'menu_position\' => '. $cpt_post_type["menu_position"].',';
+							$custom_post_type .= "'menu_position' => '" . $cpt_post_type["menu_position"] . "',\n";
 						}
 
-						$custom_post_type .= 	'\'supports\' => array(' .$cpt_support_array.'),';
+						$custom_post_type .= "'supports' => array('" . $cpt_support_array . "'),\n";
 
 						if ( $cpt_tax_array ) {
-							$custom_post_type .= 	'\'taxonomies\' => array(' .$cpt_tax_array.'),';
+							$custom_post_type .= "taxonomies' => array('" . $cpt_tax_array . "'),\n";
 						}
 
 						if ( $cpt_labels ) {
-							$custom_post_type .= 	'\'labels\' => '.var_export( $cpt_labels, true ).',';
+							$custom_post_type .= "'labels' => '" . var_export( $cpt_labels, true ) . "'\n";
 						}
 
-						$custom_post_type .= ') );';
-
-						echo _e('Place the below code in your themes functions.php file to manually create this custom post type','cpt-plugin').'<br>';
-						echo _e('This is a <strong>BETA</strong> feature.  Please <a href="http://webdevstudios.com/support/forum/custom-post-type-ui/">report bugs</a>.','cpt-plugin').'<br>';
+						$custom_post_type .= ") ); }";
+						echo '<p>';
+						_e( 'Place the below code in your themes functions.php file to manually create this custom post type.', 'cpt-plugin' ).'<br>';
+						_e('This is a <strong>BETA</strong> feature.  Please <a href="https://github.com/WebDevStudios/custom-post-type-ui">report bugs</a>.','cpt-plugin').'</p>';
 						echo '<textarea rows="5" cols="100">' .$custom_post_type .'</textarea>';
 
 						?>
