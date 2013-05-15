@@ -668,7 +668,12 @@ if ( isset($_GET['cpt_msg'] ) && $_GET['cpt_msg'] == 'del' ) { ?>
 						$custom_post_type .= "'show_in_menu' => '" . $cpt_show_in_menu . "',\n";
 						$custom_post_type .= "'capability_type' => '" . $cpt_post_type["capability_type"] . "',\n";
 						$custom_post_type .= "'hierarchical' => '" . disp_boolean($cpt_post_type["hierarchical"]) . "',\n";
-						$custom_post_type .= "'rewrite' => array('slug' => '" . $cpt_post_type["rewrite_slug"] . "', 'with_front' => '" . $cpt_post_type['rewrite_withfront'] . "'),\n";
+
+						if( isset( $cpt_post_type["rewrite_slug"] ) && !empty( $cpt_post_type["rewrite_slug"] ) )
+							$custom_post_type .= "'rewrite' => array('slug' => '" . $cpt_post_type["rewrite_slug"] . "', 'with_front' => '" . $cpt_post_type['rewrite_withfront'] . "'),\n";
+						else
+							$custom_post_type .= "'rewrite' => array('slug' => '" . $cpt_post_type["name"] . "', 'with_front' => '" . $cpt_post_type['rewrite_withfront'] . "'),\n";
+
 						$custom_post_type .= "'query_var' => '" . disp_boolean($cpt_post_type["query_var"]) . "',\n";
 
 						if ( $cpt_post_type["has_archive"] ) {
