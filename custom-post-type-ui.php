@@ -1537,9 +1537,9 @@ function cpt_check_return( $return ) {
 
 	if ( $return == 'cpt' ) {
 		return ( isset( $_GET['return'] ) ) ? admin_url( 'admin.php?page=cpt_sub_manage_cpt&return=cpt' ) : admin_url( 'admin.php?page=cpt_sub_manage_cpt' );
-	} elseif ( $return=='tax' ){
+	} elseif ( $return == 'tax' ){
 		return ( isset( $_GET['return'] ) ) ? admin_url( 'admin.php?page=cpt_sub_manage_taxonomies&return=tax' ) : admin_url( 'admin.php?page=cpt_sub_manage_taxonomies' );
-	} elseif ( $return=='add' ) {
+	} elseif ( $return == 'add' ) {
 		return admin_url( 'admin.php?page=cpt_sub_add_new' );
 	} else {
 		return admin_url( 'admin.php?page=cpt_sub_add_new' );
