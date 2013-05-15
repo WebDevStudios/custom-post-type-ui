@@ -1535,7 +1535,7 @@ function cpt_footer() {
 function cpt_check_return( $return ) {
 	global $CPT_URL;
 
-	if ( $return=='cpt' ) {
+	if ( $return == 'cpt' ) {
 		return ( isset( $_GET['return'] ) ) ? admin_url( 'admin.php?page=cpt_sub_manage_cpt&return=cpt' ) : admin_url( 'admin.php?page=cpt_sub_manage_cpt' );
 	} elseif ( $return=='tax' ){
 		return ( isset( $_GET['return'] ) ) ? admin_url( 'admin.php?page=cpt_sub_manage_taxonomies&return=tax' ) : admin_url( 'admin.php?page=cpt_sub_manage_taxonomies' );
