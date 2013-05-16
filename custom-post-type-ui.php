@@ -91,6 +91,7 @@ function cpt_create_custom_post_types() {
 			$cpt_rewrite_slug = ( !$cpt_post_type["rewrite_slug"] ) ? esc_html($cpt_post_type["name"]) : esc_html($cpt_post_type["rewrite_slug"]);
 			$cpt_rewrite_withfront = ( !$cpt_post_type["rewrite_withfront"] ) ? esc_html($cpt_post_type["rewrite_withfront"]) : true;
 			$cpt_menu_position = ( !$cpt_post_type["menu_position"] ) ? null : intval($cpt_post_type["menu_position"]);
+			$cpt_menu_icon = ( empty($cpt_post_type["menu_icon"]) ) ? null : esc_url($cpt_post_type["menu_icon"]);
 			$cpt_taxonomies = ( !$cpt_post_type[1] ) ? array() : $cpt_post_type[1];
 			$cpt_supports = ( !$cpt_post_type[0] ) ? array() : $cpt_post_type[0];
 			//$cpt_show_in_menu  = ( !$cpt_post_type["show_in_menu_string"] ) ? null : $cpt_post_type["show_in_menu_string"];
@@ -137,6 +138,7 @@ function cpt_create_custom_post_types() {
 				'query_var' => get_disp_boolean($cpt_post_type["query_var"]),
 				'description' => esc_html($cpt_post_type["description"]),
 				'menu_position' => $cpt_menu_position,
+				'menu_icon' => $cpt_menu_icon,
 				'supports' => $cpt_supports,
 				'taxonomies' => $cpt_taxonomies,
 				'labels' => $cpt_labels
@@ -627,6 +629,7 @@ if ( isset($_GET['cpt_msg'] ) && $_GET['cpt_msg'] == 'del' ) { ?>
 						$cpt_singular = ( !$cpt_post_type["singular_label"] ) ? $cpt_label : esc_html($cpt_post_type["singular_label"]);
 						$cpt_rewrite_slug = ( !$cpt_post_type["rewrite_slug"] ) ? esc_html($cpt_post_type["name"]) : esc_html($cpt_post_type["rewrite_slug"]);
 						$cpt_menu_position = ( !$cpt_post_type["menu_position"] ) ? null : intval($cpt_post_type["menu_position"]);
+						$cpt_menu_icon = ( !$cpt_post_type["menu_icon"] ) ? null : esc_url($cpt_post_type["menu_icon"]);
 						$cpt_show_in_menu = ( $cpt_post_type["show_in_menu"] == 1 ) ? 'true' : 'false';
 						$cpt_show_in_menu = ( $cpt_post_type["show_in_menu_string"] ) ? '\''.$cpt_post_type["show_in_menu_string"].'\'' : $cpt_show_in_menu;
 
@@ -686,6 +689,10 @@ if ( isset($_GET['cpt_msg'] ) && $_GET['cpt_msg'] == 'del' ) { ?>
 
 						if ( $cpt_post_type["menu_position"] ) {
 							$custom_post_type .= "'menu_position' => '" . $cpt_post_type["menu_position"] . "',\n";
+						}
+
+						if ( $cpt_post_type["menu_icon"] ) {
+							$custom_post_type .= "'menu_icon' => '" . $cpt_post_type["menu_icon"] . "',\n";
 						}
 
 						$custom_post_type .= "'supports' => array('" . $cpt_support_array . "'),\n";
@@ -963,6 +970,7 @@ function cpt_add_new() {
         $cpt_query_var          = $cpt_options[ $editType ]["query_var"];
         $cpt_description        = $cpt_options[ $editType ]["description"];
         $cpt_menu_position      = $cpt_options[ $editType ]["menu_position"];
+        $cpt_menu_icon			= $cpt_options[ $editType ]["menu_icon"];
         $cpt_supports           = $cpt_options[ $editType ][0];
         $cpt_taxes              = $cpt_options[ $editType ][1];
         $cpt_labels             = $cpt_options[ $editType ][2];
@@ -1284,6 +1292,12 @@ function cpt_add_new() {
 									<option value="1" <?php if (isset($cpt_show_in_menu)) { if ($cpt_show_in_menu == 1 || is_null($cpt_show_in_menu)) { echo 'selected="selected"'; } } else { echo 'selected="selected"'; } ?>>True</option>
 								</select> <?php _e( 'Top level page (e.g. \'plugins.php\')', 'cpt-plugins' ); ?>
 								<input type="text" name="cpt_custom_post_type[show_in_menu_string]" tabindex="12" size="5" value="<?php if (isset($cpt_show_in_menu_string)) { echo esc_attr($cpt_show_in_menu_string); } ?>" /></td>
+							</tr>
+
+							<tr valign="top">
+							<th scope="row"><?php _e('Menu Icon', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'URL to image to be used as menu icon.', 'cpt-plugin' ); ?>" class="help">?</a>
+							</th>
+							<td><input type="text" name="cpt_custom_post_type[menu_icon]" tabindex="11" size="20" value="<?php if (isset($cpt_menu_icon)) { echo esc_attr($cpt_menu_icon); } ?>" /></td>
 							</tr>
 
 							<tr valign="top">
