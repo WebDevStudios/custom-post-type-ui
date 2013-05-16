@@ -227,3 +227,8 @@ This is usually caused if the rewrite slug was changed.  To fix this issue simpl
 = Will this work in previous version of WordPress =
 
 The register_post_type function was added in WordPress 2.9 so technically it should work in 2.9, but there is no admin menu UI so all post types are created and used behind the scenes.
+
+== Other Notes ==
+
+= Outside contributors that we wish to thank =
+[brandondove](https://github.com/brandondove)
