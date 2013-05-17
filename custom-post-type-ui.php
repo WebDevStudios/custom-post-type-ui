@@ -1127,62 +1127,74 @@ function cpt_add_new() {
 
 							<tr valign="top">
 							<th scope="row"><?php _e('Menu Name', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Custom menu name for your custom post type.', 'cpt-plugin' ); ?>" class="help">?</a></th>
-							<td><input type="text" name="cpt_labels[menu_name]" tabindex="2" value="<?php if (isset($cpt_labels["menu_name"])) { echo esc_attr($cpt_labels["menu_name"]); } ?>" /> <?php _e( '(e.g. My Movies)', 'cpt-plugin' ); ?></td>
+							<td><input type="text" name="cpt_labels[menu_name]" tabindex="2" value="<?php if (isset($cpt_labels["menu_name"])) { echo esc_attr($cpt_labels["menu_name"]); } ?>" /><br/>
+								<?php _e( '(e.g. My Movies)', 'cpt-plugin' ); ?></td>
 							</tr>
 
 							<tr valign="top">
 							<th scope="row"><?php _e('Add New', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Post type label.  Used in the admin menu for displaying post types.', 'cpt-plugin' ); ?>" class="help">?</a></th>
-							<td><input type="text" name="cpt_labels[add_new]" tabindex="2" value="<?php if (isset($cpt_labels["add_new"])) { echo esc_attr($cpt_labels["add_new"]); } ?>" /> <?php _e( '(e.g. Add New)', 'cpt-plugin' ); ?></td>
+							<td><input type="text" name="cpt_labels[add_new]" tabindex="2" value="<?php if (isset($cpt_labels["add_new"])) { echo esc_attr($cpt_labels["add_new"]); } ?>" /><br/>
+								<?php _e( '(e.g. Add New)', 'cpt-plugin' ); ?></td>
 							</tr>
 
 							<tr valign="top">
 							<th scope="row"><?php _e('Add New Item', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Post type label.  Used in the admin menu for displaying post types.', 'cpt-plugin' ); ?>" class="help">?</a></th>
-							<td><input type="text" name="cpt_labels[add_new_item]" tabindex="2" value="<?php if (isset($cpt_labels["add_new_item"])) { echo esc_attr($cpt_labels["add_new_item"]); } ?>" /> <?php _e( '(e.g. Add New Movie)', 'cpt-plugin' ); ?></td>
+							<td><input type="text" name="cpt_labels[add_new_item]" tabindex="2" value="<?php if (isset($cpt_labels["add_new_item"])) { echo esc_attr($cpt_labels["add_new_item"]); } ?>" /><br/>
+								<?php _e( '(e.g. Add New Movie)', 'cpt-plugin' ); ?></td>
 							</tr>
 
 							<tr valign="top">
 							<th scope="row"><?php _e('Edit', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Post type label.  Used in the admin menu for displaying post types.', 'cpt-plugin' ); ?>" class="help">?</a></th>
-							<td><input type="text" name="cpt_labels[edit]" tabindex="2" value="<?php if (isset($cpt_labels["edit"])) { echo esc_attr($cpt_labels["edit"]); } ?>" /> <?php _e( '(e.g. Edit)', 'cpt-plugin' ); ?></td>
+							<td><input type="text" name="cpt_labels[edit]" tabindex="2" value="<?php if (isset($cpt_labels["edit"])) { echo esc_attr($cpt_labels["edit"]); } ?>" /><br/>
+								<?php _e( '(e.g. Edit)', 'cpt-plugin' ); ?></td>
 							</tr>
 
 							<tr valign="top">
 							<th scope="row"><?php _e('Edit Item', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Post type label.  Used in the admin menu for displaying post types.', 'cpt-plugin' ); ?>" class="help">?</a></th>
-							<td><input type="text" name="cpt_labels[edit_item]" tabindex="2" value="<?php if (isset($cpt_labels["edit_item"])) { echo esc_attr($cpt_labels["edit_item"]); } ?>" /> <?php _e( '(e.g. Edit Movie)', 'cpt-plugin' ); ?></td>
+							<td><input type="text" name="cpt_labels[edit_item]" tabindex="2" value="<?php if (isset($cpt_labels["edit_item"])) { echo esc_attr($cpt_labels["edit_item"]); } ?>" /><br/>
+								<?php _e( '(e.g. Edit Movie)', 'cpt-plugin' ); ?></td>
 							</tr>
 
 							<tr valign="top">
 							<th scope="row"><?php _e('New Item', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Post type label.  Used in the admin menu for displaying post types.', 'cpt-plugin' ); ?>" class="help">?</a></th>
-							<td><input type="text" name="cpt_labels[new_item]" tabindex="2" value="<?php if (isset($cpt_labels["new_item"])) { echo esc_attr($cpt_labels["new_item"]); } ?>" /> <?php _e( '(e.g. New Movie)', 'cpt-plugin' ); ?></td>
+							<td><input type="text" name="cpt_labels[new_item]" tabindex="2" value="<?php if (isset($cpt_labels["new_item"])) { echo esc_attr($cpt_labels["new_item"]); } ?>" /><br/>
+								<?php _e( '(e.g. New Movie)', 'cpt-plugin' ); ?></td>
 							</tr>
 
 							<tr valign="top">
 							<th scope="row"><?php _e('View', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Post type label.  Used in the admin menu for displaying post types.', 'cpt-plugin' ); ?>" class="help">?</a></th>
-							<td><input type="text" name="cpt_labels[view]" tabindex="2" value="<?php if (isset($cpt_labels["view"])) { echo esc_attr($cpt_labels["view"]); } ?>" /> <?php _e( '(e.g. View Movie)', 'cpt-plugin' ); ?></td>
+							<td><input type="text" name="cpt_labels[view]" tabindex="2" value="<?php if (isset($cpt_labels["view"])) { echo esc_attr($cpt_labels["view"]); } ?>" /><br/>
+								<?php _e( '(e.g. View Movie)', 'cpt-plugin' ); ?></td>
 							</tr>
 
 							<tr valign="top">
 							<th scope="row"><?php _e('View Item', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Post type label.  Used in the admin menu for displaying post types.', 'cpt-plugin' ); ?>" class="help">?</a></th>
-							<td><input type="text" name="cpt_labels[view_item]" tabindex="2" value="<?php if (isset($cpt_labels["view_item"])) { echo esc_attr($cpt_labels["view_item"]); } ?>" /> <?php _e( '(e.g. View Movie)', 'cpt-plugin' ); ?></td>
+							<td><input type="text" name="cpt_labels[view_item]" tabindex="2" value="<?php if (isset($cpt_labels["view_item"])) { echo esc_attr($cpt_labels["view_item"]); } ?>" /><br/>
+								<?php _e( '(e.g. View Movie)', 'cpt-plugin' ); ?></td>
 							</tr>
 
 							<tr valign="top">
 							<th scope="row"><?php _e('Search Items', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Post type label.  Used in the admin menu for displaying post types.', 'cpt-plugin' ); ?>" class="help">?</a></th>
-							<td><input type="text" name="cpt_labels[search_items]" tabindex="2" value="<?php if (isset($cpt_labels["search_items"])) { echo esc_attr($cpt_labels["search_items"]); } ?>" /> <?php _e( '(e.g. Search Movies)', 'cpt-plugin' ); ?></td>
+							<td><input type="text" name="cpt_labels[search_items]" tabindex="2" value="<?php if (isset($cpt_labels["search_items"])) { echo esc_attr($cpt_labels["search_items"]); } ?>" /><br/>
+								<?php _e( '(e.g. Search Movies)', 'cpt-plugin' ); ?></td>
 							</tr>
 
 							<tr valign="top">
 							<th scope="row"><?php _e('Not Found', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Post type label.  Used in the admin menu for displaying post types.', 'cpt-plugin' ); ?>" class="help">?</a></th>
-							<td><input type="text" name="cpt_labels[not_found]" tabindex="2" value="<?php if (isset($cpt_labels["not_found"])) { echo esc_attr($cpt_labels["not_found"]); } ?>" /> <?php _e( '(e.g. No Movies Found)', 'cpt-plugin' ); ?></td>
+							<td><input type="text" name="cpt_labels[not_found]" tabindex="2" value="<?php if (isset($cpt_labels["not_found"])) { echo esc_attr($cpt_labels["not_found"]); } ?>" /><br/>
+								<?php _e( '(e.g. No Movies Found)', 'cpt-plugin' ); ?></td>
 							</tr>
 
 							<tr valign="top">
 							<th scope="row"><?php _e('Not Found in Trash', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Post type label.  Used in the admin menu for displaying post types.', 'cpt-plugin' ); ?>" class="help">?</a></th>
-							<td><input type="text" name="cpt_labels[not_found_in_trash]" tabindex="2" value="<?php if (isset($cpt_labels["not_found_in_trash"])) { echo esc_attr($cpt_labels["not_found_in_trash"]); } ?>" /> <?php _e( '(e.g. No Movies found in Trash)', 'cpt-plugin' ); ?></td>
+							<td><input type="text" name="cpt_labels[not_found_in_trash]" tabindex="2" value="<?php if (isset($cpt_labels["not_found_in_trash"])) { echo esc_attr($cpt_labels["not_found_in_trash"]); } ?>" /><br/>
+								<?php _e( '(e.g. No Movies found in Trash)', 'cpt-plugin' ); ?></td>
 							</tr>
 
 							<tr valign="top">
 							<th scope="row"><?php _e('Parent', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Post type label.  Used in the admin menu for displaying post types.', 'cpt-plugin' ); ?>" class="help">?</a></th>
-							<td><input type="text" name="cpt_labels[parent]" tabindex="2" value="<?php if (isset($cpt_labels["parent"])) { echo esc_attr($cpt_labels["parent"]); } ?>" /> <?php _e( '(e.g. Parent Movie)', 'cpt-plugin' ); ?></td>
+							<td><input type="text" name="cpt_labels[parent]" tabindex="2" value="<?php if (isset($cpt_labels["parent"])) { echo esc_attr($cpt_labels["parent"]); } ?>" /><br/>
+								<?php _e( '(e.g. Parent Movie)', 'cpt-plugin' ); ?></td>
 							</tr>
 
 						</table>
@@ -1421,62 +1433,74 @@ function cpt_add_new() {
 						<table class="form-table">
 							<tr valign="top">
 							<th scope="row"><?php _e('Search Items', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Custom taxonomy label.  Used in the admin menu for displaying taxonomies.', 'cpt-plugin' ); ?>" class="help">?</a></th>
-							<td><input type="text" name="cpt_tax_labels[search_items]" tabindex="2" value="<?php if (isset($cpt_tax_labels["search_items"])) { echo esc_attr($cpt_tax_labels["search_items"]); } ?>" /> (e.g. Search Actors)</td>
+							<td><input type="text" name="cpt_tax_labels[search_items]" tabindex="2" value="<?php if (isset($cpt_tax_labels["search_items"])) { echo esc_attr($cpt_tax_labels["search_items"]); } ?>" /><br/>
+								<?php _e('(e.g. Search Actors)', 'cpt-plugin' ); ?></td>
 							</tr>
 
 							<tr valign="top">
 							<th scope="row"><?php _e('Popular Items', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Custom taxonomy label.  Used in the admin menu for displaying taxonomies.', 'cpt-plugin' ); ?>" class="help">?</a></th>
-							<td><input type="text" name="cpt_tax_labels[popular_items]" tabindex="2" value="<?php if (isset($cpt_tax_labels["popular_items"])) { echo esc_attr($cpt_tax_labels["popular_items"]); } ?>" /> <?php _e('(e.g. Popular Actors)', 'cpt-plugin' ); ?></td>
+							<td><input type="text" name="cpt_tax_labels[popular_items]" tabindex="2" value="<?php if (isset($cpt_tax_labels["popular_items"])) { echo esc_attr($cpt_tax_labels["popular_items"]); } ?>" /><br/>
+								<?php _e('(e.g. Popular Actors)', 'cpt-plugin' ); ?></td>
 							</tr>
 
 							<tr valign="top">
 							<th scope="row"><?php _e('All Items', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Custom taxonomy label.  Used in the admin menu for displaying taxonomies.', 'cpt-plugin' ); ?>" class="help">?</a></th>
-							<td><input type="text" name="cpt_tax_labels[all_items]" tabindex="2" value="<?php if (isset($cpt_tax_labels["all_items"])) { echo esc_attr($cpt_tax_labels["all_items"]); } ?>" /> <?php _e('(e.g. All Actors)', 'cpt-plugin' ); ?></td>
+							<td><input type="text" name="cpt_tax_labels[all_items]" tabindex="2" value="<?php if (isset($cpt_tax_labels["all_items"])) { echo esc_attr($cpt_tax_labels["all_items"]); } ?>" /><br/>
+								<?php _e('(e.g. All Actors)', 'cpt-plugin' ); ?></td>
 							</tr>
 
 							<tr valign="top">
 							<th scope="row"><?php _e('Parent Item', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Custom taxonomy label.  Used in the admin menu for displaying taxonomies.', 'cpt-plugin' ); ?>" class="help">?</a></th>
-							<td><input type="text" name="cpt_tax_labels[parent_item]" tabindex="2" value="<?php if (isset($cpt_tax_labels["parent_item"])) { echo esc_attr($cpt_tax_labels["parent_item"]); } ?>" /> <?php _e('(e.g. Parent Actor)', 'cpt-plugin' ); ?></td>
+							<td><input type="text" name="cpt_tax_labels[parent_item]" tabindex="2" value="<?php if (isset($cpt_tax_labels["parent_item"])) { echo esc_attr($cpt_tax_labels["parent_item"]); } ?>" /><br/>
+								<?php _e('(e.g. Parent Actor)', 'cpt-plugin' ); ?></td>
 							</tr>
 
 							<tr valign="top">
 							<th scope="row"><?php _e('Parent Item Colon', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Custom taxonomy label.  Used in the admin menu for displaying taxonomies.', 'cpt-plugin' ); ?>" class="help">?</a></th>
-							<td><input type="text" name="cpt_tax_labels[parent_item_colon]" tabindex="2" value="<?php if (isset($cpt_tax_labels["parent_item_colon"])) { echo esc_attr($cpt_tax_labels["parent_item_colon"]); } ?>" /> <?php _e('(e.g. Parent Actor:)', 'cpt-plugin' ); ?></td>
+							<td><input type="text" name="cpt_tax_labels[parent_item_colon]" tabindex="2" value="<?php if (isset($cpt_tax_labels["parent_item_colon"])) { echo esc_attr($cpt_tax_labels["parent_item_colon"]); } ?>" /><br/>
+								<?php _e('(e.g. Parent Actor:)', 'cpt-plugin' ); ?></td>
 							</tr>
 
 							<tr valign="top">
 							<th scope="row"><?php _e('Edit Item', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Custom taxonomy label.  Used in the admin menu for displaying taxonomies.', 'cpt-plugin' ); ?>" class="help">?</a></th>
-							<td><input type="text" name="cpt_tax_labels[edit_item]" tabindex="2" value="<?php if (isset($cpt_tax_labels["edit_item"])) { echo esc_attr($cpt_tax_labels["edit_item"]); } ?>" /> <?php _e( '(e.g. Edit Actor)', 'cpt-plugin' ); ?></td>
+							<td><input type="text" name="cpt_tax_labels[edit_item]" tabindex="2" value="<?php if (isset($cpt_tax_labels["edit_item"])) { echo esc_attr($cpt_tax_labels["edit_item"]); } ?>" /><br/>
+								<?php _e( '(e.g. Edit Actor)', 'cpt-plugin' ); ?></td>
 							</tr>
 
 							<tr valign="top">
 							<th scope="row"><?php _e('Update Item', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Custom taxonomy label.  Used in the admin menu for displaying taxonomies.', 'cpt-plugin' ); ?>" class="help">?</a></th>
-							<td><input type="text" name="cpt_tax_labels[update_item]" tabindex="2" value="<?php if (isset($cpt_tax_labels["update_item"])) { echo esc_attr($cpt_tax_labels["update_item"]); } ?>" /> <?php _e( '(e.g. Update Actor)', 'cpt-plugin' ); ?></td>
+							<td><input type="text" name="cpt_tax_labels[update_item]" tabindex="2" value="<?php if (isset($cpt_tax_labels["update_item"])) { echo esc_attr($cpt_tax_labels["update_item"]); } ?>" /><br/>
+								<?php _e( '(e.g. Update Actor)', 'cpt-plugin' ); ?></td>
 							</tr>
 
 							<tr valign="top">
 							<th scope="row"><?php _e('Add New Item', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Custom taxonomy label.  Used in the admin menu for displaying taxonomies.', 'cpt-plugin' ); ?>" class="help">?</a></th>
-							<td><input type="text" name="cpt_tax_labels[add_new_item]" tabindex="2" value="<?php if (isset($cpt_tax_labels["add_new_item"])) { echo esc_attr($cpt_tax_labels["add_new_item"]); } ?>" /> <?php _e( '(e.g. Add New Actor)', 'cpt-plugin' ); ?></td>
+							<td><input type="text" name="cpt_tax_labels[add_new_item]" tabindex="2" value="<?php if (isset($cpt_tax_labels["add_new_item"])) { echo esc_attr($cpt_tax_labels["add_new_item"]); } ?>" /><br/>
+								<?php _e( '(e.g. Add New Actor)', 'cpt-plugin' ); ?></td>
 							</tr>
 
 							<tr valign="top">
 							<th scope="row"><?php _e('New Item Name', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Custom taxonomy label.  Used in the admin menu for displaying taxonomies.', 'cpt-plugin' ); ?>" class="help">?</a></th>
-							<td><input type="text" name="cpt_tax_labels[new_item_name]" tabindex="2" value="<?php if (isset($cpt_tax_labels["new_item_name"])) { echo esc_attr($cpt_tax_labels["new_item_name"]); } ?>" /> <?php _e( '(e.g. New Actor Name)', 'cpt-plugin' ); ?></td>
+							<td><input type="text" name="cpt_tax_labels[new_item_name]" tabindex="2" value="<?php if (isset($cpt_tax_labels["new_item_name"])) { echo esc_attr($cpt_tax_labels["new_item_name"]); } ?>" /><br/>
+								<?php _e( '(e.g. New Actor Name)', 'cpt-plugin' ); ?></td>
 							</tr>
 
 							<tr valign="top">
 							<th scope="row"><?php _e('Separate Items with Commas', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Custom taxonomy label.  Used in the admin menu for displaying taxonomies.', 'cpt-plugin' ); ?>" class="help">?</a></th>
-							<td><input type="text" name="cpt_tax_labels[separate_items_with_commas]" tabindex="2" value="<?php if (isset($cpt_tax_labels["separate_items_with_commas"])) { echo esc_attr($cpt_tax_labels["separate_items_with_commas"]); } ?>" /> <?php _e( '(e.g. Separate actors with commas)', 'cpt-plugin' ); ?></td>
+							<td><input type="text" name="cpt_tax_labels[separate_items_with_commas]" tabindex="2" value="<?php if (isset($cpt_tax_labels["separate_items_with_commas"])) { echo esc_attr($cpt_tax_labels["separate_items_with_commas"]); } ?>" /><br/>
+								<?php _e( '(e.g. Separate actors with commas)', 'cpt-plugin' ); ?></td>
 							</tr>
 
 							<tr valign="top">
 							<th scope="row"><?php _e('Add or Remove Items', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Custom taxonomy label.  Used in the admin menu for displaying taxonomies.', 'cpt-plugin' ); ?>" class="help">?</a></th>
-							<td><input type="text" name="cpt_tax_labels[add_or_remove_items]" tabindex="2" value="<?php if (isset($cpt_tax_labels["add_or_remove_items"])) { echo esc_attr($cpt_tax_labels["add_or_remove_items"]); } ?>" /> <?php _e( '(e.g. Add or remove actors)', 'cpt-plugin' ); ?></td>
+							<td><input type="text" name="cpt_tax_labels[add_or_remove_items]" tabindex="2" value="<?php if (isset($cpt_tax_labels["add_or_remove_items"])) { echo esc_attr($cpt_tax_labels["add_or_remove_items"]); } ?>" /><br/>
+								<?php _e( '(e.g. Add or remove actors)', 'cpt-plugin' ); ?></td>
 							</tr>
 
 							<tr valign="top">
 							<th scope="row"><?php _e('Choose From Most Used', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Custom taxonomy label.  Used in the admin menu for displaying taxonomies.', 'cpt-plugin' ); ?>" class="help">?</a></th>
-							<td><input type="text" name="cpt_tax_labels[choose_from_most_used]" tabindex="2" value="<?php if (isset($cpt_tax_labels["choose_from_most_used"])) { echo esc_attr($cpt_tax_labels["choose_from_most_used"]); } ?>" /> <?php _e( '(e.g. Choose from the most used actors)', 'cpt-plugin' ); ?></td>
+							<td><input type="text" name="cpt_tax_labels[choose_from_most_used]" tabindex="2" value="<?php if (isset($cpt_tax_labels["choose_from_most_used"])) { echo esc_attr($cpt_tax_labels["choose_from_most_used"]); } ?>" /><br/>
+								<?php _e( '(e.g. Choose from the most used actors)', 'cpt-plugin' ); ?></td>
 							</tr>
 						</table>
 						</div>
