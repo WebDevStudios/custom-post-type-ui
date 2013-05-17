@@ -996,7 +996,7 @@ function cpt_add_new() {
 		//load custom post type values to edit
 		$cpt_tax_name = $cpt_options[$editTax]["name"];
 		$cpt_tax_label = $cpt_options[$editTax]["label"];
-		$cpt_singular_label = $cpt_options[$editTax]["singular_label"];
+		$cpt_singular_label_tax = $cpt_options[$editTax]["singular_label"];
 		$cpt_tax_object_type = ( isset( $cpt_options[$editTax]["cpt_name"] ) ) ? $cpt_options[$editTax]["cpt_name"] : null;
 		$cpt_tax_hierarchical = $cpt_options[$editTax]["hierarchical"];
 		$cpt_tax_showui = $cpt_options[$editTax]["show_ui"];
@@ -1375,7 +1375,7 @@ function cpt_add_new() {
 
 						   <tr valign="top">
 							<th scope="row"><?php _e('Singular Label', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Taxonomy Singular label.  Used in WordPress when a singular label is needed.', 'cpt-plugin' ); ?>" class="help">?</a></th>
-							<td><input type="text" name="cpt_custom_tax[singular_label]" tabindex="23" value="<?php if (isset($cpt_singular_label)) { echo esc_attr($cpt_singular_label); } ?>" /> <?php _e( '(e.g. Actor)', 'cpt-plugin' ); ?></td>
+							<td><input type="text" name="cpt_custom_tax[singular_label]" tabindex="23" value="<?php if (isset($cpt_singular_label_tax)) { echo esc_attr($cpt_singular_label_tax); } ?>" /> <?php _e( '(e.g. Actor)', 'cpt-plugin' ); ?></td>
 							</tr>
 
 						   <tr valign="top">
