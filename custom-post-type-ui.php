@@ -546,7 +546,8 @@ if ( isset($_GET['cpt_msg'] ) && $_GET['cpt_msg'] == 'del' ) { ?>
 <h2><?php _e('Manage Custom Post Types', 'cpt-plugin') ?></h2>
 <p><?php _e('Deleting custom post types will <strong>NOT</strong> delete any content into the database or added to those post types.  You can easily recreate your post types and the content will still exist.', 'cpt-plugin') ?></p>
 <?php
-	$cpt_post_types = get_option('cpt_custom_post_types');
+	$cpt_post_types = get_option( 'cpt_custom_post_types', array() );
+
 	if (is_array($cpt_post_types)) {
 		?>
 		<table width="100%" class="widefat">
@@ -583,6 +584,7 @@ if ( isset($_GET['cpt_msg'] ) && $_GET['cpt_msg'] == 'del' ) { ?>
 		<?php
 		$thecounter=0;
 		$cpt_names = array();
+		//Create urls for management
 		foreach ($cpt_post_types as $cpt_post_type) {
 
 			$del_url = cpt_check_return( 'cpt' ) .'&deltype=' .$thecounter .'&return=cpt';
@@ -620,6 +622,9 @@ if ( isset($_GET['cpt_msg'] ) && $_GET['cpt_msg'] == 'del' ) { ?>
 				<td colspan="12">
 					<div style="display:none;" id="slidepanel<?php echo $thecounter; ?>">
 						<?php
+						/*
+							Begin the display for the "Get code" feature
+						 */
 						//display register_post_type code
 						$custom_post_type='';
 						$cpt_support_array='';
@@ -816,7 +821,7 @@ if (isset($_GET['cpt_msg']) && $_GET['cpt_msg']=='del') { ?>
 <h2><?php _e('Manage Custom Taxonomies', 'cpt-plugin') ?></h2>
 <p><?php _e('Deleting custom taxonomies does <strong>NOT</strong> delete any content added to those taxonomies.  You can easily recreate your taxonomies and the content will still exist.', 'cpt-plugin') ?></p>
 <?php
-	$cpt_tax_types = get_option('cpt_custom_tax_types');
+	$cpt_tax_types = get_option( 'cpt_custom_tax_types', array() );
 
 	if (is_array($cpt_tax_types)) {
 		?>
