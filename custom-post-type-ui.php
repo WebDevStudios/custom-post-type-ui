@@ -622,9 +622,7 @@ if ( isset($_GET['cpt_msg'] ) && $_GET['cpt_msg'] == 'del' ) { ?>
 				<td colspan="12">
 					<div style="display:none;" id="slidepanel<?php echo $thecounter; ?>">
 						<?php
-						/*
-							Begin the display for the "Get code" feature
-						 */
+						// Begin the display for the "Get code" feature
 						//display register_post_type code
 						$custom_post_type='';
 						$cpt_support_array='';
