@@ -90,7 +90,8 @@ function cpt_create_custom_post_types() {
 			$cpt_label = ( !$cpt_post_type["label"] ) ? esc_html($cpt_post_type["name"]) : esc_html($cpt_post_type["label"]);
 			$cpt_singular = ( !$cpt_post_type["singular_label"] ) ? $cpt_label : esc_html($cpt_post_type["singular_label"]);
 			$cpt_rewrite_slug = ( !$cpt_post_type["rewrite_slug"] ) ? esc_html($cpt_post_type["name"]) : esc_html($cpt_post_type["rewrite_slug"]);
-			$cpt_rewrite_withfront = ( !$cpt_post_type["rewrite_withfront"] ) ? esc_html($cpt_post_type["rewrite_withfront"]) : true;
+			$cpt_rewrite_withfront = ( !$cpt_post_type["rewrite_withfront"] ) ? esc_html($cpt_post_type["rewrite_withfront"]) : '';
+			echo $cpt_post_type["rewrite_withfront"];
 			$cpt_menu_position = ( !$cpt_post_type["menu_position"] ) ? null : intval($cpt_post_type["menu_position"]);
 			$cpt_menu_icon = ( empty($cpt_post_type["menu_icon"]) ) ? null : esc_url($cpt_post_type["menu_icon"]);
 			$cpt_taxonomies = ( !$cpt_post_type[1] ) ? array() : $cpt_post_type[1];
@@ -1277,8 +1278,8 @@ function cpt_add_new() {
 							<th scope="row"><?php _e('With Front', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Should the permastruct be prepended with the front base.', 'cpt-plugin' ); ?>" class="help">?</a></th>
 							<td>
 								<select name="cpt_custom_post_type[rewrite_withfront]" tabindex="4">
-									<option value="0" <?php if (isset($cpt_public)) { if ($cpt_public == 0 && $cpt_public != '') { echo 'selected="selected"'; } } ?>><?php _e( 'False', 'cpt-plugin' ); ?></option>
-									<option value="1" <?php if (isset($cpt_public)) { if ($cpt_public == 1 || is_null($cpt_public)) { echo 'selected="selected"'; } } else { echo 'selected="selected"'; } ?>><?php _e( 'True', 'cpt-plugin' ); ?></option>
+									<option value="0" <?php if (isset($cpt_rewrite_withfront)) { if ($cpt_rewrite_withfront == 0 && $cpt_rewrite_withfront != '') { echo 'selected="selected"'; } } ?>><?php _e( 'False', 'cpt-plugin' ); ?></option>
+									<option value="1" <?php if (isset($cpt_rewrite_withfront)) { if ($cpt_rewrite_withfront == 1 || is_null($cpt_rewrite_withfront)) { echo 'selected="selected"'; } } else { echo 'selected="selected"'; } ?>><?php _e( 'True', 'cpt-plugin' ); ?></option>
 								</select> <?php _e( '(default: True)', 'cpt-plugin' ); ?>
 							</td>
 							</tr>
