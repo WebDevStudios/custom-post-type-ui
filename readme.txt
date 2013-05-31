@@ -26,6 +26,19 @@ All official development on this plugin is on GitHub. Version bumps will still b
 
 == Changelog ==
 
+= 0.8 =
+* Added "with_front" support
+* Every string is translation ready
+* UI touchups
+* Better fallback options for new install that haven't created anything yet
+* More notes to help users with options
+* Input field for menu icon support. Upload and grab url from Media Library
+* Code refactoring
+* fix for possible empty rewrite value
+* fixed slashes issue with description field
+* fixed issue with capabilities input having two value attributes.
+* flush rewrite rules on deactivation.
+
 = 0.7.2 =
 * Added exclude_from_search support
 * Fixed display bug with capability type
