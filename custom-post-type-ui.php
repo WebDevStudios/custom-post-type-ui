@@ -90,7 +90,7 @@ function cpt_create_custom_post_types() {
 			$cpt_label = ( !$cpt_post_type["label"] ) ? esc_html($cpt_post_type["name"]) : esc_html($cpt_post_type["label"]);
 			$cpt_singular = ( !$cpt_post_type["singular_label"] ) ? $cpt_label : esc_html($cpt_post_type["singular_label"]);
 			$cpt_rewrite_slug = ( !$cpt_post_type["rewrite_slug"] ) ? esc_html($cpt_post_type["name"]) : esc_html($cpt_post_type["rewrite_slug"]);
-			$cpt_rewrite_withfront = ( !$cpt_post_type["rewrite_withfront"] ) ? esc_html($cpt_post_type["rewrite_withfront"]) : '';
+			$cpt_rewrite_withfront = ( !$cpt_post_type["rewrite_withfront"] ) ? esc_html($cpt_post_type["rewrite_withfront"]) : true;
 			$cpt_menu_position = ( !$cpt_post_type["menu_position"] ) ? null : intval($cpt_post_type["menu_position"]);
 			$cpt_menu_icon = ( empty($cpt_post_type["menu_icon"]) ) ? null : esc_url($cpt_post_type["menu_icon"]);
 			$cpt_taxonomies = ( !$cpt_post_type[1] ) ? array() : $cpt_post_type[1];
