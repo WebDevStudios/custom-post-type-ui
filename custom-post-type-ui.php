@@ -999,15 +999,15 @@ function cpt_add_new() {
 
 		//load custom post type values to edit
 		$cpt_tax_name = $cpt_options[$editTax]["name"];
-		$cpt_tax_label = $cpt_options[$editTax]["label"];
-		$cpt_singular_label_tax = $cpt_options[$editTax]["singular_label"];
+		$cpt_tax_label = stripslashes( $cpt_options[$editTax]["label"] );
+		$cpt_singular_label_tax = stripslashes( $cpt_options[$editTax]["singular_label"] );
 		$cpt_tax_object_type = ( isset( $cpt_options[$editTax]["cpt_name"] ) ) ? $cpt_options[$editTax]["cpt_name"] : null;
 		$cpt_tax_hierarchical = $cpt_options[$editTax]["hierarchical"];
 		$cpt_tax_showui = $cpt_options[$editTax]["show_ui"];
 		$cpt_tax_query_var = $cpt_options[$editTax]["query_var"];
 		$cpt_tax_rewrite = $cpt_options[$editTax]["rewrite"];
 		$cpt_tax_rewrite_slug = $cpt_options[$editTax]["rewrite_slug"];
-		$cpt_tax_labels = $cpt_options[$editTax][0];
+		$cpt_tax_labels = stripslashes_deep( $cpt_options[$editTax][0] );
 		$cpt_post_types = $cpt_options[$editTax][1];
 
 		$cpt_tax_submit_name = __( 'Save Custom Taxonomy', 'cpt-plugin' );
@@ -1386,12 +1386,12 @@ function cpt_add_new() {
 
 						   <tr valign="top">
 							<th scope="row"><?php _e('Label', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Taxonomy label.  Used in the admin menu for displaying custom taxonomy.', 'cpt-plugin' ); ?>" class="help">?</a></th>
-							<td><input type="text" name="cpt_custom_tax[label]" tabindex="22" value="<?php if (isset($cpt_tax_label)) { echo esc_attr($cpt_tax_label); } ?>" /> <?php _e( '(e.g. Actors)', 'cpt-plugin' ); ?></td>
+							<td><input type="text" name="cpt_custom_tax[label]" tabindex="22" value="<?php if (isset($cpt_tax_label)) { echo esc_attr( $cpt_tax_label ); } ?>" /> <?php _e( '(e.g. Actors)', 'cpt-plugin' ); ?></td>
 							</tr>
 
 						   <tr valign="top">
 							<th scope="row"><?php _e('Singular Label', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Taxonomy Singular label.  Used in WordPress when a singular label is needed.', 'cpt-plugin' ); ?>" class="help">?</a></th>
-							<td><input type="text" name="cpt_custom_tax[singular_label]" tabindex="23" value="<?php if (isset($cpt_singular_label_tax)) { echo esc_attr($cpt_singular_label_tax); } ?>" /> <?php _e( '(e.g. Actor)', 'cpt-plugin' ); ?></td>
+							<td><input type="text" name="cpt_custom_tax[singular_label]" tabindex="23" value="<?php if (isset($cpt_singular_label_tax)) { echo esc_attr( $cpt_singular_label_tax ); } ?>" /> <?php _e( '(e.g. Actor)', 'cpt-plugin' ); ?></td>
 							</tr>
 
 						   <tr valign="top">
