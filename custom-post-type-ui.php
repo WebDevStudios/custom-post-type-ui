@@ -1380,7 +1380,7 @@ function cpt_add_new() {
 							<p><?php _e('Note: Changing the name, after adding terms to the taxonomy, will not update the terms in the database.', 'cpt-plugin' ); ?></p>
 							</th>
 							<td><input type="text" name="cpt_custom_tax[name]" maxlength="32" onblur="this.value=this.value.toLowerCase()" tabindex="21" value="<?php if (isset($cpt_tax_name)) { echo esc_attr($cpt_tax_name); } ?>" /> <?php _e( '(e.g. actors)', 'cpt-plugin' ); ?>
-							<p><strong><?php _e( 'Max 32 characters, can not contain capital letters or spaces.', 'cpt-plugin' ); ?></strong></p>
+							<p><strong><?php _e( 'Max 32 characters, should only contain alphanumeric lowercase characters.', 'cpt-plugin' ); ?></strong></p>
 							</td>
 							</tr>
 
