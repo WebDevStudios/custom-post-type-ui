@@ -35,7 +35,7 @@ All official development on this plugin is on GitHub. Version bumps will still b
 * Input field for menu icon support. Upload and grab url from Media Library
 * Code refactoring
 * fix for possible empty rewrite value
-* fixed slashes issue with description field
+* fixed slashes issue with description field and taxonomy label fields
 * fixed issue with capabilities input having two value attributes.
 * flush rewrite rules on deactivation.
 
