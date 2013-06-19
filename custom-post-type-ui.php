@@ -599,7 +599,7 @@ if ( isset($_GET['cpt_msg'] ) && $_GET['cpt_msg'] == 'del' ) { ?>
 			$rewrite_slug = ( $cpt_post_type["rewrite_slug"] ) ? $cpt_post_type["rewrite_slug"] : $cpt_post_type["name"];
 		?>
 			<tr>
-				<td valign="top"><a href="<?php echo $del_url; ?>"><?php _e( 'Delete', 'cpt-plugin' ); ?></a> / <a href="<?php echo $edit_url; ?>"><?php _e( 'Edit', 'cpt-plugin' ); ?></a> / <a href="#" class="comment_button" id="<?php echo $thecounter; ?>"><php _e( 'Get Code', 'cpt-plugin' ); ?></a></td>
+				<td valign="top"><a href="<?php echo $del_url; ?>"><?php _e( 'Delete', 'cpt-plugin' ); ?></a> / <a href="<?php echo $edit_url; ?>"><?php _e( 'Edit', 'cpt-plugin' ); ?></a> / <a href="#" class="comment_button" id="<?php echo $thecounter; ?>"><?php _e( 'Get Code', 'cpt-plugin' ); ?></a></td>
 				<td valign="top"><?php echo stripslashes($cpt_post_type["name"]); ?></td>
 				<td valign="top"><?php echo stripslashes($cpt_post_type["label"]); ?></td>
 				<td valign="top"><?php echo disp_boolean($cpt_post_type["public"]); ?></td>
