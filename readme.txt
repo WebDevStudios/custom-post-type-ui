@@ -1,9 +1,9 @@
 === Custom Post Type UI ===
-Contributors: williamsba1, tw2113
+Contributors: williamsba1, tw2113, webdevstudios
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3084056
 Tags: custom post types, CPT, CMS, post, types, post type, cck, taxonomy, tax, custom
 Requires at least: 3.1
-Tested up to: 3.5.1
+Tested up to: 3.6
 Stable tag: 0.8
 
 Admin UI for creating custom post types and custom taxonomies in WordPress
@@ -28,16 +28,16 @@ All official development on this plugin is on GitHub. Version bumps will still b
 
 = 0.8 =
 * Added "with_front" support
+* Added menu icon support. Upload and save full URL from Media Library
 * Every string is translation ready
-* UI touchups
 * Better fallback options for new install that haven't created anything yet
 * More notes to help users with options
-* Input field for menu icon support. Upload and grab url from Media Library
-* Code refactoring
-* fix for possible empty rewrite value
-* fixed slashes issue with description field and taxonomy label fields
-* fixed issue with capabilities input having two value attributes.
-* flush rewrite rules on deactivation.
+* Code refactoring and cleanup
+* Fix for possible empty rewrite value
+* Fixed slashes issue with description field and taxonomy label fields
+* Fixed issue with capabilities input having two value attributes.
+* Flush rewrite rules on deactivation.
+* UI touchups
 
 = 0.7.2 =
 * Added exclude_from_search support
