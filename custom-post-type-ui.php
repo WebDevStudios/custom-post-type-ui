@@ -7,6 +7,7 @@ Author: WebDevStudios.com
 Version: 0.8
 Author URI: http://webdevstudios.com/
 Text Domain: cpt-plugin
+License: GPLv2
 */
 
 // Define current version constant
