@@ -40,6 +40,7 @@ All official development on this plugin is on GitHub. Version bumps will still b
 * Fixed issue with capabilities input having two value attributes
 * Flush rewrite rules on deactivation
 * UI touchups
+* Updated screenshots.
 
 = 0.7.2 =
 * Added exclude_from_search support
