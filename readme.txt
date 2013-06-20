@@ -30,14 +30,15 @@ All official development on this plugin is on GitHub. Version bumps will still b
 = 0.8 =
 * Added "with_front" support
 * Added menu icon support. Upload and save full URL from Media Library
+* Added General post formats support
 * Every string is translation ready
 * Better fallback options for new install that haven't created anything yet
 * More notes to help users with options
 * Code refactoring and cleanup
 * Fix for possible empty rewrite value
 * Fixed slashes issue with description field and taxonomy label fields
-* Fixed issue with capabilities input having two value attributes.
-* Flush rewrite rules on deactivation.
+* Fixed issue with capabilities input having two value attributes
+* Flush rewrite rules on deactivation
 * UI touchups
 
 = 0.7.2 =
