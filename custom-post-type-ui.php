@@ -1314,7 +1314,7 @@ function cpt_add_new() {
 							<tr valign="top">
 							<th scope="row"><?php _e('Menu Icon', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'URL to image to be used as menu icon.', 'cpt-plugin' ); ?>" class="help">?</a>
 							</th>
-							<td><input type="text" name="cpt_custom_post_type[menu_icon]" tabindex="11" size="20" value="<?php if (isset($cpt_menu_icon)) { echo esc_attr($cpt_menu_icon); } ?>" /></td>
+							<td><input type="text" name="cpt_custom_post_type[menu_icon]" tabindex="11" size="20" value="<?php if (isset($cpt_menu_icon)) { echo esc_attr($cpt_menu_icon); } ?>" /> (Full URL for icon)</td>
 							</tr>
 
 							<tr valign="top">
