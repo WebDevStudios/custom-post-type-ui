@@ -88,44 +88,43 @@ function cpt_create_custom_post_types() {
 		foreach ($cpt_post_types as $cpt_post_type) {
 
 			//set post type values
-			$cpt_label = ( !$cpt_post_type["label"] ) ? esc_html($cpt_post_type["name"]) : esc_html($cpt_post_type["label"]);
-			$cpt_singular = ( !$cpt_post_type["singular_label"] ) ? $cpt_label : esc_html($cpt_post_type["singular_label"]);
-			$cpt_rewrite_slug = ( !$cpt_post_type["rewrite_slug"] ) ? esc_html($cpt_post_type["name"]) : esc_html($cpt_post_type["rewrite_slug"]);
-			$cpt_rewrite_withfront = ( $cpt_post_type["rewrite_withfront"] ) ? esc_html($cpt_post_type["rewrite_withfront"]) : true;
-			$cpt_menu_position = ( !$cpt_post_type["menu_position"] ) ? null : intval($cpt_post_type["menu_position"]);
-			$cpt_menu_icon = ( empty($cpt_post_type["menu_icon"]) ) ? null : esc_url($cpt_post_type["menu_icon"]);
-			$cpt_taxonomies = ( !$cpt_post_type[1] ) ? array() : $cpt_post_type[1];
-			$cpt_supports = ( !$cpt_post_type[0] ) ? array() : $cpt_post_type[0];
+            $cpt_label              = ( !empty( $cpt_post_type["label"] ) ) ? esc_html( $cpt_post_type["label"] ) : esc_html( $cpt_post_type["name"] ) ;
+            $cpt_singular           = ( !empty( $cpt_post_type["singular_label"] ) ) ? esc_html( $cpt_post_type["singular_label"] ) : esc_html( $cpt_label );
+            $cpt_rewrite_slug       = ( !empty( $cpt_post_type["rewrite_slug"] ) ) ? esc_html( $cpt_post_type["rewrite_slug"] ) : esc_html( $cpt_post_type["name"] );
+            $cpt_rewrite_withfront  = ( !empty( $cpt_post_type["rewrite_withfront"] ) ) ? esc_html( $cpt_post_type["rewrite_withfront"] ) : true;
+            $cpt_menu_position      = ( !empty( $cpt_post_type["menu_position"] ) ) ? intval( $cpt_post_type["menu_position"] ) : '';
+            $cpt_menu_icon          = ( !empty( $cpt_post_type["menu_icon"] ) ) ? esc_url( $cpt_post_type["menu_icon"] ) : '';
+            $cpt_taxonomies         = ( !empty( $cpt_post_type[1] ) ) ? $cpt_post_type[1] : array();
+            $cpt_supports           = ( !empty( $cpt_post_type[0] ) ) ? $cpt_post_type[0] : array();
 			//$cpt_show_in_menu  = ( !$cpt_post_type["show_in_menu_string"] ) ? null : $cpt_post_type["show_in_menu_string"];
 
-			if ( isset ( $cpt_post_type["show_in_menu"] ) ) {
+			if ( !empty( $cpt_post_type["show_in_menu"] ) ) {
 				$cpt_show_in_menu = ( $cpt_post_type["show_in_menu"] == 1 ) ? true : false;
 				$cpt_show_in_menu = ( $cpt_post_type["show_in_menu_string"] ) ? $cpt_post_type["show_in_menu_string"] : $cpt_show_in_menu;
 			} else {
 				$cpt_show_in_menu = true;
 			}
 			//set custom label values
-			$cpt_labels['name'] = $cpt_label;
-			$cpt_labels['singular_name'] = $cpt_post_type["singular_label"];
+            $cpt_labels['name']             = $cpt_label;
+            $cpt_labels['singular_name']    = $cpt_post_type["singular_label"];
 
 			if ( isset ( $cpt_post_type[2]["menu_name"] ) ) {
-				$cpt_labels['menu_name'] = ( $cpt_post_type[2]["menu_name"] ) ? $cpt_post_type[2]["menu_name"] : $cpt_label;
+				$cpt_labels['menu_name'] = ( !empty( $cpt_post_type[2]["menu_name"] ) ) ? $cpt_post_type[2]["menu_name"] : $cpt_label;
 			}
 
-			$cpt_has_archive = ( isset ( $cpt_post_type["has_archive"] ) ) ? get_disp_boolean( $cpt_post_type["has_archive"] ) : null;
-			$cpt_exclude_from_search = ( isset ( $cpt_post_type["exclude_from_search"] ) ) ? get_disp_boolean( $cpt_post_type["exclude_from_search"] ) : null;
-
-			$cpt_labels['add_new'] = ( $cpt_post_type[2]["add_new"] ) ? $cpt_post_type[2]["add_new"] : 'Add ' .$cpt_singular;
-			$cpt_labels['add_new_item'] = ( $cpt_post_type[2]["add_new_item"] ) ? $cpt_post_type[2]["add_new_item"] : 'Add New ' .$cpt_singular;
-			$cpt_labels['edit'] = ( $cpt_post_type[2]["edit"] ) ? $cpt_post_type[2]["edit"] : 'Edit';
-			$cpt_labels['edit_item'] = ( $cpt_post_type[2]["edit_item"] ) ? $cpt_post_type[2]["edit_item"] : 'Edit ' .$cpt_singular;
-			$cpt_labels['new_item'] = ( $cpt_post_type[2]["new_item"] ) ? $cpt_post_type[2]["new_item"] : 'New ' .$cpt_singular;
-			$cpt_labels['view'] = ( $cpt_post_type[2]["view"] ) ? $cpt_post_type[2]["view"] : 'View ' .$cpt_singular;
-			$cpt_labels['view_item'] = ( $cpt_post_type[2]["view_item"] ) ? $cpt_post_type[2]["view_item"] : 'View ' .$cpt_singular;
-			$cpt_labels['search_items'] = ( $cpt_post_type[2]["search_items"] ) ? $cpt_post_type[2]["search_items"] : 'Search ' .$cpt_label;
-			$cpt_labels['not_found'] = ( $cpt_post_type[2]["not_found"] ) ? $cpt_post_type[2]["not_found"] : 'No ' .$cpt_label. ' Found';
-			$cpt_labels['not_found_in_trash'] = ( $cpt_post_type[2]["not_found_in_trash"] ) ? $cpt_post_type[2]["not_found_in_trash"] : 'No ' .$cpt_label. ' Found in Trash';
-			$cpt_labels['parent'] = ( $cpt_post_type[2]["parent"] ) ? $cpt_post_type[2]["parent"] : 'Parent ' .$cpt_singular;
+            $cpt_has_archive                    = ( !empty( $cpt_post_type["has_archive"] ) ) ? get_disp_boolean( $cpt_post_type["has_archive"] ) : '';
+            $cpt_exclude_from_search            = ( !empty( $cpt_post_type["exclude_from_search"] ) ) ? get_disp_boolean( $cpt_post_type["exclude_from_search"] ) : '';
+            $cpt_labels['add_new']              = ( !empty( $cpt_post_type[2]["add_new"] ) ) ? $cpt_post_type[2]["add_new"] : 'Add ' .$cpt_singular;
+            $cpt_labels['add_new_item']         = ( !empty( $cpt_post_type[2]["add_new_item"] ) ) ? $cpt_post_type[2]["add_new_item"] : 'Add New ' .$cpt_singular;
+            $cpt_labels['edit']                 = ( !empty( $cpt_post_type[2]["edit"] ) ) ? $cpt_post_type[2]["edit"] : 'Edit';
+            $cpt_labels['edit_item']            = ( !empty( $cpt_post_type[2]["edit_item"] ) ) ? $cpt_post_type[2]["edit_item"] : 'Edit ' .$cpt_singular;
+            $cpt_labels['new_item']             = ( !empty( $cpt_post_type[2]["new_item"] ) ) ? $cpt_post_type[2]["new_item"] : 'New ' .$cpt_singular;
+            $cpt_labels['view']                 = ( !empty( $cpt_post_type[2]["view"] ) ) ? $cpt_post_type[2]["view"] : 'View ' .$cpt_singular;
+            $cpt_labels['view_item']            = ( !empty( $cpt_post_type[2]["view_item"] ) ) ? $cpt_post_type[2]["view_item"] : 'View ' .$cpt_singular;
+            $cpt_labels['search_items']         = ( !empty( $cpt_post_type[2]["search_items"] ) ) ? $cpt_post_type[2]["search_items"] : 'Search ' .$cpt_label;
+            $cpt_labels['not_found']            = ( !empty( $cpt_post_type[2]["not_found"] ) ) ? $cpt_post_type[2]["not_found"] : 'No ' .$cpt_label. ' Found';
+            $cpt_labels['not_found_in_trash']   = ( !empty( $cpt_post_type[2]["not_found_in_trash"] ) ) ? $cpt_post_type[2]["not_found_in_trash"] : 'No ' .$cpt_label. ' Found in Trash';
+            $cpt_labels['parent']               = ( $cpt_post_type[2]["parent"] ) ? $cpt_post_type[2]["parent"] : 'Parent ' .$cpt_singular;
 
 			register_post_type( $cpt_post_type["name"], array(	'label' => __($cpt_label),
 				'public' => get_disp_boolean($cpt_post_type["public"]),
@@ -159,26 +158,26 @@ function cpt_create_custom_taxonomies() {
 		foreach ($cpt_tax_types as $cpt_tax_type) {
 
 			//set custom taxonomy values
-			$cpt_label = ( !$cpt_tax_type["label"] ) ? esc_html($cpt_tax_type["name"]) : esc_html($cpt_tax_type["label"]);
-			$cpt_singular_label = ( !$cpt_tax_type["singular_label"] ) ? esc_html($cpt_tax_type["name"]) : esc_html($cpt_tax_type["singular_label"]);
-			$cpt_rewrite_slug = ( !$cpt_tax_type["rewrite_slug"] ) ? esc_html($cpt_tax_type["name"]) : esc_html($cpt_tax_type["rewrite_slug"]);
-			$cpt_post_types = ( !$cpt_tax_type[1] ) ? $cpt_tax_type["cpt_name"] : $cpt_tax_type[1];
+            $cpt_label              = ( !empty( $cpt_tax_type["label"] ) ) ? esc_html( $cpt_tax_type["label"] ) : esc_html( $cpt_tax_type["name"] );
+            $cpt_singular_label     = ( !empty( $cpt_tax_type["singular_label"] ) ) ? esc_html( $cpt_tax_type["singular_label"] ) : esc_html( $cpt_tax_type["name"] );
+            $cpt_rewrite_slug       = ( !empty( $cpt_tax_type["rewrite_slug"] ) ) ? esc_html( $cpt_tax_type["rewrite_slug"] ) : esc_html( $cpt_tax_type["name"] );
+            $cpt_post_types         = ( !empty( $cpt_tax_type[1] ) ) ? $cpt_tax_type[1] : $cpt_tax_type["cpt_name"];
 
 			//set custom label values
-			$cpt_labels['name'] = $cpt_label;
-			$cpt_labels['singular_name'] = $cpt_tax_type["singular_label"];
-			$cpt_labels['search_items'] = ( $cpt_tax_type[0]["search_items"] ) ? $cpt_tax_type[0]["search_items"] : 'Search ' .$cpt_label;
-			$cpt_labels['popular_items'] = ( $cpt_tax_type[0]["popular_items"] ) ? $cpt_tax_type[0]["popular_items"] : 'Popular ' .$cpt_label;
-			$cpt_labels['all_items'] = ( $cpt_tax_type[0]["all_items"] ) ? $cpt_tax_type[0]["all_items"] : 'All ' .$cpt_label;
-			$cpt_labels['parent_item'] = ( $cpt_tax_type[0]["parent_item"] ) ? $cpt_tax_type[0]["parent_item"] : 'Parent ' .$cpt_singular_label;
-			$cpt_labels['parent_item_colon'] = ( $cpt_tax_type[0]["parent_item_colon"] ) ? $cpt_tax_type[0]["parent_item_colon"] : 'Parent ' .$cpt_singular_label. ':';
-			$cpt_labels['edit_item'] = ( $cpt_tax_type[0]["edit_item"] ) ? $cpt_tax_type[0]["edit_item"] : 'Edit ' .$cpt_singular_label;
-			$cpt_labels['update_item'] = ( $cpt_tax_type[0]["update_item"] ) ? $cpt_tax_type[0]["update_item"] : 'Update ' .$cpt_singular_label;
-			$cpt_labels['add_new_item'] = ( $cpt_tax_type[0]["add_new_item"] ) ? $cpt_tax_type[0]["add_new_item"] : 'Add New ' .$cpt_singular_label;
-			$cpt_labels['new_item_name'] = ( $cpt_tax_type[0]["new_item_name"] ) ? $cpt_tax_type[0]["new_item_name"] : 'New ' .$cpt_singular_label. ' Name';
-			$cpt_labels['separate_items_with_commas'] = ( $cpt_tax_type[0]["separate_items_with_commas"] ) ? $cpt_tax_type[0]["separate_items_with_commas"] : 'Separate ' .$cpt_label. ' with commas';
-			$cpt_labels['add_or_remove_items'] = ( $cpt_tax_type[0]["add_or_remove_items"] ) ? $cpt_tax_type[0]["add_or_remove_items"] : 'Add or remove ' .$cpt_label;
-			$cpt_labels['choose_from_most_used'] = ( $cpt_tax_type[0]["choose_from_most_used"] ) ? $cpt_tax_type[0]["choose_from_most_used"] : 'Choose from the most used ' .$cpt_label;
+            $cpt_labels['name']                         = $cpt_label;
+            $cpt_labels['singular_name']                = $cpt_tax_type["singular_label"];
+            $cpt_labels['search_items']                 = ( $cpt_tax_type[0]["search_items"] ) ? $cpt_tax_type[0]["search_items"] : 'Search ' .$cpt_label;
+            $cpt_labels['popular_items']                = ( $cpt_tax_type[0]["popular_items"] ) ? $cpt_tax_type[0]["popular_items"] : 'Popular ' .$cpt_label;
+            $cpt_labels['all_items']                    = ( $cpt_tax_type[0]["all_items"] ) ? $cpt_tax_type[0]["all_items"] : 'All ' .$cpt_label;
+            $cpt_labels['parent_item']                  = ( $cpt_tax_type[0]["parent_item"] ) ? $cpt_tax_type[0]["parent_item"] : 'Parent ' .$cpt_singular_label;
+            $cpt_labels['parent_item_colon']            = ( $cpt_tax_type[0]["parent_item_colon"] ) ? $cpt_tax_type[0]["parent_item_colon"] : 'Parent ' .$cpt_singular_label. ':';
+            $cpt_labels['edit_item']                    = ( $cpt_tax_type[0]["edit_item"] ) ? $cpt_tax_type[0]["edit_item"] : 'Edit ' .$cpt_singular_label;
+            $cpt_labels['update_item']                  = ( $cpt_tax_type[0]["update_item"] ) ? $cpt_tax_type[0]["update_item"] : 'Update ' .$cpt_singular_label;
+            $cpt_labels['add_new_item']                 = ( $cpt_tax_type[0]["add_new_item"] ) ? $cpt_tax_type[0]["add_new_item"] : 'Add New ' .$cpt_singular_label;
+            $cpt_labels['new_item_name']                = ( $cpt_tax_type[0]["new_item_name"] ) ? $cpt_tax_type[0]["new_item_name"] : 'New ' .$cpt_singular_label. ' Name';
+            $cpt_labels['separate_items_with_commas']   = ( $cpt_tax_type[0]["separate_items_with_commas"] ) ? $cpt_tax_type[0]["separate_items_with_commas"] : 'Separate ' .$cpt_label. ' with commas';
+            $cpt_labels['add_or_remove_items']          = ( $cpt_tax_type[0]["add_or_remove_items"] ) ? $cpt_tax_type[0]["add_or_remove_items"] : 'Add or remove ' .$cpt_label;
+            $cpt_labels['choose_from_most_used']        = ( $cpt_tax_type[0]["choose_from_most_used"] ) ? $cpt_tax_type[0]["choose_from_most_used"] : 'Choose from the most used ' .$cpt_label;
 
 			//register our custom taxonomies
 			register_taxonomy( $cpt_tax_type["name"],
