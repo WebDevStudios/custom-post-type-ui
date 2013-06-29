@@ -625,16 +625,16 @@ if ( isset($_GET['cpt_msg'] ) && $_GET['cpt_msg'] == 'del' ) { ?>
 						<?php
 						// Begin the display for the "Get code" feature
 						//display register_post_type code
-						$custom_post_type='';
-						$cpt_support_array='';
-						$cpt_tax_array='';
+                        $custom_post_type   = '';
+                        $cpt_support_array  = '';
+                        $cpt_tax_array      = '';
 
 						$cpt_label = ( !$cpt_post_type["label"] ) ? esc_html($cpt_post_type["name"]) : esc_html($cpt_post_type["label"]);
 						$cpt_singular = ( !$cpt_post_type["singular_label"] ) ? $cpt_label : esc_html($cpt_post_type["singular_label"]);
 						$cpt_rewrite_slug = ( !$cpt_post_type["rewrite_slug"] ) ? esc_html($cpt_post_type["name"]) : esc_html($cpt_post_type["rewrite_slug"]);
 						$cpt_menu_position = ( !$cpt_post_type["menu_position"] ) ? null : intval($cpt_post_type["menu_position"]);
 						$cpt_menu_icon = ( $cpt_post_type["menu_icon"] ) ? esc_url($cpt_post_type["menu_icon"]) : '';
-						$cpt_show_in_menu = ( $cpt_post_type["show_in_menu"] == 1 ) ? 'true' : 'false';
+						$cpt_show_in_menu = ( $cpt_post_type["show_in_menu"] == 1 ) ? true : false;
 						$cpt_show_in_menu = ( $cpt_post_type["show_in_menu_string"] ) ? '\''.$cpt_post_type["show_in_menu_string"].'\'' : $cpt_show_in_menu;
 
 						//set custom label values
@@ -654,41 +654,53 @@ if ( isset($_GET['cpt_msg'] ) && $_GET['cpt_msg'] == 'del' ) { ?>
 						$cpt_labels['parent'] = ( $cpt_post_type[2]["parent"] ) ? $cpt_post_type[2]["parent"] : 'Parent ' .$cpt_singular;
 
 						if( is_array( $cpt_post_type[0] ) ) {
+							$counter = 1;
+							$count = count( $cpt_post_type[0] );
 							foreach ( $cpt_post_type[0] as $cpt_supports ) {
-							//build supports variable
-								$cpt_support_array .= '\''.$cpt_supports.'\',';
+								//build supports variable
+								$cpt_support_array .= '\'' . $cpt_supports . '\'';
+								if ( $counter != $count )
+									$cpt_support_array .= ',';
+
+								$counter++;
 							}
 						}
 
 						if( is_array( $cpt_post_type[1] ) ) {
+							$counter = 1;
+							$count = count( $cpt_post_type[1] );
 							foreach ( $cpt_post_type[1] as $cpt_taxes ) {
 							//build taxonomies variable
-								$cpt_tax_array .= '\''.$cpt_taxes.'\',';
+								$cpt_tax_array .= '\''.$cpt_taxes.'\'';
+								if ( $counter != $count )
+									$cpt_tax_array .= ',';
+								$counter++;
 							}
 						}
 						$custom_post_type = "add_action('init', 'cptui_register_my_cpt');\n";
 						$custom_post_type .= "function cptui_register_my_cpt() {\n";
-						$custom_post_type .= "register_post_type('" . $cpt_post_type["name"] . "', array( \n'label' => '__('$cpt_label')',\n";
+						$custom_post_type .= "register_post_type('" . $cpt_post_type["name"] . "', array(\n'label' => '" . $cpt_label . "',\n";
 						$custom_post_type .= "'description' => '" . $cpt_post_type["description"] . "',\n";
-						$custom_post_type .= "'public' => '" . disp_boolean($cpt_post_type["public"]) . "',\n";
-						$custom_post_type .= "'show_ui' => '" . disp_boolean($cpt_post_type["show_ui"]) . "',\n";
-						$custom_post_type .= "'show_in_menu' => '" . $cpt_show_in_menu . "',\n";
+						$custom_post_type .= "'public' => " . disp_boolean($cpt_post_type["public"]) . ",\n";
+						$custom_post_type .= "'show_ui' => " . disp_boolean($cpt_post_type["show_ui"]) . ",\n";
+						$custom_post_type .= "'show_in_menu' => " . $cpt_show_in_menu . ",\n";
 						$custom_post_type .= "'capability_type' => '" . $cpt_post_type["capability_type"] . "',\n";
-						$custom_post_type .= "'hierarchical' => '" . disp_boolean($cpt_post_type["hierarchical"]) . "',\n";
+						$custom_post_type .= "'hierarchical' => " . disp_boolean($cpt_post_type["hierarchical"]) . ",\n";
 
-						if( isset( $cpt_post_type["rewrite_slug"] ) && !empty( $cpt_post_type["rewrite_slug"] ) )
-							$custom_post_type .= "'rewrite' => array('slug' => '" . $cpt_post_type["rewrite_slug"] . "', 'with_front' => '" . $cpt_post_type['rewrite_withfront'] . "'),\n";
-						else
-							$custom_post_type .= "'rewrite' => array('slug' => '" . $cpt_post_type["name"] . "', 'with_front' => '" . $cpt_post_type['rewrite_withfront'] . "'),\n";
-
-						$custom_post_type .= "'query_var' => '" . disp_boolean($cpt_post_type["query_var"]) . "',\n";
-
-						if ( $cpt_post_type["has_archive"] ) {
-							$custom_post_type .= "'has_archive\' => '" . disp_boolean( $cpt_post_type["has_archive"] ) . "',\n";
+						if ( !empty( $cpt_post_type["rewrite_slug"] ) ) {
+							$custom_post_type .= "'rewrite' => array('slug' => '" . $cpt_post_type["rewrite_slug"] . "', 'with_front' => " . $cpt_post_type['rewrite_withfront'] . "),\n";
+						} else {
+							$custom_post_type .= "'rewrite' => array('slug' => '" . $cpt_post_type["name"] . "', 'with_front' => " . $cpt_post_type['rewrite_withfront'] . "),\n";
 						}
 
-						if ( isset( $cpt_post_type["exclude_from_search"] ) ) {
-							$custom_post_type .= "'exclude_from_search' => '" . disp_boolean( $cpt_post_type["exclude_from_search"] ) . "',\n";
+						$custom_post_type .= "'query_var' => " . disp_boolean($cpt_post_type["query_var"]) . ",\n";
+
+						if ( $cpt_post_type["has_archive"] ) {
+							$custom_post_type .= "'has_archive' => " . disp_boolean( $cpt_post_type["has_archive"] ) . ",\n";
+						}
+
+						if ( !empty( $cpt_post_type["exclude_from_search"] ) ) {
+							$custom_post_type .= "'exclude_from_search' => " . disp_boolean( $cpt_post_type["exclude_from_search"] ) . ",\n";
 						}
 
 						if ( $cpt_post_type["menu_position"] ) {
@@ -699,14 +711,14 @@ if ( isset($_GET['cpt_msg'] ) && $_GET['cpt_msg'] == 'del' ) { ?>
 							$custom_post_type .= "'menu_icon' => '" . $cpt_post_type["menu_icon"] . "',\n";
 						}
 
-						$custom_post_type .= "'supports' => array('" . $cpt_support_array . "'),\n";
+						$custom_post_type .= "'supports' => array(" . $cpt_support_array . "),\n";
 
 						if ( $cpt_tax_array ) {
-							$custom_post_type .= "taxonomies' => array('" . $cpt_tax_array . "'),\n";
+							$custom_post_type .= "'taxonomies' => array(" . $cpt_tax_array . "),\n";
 						}
 
 						if ( $cpt_labels ) {
-							$custom_post_type .= "'labels' => '" . var_export( $cpt_labels, true ) . "'\n";
+							$custom_post_type .= "'labels' => " . var_export( $cpt_labels, true ) . "\n";
 						}
 
 						$custom_post_type .= ") ); }";
