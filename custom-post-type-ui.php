@@ -46,7 +46,7 @@ function cpt_deactivation() {
 
 function cpt_plugin_menu() {
 	//create custom post type menu
-	add_menu_page( __( 'Custom Post Types', 'cpt-plugin' ), __( 'Custom Post Types', 'cpt-plugin' ), 'manage_options', 'cpt_main_menu', 'cpt_settings' );
+	add_menu_page( __( 'Custom Post Types', 'cpt-plugin' ), __( 'CPT UI', 'cpt-plugin' ), 'manage_options', 'cpt_main_menu', 'cpt_settings' );
 
 	//create submenu items
 	add_submenu_page( 'cpt_main_menu', __( 'Add New', 'cpt-plugin' ), __( 'Add New', 'cpt-plugin' ), 'manage_options', 'cpt_sub_add_new', 'cpt_add_new' );
@@ -100,7 +100,7 @@ function cpt_create_custom_post_types() {
 
 			if ( !empty( $cpt_post_type["show_in_menu"] ) ) {
 				$cpt_show_in_menu = ( $cpt_post_type["show_in_menu"] == 1 ) ? true : false;
-				$cpt_show_in_menu = ( $cpt_post_type["show_in_menu_string"] ) ? $cpt_post_type["show_in_menu_string"] : $cpt_show_in_menu;
+				$cpt_show_in_menu = ( !empty( $cpt_post_type["show_in_menu_string"] ) ) ? $cpt_post_type["show_in_menu_string"] : $cpt_show_in_menu;
 			} else {
 				$cpt_show_in_menu = true;
 			}
