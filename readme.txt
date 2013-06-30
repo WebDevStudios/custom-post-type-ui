@@ -31,6 +31,8 @@ All official development on this plugin is on GitHub. Version bumps will still b
 * Renamed menu entry to "CPT UI".
 * Fixes for potential "undefined index" WP DEBUG log notices.
 * Updated localization text files for text changes.
+* Updated and fixed output for "get code" and custom post types.
+* Updated and fixed output for "get code" and custom taxonomies.
 
 = 0.8 =
 * Added "with_front" support
