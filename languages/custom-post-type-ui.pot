@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Custom Post Type UI 0.8\n"
-"POT-Creation-Date: 2013-06-28 19:11-0600\n"
-"PO-Revision-Date: 2013-06-28 19:11-0600\n"
+"POT-Creation-Date: 2013-06-29 23:32-0600\n"
+"PO-Revision-Date: 2013-06-29 23:32-0600\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -21,7 +21,7 @@ msgstr ""
 msgid "CPT UI"
 msgstr ""
 
-#: ../custom-post-type-ui.php:52 ../custom-post-type-ui.php:1136
+#: ../custom-post-type-ui.php:52 ../custom-post-type-ui.php:1156
 msgid "Add New"
 msgstr ""
 
@@ -33,324 +33,324 @@ msgstr ""
 msgid "Manage Taxonomies"
 msgstr ""
 
-#: ../custom-post-type-ui.php:470 ../custom-post-type-ui.php:1575
+#: ../custom-post-type-ui.php:475 ../custom-post-type-ui.php:1598
 msgid "Custom Post Type UI"
 msgstr ""
 
-#: ../custom-post-type-ui.php:470 ../custom-post-type-ui.php:1575
+#: ../custom-post-type-ui.php:475 ../custom-post-type-ui.php:1598
 msgid "version"
 msgstr ""
 
-#: ../custom-post-type-ui.php:472
+#: ../custom-post-type-ui.php:477
 msgid "Frequently Asked Questions"
 msgstr ""
 
-#: ../custom-post-type-ui.php:473
+#: ../custom-post-type-ui.php:478
 msgid ""
 "Please note that this plugin will NOT handle display of registered post "
 "types or taxonomies in your current theme. It will simply register them for "
 "you."
 msgstr ""
 
-#: ../custom-post-type-ui.php:474
+#: ../custom-post-type-ui.php:479
 msgid ""
 "Q: <strong>How can I display content from a custom post type on my website?</"
 "strong>"
 msgstr ""
 
-#: ../custom-post-type-ui.php:476
+#: ../custom-post-type-ui.php:481
 msgid "A: Justin Tadlock has written some great posts on the topic:"
 msgstr ""
 
-#: ../custom-post-type-ui.php:477
+#: ../custom-post-type-ui.php:482
 msgid "Showing Custom Post Types on your Home Page"
 msgstr ""
 
-#: ../custom-post-type-ui.php:478
+#: ../custom-post-type-ui.php:483
 msgid "Custom Post Types in WordPress"
 msgstr ""
 
-#: ../custom-post-type-ui.php:480
+#: ../custom-post-type-ui.php:485
 msgid ""
 "Q: <strong>How can I add custom meta boxes to my custom post types?</strong>"
 msgstr ""
 
-#: ../custom-post-type-ui.php:481
+#: ../custom-post-type-ui.php:486
 msgid ""
 "A: The More Fields plugin does a great job at creating custom meta boxes and "
 "fully supports custom post types: "
 msgstr ""
 
-#: ../custom-post-type-ui.php:482
+#: ../custom-post-type-ui.php:487
 msgid ""
 "Q: <strong>I changed my custom post type name and now I can't get to my "
 "posts</strong>"
 msgstr ""
 
-#: ../custom-post-type-ui.php:483
+#: ../custom-post-type-ui.php:488
 msgid ""
 "A: You can either change the custom post type name back to the original name "
 "or try the Post Type Switcher plugin: "
 msgstr ""
 
-#: ../custom-post-type-ui.php:488
+#: ../custom-post-type-ui.php:493
 msgid "Help Support This Plugin!"
 msgstr ""
 
-#: ../custom-post-type-ui.php:491
+#: ../custom-post-type-ui.php:496
 msgid "PayPal Donation"
 msgstr ""
 
-#: ../custom-post-type-ui.php:492
+#: ../custom-post-type-ui.php:497
 msgid "Professional WordPress<br />Second Edition"
 msgstr ""
 
-#: ../custom-post-type-ui.php:493
+#: ../custom-post-type-ui.php:498
 msgid "Professional WordPress<br />Plugin Development"
 msgstr ""
 
-#: ../custom-post-type-ui.php:497
+#: ../custom-post-type-ui.php:502
 msgid "Please donate to the development<br />of Custom Post Type UI:"
 msgstr ""
 
-#: ../custom-post-type-ui.php:506
+#: ../custom-post-type-ui.php:511
 msgid ""
 "The leading book on WordPress design and development!<br /><strong>Brand new "
 "second edition!"
 msgstr ""
 
-#: ../custom-post-type-ui.php:507
+#: ../custom-post-type-ui.php:512
 msgid "Highest rated WordPress development book on Amazon!"
 msgstr ""
 
-#: ../custom-post-type-ui.php:510
+#: ../custom-post-type-ui.php:515
 msgid "WebDevStudios.com Recent News"
 msgstr ""
 
-#: ../custom-post-type-ui.php:515
+#: ../custom-post-type-ui.php:520
 msgid "WebDevStudios.com News"
 msgstr ""
 
-#: ../custom-post-type-ui.php:541
+#: ../custom-post-type-ui.php:546
 msgid "Custom post type deleted successfully"
 msgstr ""
 
-#: ../custom-post-type-ui.php:547
+#: ../custom-post-type-ui.php:552
 msgid "Manage Custom Post Types"
 msgstr ""
 
-#: ../custom-post-type-ui.php:548
+#: ../custom-post-type-ui.php:553
 msgid ""
 "Deleting custom post types will <strong>NOT</strong> delete any content into "
 "the database or added to those post types.  You can easily recreate your "
 "post types and the content will still exist."
 msgstr ""
 
-#: ../custom-post-type-ui.php:557 ../custom-post-type-ui.php:572
-#: ../custom-post-type-ui.php:830 ../custom-post-type-ui.php:843
+#: ../custom-post-type-ui.php:562 ../custom-post-type-ui.php:577
+#: ../custom-post-type-ui.php:850 ../custom-post-type-ui.php:863
 msgid "Action"
 msgstr ""
 
-#: ../custom-post-type-ui.php:558 ../custom-post-type-ui.php:573
-#: ../custom-post-type-ui.php:746 ../custom-post-type-ui.php:758
-#: ../custom-post-type-ui.php:831 ../custom-post-type-ui.php:844
+#: ../custom-post-type-ui.php:563 ../custom-post-type-ui.php:578
+#: ../custom-post-type-ui.php:766 ../custom-post-type-ui.php:778
+#: ../custom-post-type-ui.php:851 ../custom-post-type-ui.php:864
 msgid "Name"
 msgstr ""
 
-#: ../custom-post-type-ui.php:559 ../custom-post-type-ui.php:574
-#: ../custom-post-type-ui.php:747 ../custom-post-type-ui.php:759
-#: ../custom-post-type-ui.php:832 ../custom-post-type-ui.php:845
-#: ../custom-post-type-ui.php:1099 ../custom-post-type-ui.php:1388
+#: ../custom-post-type-ui.php:564 ../custom-post-type-ui.php:579
+#: ../custom-post-type-ui.php:767 ../custom-post-type-ui.php:779
+#: ../custom-post-type-ui.php:852 ../custom-post-type-ui.php:865
+#: ../custom-post-type-ui.php:1119 ../custom-post-type-ui.php:1411
 msgid "Label"
 msgstr ""
 
-#: ../custom-post-type-ui.php:560 ../custom-post-type-ui.php:575
-#: ../custom-post-type-ui.php:748 ../custom-post-type-ui.php:760
-#: ../custom-post-type-ui.php:1207
+#: ../custom-post-type-ui.php:565 ../custom-post-type-ui.php:580
+#: ../custom-post-type-ui.php:768 ../custom-post-type-ui.php:780
+#: ../custom-post-type-ui.php:1227
 msgid "Public"
 msgstr ""
 
-#: ../custom-post-type-ui.php:561 ../custom-post-type-ui.php:576
-#: ../custom-post-type-ui.php:749 ../custom-post-type-ui.php:761
-#: ../custom-post-type-ui.php:836 ../custom-post-type-ui.php:849
-#: ../custom-post-type-ui.php:1217 ../custom-post-type-ui.php:1522
+#: ../custom-post-type-ui.php:566 ../custom-post-type-ui.php:581
+#: ../custom-post-type-ui.php:769 ../custom-post-type-ui.php:781
+#: ../custom-post-type-ui.php:856 ../custom-post-type-ui.php:869
+#: ../custom-post-type-ui.php:1237 ../custom-post-type-ui.php:1545
 msgid "Show UI"
 msgstr ""
 
-#: ../custom-post-type-ui.php:562 ../custom-post-type-ui.php:577
-#: ../custom-post-type-ui.php:750 ../custom-post-type-ui.php:762
-#: ../custom-post-type-ui.php:835 ../custom-post-type-ui.php:848
-#: ../custom-post-type-ui.php:1252 ../custom-post-type-ui.php:1512
+#: ../custom-post-type-ui.php:567 ../custom-post-type-ui.php:582
+#: ../custom-post-type-ui.php:770 ../custom-post-type-ui.php:782
+#: ../custom-post-type-ui.php:855 ../custom-post-type-ui.php:868
+#: ../custom-post-type-ui.php:1272 ../custom-post-type-ui.php:1535
 msgid "Hierarchical"
 msgstr ""
 
-#: ../custom-post-type-ui.php:563 ../custom-post-type-ui.php:578
-#: ../custom-post-type-ui.php:751 ../custom-post-type-ui.php:763
-#: ../custom-post-type-ui.php:837 ../custom-post-type-ui.php:850
-#: ../custom-post-type-ui.php:1262 ../custom-post-type-ui.php:1542
+#: ../custom-post-type-ui.php:568 ../custom-post-type-ui.php:583
+#: ../custom-post-type-ui.php:771 ../custom-post-type-ui.php:783
+#: ../custom-post-type-ui.php:857 ../custom-post-type-ui.php:870
+#: ../custom-post-type-ui.php:1282 ../custom-post-type-ui.php:1565
 msgid "Rewrite"
 msgstr ""
 
-#: ../custom-post-type-ui.php:564 ../custom-post-type-ui.php:579
-#: ../custom-post-type-ui.php:752 ../custom-post-type-ui.php:764
-#: ../custom-post-type-ui.php:838 ../custom-post-type-ui.php:851
+#: ../custom-post-type-ui.php:569 ../custom-post-type-ui.php:584
+#: ../custom-post-type-ui.php:772 ../custom-post-type-ui.php:784
+#: ../custom-post-type-ui.php:858 ../custom-post-type-ui.php:871
 msgid "Rewrite Slug"
 msgstr ""
 
-#: ../custom-post-type-ui.php:565 ../custom-post-type-ui.php:580
+#: ../custom-post-type-ui.php:570 ../custom-post-type-ui.php:585
 msgid "Total Published"
 msgstr ""
 
-#: ../custom-post-type-ui.php:566 ../custom-post-type-ui.php:581
+#: ../custom-post-type-ui.php:571 ../custom-post-type-ui.php:586
 msgid "Total Drafts"
 msgstr ""
 
-#: ../custom-post-type-ui.php:567 ../custom-post-type-ui.php:582
-#: ../custom-post-type-ui.php:1320
+#: ../custom-post-type-ui.php:572 ../custom-post-type-ui.php:587
+#: ../custom-post-type-ui.php:1343
 msgid "Supports"
 msgstr ""
 
-#: ../custom-post-type-ui.php:602 ../custom-post-type-ui.php:867
+#: ../custom-post-type-ui.php:606 ../custom-post-type-ui.php:887
 msgid "Delete"
 msgstr ""
 
-#: ../custom-post-type-ui.php:602 ../custom-post-type-ui.php:867
-#: ../custom-post-type-ui.php:1148
+#: ../custom-post-type-ui.php:606 ../custom-post-type-ui.php:887
+#: ../custom-post-type-ui.php:1168
 msgid "Edit"
 msgstr ""
 
-#: ../custom-post-type-ui.php:602 ../custom-post-type-ui.php:867
+#: ../custom-post-type-ui.php:606 ../custom-post-type-ui.php:887
 msgid "Get Code"
 msgstr ""
 
-#: ../custom-post-type-ui.php:714
+#: ../custom-post-type-ui.php:734
 msgid ""
 "Place the below code in your themes functions.php file to manually create "
 "this custom post type."
 msgstr ""
 
-#: ../custom-post-type-ui.php:715
+#: ../custom-post-type-ui.php:735
 msgid ""
 "This is a <strong>BETA</strong> feature.  Please <a href=\"https://github."
 "com/WebDevStudios/custom-post-type-ui\">report bugs</a>."
 msgstr ""
 
-#: ../custom-post-type-ui.php:736
+#: ../custom-post-type-ui.php:756
 msgid "Additional Custom Post Types"
 msgstr ""
 
-#: ../custom-post-type-ui.php:737
+#: ../custom-post-type-ui.php:757
 msgid ""
 "The custom post types below are registered in WordPress but were not created "
 "by the Custom Post Type UI Plugin."
 msgstr ""
 
-#: ../custom-post-type-ui.php:753 ../custom-post-type-ui.php:765
-#: ../custom-post-type-ui.php:1287 ../custom-post-type-ui.php:1532
+#: ../custom-post-type-ui.php:773 ../custom-post-type-ui.php:785
+#: ../custom-post-type-ui.php:1307 ../custom-post-type-ui.php:1555
 msgid "Query Var"
 msgstr ""
 
-#: ../custom-post-type-ui.php:790
+#: ../custom-post-type-ui.php:810
 msgid "No additional post types found"
 msgstr ""
 
-#: ../custom-post-type-ui.php:814
+#: ../custom-post-type-ui.php:834
 msgid "Custom taxonomy deleted successfully"
 msgstr ""
 
-#: ../custom-post-type-ui.php:820
+#: ../custom-post-type-ui.php:840
 msgid "Manage Custom Taxonomies"
 msgstr ""
 
-#: ../custom-post-type-ui.php:821
+#: ../custom-post-type-ui.php:841
 msgid ""
 "Deleting custom taxonomies does <strong>NOT</strong> delete any content "
 "added to those taxonomies.  You can easily recreate your taxonomies and the "
 "content will still exist."
 msgstr ""
 
-#: ../custom-post-type-ui.php:833 ../custom-post-type-ui.php:846
-#: ../custom-post-type-ui.php:1104 ../custom-post-type-ui.php:1393
+#: ../custom-post-type-ui.php:853 ../custom-post-type-ui.php:866
+#: ../custom-post-type-ui.php:1124 ../custom-post-type-ui.php:1416
 msgid "Singular Label"
 msgstr ""
 
-#: ../custom-post-type-ui.php:834 ../custom-post-type-ui.php:847
+#: ../custom-post-type-ui.php:854 ../custom-post-type-ui.php:867
 msgid "Attached Post Types"
 msgstr ""
 
-#: ../custom-post-type-ui.php:926
+#: ../custom-post-type-ui.php:946
 msgid ""
 "Place the below code in your themes functions.php file to manually create "
 "this custom taxonomy"
 msgstr ""
 
-#: ../custom-post-type-ui.php:927
+#: ../custom-post-type-ui.php:947
 msgid ""
 "This is a <strong>BETA</strong> feature.  Please <a href=\"http://"
 "webdevstudios.com/support/forum/custom-post-type-ui/\">report bugs</a>."
 msgstr ""
 
-#: ../custom-post-type-ui.php:986
+#: ../custom-post-type-ui.php:1006
 msgid "Save Custom Post Type"
 msgstr ""
 
-#: ../custom-post-type-ui.php:988
+#: ../custom-post-type-ui.php:1008
 msgid "Create Custom Post Type"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1013
+#: ../custom-post-type-ui.php:1033
 msgid "Save Custom Taxonomy"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1015
+#: ../custom-post-type-ui.php:1035
 msgid "Create Custom Taxonomy"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1032
+#: ../custom-post-type-ui.php:1052
 msgid ""
 "Custom post type created successfully. You may need to refresh to view the "
 "new post type in the admin menu."
 msgstr ""
 
-#: ../custom-post-type-ui.php:1033
+#: ../custom-post-type-ui.php:1053
 msgid "Manage custom post types"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1035
+#: ../custom-post-type-ui.php:1055
 msgid ""
 "Custom taxonomy created successfully.  You may need to refresh to view the "
 "new taxonomy in the admin menu."
 msgstr ""
 
-#: ../custom-post-type-ui.php:1036
+#: ../custom-post-type-ui.php:1056
 msgid "Manage custom taxonomies"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1044
+#: ../custom-post-type-ui.php:1064
 msgid "Post type name is a required field."
 msgstr ""
 
-#: ../custom-post-type-ui.php:1047
+#: ../custom-post-type-ui.php:1067
 msgid "Taxonomy name is a required field."
 msgstr ""
 
-#: ../custom-post-type-ui.php:1050
+#: ../custom-post-type-ui.php:1070
 msgid "You must assign your custom taxonomy to at least one post type."
 msgstr ""
 
-#: ../custom-post-type-ui.php:1061
+#: ../custom-post-type-ui.php:1081
 msgid "Edit Custom Post Type or Taxonomy"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1063 ../custom-post-type-ui.php:1070
+#: ../custom-post-type-ui.php:1083 ../custom-post-type-ui.php:1090
 msgid "Reset"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1068
+#: ../custom-post-type-ui.php:1088
 msgid "Create New Custom Post Type or Taxonomy"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1080
+#: ../custom-post-type-ui.php:1100
 msgid ""
 "If you are unfamiliar with the options below only fill out the <strong>Post "
 "Type Name</strong> and <strong>Label</strong> fields and check which meta "
@@ -358,397 +358,399 @@ msgid ""
 "for custom post types. Hover over the question mark for more details."
 msgstr ""
 
-#: ../custom-post-type-ui.php:1091
+#: ../custom-post-type-ui.php:1111
 msgid "Post Type Name"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1091
+#: ../custom-post-type-ui.php:1111
 msgid ""
 "The post type name.  Used to retrieve custom post type content.  Should be "
 "short and sweet"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1092 ../custom-post-type-ui.php:1402
+#: ../custom-post-type-ui.php:1112 ../custom-post-type-ui.php:1425
 msgid "(e.g. movies)"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1094
+#: ../custom-post-type-ui.php:1114
 msgid ""
 "Max 20 characters, can not contain capital letters or spaces. Reserved post "
 "types: post, page, attachment, revision, nav_menu_item."
 msgstr ""
 
-#: ../custom-post-type-ui.php:1099 ../custom-post-type-ui.php:1136
-#: ../custom-post-type-ui.php:1142 ../custom-post-type-ui.php:1148
-#: ../custom-post-type-ui.php:1154 ../custom-post-type-ui.php:1160
-#: ../custom-post-type-ui.php:1166 ../custom-post-type-ui.php:1172
-#: ../custom-post-type-ui.php:1178 ../custom-post-type-ui.php:1184
-#: ../custom-post-type-ui.php:1190 ../custom-post-type-ui.php:1196
+#: ../custom-post-type-ui.php:1119 ../custom-post-type-ui.php:1156
+#: ../custom-post-type-ui.php:1162 ../custom-post-type-ui.php:1168
+#: ../custom-post-type-ui.php:1174 ../custom-post-type-ui.php:1180
+#: ../custom-post-type-ui.php:1186 ../custom-post-type-ui.php:1192
+#: ../custom-post-type-ui.php:1198 ../custom-post-type-ui.php:1204
+#: ../custom-post-type-ui.php:1210 ../custom-post-type-ui.php:1216
 msgid "Post type label.  Used in the admin menu for displaying post types."
 msgstr ""
 
-#: ../custom-post-type-ui.php:1100
+#: ../custom-post-type-ui.php:1120
 msgid "(e.g. Movies)"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1104
+#: ../custom-post-type-ui.php:1124
 msgid ""
 "Custom Post Type Singular label.  Used in WordPress when a singular label is "
 "needed."
 msgstr ""
 
-#: ../custom-post-type-ui.php:1105
+#: ../custom-post-type-ui.php:1125
 msgid "(e.g. Movie)"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1110
+#: ../custom-post-type-ui.php:1130
 msgid "Description"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1110
+#: ../custom-post-type-ui.php:1130
 msgid ""
 "Custom Post Type Description.  Describe what your custom post type is used "
 "for."
 msgstr ""
 
-#: ../custom-post-type-ui.php:1117 ../custom-post-type-ui.php:1424
+#: ../custom-post-type-ui.php:1137 ../custom-post-type-ui.php:1447
 msgid "Advanced Label Options"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1118 ../custom-post-type-ui.php:1425
+#: ../custom-post-type-ui.php:1138 ../custom-post-type-ui.php:1448
 msgid "Advanced Options"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1126
+#: ../custom-post-type-ui.php:1146
 msgid ""
 "Below are the advanced label options for custom post types.  If you are "
 "unfamiliar with these labels, leave them blank and the plugin will "
 "automatically create labels based off of your custom post type name"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1130
+#: ../custom-post-type-ui.php:1150
 msgid "Menu Name"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1130
+#: ../custom-post-type-ui.php:1150
 msgid "Custom menu name for your custom post type."
 msgstr ""
 
-#: ../custom-post-type-ui.php:1132
+#: ../custom-post-type-ui.php:1152
 msgid "(e.g. My Movies)"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1138
+#: ../custom-post-type-ui.php:1158
 msgid "(e.g. Add New)"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1142 ../custom-post-type-ui.php:1478
+#: ../custom-post-type-ui.php:1162 ../custom-post-type-ui.php:1501
 msgid "Add New Item"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1144
+#: ../custom-post-type-ui.php:1164
 msgid "(e.g. Add New Movie)"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1150
+#: ../custom-post-type-ui.php:1170
 msgid "(e.g. Edit)"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1154 ../custom-post-type-ui.php:1466
+#: ../custom-post-type-ui.php:1174 ../custom-post-type-ui.php:1489
 msgid "Edit Item"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1156
+#: ../custom-post-type-ui.php:1176
 msgid "(e.g. Edit Movie)"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1160
+#: ../custom-post-type-ui.php:1180
 msgid "New Item"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1162
+#: ../custom-post-type-ui.php:1182
 msgid "(e.g. New Movie)"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1166
+#: ../custom-post-type-ui.php:1186
 msgid "View"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1168 ../custom-post-type-ui.php:1174
+#: ../custom-post-type-ui.php:1188 ../custom-post-type-ui.php:1194
 msgid "(e.g. View Movie)"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1172
+#: ../custom-post-type-ui.php:1192
 msgid "View Item"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1178 ../custom-post-type-ui.php:1436
+#: ../custom-post-type-ui.php:1198 ../custom-post-type-ui.php:1459
 msgid "Search Items"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1180
+#: ../custom-post-type-ui.php:1200
 msgid "(e.g. Search Movies)"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1184
+#: ../custom-post-type-ui.php:1204
 msgid "Not Found"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1186
+#: ../custom-post-type-ui.php:1206
 msgid "(e.g. No Movies Found)"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1190
+#: ../custom-post-type-ui.php:1210
 msgid "Not Found in Trash"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1192
+#: ../custom-post-type-ui.php:1212
 msgid "(e.g. No Movies found in Trash)"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1196
+#: ../custom-post-type-ui.php:1216
 msgid "Parent"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1198
+#: ../custom-post-type-ui.php:1218
 msgid "(e.g. Parent Movie)"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1207
+#: ../custom-post-type-ui.php:1227
 msgid "Whether posts of this type should be shown in the admin UI"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1210 ../custom-post-type-ui.php:1220
 #: ../custom-post-type-ui.php:1230 ../custom-post-type-ui.php:1240
-#: ../custom-post-type-ui.php:1255 ../custom-post-type-ui.php:1265
-#: ../custom-post-type-ui.php:1280 ../custom-post-type-ui.php:1290
-#: ../custom-post-type-ui.php:1307 ../custom-post-type-ui.php:1525
-#: ../custom-post-type-ui.php:1535 ../custom-post-type-ui.php:1545
+#: ../custom-post-type-ui.php:1250 ../custom-post-type-ui.php:1260
+#: ../custom-post-type-ui.php:1275 ../custom-post-type-ui.php:1285
+#: ../custom-post-type-ui.php:1300 ../custom-post-type-ui.php:1310
+#: ../custom-post-type-ui.php:1329 ../custom-post-type-ui.php:1548
+#: ../custom-post-type-ui.php:1558 ../custom-post-type-ui.php:1568
 msgid "False"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1211 ../custom-post-type-ui.php:1221
 #: ../custom-post-type-ui.php:1231 ../custom-post-type-ui.php:1241
-#: ../custom-post-type-ui.php:1256 ../custom-post-type-ui.php:1266
-#: ../custom-post-type-ui.php:1281 ../custom-post-type-ui.php:1291
-#: ../custom-post-type-ui.php:1308 ../custom-post-type-ui.php:1526
-#: ../custom-post-type-ui.php:1536 ../custom-post-type-ui.php:1546
+#: ../custom-post-type-ui.php:1251 ../custom-post-type-ui.php:1261
+#: ../custom-post-type-ui.php:1276 ../custom-post-type-ui.php:1286
+#: ../custom-post-type-ui.php:1301 ../custom-post-type-ui.php:1311
+#: ../custom-post-type-ui.php:1330 ../custom-post-type-ui.php:1549
+#: ../custom-post-type-ui.php:1559 ../custom-post-type-ui.php:1569
 msgid "True"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1212 ../custom-post-type-ui.php:1222
-#: ../custom-post-type-ui.php:1267 ../custom-post-type-ui.php:1282
-#: ../custom-post-type-ui.php:1292 ../custom-post-type-ui.php:1527
-#: ../custom-post-type-ui.php:1537 ../custom-post-type-ui.php:1547
+#: ../custom-post-type-ui.php:1232 ../custom-post-type-ui.php:1242
+#: ../custom-post-type-ui.php:1287 ../custom-post-type-ui.php:1302
+#: ../custom-post-type-ui.php:1312 ../custom-post-type-ui.php:1550
+#: ../custom-post-type-ui.php:1560 ../custom-post-type-ui.php:1570
 msgid "(default: True)"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1217
+#: ../custom-post-type-ui.php:1237
 msgid "Whether to generate a default UI for managing this post type"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1227
+#: ../custom-post-type-ui.php:1247
 msgid "Has Archive"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1227
+#: ../custom-post-type-ui.php:1247
 msgid "Whether the post type will have a post type archive page"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1232 ../custom-post-type-ui.php:1242
-#: ../custom-post-type-ui.php:1257 ../custom-post-type-ui.php:1517
+#: ../custom-post-type-ui.php:1252 ../custom-post-type-ui.php:1262
+#: ../custom-post-type-ui.php:1277 ../custom-post-type-ui.php:1540
 msgid "(default: False)"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1237
+#: ../custom-post-type-ui.php:1257
 msgid "Exclude From Search"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1237
+#: ../custom-post-type-ui.php:1257
 msgid "Whether the post type will be searchable"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1247
+#: ../custom-post-type-ui.php:1267
 msgid "Capability Type"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1247
+#: ../custom-post-type-ui.php:1267
 msgid "The post type to use for checking read, edit, and delete capabilities"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1252
+#: ../custom-post-type-ui.php:1272
 msgid "Whether the post type can have parent-child relationships"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1262
+#: ../custom-post-type-ui.php:1282
 msgid "Triggers the handling of rewrites for this post type"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1272 ../custom-post-type-ui.php:1552
+#: ../custom-post-type-ui.php:1292 ../custom-post-type-ui.php:1575
 msgid "Custom Rewrite Slug"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1272
+#: ../custom-post-type-ui.php:1292
 msgid "Custom slug to use instead of the default."
 msgstr ""
 
-#: ../custom-post-type-ui.php:1273
+#: ../custom-post-type-ui.php:1293
 msgid "(default: post type name)"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1277
+#: ../custom-post-type-ui.php:1297
 msgid "With Front"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1277
+#: ../custom-post-type-ui.php:1297
 msgid "Should the permastruct be prepended with the front base."
 msgstr ""
 
-#: ../custom-post-type-ui.php:1297
+#: ../custom-post-type-ui.php:1317
 msgid "Menu Position"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1297
+#: ../custom-post-type-ui.php:1317
 msgid ""
 "The position in the menu order the post type should appear. show_in_menu "
 "must be true."
 msgstr ""
 
-#: ../custom-post-type-ui.php:1298
+#: ../custom-post-type-ui.php:1318
 msgid ""
 "See <a href=\"http://codex.wordpress.org/Function_Reference/"
 "register_post_type#Parameters\">Available options</a> in the \"menu_position"
 "\" section. Range of 5-100"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1304
+#: ../custom-post-type-ui.php:1324
 msgid "Show in Menu"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1304
+#: ../custom-post-type-ui.php:1324
 msgid ""
 "Whether to show the post type in the admin menu and where to show that menu. "
 "Note that show_ui must be true"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1309
-msgid "Top level page (e.g. 'plugins.php')"
+#: ../custom-post-type-ui.php:1325
+msgid ""
+"\"Show UI\" must be \"true\". If an existing top level page such as \"tools."
+"php\" is indicated for second input, post type will be sub menu of that."
 msgstr ""
 
-#: ../custom-post-type-ui.php:1314
+#: ../custom-post-type-ui.php:1337
 msgid "Menu Icon"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1314
+#: ../custom-post-type-ui.php:1337
 msgid "URL to image to be used as menu icon."
 msgstr ""
 
-#: ../custom-post-type-ui.php:1322
+#: ../custom-post-type-ui.php:1345
 msgid "Title"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1322
+#: ../custom-post-type-ui.php:1345
 msgid "Adds the title meta box when creating content for this custom post type"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1323
+#: ../custom-post-type-ui.php:1346
 msgid "Editor"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1323
+#: ../custom-post-type-ui.php:1346
 msgid ""
 "Adds the content editor meta box when creating content for this custom post "
 "type"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1324
+#: ../custom-post-type-ui.php:1347
 msgid "Excerpt"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1324
+#: ../custom-post-type-ui.php:1347
 msgid ""
 "Adds the excerpt meta box when creating content for this custom post type"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1325
+#: ../custom-post-type-ui.php:1348
 msgid "Trackbacks"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1325
+#: ../custom-post-type-ui.php:1348
 msgid ""
 "Adds the trackbacks meta box when creating content for this custom post type"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1326
+#: ../custom-post-type-ui.php:1349
 msgid "Custom Fields"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1326
+#: ../custom-post-type-ui.php:1349
 msgid ""
 "Adds the custom fields meta box when creating content for this custom post "
 "type"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1327
+#: ../custom-post-type-ui.php:1350
 msgid "Comments"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1327
+#: ../custom-post-type-ui.php:1350
 msgid ""
 "Adds the comments meta box when creating content for this custom post type"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1328
+#: ../custom-post-type-ui.php:1351
 msgid "Revisions"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1328
+#: ../custom-post-type-ui.php:1351
 msgid ""
 "Adds the revisions meta box when creating content for this custom post type"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1329
+#: ../custom-post-type-ui.php:1352
 msgid "Featured Image"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1329
+#: ../custom-post-type-ui.php:1352
 msgid ""
 "Adds the featured image meta box when creating content for this custom post "
 "type"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1330
+#: ../custom-post-type-ui.php:1353
 msgid "Author"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1330
+#: ../custom-post-type-ui.php:1353
 msgid ""
 "Adds the author meta box when creating content for this custom post type"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1331
+#: ../custom-post-type-ui.php:1354
 msgid "Page Attributes"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1331
+#: ../custom-post-type-ui.php:1354
 msgid ""
 "Adds the page attribute meta box when creating content for this custom post "
 "type"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1332
+#: ../custom-post-type-ui.php:1355
 msgid "Post Formats"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1332
+#: ../custom-post-type-ui.php:1355
 msgid "Adds post format support"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1337
+#: ../custom-post-type-ui.php:1360
 msgid "Built-in Taxonomies"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1370
+#: ../custom-post-type-ui.php:1393
 msgid ""
 "If you are unfamiliar with the options below only fill out the "
 "<strong>Taxonomy Name</strong> and <strong>Post Type Name</strong> fields.  "
@@ -756,189 +758,189 @@ msgid ""
 "taxonomies. Hover over the question mark for more details."
 msgstr ""
 
-#: ../custom-post-type-ui.php:1379
+#: ../custom-post-type-ui.php:1402
 msgid "Taxonomy Name"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1379
+#: ../custom-post-type-ui.php:1402
 msgid ""
 "The taxonomy name.  Used to retrieve custom taxonomy content.  Should be "
 "short and sweet"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1380
+#: ../custom-post-type-ui.php:1403
 msgid ""
 "Note: Changing the name, after adding terms to the taxonomy, will not update "
 "the terms in the database."
 msgstr ""
 
-#: ../custom-post-type-ui.php:1382
+#: ../custom-post-type-ui.php:1405
 msgid "(e.g. actors)"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1383
+#: ../custom-post-type-ui.php:1406
 msgid ""
 "Max 32 characters, should only contain alphanumeric lowercase characters."
 msgstr ""
 
-#: ../custom-post-type-ui.php:1388
+#: ../custom-post-type-ui.php:1411
 msgid "Taxonomy label.  Used in the admin menu for displaying custom taxonomy."
 msgstr ""
 
-#: ../custom-post-type-ui.php:1389
+#: ../custom-post-type-ui.php:1412
 msgid "(e.g. Actors)"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1393
+#: ../custom-post-type-ui.php:1416
 msgid ""
 "Taxonomy Singular label.  Used in WordPress when a singular label is needed."
 msgstr ""
 
-#: ../custom-post-type-ui.php:1394
+#: ../custom-post-type-ui.php:1417
 msgid "(e.g. Actor)"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1398
+#: ../custom-post-type-ui.php:1421
 msgid "Attach to Post Type"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1398
+#: ../custom-post-type-ui.php:1421
 msgid ""
 "What post type object to attach the custom taxonomy to.  Can be post, page, "
 "or link by default.  Can also be any custom post type name."
 msgstr ""
 
-#: ../custom-post-type-ui.php:1401
+#: ../custom-post-type-ui.php:1424
 msgid ""
 "This is the old method.  Delete the post type from the textbox and check "
 "which post type to attach this taxonomy to</strong>"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1433
+#: ../custom-post-type-ui.php:1456
 msgid ""
 "Below are the advanced label options for custom taxonomies.  If you are "
 "unfamiliar with these labels the plugin will automatically create labels "
 "based off of your custom taxonomy name"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1436 ../custom-post-type-ui.php:1442
-#: ../custom-post-type-ui.php:1448 ../custom-post-type-ui.php:1454
-#: ../custom-post-type-ui.php:1460 ../custom-post-type-ui.php:1466
-#: ../custom-post-type-ui.php:1472 ../custom-post-type-ui.php:1478
-#: ../custom-post-type-ui.php:1484 ../custom-post-type-ui.php:1490
-#: ../custom-post-type-ui.php:1496 ../custom-post-type-ui.php:1502
+#: ../custom-post-type-ui.php:1459 ../custom-post-type-ui.php:1465
+#: ../custom-post-type-ui.php:1471 ../custom-post-type-ui.php:1477
+#: ../custom-post-type-ui.php:1483 ../custom-post-type-ui.php:1489
+#: ../custom-post-type-ui.php:1495 ../custom-post-type-ui.php:1501
+#: ../custom-post-type-ui.php:1507 ../custom-post-type-ui.php:1513
+#: ../custom-post-type-ui.php:1519 ../custom-post-type-ui.php:1525
 msgid ""
 "Custom taxonomy label.  Used in the admin menu for displaying taxonomies."
 msgstr ""
 
-#: ../custom-post-type-ui.php:1438
+#: ../custom-post-type-ui.php:1461
 msgid "(e.g. Search Actors)"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1442
+#: ../custom-post-type-ui.php:1465
 msgid "Popular Items"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1444
+#: ../custom-post-type-ui.php:1467
 msgid "(e.g. Popular Actors)"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1448
+#: ../custom-post-type-ui.php:1471
 msgid "All Items"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1450
+#: ../custom-post-type-ui.php:1473
 msgid "(e.g. All Actors)"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1454
+#: ../custom-post-type-ui.php:1477
 msgid "Parent Item"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1456
+#: ../custom-post-type-ui.php:1479
 msgid "(e.g. Parent Actor)"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1460
+#: ../custom-post-type-ui.php:1483
 msgid "Parent Item Colon"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1462
+#: ../custom-post-type-ui.php:1485
 msgid "(e.g. Parent Actor:)"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1468
+#: ../custom-post-type-ui.php:1491
 msgid "(e.g. Edit Actor)"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1472
+#: ../custom-post-type-ui.php:1495
 msgid "Update Item"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1474
+#: ../custom-post-type-ui.php:1497
 msgid "(e.g. Update Actor)"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1480
+#: ../custom-post-type-ui.php:1503
 msgid "(e.g. Add New Actor)"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1484
+#: ../custom-post-type-ui.php:1507
 msgid "New Item Name"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1486
+#: ../custom-post-type-ui.php:1509
 msgid "(e.g. New Actor Name)"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1490
+#: ../custom-post-type-ui.php:1513
 msgid "Separate Items with Commas"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1492
+#: ../custom-post-type-ui.php:1515
 msgid "(e.g. Separate actors with commas)"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1496
+#: ../custom-post-type-ui.php:1519
 msgid "Add or Remove Items"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1498
+#: ../custom-post-type-ui.php:1521
 msgid "(e.g. Add or remove actors)"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1502
+#: ../custom-post-type-ui.php:1525
 msgid "Choose From Most Used"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1504
+#: ../custom-post-type-ui.php:1527
 msgid "(e.g. Choose from the most used actors)"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1512
+#: ../custom-post-type-ui.php:1535
 msgid "Whether the taxonomy can have parent-child relationships"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1522
+#: ../custom-post-type-ui.php:1545
 msgid "Whether to generate a default UI for managing this custom taxonomy"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1542
+#: ../custom-post-type-ui.php:1565
 msgid "Triggers the handling of rewrites for this taxonomy"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1552
+#: ../custom-post-type-ui.php:1575
 msgid "Custom Taxonomy Rewrite Slug"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1553
+#: ../custom-post-type-ui.php:1576
 msgid "(default: taxonomy name)"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1575
+#: ../custom-post-type-ui.php:1598
 msgid "Please Report Bugs"
 msgstr ""
 
-#: ../custom-post-type-ui.php:1575
+#: ../custom-post-type-ui.php:1598
 msgid "Follow on Twitter:"
 msgstr ""
