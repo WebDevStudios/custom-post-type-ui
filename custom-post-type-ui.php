@@ -96,14 +96,19 @@ function cpt_create_custom_post_types() {
             $cpt_menu_icon          = ( !empty( $cpt_post_type["menu_icon"] ) ) ? esc_url( $cpt_post_type["menu_icon"] ) : '';
             $cpt_taxonomies         = ( !empty( $cpt_post_type[1] ) ) ? $cpt_post_type[1] : array();
             $cpt_supports           = ( !empty( $cpt_post_type[0] ) ) ? $cpt_post_type[0] : array();
-			//$cpt_show_in_menu  = ( !$cpt_post_type["show_in_menu_string"] ) ? null : $cpt_post_type["show_in_menu_string"];
 
-			if ( !empty( $cpt_post_type["show_in_menu"] ) ) {
-				$cpt_show_in_menu = ( $cpt_post_type["show_in_menu"] == 1 ) ? true : false;
-				$cpt_show_in_menu = ( !empty( $cpt_post_type["show_in_menu_string"] ) ) ? $cpt_post_type["show_in_menu_string"] : $cpt_show_in_menu;
-			} else {
-				$cpt_show_in_menu = true;
-			}
+            //Show UI must be true
+            if ( 'true' == get_disp_boolean( $cpt_post_type["show_ui"] ) ) {
+            	//If the string is empty, we will need boolean, else use the string.
+            	if ( empty( $cpt_post_type['show_in_menu_string'] ) ) {
+            		$cpt_show_in_menu = ( $cpt_post_type["show_in_menu"] == 1 ) ? 1 : 0;
+            	} else {
+            		$cpt_show_in_menu = $cpt_post_type['show_in_menu_string'];
+            	}
+            } else {
+            	$cpt_show_in_menu = 0;
+            }
+
 			//set custom label values
             $cpt_labels['name']             = $cpt_label;
             $cpt_labels['singular_name']    = $cpt_post_type["singular_label"];
@@ -586,8 +591,7 @@ if ( isset($_GET['cpt_msg'] ) && $_GET['cpt_msg'] == 'del' ) { ?>
 		$thecounter=0;
 		$cpt_names = array();
 		//Create urls for management
-		foreach ($cpt_post_types as $cpt_post_type) {
-
+		foreach ( $cpt_post_types as $cpt_post_type ) {
 			$del_url = cpt_check_return( 'cpt' ) .'&deltype=' .$thecounter .'&return=cpt';
 			$del_url = ( function_exists('wp_nonce_url') ) ? wp_nonce_url($del_url, 'cpt_delete_post_type') : $del_url;
 
@@ -634,9 +638,13 @@ if ( isset($_GET['cpt_msg'] ) && $_GET['cpt_msg'] == 'del' ) { ?>
 						$cpt_rewrite_slug = ( !$cpt_post_type["rewrite_slug"] ) ? esc_html($cpt_post_type["name"]) : esc_html($cpt_post_type["rewrite_slug"]);
 						$cpt_menu_position = ( !$cpt_post_type["menu_position"] ) ? null : intval($cpt_post_type["menu_position"]);
 						$cpt_menu_icon = ( $cpt_post_type["menu_icon"] ) ? esc_url($cpt_post_type["menu_icon"]) : '';
-						$cpt_show_in_menu = ( $cpt_post_type["show_in_menu"] == 1 ) ? true : false;
-						$cpt_show_in_menu = ( $cpt_post_type["show_in_menu_string"] ) ? '\''.$cpt_post_type["show_in_menu_string"].'\'' : $cpt_show_in_menu;
 
+						if ( true == $cpt_post_type["show_ui"] ) {
+							$cpt_show_in_menu = ( $cpt_post_type["show_in_menu"] == 1 ) ? 1 : 0;
+							$cpt_show_in_menu = ( $cpt_post_type["show_in_menu_string"] ) ? '\''.$cpt_post_type["show_in_menu_string"].'\'' : $cpt_show_in_menu;
+						} else {
+							$cpt_show_in_menu = 0;
+						}
 						//set custom label values
 						$cpt_labels['name'] = $cpt_label;
 						$cpt_labels['singular_name'] = $cpt_post_type["singular_label"];
@@ -992,7 +1000,7 @@ function cpt_add_new() {
         $cpt_labels             = $cpt_options[ $editType ][2];
         $cpt_has_archive        = ( isset( $cpt_options[$editType]["has_archive"] ) ) ? $cpt_options[$editType]["has_archive"] : null;
         $cpt_exclude_from_search = ( isset( $cpt_options[$editType]["exclude_from_search"] ) ) ? $cpt_options[$editType]["exclude_from_search"] : null;
-        $cpt_show_in_menu        = ( isset( $cpt_options[$editType]["show_in_menu"] ) ) ? $cpt_options[$editType]["show_in_menu"] : null;
+        $cpt_show_in_menu        = ( isset( $cpt_options[$editType]["show_in_menu"] ) ) ? $cpt_options[$editType]["show_in_menu"] : true;
         $cpt_show_in_menu_string = ( isset( $cpt_options[$editType]["show_in_menu_string"] ) ) ? $cpt_options[$editType]["show_in_menu_string"] : null;
 
 		$cpt_submit_name = __( 'Save Custom Post Type', 'cpt-plugin' );
@@ -1313,13 +1321,16 @@ function cpt_add_new() {
 							</tr>
 
 							<tr valign="top">
-							<th scope="row"><?php _e('Show in Menu', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Whether to show the post type in the admin menu and where to show that menu. Note that show_ui must be true', 'cpt-plugin' ); ?>" class="help">?</a></th>
+							<th scope="row"><?php _e('Show in Menu', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Whether to show the post type in the admin menu and where to show that menu. Note that show_ui must be true', 'cpt-plugin' ); ?>" class="help">?</a>
+							<p><?php _e( '"Show UI" must be "true". If an existing top level page such as "tools.php" is indicated for second input, post type will be sub menu of that.', 'cpt-plugins' ); ?></p>
+							</th>
 							<td>
-								<select name="cpt_custom_post_type[show_in_menu]" tabindex="10">
-									<option value="0" <?php if (isset($cpt_show_in_menu)) { if ($cpt_show_in_menu == 0 && $cpt_show_in_menu != '') { echo 'selected="selected"'; } } ?>><?php _e( 'False', 'cpt-plugin' ); ?></option>
+								<p><select name="cpt_custom_post_type[show_in_menu]" tabindex="10">
+									<option value="0" <?php if (isset($cpt_show_in_menu)) { if ($cpt_show_in_menu == 0) { echo 'selected="selected"'; } } ?>><?php _e( 'False', 'cpt-plugin' ); ?></option>
 									<option value="1" <?php if (isset($cpt_show_in_menu)) { if ($cpt_show_in_menu == 1 || is_null($cpt_show_in_menu)) { echo 'selected="selected"'; } } else { echo 'selected="selected"'; } ?>><?php _e( 'True', 'cpt-plugin' ); ?></option>
-								</select> <?php _e( 'Top level page (e.g. \'plugins.php\')', 'cpt-plugins' ); ?>
-								<input type="text" name="cpt_custom_post_type[show_in_menu_string]" tabindex="12" size="5" value="<?php if (isset($cpt_show_in_menu_string)) { echo esc_attr($cpt_show_in_menu_string); } ?>" /></td>
+								</select></p>
+								<p>
+								<input type="text" name="cpt_custom_post_type[show_in_menu_string]" tabindex="12" size="20" value="<?php if (isset($cpt_show_in_menu_string)) { echo esc_attr($cpt_show_in_menu_string); } ?>" /></p></td>
 							</tr>
 
 							<tr valign="top">
