@@ -92,8 +92,8 @@ function cpt_create_custom_post_types() {
             $cpt_singular           = ( !empty( $cpt_post_type["singular_label"] ) ) ? esc_html( $cpt_post_type["singular_label"] ) : esc_html( $cpt_label );
             $cpt_rewrite_slug       = ( !empty( $cpt_post_type["rewrite_slug"] ) ) ? esc_html( $cpt_post_type["rewrite_slug"] ) : esc_html( $cpt_post_type["name"] );
             $cpt_rewrite_withfront  = ( !empty( $cpt_post_type["rewrite_withfront"] ) ) ? esc_html( $cpt_post_type["rewrite_withfront"] ) : true;
-            $cpt_menu_position      = ( !empty( $cpt_post_type["menu_position"] ) ) ? intval( $cpt_post_type["menu_position"] ) : '';
-            $cpt_menu_icon          = ( !empty( $cpt_post_type["menu_icon"] ) ) ? esc_url( $cpt_post_type["menu_icon"] ) : '';
+            $cpt_menu_position      = ( !empty( $cpt_post_type["menu_position"] ) ) ? intval( $cpt_post_type["menu_position"] ) : null; //must be null
+            $cpt_menu_icon          = ( !empty( $cpt_post_type["menu_icon"] ) ) ? esc_url( $cpt_post_type["menu_icon"] ) : null; //must be null
             $cpt_taxonomies         = ( !empty( $cpt_post_type[1] ) ) ? $cpt_post_type[1] : array();
             $cpt_supports           = ( !empty( $cpt_post_type[0] ) ) ? $cpt_post_type[0] : array();
 
@@ -101,7 +101,7 @@ function cpt_create_custom_post_types() {
             if ( 'true' == get_disp_boolean( $cpt_post_type["show_ui"] ) ) {
             	//If the string is empty, we will need boolean, else use the string.
             	if ( empty( $cpt_post_type['show_in_menu_string'] ) ) {
-            		$cpt_show_in_menu = ( $cpt_post_type["show_in_menu"] == 1 ) ? 1 : 0;
+            		$cpt_show_in_menu = ( $cpt_post_type["show_in_menu"] == 1 ) ? true : false;
             	} else {
             		$cpt_show_in_menu = $cpt_post_type['show_in_menu_string'];
             	}
@@ -689,16 +689,16 @@ if ( isset($_GET['cpt_msg'] ) && $_GET['cpt_msg'] == 'del' ) { ?>
 						$custom_post_type .= "function cptui_register_my_cpt() {\n";
 						$custom_post_type .= "register_post_type('" . $cpt_post_type["name"] . "', array(\n'label' => '" . $cpt_label . "',\n";
 						$custom_post_type .= "'description' => '" . $cpt_post_type["description"] . "',\n";
-						$custom_post_type .= "'public' => " . disp_boolean($cpt_post_type["public"]) . ",\n";
-						$custom_post_type .= "'show_ui' => " . disp_boolean($cpt_post_type["show_ui"]) . ",\n";
-						$custom_post_type .= "'show_in_menu' => " . $cpt_show_in_menu . ",\n";
+						$custom_post_type .= "'public' => " . disp_boolean( $cpt_post_type["public"]) . ",\n";
+						$custom_post_type .= "'show_ui' => " . disp_boolean( $cpt_post_type["show_ui"]) . ",\n";
+						$custom_post_type .= "'show_in_menu' => " . disp_boolean( $cpt_show_in_menu) . ",\n";
 						$custom_post_type .= "'capability_type' => '" . $cpt_post_type["capability_type"] . "',\n";
-						$custom_post_type .= "'hierarchical' => " . disp_boolean($cpt_post_type["hierarchical"]) . ",\n";
+						$custom_post_type .= "'hierarchical' => " . disp_boolean( $cpt_post_type["hierarchical"] ) . ",\n";
 
 						if ( !empty( $cpt_post_type["rewrite_slug"] ) ) {
 							$custom_post_type .= "'rewrite' => array('slug' => '" . $cpt_post_type["rewrite_slug"] . "', 'with_front' => " . $cpt_post_type['rewrite_withfront'] . "),\n";
 						} else {
-							$custom_post_type .= "'rewrite' => array('slug' => '" . $cpt_post_type["name"] . "', 'with_front' => " . $cpt_post_type['rewrite_withfront'] . "),\n";
+							$custom_post_type .= "'rewrite' => array('slug' => '" . $cpt_post_type["name"] . "', 'with_front' => " . disp_boolean( $cpt_post_type['rewrite_withfront'] ) . "),\n";
 						}
 
 						$custom_post_type .= "'query_var' => " . disp_boolean($cpt_post_type["query_var"]) . ",\n";
