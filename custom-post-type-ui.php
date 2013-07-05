@@ -91,7 +91,7 @@ function cpt_create_custom_post_types() {
             $cpt_label              = ( !empty( $cpt_post_type["label"] ) ) ? esc_html( $cpt_post_type["label"] ) : esc_html( $cpt_post_type["name"] ) ;
             $cpt_singular           = ( !empty( $cpt_post_type["singular_label"] ) ) ? esc_html( $cpt_post_type["singular_label"] ) : esc_html( $cpt_label );
             $cpt_rewrite_slug       = ( !empty( $cpt_post_type["rewrite_slug"] ) ) ? esc_html( $cpt_post_type["rewrite_slug"] ) : esc_html( $cpt_post_type["name"] );
-            $cpt_rewrite_withfront  = ( !empty( $cpt_post_type["rewrite_withfront"] ) ) ? esc_html( $cpt_post_type["rewrite_withfront"] ) : true;
+            $cpt_rewrite_withfront  = ( isset( $cpt_post_type["rewrite_withfront"] ) && !empty( $cpt_post_type["rewrite_withfront"] ) ) ? esc_html( $cpt_post_type["rewrite_withfront"] ) : true;
             $cpt_menu_position      = ( !empty( $cpt_post_type["menu_position"] ) ) ? intval( $cpt_post_type["menu_position"] ) : null; //must be null
             $cpt_menu_icon          = ( !empty( $cpt_post_type["menu_icon"] ) ) ? esc_url( $cpt_post_type["menu_icon"] ) : null; //must be null
             $cpt_taxonomies         = ( !empty( $cpt_post_type[1] ) ) ? $cpt_post_type[1] : array();
@@ -633,11 +633,11 @@ if ( isset($_GET['cpt_msg'] ) && $_GET['cpt_msg'] == 'del' ) { ?>
                         $cpt_support_array  = '';
                         $cpt_tax_array      = '';
 
-						$cpt_label = ( !$cpt_post_type["label"] ) ? esc_html($cpt_post_type["name"]) : esc_html($cpt_post_type["label"]);
-						$cpt_singular = ( !$cpt_post_type["singular_label"] ) ? $cpt_label : esc_html($cpt_post_type["singular_label"]);
-						$cpt_rewrite_slug = ( !$cpt_post_type["rewrite_slug"] ) ? esc_html($cpt_post_type["name"]) : esc_html($cpt_post_type["rewrite_slug"]);
-						$cpt_menu_position = ( !$cpt_post_type["menu_position"] ) ? null : intval($cpt_post_type["menu_position"]);
-						$cpt_menu_icon = ( $cpt_post_type["menu_icon"] ) ? esc_url($cpt_post_type["menu_icon"]) : '';
+						$cpt_label = ( empty( $cpt_post_type["label"] ) ) ? esc_html($cpt_post_type["name"]) : esc_html($cpt_post_type["label"]);
+						$cpt_singular = ( empty( $cpt_post_type["singular_label"] ) ) ? $cpt_label : esc_html($cpt_post_type["singular_label"]);
+						$cpt_rewrite_slug = ( empty( $cpt_post_type["rewrite_slug"] ) ) ? esc_html($cpt_post_type["name"]) : esc_html($cpt_post_type["rewrite_slug"]);
+						$cpt_menu_position = ( empty( $cpt_post_type["menu_position"] ) ) ? null : intval($cpt_post_type["menu_position"]);
+						$cpt_menu_icon = ( !empty( $cpt_post_type["menu_icon"] ) ) ? esc_url($cpt_post_type["menu_icon"]) : '';
 
 						if ( true == $cpt_post_type["show_ui"] ) {
 							$cpt_show_in_menu = ( $cpt_post_type["show_in_menu"] == 1 ) ? 1 : 0;
@@ -698,12 +698,13 @@ if ( isset($_GET['cpt_msg'] ) && $_GET['cpt_msg'] == 'del' ) { ?>
 						if ( !empty( $cpt_post_type["rewrite_slug"] ) ) {
 							$custom_post_type .= "'rewrite' => array('slug' => '" . $cpt_post_type["rewrite_slug"] . "', 'with_front' => " . $cpt_post_type['rewrite_withfront'] . "),\n";
 						} else {
+							if( empty( $cpt_post_type['rewrite_withfront'] ) ) $cpt_post_type['rewrite_withfront'] = 'false';
 							$custom_post_type .= "'rewrite' => array('slug' => '" . $cpt_post_type["name"] . "', 'with_front' => " . disp_boolean( $cpt_post_type['rewrite_withfront'] ) . "),\n";
 						}
 
 						$custom_post_type .= "'query_var' => " . disp_boolean($cpt_post_type["query_var"]) . ",\n";
 
-						if ( $cpt_post_type["has_archive"] ) {
+						if ( !empty( $cpt_post_type["has_archive"] ) ) {
 							$custom_post_type .= "'has_archive' => " . disp_boolean( $cpt_post_type["has_archive"] ) . ",\n";
 						}
 
@@ -711,21 +712,21 @@ if ( isset($_GET['cpt_msg'] ) && $_GET['cpt_msg'] == 'del' ) { ?>
 							$custom_post_type .= "'exclude_from_search' => " . disp_boolean( $cpt_post_type["exclude_from_search"] ) . ",\n";
 						}
 
-						if ( $cpt_post_type["menu_position"] ) {
+						if ( !empty( $cpt_post_type["menu_position"] ) ) {
 							$custom_post_type .= "'menu_position' => '" . $cpt_post_type["menu_position"] . "',\n";
 						}
 
-						if ( $cpt_post_type["menu_icon"] ) {
+						if ( !empty( $cpt_post_type["menu_icon"] ) ) {
 							$custom_post_type .= "'menu_icon' => '" . $cpt_post_type["menu_icon"] . "',\n";
 						}
 
 						$custom_post_type .= "'supports' => array(" . $cpt_support_array . "),\n";
 
-						if ( $cpt_tax_array ) {
+						if ( !empty( $cpt_tax_array ) ) {
 							$custom_post_type .= "'taxonomies' => array(" . $cpt_tax_array . "),\n";
 						}
 
-						if ( $cpt_labels ) {
+						if ( !empty( $cpt_labels ) ) {
 							$custom_post_type .= "'labels' => " . var_export( $cpt_labels, true ) . "\n";
 						}
 
@@ -998,23 +999,23 @@ function cpt_add_new() {
 		$cpt_options = get_option('cpt_custom_post_types');
 
 		//load custom post type values to edit
-        $cpt_post_type_name     = $cpt_options[ $editType ]["name"];
-        $cpt_label              = $cpt_options[ $editType ]["label"];
-        $cpt_singular_label     = $cpt_options[ $editType ]["singular_label"];
-        $cpt_public             = $cpt_options[ $editType ]["public"];
-        $cpt_showui             = $cpt_options[ $editType ]["show_ui"];
-        $cpt_capability         = $cpt_options[ $editType ]["capability_type"];
-        $cpt_hierarchical       = $cpt_options[ $editType ]["hierarchical"];
-        $cpt_rewrite            = $cpt_options[ $editType ]["rewrite"];
-        $cpt_rewrite_slug       = $cpt_options[ $editType ]["rewrite_slug"];
-        $cpt_rewrite_withfront  = $cpt_options[ $editType ]["rewrite_withfront"];
-        $cpt_query_var          = $cpt_options[ $editType ]["query_var"];
-        $cpt_description        = $cpt_options[ $editType ]["description"];
-        $cpt_menu_position      = $cpt_options[ $editType ]["menu_position"];
-        $cpt_menu_icon			= $cpt_options[ $editType ]["menu_icon"];
-        $cpt_supports           = $cpt_options[ $editType ][0];
-        $cpt_taxes              = $cpt_options[ $editType ][1];
-        $cpt_labels             = $cpt_options[ $editType ][2];
+        $cpt_post_type_name     = ( isset( $cpt_options[ $editType ]["name"] ) ) ? $cpt_options[ $editType ]["name"] : null;
+        $cpt_label              = ( isset( $cpt_options[ $editType ]["label"] ) ) ? $cpt_options[ $editType ]["label"] : null;
+        $cpt_singular_label     = ( isset( $cpt_options[ $editType ]["singular_label"] ) ) ? $cpt_options[ $editType ]["singular_label"] : null;
+        $cpt_public             = ( isset( $cpt_options[ $editType ]["public"] ) ) ? $cpt_options[ $editType ]["public"] : null;
+        $cpt_showui             = ( isset( $cpt_options[ $editType ]["show_ui"] ) ) ? $cpt_options[ $editType ]["show_ui"] : null;
+        $cpt_capability         = ( isset( $cpt_options[ $editType ]["capability_type"] ) ) ? $cpt_options[ $editType ]["capability_type"] : null;
+        $cpt_hierarchical       = ( isset( $cpt_options[ $editType ]["hierarchical"] ) ) ? $cpt_options[ $editType ]["hierarchical"] : null;
+        $cpt_rewrite            = ( isset( $cpt_options[ $editType ]["rewrite"] ) ) ? $cpt_options[ $editType ]["rewrite"] : null;
+        $cpt_rewrite_slug       = ( isset( $cpt_options[ $editType ]["rewrite_slug"] ) ) ? $cpt_options[ $editType ]["rewrite_slug"] : null;
+        $cpt_rewrite_withfront  = ( isset( $cpt_options[ $editType ]["rewrite_withfront"] ) ) ? $cpt_options[ $editType ]["rewrite_withfront"] : null;
+        $cpt_query_var          = ( isset( $cpt_options[ $editType ]["query_var"] ) ) ? $cpt_options[ $editType ]["query_var"] : null;
+        $cpt_description        = ( isset( $cpt_options[ $editType ]["description"] ) ) ? $cpt_options[ $editType ]["description"] : null;
+        $cpt_menu_position      = ( isset( $cpt_options[ $editType ]["menu_position"] ) ) ? $cpt_options[ $editType ]["menu_position"] : null;
+        $cpt_menu_icon			= ( isset( $cpt_options[ $editType ]["menu_icon"] ) ) ? $cpt_options[ $editType ]["menu_icon"] : null;
+        $cpt_supports           = ( isset( $cpt_options[ $editType ][0] ) ) ? $cpt_options[ $editType ][0] : null;
+        $cpt_taxes              = ( isset( $cpt_options[ $editType ][1] ) )? $cpt_options[ $editType ][1] : null;
+        $cpt_labels             = ( isset( $cpt_options[ $editType ][2] ) ) ? $cpt_options[ $editType ][2] : null;
         $cpt_has_archive        = ( isset( $cpt_options[$editType]["has_archive"] ) ) ? $cpt_options[$editType]["has_archive"] : null;
         $cpt_exclude_from_search = ( isset( $cpt_options[$editType]["exclude_from_search"] ) ) ? $cpt_options[$editType]["exclude_from_search"] : null;
         $cpt_show_in_menu        = ( isset( $cpt_options[$editType]["show_in_menu"] ) ) ? $cpt_options[$editType]["show_in_menu"] : true;
@@ -1631,7 +1632,7 @@ function cpt_check_return( $return ) {
 }
 
 function get_disp_boolean($booText) {
-	if ($booText == '0') {
+	if ( empty( $booText ) || $booText == '0') {
 		return false;
 	}
 
@@ -1639,7 +1640,7 @@ function get_disp_boolean($booText) {
 }
 
 function disp_boolean($booText) {
-	if ( $booText == '0' ) {
+	if ( empty( $booText ) || $booText == '0' ) {
 		return 'false';
 	}
 
