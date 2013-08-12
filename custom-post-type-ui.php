@@ -86,12 +86,12 @@ function cpt_create_custom_post_types() {
 	//check if option value is an Array before proceeding
 	if ( is_array( $cpt_post_types ) ) {
 		foreach ($cpt_post_types as $cpt_post_type) {
-
 			//set post type values
             $cpt_label              = ( !empty( $cpt_post_type["label"] ) ) ? esc_html( $cpt_post_type["label"] ) : esc_html( $cpt_post_type["name"] ) ;
             $cpt_singular           = ( !empty( $cpt_post_type["singular_label"] ) ) ? esc_html( $cpt_post_type["singular_label"] ) : esc_html( $cpt_label );
             $cpt_rewrite_slug       = ( !empty( $cpt_post_type["rewrite_slug"] ) ) ? esc_html( $cpt_post_type["rewrite_slug"] ) : esc_html( $cpt_post_type["name"] );
             $cpt_rewrite_withfront  = ( isset( $cpt_post_type["rewrite_withfront"] ) && !empty( $cpt_post_type["rewrite_withfront"] ) ) ? esc_html( $cpt_post_type["rewrite_withfront"] ) : true;
+            $cpt_map_meta_cap		= ( !empty( $cpt_post_type["map_meta_cap"] ) ) ? esc_html( $cpt_post_type["map_meta_cap"] ) : false;
             $cpt_menu_position      = ( !empty( $cpt_post_type["menu_position"] ) ) ? intval( $cpt_post_type["menu_position"] ) : null; //must be null
             $cpt_menu_icon          = ( !empty( $cpt_post_type["menu_icon"] ) ) ? esc_url( $cpt_post_type["menu_icon"] ) : null; //must be null
             $cpt_taxonomies         = ( !empty( $cpt_post_type[1] ) ) ? $cpt_post_type[1] : array();
@@ -137,7 +137,7 @@ function cpt_create_custom_post_types() {
 				'show_ui' => get_disp_boolean($cpt_post_type["show_ui"]),
 				'has_archive' => $cpt_has_archive,
 				'show_in_menu' => $cpt_show_in_menu,
-				'capability_type' => $cpt_post_type["capability_type"],
+				'capability_type' => $cpt_map_meta_cap,
 				'map_meta_cap' => get_disp_boolean($cpt_post_type["map_meta_cap"]),
 				'hierarchical' => get_disp_boolean($cpt_post_type["hierarchical"]),
 				'exclude_from_search' => $cpt_exclude_from_search,
