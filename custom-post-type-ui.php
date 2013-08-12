@@ -13,6 +13,9 @@ License: GPLv2
 // Define current version constant
 define( 'CPT_VERSION', '0.8.1' );
 
+// Define current WordPress version constant
+define( 'WP_VERSION', get_bloginfo( 'version' ) );
+
 // Define plugin URL constant
 $CPT_URL = cpt_check_return( 'add' );
 
