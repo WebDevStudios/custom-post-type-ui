@@ -138,6 +138,7 @@ function cpt_create_custom_post_types() {
 				'has_archive' => $cpt_has_archive,
 				'show_in_menu' => $cpt_show_in_menu,
 				'capability_type' => $cpt_post_type["capability_type"],
+				'map_meta_cap' => get_disp_boolean($cpt_post_type["map_meta_cap"]),
 				'hierarchical' => get_disp_boolean($cpt_post_type["hierarchical"]),
 				'exclude_from_search' => $cpt_exclude_from_search,
 				'rewrite' => array( 'slug' => $cpt_rewrite_slug, 'with_front' => $cpt_rewrite_withfront ),
@@ -693,6 +694,7 @@ if ( isset($_GET['cpt_msg'] ) && $_GET['cpt_msg'] == 'del' ) { ?>
 						$custom_post_type .= "'show_ui' => " . disp_boolean( $cpt_post_type["show_ui"]) . ",\n";
 						$custom_post_type .= "'show_in_menu' => " . disp_boolean( $cpt_show_in_menu) . ",\n";
 						$custom_post_type .= "'capability_type' => '" . $cpt_post_type["capability_type"] . "',\n";
+						$custom_post_type .= "'map_meta_cap' => " . disp_boolean( $cpt_post_type["hierarchical"] ) . ",\n";
 						$custom_post_type .= "'hierarchical' => " . disp_boolean( $cpt_post_type["hierarchical"] ) . ",\n";
 
 						if ( !empty( $cpt_post_type["rewrite_slug"] ) ) {
@@ -1005,6 +1007,7 @@ function cpt_add_new() {
         $cpt_public             = ( isset( $cpt_options[ $editType ]["public"] ) ) ? $cpt_options[ $editType ]["public"] : null;
         $cpt_showui             = ( isset( $cpt_options[ $editType ]["show_ui"] ) ) ? $cpt_options[ $editType ]["show_ui"] : null;
         $cpt_capability         = ( isset( $cpt_options[ $editType ]["capability_type"] ) ) ? $cpt_options[ $editType ]["capability_type"] : null;
+        $cpt_map_meta_cap       = ( isset( $cpt_options[ $editType ]["map_meta_cap"] ) ) ? $cpt_options[ $editType ]["map_meta_cap"] : null;
         $cpt_hierarchical       = ( isset( $cpt_options[ $editType ]["hierarchical"] ) ) ? $cpt_options[ $editType ]["hierarchical"] : null;
         $cpt_rewrite            = ( isset( $cpt_options[ $editType ]["rewrite"] ) ) ? $cpt_options[ $editType ]["rewrite"] : null;
         $cpt_rewrite_slug       = ( isset( $cpt_options[ $editType ]["rewrite_slug"] ) ) ? $cpt_options[ $editType ]["rewrite_slug"] : null;
@@ -1287,9 +1290,19 @@ function cpt_add_new() {
 							</tr>
 
 							<tr valign="top">
+							<th scope="row"><?php _e('Map Meta Cap', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Whether to use the internal default meta capability handling', 'cpt-plugin' ); ?>" class="help">?</a></th>
+							<td>
+								<select name="cpt_custom_post_type[map_meta_cap]" tabindex="7">
+									<option value="0" <?php if (isset($cpt_map_meta_cap)) { if ($cpt_map_meta_cap == 0) { echo 'selected="selected"'; } } else { echo 'selected="selected"'; } ?>><?php _e( 'False', 'cpt-plugin' ); ?></option>
+									<option value="1" <?php if (isset($cpt_map_meta_cap)) { if ($cpt_map_meta_cap == 1) { echo 'selected="selected"'; } } ?>><?php _e( 'True', 'cpt-plugin' ); ?></option>
+								</select> <?php _e( '(default: False)', 'cpt-plugin' ); ?>
+							</td>
+							</tr>
+
+							<tr valign="top">
 							<th scope="row"><?php _e('Hierarchical', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Whether the post type can have parent-child relationships', 'cpt-plugin' ); ?>" class="help">?</a></th>
 							<td>
-								<select name="cpt_custom_post_type[hierarchical]" tabindex="7">
+								<select name="cpt_custom_post_type[hierarchical]" tabindex="8">
 									<option value="0" <?php if (isset($cpt_hierarchical)) { if ($cpt_hierarchical == 0) { echo 'selected="selected"'; } } else { echo 'selected="selected"'; } ?>><?php _e( 'False', 'cpt-plugin' ); ?></option>
 									<option value="1" <?php if (isset($cpt_hierarchical)) { if ($cpt_hierarchical == 1) { echo 'selected="selected"'; } } ?>><?php _e( 'True', 'cpt-plugin' ); ?></option>
 								</select> <?php _e( '(default: False)', 'cpt-plugin' ); ?>
@@ -1299,7 +1312,7 @@ function cpt_add_new() {
 							<tr valign="top">
 							<th scope="row"><?php _e('Rewrite', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Triggers the handling of rewrites for this post type', 'cpt-plugin' ); ?>" class="help">?</a></th>
 							<td>
-								<select name="cpt_custom_post_type[rewrite]" tabindex="8">
+								<select name="cpt_custom_post_type[rewrite]" tabindex="9">
 									<option value="0" <?php if (isset($cpt_rewrite)) { if ($cpt_rewrite == 0 && $cpt_rewrite != '') { echo 'selected="selected"'; } } ?>><?php _e( 'False', 'cpt-plugin' ); ?></option>
 									<option value="1" <?php if (isset($cpt_rewrite)) { if ($cpt_rewrite == 1 || is_null($cpt_rewrite)) { echo 'selected="selected"'; } } else { echo 'selected="selected"'; } ?>><?php _e( 'True', 'cpt-plugin' ); ?></option>
 								</select> <?php _e( '(default: True)', 'cpt-plugin' ); ?>
@@ -1308,7 +1321,7 @@ function cpt_add_new() {
 
 							<tr valign="top">
 							<th scope="row"><?php _e('Custom Rewrite Slug', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Custom slug to use instead of the default.' ,'cpt-plugin' ); ?>" class="help">?</a></th>
-							<td><input type="text" name="cpt_custom_post_type[rewrite_slug]" tabindex="9" value="<?php if (isset($cpt_rewrite_slug)) { echo esc_attr($cpt_rewrite_slug); } ?>" /> <?php _e( '(default: post type name)', 'cpt-plugin' ); ?></td>
+							<td><input type="text" name="cpt_custom_post_type[rewrite_slug]" tabindex="10" value="<?php if (isset($cpt_rewrite_slug)) { echo esc_attr($cpt_rewrite_slug); } ?>" /> <?php _e( '(default: post type name)', 'cpt-plugin' ); ?></td>
 							</tr>
 
 							<tr valign="top">
