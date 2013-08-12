@@ -1127,7 +1127,7 @@ function cpt_add_new() {
 						<table class="form-table">
 							<tr valign="top">
 								<th scope="row"><?php _e('Post Type Name', 'cpt-plugin') ?> <span class="required">*</span> <a href="#" title="<?php esc_attr_e( 'The post type name.  Used to retrieve custom post type content.  Should be short and sweet', 'cpt-plugin'); ?>" class="help">?</a></th>
-								<td><input type="text" name="cpt_custom_post_type[name]" tabindex="1" value="<?php if (isset($cpt_post_type_name)) { echo esc_attr($cpt_post_type_name); } ?>" maxlength="20" onblur="this.value=this.value.toLowerCase()" /> <?php _e( '(e.g. movies)', 'cpt-plugin' ); ?>
+								<td><input type="text" name="cpt_custom_post_type[name]" tabindex="1" value="<?php if (isset($cpt_post_type_name)) { echo esc_attr($cpt_post_type_name); } ?>" maxlength="20" onblur="this.value=this.value.toLowerCase()" /> <?php _e( '(e.g. movie)', 'cpt-plugin' ); ?>
 								<br />
 								<p><strong><?php _e( 'Max 20 characters, can not contain capital letters or spaces. Reserved post types: post, page, attachment, revision, nav_menu_item.', 'cpt-plugin' ); ?></strong></p>
 								</td>
