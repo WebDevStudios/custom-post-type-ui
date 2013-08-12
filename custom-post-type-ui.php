@@ -170,6 +170,7 @@ function cpt_create_custom_taxonomies() {
             $cpt_label              = ( !empty( $cpt_tax_type["label"] ) ) ? esc_html( $cpt_tax_type["label"] ) : esc_html( $cpt_tax_type["name"] );
             $cpt_singular_label     = ( !empty( $cpt_tax_type["singular_label"] ) ) ? esc_html( $cpt_tax_type["singular_label"] ) : esc_html( $cpt_tax_type["name"] );
             $cpt_rewrite_slug       = ( !empty( $cpt_tax_type["rewrite_slug"] ) ) ? esc_html( $cpt_tax_type["rewrite_slug"] ) : esc_html( $cpt_tax_type["name"] );
+            $cpt_tax_show_admin_column = ( !empty( $cpt_tax_type["show_admin_column"] ) ) ? esc_html( $cpt_tax_type["show_admin_column"] ) : false;
             $cpt_post_types         = ( !empty( $cpt_tax_type[1] ) ) ? $cpt_tax_type[1] : $cpt_tax_type["cpt_name"];
 
 			//set custom label values
@@ -845,7 +846,7 @@ if (isset($_GET['cpt_msg']) && $_GET['cpt_msg']=='del') { ?>
 <?php screen_icon( 'plugins' ); ?>
 <h2><?php _e('Manage Custom Taxonomies', 'cpt-plugin') ?></h2>
 <p><?php _e('Deleting custom taxonomies does <strong>NOT</strong> delete any content added to those taxonomies.  You can easily recreate your taxonomies and the content will still exist.', 'cpt-plugin') ?></p>
-<?php
+	<?php
 	$cpt_tax_types = get_option( 'cpt_custom_tax_types', array() );
 
 	if (is_array($cpt_tax_types)) {
@@ -915,11 +916,9 @@ if (isset($_GET['cpt_msg']) && $_GET['cpt_msg']=='del') { ?>
 					<div style="display:none;" id="slidepanel<?php echo $thecounter; ?>">
 						<?php
 						//display register_taxonomy code
-						$cpt_tax_types = get_option('cpt_custom_tax_types');
-
 						$custom_tax = '';
-						$custom_tax = "add_action('init', 'cptui_register_my_taxes');\n";
-						$custom_tax .= "function cptui_register_my_taxes() {\n";
+						$custom_tax = "add_action('init', 'cptui_register_my_taxes_" . $cpt_tax_type['name'] . "');\n";
+						$custom_tax .= "function cptui_register_my_taxes_" . $cpt_tax_type['name'] . "() {\n";
 
 						//check if option value is an Array before proceeding
 						if ( is_array( $cpt_tax_types ) ) {
@@ -962,6 +961,11 @@ if (isset($_GET['cpt_msg']) && $_GET['cpt_msg']=='del') { ?>
 								$custom_tax .= "'show_ui' => " . disp_boolean( $cpt_tax_type["show_ui"] ) . ",\n";
 								$custom_tax .= "'query_var' => " . disp_boolean( $cpt_tax_type["query_var"] ) . ",\n";
 								$custom_tax .= "'rewrite' => array( 'slug' => '" . $cpt_tax_type["rewrite_slug"] . "' ),\n";
+
+								if ( WP_VERSION > '3.5' ) {
+									$custom_tax .= "'show_admin_column' => " . disp_boolean( $cpt_tax_type["rewrite_slug"] ) . ",\n";
+								}
+
 
 								if ( !empty( $labels ) )
 									$custom_tax .= "'labels' => " . $labels . "\n";
@@ -1041,7 +1045,7 @@ function cpt_add_new() {
 		//load custom posts saved in WP
 		$cpt_options = get_option('cpt_custom_tax_types');
 
-		//load custom post type values to edit
+		//load custom taxonomy values to edit
 		$cpt_tax_name = $cpt_options[$editTax]["name"];
 		$cpt_tax_label = stripslashes( $cpt_options[$editTax]["label"] );
 		$cpt_singular_label_tax = stripslashes( $cpt_options[$editTax]["singular_label"] );
@@ -1051,6 +1055,7 @@ function cpt_add_new() {
 		$cpt_tax_query_var = $cpt_options[$editTax]["query_var"];
 		$cpt_tax_rewrite = $cpt_options[$editTax]["rewrite"];
 		$cpt_tax_rewrite_slug = $cpt_options[$editTax]["rewrite_slug"];
+		$cpt_tax_show_admin_column = $cpt_options[$editTax]["show_admin_column"];
 		$cpt_tax_labels = stripslashes_deep( $cpt_options[$editTax][0] );
 		$cpt_post_types = $cpt_options[$editTax][1];
 
@@ -1609,6 +1614,23 @@ function cpt_add_new() {
 							<th scope="row"><?php _e('Custom Rewrite Slug', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Custom Taxonomy Rewrite Slug', 'cpt-plugin' ); ?>" class="help">?</a></th>
 							<td><input type="text" name="cpt_custom_tax[rewrite_slug]" tabindex="9" value="<?php if (isset($cpt_tax_rewrite_slug)) { echo esc_attr($cpt_tax_rewrite_slug); } ?>" /> <?php _e( '(default: taxonomy name)', 'cpt-plugin' ); ?></td>
 							</tr>
+
+							<?php if ( WP_VERSION > '3.5' ) { ?>
+							<tr valign="top">
+							<th scope="row"><?php _e('Show Admin Column', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Whether to allow automatic creation of taxonomy columns on associated post-types.', 'cpt-plugin' ); ?>" class="help">?</a></th>
+							<td>
+								<select name="cpt_custom_tax[show_admin_column]" tabindex="28">
+									<?php if ( !isset( $cpt_tax_show_admin_column ) || $cpt_tax_show_admin_column == 0 ) { ?>
+										<option value="0" selected="selected"><?php _e( 'False', 'cpt-plugin' ); ?></option>
+										<option value="1"><?php _e( 'True', 'cpt-plugin' ); ?></option>
+									<?php } else { ?>
+										<option value="0"><?php _e( 'False', 'cpt-plugin' ); ?></option>
+										<option value="1" selected="selected"><?php _e( 'True', 'cpt-plugin' ); ?></option>
+									<?php } ?>
+								</select> <?php _e( '(default: False)', 'cpt-plugin' ); ?>
+							</td>
+							</tr>
+							<?php } ?>
 
 						</table>
 						</div>
