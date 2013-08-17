@@ -94,7 +94,6 @@ function cpt_create_custom_post_types() {
             $cpt_singular           = ( !empty( $cpt_post_type["singular_label"] ) ) ? esc_html( $cpt_post_type["singular_label"] ) : esc_html( $cpt_label );
             $cpt_rewrite_slug       = ( !empty( $cpt_post_type["rewrite_slug"] ) ) ? esc_html( $cpt_post_type["rewrite_slug"] ) : esc_html( $cpt_post_type["name"] );
             $cpt_rewrite_withfront  = ( isset( $cpt_post_type["rewrite_withfront"] ) && !empty( $cpt_post_type["rewrite_withfront"] ) ) ? esc_html( $cpt_post_type["rewrite_withfront"] ) : true;
-            $cpt_map_meta_cap		= ( !empty( $cpt_post_type["map_meta_cap"] ) ) ? esc_html( $cpt_post_type["map_meta_cap"] ) : false;
             $cpt_menu_position      = ( !empty( $cpt_post_type["menu_position"] ) ) ? intval( $cpt_post_type["menu_position"] ) : null; //must be null
             $cpt_menu_icon          = ( !empty( $cpt_post_type["menu_icon"] ) ) ? esc_url( $cpt_post_type["menu_icon"] ) : null; //must be null
             $cpt_taxonomies         = ( !empty( $cpt_post_type[1] ) ) ? $cpt_post_type[1] : array();
@@ -140,8 +139,8 @@ function cpt_create_custom_post_types() {
 				'show_ui' => get_disp_boolean($cpt_post_type["show_ui"]),
 				'has_archive' => $cpt_has_archive,
 				'show_in_menu' => $cpt_show_in_menu,
-				'capability_type' => $cpt_map_meta_cap,
-				'map_meta_cap' => get_disp_boolean($cpt_post_type["map_meta_cap"]),
+				'capability_type' => $cpt_post_type["capability_type"],
+				'map_meta_cap' => true,
 				'hierarchical' => get_disp_boolean($cpt_post_type["hierarchical"]),
 				'exclude_from_search' => $cpt_exclude_from_search,
 				'rewrite' => array( 'slug' => $cpt_rewrite_slug, 'with_front' => $cpt_rewrite_withfront ),
@@ -698,7 +697,7 @@ if ( isset($_GET['cpt_msg'] ) && $_GET['cpt_msg'] == 'del' ) { ?>
 						$custom_post_type .= "'show_ui' => " . disp_boolean( $cpt_post_type["show_ui"]) . ",\n";
 						$custom_post_type .= "'show_in_menu' => " . disp_boolean( $cpt_show_in_menu) . ",\n";
 						$custom_post_type .= "'capability_type' => '" . $cpt_post_type["capability_type"] . "',\n";
-						$custom_post_type .= "'map_meta_cap' => " . disp_boolean( $cpt_post_type["map_meta_cap"] ) . ",\n";
+						$custom_post_type .= "'map_meta_cap' => " . disp_boolean( '1' ) . ",\n";
 						$custom_post_type .= "'hierarchical' => " . disp_boolean( $cpt_post_type["hierarchical"] ) . ",\n";
 
 						if ( !empty( $cpt_post_type["rewrite_slug"] ) ) {
@@ -1014,7 +1013,7 @@ function cpt_add_new() {
         $cpt_public             = ( isset( $cpt_options[ $editType ]["public"] ) ) ? $cpt_options[ $editType ]["public"] : null;
         $cpt_showui             = ( isset( $cpt_options[ $editType ]["show_ui"] ) ) ? $cpt_options[ $editType ]["show_ui"] : null;
         $cpt_capability         = ( isset( $cpt_options[ $editType ]["capability_type"] ) ) ? $cpt_options[ $editType ]["capability_type"] : null;
-        $cpt_map_meta_cap       = ( isset( $cpt_options[ $editType ]["map_meta_cap"] ) ) ? $cpt_options[ $editType ]["map_meta_cap"] : null;
+        $cpt_map_meta_cap       = true;
         $cpt_hierarchical       = ( isset( $cpt_options[ $editType ]["hierarchical"] ) ) ? $cpt_options[ $editType ]["hierarchical"] : null;
         $cpt_rewrite            = ( isset( $cpt_options[ $editType ]["rewrite"] ) ) ? $cpt_options[ $editType ]["rewrite"] : null;
         $cpt_rewrite_slug       = ( isset( $cpt_options[ $editType ]["rewrite_slug"] ) ) ? $cpt_options[ $editType ]["rewrite_slug"] : null;
@@ -1295,16 +1294,6 @@ function cpt_add_new() {
 							<tr valign="top">
 							<th scope="row"><?php _e('Capability Type', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'The post type to use for checking read, edit, and delete capabilities', 'cpt-plugin' ); ?>" class="help">?</a></th>
 							<td><input type="text" name="cpt_custom_post_type[capability_type]" tabindex="6" value="<?php if ( isset( $cpt_capability ) ) { echo esc_attr( $cpt_capability ); } else { echo 'post'; } ?>" /></td>
-							</tr>
-
-							<tr valign="top">
-							<th scope="row"><?php _e('Map Meta Cap', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Whether to use the internal default meta capability handling', 'cpt-plugin' ); ?>" class="help">?</a></th>
-							<td>
-								<select name="cpt_custom_post_type[map_meta_cap]" tabindex="7">
-									<option value="0" <?php if (isset($cpt_map_meta_cap)) { if ($cpt_map_meta_cap == 0) { echo 'selected="selected"'; } } else { echo 'selected="selected"'; } ?>><?php _e( 'False', 'cpt-plugin' ); ?></option>
-									<option value="1" <?php if (isset($cpt_map_meta_cap)) { if ($cpt_map_meta_cap == 1) { echo 'selected="selected"'; } } ?>><?php _e( 'True', 'cpt-plugin' ); ?></option>
-								</select> <?php _e( '(default: False)', 'cpt-plugin' ); ?>
-							</td>
 							</tr>
 
 							<tr valign="top">
