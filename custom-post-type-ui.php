@@ -100,7 +100,7 @@ function cpt_create_custom_post_types() {
             $cpt_supports           = ( !empty( $cpt_post_type[0] ) ) ? $cpt_post_type[0] : array();
 
             //Show UI must be true
-            if ( 'true' == get_disp_boolean( $cpt_post_type["show_ui"] ) ) {
+            if ( true == get_disp_boolean( $cpt_post_type["show_ui"] ) ) {
             	//If the string is empty, we will need boolean, else use the string.
             	if ( empty( $cpt_post_type['show_in_menu_string'] ) ) {
             		$cpt_show_in_menu = ( $cpt_post_type["show_in_menu"] == 1 ) ? true : false;
@@ -108,7 +108,7 @@ function cpt_create_custom_post_types() {
             		$cpt_show_in_menu = $cpt_post_type['show_in_menu_string'];
             	}
             } else {
-            	$cpt_show_in_menu = 0;
+            	$cpt_show_in_menu = false;
             }
 
 			//set custom label values
