@@ -965,7 +965,7 @@ if (isset($_GET['cpt_msg']) && $_GET['cpt_msg']=='del') { ?>
 						}
 
 
-						if ( CPTUI_WP_VERSION > '3.5' ) {
+						if ( version_compare( CPTUI_WP_VERSION, '3.5', '>' ) ) {
 							$custom_tax .= "\t'show_admin_column' => " . disp_boolean( $cpt_tax_type["show_admin_column"] ) . ",\n";
 						}
 
@@ -1606,7 +1606,7 @@ function cpt_add_new() {
 							<td><input type="text" name="cpt_custom_tax[rewrite_slug]" tabindex="9" value="<?php if (isset($cpt_tax_rewrite_slug)) { echo esc_attr($cpt_tax_rewrite_slug); } ?>" /> <?php _e( '(default: taxonomy name)', 'cpt-plugin' ); ?></td>
 							</tr>
 
-							<?php if ( CPTUI_WP_VERSION > '3.5' ) { ?>
+							<?php if ( version_compare( CPTUI_WP_VERSION, '3.5', '>' ) ) { ?>
 							<tr valign="top">
 							<th scope="row"><?php _e('Show Admin Column', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Whether to allow automatic creation of taxonomy columns on associated post-types.', 'cpt-plugin' ); ?>" class="help">?</a></th>
 							<td>
