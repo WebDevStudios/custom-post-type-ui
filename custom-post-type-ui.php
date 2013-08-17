@@ -73,12 +73,12 @@ function cpt_wp_add_styles() {
 
 		<script type="text/javascript" >
 			jQuery(document).ready(function($) {
-				$(".comment_button").on('click', function() {
+				$(".comment_button").on('click', function(e) {
 					var element = $(this), I = element.attr("id");
 					$("#slidepanel"+I).slideToggle(300);
 					$(this).toggleClass("active");
 
-					return false;
+					e.preventDefault();
 				});
 			});
 		</script>
@@ -136,7 +136,8 @@ function cpt_create_custom_post_types() {
             $cpt_labels['not_found_in_trash']   = ( !empty( $cpt_post_type[2]["not_found_in_trash"] ) ) ? $cpt_post_type[2]["not_found_in_trash"] : 'No ' .$cpt_label. ' Found in Trash';
             $cpt_labels['parent']               = ( $cpt_post_type[2]["parent"] ) ? $cpt_post_type[2]["parent"] : 'Parent ' .$cpt_singular;
 
-			register_post_type( $cpt_post_type["name"], array(	'label' => __($cpt_label),
+            $cpt_pre_register_post_type_args = array(
+				'label' => $cpt_label,
 				'public' => get_disp_boolean($cpt_post_type["public"]),
 				'singular_label' => $cpt_post_type["singular_label"],
 				'show_ui' => get_disp_boolean($cpt_post_type["show_ui"]),
@@ -154,7 +155,14 @@ function cpt_create_custom_post_types() {
 				'supports' => $cpt_supports,
 				'taxonomies' => $cpt_taxonomies,
 				'labels' => $cpt_labels
-			) );
+			);
+
+            //pass all of our arguments as well as the future post type name through a filter.
+            $cpt_register_post_type_args = apply_filters( 'cptui_register_post_type_args', $cpt_pre_register_post_type_args, $cpt_post_type["name"] );
+            /*if ( !is_array( $cpt_register_post_type_args ) )
+            	wp_die( 'Please return an array to the \'cptui_register_post_type_args\' filter.' );*/
+			//finally register the post type.
+			register_post_type( $cpt_post_type["name"], $cpt_register_post_type_args );
 		}
 	}
 }
@@ -191,10 +199,8 @@ function cpt_create_custom_taxonomies() {
             $cpt_labels['add_or_remove_items']          = ( $cpt_tax_type[0]["add_or_remove_items"] ) ? $cpt_tax_type[0]["add_or_remove_items"] : 'Add or remove ' .$cpt_label;
             $cpt_labels['choose_from_most_used']        = ( $cpt_tax_type[0]["choose_from_most_used"] ) ? $cpt_tax_type[0]["choose_from_most_used"] : 'Choose from the most used ' .$cpt_label;
 
-			//register our custom taxonomies
-			register_taxonomy( $cpt_tax_type["name"],
-				$cpt_post_types,
-				array( 'hierarchical' => get_disp_boolean($cpt_tax_type["hierarchical"]),
+            $cpt_pre_register_taxonomy_args = array(
+				'hierarchical' => get_disp_boolean($cpt_tax_type["hierarchical"]),
 				'label' => $cpt_label,
 				'show_ui' => get_disp_boolean($cpt_tax_type["show_ui"]),
 				'query_var' => get_disp_boolean($cpt_tax_type["query_var"]),
@@ -202,8 +208,14 @@ function cpt_create_custom_taxonomies() {
 				'singular_label' => $cpt_singular_label,
 				'labels' => $cpt_labels,
 				'show_admin_column' => $cpt_tax_show_admin_column
-			) );
+			);
 
+			//pass all of our arguments as well as the future taxonomy name and assigned post types through a filter.
+            $cpt_register_taxonomy_args = apply_filters( 'cptui_register_taxonomy_args', $cpt_pre_register_taxonomy_args, $cpt_tax_type["name"], $cpt_post_types );
+            /*if ( !is_array( $cpt_register_taxonomy_args ) )
+            	wp_die( 'Please return an array to the \'cptui_register_taxonomy_args\' filter.' );*/
+			//register our custom taxonomies
+			register_taxonomy( $cpt_tax_type["name"], $cpt_post_types, $cpt_register_taxonomy_args );
 		}
 	}
 }
@@ -480,8 +492,10 @@ function cpt_settings() {
 ?>
 	<div class="wrap">
 		<?php screen_icon( 'plugins' ); ?>
+		<?php do_action( 'cptui_main_page_start' ); ?>
 		<h2><?php _e( 'Custom Post Type UI', 'cpt-plugin' ); ?> <?php _e( 'version', 'cpt-plugin' ); ?>: <?php echo CPT_VERSION; ?></h2>
 
+		<?php do_action( 'cptui_main_page_before_faq' ); ?>
 		<h2><?php _e( 'Frequently Asked Questions', 'cpt-plugin' ); ?></h2>
 		<p><?php _e( 'Please note that this plugin will NOT handle display of registered post types or taxonomies in your current theme. It will simply register them for you.', 'cpt-plugin' ); ?>
 		<p><?php _e( 'Q: <strong>How can I display content from a custom post type on my website?</strong>', 'cpt-plugin' ); ?></p>
@@ -494,8 +508,11 @@ function cpt_settings() {
 		<p><?php _e( 'A: The More Fields plugin does a great job at creating custom meta boxes and fully supports custom post types: ', 'cpt-plugin' ); ?><a href="http://wordpress.org/extend/plugins/more-fields/" target="_blank">http://wordpress.org/extend/plugins/more-fields/</a>.  The <a href="https://github.com/jaredatch/Custom-Metaboxes-and-Fields-for-WordPress" target="_blank">Custom Metaboxes and Fields for WordPress</a> class is a great alternative to a plugin for more advanced users.</p>
 		<p><?php _e( 'Q: <strong>I changed my custom post type name and now I can\'t get to my posts</strong>', 'cpt-plugin' ); ?></p>
 		<p><?php _e( 'A: You can either change the custom post type name back to the original name or try the Post Type Switcher plugin: ', 'cpt-plugin' ); ?><a href="http://wordpress.org/extend/plugins/post-type-switcher/" target="_blank">http://wordpress.org/extend/plugins/post-type-switcher/</a></p>
+		<?php do_action( 'cptui_main_page_after_faq' ); ?>
+
 		<div class="cp-rss-widget">
 
+		<?php do_action( 'cptui_main_page_before_books' ); ?>
 		<table border="0">
 			<tr>
 			<td colspan="3"><h2><?php _e( 'Help Support This Plugin!', 'cpt-plugin' ); ?></h2></td>
@@ -520,6 +537,10 @@ function cpt_settings() {
 			<td valign="top" width="33%"><a href="http://amzn.to/plugindevbook" target="_blank"><img src="<?php echo plugins_url( '/images/professional-wordpress-plugin-development.png', __FILE__ ); ?>" width="200"></a><br /><?php _e( 'Highest rated WordPress development book on Amazon!', 'cpt-plugin' ); ?></td>
 			</tr>
 		</table>
+
+		<?php do_action( 'cptui_main_page_after_books' ); ?>
+
+		<?php do_action( 'cptui_main_page_before_rss' ); ?>
 		<h2><?php _e( 'WebDevStudios.com Recent News', 'cpt-plugin' ); ?></h2>
 		<?php
 
@@ -532,6 +553,8 @@ function cpt_settings() {
 			'show_date' => 1
 		) );
 		?>
+
+		<?php do_action( 'cptui_main_page_after_rss' ); ?>
 		</div>
 	</div>
 <?php
@@ -548,16 +571,25 @@ function cpt_manage_cpt() {
 ?>
 <div class="wrap">
 <?php
+do_action( 'cptui_manage_page_start' );
 //check for success/error messages
 if ( isset($_GET['cpt_msg'] ) && $_GET['cpt_msg'] == 'del' ) { ?>
 	<div id="message" class="updated">
-		<?php _e('Custom post type deleted successfully', 'cpt-plugin'); ?>
+		<?php
+			echo apply_filters( 'cptui_delete_message_success_text', __('Custom post type deleted successfully', 'cpt-plugin') );
+		?>
 	</div>
 	<?php
 }
 ?>
-<?php screen_icon( 'plugins' ); ?>
+<?php screen_icon( 'plugins' );
+
+do_action( 'cptui_manage_page_before_title' ); ?>
+
 <h2><?php _e('Manage Custom Post Types', 'cpt-plugin') ?></h2>
+
+<?php do_action( 'cptui_manage_page_after_title' ); ?>
+
 <p><?php _e('Deleting custom post types will <strong>NOT</strong> delete any content into the database or added to those post types.  You can easily recreate your post types and the content will still exist.', 'cpt-plugin') ?></p>
 <?php
 	$cpt_post_types = get_option( 'cpt_custom_post_types', array() );
@@ -596,7 +628,7 @@ if ( isset($_GET['cpt_msg'] ) && $_GET['cpt_msg'] == 'del' ) { ?>
 				</tr>
 			</tfoot>
 		<?php
-		$thecounter=0;
+		$thecounter = 0;
 		$cpt_names = array();
 		//Create urls for management
 		foreach ( $cpt_post_types as $cpt_post_type ) {
