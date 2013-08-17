@@ -739,8 +739,8 @@ if ( isset($_GET['cpt_msg'] ) && $_GET['cpt_msg'] == 'del' ) { ?>
 						$custom_post_type .= ") ); }";
 						echo '<p>';
 						_e( 'Place the below code in your themes functions.php file to manually create this custom post type.', 'cpt-plugin' ).'<br>';
-						_e('This is a <strong>BETA</strong> feature.  Please <a href="https://github.com/WebDevStudios/custom-post-type-ui">report bugs</a>.','cpt-plugin').'</p>';
-						echo '<textarea rows="5" cols="100">' .$custom_post_type .'</textarea>';
+						_e('This is a <strong>BETA</strong> feature. Please <a href="https://github.com/WebDevStudios/custom-post-type-ui">report bugs</a>.','cpt-plugin').'</p>';
+						echo '<textarea rows="10" cols="100">' .$custom_post_type .'</textarea>';
 
 						?>
 					</div>
@@ -973,8 +973,8 @@ if (isset($_GET['cpt_msg']) && $_GET['cpt_msg']=='del') { ?>
 
 						echo '<br>';
 						echo _e('Place the below code in your themes functions.php file to manually create this custom taxonomy','cpt-plugin').'<br>';
-						echo _e('This is a <strong>BETA</strong> feature.  Please <a href="http://webdevstudios.com/support/forum/custom-post-type-ui/">report bugs</a>.','cpt-plugin').'<br>';
-						echo '<textarea rows="5" cols="100">' .$custom_tax .'</textarea>';
+						echo _e('This is a <strong>BETA</strong> feature. Please <a href="http://webdevstudios.com/support/forum/custom-post-type-ui/">report bugs</a>.','cpt-plugin').'<br>';
+						echo '<textarea rows="10" cols="100">' .$custom_tax .'</textarea>';
 						?>
 					</div>
 				</td>
