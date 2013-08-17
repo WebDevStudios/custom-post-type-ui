@@ -14,7 +14,7 @@ License: GPLv2
 define( 'CPT_VERSION', '0.8.1' );
 
 // Define current WordPress version constant
-define( 'WP_VERSION', get_bloginfo( 'version' ) );
+define( 'CPTUI_WP_VERSION', get_bloginfo( 'version' ) );
 
 // Define plugin URL constant
 $CPT_URL = cpt_check_return( 'add' );
@@ -962,7 +962,7 @@ if (isset($_GET['cpt_msg']) && $_GET['cpt_msg']=='del') { ?>
 								$custom_tax .= "'query_var' => " . disp_boolean( $cpt_tax_type["query_var"] ) . ",\n";
 								$custom_tax .= "'rewrite' => array( 'slug' => '" . $cpt_tax_type["rewrite_slug"] . "' ),\n";
 
-								if ( WP_VERSION > '3.5' ) {
+								if ( CPTUI_WP_VERSION > '3.5' ) {
 									$custom_tax .= "'show_admin_column' => " . disp_boolean( $cpt_tax_type["rewrite_slug"] ) . ",\n";
 								}
 
@@ -1615,7 +1615,7 @@ function cpt_add_new() {
 							<td><input type="text" name="cpt_custom_tax[rewrite_slug]" tabindex="9" value="<?php if (isset($cpt_tax_rewrite_slug)) { echo esc_attr($cpt_tax_rewrite_slug); } ?>" /> <?php _e( '(default: taxonomy name)', 'cpt-plugin' ); ?></td>
 							</tr>
 
-							<?php if ( WP_VERSION > '3.5' ) { ?>
+							<?php if ( CPTUI_WP_VERSION > '3.5' ) { ?>
 							<tr valign="top">
 							<th scope="row"><?php _e('Show Admin Column', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Whether to allow automatic creation of taxonomy columns on associated post-types.', 'cpt-plugin' ); ?>" class="help">?</a></th>
 							<td>
