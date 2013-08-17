@@ -19,6 +19,7 @@ define( 'CPTUI_WP_VERSION', get_bloginfo( 'version' ) );
 // Define plugin URL constant
 $CPT_URL = cpt_check_return( 'add' );
 
+require_once( plugin_dir_path( __FILE__ ) . 'classes/class.cptui_admin_ui.php' );
 //load translated strings
 load_plugin_textdomain( 'cpt-plugin', false, 'custom-post-type-ui/languages' );
 
