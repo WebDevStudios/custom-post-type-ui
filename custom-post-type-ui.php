@@ -52,7 +52,7 @@ function cpt_deactivation() {
 
 function cpt_plugin_menu() {
 	//create custom post type menu
-	add_menu_page( __( 'Custom Post Types', 'cpt-plugin' ), __( 'CPT UI', 'cpt-plugin' ), 'manage_options', 'cpt_main_menu', 'cpt_settings' );
+	add_menu_page( __( 'Custom Post Types', 'cpt-plugin' ), __( 'CPT UI (dev)', 'cpt-plugin' ), 'manage_options', 'cpt_main_menu', 'cpt_settings' );
 
 	//create submenu items
 	add_submenu_page( 'cpt_main_menu', __( 'Add New', 'cpt-plugin' ), __( 'Add New', 'cpt-plugin' ), 'manage_options', 'cpt_sub_add_new', 'cpt_add_new' );
@@ -73,7 +73,7 @@ function cpt_wp_add_styles() {
 
 		<script type="text/javascript" >
 			jQuery(document).ready(function($) {
-				$(".comment_button").click(function() {
+				$(".comment_button").on('click', function() {
 					var element = $(this), I = element.attr("id");
 					$("#slidepanel"+I).slideToggle(300);
 					$(this).toggleClass("active");
