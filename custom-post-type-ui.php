@@ -775,6 +775,8 @@ do_action( 'cptui_manage_post_types_before_title' ); ?>
 						}
 
 						$custom_post_type .= ") ); }";
+
+						$custom_post_type = apply_filters( 'cptui_cpt_get_code_output', $custom_post_type, $cpt_post_type["name"] );
 						echo '<p>';
 						_e( 'Place the below code in your themes functions.php file to manually create this custom post type.', 'cpt-plugin' ).'<br>';
 						_e('This is a <strong>BETA</strong> feature.  Please <a href="https://github.com/WebDevStudios/custom-post-type-ui">report bugs</a>.','cpt-plugin').'</p>';
@@ -900,32 +902,34 @@ screen_icon( 'plugins' ); ?>
 	$cpt_tax_types = get_option( 'cpt_custom_tax_types', array() );
 
 	if (is_array($cpt_tax_types)) {
+
+		$cptui_header_footers_tax = array(
+			__( 'Action', 'cpt-plugin' ),
+			__( 'Name', 'cpt-plugin' ),
+			__( 'Label', 'cpt-plugin' ),
+			__( 'Singular Label', 'cpt-plugin' ),
+			__( 'Attached Post Types', 'cpt-plugin' ),
+			__( 'Hierarchical', 'cpt-plugin' ),
+			__( 'Show UI', 'cpt-plugin' ),
+			__( 'Rewrite', 'cpt-plugin' ),
+			__( 'Rewrite Slug', 'cpt-plugin' )
+		);
+
+		do_action( 'cptui_manage_taxonomies_before_taxonomies_table' );
 		?>
 		<table width="100%" class="widefat">
 			<thead>
 				<tr>
-				<th><?php _e('Action', 'cpt-plugin');?></th>
-				<th><?php _e('Name', 'cpt-plugin');?></th>
-				<th><?php _e('Label', 'cpt-plugin');?></th>
-				<th><?php _e('Singular Label', 'cpt-plugin');?></th>
-				<th><?php _e('Attached Post Types', 'cpt-plugin');?></th>
-				<th><?php _e('Hierarchical', 'cpt-plugin');?></th>
-				<th><?php _e('Show UI', 'cpt-plugin');?></th>
-				<th><?php _e('Rewrite', 'cpt-plugin');?></th>
-				<th><?php _e('Rewrite Slug', 'cpt-plugin');?></th>
+				<?php foreach( $cptui_header_footers_tax as $header_footer_tax ) {
+					echo '<th>' . $header_footer_tax . '</th>';
+				} ?>
 				</tr>
 			</thead>
 			<tfoot>
 				<tr>
-				<th><?php _e('Action', 'cpt-plugin');?></th>
-				<th><?php _e('Name', 'cpt-plugin');?></th>
-				<th><?php _e('Label', 'cpt-plugin');?></th>
-				<th><?php _e('Singular Label', 'cpt-plugin');?></th>
-				<th><?php _e('Attached Post Types', 'cpt-plugin');?></th>
-				<th><?php _e('Hierarchical', 'cpt-plugin');?></th>
-				<th><?php _e('Show UI', 'cpt-plugin');?></th>
-				<th><?php _e('Rewrite', 'cpt-plugin');?></th>
-				<th><?php _e('Rewrite Slug', 'cpt-plugin');?></th>
+				<?php foreach( $cptui_header_footers_tax as $header_footer_tax ) {
+					echo '<th>' . $header_footer_tax . '</th>';
+				} ?>
 				</tr>
 			</tfoot>
 		<?php
@@ -1021,6 +1025,7 @@ screen_icon( 'plugins' ); ?>
 							$custom_tax .= "\t'labels' => " . $labels . "\n";
 						$custom_tax .= ") ); \n}";
 
+						$custom_tax = apply_filters( 'cptui_taxonomy_get_code_output', $custom_tax, $cpt_tax_type["name"] );
 						echo '<br>';
 						echo _e('Place the below code in your themes functions.php file to manually create this custom taxonomy','cpt-plugin').'<br>';
 						echo _e('This is a <strong>BETA</strong> feature.  Please <a href="http://webdevstudios.com/support/forum/custom-post-type-ui/">report bugs</a>.','cpt-plugin').'<br>';
@@ -1035,6 +1040,7 @@ screen_icon( 'plugins' ); ?>
 		?></table>
 		</div>
 		<?php
+		do_action( 'cptui_manage_taxonomies_after_taxonomies_table' );
 		//load footer
 		cpt_footer();
 	}
@@ -1121,6 +1127,7 @@ function cpt_add_new() {
 	?>
 	<div class="wrap">
 		<?php
+		do_action( 'cptui_before_add_new_page' );
 		//check for success/error messages
 		if ( isset( $_GET['cpt_msg'] ) ) : ?>
 
@@ -1680,6 +1687,7 @@ function cpt_add_new() {
 				</td>
 			</tr>
 		</table>
+		<?php do_action( 'cptui_after_add_new_page' ); ?>
 	</div>
 <?php
 //load footer
