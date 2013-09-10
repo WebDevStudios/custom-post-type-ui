@@ -20,10 +20,10 @@ define( 'CPTUI_WP_VERSION', get_bloginfo( 'version' ) );
 $CPT_URL = cpt_check_return( 'add' );
 
 //load translated strings
-load_plugin_textdomain( 'cpt-plugin', false, 'custom-post-type-ui/languages' );
+add_action( 'init', 'cpt_load_textdomain' );
 
 // create custom plugin settings menu
-add_action('admin_menu', 'cpt_plugin_menu');
+add_action( 'admin_menu', 'cpt_plugin_menu' );
 
 //call delete post function
 add_action( 'admin_init', 'cpt_delete_post_type' );
@@ -45,6 +45,10 @@ register_deactivation_hook( __FILE__, 'cpt_deactivation' );
 function cpt_deactivation() {
 	// Clear the permalinks to remove our post type's rules
 	flush_rewrite_rules();
+}
+
+function cpt_load_textdomain() {
+	load_plugin_textdomain( 'cpt-plugin', false, basename( dirname( __FILE__ ) ) . '/languages' );
 }
 
 function cpt_plugin_menu() {
