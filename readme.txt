@@ -142,6 +142,9 @@ All official development on this plugin is on GitHub. Version bumps will still b
 
 == Upgrade Notice ==
 
+= 0.8.1 =
+* Many bug fixes and admittedly some features. Fixes the Get Code functionality primarily.
+
 = 0.7.2 =
 * Added exclude_from_search support
 * Fixed display bug with capability type
