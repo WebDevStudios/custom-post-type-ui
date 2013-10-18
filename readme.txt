@@ -36,6 +36,7 @@ All official development on this plugin is on GitHub. Version bumps will still b
 * Fixes "get code" function callback name conflict.
 * Added support for show_admin_column for WordPress 3.5+
 * Added support for map_meta_cap field in custom post types.
+* Prevent quotes in slug fields for Custom Post Types or Taxonomies.
 
 = 0.8 =
 * Added "with_front" support
