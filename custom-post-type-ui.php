@@ -1693,15 +1693,18 @@ function cpt_check_return( $return ) {
 }
 
 function get_disp_boolean($booText) {
-	if ( empty( $booText ) || $booText == '0') {
+	$booText = (string) $booText;
+	if ( empty( $booText ) || $booText == '0' || $booText == 'false' ) {
 		return false;
 	}
 
 	return true;
 }
 
+//Return string versions of boolean values. Used in get_code
 function disp_boolean($booText) {
-	if ( empty( $booText ) || $booText == '0' ) {
+	$booText = (string) $booText;
+	if ( empty( $booText ) || $booText == '0' || $booText == 'false' ) {
 		return 'false';
 	}
 
