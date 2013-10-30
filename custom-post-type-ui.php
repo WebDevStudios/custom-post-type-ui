@@ -97,14 +97,14 @@ function cpt_create_custom_post_types() {
 	if ( is_array( $cpt_post_types ) ) {
 		foreach ($cpt_post_types as $cpt_post_type) {
 			//set post type values
-            $cpt_label              = ( !empty( $cpt_post_type["label"] ) ) ? esc_html( $cpt_post_type["label"] ) : esc_html( $cpt_post_type["name"] ) ;
-            $cpt_singular           = ( !empty( $cpt_post_type["singular_label"] ) ) ? esc_html( $cpt_post_type["singular_label"] ) : esc_html( $cpt_label );
-            $cpt_rewrite_slug       = ( !empty( $cpt_post_type["rewrite_slug"] ) ) ? esc_html( $cpt_post_type["rewrite_slug"] ) : esc_html( $cpt_post_type["name"] );
-            $cpt_rewrite_withfront  = ( !empty( $cpt_post_type["rewrite_withfront"] ) ) ? true : get_disp_boolean( $cpt_post_type["rewrite_withfront"] ); //reversed because false is empty
-            $cpt_menu_position      = ( !empty( $cpt_post_type["menu_position"] ) ) ? intval( $cpt_post_type["menu_position"] ) : null; //must be null
-            $cpt_menu_icon          = ( !empty( $cpt_post_type["menu_icon"] ) ) ? esc_url( $cpt_post_type["menu_icon"] ) : null; //must be null
-            $cpt_taxonomies         = ( !empty( $cpt_post_type[1] ) ) ? $cpt_post_type[1] : array();
-            $cpt_supports           = ( !empty( $cpt_post_type[0] ) ) ? $cpt_post_type[0] : array();
+			$cpt_label              = ( !empty( $cpt_post_type["label"] ) ) ? esc_html( $cpt_post_type["label"] ) : esc_html( $cpt_post_type["name"] ) ;
+			$cpt_singular           = ( !empty( $cpt_post_type["singular_label"] ) ) ? esc_html( $cpt_post_type["singular_label"] ) : esc_html( $cpt_label );
+			$cpt_rewrite_slug       = ( !empty( $cpt_post_type["rewrite_slug"] ) ) ? esc_html( $cpt_post_type["rewrite_slug"] ) : esc_html( $cpt_post_type["name"] );
+			$cpt_rewrite_withfront  = ( !empty( $cpt_post_type["rewrite_withfront"] ) ) ? true : get_disp_boolean( $cpt_post_type["rewrite_withfront"] ); //reversed because false is empty
+			$cpt_menu_position      = ( !empty( $cpt_post_type["menu_position"] ) ) ? intval( $cpt_post_type["menu_position"] ) : null; //must be null
+			$cpt_menu_icon          = ( !empty( $cpt_post_type["menu_icon"] ) ) ? esc_url( $cpt_post_type["menu_icon"] ) : null; //must be null
+			$cpt_taxonomies         = ( !empty( $cpt_post_type[1] ) ) ? $cpt_post_type[1] : array();
+			$cpt_supports           = ( !empty( $cpt_post_type[0] ) ) ? $cpt_post_type[0] : array();
 
 			//Show UI must be true
 			if ( true == get_disp_boolean( $cpt_post_type["show_ui"] ) ) {
@@ -140,7 +140,7 @@ function cpt_create_custom_post_types() {
 			$cpt_labels['not_found_in_trash']   = ( !empty( $cpt_post_type[2]["not_found_in_trash"] ) ) ? $cpt_post_type[2]["not_found_in_trash"] : 'No ' .$cpt_label. ' Found in Trash';
 			$cpt_labels['parent']               = ( $cpt_post_type[2]["parent"] ) ? $cpt_post_type[2]["parent"] : 'Parent ' .$cpt_singular;
 
-            $cpt_pre_register_post_type_args = array(
+			$cpt_pre_register_post_type_args = array(
 				'label' => $cpt_label,
 				'public' => get_disp_boolean($cpt_post_type["public"]),
 				'singular_label' => $cpt_post_type["singular_label"],
@@ -161,10 +161,10 @@ function cpt_create_custom_post_types() {
 				'labels' => $cpt_labels
 			);
 
-            //pass all of our arguments as well as the future post type name through a filter.
-            $cpt_register_post_type_args = apply_filters( 'cptui_register_post_type_args', $cpt_pre_register_post_type_args, $cpt_post_type["name"] );
-            /*if ( !is_array( $cpt_register_post_type_args ) )
-            	wp_die( 'Please return an array to the \'cptui_register_post_type_args\' filter.' );*/
+			//pass all of our arguments as well as the future post type name through a filter.
+			$cpt_register_post_type_args = apply_filters( 'cptui_register_post_type_args', $cpt_pre_register_post_type_args, $cpt_post_type["name"] );
+			/*if ( !is_array( $cpt_register_post_type_args ) )
+				wp_die( 'Please return an array to the \'cptui_register_post_type_args\' filter.' );*/
 			//finally register the post type.
 			register_post_type( $cpt_post_type["name"], $cpt_register_post_type_args );
 		}
@@ -203,7 +203,7 @@ function cpt_create_custom_taxonomies() {
 			$cpt_labels['add_or_remove_items']          = ( $cpt_tax_type[0]["add_or_remove_items"] ) ? $cpt_tax_type[0]["add_or_remove_items"] : 'Add or remove ' .$cpt_label;
 			$cpt_labels['choose_from_most_used']        = ( $cpt_tax_type[0]["choose_from_most_used"] ) ? $cpt_tax_type[0]["choose_from_most_used"] : 'Choose from the most used ' .$cpt_label;
 
-            $cpt_pre_register_taxonomy_args = array(
+			$cpt_pre_register_taxonomy_args = array(
 				'hierarchical' => get_disp_boolean($cpt_tax_type["hierarchical"]),
 				'label' => $cpt_label,
 				'show_ui' => get_disp_boolean($cpt_tax_type["show_ui"]),
@@ -215,9 +215,9 @@ function cpt_create_custom_taxonomies() {
 			);
 
 			//pass all of our arguments as well as the future taxonomy name and assigned post types through a filter.
-            $cpt_register_taxonomy_args = apply_filters( 'cptui_register_taxonomy_args', $cpt_pre_register_taxonomy_args, $cpt_tax_type["name"], $cpt_post_types );
-            /*if ( !is_array( $cpt_register_taxonomy_args ) )
-            	wp_die( 'Please return an array to the \'cptui_register_taxonomy_args\' filter.' );*/
+			$cpt_register_taxonomy_args = apply_filters( 'cptui_register_taxonomy_args', $cpt_pre_register_taxonomy_args, $cpt_tax_type["name"], $cpt_post_types );
+			/*if ( !is_array( $cpt_register_taxonomy_args ) )
+				wp_die( 'Please return an array to the \'cptui_register_taxonomy_args\' filter.' );*/
 			//register our custom taxonomies
 			register_taxonomy( $cpt_tax_type["name"], $cpt_post_types, $cpt_register_taxonomy_args );
 		}
@@ -346,9 +346,9 @@ function cpt_register_settings() {
 			exit();
 		}
 		if ( false !== strpos( $cpt_form_fields["name"], '\'' ) ||
-		     false !== strpos( $cpt_form_fields["name"], '\"' ) ||
-		     false !== strpos( $cpt_form_fields["rewrite_slug"], '\'' ) ||
-		     false !== strpos( $cpt_form_fields["rewrite_slug"], '\"' ) ) {
+			 false !== strpos( $cpt_form_fields["name"], '\"' ) ||
+			 false !== strpos( $cpt_form_fields["rewrite_slug"], '\'' ) ||
+			 false !== strpos( $cpt_form_fields["rewrite_slug"], '\"' ) ) {
 			if ( isset( $_GET['return'] ) ) {
 				$RETURN_URL = cpt_check_return( esc_attr( $_GET['return'] ) );
 			} else {
@@ -468,9 +468,9 @@ function cpt_register_settings() {
 		}
 
 		if ( false !== strpos( $cpt_form_fields["name"], '\'' ) ||
-		     false !== strpos( $cpt_form_fields["name"], '\"' ) ||
-		     false !== strpos( $cpt_form_fields["rewrite_slug"], '\'' ) ||
-		     false !== strpos( $cpt_form_fields["rewrite_slug"], '\"' ) ) {
+			 false !== strpos( $cpt_form_fields["name"], '\"' ) ||
+			 false !== strpos( $cpt_form_fields["rewrite_slug"], '\'' ) ||
+			 false !== strpos( $cpt_form_fields["rewrite_slug"], '\"' ) ) {
 			if ( isset( $_GET['return'] ) ) {
 				$RETURN_URL = cpt_check_return( esc_attr( $_GET['return'] ) );
 			} else {
