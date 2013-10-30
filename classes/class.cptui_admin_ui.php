@@ -71,15 +71,28 @@ class cptui_admin_ui {
 	 * @param  array  $args values to use in the input
 	 * @return string       constructed input for the form.
 	 */
-	public function text_input( $args ) {
+	public function text_input( $args ) { //TODO: Finish output of other attributes
 		$defaults = array(
-
+			'namearray'     => '',
+            'name'          => '',
+            'tabindex'      => '',
+            'textvalue'     => '',
+            'maxlength'     => '',
+            'onblur'        => '',
+            'labeltext'     => '',
+            'aftertext'     => '',
+            'helptext'      => '',
+            'required'      => false
 		);
 		$args = wp_parse_args( $args, $defaults );
+		extract( $args );
 
-		$value = $this->tr_wrap_start('','');
+		$value = $this->tr_wrap_start( $name, $labeltext, $helptext, $required );
 
-		$value .= '<input type="text" name="" tabindex="" value="" /><br/>';
+		$value .= '<input type="text" name="' . $namearray . '[' . $name . ']" tabindex="' . $tabindex . '" value="' . $textvalue . '" /><br/>';
+
+		if ( !empty( $aftertext) )
+			$value .= $aftertext;
 
 		$value .= $this->tr_wrap_end();
 
