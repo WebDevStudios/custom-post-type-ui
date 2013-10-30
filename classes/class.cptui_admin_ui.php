@@ -3,7 +3,7 @@
 /**
 * Custom Post Type UI Admin UI
 */
-class ctpui_admin_ui {
+class cptui_admin_ui {
 
 	function __construct() {
 
