@@ -1226,6 +1226,21 @@ function cpt_add_new() {
 							<input type="hidden" name="cpt_edit" value="<?php echo esc_attr( $editType ); ?>" />
 						<?php } ?>
 						<table class="form-table">
+							<?php $ui = new cptui_admin_ui();
+								echo $ui->text_input( array(
+									'namearray'     => 'cpt_custom_post_type',
+									'name'          => 'name',
+									'tabindex'      => '1',
+									'textvalue'         => ( isset( $cpt_post_type_name ) ) ? esc_attr( $cpt_post_type_name ) : '',
+									'maxlength'     => '20',
+									'onblur'        => 'this.value=this.value.toLowerCase()',
+									'labeltext'     => __( 'Post Type Name', 'cpt-plugin' ),
+									'aftertext'     => __( '(e.g. movie)', 'cpt-plugin' ),
+									'helptext'      => esc_attr__( 'The post type name.  Used to retrieve custom post type content.  Should be short and sweet', 'cpt-plugin'),
+									'required'      => true
+									) );
+									// TODO: add in the special note regarding max length etc.
+							?>
 							<tr valign="top">
 								<th scope="row"><?php _e('Post Type Name', 'cpt-plugin') ?> <span class="required">*</span> <a href="#" title="<?php esc_attr_e( 'The post type name.  Used to retrieve custom post type content.  Should be short and sweet', 'cpt-plugin'); ?>" class="help">?</a></th>
 								<td><input type="text" name="cpt_custom_post_type[name]" tabindex="1" value="<?php if (isset($cpt_post_type_name)) { echo esc_attr($cpt_post_type_name); } ?>" maxlength="20" onblur="this.value=this.value.toLowerCase()" /> <?php _e( '(e.g. movie)', 'cpt-plugin' ); ?>
@@ -1264,79 +1279,127 @@ function cpt_add_new() {
 						<div style="display:none;" id="slidepanel1">
 						<p><?php _e('Below are the advanced label options for custom post types.  If you are unfamiliar with these labels, leave them blank and the plugin will automatically create labels based off of your custom post type name', 'cpt-plugin'); ?></p>
 						<table class="form-table">
+							<?php
+							echo $ui->text_input( array(
+								'namearray'     => 'cpt_labels',
+								'name'          => 'menu_name',
+								'tabindex'      => '2',
+								'textvalue'     => ( isset( $cpt_labels["menu_name"] ) ) ? esc_attr( $cpt_labels["menu_name"] ) : '',
+								'labeltext'     => __( 'Menu Name', 'cpt-plugin' ),
+								'aftertext'     => __( '(e.g. My Movies)', 'cpt-plugin' ),
+								'helptext'      => esc_attr__( 'Custom menu name for your custom post type.', 'cpt-plugin')
+								) );
 
-							<tr valign="top">
-							<th scope="row"><?php _e('Menu Name', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Custom menu name for your custom post type.', 'cpt-plugin' ); ?>" class="help">?</a></th>
-							<td><input type="text" name="cpt_labels[menu_name]" tabindex="2" value="<?php if (isset($cpt_labels["menu_name"])) { echo esc_attr($cpt_labels["menu_name"]); } ?>" /><br/>
-								<?php _e( '(e.g. My Movies)', 'cpt-plugin' ); ?></td>
-							</tr>
+							echo $ui->text_input( array(
+								'labeltext'     => __( 'Add New', 'cpt-plugin' ),
+								'helptext'      => esc_attr__( 'Post type label.  Used in the admin menu for displaying post types.', 'cpt-plugin' ),
+								'namearray'     => 'cpt_labels',
+								'name'          => 'add_new',
+								'tabindex'      => '2',
+								'textvalue'     => ( isset( $cpt_labels["add_new"] ) ) ? esc_attr( $cpt_labels["add_new"] ) : '',
+								'aftertext'     => __( '(e.g. Add New)', 'cpt-plugin' )
+								) );
 
-							<tr valign="top">
-							<th scope="row"><?php _e('Add New', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Post type label.  Used in the admin menu for displaying post types.', 'cpt-plugin' ); ?>" class="help">?</a></th>
-							<td><input type="text" name="cpt_labels[add_new]" tabindex="2" value="<?php if (isset($cpt_labels["add_new"])) { echo esc_attr($cpt_labels["add_new"]); } ?>" /><br/>
-								<?php _e( '(e.g. Add New)', 'cpt-plugin' ); ?></td>
-							</tr>
+							echo $ui->text_input( array(
+                                'labeltext'     => __( 'Add New Item', 'cpt-plugin' ),
+                                'helptext'      => esc_attr__( 'Post type label.  Used in the admin menu for displaying post types.', 'cpt-plugin' ),
+                                'namearray'     => 'cpt_labels',
+                                'name'          => 'add_new_item',
+                                'tabindex'      => '3',
+                                'textvalue'     => ( isset( $cpt_labels["add_new_item"] ) ) ? esc_attr( $cpt_labels["add_new_item"] ) : '',
+                                'aftertext'     => __( '(e.g. Add New Movie)', 'cpt-plugin' )
+								) );
 
-							<tr valign="top">
-							<th scope="row"><?php _e('Add New Item', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Post type label.  Used in the admin menu for displaying post types.', 'cpt-plugin' ); ?>" class="help">?</a></th>
-							<td><input type="text" name="cpt_labels[add_new_item]" tabindex="2" value="<?php if (isset($cpt_labels["add_new_item"])) { echo esc_attr($cpt_labels["add_new_item"]); } ?>" /><br/>
-								<?php _e( '(e.g. Add New Movie)', 'cpt-plugin' ); ?></td>
-							</tr>
+							echo $ui->text_input( array(
+                                'labeltext'     => __( 'Edit', 'cpt-plugin' ),
+                                'helptext'      => esc_attr__( 'Post type label.  Used in the admin menu for displaying post types.', 'cpt-plugin' ),
+                                'namearray'     => 'cpt_labels',
+                                'name'          => 'edit',
+                                'tabindex'      => '4',
+                                'textvalue'     => ( isset( $cpt_labels["edit"] ) ) ? esc_attr( $cpt_labels["edit"] ) : '',
+                                'aftertext'     => __( '(e.g. Edit)', 'cpt-plugin' )
+								) );
 
-							<tr valign="top">
-							<th scope="row"><?php _e('Edit', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Post type label.  Used in the admin menu for displaying post types.', 'cpt-plugin' ); ?>" class="help">?</a></th>
-							<td><input type="text" name="cpt_labels[edit]" tabindex="2" value="<?php if (isset($cpt_labels["edit"])) { echo esc_attr($cpt_labels["edit"]); } ?>" /><br/>
-								<?php _e( '(e.g. Edit)', 'cpt-plugin' ); ?></td>
-							</tr>
+							echo $ui->text_input( array(
+                                'labeltext'     => __( 'Edit Item', 'cpt-plugin' ),
+                                'helptext'      => esc_attr__( 'Post type label.  Used in the admin menu for displaying post types.', 'cpt-plugin' ),
+                                'namearray'     => 'cpt_labels',
+                                'name'          => 'edit_item',
+                                'tabindex'      => '5',
+                                'textvalue'     => ( isset( $cpt_labels["edit_item"] ) ) ? esc_attr( $cpt_labels["edit_item"] ) : '',
+                                'aftertext'     => __( '(e.g. Edit Movie)', 'cpt-plugin' )
+								) );
 
-							<tr valign="top">
-							<th scope="row"><?php _e('Edit Item', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Post type label.  Used in the admin menu for displaying post types.', 'cpt-plugin' ); ?>" class="help">?</a></th>
-							<td><input type="text" name="cpt_labels[edit_item]" tabindex="2" value="<?php if (isset($cpt_labels["edit_item"])) { echo esc_attr($cpt_labels["edit_item"]); } ?>" /><br/>
-								<?php _e( '(e.g. Edit Movie)', 'cpt-plugin' ); ?></td>
-							</tr>
+							echo $ui->text_input( array(
+                                'labeltext'     => __( 'New Item', 'cpt-plugin' ),
+                                'helptext'      => esc_attr__( 'Post type label.  Used in the admin menu for displaying post types.', 'cpt-plugin' ),
+                                'namearray'     => 'cpt_labels',
+                                'name'          => 'new_item',
+                                'tabindex'      => '6',
+                                'textvalue'     => ( isset( $cpt_labels["new_item"] ) ) ? esc_attr( $cpt_labels["new_item"] ) : '',
+                                'aftertext'     => __( '(e.g. New Movie)', 'cpt-plugin' )
+								) );
 
-							<tr valign="top">
-							<th scope="row"><?php _e('New Item', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Post type label.  Used in the admin menu for displaying post types.', 'cpt-plugin' ); ?>" class="help">?</a></th>
-							<td><input type="text" name="cpt_labels[new_item]" tabindex="2" value="<?php if (isset($cpt_labels["new_item"])) { echo esc_attr($cpt_labels["new_item"]); } ?>" /><br/>
-								<?php _e( '(e.g. New Movie)', 'cpt-plugin' ); ?></td>
-							</tr>
+							echo $ui->text_input( array(
+                                'labeltext'     => __( 'View', 'cpt-plugin' ),
+                                'helptext'      => esc_attr__( 'Post type label.  Used in the admin menu for displaying post types.', 'cpt-plugin' ),
+                                'namearray'     => 'cpt_labels',
+                                'name'          => 'view',
+                                'tabindex'      => '7',
+                                'textvalue'     => ( isset( $cpt_labels["view"] ) ) ? esc_attr( $cpt_labels["view"] ) : '',
+                                'aftertext'     => __( '(e.g. View Movie)', 'cpt-plugin' )
+								) );
 
-							<tr valign="top">
-							<th scope="row"><?php _e('View', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Post type label.  Used in the admin menu for displaying post types.', 'cpt-plugin' ); ?>" class="help">?</a></th>
-							<td><input type="text" name="cpt_labels[view]" tabindex="2" value="<?php if (isset($cpt_labels["view"])) { echo esc_attr($cpt_labels["view"]); } ?>" /><br/>
-								<?php _e( '(e.g. View Movie)', 'cpt-plugin' ); ?></td>
-							</tr>
+							echo $ui->text_input( array(
+                                'labeltext'     => __( 'View Item', 'cpt-plugin' ),
+                                'helptext'      => esc_attr__( 'Post type label.  Used in the admin menu for displaying post types.', 'cpt-plugin' ),
+                                'namearray'     => 'cpt_labels',
+                                'name'          => 'view_item',
+                                'tabindex'      => '8',
+                                'textvalue'     => ( isset( $cpt_labels["view_item"] ) ) ? esc_attr( $cpt_labels["view_item"] ) : '',
+                                'aftertext'     => __( '(e.g. View Movie)', 'cpt-plugin' )
+								) );
 
-							<tr valign="top">
-							<th scope="row"><?php _e('View Item', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Post type label.  Used in the admin menu for displaying post types.', 'cpt-plugin' ); ?>" class="help">?</a></th>
-							<td><input type="text" name="cpt_labels[view_item]" tabindex="2" value="<?php if (isset($cpt_labels["view_item"])) { echo esc_attr($cpt_labels["view_item"]); } ?>" /><br/>
-								<?php _e( '(e.g. View Movie)', 'cpt-plugin' ); ?></td>
-							</tr>
+							echo $ui->text_input( array(
+                                'labeltext'     => __( 'Search Item', 'cpt-plugin' ),
+                                'helptext'      => esc_attr__( 'Post type label.  Used in the admin menu for displaying post types.', 'cpt-plugin' ),
+                                'namearray'     => 'cpt_labels',
+                                'name'          => 'search_items',
+                                'tabindex'      => '9',
+                                'textvalue'     => ( isset( $cpt_labels["search_items"] ) ) ? esc_attr( $cpt_labels["search_items"] ) : '',
+                                'aftertext'     => __( '(e.g. Search Movie)', 'cpt-plugin' )
+								) );
 
-							<tr valign="top">
-							<th scope="row"><?php _e('Search Items', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Post type label.  Used in the admin menu for displaying post types.', 'cpt-plugin' ); ?>" class="help">?</a></th>
-							<td><input type="text" name="cpt_labels[search_items]" tabindex="2" value="<?php if (isset($cpt_labels["search_items"])) { echo esc_attr($cpt_labels["search_items"]); } ?>" /><br/>
-								<?php _e( '(e.g. Search Movies)', 'cpt-plugin' ); ?></td>
-							</tr>
+							echo $ui->text_input( array(
+                                'labeltext'     => __( 'Not Found', 'cpt-plugin' ),
+                                'helptext'      => esc_attr__( 'Post type label.  Used in the admin menu for displaying post types.', 'cpt-plugin' ),
+                                'namearray'     => 'cpt_labels',
+                                'name'          => 'not_found',
+                                'tabindex'      => '10',
+                                'textvalue'     => ( isset( $cpt_labels["not_found"] ) ) ? esc_attr( $cpt_labels["not_found"] ) : '',
+                                'aftertext'     => __( '(e.g. No Movies Found)', 'cpt-plugin' )
+								) );
 
-							<tr valign="top">
-							<th scope="row"><?php _e('Not Found', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Post type label.  Used in the admin menu for displaying post types.', 'cpt-plugin' ); ?>" class="help">?</a></th>
-							<td><input type="text" name="cpt_labels[not_found]" tabindex="2" value="<?php if (isset($cpt_labels["not_found"])) { echo esc_attr($cpt_labels["not_found"]); } ?>" /><br/>
-								<?php _e( '(e.g. No Movies Found)', 'cpt-plugin' ); ?></td>
-							</tr>
+							echo $ui->text_input( array(
+                                'labeltext'     => __( 'Not Found in Trash', 'cpt-plugin' ),
+                                'helptext'      => esc_attr__( 'Post type label.  Used in the admin menu for displaying post types.', 'cpt-plugin' ),
+                                'namearray'     => 'cpt_labels',
+                                'name'          => 'not_found_in_trash',
+                                'tabindex'      => '11',
+                                'textvalue'     => ( isset( $cpt_labels["not_found_in_trash"] ) ) ? esc_attr( $cpt_labels["not_found_in_trash"] ) : '',
+                                'aftertext'     => __( '(e.g. No Movies found in Trash)', 'cpt-plugin' )
+								) );
 
-							<tr valign="top">
-							<th scope="row"><?php _e('Not Found in Trash', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Post type label.  Used in the admin menu for displaying post types.', 'cpt-plugin' ); ?>" class="help">?</a></th>
-							<td><input type="text" name="cpt_labels[not_found_in_trash]" tabindex="2" value="<?php if (isset($cpt_labels["not_found_in_trash"])) { echo esc_attr($cpt_labels["not_found_in_trash"]); } ?>" /><br/>
-								<?php _e( '(e.g. No Movies found in Trash)', 'cpt-plugin' ); ?></td>
-							</tr>
-
-							<tr valign="top">
-							<th scope="row"><?php _e('Parent', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Post type label.  Used in the admin menu for displaying post types.', 'cpt-plugin' ); ?>" class="help">?</a></th>
-							<td><input type="text" name="cpt_labels[parent]" tabindex="2" value="<?php if (isset($cpt_labels["parent"])) { echo esc_attr($cpt_labels["parent"]); } ?>" /><br/>
-								<?php _e( '(e.g. Parent Movie)', 'cpt-plugin' ); ?></td>
-							</tr>
-
+							echo $ui->text_input( array(
+                                'labeltext'     => __( 'Paret', 'cpt-plugin' ),
+                                'helptext'      => esc_attr__( 'Post type label.  Used in the admin menu for displaying post types.', 'cpt-plugin' ),
+                                'namearray'     => 'cpt_labels',
+                                'name'          => 'parent',
+                                'tabindex'      => '11',
+                                'textvalue'     => ( isset( $cpt_labels["parent"] ) ) ? esc_attr( $cpt_labels["parent"] ) : '',
+                                'aftertext'     => __( '(e.g. Parent Movie)', 'cpt-plugin' )
+								) );
+							?>
 						</table>
 						</div>
 
