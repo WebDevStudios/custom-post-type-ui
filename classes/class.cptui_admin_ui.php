@@ -17,11 +17,19 @@ class cptui_admin_ui {
 	 * @param  string  $label_for  input name to associate with the wrapped input.
 	 * @param  string  $label_text label text to use with the input
 	 * @param  string  $title_text help text for the little question mark.
+	 * @param  bool    $required whether or not the input is required.
 	 *
 	 * @return string              completed opening wrapper
 	 */
-	public function tr_wrap_start( $label_for, $label_text, $title_text ) {
-		return '<tr valign="top"><th scope="row">' . $label_text . '<a href="#" title="' . $title_text . '" class="help">?</a></th><td>';
+	public function tr_wrap_start( $label_for, $label_text, $title_text, $required ) {
+		$input = '<tr valign="top"><th scope="row"><label for="' . $label_for . '"> ' . $label_text . '</label>';
+
+		if ( $required )
+			$input .= '<span class="required">*</span>';
+
+		$input .= '<a href="#" title="' . $title_text . '" class="help">?</a></th><td>';
+
+		return $input;
 	}
 
 	/**
