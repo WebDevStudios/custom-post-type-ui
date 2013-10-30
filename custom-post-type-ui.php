@@ -19,6 +19,9 @@ define( 'CPTUI_WP_VERSION', get_bloginfo( 'version' ) );
 // Define plugin URL constant
 $CPT_URL = cpt_check_return( 'add' );
 
+//include our Admin UI class to help make things fabulous, and streamlined.
+require_once( plugin_dir_path( __FILE__ ) . 'classes/class.cptui_admin_ui.php' );
+
 //load translated strings
 add_action( 'init', 'cpt_load_textdomain' );
 
@@ -53,7 +56,7 @@ function cpt_load_textdomain() {
 
 function cpt_plugin_menu() {
 	//create custom post type menu
-	add_menu_page( __( 'Custom Post Types', 'cpt-plugin' ), __( 'CPT UI', 'cpt-plugin' ), 'manage_options', 'cpt_main_menu', 'cpt_settings' );
+	add_menu_page( __( 'Custom Post Types', 'cpt-plugin' ), __( 'CPT UI (dev)', 'cpt-plugin' ), 'manage_options', 'cpt_main_menu', 'cpt_settings' );
 
 	//create submenu items
 	add_submenu_page( 'cpt_main_menu', __( 'Add New', 'cpt-plugin' ), __( 'Add New', 'cpt-plugin' ), 'manage_options', 'cpt_sub_add_new', 'cpt_add_new' );
@@ -74,12 +77,12 @@ function cpt_wp_add_styles() {
 
 		<script type="text/javascript" >
 			jQuery(document).ready(function($) {
-				$(".comment_button").click(function() {
+				$(".comment_button").on('click', function(e) {
 					var element = $(this), I = element.attr("id");
 					$("#slidepanel"+I).slideToggle(300);
 					$(this).toggleClass("active");
 
-					return false;
+					e.preventDefault();
 				});
 			});
 		</script>
@@ -137,7 +140,8 @@ function cpt_create_custom_post_types() {
 			$cpt_labels['not_found_in_trash']   = ( !empty( $cpt_post_type[2]["not_found_in_trash"] ) ) ? $cpt_post_type[2]["not_found_in_trash"] : 'No ' .$cpt_label. ' Found in Trash';
 			$cpt_labels['parent']               = ( $cpt_post_type[2]["parent"] ) ? $cpt_post_type[2]["parent"] : 'Parent ' .$cpt_singular;
 
-			register_post_type( $cpt_post_type["name"], array(	'label' => __($cpt_label),
+            $cpt_pre_register_post_type_args = array(
+				'label' => $cpt_label,
 				'public' => get_disp_boolean($cpt_post_type["public"]),
 				'singular_label' => $cpt_post_type["singular_label"],
 				'show_ui' => get_disp_boolean($cpt_post_type["show_ui"]),
@@ -155,7 +159,14 @@ function cpt_create_custom_post_types() {
 				'supports' => $cpt_supports,
 				'taxonomies' => $cpt_taxonomies,
 				'labels' => $cpt_labels
-			) );
+			);
+
+            //pass all of our arguments as well as the future post type name through a filter.
+            $cpt_register_post_type_args = apply_filters( 'cptui_register_post_type_args', $cpt_pre_register_post_type_args, $cpt_post_type["name"] );
+            /*if ( !is_array( $cpt_register_post_type_args ) )
+            	wp_die( 'Please return an array to the \'cptui_register_post_type_args\' filter.' );*/
+			//finally register the post type.
+			register_post_type( $cpt_post_type["name"], $cpt_register_post_type_args );
 		}
 	}
 }
@@ -192,10 +203,8 @@ function cpt_create_custom_taxonomies() {
 			$cpt_labels['add_or_remove_items']          = ( $cpt_tax_type[0]["add_or_remove_items"] ) ? $cpt_tax_type[0]["add_or_remove_items"] : 'Add or remove ' .$cpt_label;
 			$cpt_labels['choose_from_most_used']        = ( $cpt_tax_type[0]["choose_from_most_used"] ) ? $cpt_tax_type[0]["choose_from_most_used"] : 'Choose from the most used ' .$cpt_label;
 
-			//register our custom taxonomies
-			register_taxonomy( $cpt_tax_type["name"],
-				$cpt_post_types,
-				array( 'hierarchical' => get_disp_boolean($cpt_tax_type["hierarchical"]),
+            $cpt_pre_register_taxonomy_args = array(
+				'hierarchical' => get_disp_boolean($cpt_tax_type["hierarchical"]),
 				'label' => $cpt_label,
 				'show_ui' => get_disp_boolean($cpt_tax_type["show_ui"]),
 				'query_var' => get_disp_boolean($cpt_tax_type["query_var"]),
@@ -203,8 +212,14 @@ function cpt_create_custom_taxonomies() {
 				'singular_label' => $cpt_singular_label,
 				'labels' => $cpt_labels,
 				'show_admin_column' => $cpt_tax_show_admin_column
-			) );
+			);
 
+			//pass all of our arguments as well as the future taxonomy name and assigned post types through a filter.
+            $cpt_register_taxonomy_args = apply_filters( 'cptui_register_taxonomy_args', $cpt_pre_register_taxonomy_args, $cpt_tax_type["name"], $cpt_post_types );
+            /*if ( !is_array( $cpt_register_taxonomy_args ) )
+            	wp_die( 'Please return an array to the \'cptui_register_taxonomy_args\' filter.' );*/
+			//register our custom taxonomies
+			register_taxonomy( $cpt_tax_type["name"], $cpt_post_types, $cpt_register_taxonomy_args );
 		}
 	}
 }
@@ -506,8 +521,10 @@ function cpt_settings() {
 ?>
 	<div class="wrap">
 		<?php screen_icon( 'plugins' ); ?>
+		<?php do_action( 'cptui_main_page_start' ); ?>
 		<h2><?php _e( 'Custom Post Type UI', 'cpt-plugin' ); ?> <?php _e( 'version', 'cpt-plugin' ); ?>: <?php echo CPT_VERSION; ?></h2>
 
+		<?php do_action( 'cptui_main_page_before_faq' ); ?>
 		<h2><?php _e( 'Frequently Asked Questions', 'cpt-plugin' ); ?></h2>
 		<p><?php _e( 'Please note that this plugin will NOT handle display of registered post types or taxonomies in your current theme. It will simply register them for you.', 'cpt-plugin' ); ?>
 		<h3><?php _e( 'Q: <strong>How can I display content from a custom post type on my website?</strong>', 'cpt-plugin' ); ?></h3>
@@ -520,8 +537,11 @@ function cpt_settings() {
 		<p><?php _e( 'A: The More Fields plugin does a great job at creating custom meta boxes and fully supports custom post types: ', 'cpt-plugin' ); ?><a href="http://wordpress.org/extend/plugins/more-fields/" target="_blank">http://wordpress.org/extend/plugins/more-fields/</a>.  The <a href="https://github.com/jaredatch/Custom-Metaboxes-and-Fields-for-WordPress" target="_blank">Custom Metaboxes and Fields for WordPress</a> class is a great alternative to a plugin for more advanced users.</p>
 		<h3><?php _e( 'Q: <strong>I changed my custom post type name and now I can\'t get to my posts</strong>', 'cpt-plugin' ); ?></h3>
 		<p><?php _e( 'A: You can either change the custom post type name back to the original name or try the Post Type Switcher plugin: ', 'cpt-plugin' ); ?><a href="http://wordpress.org/extend/plugins/post-type-switcher/" target="_blank">http://wordpress.org/extend/plugins/post-type-switcher/</a></p>
+		<?php do_action( 'cptui_main_page_after_faq' ); ?>
+
 		<div class="cp-rss-widget">
 
+		<?php do_action( 'cptui_main_page_before_books' ); ?>
 		<table border="0">
 			<tr>
 			<td colspan="3"><h2><?php _e( 'Help Support This Plugin!', 'cpt-plugin' ); ?></h2></td>
@@ -546,6 +566,10 @@ function cpt_settings() {
 			<td valign="top" width="33%"><a href="http://amzn.to/plugindevbook" target="_blank"><img src="<?php echo plugins_url( '/images/professional-wordpress-plugin-development.png', __FILE__ ); ?>" width="200"></a><br /><?php _e( 'Highest rated WordPress development book on Amazon!', 'cpt-plugin' ); ?></td>
 			</tr>
 		</table>
+
+		<?php do_action( 'cptui_main_page_after_books' ); ?>
+
+		<?php do_action( 'cptui_main_page_before_rss' ); ?>
 		<h2><?php _e( 'WebDevStudios.com Recent News', 'cpt-plugin' ); ?></h2>
 		<?php
 
@@ -558,6 +582,8 @@ function cpt_settings() {
 			'show_date' => 1
 		) );
 		?>
+
+		<?php do_action( 'cptui_main_page_after_rss' ); ?>
 		</div>
 	</div>
 <?php
@@ -574,63 +600,75 @@ function cpt_manage_cpt() {
 ?>
 <div class="wrap">
 <?php
+do_action( 'cptui_manage_post_types_start' );
 //check for success/error messages
 if ( isset($_GET['cpt_msg'] ) && $_GET['cpt_msg'] == 'del' ) { ?>
 	<div id="message" class="updated">
-		<?php _e('Custom post type deleted successfully', 'cpt-plugin'); ?>
+		<?php
+			echo apply_filters( 'cptui_delete_post_type_message_success_text', __('Custom post type deleted successfully', 'cpt-plugin') );
+		?>
 	</div>
 	<?php
 }
 ?>
-<?php screen_icon( 'plugins' ); ?>
+<?php screen_icon( 'plugins' );
+
+do_action( 'cptui_manage_post_types_before_title' ); ?>
+
 <h2><?php _e('Manage Custom Post Types', 'cpt-plugin') ?></h2>
+
+<?php  ?>
+
 <p><?php _e('Deleting custom post types will <strong>NOT</strong> delete any content into the database or added to those post types.  You can easily recreate your post types and the content will still exist.', 'cpt-plugin') ?></p>
 <?php
 	$cpt_post_types = get_option( 'cpt_custom_post_types', array() );
 
 	if (is_array($cpt_post_types)) {
+		$cptui_header_footers = array(
+			__( 'Action', 'cpt-plugin' ),
+			__( 'Name', 'cpt-plugin' ),
+			__( 'Label', 'cpt-plugin' ),
+			__( 'Public', 'cpt-plugin' ),
+			__( 'Show UI', 'cpt-plugin' ),
+			__( 'Hierarchical', 'cpt-plugin' ),
+			__( 'Rewrite', 'cpt-plugin' ),
+			__( 'Rewrite Slug', 'cpt-plugin' ),
+			__( 'Total Published', 'cpt-plugin' ),
+			__( 'Total Drafts', 'cpt-plugin' ),
+			__( 'Supports', 'cpt-plugin' )
+		);
+
+		do_action( 'cptui_manage_post_types_before_post_types_table' );
 		?>
 		<table width="100%" class="widefat">
 			<thead>
 				<tr>
-					<th><?php _e('Action', 'cpt-plugin');?></th>
-					<th><?php _e('Name', 'cpt-plugin');?></th>
-					<th><?php _e('Label', 'cpt-plugin');?></th>
-					<th><?php _e('Public', 'cpt-plugin');?></th>
-					<th><?php _e('Show UI', 'cpt-plugin');?></th>
-					<th><?php _e('Hierarchical', 'cpt-plugin');?></th>
-					<th><?php _e('Rewrite', 'cpt-plugin');?></th>
-					<th><?php _e('Rewrite Slug', 'cpt-plugin');?></th>
-					<th><?php _e('Total Published', 'cpt-plugin');?></th>
-					<th><?php _e('Total Drafts', 'cpt-plugin');?></th>
-					<th><?php _e('Supports', 'cpt-plugin');?></th>
+					<?php
+					foreach( $cptui_header_footers as $header_footer ) {
+						echo '<th>' . $header_footer . '</th>';
+					}
+					?>
 				</tr>
 			</thead>
 			<tfoot>
 				<tr>
-					<th><?php _e('Action', 'cpt-plugin');?></th>
-					<th><?php _e('Name', 'cpt-plugin');?></th>
-					<th><?php _e('Label', 'cpt-plugin');?></th>
-					<th><?php _e('Public', 'cpt-plugin');?></th>
-					<th><?php _e('Show UI', 'cpt-plugin');?></th>
-					<th><?php _e('Hierarchical', 'cpt-plugin');?></th>
-					<th><?php _e('Rewrite', 'cpt-plugin');?></th>
-					<th><?php _e('Rewrite Slug', 'cpt-plugin');?></th>
-					<th><?php _e('Total Published', 'cpt-plugin');?></th>
-					<th><?php _e('Total Drafts', 'cpt-plugin');?></th>
-					<th><?php _e('Supports', 'cpt-plugin');?></th>
+					<?php
+					foreach( $cptui_header_footers as $header_footer ) {
+						echo '<th>' . $header_footer . '</th>';
+					}
+					?>
 				</tr>
 			</tfoot>
 		<?php
-		$thecounter=0;
+		$thecounter = 0;
 		$cpt_names = array();
 		//Create urls for management
 		foreach ( $cpt_post_types as $cpt_post_type ) {
 			$del_url = cpt_check_return( 'cpt' ) .'&deltype=' .$thecounter .'&return=cpt';
-			$del_url = ( function_exists('wp_nonce_url') ) ? wp_nonce_url($del_url, 'cpt_delete_post_type') : $del_url;
+			$del_url = wp_nonce_url( $del_url, 'cpt_delete_post_type' );
 
 			$edit_url = $MANAGE_URL .'&edittype=' .$thecounter .'&return=cpt';
-			$edit_url = ( function_exists('wp_nonce_url') ) ? wp_nonce_url($edit_url, 'cpt_edit_post_type') : $edit_url;
+			$edit_url = wp_nonce_url($edit_url, 'cpt_edit_post_type');
 
 			$cpt_counts = wp_count_posts($cpt_post_type["name"]);
 
@@ -657,9 +695,9 @@ if ( isset($_GET['cpt_msg'] ) && $_GET['cpt_msg'] == 'del' ) { ?>
 					?>
 				</td>
 			</tr>
-			<tr>
+			<tr style="display:none;" id="slidepanel<?php echo $thecounter; ?>">
 				<td colspan="12">
-					<div style="display:none;" id="slidepanel<?php echo $thecounter; ?>">
+					<div>
 						<?php
 						// Begin the display for the "Get code" feature
 						//display register_post_type code
@@ -766,6 +804,8 @@ if ( isset($_GET['cpt_msg'] ) && $_GET['cpt_msg'] == 'del' ) { ?>
 						}
 
 						$custom_post_type .= ") ); }";
+
+						$custom_post_type = apply_filters( 'cptui_cpt_get_code_output', $custom_post_type, $cpt_post_type["name"] );
 						echo '<p>';
 						_e( 'Place the below code in your themes functions.php file to manually create this custom post type.', 'cpt-plugin' ).'<br>';
 						_e('This is a <strong>BETA</strong> feature. Please <a href="https://github.com/WebDevStudios/custom-post-type-ui">report bugs</a>.','cpt-plugin').'</p>';
@@ -775,11 +815,16 @@ if ( isset($_GET['cpt_msg'] ) && $_GET['cpt_msg'] == 'del' ) { ?>
 					</div>
 				</td>
 			</tr>
+
 		<?php
-		$thecounter++;
-		$cpt_names[] = strtolower( $cpt_post_type["name"] );
-		}
-			$args=array(
+			$thecounter++;
+			$cpt_names[] = strtolower( $cpt_post_type["name"] );
+		}//end post type tr loop
+		echo '</table>';
+
+		do_action( 'cptui_manage_post_types_after_post_types_table' );
+
+			$args = array(
 			  'public'   => true,
 			  '_builtin' => false
 			);
@@ -787,38 +832,43 @@ if ( isset($_GET['cpt_msg'] ) && $_GET['cpt_msg'] == 'del' ) { ?>
 			$post_types = get_post_types( $args, $output );
 			$cpt_first = false;
 			if ( $post_types ) {
-
-				?></table>
+				do_action( 'cptui_manage_post_types_before_additional_post_types' );
+				?>
 				<h3><?php _e('Additional Custom Post Types', 'cpt-plugin') ?></h3>
 				<p><?php _e('The custom post types below are registered in WordPress but were not created by the Custom Post Type UI Plugin.', 'cpt-plugin') ?></p>
 					<?php
 					foreach ( $post_types as $post_type ) {
 						  if ( !in_array( strtolower( $post_type->name ), $cpt_names ) ) {
 							if ( isset( $cpt_first ) && !$cpt_first ) {
+
+								$other_registered_cpts = array(
+									__( 'Name', 'cpt-plugin' ),
+									__( 'Label', 'cpt-plugin' ),
+									__( 'Public', 'cpt-plugin' ),
+									__( 'Show UI', 'cpt-plugin' ),
+									__( 'Hierarchical', 'cpt-plugin' ),
+									__( 'Rewrite', 'cpt-plugin' ),
+									__( 'Rewrite Slug', 'cpt-plugin' ),
+									__( 'Query Var', 'cpt-plugin' )
+								);
 								?>
 								<table width="100%" class="widefat">
 									<thead>
 										<tr>
-											<th><?php _e('Name', 'cpt-plugin');?></th>
-											<th><?php _e('Label', 'cpt-plugin');?></th>
-											<th><?php _e('Public', 'cpt-plugin');?></th>
-											<th><?php _e('Show UI', 'cpt-plugin');?></th>
-											<th><?php _e('Hierarchical', 'cpt-plugin');?></th>
-											<th><?php _e('Rewrite', 'cpt-plugin');?></th>
-											<th><?php _e('Rewrite Slug', 'cpt-plugin');?></th>
-											<th><?php _e('Query Var', 'cpt-plugin');?></th>
+											<?php
+											foreach( $other_registered_cpts as $cpt ) {
+												echo '<th>' . $cpt . '</th>';
+											}
+											?>
 										</tr>
 									</thead>
 									<tfoot>
 										<tr>
-											<th><?php _e('Name', 'cpt-plugin');?></th>
-											<th><?php _e('Label', 'cpt-plugin');?></th>
-											<th><?php _e('Public', 'cpt-plugin');?></th>
-											<th><?php _e('Show UI', 'cpt-plugin');?></th>
-											<th><?php _e('Hierarchical', 'cpt-plugin');?></th>
-											<th><?php _e('Rewrite', 'cpt-plugin');?></th>
-											<th><?php _e('Rewrite Slug', 'cpt-plugin');?></th>
-											<th><?php _e('Query Var', 'cpt-plugin');?></th>
+											<?php
+											foreach( $other_registered_cpts as $cpt ) {
+												echo '<th>' . $cpt . '</th>';
+											}
+											?>
 										</tr>
 									</tfoot>
 								<?php
@@ -836,20 +886,21 @@ if ( isset($_GET['cpt_msg'] ) && $_GET['cpt_msg'] == 'del' ) { ?>
 								<td valign="top"><?php echo $rewrite_slug; ?></td>
 								<td valign="top"><?php echo disp_boolean($post_type->query_var); ?></td>
 							</tr>
+							</table>
 							<?php
 						}
 				  }
 			}
-
+			do_action( 'cptui_manage_post_types_after_additional_post_types' );
 			if ( isset($cpt_first) && !$cpt_first ) {
 				echo '<tr><td><strong>';
 				_e( 'No additional post types found', 'cpt-plugin' );
 				echo '</strong></td></tr>';
 			}
 			?>
-		</table>
 
 		</div><?php
+		do_action( 'cptui_manage_post_types_end' );
 		//load footer
 		cpt_footer();
 	}
@@ -864,47 +915,50 @@ function cpt_manage_taxonomies() {
 ?>
 <div class="wrap">
 <?php
+do_action( 'cptui_manage_taxonomies_start' );
 //check for success/error messages
 if (isset($_GET['cpt_msg']) && $_GET['cpt_msg']=='del') { ?>
 	<div id="message" class="updated">
-		<?php _e('Custom taxonomy deleted successfully', 'cpt-plugin'); ?>
+		<?php echo apply_filters( 'cptui_delete_post_type_message_success_text', __('Custom taxonomy deleted successfully', 'cpt-plugin') ); ?>
 	</div>
 	<?php
 }
-?>
-<?php screen_icon( 'plugins' ); ?>
+
+screen_icon( 'plugins' ); ?>
 <h2><?php _e('Manage Custom Taxonomies', 'cpt-plugin') ?></h2>
 <p><?php _e('Deleting custom taxonomies does <strong>NOT</strong> delete any content added to those taxonomies.  You can easily recreate your taxonomies and the content will still exist.', 'cpt-plugin') ?></p>
 	<?php
 	$cpt_tax_types = get_option( 'cpt_custom_tax_types', array() );
 
 	if (is_array($cpt_tax_types)) {
+
+		$cptui_header_footers_tax = array(
+			__( 'Action', 'cpt-plugin' ),
+			__( 'Name', 'cpt-plugin' ),
+			__( 'Label', 'cpt-plugin' ),
+			__( 'Singular Label', 'cpt-plugin' ),
+			__( 'Attached Post Types', 'cpt-plugin' ),
+			__( 'Hierarchical', 'cpt-plugin' ),
+			__( 'Show UI', 'cpt-plugin' ),
+			__( 'Rewrite', 'cpt-plugin' ),
+			__( 'Rewrite Slug', 'cpt-plugin' )
+		);
+
+		do_action( 'cptui_manage_taxonomies_before_taxonomies_table' );
 		?>
 		<table width="100%" class="widefat">
 			<thead>
 				<tr>
-				<th><?php _e('Action', 'cpt-plugin');?></th>
-				<th><?php _e('Name', 'cpt-plugin');?></th>
-				<th><?php _e('Label', 'cpt-plugin');?></th>
-				<th><?php _e('Singular Label', 'cpt-plugin');?></th>
-				<th><?php _e('Attached Post Types', 'cpt-plugin');?></th>
-				<th><?php _e('Hierarchical', 'cpt-plugin');?></th>
-				<th><?php _e('Show UI', 'cpt-plugin');?></th>
-				<th><?php _e('Rewrite', 'cpt-plugin');?></th>
-				<th><?php _e('Rewrite Slug', 'cpt-plugin');?></th>
+				<?php foreach( $cptui_header_footers_tax as $header_footer_tax ) {
+					echo '<th>' . $header_footer_tax . '</th>';
+				} ?>
 				</tr>
 			</thead>
 			<tfoot>
 				<tr>
-				<th><?php _e('Action', 'cpt-plugin');?></th>
-				<th><?php _e('Name', 'cpt-plugin');?></th>
-				<th><?php _e('Label', 'cpt-plugin');?></th>
-				<th><?php _e('Singular Label', 'cpt-plugin');?></th>
-				<th><?php _e('Attached Post Types', 'cpt-plugin');?></th>
-				<th><?php _e('Hierarchical', 'cpt-plugin');?></th>
-				<th><?php _e('Show UI', 'cpt-plugin');?></th>
-				<th><?php _e('Rewrite', 'cpt-plugin');?></th>
-				<th><?php _e('Rewrite Slug', 'cpt-plugin');?></th>
+				<?php foreach( $cptui_header_footers_tax as $header_footer_tax ) {
+					echo '<th>' . $header_footer_tax . '</th>';
+				} ?>
 				</tr>
 			</tfoot>
 		<?php
@@ -1000,6 +1054,7 @@ if (isset($_GET['cpt_msg']) && $_GET['cpt_msg']=='del') { ?>
 							$custom_tax .= "\t'labels' => " . $labels . "\n";
 						$custom_tax .= ") ); \n}";
 
+						$custom_tax = apply_filters( 'cptui_taxonomy_get_code_output', $custom_tax, $cpt_tax_type["name"] );
 						echo '<br>';
 						echo _e('Place the below code in your themes functions.php file to manually create this custom taxonomy','cpt-plugin').'<br>';
 						echo _e('This is a <strong>BETA</strong> feature. Please <a href="http://webdevstudios.com/support/forum/custom-post-type-ui/">report bugs</a>.','cpt-plugin').'<br>';
@@ -1014,6 +1069,7 @@ if (isset($_GET['cpt_msg']) && $_GET['cpt_msg']=='del') { ?>
 		?></table>
 		</div>
 		<?php
+		do_action( 'cptui_manage_taxonomies_after_taxonomies_table' );
 		//load footer
 		cpt_footer();
 	}
@@ -1100,6 +1156,7 @@ function cpt_add_new() {
 	?>
 	<div class="wrap">
 		<?php
+		do_action( 'cptui_before_add_new_page' );
 		//check for success/error messages
 		if ( isset( $_GET['cpt_msg'] ) ) : ?>
 
@@ -1665,6 +1722,7 @@ function cpt_add_new() {
 				</td>
 			</tr>
 		</table>
+		<?php do_action( 'cptui_after_add_new_page' ); ?>
 	</div>
 <?php
 //load footer
