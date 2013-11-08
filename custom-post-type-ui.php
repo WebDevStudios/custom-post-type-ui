@@ -1607,11 +1607,15 @@ function cpt_add_new() {
 								<input type="text" name="cpt_custom_tax[cpt_name]" tabindex="24" value="<?php if (isset($cpt_tax_object_type)) { echo esc_attr($cpt_tax_object_type); } ?>" /> <?php _e( '(e.g. movies)', 'cpt-plugin' ); ?>
 							<?php } ?>
 							<?php
-							$args=array(
-							  'public'   => true
-							);
+							$args = apply_filters( 'cptui_attach_post_types_to_taxonomy', array( 'public' => true ), $cpt_tax_name );
+
+							//If they don't return an array, fall back to the original default. Don't need to check for empty, because empty array is default for $args param in get_post_types anyway.
+							if ( !is_array( $args ) ) {
+								$args = array( 'public' => true );
+							}
+
 							$output = 'objects'; // or objects
-							$post_types=get_post_types($args,$output);
+							$post_types = get_post_types( $args, $output );
 							foreach ($post_types  as $post_type ) {
 								if ( $post_type->name != 'attachment' ) {
 								?>
