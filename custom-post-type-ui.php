@@ -747,8 +747,8 @@ if ( isset($_GET['cpt_msg'] ) && $_GET['cpt_msg'] == 'del' ) { ?>
 							$custom_post_type .= "'exclude_from_search' => " . disp_boolean( $cpt_post_type["exclude_from_search"] ) . ",\n";
 						}
 
-						if ( !empty( $cpt_post_type["menu_position"] ) ) {
-							$custom_post_type .= "'menu_position' => '" . $cpt_post_type["menu_position"] . "',\n";
+						if ( !empty( $cpt_menu_position ) ) {
+							$custom_post_type .= "'menu_position' => " . $cpt_menu_position . ",\n";
 						}
 
 						if ( !empty( $cpt_post_type["menu_icon"] ) ) {
