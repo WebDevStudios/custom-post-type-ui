@@ -54,7 +54,7 @@ class cptui_admin_ui {
 		$args = wp_parse_args( $args, $defaults );
 
 		$value = $this->tr_wrap_start('','');
-		$value .= '<select name="' . $args['name'] . '" tabindex="' . $args['tabindex'] . '">';
+		$value .= '<select name="' . $args['name'] . '">';
 
 		foreach( $args['values'] as $val ) {
 			$value .= '<option value="' . $val['value_int'] . '" ' . selected( $args['selected'], $val['value_int'] ) . '>' . $val['value_string'] . '</option>';
@@ -74,22 +74,21 @@ class cptui_admin_ui {
 	public function text_input( $args ) { //TODO: Finish output of other attributes
 		$defaults = array(
 			'namearray'     => '',
-            'name'          => '',
-            'tabindex'      => '',
-            'textvalue'     => '',
-            'maxlength'     => '',
-            'onblur'        => '',
-            'labeltext'     => '',
-            'aftertext'     => '',
-            'helptext'      => '',
-            'required'      => false
+			'name'          => '',
+			'textvalue'     => '',
+			'maxlength'     => '',
+			'onblur'        => '',
+			'labeltext'     => '',
+			'aftertext'     => '',
+			'helptext'      => '',
+			'required'      => false
 		);
 		$args = wp_parse_args( $args, $defaults );
 		extract( $args );
 
 		$value = $this->tr_wrap_start( $name, $labeltext, $helptext, $required );
 
-		$value .= '<input type="text" name="' . $namearray . '[' . $name . ']" tabindex="' . $tabindex . '" value="' . $textvalue . '" /><br/>';
+		$value .= '<input type="text" name="' . $namearray . '[' . $name . ']" value="' . $textvalue . '" /><br/>';
 
 		if ( !empty( $aftertext) )
 			$value .= $aftertext;
@@ -113,7 +112,7 @@ class cptui_admin_ui {
 
 		$value = $this->tr_wrap_start('','');
 
-		$value .= '<textarea name="" tabindex="" rows="" cols=""></textarea>';
+		$value .= '<textarea name="" rows="" cols=""></textarea>';
 
 		$value .= $this->tr_wrap_end();
 
@@ -131,6 +130,6 @@ class cptui_admin_ui {
 		);
 		$args = wp_parse_args( $args, $defaults );
 
-		$value = '<input type="checkbox" name="" tabindex="" value="" /> <a href="#" title="" class="help">?</a> <br/>';
+		$value = '<input type="checkbox" name="" value="" /> <a href="#" title="" class="help">?</a> <br/>';
 	}
 }
