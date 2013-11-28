@@ -27,6 +27,9 @@ All official development on this plugin is on GitHub. Version bumps will still b
 
 == Changelog ==
 
+= 0.9.0 =
+* Removed tabindex attributes to restore default accessibility.
+
 = 0.8.1 =
 * Renamed menu entry to "CPT UI".
 * Fixes for potential "undefined index" WP DEBUG log notices.
