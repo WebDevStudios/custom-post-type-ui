@@ -1432,7 +1432,7 @@ function cpt_add_new() {
 							</tr>
 
 							<tr valign="top">
-							<th scope="row"><?php _e('Built-in Taxonomies', 'cpt-plugin') ?></th>
+							<th scope="row"><?php _e( 'Taxonomies', 'cpt-plugin' ) ?></th>
 							<td>
 					<?php
 					//load built-in WP Taxonomies
