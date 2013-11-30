@@ -1482,10 +1482,16 @@ function cpt_add_new() {
 							</td>
 							</tr>
 
-							<tr valign="top">
-							<th scope="row"><?php _e('Custom Rewrite Slug', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Custom slug to use instead of the default.' ,'cpt-plugin' ); ?>" class="help">?</a></th>
-							<td><input type="text" name="cpt_custom_post_type[rewrite_slug]" value="<?php if (isset($cpt_rewrite_slug)) { echo esc_attr($cpt_rewrite_slug); } ?>" /> <?php _e( '(default: post type name)', 'cpt-plugin' ); ?></td>
-							</tr>
+							<?php
+								echo $ui->text_input( array(
+									'namearray'     => 'cpt_custom_post_type',
+									'name'          => 'rewrite_slug',
+									'textvalue'     => ( isset( $cpt_rewrite_slug ) ) ? esc_attr( $cpt_rewrite_slug ) : '',
+									'labeltext'     => __( 'Custom Rewrite Slug', 'cpt-plugin' ),
+									'aftertext'     => __( '(default: post type name)', 'cpt-plugin' ),
+									'helptext'      => esc_attr__( 'Custom slug to use instead of the default.', 'cpt-plugin' ),
+									) );
+							?>
 
 							<tr valign="top">
 							<th scope="row"><?php _e('With Front', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Should the permastruct be prepended with the front base.', 'cpt-plugin' ); ?>" class="help">?</a></th>
