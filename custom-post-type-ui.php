@@ -1233,7 +1233,7 @@ function cpt_add_new() {
 								echo $ui->text_input( array(
 									'namearray'     => 'cpt_custom_post_type',
 									'name'          => 'name',
-									'textvalue'         => ( isset( $cpt_post_type_name ) ) ? esc_attr( $cpt_post_type_name ) : '',
+									'textvalue'     => ( isset( $cpt_post_type_name ) ) ? esc_attr( $cpt_post_type_name ) : '',
 									'maxlength'     => '20',
 									'onblur'        => 'this.value=this.value.toLowerCase()',
 									'labeltext'     => __( 'Post Type Name', 'cpt-plugin' ),
