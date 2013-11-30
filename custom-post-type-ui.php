@@ -62,6 +62,9 @@ function cpt_plugin_menu() {
 	add_submenu_page( 'cpt_main_menu', __( 'Add New', 'cpt-plugin' ), __( 'Add New', 'cpt-plugin' ), 'manage_options', 'cpt_sub_add_new', 'cpt_add_new' );
 	add_submenu_page( 'cpt_main_menu', __( 'Manage Post Types', 'cpt-plugin' ), __( 'Manage Post Types', 'cpt-plugin' ), 'manage_options', 'cpt_sub_manage_cpt', 'cpt_manage_cpt' );
 	add_submenu_page( 'cpt_main_menu', __( 'Manage Taxonomies', 'cpt-plugin' ), __( 'Manage Taxonomies', 'cpt-plugin' ), 'manage_options', 'cpt_sub_manage_taxonomies', 'cpt_manage_taxonomies' );
+
+	//require_once( plugin_dir_path( __FILE__ ) . 'inc/post-types.php' );
+	//require_once( plugin_dir_path( __FILE__ ) . 'inc/taxonomies.php' );
 }
 
 //temp fix, should do: http://planetozh.com/blog/2008/04/how-to-load-javascript-with-your-wordpress-plugin/
