@@ -46,12 +46,13 @@ class cptui_admin_ui {
 	public function help( $help_text ) {
 		return '<a href="#" title="' . $help_text . '" class="help">?</a>';
 	}
+
 	/**
 	 * Display a select input with true/false values.
 	 * @param  array  $args values to use in the input
 	 * @return string       constructed input for the form.
 	 */
-	public function select_bool_input( $args ) {
+	public function select_bool_input( $args = '' ) {
 		$defaults = array(
 
 		);
@@ -75,7 +76,7 @@ class cptui_admin_ui {
 	 * @param  array  $args values to use in the input
 	 * @return string       constructed input for the form.
 	 */
-	public function text_input( $args ) { //TODO: Finish output of other attributes
+	public function text_input( $args = '' ) { //TODO: Finish output of other attributes
 		$defaults = array(
 			'namearray'     => '',
 			'name'          => '',
