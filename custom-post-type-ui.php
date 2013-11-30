@@ -1269,12 +1269,17 @@ function cpt_add_new() {
 									'helptext'      => esc_attr__( 'Custom Post Type Singular label. Used in WordPress when a singular label is needed.', 'cpt-plugin' ),
 									) );
 
-							</tr>
+								echo $ui->textarea_input( array(
+									'namearray' => 'cpt_custom_post_type',
+									'name' => 'description',
+									'rows' => '4',
+									'cols' => '40',
+									'textvalue' => ( isset( $cpt_description ) ) ?  esc_textarea( $cpt_description ) : '',
+									'labeltext' => __('Description', 'cpt-plugin'),
+									'helptext' => esc_attr__( 'Custom Post Type Description. Describe what your custom post type is used for.', 'cpt-plugin' )
+									) );
+							?>
 
-						   <tr valign="top">
-							<th scope="row"><?php _e('Description', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Custom Post Type Description.  Describe what your custom post type is used for.', 'cpt-plugin' ); ?>" class="help">?</a></th>
-							<td><textarea name="cpt_custom_post_type[description]" rows="4" cols="40"><?php if (isset($cpt_description)) { echo esc_attr($cpt_description); } ?></textarea></td>
-							</tr>
 
 							<tr valign="top">
 								<td colspan="2">
