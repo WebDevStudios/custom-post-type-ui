@@ -1452,10 +1452,15 @@ function cpt_add_new() {
 							</td>
 							</tr>
 
-							<tr valign="top">
-							<th scope="row"><?php _e('Capability Type', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'The post type to use for checking read, edit, and delete capabilities', 'cpt-plugin' ); ?>" class="help">?</a></th>
-							<td><input type="text" name="cpt_custom_post_type[capability_type]" value="<?php if ( isset( $cpt_capability ) ) { echo esc_attr( $cpt_capability ); } else { echo 'post'; } ?>" /></td>
-							</tr>
+							<?php
+								echo $ui->text_input( array(
+									'namearray'     => 'cpt_custom_post_type',
+									'name'          => 'capability_type',
+									'textvalue'     => ( isset( $cpt_capability ) ) ? esc_attr( $cpt_capability ) : 'post',
+									'labeltext'     => __( 'Capability Type', 'cpt-plugin' ),
+									'helptext'      => esc_attr__( 'The post type to use for checking read, edit, and delete capabilities', 'cpt-plugin' ),
+									) );
+							?>
 
 							<tr valign="top">
 							<th scope="row"><?php _e('Hierarchical', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Whether the post type can have parent-child relationships', 'cpt-plugin' ); ?>" class="help">?</a></th>
