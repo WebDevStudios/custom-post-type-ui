@@ -9,20 +9,9 @@ class cptui_admin_ui {
 
 	}
 
-	/**
-	 * opening <tr> and <td> tags. All of <th> tag with values for label
-	 *
-	 * @since  0.9
-	 *
-	 * @param  string  $label_for  input name to associate with the wrapped input.
-	 * @param  string  $label_text label text to use with the input
-	 * @param  string  $title_text help text for the little question mark.
-	 * @param  bool    $required whether or not the input is required.
-	 *
-	 * @return string              completed opening wrapper
-	 */
-	public function tr_wrap_start( $label_for, $label_text, $title_text, $required ) {
-		$input = '<tr valign="top"><th scope="row"><label for="' . $label_for . '"> ' . $label_text . '</label>';
+	public function tr_start() {
+		return '<tr valign="top">';
+	}
 
 		if ( $required )
 			$input .= '<span class="required">*</span>';
