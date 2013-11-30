@@ -25,15 +25,26 @@ class cptui_admin_ui {
 		return '</th>';
 	}
 
-	/**
-	 * closing <tr> and </td> tags
-	 *
-	 * @since  0.9
-	 *
-	 * @return string  completed closing wrapper
-	 */
-	public function tr_wrap_end() {
-		return '</td></tr>';
+	public function td_start() {
+		return '<td>';
+	}
+
+	public function td_end() {
+		return '</td>';
+	}
+
+	public function label( $label_for, $label_text ) {
+		$label = '<label for="' . $label_for . '"> ' . $label_text . '</label>';
+
+		return $label;
+	}
+
+	public function required() {
+		return '<span class="required">*</span>';
+	}
+
+	public function help( $help_text ) {
+		return '<a href="#" title="' . $help_text . '" class="help">?</a>';
 	}
 	/**
 	 * Display a select input with true/false values.
