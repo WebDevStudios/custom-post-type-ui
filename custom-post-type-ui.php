@@ -1251,10 +1251,14 @@ function cpt_add_new() {
 								</td>
 							</tr>
 
-							<tr valign="top">
-							<th scope="row"><?php _e('Label', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Post type label.  Used in the admin menu for displaying post types.', 'cpt-plugin' ); ?>" class="help">?</a></th>
-							<td><input type="text" name="cpt_custom_post_type[label]" value="<?php if (isset($cpt_label)) { echo esc_attr($cpt_label); } ?>" /> <?php _e( '(e.g. Movies)', 'cpt-plugin' ); ?></td>
-							</tr>
+								echo $ui->text_input( array(
+									'namearray'     => 'cpt_custom_post_type',
+									'name'          => 'label',
+									'textvalue'     => ( isset( $cpt_label ) ) ? esc_attr( $cpt_label ) : '',
+									'labeltext'     => __( 'Label', 'cpt-plugin' ),
+									'aftertext'     => __( '(e.g. Movies)', 'cpt-plugin' ),
+									'helptext'      => esc_attr__( 'Post type label.  Used in the admin menu for displaying post types.', 'cpt-plugin' ),
+									) );
 
 						   <tr valign="top">
 							<th scope="row"><?php _e('Singular Label', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Custom Post Type Singular label.  Used in WordPress when a singular label is needed.', 'cpt-plugin' ); ?>" class="help">?</a></th>
