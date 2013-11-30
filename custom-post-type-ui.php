@@ -1533,11 +1533,20 @@ function cpt_add_new() {
 								<input type="text" name="cpt_custom_post_type[show_in_menu_string]" size="20" value="<?php if (isset($cpt_show_in_menu_string)) { echo esc_attr($cpt_show_in_menu_string); } ?>" /></p></td>
 							</tr>
 
-							<tr valign="top">
-							<th scope="row"><?php _e('Menu Icon', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'URL to image to be used as menu icon.', 'cpt-plugin' ); ?>" class="help">?</a>
-							</th>
-							<td><input type="text" name="cpt_custom_post_type[menu_icon]" size="20" value="<?php if (isset($cpt_menu_icon)) { echo esc_attr($cpt_menu_icon); } ?>" /> (Full URL for icon)</td>
-							</tr>
+							<?php
+								echo $ui->text_input( array(
+									'namearray'     => 'cpt_custom_post_type',
+									'name'          => 'menu_icon',
+									'textvalue'     => ( isset( $cpt_menu_icon ) ) ? esc_attr( $cpt_menu_icon ) : '',
+									'labeltext'     => __( 'Menu Icon', 'cpt-plugin' ),
+									'aftertext'     => __( '(Full URL for icon)', 'cpt-plugin' ),
+									'helptext'      => esc_attr__( 'URL to image to be used as menu icon.', 'cpt-plugin' ),
+									) );
+							?>
+
+							<?php
+								echo $ui->tr_start() . $ui->th_start() . __('Supports', 'cpt-plugin') . $ui->th_end() . $ui->td_start();
+							?>
 
 							<tr valign="top">
 							<th scope="row"><?php _e('Supports', 'cpt-plugin') ?></th>
