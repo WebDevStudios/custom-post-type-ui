@@ -132,7 +132,12 @@ class cptui_admin_ui {
 		$args = wp_parse_args( $args, $defaults );
 		extract( $args );
 
-		$value = $this->tr_wrap_start('','');
+		$value = $this->tr_start();
+		$value .= $this->th_start();
+		$value .= $this->label( $name, $labeltext );
+		$value .= $this->help( $helptext );
+		$value .= $this->th_end();
+		$value .= $this->td_start();
 
 		$value .= '<textarea name="" rows="" cols=""></textarea>';
 
