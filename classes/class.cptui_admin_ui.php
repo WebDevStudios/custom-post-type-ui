@@ -141,7 +141,11 @@ class cptui_admin_ui {
 
 		$value .= '<textarea name="' . $namearray . '[' . $name . ']" rows="' . $rows . '" cols="' . $cols . '">' . $textvalue . '</textarea>';
 
-		$value .= $this->tr_wrap_end();
+		if ( !empty ( $aftertext ) )
+			$value .= $aftertext;
+
+		$value .= $this->td_end();
+		$value .= $this->tr_end();
 
 		return $value;
 	}
