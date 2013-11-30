@@ -1318,93 +1318,93 @@ function cpt_add_new() {
 								) );
 
 							echo $ui->text_input( array(
-                                'labeltext'     => __( 'Add New Item', 'cpt-plugin' ),
-                                'helptext'      => esc_attr__( 'Post type label.  Used in the admin menu for displaying post types.', 'cpt-plugin' ),
-                                'namearray'     => 'cpt_labels',
-                                'name'          => 'add_new_item',
-                                'textvalue'     => ( isset( $cpt_labels["add_new_item"] ) ) ? esc_attr( $cpt_labels["add_new_item"] ) : '',
-                                'aftertext'     => __( '(e.g. Add New Movie)', 'cpt-plugin' )
+								'labeltext'     => __( 'Add New Item', 'cpt-plugin' ),
+								'helptext'      => esc_attr__( 'Post type label.  Used in the admin menu for displaying post types.', 'cpt-plugin' ),
+								'namearray'     => 'cpt_labels',
+								'name'          => 'add_new_item',
+								'textvalue'     => ( isset( $cpt_labels["add_new_item"] ) ) ? esc_attr( $cpt_labels["add_new_item"] ) : '',
+								'aftertext'     => __( '(e.g. Add New Movie)', 'cpt-plugin' )
 								) );
 
 							echo $ui->text_input( array(
-                                'labeltext'     => __( 'Edit', 'cpt-plugin' ),
-                                'helptext'      => esc_attr__( 'Post type label.  Used in the admin menu for displaying post types.', 'cpt-plugin' ),
-                                'namearray'     => 'cpt_labels',
-                                'name'          => 'edit',
-                                'textvalue'     => ( isset( $cpt_labels["edit"] ) ) ? esc_attr( $cpt_labels["edit"] ) : '',
-                                'aftertext'     => __( '(e.g. Edit)', 'cpt-plugin' )
+								'labeltext'     => __( 'Edit', 'cpt-plugin' ),
+								'helptext'      => esc_attr__( 'Post type label.  Used in the admin menu for displaying post types.', 'cpt-plugin' ),
+								'namearray'     => 'cpt_labels',
+								'name'          => 'edit',
+								'textvalue'     => ( isset( $cpt_labels["edit"] ) ) ? esc_attr( $cpt_labels["edit"] ) : '',
+								'aftertext'     => __( '(e.g. Edit)', 'cpt-plugin' )
 								) );
 
 							echo $ui->text_input( array(
-                                'labeltext'     => __( 'Edit Item', 'cpt-plugin' ),
-                                'helptext'      => esc_attr__( 'Post type label.  Used in the admin menu for displaying post types.', 'cpt-plugin' ),
-                                'namearray'     => 'cpt_labels',
-                                'name'          => 'edit_item',
-                                'textvalue'     => ( isset( $cpt_labels["edit_item"] ) ) ? esc_attr( $cpt_labels["edit_item"] ) : '',
-                                'aftertext'     => __( '(e.g. Edit Movie)', 'cpt-plugin' )
+								'labeltext'     => __( 'Edit Item', 'cpt-plugin' ),
+								'helptext'      => esc_attr__( 'Post type label.  Used in the admin menu for displaying post types.', 'cpt-plugin' ),
+								'namearray'     => 'cpt_labels',
+								'name'          => 'edit_item',
+								'textvalue'     => ( isset( $cpt_labels["edit_item"] ) ) ? esc_attr( $cpt_labels["edit_item"] ) : '',
+								'aftertext'     => __( '(e.g. Edit Movie)', 'cpt-plugin' )
 								) );
 
 							echo $ui->text_input( array(
-                                'labeltext'     => __( 'New Item', 'cpt-plugin' ),
-                                'helptext'      => esc_attr__( 'Post type label.  Used in the admin menu for displaying post types.', 'cpt-plugin' ),
-                                'namearray'     => 'cpt_labels',
-                                'name'          => 'new_item',
-                                'textvalue'     => ( isset( $cpt_labels["new_item"] ) ) ? esc_attr( $cpt_labels["new_item"] ) : '',
-                                'aftertext'     => __( '(e.g. New Movie)', 'cpt-plugin' )
+								'labeltext'     => __( 'New Item', 'cpt-plugin' ),
+								'helptext'      => esc_attr__( 'Post type label.  Used in the admin menu for displaying post types.', 'cpt-plugin' ),
+								'namearray'     => 'cpt_labels',
+								'name'          => 'new_item',
+								'textvalue'     => ( isset( $cpt_labels["new_item"] ) ) ? esc_attr( $cpt_labels["new_item"] ) : '',
+								'aftertext'     => __( '(e.g. New Movie)', 'cpt-plugin' )
 								) );
 
 							echo $ui->text_input( array(
-                                'labeltext'     => __( 'View', 'cpt-plugin' ),
-                                'helptext'      => esc_attr__( 'Post type label.  Used in the admin menu for displaying post types.', 'cpt-plugin' ),
-                                'namearray'     => 'cpt_labels',
-                                'name'          => 'view',
-                                'textvalue'     => ( isset( $cpt_labels["view"] ) ) ? esc_attr( $cpt_labels["view"] ) : '',
-                                'aftertext'     => __( '(e.g. View Movie)', 'cpt-plugin' )
+								'labeltext'     => __( 'View', 'cpt-plugin' ),
+								'helptext'      => esc_attr__( 'Post type label.  Used in the admin menu for displaying post types.', 'cpt-plugin' ),
+								'namearray'     => 'cpt_labels',
+								'name'          => 'view',
+								'textvalue'     => ( isset( $cpt_labels["view"] ) ) ? esc_attr( $cpt_labels["view"] ) : '',
+								'aftertext'     => __( '(e.g. View Movie)', 'cpt-plugin' )
 								) );
 
 							echo $ui->text_input( array(
-                                'labeltext'     => __( 'View Item', 'cpt-plugin' ),
-                                'helptext'      => esc_attr__( 'Post type label.  Used in the admin menu for displaying post types.', 'cpt-plugin' ),
-                                'namearray'     => 'cpt_labels',
-                                'name'          => 'view_item',
-                                'textvalue'     => ( isset( $cpt_labels["view_item"] ) ) ? esc_attr( $cpt_labels["view_item"] ) : '',
-                                'aftertext'     => __( '(e.g. View Movie)', 'cpt-plugin' )
+								'labeltext'     => __( 'View Item', 'cpt-plugin' ),
+								'helptext'      => esc_attr__( 'Post type label.  Used in the admin menu for displaying post types.', 'cpt-plugin' ),
+								'namearray'     => 'cpt_labels',
+								'name'          => 'view_item',
+								'textvalue'     => ( isset( $cpt_labels["view_item"] ) ) ? esc_attr( $cpt_labels["view_item"] ) : '',
+								'aftertext'     => __( '(e.g. View Movie)', 'cpt-plugin' )
 								) );
 
 							echo $ui->text_input( array(
-                                'labeltext'     => __( 'Search Item', 'cpt-plugin' ),
-                                'helptext'      => esc_attr__( 'Post type label.  Used in the admin menu for displaying post types.', 'cpt-plugin' ),
-                                'namearray'     => 'cpt_labels',
-                                'name'          => 'search_items',
-                                'textvalue'     => ( isset( $cpt_labels["search_items"] ) ) ? esc_attr( $cpt_labels["search_items"] ) : '',
-                                'aftertext'     => __( '(e.g. Search Movie)', 'cpt-plugin' )
+								'labeltext'     => __( 'Search Item', 'cpt-plugin' ),
+								'helptext'      => esc_attr__( 'Post type label.  Used in the admin menu for displaying post types.', 'cpt-plugin' ),
+								'namearray'     => 'cpt_labels',
+								'name'          => 'search_items',
+								'textvalue'     => ( isset( $cpt_labels["search_items"] ) ) ? esc_attr( $cpt_labels["search_items"] ) : '',
+								'aftertext'     => __( '(e.g. Search Movie)', 'cpt-plugin' )
 								) );
 
 							echo $ui->text_input( array(
-                                'labeltext'     => __( 'Not Found', 'cpt-plugin' ),
-                                'helptext'      => esc_attr__( 'Post type label.  Used in the admin menu for displaying post types.', 'cpt-plugin' ),
-                                'namearray'     => 'cpt_labels',
-                                'name'          => 'not_found',
-                                'textvalue'     => ( isset( $cpt_labels["not_found"] ) ) ? esc_attr( $cpt_labels["not_found"] ) : '',
-                                'aftertext'     => __( '(e.g. No Movies Found)', 'cpt-plugin' )
+								'labeltext'     => __( 'Not Found', 'cpt-plugin' ),
+								'helptext'      => esc_attr__( 'Post type label.  Used in the admin menu for displaying post types.', 'cpt-plugin' ),
+								'namearray'     => 'cpt_labels',
+								'name'          => 'not_found',
+								'textvalue'     => ( isset( $cpt_labels["not_found"] ) ) ? esc_attr( $cpt_labels["not_found"] ) : '',
+								'aftertext'     => __( '(e.g. No Movies Found)', 'cpt-plugin' )
 								) );
 
 							echo $ui->text_input( array(
-                                'labeltext'     => __( 'Not Found in Trash', 'cpt-plugin' ),
-                                'helptext'      => esc_attr__( 'Post type label.  Used in the admin menu for displaying post types.', 'cpt-plugin' ),
-                                'namearray'     => 'cpt_labels',
-                                'name'          => 'not_found_in_trash',
-                                'textvalue'     => ( isset( $cpt_labels["not_found_in_trash"] ) ) ? esc_attr( $cpt_labels["not_found_in_trash"] ) : '',
-                                'aftertext'     => __( '(e.g. No Movies found in Trash)', 'cpt-plugin' )
+								'labeltext'     => __( 'Not Found in Trash', 'cpt-plugin' ),
+								'helptext'      => esc_attr__( 'Post type label.  Used in the admin menu for displaying post types.', 'cpt-plugin' ),
+								'namearray'     => 'cpt_labels',
+								'name'          => 'not_found_in_trash',
+								'textvalue'     => ( isset( $cpt_labels["not_found_in_trash"] ) ) ? esc_attr( $cpt_labels["not_found_in_trash"] ) : '',
+								'aftertext'     => __( '(e.g. No Movies found in Trash)', 'cpt-plugin' )
 								) );
 
 							echo $ui->text_input( array(
-                                'labeltext'     => __( 'Paret', 'cpt-plugin' ),
-                                'helptext'      => esc_attr__( 'Post type label.  Used in the admin menu for displaying post types.', 'cpt-plugin' ),
-                                'namearray'     => 'cpt_labels',
-                                'name'          => 'parent',
-                                'textvalue'     => ( isset( $cpt_labels["parent"] ) ) ? esc_attr( $cpt_labels["parent"] ) : '',
-                                'aftertext'     => __( '(e.g. Parent Movie)', 'cpt-plugin' )
+								'labeltext'     => __( 'Parent', 'cpt-plugin' ),
+								'helptext'      => esc_attr__( 'Post type label.  Used in the admin menu for displaying post types.', 'cpt-plugin' ),
+								'namearray'     => 'cpt_labels',
+								'name'          => 'parent',
+								'textvalue'     => ( isset( $cpt_labels["parent"] ) ) ? esc_attr( $cpt_labels["parent"] ) : '',
+								'aftertext'     => __( '(e.g. Parent Movie)', 'cpt-plugin' )
 								) );
 							?>
 						</table>
