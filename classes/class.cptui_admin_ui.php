@@ -155,7 +155,7 @@ class cptui_admin_ui {
 	 * @param  array  $args values to use in the input
 	 * @return string       constructed input for the form
 	 */
-	public function check_input( $args ) {
+	public function check_input( $args = '' ) {
 		$defaults = array(
 
 		);
