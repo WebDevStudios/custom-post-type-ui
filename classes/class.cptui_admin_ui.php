@@ -190,6 +190,18 @@ class cptui_admin_ui {
 		 */
 	}
 
-		$value = '<input type="checkbox" name="" value="" /> <a href="#" title="" class="help">?</a> <br/>';
+	/**
+	 * Return an array of default input values that all input types have.
+	 *
+	 * @return array  array of defaults.
+	 */
+	public function defaults() {
+		return array(
+			'namearray'     => '',
+			'name'          => '',
+			'labeltext'     => '',
+			'aftertext'     => '',
+			'helptext'      => '',
+		);
 	}
 }
