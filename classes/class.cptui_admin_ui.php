@@ -13,12 +13,16 @@ class cptui_admin_ui {
 		return '<tr valign="top">';
 	}
 
-		if ( $required )
-			$input .= '<span class="required">*</span>';
+	public function tr_end() {
+		return '</tr>';
+	}
 
-		$input .= '<a href="#" title="' . $title_text . '" class="help">?</a></th><td>';
+	public function th_start() {
+		return '<th scope="row">';
+	}
 
-		return $input;
+	public function th_end() {
+		return '</th>';
 	}
 
 	/**
