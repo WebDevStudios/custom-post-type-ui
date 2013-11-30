@@ -167,6 +167,28 @@ class cptui_admin_ui {
             'required'      => false
 		);
 		$args = wp_parse_args( $args, $defaults );
+		extract( $args );
+
+		$value = $this->tr_start();
+		$value .= $this->th_start();
+		$value .= $checklisttext;
+		$value .= $this->th_end();
+		$value .= $this->td_start();
+
+
+		$value .= '<input type="checkbox" name="' . $namearray . '[]" value="' . $checkvalue . '"' . checked( $checked, true, false) . ' />';
+		$value .= $value .= $this->label( $name, $labeltext );
+		$value .= $this->help( $helptext );
+
+		$value .= $this->tr_end();
+
+		return $value;
+
+
+		/*
+		 p;<?php _e( 'Title' , 'cpt-plugin' ); ?> <a href="#" title="<?php esc_attr_e( 'Adds the title meta box when creating content for this custom post type', 'cpt-plugin' ); ?>" class="help">?</a>
+		 */
+	}
 
 		$value = '<input type="checkbox" name="" value="" /> <a href="#" title="" class="help">?</a> <br/>';
 	}
