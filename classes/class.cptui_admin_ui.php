@@ -91,14 +91,21 @@ class cptui_admin_ui {
 		$args = wp_parse_args( $args, $defaults );
 		extract( $args );
 
-		$value = $this->tr_wrap_start( $name, $labeltext, $helptext, $required );
+		$value = $this->tr_start();
+		$value .= $this->th_start();
+		$value .= $this->label( $name, $labeltext );
+		$value .= $this->required( $required );
+		$value .= $this->help( $helptext );
+		$value .= $this->th_end();
+		$value .= $this->td_start();
 
 		$value .= '<input type="text" name="' . $namearray . '[' . $name . ']" value="' . $textvalue . '" /><br/>';
 
 		if ( !empty( $aftertext) )
 			$value .= $aftertext;
 
-		$value .= $this->tr_wrap_end();
+		$value .= $this->td_end();
+		$value .= $this->tr_end();
 
 		return $value;
 
