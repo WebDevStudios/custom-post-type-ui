@@ -130,6 +130,7 @@ class cptui_admin_ui {
 			'cols'          => '',
 		);
 		$args = wp_parse_args( $args, $defaults );
+		extract( $args );
 
 		$value = $this->tr_wrap_start('','');
 
