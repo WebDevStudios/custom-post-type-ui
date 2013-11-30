@@ -118,7 +118,16 @@ class cptui_admin_ui {
 	 */
 	public function textarea_input( $args = '' ) {
 		$defaults = array(
-
+			'namearray'     => '',
+			'name'          => '',
+			'textvalue'     => '',
+			'maxlength'     => '',
+			'onblur'        => '',
+			'labeltext'     => '',
+			'aftertext'     => '',
+			'helptext'      => '',
+			'rows'          => '',
+			'cols'          => '',
 		);
 		$args = wp_parse_args( $args, $defaults );
 
