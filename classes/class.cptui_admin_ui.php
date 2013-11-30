@@ -157,7 +157,14 @@ class cptui_admin_ui {
 	 */
 	public function check_input( $args = '' ) {
 		$defaults = array(
-
+            'namearray'     => '',
+            'checkvalue'    => '',
+            'checked'       => false,
+            'checklisttext' => '',
+            'labeltext'     => '',
+            'aftertext'     => '',
+            'helptext'      => '',
+            'required'      => false
 		);
 		$args = wp_parse_args( $args, $defaults );
 
