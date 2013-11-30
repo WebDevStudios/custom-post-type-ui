@@ -139,7 +139,7 @@ class cptui_admin_ui {
 		$value .= $this->th_end();
 		$value .= $this->td_start();
 
-		$value .= '<textarea name="" rows="" cols=""></textarea>';
+		$value .= '<textarea name="' . $namearray . '[' . $name . ']" rows="' . $rows . '" cols="' . $cols . '">' . $textvalue . '</textarea>';
 
 		$value .= $this->tr_wrap_end();
 
