@@ -1548,9 +1548,6 @@ function cpt_add_new() {
 								echo $ui->tr_start() . $ui->th_start() . __('Supports', 'cpt-plugin') . $ui->th_end() . $ui->td_start();
 							?>
 
-							<tr valign="top">
-							<th scope="row"><?php _e('Supports', 'cpt-plugin') ?></th>
-							<td>
 								<input type="checkbox" name="cpt_supports[]" value="title" <?php if (isset($cpt_supports) && is_array($cpt_supports)) { if (in_array('title', $cpt_supports)) { echo 'checked="checked"'; } } elseif (!isset($_GET['edittype'])) { echo 'checked="checked"'; } ?> />&nbsp;<?php _e( 'Title' , 'cpt-plugin' ); ?> <a href="#" title="<?php esc_attr_e( 'Adds the title meta box when creating content for this custom post type', 'cpt-plugin' ); ?>" class="help">?</a> <br/ >
 								<input type="checkbox" name="cpt_supports[]" value="editor" <?php if (isset($cpt_supports) && is_array($cpt_supports)) { if (in_array('editor', $cpt_supports)) { echo 'checked="checked"'; } } elseif (!isset($_GET['edittype'])) { echo 'checked="checked"'; } ?> />&nbsp;<?php _e( 'Editor' , 'cpt-plugin' ); ?> <a href="#" title="<?php esc_attr_e( 'Adds the content editor meta box when creating content for this custom post type', 'cpt-plugin' ); ?>" class="help">?</a> <br/ >
 								<input type="checkbox" name="cpt_supports[]" value="excerpt" <?php if (isset($cpt_supports) && is_array($cpt_supports)) { if (in_array('excerpt', $cpt_supports)) { echo 'checked="checked"'; } } elseif (!isset($_GET['edittype'])) { echo 'checked="checked"'; } ?> />&nbsp;<?php _e( 'Excerpt' , 'cpt-plugin' ); ?> <a href="#" title="<?php esc_attr_e( 'Adds the excerpt meta box when creating content for this custom post type', 'cpt-plugin' ); ?>" class="help">?</a> <br/ >
@@ -1562,8 +1559,7 @@ function cpt_add_new() {
 								<input type="checkbox" name="cpt_supports[]" value="author" <?php if (isset($cpt_supports) && is_array($cpt_supports)) { if (in_array('author', $cpt_supports)) { echo 'checked="checked"'; } } elseif (!isset($_GET['edittype'])) { echo 'checked="checked"'; }  ?> />&nbsp;<?php _e( 'Author' , 'cpt-plugin' ); ?> <a href="#" title="<?php esc_attr_e( 'Adds the author meta box when creating content for this custom post type', 'cpt-plugin' ); ?>" class="help">?</a> <br/ >
 								<input type="checkbox" name="cpt_supports[]" value="page-attributes" <?php if (isset($cpt_supports) && is_array($cpt_supports)) { if (in_array('page-attributes', $cpt_supports)) { echo 'checked="checked"'; } } elseif (!isset($_GET['edittype'])) { echo 'checked="checked"'; }  ?> />&nbsp;<?php _e( 'Page Attributes' , 'cpt-plugin' ); ?> <a href="#" title="<?php esc_attr_e( 'Adds the page attribute meta box when creating content for this custom post type', 'cpt-plugin' ); ?>" class="help">?</a> <br/ >
 								<input type="checkbox" name="cpt_supports[]" value="post-formats" <?php if (isset($cpt_supports) && is_array($cpt_supports)) { if (in_array('post-formats', $cpt_supports)) { echo 'checked="checked"'; } } elseif (!isset($_GET['edittype'])) { echo 'checked="checked"'; }  ?> />&nbsp;<?php _e( 'Post Formats' , 'cpt-plugin' ); ?> <a href="#" title="<?php esc_attr_e( 'Adds post format support', 'cpt-plugin' ); ?>" class="help">?</a> <br/ >
-							</td>
-							</tr>
+							<?php echo $ui->td_end() . $ui->tr_end(); ?>
 
 							<tr valign="top">
 							<th scope="row"><?php _e('Built-in Taxonomies', 'cpt-plugin') ?></th>
