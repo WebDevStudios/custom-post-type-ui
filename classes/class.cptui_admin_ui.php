@@ -116,7 +116,7 @@ class cptui_admin_ui {
 	 * @param  array  $args values to use in the input
 	 * @return string       constructed input for the form.
 	 */
-	public function textarea_input( $args ) {
+	public function textarea_input( $args = '' ) {
 		$defaults = array(
 
 		);
