@@ -1967,6 +1967,7 @@ function cpt_help_style() { ?>
 			font-weight: bold;
 		}
 		.required { color: rgb(255,0,0); }
+		#slidepanel2 #excerpt { height: 16px; margin-right: 4px; width: auto; }
 	</style>
 <?php
 }
