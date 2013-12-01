@@ -9,41 +9,41 @@ class cptui_admin_ui {
 
 	}
 
-	public function tr_start() {
+	public function get_tr_start() {
 		return '<tr valign="top">';
 	}
 
-	public function tr_end() {
+	public function get_tr_end() {
 		return '</tr>';
 	}
 
-	public function th_start() {
+	public function get_th_start() {
 		return '<th scope="row">';
 	}
 
-	public function th_end() {
+	public function get_th_end() {
 		return '</th>';
 	}
 
-	public function td_start() {
+	public function get_td_start() {
 		return '<td>';
 	}
 
-	public function td_end() {
+	public function get_td_end() {
 		return '</td>';
 	}
 
-	public function label( $label_for, $label_text ) {
+	public function get_label( $label_for, $label_text ) {
 		$label = '<label for="' . $label_for . '"> ' . $label_text . '</label>';
 
 		return $label;
 	}
 
-	public function required() {
+	public function get_required() {
 		return '<span class="required">*</span>';
 	}
 
-	public function help( $help_text ) {
+	public function get_help( $help_text ) {
 		return '<a href="#" title="' . $help_text . '" class="help">?</a>';
 	}
 
@@ -52,7 +52,7 @@ class cptui_admin_ui {
 	 * @param  array  $args values to use in the input
 	 * @return string       constructed input for the form.
 	 */
-	public function select_bool_input( $args = '' ) {
+	public function get_select_bool_input( $args = '' ) {
 		$defaults = array(
 
 		);
@@ -76,8 +76,8 @@ class cptui_admin_ui {
 	 * @param  array  $args values to use in the input
 	 * @return string       constructed input for the form.
 	 */
-	public function text_input( $args = '' ) { //TODO: Finish output of other attributes
-		$defaults = $this->default_input_parameters(
+	public function get_text_input( $args = '' ) { //TODO: Finish output of other attributes
+		$defaults = $this->get_default_input_parameters(
 			array(
 				'maxlength'     => '',
 				'onblur'        => '',
@@ -86,13 +86,13 @@ class cptui_admin_ui {
 		$args = wp_parse_args( $args, $defaults );
 
 		if ( $args['wrap'] ) {
-			$value = $this->tr_start();
-			$value .= $this->th_start();
-			$value .= $this->label( $args['name'], $args['labeltext'] );
-			$value .= $this->required( $args['required'] );
-			$value .= $this->help( $args['helptext'] );
-			$value .= $this->th_end();
-			$value .= $this->td_start();
+			$value = $this->get_tr_start();
+			$value .= $this->get_th_start();
+			$value .= $this->get_label( $args['name'], $args['labeltext'] );
+			$value .= $this->get_required( $args['required'] );
+			$value .= $this->get_help( $args['helptext'] );
+			$value .= $this->get_th_end();
+			$value .= $this->get_td_start();
 		}
 
 		$value .= '<input type="text" id="' . $args['name'] . '" name="' . $args['namearray'] . '[' . $args['name'] . ']" value="' . $args['textvalue'] . '" /><br/>';
@@ -101,8 +101,8 @@ class cptui_admin_ui {
 			$value .= $args['aftertext'];
 
 		if ( $wrap ) {
-			$value .= $this->td_end();
-			$value .= $this->tr_end();
+			$value .= $this->get_td_end();
+			$value .= $this->get_tr_end();
 		}
 
 		return $value;
@@ -113,8 +113,8 @@ class cptui_admin_ui {
 	 * @param  array  $args values to use in the input
 	 * @return string       constructed input for the form.
 	 */
-	public function textarea_input( $args = '' ) {
-		$defaults = $this->default_input_parameters(
+	public function get_textarea_input( $args = '' ) {
+		$defaults = $this->get_default_input_parameters(
 			array(
 				'rows' => '',
 				'cols' => '',
@@ -123,12 +123,12 @@ class cptui_admin_ui {
 		$args = wp_parse_args( $args, $defaults );
 
 		if ( $args['wrap'] ) {
-			$value = $this->tr_start();
-			$value .= $this->th_start();
-			$value .= $this->label( $args['name'], $args['labeltext'] );
-			$value .= $this->help( $args['helptext'] );
-			$value .= $this->th_end();
-			$value .= $this->td_start();
+			$value = $this->get_tr_start();
+			$value .= $this->get_th_start();
+			$value .= $this->get_label( $args['name'], $args['labeltext'] );
+			$value .= $this->get_help( $args['helptext'] );
+			$value .= $this->get_th_end();
+			$value .= $this->get_td_start();
 		}
 
 		$value .= '<textarea id="' . $args['name'] . '" name="' . $args['namearray'] . '[' . $args['name'] . ']" rows="' . $args['rows'] . '" cols="' . $args['cols'] . '">' . $args['textvalue'] . '</textarea>';
@@ -137,8 +137,8 @@ class cptui_admin_ui {
 			$value .= $args['aftertext'];
 
 		if ( $wrap ) {
-			$value .= $this->td_end();
-			$value .= $this->tr_end();
+			$value .= $this->get_td_end();
+			$value .= $this->get_tr_end();
 		}
 
 		return $value;
@@ -149,8 +149,8 @@ class cptui_admin_ui {
 	 * @param  array  $args values to use in the input
 	 * @return string       constructed input for the form
 	 */
-	public function check_input( $args = '' ) {
-		$defaults = $this->default_input_parameters(
+	public function get_check_input( $args = '' ) {
+		$defaults = $this->get_default_input_parameters(
 			array(
 				'checkvalue'    => '',
 				'checked'       => true,
@@ -161,24 +161,24 @@ class cptui_admin_ui {
 		$args = wp_parse_args( $args, $defaults );
 
 		if ( $args['wrap'] ) {
-			$value = $this->tr_start();
-			$value .= $this->th_start();
+			$value = $this->get_tr_start();
+			$value .= $this->get_th_start();
 			$value .= $args['checklisttext'];
-			$value .= $this->th_end();
-			$value .= $this->td_start();
+			$value .= $this->get_th_end();
+			$value .= $this->get_td_start();
 		}
 		if ( !isset( $_GET['edittype'] ) ) { //all of our meta_boxes are checked by default; This if statement checks for the add new screen
 			$value .= '<input type="checkbox" id="' . $args['name'] . '" name="' . $args['namearray'] . '[]" value="' . $args['checkvalue'] . '" checked="checked" />';
 		} else {
 			$value .= '<input type="checkbox" id="' . $args['name'] . '" name="' . $args['namearray'] . '[]" value="' . $args['checkvalue'] . '"' . checked( $args['checked'], true, false) . ' />';
 		}
-		$value .= $this->label( $args['name'], $args['labeltext'] );
-		$value .= $this->help( $args['helptext'] );
+		$value .= $this->get_label( $args['name'], $args['labeltext'] );
+		$value .= $this->get_help( $args['helptext'] );
 		$value .= '<br/>';
 
 		if ( $args['wrap'] ) {
-			$value .= $this->td_end();
-			$value .= $this->tr_end();
+			$value .= $this->get_td_end();
+			$value .= $this->get_tr_end();
 		}
 
 		return $value;
@@ -189,7 +189,7 @@ class cptui_admin_ui {
 	 *
 	 * @return array  array of defaults.
 	 */
-	public function default_input_parameters( $additions = array() ) {
+	public function get_default_input_parameters( $additions = array() ) {
 		return array_merge(
 			array(
 				'namearray'     => '',
