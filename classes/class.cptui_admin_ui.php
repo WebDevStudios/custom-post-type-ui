@@ -84,26 +84,28 @@ class cptui_admin_ui {
 			)
 		);
 		$args = wp_parse_args( $args, $defaults );
-		extract( $args );
 
-		$value = $this->tr_start();
-		$value .= $this->th_start();
-		$value .= $this->label( $name, $labeltext );
-		$value .= $this->required( $required );
-		$value .= $this->help( $helptext );
-		$value .= $this->th_end();
-		$value .= $this->td_start();
+		if ( $args['wrap'] ) {
+			$value = $this->tr_start();
+			$value .= $this->th_start();
+			$value .= $this->label( $args['name'], $args['labeltext'] );
+			$value .= $this->required( $args['required'] );
+			$value .= $this->help( $args['helptext'] );
+			$value .= $this->th_end();
+			$value .= $this->td_start();
+		}
 
-		$value .= '<input type="text" name="' . $namearray . '[' . $name . ']" value="' . $textvalue . '" /><br/>';
+		$value .= '<input type="text" id="' . $args['name'] . '" name="' . $args['namearray'] . '[' . $args['name'] . ']" value="' . $args['textvalue'] . '" /><br/>';
 
-		if ( !empty( $aftertext) )
-			$value .= $aftertext;
+		if ( !empty( $args['aftertext'] ) )
+			$value .= $args['aftertext'];
 
-		$value .= $this->td_end();
-		$value .= $this->tr_end();
+		if ( $wrap ) {
+			$value .= $this->td_end();
+			$value .= $this->tr_end();
+		}
 
 		return $value;
-
 	}
 
 	/**
