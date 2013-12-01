@@ -1541,124 +1541,135 @@ function cpt_add_new() {
 								echo $ui->get_tr_start() . $ui->get_th_start() . __('Supports', 'cpt-plugin') . $ui->get_th_end() . $ui->get_td_start();
 
 								echo $ui->get_check_input( array(
-									'checkvalue'        => 'title',
-									'checked'           => in_array( 'title', $cpt_supports ),
-									'name'              => 'title',
-									'namearray'         => 'cpt_supports',
-									'textvalue'         => 'title',
-									'labeltext'         => __( 'Title' , 'cpt-plugin' ),
-									'helptext'          => esc_attr__( 'Adds the title meta box when creating content for this custom post type', 'cpt-plugin' ),
-									'wrap'              => false
+                                    'checkvalue'    => 'title',
+                                    'checked'       => in_array( 'title', $cpt_supports ),
+                                    'name'          => 'title',
+                                    'namearray'     => 'cpt_supports',
+                                    'textvalue'     => 'title',
+                                    'labeltext'     => __( 'Title' , 'cpt-plugin' ),
+                                    'helptext'      => esc_attr__( 'Adds the title meta box when creating content for this custom post type', 'cpt-plugin' ),
+                                    'default'       => true,
+                                    'wrap'          => false
 								) );
 
 								echo $ui->get_check_input( array(
-									'checkvalue'        => 'editor',
-									'checked'           => in_array( 'editor', $cpt_supports ),
-									'name'              => 'editor',
-									'namearray'         => 'cpt_supports',
-									'textvalue'         => 'editor',
-									'labeltext'         => __( 'Editor' , 'cpt-plugin' ),
-									'helptext'          => esc_attr__( 'Adds the content editor meta box when creating content for this custom post type', 'cpt-plugin' ),
-									'wrap'              => false
+                                    'checkvalue'    => 'editor',
+                                    'checked'       => in_array( 'editor', $cpt_supports ),
+                                    'name'          => 'editor',
+                                    'namearray'     => 'cpt_supports',
+                                    'textvalue'     => 'editor',
+                                    'labeltext'     => __( 'Editor' , 'cpt-plugin' ),
+                                    'helptext'      => esc_attr__( 'Adds the content editor meta box when creating content for this custom post type', 'cpt-plugin' ),
+                                    'default'       => true,
+                                    'wrap'          => false
 								) );
 
 								echo $ui->get_check_input( array(
-									'checkvalue'        => 'excerpt',
-									'checked'           => in_array( 'excerpt', $cpt_supports ),
-									'name'              => 'excerpt',
-									'namearray'         => 'cpt_supports',
-									'textvalue'         => 'excerpt',
-									'labeltext'         => __( 'Excerpt' , 'cpt-plugin' ),
-									'helptext'          => esc_attr__( 'Adds the excerpt meta box when creating content for this custom post type', 'cpt-plugin' ),
-									'wrap'              => false
+                                    'checkvalue'    => 'excerpt',
+                                    'checked'       => in_array( 'excerpt', $cpt_supports ),
+                                    'name'          => 'excerpt',
+                                    'namearray'     => 'cpt_supports',
+                                    'textvalue'     => 'excerpt',
+                                    'labeltext'     => __( 'Excerpt' , 'cpt-plugin' ),
+                                    'helptext'      => esc_attr__( 'Adds the excerpt meta box when creating content for this custom post type', 'cpt-plugin' ),
+                                    'default'       => true,
+                                    'wrap'          => false
 								) );
 
 								echo $ui->get_check_input( array(
-									'checkvalue'        => 'trackbacks',
-									'checked'           => in_array( 'trackbacks', $cpt_supports ),
-									'name'              => 'trackbacks',
-									'namearray'         => 'cpt_supports',
-									'textvalue'         => 'trackbacks',
-									'labeltext'         => __( 'Trackbacks' , 'cpt-plugin' ),
-									'helptext'          => esc_attr__( 'Adds the trackbacks meta box when creating content for this custom post type', 'cpt-plugin' ),
-									'wrap'              => false
+                                    'checkvalue'    => 'trackbacks',
+                                    'checked'       => in_array( 'trackbacks', $cpt_supports ),
+                                    'name'          => 'trackbacks',
+                                    'namearray'     => 'cpt_supports',
+                                    'textvalue'     => 'trackbacks',
+                                    'labeltext'     => __( 'Trackbacks' , 'cpt-plugin' ),
+                                    'helptext'      => esc_attr__( 'Adds the trackbacks meta box when creating content for this custom post type', 'cpt-plugin' ),
+                                    'default'       => true,
+                                    'wrap'          => false
 								) );
 
 								echo $ui->get_check_input( array(
-									'checkvalue'        => 'custom-fields',
-									'checked'           => in_array( 'custom-fields', $cpt_supports ),
-									'name'              => 'custom-fields',
-									'namearray'         => 'cpt_supports',
-									'textvalue'         => 'custom-fields',
-									'labeltext'         => __( 'Custom Fields' , 'cpt-plugin' ),
-									'helptext'          => esc_attr__( 'Adds the custom fields meta box when creating content for this custom post type', 'cpt-plugin' ),
-									'wrap'              => false
+                                    'checkvalue'    => 'custom-fields',
+                                    'checked'       => in_array( 'custom-fields', $cpt_supports ),
+                                    'name'          => 'custom-fields',
+                                    'namearray'     => 'cpt_supports',
+                                    'textvalue'     => 'custom-fields',
+                                    'labeltext'     => __( 'Custom Fields' , 'cpt-plugin' ),
+                                    'helptext'      => esc_attr__( 'Adds the custom fields meta box when creating content for this custom post type', 'cpt-plugin' ),
+                                    'default'       => true,
+                                    'wrap'          => false
 								) );
 
 								echo $ui->get_check_input( array(
-									'checkvalue'        => 'comments',
-									'checked'           => in_array( 'comments', $cpt_supports ),
-									'name'              => 'comments',
-									'namearray'         => 'cpt_supports',
-									'textvalue'         => 'comments',
-									'labeltext'         => __( 'Comments' , 'cpt-plugin' ),
-									'helptext'          => esc_attr__( 'Adds the comments meta box when creating content for this custom post type', 'cpt-plugin' ),
-									'wrap'              => false
+                                    'checkvalue'    => 'comments',
+                                    'checked'       => in_array( 'comments', $cpt_supports ),
+                                    'name'          => 'comments',
+                                    'namearray'     => 'cpt_supports',
+                                    'textvalue'     => 'comments',
+                                    'labeltext'     => __( 'Comments' , 'cpt-plugin' ),
+                                    'helptext'      => esc_attr__( 'Adds the comments meta box when creating content for this custom post type', 'cpt-plugin' ),
+                                    'default'       => true,
+                                    'wrap'          => false
 								) );
 
 								echo $ui->get_check_input( array(
-									'checkvalue'        => 'revisions',
-									'checked'           => in_array( 'revisions', $cpt_supports ),
-									'name'              => 'revisions',
-									'namearray'         => 'cpt_supports',
-									'textvalue'         => 'revisions',
-									'labeltext'         => __( 'Revisions' , 'cpt-plugin' ),
-									'helptext'          => esc_attr__( 'Adds the revisions meta box when creating content for this custom post type', 'cpt-plugin' ),
-									'wrap'              => false
+                                    'checkvalue'    => 'revisions',
+                                    'checked'       => in_array( 'revisions', $cpt_supports ),
+                                    'name'          => 'revisions',
+                                    'namearray'     => 'cpt_supports',
+                                    'textvalue'     => 'revisions',
+                                    'labeltext'     => __( 'Revisions' , 'cpt-plugin' ),
+                                    'helptext'      => esc_attr__( 'Adds the revisions meta box when creating content for this custom post type', 'cpt-plugin' ),
+                                    'default'       => true,
+                                    'wrap'          => false
 								) );
 
 								echo $ui->get_check_input( array(
-									'checkvalue'        => 'thumbnail',
-									'checked'           => in_array( 'thumbnail', $cpt_supports ),
-									'name'              => 'thumbnail',
-									'namearray'         => 'cpt_supports',
-									'textvalue'         => 'thumbnail',
-									'labeltext'         => __( 'Featured Image' , 'cpt-plugin' ),
-									'helptext'          => esc_attr__( 'Adds the featured image meta box when creating content for this custom post type', 'cpt-plugin' ),
-									'wrap'              => false
+                                    'checkvalue'    => 'thumbnail',
+                                    'checked'       => in_array( 'thumbnail', $cpt_supports ),
+                                    'name'          => 'thumbnail',
+                                    'namearray'     => 'cpt_supports',
+                                    'textvalue'     => 'thumbnail',
+                                    'labeltext'     => __( 'Featured Image' , 'cpt-plugin' ),
+                                    'helptext'      => esc_attr__( 'Adds the featured image meta box when creating content for this custom post type', 'cpt-plugin' ),
+                                    'default'       => true,
+                                    'wrap'          => false
 								) );
 
 								echo $ui->get_check_input( array(
-									'checkvalue'        => 'author',
-									'checked'           => in_array( 'author', $cpt_supports ),
-									'name'              => 'author',
-									'namearray'         => 'cpt_supports',
-									'textvalue'         => 'author',
-									'labeltext'         => __( 'Author' , 'cpt-plugin' ),
-									'helptext'          => esc_attr__( 'Adds the author meta box when creating content for this custom post type', 'cpt-plugin' ),
-									'wrap'              => false
+                                    'checkvalue'    => 'author',
+                                    'checked'       => in_array( 'author', $cpt_supports ),
+                                    'name'          => 'author',
+                                    'namearray'     => 'cpt_supports',
+                                    'textvalue'     => 'author',
+                                    'labeltext'     => __( 'Author' , 'cpt-plugin' ),
+                                    'helptext'      => esc_attr__( 'Adds the author meta box when creating content for this custom post type', 'cpt-plugin' ),
+                                    'default'       => true,
+                                    'wrap'          => false
 								) );
 
 								echo $ui->get_check_input( array(
-									'checkvalue'        => 'page-attributes',
-									'checked'           => in_array( 'page-attributes', $cpt_supports ),
-									'name'              => 'page-attributes',
-									'namearray'         => 'cpt_supports',
-									'textvalue'         => 'page-attributes',
-									'labeltext'         => __( 'Page Attributes' , 'cpt-plugin' ),
-									'helptext'          => esc_attr__( 'Adds the page attribute meta box when creating content for this custom post type', 'cpt-plugin' ),
-									'wrap'              => false
+                                    'checkvalue'    => 'page-attributes',
+                                    'checked'       => in_array( 'page-attributes', $cpt_supports ),
+                                    'name'          => 'page-attributes',
+                                    'namearray'     => 'cpt_supports',
+                                    'textvalue'     => 'page-attributes',
+                                    'labeltext'     => __( 'Page Attributes' , 'cpt-plugin' ),
+                                    'helptext'      => esc_attr__( 'Adds the page attribute meta box when creating content for this custom post type', 'cpt-plugin' ),
+                                    'default'       => true,
+                                    'wrap'          => false
 								) );
 
 								echo $ui->get_check_input( array(
-									'checkvalue'        => 'post-formats',
-									'checked'           => in_array( 'post-formats', $cpt_supports ),
-									'name'              => 'post-formats',
-									'namearray'         => 'cpt_supports',
-									'textvalue'         => 'post-formats',
-									'labeltext'         => __( 'Post Formats' , 'cpt-plugin' ),
-									'helptext'          => esc_attr__( 'Adds post format support', 'cpt-plugin' ),
-									'wrap'              => false
+                                    'checkvalue'    => 'post-formats',
+                                    'checked'       => in_array( 'post-formats', $cpt_supports ),
+                                    'name'          => 'post-formats',
+                                    'namearray'     => 'cpt_supports',
+                                    'textvalue'     => 'post-formats',
+                                    'labeltext'     => __( 'Post Formats' , 'cpt-plugin' ),
+                                    'helptext'      => esc_attr__( 'Adds post format support', 'cpt-plugin' ),
+                                    'default'       => true,
+                                    'wrap'          => false
 								) );
 
 							echo $ui->get_td_end() . $ui->get_tr_end();
