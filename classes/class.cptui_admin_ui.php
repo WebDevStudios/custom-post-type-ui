@@ -68,6 +68,12 @@ class cptui_admin_ui {
 
 		$value .= $this->tr_wrap_end();
 
+		/*
+		<select name="cpt_custom_post_type[rewrite_withfront]">
+			<option value="0" <?php if (isset($cpt_rewrite_withfront)) { if ($cpt_rewrite_withfront == 0 && $cpt_rewrite_withfront != '') { echo 'selected="selected"'; } } ?>><?php _e( 'False', 'cpt-plugin' ); ?></option>
+			<option value="1" <?php if (isset($cpt_rewrite_withfront)) { if ($cpt_rewrite_withfront == 1 || is_null($cpt_rewrite_withfront)) { echo 'selected="selected"'; } } else { echo 'selected="selected"'; } ?>><?php _e( 'True', 'cpt-plugin' ); ?></option>
+		</select> <?php _e( '(default: True)', 'cpt-plugin' ); ?>
+		 */
 		return $value;
 	}
 
@@ -152,9 +158,10 @@ class cptui_admin_ui {
 	public function get_check_input( $args = '' ) {
 		$defaults = $this->get_default_input_parameters(
 			array(
-				'checkvalue'    => '',
-				'checked'       => true,
-				'checklisttext' => '',
+                'checkvalue'        => '',
+                'checked'           => true,
+                'checklisttext'     => '',
+                'default'           => false
 			)
 		);
 
@@ -167,10 +174,10 @@ class cptui_admin_ui {
 			$value .= $this->get_th_end();
 			$value .= $this->get_td_start();
 		}
-		if ( !isset( $_GET['edittype'] ) ) { //all of our meta_boxes are checked by default; This if statement checks for the add new screen
-			$value .= '<input type="checkbox" id="' . $args['name'] . '" name="' . $args['namearray'] . '[]" value="' . $args['checkvalue'] . '" checked="checked" />';
-		} else {
+		if ( false === $args['default'] ) {
 			$value .= '<input type="checkbox" id="' . $args['name'] . '" name="' . $args['namearray'] . '[]" value="' . $args['checkvalue'] . '"' . checked( $args['checked'], true, false) . ' />';
+		} else {
+			$value .= '<input type="checkbox" id="' . $args['name'] . '" name="' . $args['namearray'] . '[]" value="' . $args['checkvalue'] . '" checked="checked" />';
 		}
 		$value .= $this->get_label( $args['name'], $args['labeltext'] );
 		$value .= $this->get_help( $args['helptext'] );
