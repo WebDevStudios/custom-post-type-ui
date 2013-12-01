@@ -77,16 +77,11 @@ class cptui_admin_ui {
 	 * @return string       constructed input for the form.
 	 */
 	public function text_input( $args = '' ) { //TODO: Finish output of other attributes
-		$defaults = array(
-			'namearray'     => '',
-			'name'          => '',
-			'textvalue'     => '',
-			'maxlength'     => '',
-			'onblur'        => '',
-			'labeltext'     => '',
-			'aftertext'     => '',
-			'helptext'      => '',
-			'required'      => false
+		$defaults = $this->default_input_parameters(
+			array(
+				'maxlength'     => '',
+				'onblur'        => '',
+			)
 		);
 		$args = wp_parse_args( $args, $defaults );
 		extract( $args );
@@ -117,17 +112,11 @@ class cptui_admin_ui {
 	 * @return string       constructed input for the form.
 	 */
 	public function textarea_input( $args = '' ) {
-		$defaults = array(
-			'namearray'     => '',
-			'name'          => '',
-			'textvalue'     => '',
-			'maxlength'     => '',
-			'onblur'        => '',
-			'labeltext'     => '',
-			'aftertext'     => '',
-			'helptext'      => '',
-			'rows'          => '',
-			'cols'          => '',
+		$defaults = $this->default_input_parameters(
+			array(
+				'rows' => '',
+				'cols' => '',
+			)
 		);
 		$args = wp_parse_args( $args, $defaults );
 		extract( $args );
@@ -156,15 +145,12 @@ class cptui_admin_ui {
 	 * @return string       constructed input for the form
 	 */
 	public function check_input( $args = '' ) {
-		$defaults = array(
-            'namearray'     => '',
-            'checkvalue'    => '',
-            'checked'       => false,
-            'checklisttext' => '',
-            'labeltext'     => '',
-            'aftertext'     => '',
-            'helptext'      => '',
-            'required'      => false
+		$defaults = $this->default_input_parameters(
+			array(
+				'checkvalue'    => '',
+				'checked'       => true,
+				'checklisttext' => '',
+			)
 		);
 		$args = wp_parse_args( $args, $defaults );
 		extract( $args );
@@ -195,13 +181,19 @@ class cptui_admin_ui {
 	 *
 	 * @return array  array of defaults.
 	 */
-	public function defaults() {
-		return array(
-			'namearray'     => '',
-			'name'          => '',
-			'labeltext'     => '',
-			'aftertext'     => '',
-			'helptext'      => '',
+	public function default_input_parameters( $additions = array() ) {
+		return array_merge(
+			array(
+				'namearray'     => '',
+				'name'          => '',
+				'textvalue'     => '',
+				'labeltext'     => '',
+				'aftertext'     => '',
+				'helptext'      => '',
+				'required'      => false,
+				'wrap'          => true
+			),
+			(array)$additions
 		);
 	}
 }
