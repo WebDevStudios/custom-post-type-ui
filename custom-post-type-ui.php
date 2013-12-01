@@ -1666,11 +1666,17 @@ function cpt_add_new() {
 							<tr valign="top">
 							<th scope="row"><?php _e('Built-in Taxonomies', 'cpt-plugin') ?></th>
 							<td>
-					<?php
-					//load built-in WP Taxonomies
-							$args=array( 'public'   => true );
-							$output = 'objects';
-							$add_taxes = get_taxonomies($args,$output);
+						<?php
+							//load built-in WP Taxonomies
+							$args = apply_filters( 'cptui_attach_taxonomies_to_post_type', array( 'public' => true ) );
+							$output = apply_filters( 'cptui_attach_taxonomies_to_post_type_output', 'objects' );
+
+							//If they don't return an array, fall back to the original default. Don't need to check for empty, because empty array is default for $args param in get_post_types anyway.
+							if ( !is_array( $args ) ) {
+								$args = array( 'public' => true );
+							}
+
+							$add_taxes = get_taxonomies( $args, $output );
 							foreach ($add_taxes  as $add_tax ) {
 								if ( $add_tax->name != 'nav_menu' && $add_tax->name != 'post_format') {
 									?>
