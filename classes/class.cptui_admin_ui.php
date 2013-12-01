@@ -157,28 +157,31 @@ class cptui_admin_ui {
 				'checklisttext' => '',
 			)
 		);
+
 		$args = wp_parse_args( $args, $defaults );
-		extract( $args );
 
-		$value = $this->tr_start();
-		$value .= $this->th_start();
-		$value .= $checklisttext;
-		$value .= $this->th_end();
-		$value .= $this->td_start();
+		if ( $args['wrap'] ) {
+			$value = $this->tr_start();
+			$value .= $this->th_start();
+			$value .= $args['checklisttext'];
+			$value .= $this->th_end();
+			$value .= $this->td_start();
+		}
+		if ( !isset( $_GET['edittype'] ) ) { //all of our meta_boxes are checked by default; This if statement checks for the add new screen
+			$value .= '<input type="checkbox" id="' . $args['name'] . '" name="' . $args['namearray'] . '[]" value="' . $args['checkvalue'] . '" checked="checked" />';
+		} else {
+			$value .= '<input type="checkbox" id="' . $args['name'] . '" name="' . $args['namearray'] . '[]" value="' . $args['checkvalue'] . '"' . checked( $args['checked'], true, false) . ' />';
+		}
+		$value .= $this->label( $args['name'], $args['labeltext'] );
+		$value .= $this->help( $args['helptext'] );
+		$value .= '<br/>';
 
-
-		$value .= '<input type="checkbox" name="' . $namearray . '[]" value="' . $checkvalue . '"' . checked( $checked, true, false) . ' />';
-		$value .= $value .= $this->label( $name, $labeltext );
-		$value .= $this->help( $helptext );
-
-		$value .= $this->tr_end();
+		if ( $args['wrap'] ) {
+			$value .= $this->td_end();
+			$value .= $this->tr_end();
+		}
 
 		return $value;
-
-
-		/*
-		 p;<?php _e( 'Title' , 'cpt-plugin' ); ?> <a href="#" title="<?php esc_attr_e( 'Adds the title meta box when creating content for this custom post type', 'cpt-plugin' ); ?>" class="help">?</a>
-		 */
 	}
 
 	/**
