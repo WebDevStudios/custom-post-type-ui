@@ -1202,14 +1202,14 @@ function cpt_add_new() {
 		<h2>
 			<?php _e('Edit Custom Post Type or Taxonomy', 'cpt-plugin') ?> &middot;
 			<a href="<?php echo cpt_check_return( 'add' ); ?>">
-				<?php _e('Reset', 'cpt-plugin');?>
+				<?php _e('Reset fields', 'cpt-plugin');?>
 			</a>
 		</h2>
 		<?php } else { ?>
 		<h2>
 			<?php _e('Create New Custom Post Type or Taxonomy', 'cpt-plugin') ?> &middot;
 			<a href="<?php echo cpt_check_return( 'add' ); ?>">
-				<?php _e('Reset', 'cpt-plugin');?>
+				<?php _e('Reset fields', 'cpt-plugin');?>
 			</a>
 		</h2>
 		<?php } ?>
