@@ -121,22 +121,25 @@ class cptui_admin_ui {
 			)
 		);
 		$args = wp_parse_args( $args, $defaults );
-		extract( $args );
 
-		$value = $this->tr_start();
-		$value .= $this->th_start();
-		$value .= $this->label( $name, $labeltext );
-		$value .= $this->help( $helptext );
-		$value .= $this->th_end();
-		$value .= $this->td_start();
+		if ( $args['wrap'] ) {
+			$value = $this->tr_start();
+			$value .= $this->th_start();
+			$value .= $this->label( $args['name'], $args['labeltext'] );
+			$value .= $this->help( $args['helptext'] );
+			$value .= $this->th_end();
+			$value .= $this->td_start();
+		}
 
-		$value .= '<textarea name="' . $namearray . '[' . $name . ']" rows="' . $rows . '" cols="' . $cols . '">' . $textvalue . '</textarea>';
+		$value .= '<textarea id="' . $args['name'] . '" name="' . $args['namearray'] . '[' . $args['name'] . ']" rows="' . $args['rows'] . '" cols="' . $args['cols'] . '">' . $args['textvalue'] . '</textarea>';
 
-		if ( !empty ( $aftertext ) )
-			$value .= $aftertext;
+		if ( !empty ( $args['aftertext'] ) )
+			$value .= $args['aftertext'];
 
-		$value .= $this->td_end();
-		$value .= $this->tr_end();
+		if ( $wrap ) {
+			$value .= $this->td_end();
+			$value .= $this->tr_end();
+		}
 
 		return $value;
 	}
