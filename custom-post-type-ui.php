@@ -1661,12 +1661,10 @@ function cpt_add_new() {
 									'wrap'              => false
 								) );
 
-							echo $ui->get_td_end() . $ui->get_tr_end(); ?>
+							echo $ui->get_td_end() . $ui->get_tr_end();
 
-							<tr valign="top">
-							<th scope="row"><?php _e('Built-in Taxonomies', 'cpt-plugin') ?></th>
-							<td>
-						<?php
+							echo $ui->get_tr_start() . $ui->get_th_start() . __('Built-in Taxonomies', 'cpt-plugin') . $ui->get_th_end() . $ui->get_td_start();
+
 							//load built-in WP Taxonomies
 							$args = apply_filters( 'cptui_attach_taxonomies_to_post_type', array( 'public' => true ) );
 							$output = apply_filters( 'cptui_attach_taxonomies_to_post_type_output', 'objects' );
@@ -1677,12 +1675,18 @@ function cpt_add_new() {
 							}
 
 							$add_taxes = get_taxonomies( $args, $output );
-							foreach ($add_taxes  as $add_tax ) {
-								if ( $add_tax->name != 'nav_menu' && $add_tax->name != 'post_format') {
-									?>
-									<input type="checkbox" name="cpt_addon_taxes[]" value="<?php echo $add_tax->name; ?>" <?php if (isset($cpt_taxes) && is_array($cpt_taxes)) { if (in_array($add_tax->name, $cpt_taxes)) { echo 'checked="checked"'; } } ?> />&nbsp;<?php echo $add_tax->label; ?><br />
-									<?php
-								}
+							unset( $add_taxes['nav_menu'] ); unset( $add_taxes['post_format'] );
+							foreach ( $add_taxes  as $add_tax ) {
+								echo $ui->get_check_input( array(
+									'checkvalue'        => $add_tax->name,
+									'checked'           => in_array( $add_tax->name, $cpt_taxes ),
+									'name'              => $add_tax->name,
+									'namearray'         => 'cpt_addon_taxes',
+									'textvalue'         => $add_tax->name,
+									'labeltext'         => $add_tax->label,
+									'helptext'          => sprintf( esc_attr__( 'Adds %s support', 'cpt-plugin' ), $add_tax->name ),
+									'wrap'              => false
+								) );
 							}
 							?>
 							</td>
