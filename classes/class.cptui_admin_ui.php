@@ -53,27 +53,49 @@ class cptui_admin_ui {
 	 * @return string       constructed input for the form.
 	 */
 	public function get_select_bool_input( $args = '' ) {
-		$defaults = array(
-
+		$defaults = $this->get_default_input_parameters(
+			array( 'selections' => array() )
 		);
+
 		$args = wp_parse_args( $args, $defaults );
 
-		$value = $this->tr_wrap_start('','');
-		$value .= '<select name="' . $args['name'] . '">';
-
-		foreach( $args['values'] as $val ) {
-			$value .= '<option value="' . $val['value_int'] . '" ' . selected( $args['selected'], $val['value_int'] ) . '>' . $val['value_string'] . '</option>';
+		if ( $args['wrap'] ) {
+			$value = $this->get_tr_start();
+			$value .= $this->get_th_start();
+			$value .= $this->get_label( $args['name'], $args['labeltext'] );
+			if ( $args['required'] ) { $value .= $this->get_required( $args['required'] ); }
+			$value .= $this->get_help( $args['helptext'] );
+			$value .= $this->get_th_end();
+			$value .= $this->get_td_start();
 		}
-		$value .= '</select>' . $args['help_text'];
+		$value .= '<select name="' . $args['namearray'] . '[' . $args['name'] . ']">';
 
-		$value .= $this->tr_wrap_end();
+		foreach( $args['selections']['options'] as $val ) {
+			$set = false;
+			//selected="selected" or empty string
+			$selected = selected( $args['selections']['selected'], $val['attr'], false );
+			$default = ( empty( $selected ) && !empty( $val['default'] ) ) ? true : false;
+			if ( !empty( $selected ) ) {
+				$result = $selected;
+				$set = true;
+			} elseif ( !$set && $default ) {
+				$result = 'selected="selected"';
+			} else {
+				$result = '';
+			}
 
-		/*
-		<select name="cpt_custom_post_type[rewrite_withfront]">
-			<option value="0" <?php if (isset($cpt_rewrite_withfront)) { if ($cpt_rewrite_withfront == 0 && $cpt_rewrite_withfront != '') { echo 'selected="selected"'; } } ?>><?php _e( 'False', 'cpt-plugin' ); ?></option>
-			<option value="1" <?php if (isset($cpt_rewrite_withfront)) { if ($cpt_rewrite_withfront == 1 || is_null($cpt_rewrite_withfront)) { echo 'selected="selected"'; } } else { echo 'selected="selected"'; } ?>><?php _e( 'True', 'cpt-plugin' ); ?></option>
-		</select> <?php _e( '(default: True)', 'cpt-plugin' ); ?>
-		 */
+			$value .= '<option value="' . $val['attr'] . '" ' . $result . '>' . $val['text'] . '</option>';
+		}
+		$value .= '</select>';
+
+		if ( !empty( $args['aftertext'] ) )
+			$value .= $args['aftertext'];
+
+		if ( $args['wrap'] ) {
+			$value .= $this->get_td_end();
+			$value .= $this->get_tr_end();
+		}
+
 		return $value;
 	}
 
