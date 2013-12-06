@@ -113,8 +113,9 @@ class cptui_admin_ui {
 		);
 		$args = wp_parse_args( $args, $defaults );
 
+		$value = '';
 		if ( $args['wrap'] ) {
-			$value = $this->get_tr_start();
+			$value .= $this->get_tr_start();
 			$value .= $this->get_th_start();
 			$value .= $this->get_label( $args['name'], $args['labeltext'] );
 			$value .= $this->get_required( $args['required'] );
@@ -150,8 +151,10 @@ class cptui_admin_ui {
 		);
 		$args = wp_parse_args( $args, $defaults );
 
+		$value = '';
+
 		if ( $args['wrap'] ) {
-			$value = $this->get_tr_start();
+			$value .= $this->get_tr_start();
 			$value .= $this->get_th_start();
 			$value .= $this->get_label( $args['name'], $args['labeltext'] );
 			$value .= $this->get_help( $args['helptext'] );
@@ -189,8 +192,9 @@ class cptui_admin_ui {
 
 		$args = wp_parse_args( $args, $defaults );
 
+		$value = '';
 		if ( $args['wrap'] ) {
-			$value = $this->get_tr_start();
+			$value .= $this->get_tr_start();
 			$value .= $this->get_th_start();
 			$value .= $args['checklisttext'];
 			$value .= $this->get_th_end();
