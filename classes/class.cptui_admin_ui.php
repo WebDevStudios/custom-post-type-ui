@@ -184,10 +184,10 @@ class cptui_admin_ui {
 	public function get_check_input( $args = '' ) {
 		$defaults = $this->get_default_input_parameters(
 			array(
-                'checkvalue'        => '',
-                'checked'           => true,
-                'checklisttext'     => '',
-                'default'           => false
+				'checkvalue'        => '',
+				'checked'           => true,
+				'checklisttext'     => '',
+				'default'           => false
 			)
 		);
 
