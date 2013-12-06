@@ -129,7 +129,7 @@ class cptui_admin_ui {
 		if ( !empty( $args['aftertext'] ) )
 			$value .= $args['aftertext'];
 
-		if ( $wrap ) {
+		if ( $args['wrap'] ) {
 			$value .= $this->get_td_end();
 			$value .= $this->get_tr_end();
 		}
@@ -167,7 +167,7 @@ class cptui_admin_ui {
 		if ( !empty ( $args['aftertext'] ) )
 			$value .= $args['aftertext'];
 
-		if ( $wrap ) {
+		if ( $args['wrap'] ) {
 			$value .= $this->get_td_end();
 			$value .= $this->get_tr_end();
 		}
