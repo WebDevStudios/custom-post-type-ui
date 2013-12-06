@@ -1550,7 +1550,7 @@ function cpt_add_new() {
 
 								echo $ui->get_check_input( array(
                                     'checkvalue'    => 'title',
-                                    'checked'       => in_array( 'title', $cpt_supports ),
+                                    'checked'       => ( !empty( $cpt_supports ) && is_array( $cpt_supports ) ) ? in_array( 'title', $cpt_supports ) : false,
                                     'name'          => 'title',
                                     'namearray'     => 'cpt_supports',
                                     'textvalue'     => 'title',
@@ -1562,7 +1562,7 @@ function cpt_add_new() {
 
 								echo $ui->get_check_input( array(
                                     'checkvalue'    => 'editor',
-                                    'checked'       => in_array( 'editor', $cpt_supports ),
+                                    'checked'       => ( !empty( $cpt_supports ) && is_array( $cpt_supports ) ) ? in_array( 'editor', $cpt_supports ) : false,
                                     'name'          => 'editor',
                                     'namearray'     => 'cpt_supports',
                                     'textvalue'     => 'editor',
@@ -1574,7 +1574,7 @@ function cpt_add_new() {
 
 								echo $ui->get_check_input( array(
                                     'checkvalue'    => 'excerpt',
-                                    'checked'       => in_array( 'excerpt', $cpt_supports ),
+                                    'checked'       => ( !empty( $cpt_supports ) && is_array( $cpt_supports ) ) ? in_array( 'excerpt', $cpt_supports ) : false,
                                     'name'          => 'excerpt',
                                     'namearray'     => 'cpt_supports',
                                     'textvalue'     => 'excerpt',
@@ -1586,7 +1586,7 @@ function cpt_add_new() {
 
 								echo $ui->get_check_input( array(
                                     'checkvalue'    => 'trackbacks',
-                                    'checked'       => in_array( 'trackbacks', $cpt_supports ),
+                                    'checked'       => ( !empty( $cpt_supports ) && is_array( $cpt_supports ) ) ? in_array( 'trackbacks', $cpt_supports ) : false,
                                     'name'          => 'trackbacks',
                                     'namearray'     => 'cpt_supports',
                                     'textvalue'     => 'trackbacks',
@@ -1598,7 +1598,7 @@ function cpt_add_new() {
 
 								echo $ui->get_check_input( array(
                                     'checkvalue'    => 'custom-fields',
-                                    'checked'       => in_array( 'custom-fields', $cpt_supports ),
+                                    'checked'       => ( !empty( $cpt_supports ) && is_array( $cpt_supports ) ) ? in_array( 'custom-fields', $cpt_supports ) : false,
                                     'name'          => 'custom-fields',
                                     'namearray'     => 'cpt_supports',
                                     'textvalue'     => 'custom-fields',
@@ -1610,7 +1610,7 @@ function cpt_add_new() {
 
 								echo $ui->get_check_input( array(
                                     'checkvalue'    => 'comments',
-                                    'checked'       => in_array( 'comments', $cpt_supports ),
+                                    'checked'       => ( !empty( $cpt_supports ) && is_array( $cpt_supports ) ) ? in_array( 'comments', $cpt_supports ) : false,
                                     'name'          => 'comments',
                                     'namearray'     => 'cpt_supports',
                                     'textvalue'     => 'comments',
@@ -1622,7 +1622,7 @@ function cpt_add_new() {
 
 								echo $ui->get_check_input( array(
                                     'checkvalue'    => 'revisions',
-                                    'checked'       => in_array( 'revisions', $cpt_supports ),
+                                    'checked'       => ( !empty( $cpt_supports ) && is_array( $cpt_supports ) ) ? in_array( 'revisions', $cpt_supports ) : false,
                                     'name'          => 'revisions',
                                     'namearray'     => 'cpt_supports',
                                     'textvalue'     => 'revisions',
@@ -1634,7 +1634,7 @@ function cpt_add_new() {
 
 								echo $ui->get_check_input( array(
                                     'checkvalue'    => 'thumbnail',
-                                    'checked'       => in_array( 'thumbnail', $cpt_supports ),
+                                    'checked'       => ( !empty( $cpt_supports ) && is_array( $cpt_supports ) ) ? in_array( 'thumbnail', $cpt_supports ) : false,
                                     'name'          => 'thumbnail',
                                     'namearray'     => 'cpt_supports',
                                     'textvalue'     => 'thumbnail',
@@ -1646,7 +1646,7 @@ function cpt_add_new() {
 
 								echo $ui->get_check_input( array(
                                     'checkvalue'    => 'author',
-                                    'checked'       => in_array( 'author', $cpt_supports ),
+                                    'checked'       => ( !empty( $cpt_supports ) && is_array( $cpt_supports ) ) ? in_array( 'author', $cpt_supports ) : false,
                                     'name'          => 'author',
                                     'namearray'     => 'cpt_supports',
                                     'textvalue'     => 'author',
@@ -1658,7 +1658,7 @@ function cpt_add_new() {
 
 								echo $ui->get_check_input( array(
                                     'checkvalue'    => 'page-attributes',
-                                    'checked'       => in_array( 'page-attributes', $cpt_supports ),
+                                    'checked'       => ( !empty( $cpt_supports ) && is_array( $cpt_supports ) ) ? in_array( 'page-attributes', $cpt_supports ) : false,
                                     'name'          => 'page-attributes',
                                     'namearray'     => 'cpt_supports',
                                     'textvalue'     => 'page-attributes',
@@ -1670,7 +1670,7 @@ function cpt_add_new() {
 
 								echo $ui->get_check_input( array(
                                     'checkvalue'    => 'post-formats',
-                                    'checked'       => in_array( 'post-formats', $cpt_supports ),
+                                    'checked'       => ( !empty( $cpt_supports ) && is_array( $cpt_supports ) ) ? in_array( 'post-formats', $cpt_supports ) : false,
                                     'name'          => 'post-formats',
                                     'namearray'     => 'cpt_supports',
                                     'textvalue'     => 'post-formats',
@@ -1698,7 +1698,7 @@ function cpt_add_new() {
 							foreach ( $add_taxes  as $add_tax ) {
 								echo $ui->get_check_input( array(
 									'checkvalue'        => $add_tax->name,
-									'checked'           => in_array( $add_tax->name, $cpt_taxes ),
+									'checked'           => ( !empty( $cpt_taxes ) && is_array( $cpt_taxes ) ) ? is_array( $in_array( $add_tax->name, $cpt_taxes ) ) : null,
 									'name'              => $add_tax->name,
 									'namearray'         => 'cpt_addon_taxes',
 									'textvalue'         => $add_tax->name,
