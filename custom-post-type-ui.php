@@ -1405,15 +1405,23 @@ function cpt_add_new() {
 
 						<div style="display:none;" id="slidepanel2">
 						<table class="form-table">
-							<tr valign="top">
-							<th scope="row"><?php _e('Public', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Whether posts of this type should be shown in the admin UI', 'cpt-plugin' ); ?>" class="help">?</a></th>
-							<td>
-								<select name="cpt_custom_post_type[public]">
-									<option value="0" <?php if (isset($cpt_public)) { if ($cpt_public == 0 && $cpt_public != '') { echo 'selected="selected"'; } } ?>><?php _e( 'False', 'cpt-plugin' ); ?></option>
-									<option value="1" <?php if (isset($cpt_public)) { if ($cpt_public == 1 || is_null($cpt_public)) { echo 'selected="selected"'; } } else { echo 'selected="selected"'; } ?>><?php _e( 'True', 'cpt-plugin' ); ?></option>
-								</select> <?php _e( '(default: True)', 'cpt-plugin' ); ?>
-							</td>
-							</tr>
+
+							<?php
+								$select = array(
+									'options' => array(
+										array( 'attr' => '0', 'text' => __( 'False', 'cpt-plugin' ) ),
+										array( 'attr' => '1', 'text' => __( 'True', 'cpt-plugin' ), 'default' => 'true' )
+									)
+								);
+								$select['selected'] = ( isset( $cpt_public ) ) ? $cpt_public : '';
+								echo $ui->get_select_bool_input( array(
+									'namearray'     => 'cpt_custom_post_type',
+									'name'          => 'public',
+									'labeltext'     => __( 'Public', 'cpt-plugin' ),
+									'aftertext'     => __( '(default: True)', 'cpt-plugin' ),
+									'helptext'      => esc_attr__( 'Whether posts of this type should be shown in the admin UI', 'cpt-plugin' ),
+									'selections'    => $select
+							) ); ?>
 
 							<tr valign="top">
 							<th scope="row"><?php _e('Show UI', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Whether to generate a default UI for managing this post type', 'cpt-plugin' ); ?>" class="help">?</a></th>
