@@ -2000,3 +2000,36 @@ function cpt_help_style() { ?>
 	</style>
 <?php
 }
+
+
+function cpt_settings_tab_menu( $page = 'post_types' ) {
+	//initiate our arrays
+	$tab1 = $tab2 = array( 'nav-tab' );
+
+	//Set up variables depending on where we are.
+	if ( 'post_types' == $page ) :
+		$tab1[] = 'nav-tab-active';
+		$title = __( 'Manage Post Types', 'cpt-plugin' );
+	else :
+		$tab2[] = 'nav-tab-active';
+		$title = __( 'Manage Taxonomies', 'cpt-plugin' );
+	endif;
+
+	//implode our arrays for class attributes
+	$tab1 = implode( ' ', $tab1 ); $tab2 = implode( ' ', $tab2 );
+
+	?>
+	<h2 class="nav-tab-wrapper">
+	<?php echo $title; ?>
+	<a class="<?php echo $tab1; ?>" href="#"><?php _e( 'Add New', 'cpt-plugin' ); ?></a>
+	<?php
+	if ( 'post_types' == $page ) { ?>
+		<a class="<?php echo $tab2; ?>" href="#"><?php _e( 'Edit Post Types', 'cpt-plugin' ); ?></a>
+	<?php
+	} elseif ( 'taxonomies' == $page ) { ?>
+		<a class="<?php echo $tab2; ?>" href="#"><?php _e( 'Edit Taxonomies', 'cpt-plugin' ); ?></a>
+	<?php
+	} ?>
+	</h2>
+<?php
+}
