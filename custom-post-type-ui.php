@@ -1559,15 +1559,24 @@ function cpt_add_new() {
 									'selections'    => $select
 								) );
 
-							<tr valign="top">
-							<th scope="row"><?php _e('Rewrite', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Triggers the handling of rewrites for this post type', 'cpt-plugin' ); ?>" class="help">?</a></th>
-							<td>
-								<select name="cpt_custom_post_type[rewrite]">
-									<option value="0" <?php if (isset($cpt_rewrite)) { if ($cpt_rewrite == 0 && $cpt_rewrite != '') { echo 'selected="selected"'; } } ?>><?php _e( 'False', 'cpt-plugin' ); ?></option>
-									<option value="1" <?php if (isset($cpt_rewrite)) { if ($cpt_rewrite == 1 || is_null($cpt_rewrite)) { echo 'selected="selected"'; } } else { echo 'selected="selected"'; } ?>><?php _e( 'True', 'cpt-plugin' ); ?></option>
-								</select> <?php _e( '(default: True)', 'cpt-plugin' ); ?>
-							</td>
-							</tr>
+								/*
+								 * Rewrite Boolean
+								 */
+								$select = array(
+									'options' => array(
+										array( 'attr' => '0', 'text' => __( 'False', 'cpt-plugin' ) ),
+										array( 'attr' => '1', 'text' => __( 'True', 'cpt-plugin' ), 'default' => 'true' )
+									)
+								);
+								$select['selected'] = ( isset( $cpt_showui ) ) ? $cpt_showui : '';
+								echo $ui->get_select_bool_input( array(
+									'namearray'     => 'cpt_custom_post_type',
+									'name'          => 'rewrite',
+									'labeltext'     => __( 'Rewrite', 'cpt-plugin' ),
+									'aftertext'     => __( '(default: True)', 'cpt-plugin' ),
+									'helptext'      => esc_attr__( 'Triggers the handling of rewrites for this post type', 'cpt-plugin' ),
+									'selections'    => $select
+								) );
 
 								/*
 								 * Rewrite Slug Input
