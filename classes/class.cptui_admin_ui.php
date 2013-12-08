@@ -33,6 +33,10 @@ class cptui_admin_ui {
 		return '</td>';
 	}
 
+	public function get_p( $text ) {
+		return '<p>' . $text . '</p>';
+	}
+
 	public function get_label( $label_for, $label_text ) {
 		$label = '<label for="' . $label_for . '"> ' . $label_text . '</label>';
 
