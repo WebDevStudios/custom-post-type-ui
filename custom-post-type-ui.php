@@ -1286,7 +1286,6 @@ function cpt_add_new() {
 									) );
 							?>
 
-
 							<tr valign="top">
 								<td colspan="2">
 									<p align="center">
@@ -1470,7 +1469,7 @@ function cpt_add_new() {
 									'aftertext'     => __( '(default: True)', 'cpt-plugin' ),
 									'helptext'      => esc_attr__( 'Whether posts of this type should be shown in the admin UI', 'cpt-plugin' ),
 									'selections'    => $select
-							) ); ?>
+								) );
 
 							<tr valign="top">
 							<th scope="row"><?php _e('Show UI', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Whether to generate a default UI for managing this post type', 'cpt-plugin' ); ?>" class="help">?</a></th>
@@ -1595,10 +1594,8 @@ function cpt_add_new() {
 									'labeltext'     => __( 'Menu Icon', 'cpt-plugin' ),
 									'aftertext'     => __( '(Full URL for icon)', 'cpt-plugin' ),
 									'helptext'      => esc_attr__( 'URL to image to be used as menu icon.', 'cpt-plugin' ),
-									) );
-							?>
+								) );
 
-							<?php
 								echo $ui->get_tr_start() . $ui->get_th_start() . __('Supports', 'cpt-plugin') . $ui->get_th_end() . $ui->get_td_start();
 								/*
 								 * Supports Title Checkbox
