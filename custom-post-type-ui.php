@@ -1591,15 +1591,24 @@ function cpt_add_new() {
 									) );
 							?>
 
-							<tr valign="top">
-							<th scope="row"><?php _e('With Front', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Should the permastruct be prepended with the front base.', 'cpt-plugin' ); ?>" class="help">?</a></th>
-							<td>
-								<select name="cpt_custom_post_type[rewrite_withfront]">
-									<option value="0" <?php if (isset($cpt_rewrite_withfront)) { if ($cpt_rewrite_withfront == 0 && $cpt_rewrite_withfront != '') { echo 'selected="selected"'; } } ?>><?php _e( 'False', 'cpt-plugin' ); ?></option>
-									<option value="1" <?php if (isset($cpt_rewrite_withfront)) { if ($cpt_rewrite_withfront == 1 || is_null($cpt_rewrite_withfront)) { echo 'selected="selected"'; } } else { echo 'selected="selected"'; } ?>><?php _e( 'True', 'cpt-plugin' ); ?></option>
-								</select> <?php _e( '(default: True)', 'cpt-plugin' ); ?>
-							</td>
-							</tr>
+								/*
+								 * Rewrite With Front Boolean
+								 */
+								$select = array(
+									'options' => array(
+										array( 'attr' => '0', 'text' => __( 'False', 'cpt-plugin' ) ),
+										array( 'attr' => '1', 'text' => __( 'True', 'cpt-plugin' ), 'default' => 'true' )
+									)
+								);
+								$select['selected'] = ( isset( $cpt_showui ) ) ? $cpt_showui : '';
+								echo $ui->get_select_bool_input( array(
+									'namearray'     => 'cpt_custom_post_type',
+									'name'          => 'rewrite_withfront',
+									'labeltext'     => __( 'With Front', 'cpt-plugin' ),
+									'aftertext'     => __( '(default: True)', 'cpt-plugin' ),
+									'helptext'      => esc_attr__( 'Should the permastruct be prepended with the front base.', 'cpt-plugin' ),
+									'selections'    => $select
+								) );
 
 							<tr valign="top">
 							<th scope="row"><?php _e('Query Var', 'cpt-plugin') ?> <a href="#" title="" class="help">?</a></th>
