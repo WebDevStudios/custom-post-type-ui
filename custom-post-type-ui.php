@@ -1912,21 +1912,39 @@ function cpt_add_new() {
 						<input type="hidden" name="cpt_edit_tax" value="<?php echo $editTax; ?>" />
 						<?php } ?>
 						<table class="form-table">
+							<?php
+
+							echo $ui->get_tr_start() . $ui->get_th_start() . __( 'Taxonomy Name', 'cpt-plugin' );
+
+							echo $ui->get_p( __('Note: Changing the name, after adding terms to the taxonomy, will not update the terms in the database.', 'cpt-plugin' ) );
+							echo $ui->get_th_end() . $ui->get_td_start();
+
+							echo $ui->get_text_input( array(
+								'namearray'     => 'cpt_custom_tax',
+								'name'          => 'name',
+								'textvalue'     => ( isset( $cpt_tax_name ) ) ? esc_attr( $cpt_tax_name ) : '',
+								'aftertext'     => __( '(e.g. actors)', 'cpt-plugin' ),
+								'helptext'      => esc_attr__( 'The taxonomy name. Used to retrieve custom taxonomy content. Should be short and sweet', 'cpt-plugin'),
+								'required'      => true,
+								'wrap'          => false,
+								'maxlength'     => '32',
+								'onblur'        => 'this.value=this.value.toLowerCase()'
+								) );
+
+							echo $ui->get_p( '<strong>' . __( 'Max 32 characters, should only contain alphanumeric lowercase characters and underscores in place of spaces.', 'cpt-plugin' ) . '</strong>' );
+							echo $ui->get_td_end() . $ui->get_tr_end();
+
+							echo $ui->get_text_input( array(
+								'namearray'     => 'cpt_custom_tax',
+								'name'          => 'label',
+								'textvalue'     => ( isset( $cpt_tax_label ) ) ? esc_attr( $cpt_tax_label ) : '',
+								'aftertext'     => __( '(e.g. Actors)', 'cpt-plugin' ),
+								'labeltext'     => __( 'Label', 'cpt-plugin' ),
+								'helptext'      => esc_attr__( 'Taxonomy label. Used in the admin menu for displaying custom taxonomy.', 'cpt-plugin'),
+								) );
+							?>
+
 							<tr valign="top">
-							<th scope="row"><?php _e('Taxonomy Name', 'cpt-plugin') ?> <span class="required">*</span> <a href="#" title="<?php esc_attr_e( 'The taxonomy name.  Used to retrieve custom taxonomy content.  Should be short and sweet', 'cpt-plugin' ); ?>" class="help">?</a>
-							<p><?php _e('Note: Changing the name, after adding terms to the taxonomy, will not update the terms in the database.', 'cpt-plugin' ); ?></p>
-							</th>
-							<td><input type="text" name="cpt_custom_tax[name]" maxlength="32" onblur="this.value=this.value.toLowerCase()" value="<?php if (isset($cpt_tax_name)) { echo esc_attr($cpt_tax_name); } ?>" /> <?php _e( '(e.g. actors)', 'cpt-plugin' ); ?>
-							<p><strong><?php _e( 'Max 32 characters, should only contain alphanumeric lowercase characters and underscores in place of spaces.', 'cpt-plugin' ); ?></strong></p>
-							</td>
-							</tr>
-
-						   <tr valign="top">
-							<th scope="row"><?php _e('Label', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Taxonomy label.  Used in the admin menu for displaying custom taxonomy.', 'cpt-plugin' ); ?>" class="help">?</a></th>
-							<td><input type="text" name="cpt_custom_tax[label]" value="<?php if (isset($cpt_tax_label)) { echo esc_attr( $cpt_tax_label ); } ?>" /> <?php _e( '(e.g. Actors)', 'cpt-plugin' ); ?></td>
-							</tr>
-
-						   <tr valign="top">
 							<th scope="row"><?php _e('Singular Label', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Taxonomy Singular label.  Used in WordPress when a singular label is needed.', 'cpt-plugin' ); ?>" class="help">?</a></th>
 							<td><input type="text" name="cpt_custom_tax[singular_label]" value="<?php if (isset($cpt_singular_label_tax)) { echo esc_attr( $cpt_singular_label_tax ); } ?>" /> <?php _e( '(e.g. Actor)', 'cpt-plugin' ); ?></td>
 							</tr>
