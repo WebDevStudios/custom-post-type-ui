@@ -1297,7 +1297,7 @@ function cpt_add_new() {
 
 						</table>
 
-						<div id="slidepanel1">
+						<div style="display:none;" id="slidepanel1">
 						<?php echo $ui->get_p( __('Below are the advanced label options for custom post types.  If you are unfamiliar with these labels, leave them blank and the plugin will automatically create labels based off of your custom post type name', 'cpt-plugin') ); ?>
 						<table class="form-table">
 							<?php
