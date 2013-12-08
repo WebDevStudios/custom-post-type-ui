@@ -1608,15 +1608,24 @@ function cpt_add_new() {
 									'selections'    => $select
 								) );
 
-							<tr valign="top">
-							<th scope="row"><?php _e('Query Var', 'cpt-plugin') ?> <a href="#" title="" class="help">?</a></th>
-							<td>
-								<select name="cpt_custom_post_type[query_var]">
-									<option value="0" <?php if (isset($cpt_query_var)) { if ($cpt_query_var == 0 && $cpt_query_var != '') { echo 'selected="selected"'; } } ?>><?php _e( 'False', 'cpt-plugin' ); ?></option>
-									<option value="1" <?php if (isset($cpt_query_var)) { if ($cpt_query_var == 1 || is_null($cpt_query_var)) { echo 'selected="selected"'; } } else { echo 'selected="selected"'; } ?>><?php _e( 'True', 'cpt-plugin' ); ?></option>
-								</select> <?php _e( '(default: True)', 'cpt-plugin' ); ?>
-							</td>
-							</tr>
+								/*
+								 * Query Var Boolean
+								 */
+								$select = array(
+									'options' => array(
+										array( 'attr' => '0', 'text' => __( 'False', 'cpt-plugin' ) ),
+										array( 'attr' => '1', 'text' => __( 'True', 'cpt-plugin' ), 'default' => 'true' )
+									)
+								);
+								$select['selected'] = ( isset( $cpt_showui ) ) ? $cpt_showui : '';
+								echo $ui->get_select_bool_input( array(
+									'namearray'     => 'cpt_custom_post_type',
+									'name'          => 'query_var',
+									'labeltext'     => __( 'Query Var', 'cpt-plugin' ),
+									'aftertext'     => __( '(default: True)', 'cpt-plugin' ),
+									'helptext'      => esc_attr__( 'Should the permastruct be prepended with the front base.', 'cpt-plugin' ),
+									'selections'    => $select
+								) );
 
 							<tr valign="top">
 							<th scope="row"><?php _e('Menu Position', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'The position in the menu order the post type should appear. show_in_menu must be true.', 'cpt-plugin' ); ?>" class="help">?</a>
