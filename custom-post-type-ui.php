@@ -1538,7 +1538,6 @@ function cpt_add_new() {
 									'labeltext'     => __( 'Capability Type', 'cpt-plugin' ),
 									'helptext'      => esc_attr__( 'The post type to use for checking read, edit, and delete capabilities', 'cpt-plugin' ),
 									) );
-							?>
 
 								/*
 								 * Hierarchical Boolean
@@ -1588,8 +1587,7 @@ function cpt_add_new() {
 									'labeltext'     => __( 'Custom Rewrite Slug', 'cpt-plugin' ),
 									'aftertext'     => __( '(default: post type name)', 'cpt-plugin' ),
 									'helptext'      => esc_attr__( 'Custom slug to use instead of the default.', 'cpt-plugin' ),
-									) );
-							?>
+								) );
 
 								/*
 								 * Rewrite With Front Boolean
