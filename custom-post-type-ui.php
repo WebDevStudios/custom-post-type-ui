@@ -1230,6 +1230,10 @@ function cpt_add_new() {
 						<?php } ?>
 						<table class="form-table">
 							<?php $ui = new cptui_admin_ui();
+
+								/*
+								 * Post Slug
+								 */
 								echo $ui->get_text_input( array(
 									'namearray'     => 'cpt_custom_post_type',
 									'name'          => 'name',
@@ -1244,6 +1248,9 @@ function cpt_add_new() {
 									// TODO: add in the special note regarding max length etc.
 									// _e( 'Max 20 characters, can not contain capital letters or spaces. Reserved post types: post, page, attachment, revision, nav_menu_item.', 'cpt-plugin' );
 
+								/*
+								 * Post Label
+								 */
 								echo $ui->get_text_input( array(
 									'namearray'     => 'cpt_custom_post_type',
 									'name'          => 'label',
@@ -1253,6 +1260,9 @@ function cpt_add_new() {
 									'helptext'      => esc_attr__( 'Post type label.  Used in the admin menu for displaying post types.', 'cpt-plugin' ),
 									) );
 
+								/*
+								 * Post Singular Slug
+								 */
 								echo $ui->get_text_input( array(
 									'namearray'     => 'cpt_custom_post_type',
 									'name'          => 'singular_label',
@@ -1262,6 +1272,9 @@ function cpt_add_new() {
 									'helptext'      => esc_attr__( 'Custom Post Type Singular label. Used in WordPress when a singular label is needed.', 'cpt-plugin' ),
 									) );
 
+								/*
+								 * Post Description
+								 */
 								echo $ui->get_textarea_input( array(
 									'namearray' => 'cpt_custom_post_type',
 									'name' => 'description',
@@ -1289,8 +1302,8 @@ function cpt_add_new() {
 						<p><?php _e('Below are the advanced label options for custom post types.  If you are unfamiliar with these labels, leave them blank and the plugin will automatically create labels based off of your custom post type name', 'cpt-plugin'); ?></p>
 						<table class="form-table">
 							<?php
-							/**
-							 * Begin "Advanced Label Options" section.
+							/*
+							 * Post Admin Menu Name
 							 */
 							echo $ui->get_text_input( array(
 								'namearray'     => 'cpt_labels',
@@ -1301,6 +1314,9 @@ function cpt_add_new() {
 								'helptext'      => esc_attr__( 'Custom menu name for your custom post type.', 'cpt-plugin')
 								) );
 
+							/*
+							 * Add New Label
+							 */
 							echo $ui->get_text_input( array(
 								'labeltext'     => __( 'Add New', 'cpt-plugin' ),
 								'helptext'      => esc_attr__( 'Post type label.  Used in the admin menu for displaying post types.', 'cpt-plugin' ),
@@ -1310,6 +1326,9 @@ function cpt_add_new() {
 								'aftertext'     => __( '(e.g. Add New)', 'cpt-plugin' )
 								) );
 
+							/*
+							 * Add New Item Label
+							 */
 							echo $ui->get_text_input( array(
 								'labeltext'     => __( 'Add New Item', 'cpt-plugin' ),
 								'helptext'      => esc_attr__( 'Post type label.  Used in the admin menu for displaying post types.', 'cpt-plugin' ),
@@ -1319,6 +1338,9 @@ function cpt_add_new() {
 								'aftertext'     => __( '(e.g. Add New Movie)', 'cpt-plugin' )
 								) );
 
+							/*
+							 * Edit Label
+							 */
 							echo $ui->get_text_input( array(
 								'labeltext'     => __( 'Edit', 'cpt-plugin' ),
 								'helptext'      => esc_attr__( 'Post type label.  Used in the admin menu for displaying post types.', 'cpt-plugin' ),
@@ -1328,6 +1350,9 @@ function cpt_add_new() {
 								'aftertext'     => __( '(e.g. Edit)', 'cpt-plugin' )
 								) );
 
+							/*
+							 * Edit Item Label
+							 */
 							echo $ui->get_text_input( array(
 								'labeltext'     => __( 'Edit Item', 'cpt-plugin' ),
 								'helptext'      => esc_attr__( 'Post type label.  Used in the admin menu for displaying post types.', 'cpt-plugin' ),
@@ -1337,6 +1362,9 @@ function cpt_add_new() {
 								'aftertext'     => __( '(e.g. Edit Movie)', 'cpt-plugin' )
 								) );
 
+							/*
+							 * New Item Label
+							 */
 							echo $ui->get_text_input( array(
 								'labeltext'     => __( 'New Item', 'cpt-plugin' ),
 								'helptext'      => esc_attr__( 'Post type label.  Used in the admin menu for displaying post types.', 'cpt-plugin' ),
@@ -1346,6 +1374,9 @@ function cpt_add_new() {
 								'aftertext'     => __( '(e.g. New Movie)', 'cpt-plugin' )
 								) );
 
+							/*
+							 * View Label
+							 */
 							echo $ui->get_text_input( array(
 								'labeltext'     => __( 'View', 'cpt-plugin' ),
 								'helptext'      => esc_attr__( 'Post type label.  Used in the admin menu for displaying post types.', 'cpt-plugin' ),
@@ -1355,6 +1386,9 @@ function cpt_add_new() {
 								'aftertext'     => __( '(e.g. View Movie)', 'cpt-plugin' )
 								) );
 
+							/*
+							 * View Item Label
+							 */
 							echo $ui->get_text_input( array(
 								'labeltext'     => __( 'View Item', 'cpt-plugin' ),
 								'helptext'      => esc_attr__( 'Post type label.  Used in the admin menu for displaying post types.', 'cpt-plugin' ),
@@ -1364,6 +1398,9 @@ function cpt_add_new() {
 								'aftertext'     => __( '(e.g. View Movie)', 'cpt-plugin' )
 								) );
 
+							/*
+							 * Search Item Label
+							 */
 							echo $ui->get_text_input( array(
 								'labeltext'     => __( 'Search Item', 'cpt-plugin' ),
 								'helptext'      => esc_attr__( 'Post type label.  Used in the admin menu for displaying post types.', 'cpt-plugin' ),
@@ -1373,6 +1410,9 @@ function cpt_add_new() {
 								'aftertext'     => __( '(e.g. Search Movie)', 'cpt-plugin' )
 								) );
 
+							/*
+							 * Not Found Label
+							 */
 							echo $ui->get_text_input( array(
 								'labeltext'     => __( 'Not Found', 'cpt-plugin' ),
 								'helptext'      => esc_attr__( 'Post type label.  Used in the admin menu for displaying post types.', 'cpt-plugin' ),
@@ -1382,6 +1422,9 @@ function cpt_add_new() {
 								'aftertext'     => __( '(e.g. No Movies Found)', 'cpt-plugin' )
 								) );
 
+							/*
+							 * Not Found In Trash Label
+							 */
 							echo $ui->get_text_input( array(
 								'labeltext'     => __( 'Not Found in Trash', 'cpt-plugin' ),
 								'helptext'      => esc_attr__( 'Post type label.  Used in the admin menu for displaying post types.', 'cpt-plugin' ),
@@ -1391,6 +1434,9 @@ function cpt_add_new() {
 								'aftertext'     => __( '(e.g. No Movies found in Trash)', 'cpt-plugin' )
 								) );
 
+							/*
+							 * Parent Label
+							 */
 							echo $ui->get_text_input( array(
 								'labeltext'     => __( 'Parent', 'cpt-plugin' ),
 								'helptext'      => esc_attr__( 'Post type label.  Used in the admin menu for displaying post types.', 'cpt-plugin' ),
@@ -1407,6 +1453,9 @@ function cpt_add_new() {
 						<table class="form-table">
 
 							<?php
+								/*
+								 * Public Boolean
+								 */
 								$select = array(
 									'options' => array(
 										array( 'attr' => '0', 'text' => __( 'False', 'cpt-plugin' ) ),
@@ -1453,7 +1502,9 @@ function cpt_add_new() {
 							</td>
 							</tr>
 
-							<?php
+								/*
+								 * Capability Type Input
+								 */
 								echo $ui->get_text_input( array(
 									'namearray'     => 'cpt_custom_post_type',
 									'name'          => 'capability_type',
@@ -1483,7 +1534,9 @@ function cpt_add_new() {
 							</td>
 							</tr>
 
-							<?php
+								/*
+								 * Rewrite Slug Input
+								 */
 								echo $ui->get_text_input( array(
 									'namearray'     => 'cpt_custom_post_type',
 									'name'          => 'rewrite_slug',
@@ -1547,7 +1600,9 @@ function cpt_add_new() {
 
 							<?php
 								echo $ui->get_tr_start() . $ui->get_th_start() . __('Supports', 'cpt-plugin') . $ui->get_th_end() . $ui->get_td_start();
-
+								/*
+								 * Supports Title Checkbox
+								 */
 								echo $ui->get_check_input( array(
                                     'checkvalue'    => 'title',
                                     'checked'       => ( !empty( $cpt_supports ) && is_array( $cpt_supports ) ) ? in_array( 'title', $cpt_supports ) : false,
@@ -1560,6 +1615,9 @@ function cpt_add_new() {
                                     'wrap'          => false
 								) );
 
+								/*
+								 * Supports Editor Checkbox
+								 */
 								echo $ui->get_check_input( array(
                                     'checkvalue'    => 'editor',
                                     'checked'       => ( !empty( $cpt_supports ) && is_array( $cpt_supports ) ) ? in_array( 'editor', $cpt_supports ) : false,
@@ -1572,6 +1630,9 @@ function cpt_add_new() {
                                     'wrap'          => false
 								) );
 
+								/*
+								 * Supports Excerpt Checkbox
+								 */
 								echo $ui->get_check_input( array(
                                     'checkvalue'    => 'excerpt',
                                     'checked'       => ( !empty( $cpt_supports ) && is_array( $cpt_supports ) ) ? in_array( 'excerpt', $cpt_supports ) : false,
@@ -1584,6 +1645,9 @@ function cpt_add_new() {
                                     'wrap'          => false
 								) );
 
+								/*
+								 * Supports Trackbacks Checkbox
+								 */
 								echo $ui->get_check_input( array(
                                     'checkvalue'    => 'trackbacks',
                                     'checked'       => ( !empty( $cpt_supports ) && is_array( $cpt_supports ) ) ? in_array( 'trackbacks', $cpt_supports ) : false,
@@ -1596,6 +1660,9 @@ function cpt_add_new() {
                                     'wrap'          => false
 								) );
 
+								/*
+								 * Supports Custom Fields Checkbox
+								 */
 								echo $ui->get_check_input( array(
                                     'checkvalue'    => 'custom-fields',
                                     'checked'       => ( !empty( $cpt_supports ) && is_array( $cpt_supports ) ) ? in_array( 'custom-fields', $cpt_supports ) : false,
@@ -1608,6 +1675,9 @@ function cpt_add_new() {
                                     'wrap'          => false
 								) );
 
+								/*
+								 * Supports Comments Checkbox
+								 */
 								echo $ui->get_check_input( array(
                                     'checkvalue'    => 'comments',
                                     'checked'       => ( !empty( $cpt_supports ) && is_array( $cpt_supports ) ) ? in_array( 'comments', $cpt_supports ) : false,
@@ -1620,6 +1690,9 @@ function cpt_add_new() {
                                     'wrap'          => false
 								) );
 
+								/*
+								 * Supports Revisions Checkbox
+								 */
 								echo $ui->get_check_input( array(
                                     'checkvalue'    => 'revisions',
                                     'checked'       => ( !empty( $cpt_supports ) && is_array( $cpt_supports ) ) ? in_array( 'revisions', $cpt_supports ) : false,
@@ -1632,6 +1705,9 @@ function cpt_add_new() {
                                     'wrap'          => false
 								) );
 
+								/*
+								 * Supports Post Thumbnail Checkbox
+								 */
 								echo $ui->get_check_input( array(
                                     'checkvalue'    => 'thumbnail',
                                     'checked'       => ( !empty( $cpt_supports ) && is_array( $cpt_supports ) ) ? in_array( 'thumbnail', $cpt_supports ) : false,
@@ -1644,6 +1720,9 @@ function cpt_add_new() {
                                     'wrap'          => false
 								) );
 
+								/*
+								 * Supports Author Checkbox
+								 */
 								echo $ui->get_check_input( array(
                                     'checkvalue'    => 'author',
                                     'checked'       => ( !empty( $cpt_supports ) && is_array( $cpt_supports ) ) ? in_array( 'author', $cpt_supports ) : false,
@@ -1656,6 +1735,9 @@ function cpt_add_new() {
                                     'wrap'          => false
 								) );
 
+								/*
+								 * Supports Page Attributes Checkbox
+								 */
 								echo $ui->get_check_input( array(
                                     'checkvalue'    => 'page-attributes',
                                     'checked'       => ( !empty( $cpt_supports ) && is_array( $cpt_supports ) ) ? in_array( 'page-attributes', $cpt_supports ) : false,
@@ -1668,6 +1750,9 @@ function cpt_add_new() {
                                     'wrap'          => false
 								) );
 
+								/*
+								 * Supports Post Formats Checkbox
+								 */
 								echo $ui->get_check_input( array(
                                     'checkvalue'    => 'post-formats',
                                     'checked'       => ( !empty( $cpt_supports ) && is_array( $cpt_supports ) ) ? in_array( 'post-formats', $cpt_supports ) : false,
@@ -1696,6 +1781,9 @@ function cpt_add_new() {
 							$add_taxes = get_taxonomies( $args, $output );
 							unset( $add_taxes['nav_menu'] ); unset( $add_taxes['post_format'] );
 							foreach ( $add_taxes  as $add_tax ) {
+								/*
+								 * Supports Taxonomies Checkbox
+								 */
 								echo $ui->get_check_input( array(
 									'checkvalue'        => $add_tax->name,
 									'checked'           => ( !empty( $cpt_taxes ) && is_array( $cpt_taxes ) ) ? is_array( $in_array( $add_tax->name, $cpt_taxes ) ) : null,
