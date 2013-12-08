@@ -1490,15 +1490,24 @@ function cpt_add_new() {
 									'selections'    => $select
 								) );
 
-							<tr valign="top">
-							<th scope="row"><?php _e('Has Archive', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Whether the post type will have a post type archive page', 'cpt-plugin' ); ?>" class="help">?</a></th>
-							<td>
-								<select name="cpt_custom_post_type[has_archive]">
-									<option value="0" <?php if (isset($cpt_has_archive)) { if ($cpt_has_archive == 0) { echo 'selected="selected"'; } } else { echo 'selected="selected"'; } ?>><?php _e( 'False', 'cpt-plugin' ); ?></option>
-									<option value="1" <?php if (isset($cpt_has_archive)) { if ($cpt_has_archive == 1) { echo 'selected="selected"'; } } ?>><?php _e( 'True', 'cpt-plugin' ); ?></option>
-								</select> <?php _e( '(default: False)', 'cpt-plugin' ); ?>
-							</td>
-							</tr>
+								/*
+								 * Has Archive Boolean
+								 */
+								$select = array(
+									'options' => array(
+										array( 'attr' => '0', 'text' => __( 'False', 'cpt-plugin' ), 'default' => 'true' ),
+										array( 'attr' => '1', 'text' => __( 'True', 'cpt-plugin' ) )
+									)
+								);
+								$select['selected'] = ( isset( $cpt_showui ) ) ? $cpt_showui : '';
+								echo $ui->get_select_bool_input( array(
+									'namearray'     => 'cpt_custom_post_type',
+									'name'          => 'has_archive',
+									'labeltext'     => __( 'Has Archive', 'cpt-plugin' ),
+									'aftertext'     => __( '(default: False)', 'cpt-plugin' ),
+									'helptext'      => esc_attr__( 'Whether the post type will have a post type archive page', 'cpt-plugin' ),
+									'selections'    => $select
+								) );
 
 							<tr valign="top">
 							<th scope="row"><?php _e('Exclude From Search', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Whether the post type will be searchable', 'cpt-plugin' ); ?>" class="help">?</a></th>
