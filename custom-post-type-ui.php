@@ -1627,27 +1627,59 @@ function cpt_add_new() {
 									'selections'    => $select
 								) );
 
-							<tr valign="top">
-							<th scope="row"><?php _e('Menu Position', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'The position in the menu order the post type should appear. show_in_menu must be true.', 'cpt-plugin' ); ?>" class="help">?</a>
-							<p><?php _e( 'See <a href="http://codex.wordpress.org/Function_Reference/register_post_type#Parameters">Available options</a> in the "menu_position" section. Range of 5-100', 'cpt-plugin' ); ?></p>
-							</th>
-							<td><input type="text" name="cpt_custom_post_type[menu_position]" size="5" value="<?php if (isset($cpt_menu_position)) { echo esc_attr($cpt_menu_position); } ?>" /></td>
-							</tr>
+								echo $ui->get_tr_start() . $ui->get_th_start() . __('Menu Position', 'cpt-plugin');
 
-							<tr valign="top">
-							<th scope="row"><?php _e('Show in Menu', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Whether to show the post type in the admin menu and where to show that menu. Note that show_ui must be true', 'cpt-plugin' ); ?>" class="help">?</a>
-							<p><?php _e( '"Show UI" must be "true". If an existing top level page such as "tools.php" is indicated for second input, post type will be sub menu of that.', 'cpt-plugins' ); ?></p>
-							</th>
-							<td>
-								<p><select name="cpt_custom_post_type[show_in_menu]">
-									<option value="0" <?php if (isset($cpt_show_in_menu)) { if ($cpt_show_in_menu == 0) { echo 'selected="selected"'; } } ?>><?php _e( 'False', 'cpt-plugin' ); ?></option>
-									<option value="1" <?php if (isset($cpt_show_in_menu)) { if ($cpt_show_in_menu == 1 || is_null($cpt_show_in_menu)) { echo 'selected="selected"'; } } else { echo 'selected="selected"'; } ?>><?php _e( 'True', 'cpt-plugin' ); ?></option>
-								</select></p>
-								<p>
-								<input type="text" name="cpt_custom_post_type[show_in_menu_string]" size="20" value="<?php if (isset($cpt_show_in_menu_string)) { echo esc_attr($cpt_show_in_menu_string); } ?>" /></p></td>
-							</tr>
+								echo $ui->get_help( esc_attr__( 'The position in the menu order the post type should appear. show_in_menu must be true.', 'cpt-plugin' ) );
+								echo $ui->get_p( __( 'See <a href="http://codex.wordpress.org/Function_Reference/register_post_type#Parameters">Available options</a> in the "menu_position" section. Range of 5-100', 'cpt-plugin' ) );
 
-							<?php
+								echo $ui->get_th_end() . $ui->get_td_start();
+								echo $ui->get_text_input( array(
+									'namearray'     => 'cpt_custom_post_type',
+									'name'          => 'menu_position',
+									'textvalue'     => ( isset( $cpt_menu_position ) ) ? esc_attr( $cpt_menu_position ) : '',
+									'helptext'      => esc_attr__( 'URL to image to be used as menu icon.', 'cpt-plugin' ),
+									'wrap'          => false
+								) );
+								echo $ui->get_td_end() . $ui->get_tr_end();
+
+								echo $ui->get_tr_start() . $ui->get_th_start() . __('Show in Menu', 'cpt-plugin');
+								echo $ui->get_p( __( '"Show UI" must be "true". If an existing top level page such as "tools.php" is indicated for second input, post type will be sub menu of that.', 'cpt-plugins' ) );
+								echo $ui->get_th_end() . $ui->get_td_start();
+
+								/*
+								 * Show In Menu Boolean
+								 */
+								$select = array(
+									'options' => array(
+										array( 'attr' => '0', 'text' => __( 'False', 'cpt-plugin' ) ),
+										array( 'attr' => '1', 'text' => __( 'True', 'cpt-plugin' ), 'default' => 'true' )
+									)
+								);
+								$select['selected'] = ( isset( $cpt_showui ) ) ? $cpt_showui : '';
+								echo $ui->get_select_bool_input( array(
+									'namearray'     => 'cpt_custom_post_type',
+									'name'          => 'show_in_menu',
+									'labeltext'     => __( 'Show In Menu', 'cpt-plugin' ),
+									'aftertext'     => __( '(default: True)', 'cpt-plugin' ),
+									'helptext'      => esc_attr__( 'Whether to show the post type in the admin menu and where to show that menu. Note that show_ui must be true', 'cpt-plugin' ),
+									'selections'    => $select,
+									'wrap'          => false
+								) );
+
+								/*
+								 * Show In Menu Input
+								 */
+								echo $ui->get_text_input( array(
+									'namearray'     => 'cpt_custom_post_type',
+									'name'          => 'show_in_menu_string',
+									'textvalue'     => ( isset( $cpt_show_in_menu_string ) ) ? esc_attr( $cpt_show_in_menu_string ) : '',
+									'helptext'      => esc_attr__( 'URL to image to be used as menu icon.', 'cpt-plugin' ),
+									'wrap'          => false
+								) );
+								echo $ui->get_td_end() . $ui->get_tr_end();
+								/*
+								 * Menu Icon
+								 */
 								echo $ui->get_text_input( array(
 									'namearray'     => 'cpt_custom_post_type',
 									'name'          => 'menu_icon',
