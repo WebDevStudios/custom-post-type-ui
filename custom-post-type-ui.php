@@ -1246,7 +1246,7 @@ function cpt_add_new() {
 									'required'      => true
 									) );
 									// TODO: add in the special note regarding max length etc.
-									// _e( 'Max 20 characters, can not contain capital letters or spaces. Reserved post types: post, page, attachment, revision, nav_menu_item.', 'cpt-plugin' );
+								echo $ui->get_p( __( 'Max 20 characters, can not contain capital letters or spaces. Reserved post types: post, page, attachment, revision, nav_menu_item.', 'cpt-plugin' ) );
 
 								/*
 								 * Post Label
