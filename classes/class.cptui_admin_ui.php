@@ -137,7 +137,7 @@ class cptui_admin_ui {
 	 *
 	 * @return string       Complete <select> input with options and selected attribute.
 	 */
-	public function get_select_bool_input( $args = '' ) {
+	public function get_select_bool_input( $args = array() ) {
 		$defaults = $this->get_default_input_parameters(
 			array( 'selections' => array() )
 		);
@@ -194,7 +194,7 @@ class cptui_admin_ui {
 	 *
 	 * @return string        Complete text <input> with proper attributes
 	 */
-	public function get_text_input( $args = '' ) { //TODO: Finish output of other attributes
+	public function get_text_input( $args = array() ) {
 		$defaults = $this->get_default_input_parameters(
 			array(
 				'maxlength'     => '',
@@ -236,7 +236,7 @@ class cptui_admin_ui {
 	 *
 	 * @return string        Complete <textarea> input with proper attributes
 	 */
-	public function get_textarea_input( $args = '' ) {
+	public function get_textarea_input( $args = array() ) {
 		$defaults = $this->get_default_input_parameters(
 			array(
 				'rows' => '',
@@ -279,7 +279,7 @@ class cptui_admin_ui {
 	 *
 	 * @return string        Complete checkbox <input> with proper attributes
 	 */
-	public function get_check_input( $args = '' ) {
+	public function get_check_input( $args = array() ) {
 		$defaults = $this->get_default_input_parameters(
 			array(
 				'checkvalue'        => '',
