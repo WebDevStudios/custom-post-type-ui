@@ -63,6 +63,7 @@ class cptui_admin_ui {
 
 		$args = wp_parse_args( $args, $defaults );
 
+		$value = '';
 		if ( $args['wrap'] ) {
 			$value = $this->get_tr_start();
 			$value .= $this->get_th_start();
