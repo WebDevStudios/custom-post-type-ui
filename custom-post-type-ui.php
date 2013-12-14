@@ -1870,13 +1870,13 @@ function cpt_add_new() {
 
 							$add_taxes = get_taxonomies( $args, $output );
 							unset( $add_taxes['nav_menu'] ); unset( $add_taxes['post_format'] );
-							foreach ( $add_taxes  as $add_tax ) {
+							foreach ( $add_taxes as $add_tax ) {
 								/*
 								 * Supports Taxonomies Checkbox
 								 */
 								echo $ui->get_check_input( array(
 									'checkvalue'        => $add_tax->name,
-									'checked'           => ( !empty( $cpt_taxes ) && is_array( $cpt_taxes ) ) ? is_array( $in_array( $add_tax->name, $cpt_taxes ) ) : null,
+									'checked'           => ( !empty( $cpt_taxes ) && is_array( $cpt_taxes ) ) ? in_array( $add_tax->name, $cpt_taxes ) : null,
 									'name'              => $add_tax->name,
 									'namearray'         => 'cpt_addon_taxes',
 									'textvalue'         => $add_tax->name,
@@ -1885,9 +1885,9 @@ function cpt_add_new() {
 									'wrap'              => false
 								) );
 							}
+
+							echo $ui->get_td_end() . $ui->get_tr_end();
 							?>
-							</td>
-							</tr>
 
 						</table>
 						</div>
@@ -1942,38 +1942,46 @@ function cpt_add_new() {
 								'labeltext'     => __( 'Label', 'cpt-plugin' ),
 								'helptext'      => esc_attr__( 'Taxonomy label. Used in the admin menu for displaying custom taxonomy.', 'cpt-plugin'),
 								) );
-							?>
 
-							<tr valign="top">
-							<th scope="row"><?php _e('Singular Label', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Taxonomy Singular label.  Used in WordPress when a singular label is needed.', 'cpt-plugin' ); ?>" class="help">?</a></th>
-							<td><input type="text" name="cpt_custom_tax[singular_label]" value="<?php if (isset($cpt_singular_label_tax)) { echo esc_attr( $cpt_singular_label_tax ); } ?>" /> <?php _e( '(e.g. Actor)', 'cpt-plugin' ); ?></td>
-							</tr>
+							echo $ui->get_text_input( array(
+								'namearray'     => 'cpt_custom_tax',
+								'name'          => 'singular_label',
+								'textvalue'     => ( isset( $cpt_singular_label_tax ) ) ? esc_attr( $cpt_singular_label_tax ) : '',
+								'aftertext'     => __( '(e.g. Actor)', 'cpt-plugin' ),
+								'labeltext'     => __( 'Singular Label', 'cpt-plugin' ),
+								'helptext'      => esc_attr__( 'Taxonomy Singular label.  Used in WordPress when a singular label is needed.', 'cpt-plugin'),
+								) );
 
-						   <tr valign="top">
-							<th scope="row"><?php _e('Attach to Post Type', 'cpt-plugin') ?> <span class="required">*</span> <a href="#" title="<?php esc_attr_e ('What post type object to attach the custom taxonomy to.  Can be post, page, or link by default.  Can also be any custom post type name.', 'cpt-plugin' ); ?>" class="help">?</a></th>
-							<td>
-							<?php if ( isset( $cpt_tax_object_type ) ) { ?>
-								<strong><?php _e( 'This is the old method.  Delete the post type from the textbox and check which post type to attach this taxonomy to</strong>', 'cpt-plugin' ); ?>
-								<input type="text" name="cpt_custom_tax[cpt_name]" value="<?php if (isset($cpt_tax_object_type)) { echo esc_attr($cpt_tax_object_type); } ?>" /> <?php _e( '(e.g. movies)', 'cpt-plugin' ); ?>
-							<?php } ?>
-							<?php
+							echo $ui->get_tr_start() . $ui->get_th_start() . __( 'Attach to Post Type', 'cpt-plugin' ) . $ui->get_required();
+							echo $ui->get_th_end() . $ui->get_td_start();
+
 							$args = apply_filters( 'cptui_attach_post_types_to_taxonomy', array( 'public' => true ) );
 
 							//If they don't return an array, fall back to the original default. Don't need to check for empty, because empty array is default for $args param in get_post_types anyway.
 							if ( !is_array( $args ) ) {
 								$args = array( 'public' => true );
 							}
-
 							$output = 'objects'; // or objects
 							$post_types = get_post_types( $args, $output );
+
 							foreach ($post_types  as $post_type ) {
-								if ( $post_type->name != 'attachment' ) {
-								?>
-								<input type="checkbox" name="cpt_post_types[]" value="<?php echo $post_type->name; ?>" <?php if (isset($cpt_post_types) && is_array($cpt_post_types)) { if (in_array($post_type->name, $cpt_post_types)) { echo 'checked="checked"'; } } ?> />&nbsp;<?php echo $post_type->label; ?><br />
-								<?php
-								}
+								/*
+								 * Supports Taxonomies Checkbox
+								 */
+								echo $ui->get_check_input( array(
+									'checkvalue'        => $post_type->name,
+									'checked'           => ( !empty( $cpt_post_types ) && is_array( $cpt_post_types ) ) ? in_array( $post_type->name, $cpt_post_types ) : null,
+									'name'              => $post_type->name,
+									'namearray'         => 'cpt_post_types',
+									'textvalue'         => $post_type->name,
+									'labeltext'         => $post_type->label,
+									'helptext'          => sprintf( esc_attr__( 'Adds %s support', 'cpt-plugin' ), $post_type->name ),
+									'wrap'              => false
+								) );
 							}
+
 							?>
+
 							</td>
 							</tr>
 
@@ -1989,79 +1997,108 @@ function cpt_add_new() {
 						</table>
 
 						<div style="display:none;" id="slidepanel3">
-						<p><?php _e('Below are the advanced label options for custom taxonomies.  If you are unfamiliar with these labels the plugin will automatically create labels based off of your custom taxonomy name', 'cpt-plugin'); ?></p>
+						<?php $ui->get_p( __( 'Below are the advanced label options for custom taxonomies.  If you are unfamiliar with these labels the plugin will automatically create labels based off of your custom taxonomy name', 'cpt-plugin' ) ); ?>
 						<table class="form-table">
-							<tr valign="top">
-							<th scope="row"><?php _e('Search Items', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Custom taxonomy label.  Used in the admin menu for displaying taxonomies.', 'cpt-plugin' ); ?>" class="help">?</a></th>
-							<td><input type="text" name="cpt_tax_labels[search_items]" value="<?php if (isset($cpt_tax_labels["search_items"])) { echo esc_attr($cpt_tax_labels["search_items"]); } ?>" /><br/>
-								<?php _e('(e.g. Search Actors)', 'cpt-plugin' ); ?></td>
-							</tr>
+							<?php
+								echo $ui->get_text_input( array(
+									'namearray'     => 'cpt_tax_labels',
+									'name'          => 'search_items',
+									'textvalue'     => ( isset( $cpt_tax_labels["search_items"] ) ) ? esc_attr( $cpt_tax_labels["search_items"] ) : '',
+									'aftertext'     => __( '(e.g. Search Actors)', 'cpt-plugin' ),
+									'labeltext'     => __( 'Search Items', 'cpt-plugin' ),
+									'helptext'      => esc_attr__( 'Custom taxonomy label. Used in the admin menu for displaying taxonomies.', 'cpt-plugin'),
+									) );
 
-							<tr valign="top">
-							<th scope="row"><?php _e('Popular Items', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Custom taxonomy label.  Used in the admin menu for displaying taxonomies.', 'cpt-plugin' ); ?>" class="help">?</a></th>
-							<td><input type="text" name="cpt_tax_labels[popular_items]" value="<?php if (isset($cpt_tax_labels["popular_items"])) { echo esc_attr($cpt_tax_labels["popular_items"]); } ?>" /><br/>
-								<?php _e('(e.g. Popular Actors)', 'cpt-plugin' ); ?></td>
-							</tr>
+								echo $ui->get_text_input( array(
+									'namearray'     => 'cpt_tax_labels',
+									'name'          => 'popular_items',
+									'textvalue'     => ( isset( $cpt_tax_labels["popular_items"] ) ) ? esc_attr( $cpt_tax_labels["popular_items"] ) : '',
+									'aftertext'     => __( '(e.g. Popular Actors)', 'cpt-plugin' ),
+									'labeltext'     => __( 'Popular Items', 'cpt-plugin' ),
+									'helptext'      => esc_attr__( 'Custom taxonomy label. Used in the admin menu for displaying taxonomies.', 'cpt-plugin'),
+									) );
 
-							<tr valign="top">
-							<th scope="row"><?php _e('All Items', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Custom taxonomy label.  Used in the admin menu for displaying taxonomies.', 'cpt-plugin' ); ?>" class="help">?</a></th>
-							<td><input type="text" name="cpt_tax_labels[all_items]" value="<?php if (isset($cpt_tax_labels["all_items"])) { echo esc_attr($cpt_tax_labels["all_items"]); } ?>" /><br/>
-								<?php _e('(e.g. All Actors)', 'cpt-plugin' ); ?></td>
-							</tr>
+								echo $ui->get_text_input( array(
+									'namearray'     => 'cpt_tax_labels',
+									'name'          => 'all_items',
+									'textvalue'     => ( isset( $cpt_tax_labels["all_items"] ) ) ? esc_attr( $cpt_tax_labels["all_items"] ) : '',
+									'aftertext'     => __( '(e.g. All Actors)', 'cpt-plugin' ),
+									'labeltext'     => __( 'All Items', 'cpt-plugin' ),
+									'helptext'      => esc_attr__( 'Custom taxonomy label. Used in the admin menu for displaying taxonomies.', 'cpt-plugin'),
+									) );
 
-							<tr valign="top">
-							<th scope="row"><?php _e('Parent Item', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Custom taxonomy label.  Used in the admin menu for displaying taxonomies.', 'cpt-plugin' ); ?>" class="help">?</a></th>
-							<td><input type="text" name="cpt_tax_labels[parent_item]" value="<?php if (isset($cpt_tax_labels["parent_item"])) { echo esc_attr($cpt_tax_labels["parent_item"]); } ?>" /><br/>
-								<?php _e('(e.g. Parent Actor)', 'cpt-plugin' ); ?></td>
-							</tr>
+								echo $ui->get_text_input( array(
+									'namearray'     => 'cpt_tax_labels',
+									'name'          => 'parent_item',
+									'textvalue'     => ( isset( $cpt_tax_labels["parent_item"] ) ) ? esc_attr( $cpt_tax_labels["parent_item"] ) : '',
+									'aftertext'     => __( '(e.g. Parent Actor)', 'cpt-plugin' ),
+									'labeltext'     => __( 'Parent Item', 'cpt-plugin' ),
+									'helptext'      => esc_attr__( 'Custom taxonomy label. Used in the admin menu for displaying taxonomies.', 'cpt-plugin'),
+									) );
 
-							<tr valign="top">
-							<th scope="row"><?php _e('Parent Item Colon', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Custom taxonomy label.  Used in the admin menu for displaying taxonomies.', 'cpt-plugin' ); ?>" class="help">?</a></th>
-							<td><input type="text" name="cpt_tax_labels[parent_item_colon]" value="<?php if (isset($cpt_tax_labels["parent_item_colon"])) { echo esc_attr($cpt_tax_labels["parent_item_colon"]); } ?>" /><br/>
-								<?php _e('(e.g. Parent Actor:)', 'cpt-plugin' ); ?></td>
-							</tr>
+								echo $ui->get_text_input( array(
+									'namearray'     => 'cpt_tax_labels',
+									'name'          => 'parent_item_colon',
+									'textvalue'     => ( isset( $cpt_tax_labels["parent_item_colon"] ) ) ? esc_attr( $cpt_tax_labels["parent_item_colon"] ) : '',
+									'aftertext'     => __( '(e.g. Parent Actor:)', 'cpt-plugin' ),
+									'labeltext'     => __( 'Parent Item Colon', 'cpt-plugin' ),
+									'helptext'      => esc_attr__( 'Custom taxonomy label. Used in the admin menu for displaying taxonomies.', 'cpt-plugin'),
+									) );
 
-							<tr valign="top">
-							<th scope="row"><?php _e('Edit Item', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Custom taxonomy label.  Used in the admin menu for displaying taxonomies.', 'cpt-plugin' ); ?>" class="help">?</a></th>
-							<td><input type="text" name="cpt_tax_labels[edit_item]" value="<?php if (isset($cpt_tax_labels["edit_item"])) { echo esc_attr($cpt_tax_labels["edit_item"]); } ?>" /><br/>
-								<?php _e( '(e.g. Edit Actor)', 'cpt-plugin' ); ?></td>
-							</tr>
+								echo $ui->get_text_input( array(
+									'namearray'     => 'cpt_tax_labels',
+									'name'          => 'edit_item',
+									'textvalue'     => ( isset( $cpt_tax_labels["edit_item"] ) ) ? esc_attr( $cpt_tax_labels["edit_item"] ) : '',
+									'aftertext'     => __( '(e.g. Edit Actor)', 'cpt-plugin' ),
+									'labeltext'     => __( 'Edit Item', 'cpt-plugin' ),
+									'helptext'      => esc_attr__( 'Custom taxonomy label. Used in the admin menu for displaying taxonomies.', 'cpt-plugin'),
+									) );
 
-							<tr valign="top">
-							<th scope="row"><?php _e('Update Item', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Custom taxonomy label.  Used in the admin menu for displaying taxonomies.', 'cpt-plugin' ); ?>" class="help">?</a></th>
-							<td><input type="text" name="cpt_tax_labels[update_item]" value="<?php if (isset($cpt_tax_labels["update_item"])) { echo esc_attr($cpt_tax_labels["update_item"]); } ?>" /><br/>
-								<?php _e( '(e.g. Update Actor)', 'cpt-plugin' ); ?></td>
-							</tr>
+								echo $ui->get_text_input( array(
+									'namearray'     => 'cpt_tax_labels',
+									'name'          => 'add_new_item',
+									'textvalue'     => ( isset( $cpt_tax_labels["add_new_item"] ) ) ? esc_attr( $cpt_tax_labels["add_new_item"] ) : '',
+									'aftertext'     => __( '(e.g. Add New Actor)', 'cpt-plugin' ),
+									'labeltext'     => __( 'Add New Item', 'cpt-plugin' ),
+									'helptext'      => esc_attr__( 'Custom taxonomy label. Used in the admin menu for displaying taxonomies.', 'cpt-plugin'),
+									) );
 
-							<tr valign="top">
-							<th scope="row"><?php _e('Add New Item', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Custom taxonomy label.  Used in the admin menu for displaying taxonomies.', 'cpt-plugin' ); ?>" class="help">?</a></th>
-							<td><input type="text" name="cpt_tax_labels[add_new_item]" value="<?php if (isset($cpt_tax_labels["add_new_item"])) { echo esc_attr($cpt_tax_labels["add_new_item"]); } ?>" /><br/>
-								<?php _e( '(e.g. Add New Actor)', 'cpt-plugin' ); ?></td>
-							</tr>
+								echo $ui->get_text_input( array(
+									'namearray'     => 'cpt_tax_labels',
+									'name'          => 'new_item_name',
+									'textvalue'     => ( isset( $cpt_tax_labels["new_item_name"] ) ) ? esc_attr( $cpt_tax_labels["new_item_name"] ) : '',
+									'aftertext'     => __( '(e.g. New Actor Name)', 'cpt-plugin' ),
+									'labeltext'     => __( 'New Item Name', 'cpt-plugin' ),
+									'helptext'      => esc_attr__( 'Custom taxonomy label. Used in the admin menu for displaying taxonomies.', 'cpt-plugin'),
+									) );
 
-							<tr valign="top">
-							<th scope="row"><?php _e('New Item Name', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Custom taxonomy label.  Used in the admin menu for displaying taxonomies.', 'cpt-plugin' ); ?>" class="help">?</a></th>
-							<td><input type="text" name="cpt_tax_labels[new_item_name]" value="<?php if (isset($cpt_tax_labels["new_item_name"])) { echo esc_attr($cpt_tax_labels["new_item_name"]); } ?>" /><br/>
-								<?php _e( '(e.g. New Actor Name)', 'cpt-plugin' ); ?></td>
-							</tr>
+								echo $ui->get_text_input( array(
+									'namearray'     => 'cpt_tax_labels',
+									'name'          => 'separate_items_with_commas',
+									'textvalue'     => ( isset( $cpt_tax_labels["separate_items_with_commas"] ) ) ? esc_attr( $cpt_tax_labels["separate_items_with_commas"] ) : '',
+									'aftertext'     => __( '(e.g. Separate actors with commas)', 'cpt-plugin' ),
+									'labeltext'     => __( 'Separate Items with Commas', 'cpt-plugin' ),
+									'helptext'      => esc_attr__( 'Custom taxonomy label. Used in the admin menu for displaying taxonomies.', 'cpt-plugin'),
+									) );
 
-							<tr valign="top">
-							<th scope="row"><?php _e('Separate Items with Commas', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Custom taxonomy label.  Used in the admin menu for displaying taxonomies.', 'cpt-plugin' ); ?>" class="help">?</a></th>
-							<td><input type="text" name="cpt_tax_labels[separate_items_with_commas]" value="<?php if (isset($cpt_tax_labels["separate_items_with_commas"])) { echo esc_attr($cpt_tax_labels["separate_items_with_commas"]); } ?>" /><br/>
-								<?php _e( '(e.g. Separate actors with commas)', 'cpt-plugin' ); ?></td>
-							</tr>
+								echo $ui->get_text_input( array(
+									'namearray'     => 'cpt_tax_labels',
+									'name'          => 'add_or_remove_items',
+									'textvalue'     => ( isset( $cpt_tax_labels["add_or_remove_items"] ) ) ? esc_attr( $cpt_tax_labels["add_or_remove_items"] ) : '',
+									'aftertext'     => __( '(e.g. Add or remove actors)', 'cpt-plugin' ),
+									'labeltext'     => __( 'Add or Remove Items', 'cpt-plugin' ),
+									'helptext'      => esc_attr__( 'Custom taxonomy label. Used in the admin menu for displaying taxonomies.', 'cpt-plugin'),
+									) );
 
-							<tr valign="top">
-							<th scope="row"><?php _e('Add or Remove Items', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Custom taxonomy label.  Used in the admin menu for displaying taxonomies.', 'cpt-plugin' ); ?>" class="help">?</a></th>
-							<td><input type="text" name="cpt_tax_labels[add_or_remove_items]" value="<?php if (isset($cpt_tax_labels["add_or_remove_items"])) { echo esc_attr($cpt_tax_labels["add_or_remove_items"]); } ?>" /><br/>
-								<?php _e( '(e.g. Add or remove actors)', 'cpt-plugin' ); ?></td>
-							</tr>
-
-							<tr valign="top">
-							<th scope="row"><?php _e('Choose From Most Used', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Custom taxonomy label.  Used in the admin menu for displaying taxonomies.', 'cpt-plugin' ); ?>" class="help">?</a></th>
-							<td><input type="text" name="cpt_tax_labels[choose_from_most_used]" value="<?php if (isset($cpt_tax_labels["choose_from_most_used"])) { echo esc_attr($cpt_tax_labels["choose_from_most_used"]); } ?>" /><br/>
-								<?php _e( '(e.g. Choose from the most used actors)', 'cpt-plugin' ); ?></td>
-							</tr>
+								echo $ui->get_text_input( array(
+									'namearray'     => 'cpt_tax_labels',
+									'name'          => 'add_or_remove_items',
+									'textvalue'     => ( isset( $cpt_tax_labels["choose_from_most_used"] ) ) ? esc_attr( $cpt_tax_labels["choose_from_most_used"] ) : '',
+									'aftertext'     => __( '(e.g. Choose from the most used actors)', 'cpt-plugin' ),
+									'labeltext'     => __( 'Choose From Most Used', 'cpt-plugin' ),
+									'helptext'      => esc_attr__( 'Custom taxonomy label. Used in the admin menu for displaying taxonomies.', 'cpt-plugin'),
+									) );
+							?>
 						</table>
 						</div>
 
