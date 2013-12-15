@@ -2104,68 +2104,98 @@ function cpt_add_new() {
 
 						<div style="display:none;" id="slidepanel4">
 						<table class="form-table">
-							<tr valign="top">
-							<th scope="row"><?php _e('Hierarchical', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Whether the taxonomy can have parent-child relationships', 'cpt-plugin' ); ?>" class="help">?</a></th>
-							<td>
-								<select name="cpt_custom_tax[hierarchical]">
-									<option value="0" <?php if (isset($cpt_tax_hierarchical)) { if ($cpt_tax_hierarchical == 0) { echo 'selected="selected"'; } } else { echo 'selected="selected"'; } ?>>False</option>
-									<option value="1" <?php if (isset($cpt_tax_hierarchical)) { if ($cpt_tax_hierarchical == 1) { echo 'selected="selected"'; } } ?>>True</option>
-								</select> <?php _e('(default: False)', 'cpt-plugin' ); ?>
-							</td>
-							</tr>
+							<?php
+								$select = array(
+									'options' => array(
+										array( 'attr' => '0', 'text' => __( 'False', 'cpt-plugin' ), 'default' => 'true' ),
+										array( 'attr' => '1', 'text' => __( 'True', 'cpt-plugin' ) )
+									)
+								);
+								$select['selected'] = ( isset( $cpt_tax_hierarchical ) ) ? $cpt_tax_hierarchical : '';
+								echo $ui->get_select_bool_input( array(
+									'namearray'     => 'cpt_custom_tax',
+									'name'          => 'hierarchical',
+									'labeltext'     => __( 'Hierarchical', 'cpt-plugin' ),
+									'aftertext'     => __( '(default: False)', 'cpt-plugin' ),
+									'helptext'      => esc_attr__( 'Whether the taxonomy can have parent-child relationships', 'cpt-plugin' ),
+									'selections'    => $select
+								) );
 
-							<tr valign="top">
-							<th scope="row"><?php _e('Show UI', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Whether to generate a default UI for managing this custom taxonomy', 'cpt-plugin' ); ?>" class="help">?</a></th>
-							<td>
-								<select name="cpt_custom_tax[show_ui]">
-									<option value="0" <?php if (isset($cpt_tax_showui)) { if ($cpt_tax_showui == 0 && $cpt_tax_showui != '') { echo 'selected="selected"'; } } ?>><?php _e( 'False', 'cpt-plugin' ); ?></option>
-									<option value="1" <?php if (isset($cpt_tax_showui)) { if ($cpt_tax_showui == 1 || is_null($cpt_tax_showui)) { echo 'selected="selected"'; } } else { echo 'selected="selected"'; } ?>><?php _e( 'True', 'cpt-plugin' ); ?></option>
-								</select> <?php _e('(default: True)', 'cpt-plugin' ); ?>
-							</td>
-							</tr>
+								$select = array(
+									'options' => array(
+										array( 'attr' => '0', 'text' => __( 'False', 'cpt-plugin' ) ),
+										array( 'attr' => '1', 'text' => __( 'True', 'cpt-plugin' ), 'default' => 'true' )
+									)
+								);
+								$select['selected'] = ( isset( $cpt_tax_showui ) ) ? $cpt_tax_showui : '';
+								echo $ui->get_select_bool_input( array(
+									'namearray'     => 'cpt_custom_tax',
+									'name'          => 'show_ui',
+									'labeltext'     => __( 'Show UI', 'cpt-plugin' ),
+									'aftertext'     => __( '(default: True)', 'cpt-plugin' ),
+									'helptext'      => esc_attr__( 'Whether to generate a default UI for managing this custom taxonomy', 'cpt-plugin' ),
+									'selections'    => $select
+								) );
 
-							<tr valign="top">
-							<th scope="row"><?php _e('Query Var', 'cpt-plugin') ?> <a href="#" title="" class="help">?</a></th>
-							<td>
-								<select name="cpt_custom_tax[query_var]">
-									<option value="0" <?php if (isset($cpt_tax_query_var)) { if ($cpt_tax_query_var == 0 && $cpt_tax_query_var != '') { echo 'selected="selected"'; } } ?>><?php _e( 'False', 'cpt-plugin' ); ?></option>
-									<option value="1" <?php if (isset($cpt_tax_query_var)) { if ($cpt_tax_query_var == 1 || is_null($cpt_tax_query_var)) { echo 'selected="selected"'; } } else { echo 'selected="selected"'; } ?>><?php _e( 'True', 'cpt-plugin' ); ?></option>
-								</select> <?php _e( '(default: True)', 'cpt-plugin' ); ?>
-							</td>
-							</tr>
+								$select = array(
+									'options' => array(
+										array( 'attr' => '0', 'text' => __( 'False', 'cpt-plugin' ) ),
+										array( 'attr' => '1', 'text' => __( 'True', 'cpt-plugin' ), 'default' => 'true' )
+									)
+								);
+								$select['selected'] = ( isset( $cpt_tax_query_var ) ) ? $cpt_tax_query_var : '';
+								echo $ui->get_select_bool_input( array(
+									'namearray'     => 'cpt_custom_tax',
+									'name'          => 'show_ui',
+									'labeltext'     => __( 'Query Var', 'cpt-plugin' ),
+									'aftertext'     => __( '(default: True)', 'cpt-plugin' ),
+									'selections'    => $select
+								) );
 
-							<tr valign="top">
-							<th scope="row"><?php _e('Rewrite', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Triggers the handling of rewrites for this taxonomy', 'cpt-plugin' ); ?>" class="help">?</a></th>
-							<td>
-								<select name="cpt_custom_tax[rewrite]">
-									<option value="0" <?php if (isset($cpt_tax_rewrite)) { if ($cpt_tax_rewrite == 0 && $cpt_tax_rewrite != '') { echo 'selected="selected"'; } } ?>><?php _e( 'False', 'cpt-plugin' ); ?></option>
-									<option value="1" <?php if (isset($cpt_tax_rewrite)) { if ($cpt_tax_rewrite == 1 || is_null($cpt_tax_rewrite)) { echo 'selected="selected"'; } } else { echo 'selected="selected"'; } ?>><?php _e( 'True', 'cpt-plugin' ); ?></option>
-								</select> <?php _e( '(default: True)', 'cpt-plugin' ); ?>
-							</td>
-							</tr>
+								$select = array(
+									'options' => array(
+										array( 'attr' => '0', 'text' => __( 'False', 'cpt-plugin' ) ),
+										array( 'attr' => '1', 'text' => __( 'True', 'cpt-plugin' ), 'default' => 'true' )
+									)
+								);
+								$select['selected'] = ( isset( $cpt_tax_rewrite ) ) ? $cpt_tax_rewrite : '';
+								echo $ui->get_select_bool_input( array(
+									'namearray'     => 'cpt_custom_tax',
+									'name'          => 'rewrite',
+									'labeltext'     => __( 'Rewrite', 'cpt-plugin' ),
+									'aftertext'     => __( '(default: True)', 'cpt-plugin' ),
+									'helptext'      => esc_attr__( 'Triggers the handling of rewrites for this taxonomy', 'cpt-plugin' ),
+									'selections'    => $select
+								) );
 
-							<tr valign="top">
-							<th scope="row"><?php _e('Custom Rewrite Slug', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Custom Taxonomy Rewrite Slug', 'cpt-plugin' ); ?>" class="help">?</a></th>
-							<td><input type="text" name="cpt_custom_tax[rewrite_slug]" value="<?php if (isset($cpt_tax_rewrite_slug)) { echo esc_attr($cpt_tax_rewrite_slug); } ?>" /> <?php _e( '(default: taxonomy name)', 'cpt-plugin' ); ?></td>
-							</tr>
+								echo $ui->get_text_input( array(
+									'namearray'     => 'cpt_custom_tax',
+									'name'          => 'rewrite_slug',
+									'textvalue'     => ( isset( $cpt_tax_rewrite_slug ) ) ? esc_attr( $cpt_tax_rewrite_slug ) : '',
+									'aftertext'     => __( '(default: taxonomy name)', 'cpt-plugin' ),
+									'labeltext'     => __( 'Custom Rewrite Slug', 'cpt-plugin' ),
+									'helptext'      => esc_attr__( 'Custom Taxonomy Rewrite Slug', 'cpt-plugin'),
+									) );
 
-							<?php if ( version_compare( CPTUI_WP_VERSION, '3.5', '>' ) ) { ?>
-							<tr valign="top">
-							<th scope="row"><?php _e('Show Admin Column', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Whether to allow automatic creation of taxonomy columns on associated post-types.', 'cpt-plugin' ); ?>" class="help">?</a></th>
-							<td>
-								<select name="cpt_custom_tax[show_admin_column]">
-									<?php if ( !isset( $cpt_tax_show_admin_column ) || $cpt_tax_show_admin_column == 0 ) { ?>
-										<option value="0" selected="selected"><?php _e( 'False', 'cpt-plugin' ); ?></option>
-										<option value="1"><?php _e( 'True', 'cpt-plugin' ); ?></option>
-									<?php } else { ?>
-										<option value="0"><?php _e( 'False', 'cpt-plugin' ); ?></option>
-										<option value="1" selected="selected"><?php _e( 'True', 'cpt-plugin' ); ?></option>
-									<?php } ?>
-								</select> <?php _e( '(default: False)', 'cpt-plugin' ); ?>
-							</td>
-							</tr>
-							<?php } ?>
+							if ( version_compare( CPTUI_WP_VERSION, '3.5', '>' ) ) {
 
+								$select = array(
+									'options' => array(
+										array( 'attr' => '0', 'text' => __( 'False', 'cpt-plugin' ), 'default' => 'true' ),
+										array( 'attr' => '1', 'text' => __( 'True', 'cpt-plugin' ) )
+									)
+								);
+								$select['selected'] = ( isset( $cpt_tax_show_admin_column ) ) ? $cpt_tax_show_admin_column : '';
+								echo $ui->get_select_bool_input( array(
+									'namearray'     => 'cpt_custom_tax',
+									'name'          => 'show_admin_column',
+									'labeltext'     => __( 'Show Admin Column', 'cpt-plugin' ),
+									'aftertext'     => __( '(default: False)', 'cpt-plugin' ),
+									'helptext'      => esc_attr__( 'Whether to allow automatic creation of taxonomy columns on associated post-types.', 'cpt-plugin' ),
+									'selections'    => $select
+								) );
+
+							} ?>
 						</table>
 						</div>
 
