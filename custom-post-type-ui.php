@@ -2271,12 +2271,16 @@ function cpt_settings_tab_menu( $page = 'post_types' ) {
 
 	//Set up variables depending on where we are.
 	if ( 'post_types' == $page ) :
-		$tab1[] = 'nav-tab-active';
 		$title = __( 'Manage Post Types', 'cpt-plugin' );
 	else :
-		$tab2[] = 'nav-tab-active';
 		$title = __( 'Manage Taxonomies', 'cpt-plugin' );
 	endif;
+
+	if ( !empty( $_GET['action'] ) && 'edit' == $_GET['action'] ) {
+		$tab2[] = 'nav-tab-active';
+	} else {
+		$tab1[] = 'nav-tab-active';
+	}
 
 	//implode our arrays for class attributes
 	$tab1 = implode( ' ', $tab1 ); $tab2 = implode( ' ', $tab2 );
