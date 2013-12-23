@@ -1211,6 +1211,13 @@ function cpt_add_new() {
 cpt_footer();
 }
 
+/**
+ * Display footer links and plugin credits
+ *
+ * @since  [since]
+ *
+ * @return mixed  htmls
+ */
 function cpt_footer() {
 	?>
 	<hr />
