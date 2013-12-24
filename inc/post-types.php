@@ -26,7 +26,7 @@ add_action( 'admin_menu', 'cpt_post_types_admin_menu' );
 /**
  * Create our settings page output
  *
- * @since  1.9
+ * @since  0.9
  *
  * @return mixed  webpage
  */
