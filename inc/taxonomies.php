@@ -42,10 +42,11 @@ function cptui_manage_taxonomies() {
 	<form method="post">
 		<?php wp_nonce_field('cpt_add_custom_taxonomy');
 
-		if ( !empty( $cptui_taxes ) && is_array( $cptui_taxes ) ) {
+		if ( !empty( $taxonomies ) && is_array( $taxonomies ) ) {
 			//USE UI CLASS HERE.
-			foreach( $cptui_taxes as $tax ) {
-
+			foreach( $taxonomies as $tax ) {
+				print_r( $tax );
+				echo '<hr/>';
 			}
 		}
 
