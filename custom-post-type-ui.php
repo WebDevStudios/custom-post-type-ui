@@ -414,6 +414,7 @@ function cpt_add_new() {
 
 	//flush rewrite rules
 	flush_rewrite_rules();
+}
 
 function cpt_check_return( $return ) {
 	global $CPT_URL;
