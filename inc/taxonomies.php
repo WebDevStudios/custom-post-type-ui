@@ -37,8 +37,8 @@ function cptui_manage_taxonomies() {
 	//Instantiate our UI class.
 	$ui = new cptui_admin_ui();
 
-	$ui->get_p( __( 'If you are unfamiliar with the options below only fill out the <strong>Taxonomy Name</strong> and <strong>Post Type Name</strong> fields.  The other settings are set to the most common defaults for custom taxonomies. Hover over the question mark for more details.', 'cpt-plugin' ) ); ?>
-
+	$ui->get_p( __( 'If you are unfamiliar with the options below only fill out the <strong>Taxonomy Name</strong> and <strong>Post Type Name</strong> fields.  The other settings are set to the most common defaults for custom taxonomies. Hover over the question mark for more details.', 'cpt-plugin' ) );
+	$ui->get_p( __('Deleting custom taxonomies does <strong>NOT</strong> delete any content added to those taxonomies.  You can easily recreate your taxonomies and the content will still exist.', 'cpt-plugin') ); ?>
 	<form method="post">
 		<?php wp_nonce_field('cpt_add_custom_taxonomy');
 
