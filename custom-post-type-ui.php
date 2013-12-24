@@ -16,11 +16,7 @@ define( 'CPT_VERSION', '0.9' );
 // Define current WordPress version constant
 define( 'CPTUI_WP_VERSION', get_bloginfo( 'version' ) );
 
-// Define plugin URL constant
-$CPT_URL = cpt_check_return( 'add' );
-
-//include our Admin UI class to help make things fabulous, and streamlined.
-require_once( plugin_dir_path( __FILE__ ) . 'classes/class.cptui_admin_ui.php' );
+add_action( 'init', 'cpt_load_ui_class' );
 
 //load translated strings
 add_action( 'init', 'cpt_load_textdomain' );
