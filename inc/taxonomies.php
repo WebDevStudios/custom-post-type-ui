@@ -44,10 +44,7 @@ function cptui_manage_taxonomies() {
 
 		if ( !empty( $taxonomies ) && is_array( $taxonomies ) ) {
 			//USE UI CLASS HERE.
-			foreach( $taxonomies as $tax ) {
-				print_r( $tax );
-				echo '<hr/>';
-			}
+
 		}
 		?>
 
