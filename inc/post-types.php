@@ -40,6 +40,13 @@ function cptui_manage_post_types() {
 	}
 
 	cpt_settings_tab_menu();
+
+	if ( !empty( $_GET ) && 'edit' == $_GET['action'] ) {
+		//Fetch our taxonomies.
+		$post_types = get_option('cpt_custom_post_types');
+	}
+
+	//Instantiate our UI class.
 	$ui = new cptui_admin_ui();
 
 	$ui->get_p( __('If you are unfamiliar with the options below only fill out the <strong>Post Type Name</strong> and <strong>Label</strong> fields and check which meta boxes to support.  The other settings are set to the most common defaults for custom post types. Hover over the question mark for more details.', 'cpt-plugin') ); ?>
