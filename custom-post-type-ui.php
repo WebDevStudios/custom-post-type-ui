@@ -415,49 +415,181 @@ function cpt_add_new() {
 	//flush rewrite rules
 	flush_rewrite_rules();
 
-	/*
-	BEGIN 'ADD NEW' PAGE OUTPUT
-	 */
-	?>
-	<div class="wrap">
-		<?php
-		do_action( 'cptui_before_add_new_page' );
-		//check for success/error messages
-		if ( isset( $_GET['cpt_msg'] ) ) : ?>
+function cpt_check_return( $return ) {
+	global $CPT_URL;
 
-			<div id="message" class="updated">
-			<?php if ( $_GET['cpt_msg'] == 1 ) {
-				_e( 'Custom post type created successfully. You may need to refresh to view the new post type in the admin menu.', 'cpt-plugin' );
-				echo '<a href="' . cpt_check_return( 'cpt' ) . '"> ' . __( 'Manage custom post types', 'cpt-plugin') . '</a>';
-			} elseif ( $_GET['cpt_msg'] == 2 ) {
-				_e('Custom taxonomy created successfully.  You may need to refresh to view the new taxonomy in the admin menu.', 'cpt-plugin' );
-				echo '<a href="' . cpt_check_return( 'tax' ) . '"> ' . __( 'Manage custom taxonomies', 'cpt-plugin') . '</a>';
-			} ?>
-			</div>
-		<?php
-		else :
-			if ( isset( $_GET['cpt_error'] ) ) : ?>
-			<div class="error">
-				<?php if ( $_GET['cpt_error'] == 1 ) {
-					_e( 'Post type name is a required field.', 'cpt-plugin' );
-				}
-				if ( $_GET['cpt_error'] == 2 ) {
-					_e( 'Taxonomy name is a required field.', 'cpt-plugin' );
-				}
-				if ( $_GET['cpt_error'] == 3 ) {
-					_e( 'You must assign your custom taxonomy to at least one post type.', 'cpt-plugin' );
-				}
-				if ( $_GET['cpt_error'] == 4 ) {
-					_e( 'Please doe not use quotes in your post type slug or rewrite slug.', 'cpt-plugin' );
-				}
-				if ( $_GET['cpt_error'] == 5 ) {
-					_e( 'Please doe not use quotes in your taxonomy slug or rewrite slug.', 'cpt-plugin' );
-				} ?>
-			</div>
-			<?php
-			endif;
-		endif;
+	if ( $return == 'cpt' ) {
+		return ( isset( $_GET['return'] ) ) ? admin_url( 'admin.php?page=cpt_sub_manage_cpt&return=cpt' ) : admin_url( 'admin.php?page=cpt_sub_manage_cpt' );
+	} elseif ( $return == 'tax' ){
+		return ( isset( $_GET['return'] ) ) ? admin_url( 'admin.php?page=cpt_sub_manage_taxonomies&return=tax' ) : admin_url( 'admin.php?page=cpt_sub_manage_taxonomies' );
+	} elseif ( $return == 'add' ) {
+		return admin_url( 'admin.php?page=cpt_sub_add_new' );
+	} else {
+		return admin_url( 'admin.php?page=cpt_sub_add_new' );
+	}
+}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * Load our OOP class that powers our form inputs
+ *
+ * @since  0.9
+ *
+ * @return void
+ */
+function cpt_load_ui_class() {
+	//include our Admin UI class to help make things fabulous, and streamlined.
+	require_once( plugin_dir_path( __FILE__ ) . 'classes/class.cptui_admin_ui.php' );
+}
+
+/**
+ * Flush our rewrite rules on deactivation
+ *
+ * @since  [since]
+ *
+ * @return [type]  [description]
+ */
+function cpt_deactivation() {
+	// Clear the permalinks to remove our post type's rules
+	flush_rewrite_rules();
+}
+
+/**
+ * Register our text domain
+ *
+ * @since  0.8
+ *
+ * @return void
+ */
+function cpt_load_textdomain() {
+	load_plugin_textdomain( 'cpt-plugin', false, basename( dirname( __FILE__ ) ) . '/languages' );
+}
+
+/**
+ * Load our main menu
+ *
+ * @since  [since]
+ *
+ * @return void
+ */
+function cpt_plugin_menu() {
+	add_menu_page( __( 'Custom Post Types', 'cpt-plugin' ), __( 'CPT UI (dev)', 'cpt-plugin' ), 'manage_options', 'cpt_main_menu', 'cpt_settings' );
+}
+
+/**
+ * Load our submenus
+ *
+ * @since  0.9
+ *
+ * @return [type]  [description]
+ */
+function cpt_create_submenus() {
+	require_once( plugin_dir_path( __FILE__ ) . 'inc/post-types.php' );
+	require_once( plugin_dir_path( __FILE__ ) . 'inc/taxonomies.php' );
+	require_once( plugin_dir_path( __FILE__ ) . 'inc/support.php' );
+}
+
+/**
+ * Register our users' custom post types
+ *
+ * @since  [since]
+ *
+ * @return void
+ */
+function cpt_create_custom_post_types() { //TODO: refactor for yet to be decided structure of new registrations.
+	//register custom post types
+	$cpts = get_option('cpt_custom_post_types');
+
+	//check if option value is an Array before proceeding
+	if ( is_array( $cpts ) ) {
+		foreach ( $cpts as $type ) {
+			//set post type values
+			$cpt_label              = ( !empty( $type["label"] ) ) ? esc_html( $type["label"] ) : esc_html( $type["name"] ) ;
+			$cpt_singular           = ( !empty( $type["singular_label"] ) ) ? esc_html( $type["singular_label"] ) : esc_html( $cpt_label );
+			$cpt_rewrite_slug       = ( !empty( $type["rewrite_slug"] ) ) ? esc_html( $type["rewrite_slug"] ) : esc_html( $type["name"] );
+			$cpt_rewrite_withfront  = ( !empty( $type["rewrite_withfront"] ) ) ? true : get_disp_boolean( $type["rewrite_withfront"] ); //reversed because false is empty
+			$cpt_menu_position      = ( !empty( $type["menu_position"] ) ) ? intval( $type["menu_position"] ) : null; //must be null
+			$cpt_menu_icon          = ( !empty( $type["menu_icon"] ) ) ? esc_url( $type["menu_icon"] ) : null; //must be null
+			$cpt_taxonomies         = ( !empty( $type[1] ) ) ? $type[1] : array();
+			$cpt_supports           = ( !empty( $type[0] ) ) ? $type[0] : array();
+
+			//Show UI must be true
+			if ( true == get_disp_boolean( $type["show_ui"] ) ) {
+				//If the string is empty, we will need boolean, else use the string.
+				if ( empty( $type['show_in_menu_string'] ) ) {
+					$cpt_show_in_menu = ( $type["show_in_menu"] == 1 ) ? true : false;
+				} else {
+					$cpt_show_in_menu = $type['show_in_menu_string'];
+				}
+			} else {
+				$cpt_show_in_menu = false;
+			}
+
+			//set custom label values
+			$cpt_labels['name']             = $cpt_label;
+			$cpt_labels['singular_name']    = $type["singular_label"];
+
+			if ( isset ( $type[2]["menu_name"] ) ) {
+				$cpt_labels['menu_name'] = ( !empty( $type[2]["menu_name"] ) ) ? $type[2]["menu_name"] : $cpt_label;
+			}
+
+			$cpt_has_archive                    = ( !empty( $type["has_archive"] ) ) ? get_disp_boolean( $type["has_archive"] ) : '';
+			$cpt_exclude_from_search            = ( !empty( $type["exclude_from_search"] ) ) ? get_disp_boolean( $type["exclude_from_search"] ) : '';
+			$cpt_labels['add_new']              = ( !empty( $type[2]["add_new"] ) ) ? $type[2]["add_new"] : 'Add ' .$cpt_singular;
+			$cpt_labels['add_new_item']         = ( !empty( $type[2]["add_new_item"] ) ) ? $type[2]["add_new_item"] : 'Add New ' .$cpt_singular;
+			$cpt_labels['edit']                 = ( !empty( $type[2]["edit"] ) ) ? $type[2]["edit"] : 'Edit';
+			$cpt_labels['edit_item']            = ( !empty( $type[2]["edit_item"] ) ) ? $type[2]["edit_item"] : 'Edit ' .$cpt_singular;
+			$cpt_labels['new_item']             = ( !empty( $type[2]["new_item"] ) ) ? $type[2]["new_item"] : 'New ' .$cpt_singular;
+			$cpt_labels['view']                 = ( !empty( $type[2]["view"] ) ) ? $type[2]["view"] : 'View ' .$cpt_singular;
+			$cpt_labels['view_item']            = ( !empty( $type[2]["view_item"] ) ) ? $type[2]["view_item"] : 'View ' .$cpt_singular;
+			$cpt_labels['search_items']         = ( !empty( $type[2]["search_items"] ) ) ? $type[2]["search_items"] : 'Search ' .$cpt_label;
+			$cpt_labels['not_found']            = ( !empty( $type[2]["not_found"] ) ) ? $type[2]["not_found"] : 'No ' .$cpt_label. ' Found';
+			$cpt_labels['not_found_in_trash']   = ( !empty( $type[2]["not_found_in_trash"] ) ) ? $type[2]["not_found_in_trash"] : 'No ' .$cpt_label. ' Found in Trash';
+			$cpt_labels['parent']               = ( $type[2]["parent"] ) ? $type[2]["parent"] : 'Parent ' .$cpt_singular;
+
+			$cpt_pre_register_post_type_args = array(
+				'label' => $cpt_label,
+				'public' => get_disp_boolean($type["public"]),
+				'singular_label' => $type["singular_label"],
+				'show_ui' => get_disp_boolean($type["show_ui"]),
+				'has_archive' => $cpt_has_archive,
+				'show_in_menu' => $cpt_show_in_menu,
+				'capability_type' => $type["capability_type"],
+				'map_meta_cap' => true,
+				'hierarchical' => get_disp_boolean($type["hierarchical"]),
+				'exclude_from_search' => $cpt_exclude_from_search,
+				'rewrite' => array( 'slug' => $cpt_rewrite_slug, 'with_front' => $cpt_rewrite_withfront ),
+				'query_var' => get_disp_boolean($type["query_var"]),
+				'description' => esc_html($type["description"]),
+				'menu_position' => $cpt_menu_position,
+				'menu_icon' => $cpt_menu_icon,
+				'supports' => $cpt_supports,
+				'taxonomies' => $cpt_taxonomies,
+				'labels' => $cpt_labels
+			);
+
+			//pass all of our arguments as well as the future post type name through a filter.
+			$cpt_register_post_type_args = apply_filters( 'cptui_register_post_type_args', $cpt_pre_register_post_type_args, $type["name"] );
+			/*if ( !is_array( $cpt_register_post_type_args ) )
+				wp_die( 'Please return an array to the \'cptui_register_post_type_args\' filter.' );*/
+			//finally register the post type.
+			register_post_type( $type["name"], $cpt_register_post_type_args );
+		}
+	}
+}
 
 		screen_icon( 'plugins' );
 
