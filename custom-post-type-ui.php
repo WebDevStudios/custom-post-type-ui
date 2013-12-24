@@ -24,6 +24,8 @@ add_action( 'init', 'cpt_load_textdomain' );
 // create custom plugin settings menu
 add_action( 'admin_menu', 'cpt_plugin_menu' );
 
+add_action( 'init', 'cpt_create_submenus' );
+
 //call delete post function
 add_action( 'admin_init', 'cpt_delete_post_type' );
 
