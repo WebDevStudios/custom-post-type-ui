@@ -340,3 +340,118 @@ function cptui_manage_taxonomies() {
 <?php
 	cpt_footer();
 }
+
+/**
+ * Fetch error message based on $_GET parameter
+ *
+ * @since  0.9
+ *
+ * @return mixed  false on no error, mixed when there is one.
+ */
+function cptui_get_taxonomy_errors() {
+	if ( isset( $_GET['cpt_error'] ) ) :
+		$error = $_GET['cpt_error'];
+
+		$msg = '<div class="error">';
+
+		if ( 1 == $error ) {
+			$msg .= '<p>' . __( 'Taxonomy name is a required field.', 'cpt-plugin' ) . '</p>';
+		}
+		if ( 2 == $error ) {
+			$msg .= '<p>' . __( 'You must assign your custom taxonomy to at least one post type.', 'cpt-plugin' ) . '</p>';
+		}
+		if ( 3 == $error ) {
+			$msg .= '<p>' . __( 'Please do not use quotes in your taxonomy slug or rewrite slug.', 'cpt-plugin' ) . '</p>';
+		}
+		$msg .= '</div>';
+
+		return $msg;
+
+	endif;
+
+	return false;
+}
+
+/**
+ * Fetch success message based on $_GET parameter
+ *
+ * @since  0.9
+ *
+ * @return mixed  false on no parameter, mixed when there is one.
+ */
+function cptui_get_taxonomy_successes() {
+	if ( isset( $_GET['cpt_msg'] ) ) :
+		$success = $_GET['cpt_msg'];
+
+		$msg = '<div id="message" class="updated">';
+		//TODO: filters
+		if ( 1 == $success ) {
+			$msg .= '<p>' . __( 'Custom taxonomy created successfully.  You may need to refresh to view the new taxonomy in the admin menu.', 'cpt-plugin' ) . '</p>';
+		}
+		//TODO: ADD SUCCESS FOR DELETING TAXES
+		$msg .= '</div>';
+
+		return $msg;
+
+	endif;
+
+	return false;
+}
+
+//TODO: refactor.
+function cptui_get_taxonomy_code( $taxonomy ) {
+	$custom_tax = '';
+	$custom_tax = "add_action('init', 'cptui_register_my_taxes_" . $cpt_tax_type['name'] . "');\n";
+	$custom_tax .= "function cptui_register_my_taxes_" . $cpt_tax_type['name'] . "() {\n";
+
+	if ( !$cpt_tax_type["label"] ) {
+		$cpt_label = esc_html( $cpt_tax_type["name"] );
+	} else {
+		$cpt_label = esc_html( $cpt_tax_type["label"] );
+	}
+
+	//check if singular label was filled out
+	if ( !$cpt_tax_type["singular_label"] ) {
+		$cpt_singular_label = esc_html( $cpt_tax_type["name"] );
+	} else {
+		$cpt_singular_label = esc_html( $cpt_tax_type["singular_label"] );
+	}
+
+	$labels = var_export( array(
+		'search_items' => ( !empty( $cpt_tax_type["singular_label"] ) ) ? esc_html( $cpt_tax_type["singular_label"] ) : '',
+		'popular_items' => ( !empty( $cpt_tax_type[0]["popular_items"] ) ) ? esc_html( $cpt_tax_type[0]["popular_items"] ) : '',
+		'all_items' => ( !empty( $cpt_tax_type[0]["all_items"] ) ) ? esc_html( $cpt_tax_type[0]["all_items"] ) : '',
+		'parent_item' => ( !empty( $cpt_tax_type[0]["parent_item"] ) ) ? esc_html( $cpt_tax_type[0]["parent_item"] ) : '',
+		'parent_item_colon' => ( !empty( $cpt_tax_type[0]["parent_item_colon"] ) ) ? esc_html( $cpt_tax_type[0]["parent_item_colon"] ) : '',
+		'edit_item' => ( !empty( $cpt_tax_type[0]["edit_item"] ) ) ? esc_html( $cpt_tax_type[0]["edit_item"] ) : '',
+		'update_item' => ( !empty( $cpt_tax_type[0]["update_item"] ) ) ? esc_html( $cpt_tax_type[0]["update_item"] ) : '',
+		'add_new_item' => ( !empty( $cpt_tax_type[0]["add_new_item"] ) ) ? esc_html( $cpt_tax_type[0]["add_new_item"] ) : '',
+		'new_item_name' => ( !empty( $cpt_tax_type[0]["new_item_name"] ) ) ? esc_html( $cpt_tax_type[0]["new_item_name"] ) : '',
+		'separate_items_with_commas' => ( !empty( $cpt_tax_type[0]["separate_items_with_commas"] ) ) ? esc_html( $cpt_tax_type[0]["separate_items_with_commas"] ) : '',
+		'add_or_remove_items' => ( !empty( $cpt_tax_type[0]["add_or_remove_items"] ) ) ? esc_html( $cpt_tax_type[0]["add_or_remove_items"] ) : '',
+		'choose_from_most_used' => ( !empty( $cpt_tax_type[0]["choose_from_most_used"] ) ) ? esc_html( $cpt_tax_type[0]["choose_from_most_used"] ) : ''
+	), true );
+
+	$cpt_post_types = ( !$cpt_tax_type[1] ) ? $cpt_tax_type["cpt_name"] : var_export( $cpt_tax_type[1], true );
+
+	//register our custom taxonomies
+	$custom_tax .= "register_taxonomy( '" . $cpt_tax_type["name"] . "',";
+	$custom_tax .= $cpt_post_types . ",\n";
+	$custom_tax .= "array( 'hierarchical' => " . disp_boolean( $cpt_tax_type["hierarchical"] ) . ",\n";
+	$custom_tax .= "\t'label' => '" . $cpt_label . "',\n";
+	$custom_tax .= "\t'show_ui' => " . disp_boolean( $cpt_tax_type["show_ui"] ) . ",\n";
+	$custom_tax .= "\t'query_var' => " . disp_boolean( $cpt_tax_type["query_var"] ) . ",\n";
+	if ( !empty( $cpt_tax_type["rewrite_slug"] ) ) {
+		$custom_tax .= "\t'rewrite' => array( 'slug' => '" . $cpt_tax_type["rewrite_slug"] . "' ),\n";
+	}
+
+	if ( version_compare( CPTUI_WP_VERSION, '3.5', '>' ) ) {
+		$custom_tax .= "\t'show_admin_column' => " . disp_boolean( $cpt_tax_type["show_admin_column"] ) . ",\n";
+	}
+
+	if ( !empty( $labels ) )
+		$custom_tax .= "\t'labels' => " . $labels . "\n";
+
+	$custom_tax .= ") ); \n}";
+
+}
