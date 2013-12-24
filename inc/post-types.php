@@ -121,7 +121,11 @@ function cptui_manage_post_types() {
 			</table>
 
 			<p class="submit">
-			<input type="submit" class="button-primary" name="cpt_submit" value="<?php echo $cpt_submit_name; ?>" />
+			<?php if ( !empty( $_GET ) && 'edit' == $_GET['action'] ) { ?>
+				<input type="submit" class="button-primary" name="cpt_submit" value="<?php echo apply_filters( 'cptui_post_type_submit_edit', __( 'Edit Post Type', 'cpt-plugin' ) ); ?>" />
+			<?php } else { ?>
+				<input type="submit" class="button-primary" name="cpt_submit" value="<?php echo apply_filters( 'cptui_post_type_submit_add', __( 'Add Post Type', 'cpt-plugin' ) ); ?>" />
+			<?php } ?>
 			</p>
 
 		</form>
