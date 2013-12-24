@@ -44,68 +44,13 @@ add_action( 'admin_head', 'cpt_help_style' );
 register_deactivation_hook( __FILE__, 'cpt_deactivation' );
 
 
-			//pass all of our arguments as well as the future post type name through a filter.
-			$cpt_register_post_type_args = apply_filters( 'cptui_register_post_type_args', $cpt_pre_register_post_type_args, $cpt_post_type["name"] );
-			/*if ( !is_array( $cpt_register_post_type_args ) )
-				wp_die( 'Please return an array to the \'cptui_register_post_type_args\' filter.' );*/
-			//finally register the post type.
-			register_post_type( $cpt_post_type["name"], $cpt_register_post_type_args );
-		}
-	}
-}
 
 
-function cpt_create_custom_taxonomies() {
-	//register custom taxonomies
-	$cpt_tax_types = get_option('cpt_custom_tax_types');
 
-	//check if option value is an array before proceeding
-	if ( is_array( $cpt_tax_types ) ) {
-		foreach ($cpt_tax_types as $cpt_tax_type) {
 
-			//set custom taxonomy values
-			$cpt_label              = ( !empty( $cpt_tax_type["label"] ) ) ? esc_html( $cpt_tax_type["label"] ) : esc_html( $cpt_tax_type["name"] );
-			$cpt_singular_label     = ( !empty( $cpt_tax_type["singular_label"] ) ) ? esc_html( $cpt_tax_type["singular_label"] ) : esc_html( $cpt_tax_type["name"] );
-			$cpt_rewrite_slug       = ( !empty( $cpt_tax_type["rewrite_slug"] ) ) ? esc_html( $cpt_tax_type["rewrite_slug"] ) : esc_html( $cpt_tax_type["name"] );
-			$cpt_tax_show_admin_column = ( !empty( $cpt_tax_type["show_admin_column"] ) ) ? esc_html( $cpt_tax_type["show_admin_column"] ) : false;
-			$cpt_post_types         = ( !empty( $cpt_tax_type[1] ) ) ? $cpt_tax_type[1] : $cpt_tax_type["cpt_name"];
 
-			//set custom label values
-			$cpt_labels['name']                         = $cpt_label;
-			$cpt_labels['singular_name']                = $cpt_tax_type["singular_label"];
-			$cpt_labels['search_items']                 = ( $cpt_tax_type[0]["search_items"] ) ? $cpt_tax_type[0]["search_items"] : 'Search ' .$cpt_label;
-			$cpt_labels['popular_items']                = ( $cpt_tax_type[0]["popular_items"] ) ? $cpt_tax_type[0]["popular_items"] : 'Popular ' .$cpt_label;
-			$cpt_labels['all_items']                    = ( $cpt_tax_type[0]["all_items"] ) ? $cpt_tax_type[0]["all_items"] : 'All ' .$cpt_label;
-			$cpt_labels['parent_item']                  = ( $cpt_tax_type[0]["parent_item"] ) ? $cpt_tax_type[0]["parent_item"] : 'Parent ' .$cpt_singular_label;
-			$cpt_labels['parent_item_colon']            = ( $cpt_tax_type[0]["parent_item_colon"] ) ? $cpt_tax_type[0]["parent_item_colon"] : 'Parent ' .$cpt_singular_label. ':';
-			$cpt_labels['edit_item']                    = ( $cpt_tax_type[0]["edit_item"] ) ? $cpt_tax_type[0]["edit_item"] : 'Edit ' .$cpt_singular_label;
-			$cpt_labels['update_item']                  = ( $cpt_tax_type[0]["update_item"] ) ? $cpt_tax_type[0]["update_item"] : 'Update ' .$cpt_singular_label;
-			$cpt_labels['add_new_item']                 = ( $cpt_tax_type[0]["add_new_item"] ) ? $cpt_tax_type[0]["add_new_item"] : 'Add New ' .$cpt_singular_label;
-			$cpt_labels['new_item_name']                = ( $cpt_tax_type[0]["new_item_name"] ) ? $cpt_tax_type[0]["new_item_name"] : 'New ' .$cpt_singular_label. ' Name';
-			$cpt_labels['separate_items_with_commas']   = ( $cpt_tax_type[0]["separate_items_with_commas"] ) ? $cpt_tax_type[0]["separate_items_with_commas"] : 'Separate ' .$cpt_label. ' with commas';
-			$cpt_labels['add_or_remove_items']          = ( $cpt_tax_type[0]["add_or_remove_items"] ) ? $cpt_tax_type[0]["add_or_remove_items"] : 'Add or remove ' .$cpt_label;
-			$cpt_labels['choose_from_most_used']        = ( $cpt_tax_type[0]["choose_from_most_used"] ) ? $cpt_tax_type[0]["choose_from_most_used"] : 'Choose from the most used ' .$cpt_label;
 
-			$cpt_pre_register_taxonomy_args = array(
-				'hierarchical' => get_disp_boolean($cpt_tax_type["hierarchical"]),
-				'label' => $cpt_label,
-				'show_ui' => get_disp_boolean($cpt_tax_type["show_ui"]),
-				'query_var' => get_disp_boolean($cpt_tax_type["query_var"]),
-				'rewrite' => array('slug' => $cpt_rewrite_slug),
-				'singular_label' => $cpt_singular_label,
-				'labels' => $cpt_labels,
-				'show_admin_column' => $cpt_tax_show_admin_column
-			);
 
-			//pass all of our arguments as well as the future taxonomy name and assigned post types through a filter.
-			$cpt_register_taxonomy_args = apply_filters( 'cptui_register_taxonomy_args', $cpt_pre_register_taxonomy_args, $cpt_tax_type["name"], $cpt_post_types );
-			/*if ( !is_array( $cpt_register_taxonomy_args ) )
-				wp_die( 'Please return an array to the \'cptui_register_taxonomy_args\' filter.' );*/
-			//register our custom taxonomies
-			register_taxonomy( $cpt_tax_type["name"], $cpt_post_types, $cpt_register_taxonomy_args );
-		}
-	}
-}
 
 //delete custom post type or custom taxonomy
 function cpt_delete_post_type() {
