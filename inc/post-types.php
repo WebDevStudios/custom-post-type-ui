@@ -2,19 +2,19 @@
 /**
  * Add our cptui.js file, with dependencies on jQuery and jQuery UI
  *
- * @since  1.9
+ * @since  0.9
  *
  * @return mixed  js scripts
  */
 function cpt_post_type_enqueue_scripts() {
-	wp_enqueue_script( 'cptui', plugins_url( 'js/cptui.js' , dirname(__FILE__) ) . '', array( 'jquery', 'jquery-ui-core', 'jquery-ui-accordion' ), '1.9', true );
+	wp_enqueue_script( 'cptui', plugins_url( 'js/cptui.js' , dirname(__FILE__) ) . '', array( 'jquery', 'jquery-ui-core', 'jquery-ui-accordion' ), '0.9', true );
 }
 add_action( 'admin_enqueue_scripts', 'cpt_post_type_enqueue_scripts' );
 
 /**
  * Add our settings page to the menu.
  *
- * @since  1.9
+ * @since  0.9
  *
  * @return mixed  new menu
  */
