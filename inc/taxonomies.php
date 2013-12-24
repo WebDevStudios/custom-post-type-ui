@@ -17,6 +17,15 @@ function taxonomies_admin_menu() {
 }
 
 function cptui_manage_taxonomies() {
+
+	if ( $success = cptui_get_taxonomy_successes() ) {
+		echo $success;
+	}
+
+	if ( $errors = cptui_get_taxonomy_errors() ) {
+		echo $errors;
+	}
+
 	//Create our tabs.
 	cpt_settings_tab_menu( $page = 'taxonomies' );
 
