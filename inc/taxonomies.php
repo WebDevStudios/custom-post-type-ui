@@ -49,10 +49,7 @@ function cptui_manage_taxonomies() {
 				echo '<hr/>';
 			}
 		}
-
-		if (isset($_GET['edittax'])) { ?>
-		<input type="hidden" name="cpt_edit_tax" value="<?php echo $editTax; ?>" />
-		<?php } ?>
+		?>
 
 			<table>
 				<?php
