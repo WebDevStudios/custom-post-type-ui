@@ -592,14 +592,134 @@ function cpt_create_custom_post_types() { //TODO: refactor for yet to be decided
 	}
 }
 
-		screen_icon( 'plugins' );
+function cpt_create_custom_taxonomies() {
+	//register custom taxonomies
+	$taxes = get_option('cpt_custom_tax_types');
 
+	//check if option value is an array before proceeding
+	if ( is_array( $taxes ) ) {
+		foreach ($taxes as $tax) {
 
-		do_action( 'cptui_after_add_new_page' ); ?>
+			//set custom taxonomy values
+			$cpt_label              = ( !empty( $tax["label"] ) ) ? esc_html( $tax["label"] ) : esc_html( $tax["name"] );
+			$cpt_singular_label     = ( !empty( $tax["singular_label"] ) ) ? esc_html( $tax["singular_label"] ) : esc_html( $tax["name"] );
+			$cpt_rewrite_slug       = ( !empty( $tax["rewrite_slug"] ) ) ? esc_html( $tax["rewrite_slug"] ) : esc_html( $tax["name"] );
+			$cpt_tax_show_admin_column = ( !empty( $tax["show_admin_column"] ) ) ? esc_html( $tax["show_admin_column"] ) : false;
+			$cpt_post_types         = ( !empty( $tax[1] ) ) ? $tax[1] : $tax["cpt_name"];
+
+			//set custom label values
+			$cpt_labels['name']                         = $cpt_label;
+			$cpt_labels['singular_name']                = $tax["singular_label"];
+			$cpt_labels['search_items']                 = ( $tax[0]["search_items"] ) ? $tax[0]["search_items"] : 'Search ' .$cpt_label;
+			$cpt_labels['popular_items']                = ( $tax[0]["popular_items"] ) ? $tax[0]["popular_items"] : 'Popular ' .$cpt_label;
+			$cpt_labels['all_items']                    = ( $tax[0]["all_items"] ) ? $tax[0]["all_items"] : 'All ' .$cpt_label;
+			$cpt_labels['parent_item']                  = ( $tax[0]["parent_item"] ) ? $tax[0]["parent_item"] : 'Parent ' .$cpt_singular_label;
+			$cpt_labels['parent_item_colon']            = ( $tax[0]["parent_item_colon"] ) ? $tax[0]["parent_item_colon"] : 'Parent ' .$cpt_singular_label. ':';
+			$cpt_labels['edit_item']                    = ( $tax[0]["edit_item"] ) ? $tax[0]["edit_item"] : 'Edit ' .$cpt_singular_label;
+			$cpt_labels['update_item']                  = ( $tax[0]["update_item"] ) ? $tax[0]["update_item"] : 'Update ' .$cpt_singular_label;
+			$cpt_labels['add_new_item']                 = ( $tax[0]["add_new_item"] ) ? $tax[0]["add_new_item"] : 'Add New ' .$cpt_singular_label;
+			$cpt_labels['new_item_name']                = ( $tax[0]["new_item_name"] ) ? $tax[0]["new_item_name"] : 'New ' .$cpt_singular_label. ' Name';
+			$cpt_labels['separate_items_with_commas']   = ( $tax[0]["separate_items_with_commas"] ) ? $tax[0]["separate_items_with_commas"] : 'Separate ' .$cpt_label. ' with commas';
+			$cpt_labels['add_or_remove_items']          = ( $tax[0]["add_or_remove_items"] ) ? $tax[0]["add_or_remove_items"] : 'Add or remove ' .$cpt_label;
+			$cpt_labels['choose_from_most_used']        = ( $tax[0]["choose_from_most_used"] ) ? $tax[0]["choose_from_most_used"] : 'Choose from the most used ' .$cpt_label;
+
+			$cpt_pre_register_taxonomy_args = array(
+				'hierarchical' => get_disp_boolean($tax["hierarchical"]),
+				'label' => $cpt_label,
+				'show_ui' => get_disp_boolean($tax["show_ui"]),
+				'query_var' => get_disp_boolean($tax["query_var"]),
+				'rewrite' => array('slug' => $cpt_rewrite_slug),
+				'singular_label' => $cpt_singular_label,
+				'labels' => $cpt_labels,
+				'show_admin_column' => $cpt_tax_show_admin_column
+			);
+
+			//pass all of our arguments as well as the future taxonomy name and assigned post types through a filter.
+			$cpt_register_taxonomy_args = apply_filters( 'cptui_register_taxonomy_args', $cpt_pre_register_taxonomy_args, $tax["name"], $cpt_post_types );
+			/*if ( !is_array( $cpt_register_taxonomy_args ) )
+				wp_die( 'Please return an array to the \'cptui_register_taxonomy_args\' filter.' );*/
+			//register our custom taxonomies
+			register_taxonomy( $tax["name"], $cpt_post_types, $cpt_register_taxonomy_args );
+		}
+	}
+}
+
+/**
+ * Display our primary menu page
+ *
+ * @since  [since]
+ *
+ * @return [type]  [description]
+ */
+function cpt_settings() { ?>
+	<div class="wrap">
+		<?php do_action( 'cptui_main_page_start' ); ?>
+		<h2><?php _e( 'Custom Post Type UI', 'cpt-plugin' ); ?> <?php _e( 'version', 'cpt-plugin' ); ?>: <?php echo CPT_VERSION; ?></h2>
+
+		<?php do_action( 'cptui_main_page_before_faq' ); ?>
+		<h2><?php _e( 'Frequently Asked Questions', 'cpt-plugin' ); ?></h2>
+		<p><?php _e( 'Please note that this plugin will NOT handle display of registered post types or taxonomies in your current theme. It will simply register them for you.', 'cpt-plugin' ); ?>
+		<h3><?php _e( 'Q: <strong>How can I display content from a custom post type on my website?</strong>', 'cpt-plugin' ); ?></h3>
+		<p>
+			<?php _e( 'A: Justin Tadlock has written some great posts on the topic:', 'cpt-plugin' ); ?><br />
+			<a href="http://justintadlock.com/archives/2010/02/02/showing-custom-post-types-on-your-home-blog-page" target="_blank"><?php _e( 'Showing Custom Post Types on your Home Page', 'cpt-plugin' ); ?></a><br />
+			<a href="http://justintadlock.com/archives/2010/04/29/custom-post-types-in-wordpress" target="_blank"><?php _e( 'Custom Post Types in WordPress', 'cpt-plugin' ); ?></a>
+		</p>
+		<h3><?php _e( 'Q: <strong>How can I add custom meta boxes to my custom post types?</strong>', 'cpt-plugin' ); ?></h3>
+		<p><?php _e( 'A: The More Fields plugin does a great job at creating custom meta boxes and fully supports custom post types: ', 'cpt-plugin' ); ?><a href="http://wordpress.org/extend/plugins/more-fields/" target="_blank">http://wordpress.org/extend/plugins/more-fields/</a>.  The <a href="https://github.com/jaredatch/Custom-Metaboxes-and-Fields-for-WordPress" target="_blank">Custom Metaboxes and Fields for WordPress</a> class is a great alternative to a plugin for more advanced users.</p>
+		<h3><?php _e( 'Q: <strong>I changed my custom post type name and now I can\'t get to my posts</strong>', 'cpt-plugin' ); ?></h3>
+		<p><?php _e( 'A: You can either change the custom post type name back to the original name or try the Post Type Switcher plugin: ', 'cpt-plugin' ); ?><a href="http://wordpress.org/extend/plugins/post-type-switcher/" target="_blank">http://wordpress.org/extend/plugins/post-type-switcher/</a></p>
+		<?php do_action( 'cptui_main_page_after_faq' ); ?>
+
+		<div class="cp-rss-widget">
+
+		<?php do_action( 'cptui_main_page_before_books' ); ?>
+		<table border="0">
+			<tr>
+			<td colspan="3"><h2><?php _e( 'Help Support This Plugin!', 'cpt-plugin' ); ?></h2></td>
+			</tr>
+			<tr>
+			<td width="33%"><h3><?php _e( 'PayPal Donation', 'cpt-plugin' ); ?></h3></td>
+			<td width="33%"><h3><?php _e( 'Professional WordPress<br />Second Edition', 'cpt-plugin' ); ?></h3></td>
+			<td width="33%"><h3><?php _e( 'Professional WordPress<br />Plugin Development', 'cpt-plugin' ); ?></h3></td>
+			</tr>
+			<tr>
+			<td valign="top" width="33%">
+				<p><?php _e( 'Please donate to the development<br />of Custom Post Type UI:', 'cpt-plugin'); ?>
+				<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+				<input type="hidden" name="cmd" value="_s-xclick">
+				<input type="hidden" name="hosted_button_id" value="YJEDXPHE49Q3U">
+				<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+				<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+				</form>
+				</p>
+			</td>
+			<td valign="top" width="33%"><a href="http://bit.ly/prowp2" target="_blank"><img src="<?php echo plugins_url( '/images/professional-wordpress-secondedition.jpg', __FILE__ ); ?>" width="200"></a><br /><?php _e( 'The leading book on WordPress design and development!<br /><strong>Brand new second edition!', 'cpt-plugin'); ?></strong></td>
+			<td valign="top" width="33%"><a href="http://amzn.to/plugindevbook" target="_blank"><img src="<?php echo plugins_url( '/images/professional-wordpress-plugin-development.png', __FILE__ ); ?>" width="200"></a><br /><?php _e( 'Highest rated WordPress development book on Amazon!', 'cpt-plugin' ); ?></td>
+			</tr>
+		</table>
+
+		<?php do_action( 'cptui_main_page_after_books' ); ?>
+
+		<?php do_action( 'cptui_main_page_before_rss' ); ?>
+		<h2><?php _e( 'WebDevStudios.com Recent News', 'cpt-plugin' ); ?></h2>
+		<?php
+
+		wp_widget_rss_output( array(
+			'url' => esc_url( 'http://webdevstudios.com/feed/' ),
+			'title' => __( 'WebDevStudios.com News', 'cpt-plugin' ),
+			'items' => 3,
+			'show_summary' => 1,
+			'show_author' => 0,
+			'show_date' => 1
+		) );
+		?>
+
+		<?php do_action( 'cptui_main_page_after_rss' ); ?>
+		</div>
 	</div>
-<?php
-//load footer
-cpt_footer();
+	<?php
+	cpt_footer();
 }
 
 /**
