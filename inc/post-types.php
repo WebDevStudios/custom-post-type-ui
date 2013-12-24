@@ -60,9 +60,6 @@ function cptui_manage_post_types() {
 			if ( function_exists( 'wp_nonce_field' ) )
 				wp_nonce_field( 'cpt_add_custom_post_type' );
 			?>
-			<?php if ( isset( $_GET['edittype'] ) ) { ?>
-				<input type="hidden" name="cpt_edit" value="<?php echo esc_attr( $editType ); ?>" />
-			<?php } ?>
 
 			<table>
 				<?php
