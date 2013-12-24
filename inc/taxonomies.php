@@ -31,7 +31,7 @@ function cptui_manage_taxonomies() {
 
 	if ( !empty( $_GET ) && 'edit' == $_GET['action'] ) {
 		//Fetch our taxonomies.
-		$cptui_taxes = get_option('cpt_custom_tax_types');
+		$taxonomies = get_option('cpt_custom_tax_types');
 	}
 
 	//Instantiate our UI class.
