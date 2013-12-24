@@ -732,23 +732,18 @@ function cpt_settings() { ?>
 function cpt_footer() { ?>
 	<hr />
 	<p class="cp_about"><a target="_blank" href="http://webdevstudios.com/support/forum/custom-post-type-ui/"><?php _e( 'Custom Post Type UI', 'cpt-plugin' ); ?></a> <?php _e( 'version', 'cpt-plugin' ); echo ' '.CPT_VERSION; ?> by <a href="http://webdevstudios.com" target="_blank">WebDevStudios</a> - <a href="https://github.com/WebDevStudios/custom-post-type-ui" target="_blank"><?php _e( 'Please Report Bugs', 'cpt-plugin' ); ?></a> &middot; <?php _e( 'Follow on Twitter:', 'cpt-plugin' ); ?> <a href="http://twitter.com/williamsba" target="_blank">Brad</a> &middot; <a href="http://twitter.com/tw2113" target="_blank">Michael</a> &middot; <a href="http://twitter.com/webdevstudios" target="_blank">WebDevStudios</a> </p>
-	<?php
+<?php
 }
 
-function cpt_check_return( $return ) {
-	global $CPT_URL;
-
-	if ( $return == 'cpt' ) {
-		return ( isset( $_GET['return'] ) ) ? admin_url( 'admin.php?page=cpt_sub_manage_cpt&return=cpt' ) : admin_url( 'admin.php?page=cpt_sub_manage_cpt' );
-	} elseif ( $return == 'tax' ){
-		return ( isset( $_GET['return'] ) ) ? admin_url( 'admin.php?page=cpt_sub_manage_taxonomies&return=tax' ) : admin_url( 'admin.php?page=cpt_sub_manage_taxonomies' );
-	} elseif ( $return == 'add' ) {
-		return admin_url( 'admin.php?page=cpt_sub_add_new' );
-	} else {
-		return admin_url( 'admin.php?page=cpt_sub_add_new' );
-	}
-}
-
+/**
+ * Return boolean status depending on passed in value
+ *
+ * @since  [since]
+ *
+ * @param  mixed  $booText text to compare to typical boolean values
+ *
+ * @return bool           which bool value the passed in value was.
+ */
 function get_disp_boolean($booText) {
 	$booText = (string) $booText;
 	if ( empty( $booText ) || $booText == '0' || $booText == 'false' ) {
@@ -768,6 +763,13 @@ function disp_boolean($booText) {
 	return 'true';
 }
 
+/**
+ * Add some styles to help with our fields
+ *
+ * @since  0.8
+ *
+ * @return mixed  html style blocks
+ */
 function cpt_help_style() { ?>
 	<style>
 		.help:hover {
@@ -779,9 +781,17 @@ function cpt_help_style() { ?>
 <?php
 }
 
-
+/**
+ * Construct and output tab navigation
+ *
+ * @since  0.9
+ *
+ * @param  string  $page Whether it's the CPT or Taxonomy page
+ *
+ * @return mixed        html tabs
+ */
 function cpt_settings_tab_menu( $page = 'post_types' ) {
-	//initiate our arrays
+	//initiate our arrays with default classes
 	$tab1 = $tab2 = array( 'nav-tab' );
 
 	//Set up variables depending on where we are.
