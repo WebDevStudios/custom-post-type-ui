@@ -45,13 +45,19 @@ function cptui_manage_post_types() {
 	//Display our tabs.
 	cpt_settings_tab_menu();
 
-	if ( !empty( $_GET ) && 'edit' == $_GET['action'] ) {
-		//Fetch our taxonomies.
-		$post_types = get_option('cpt_custom_post_types');
-	}
+	//Fetch and set up our post types if we're in the edit tab.
+	if ( !empty( $_GET ) && !empty( $_GET['action'] ) && 'edit' == $_GET['action'] ) {
+		//Fetch our post types and store in a variable.
+		$post_types = get_option( 'cptui_post_types' );
 
-	//Instantiate our UI class.
-	$ui = new cptui_admin_ui();
+		//Grab our current selected post type to edit
+		$selected_post_type = cpt_get_current_post_type();
+
+		//fetch out of all of the available post types.
+		if ( $selected_post_type ) {
+			$current = $post_types[ $selected_post_type ];
+		}
+	}
 
 	echo '<div class="wrap">';
 
