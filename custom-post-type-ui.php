@@ -26,6 +26,8 @@ add_action( 'admin_menu', 'cpt_plugin_menu' );
 
 add_action( 'init', 'cpt_create_submenus' );
 
+add_action( 'admin_init', 'cpt_convert_settings' );
+
 //call delete post function
 add_action( 'admin_init', 'cpt_delete_post_type' );
 
@@ -824,4 +826,52 @@ function cpt_settings_tab_menu( $page = 'post_types' ) {
 	} ?>
 	</h2>
 <?php
+}
+
+/**
+ * Convert our old settings to the new options keys.
+ *
+ * @since  0.9
+ *
+ * @return void  updated new options.
+ */
+function cpt_convert_settings() {
+
+	//We only want to run this if we don't have our new options.
+	if ( false === get_option( 'cptui_post_types' ) && ( $post_types = get_option( 'cpt_custom_post_types' ) ) ) {
+
+		//create a new array for us to store our options in.
+		$new_post_types = array();
+		foreach( $post_types as $type ) {
+            $new_post_types[ $type['name'] ]                = $type;    //Named arrays are our friend.
+            $new_post_types[ $type['name'] ]['supports']    = $type[0]; //Especially
+            $new_post_types[ $type['name'] ]['taxonomies']  = $type[1]; //for multidimensional
+            $new_post_types[ $type['name'] ]['labels']      = $type[2]; //arrays
+			unset(
+				$new_post_types[ $type['name'] ][0],
+				$new_post_types[ $type['name'] ][1],
+				$new_post_types[ $type['name'] ][2]
+			); //Remove our previous indexed versions.
+		}
+		//Finally provide our new options.
+		update_option( 'cptui_post_types', $new_post_types );
+	}
+
+	//We only want to run this if we don't have our new options.
+	if ( false === get_option( 'cptui_taxonomies' ) && ( $taxonomies = get_option( 'cpt_custom_tax_types' ) ) ) {
+
+		//create a new array for us to store our options in.
+		$new_taxonomies = array();
+		foreach( $taxonomies as $tax ) {
+            $new_taxonomies[ $tax['name'] ]                 = $tax;    //Yep, still our friend.
+            $new_taxonomies[ $tax['name'] ]['labels']       = $tax[0]; // Taxonomies are the only thing with
+            $new_taxonomies[ $tax['name'] ]['post_types']   = $tax[1]; // "tax" in the name that I like.
+			unset(
+				$new_taxonomies[ $tax['name'] ][0],
+				$new_taxonomies[ $tax['name'] ][1]
+			); //Remove our previous indexed versions.
+		}
+		//Finally provide our new options.
+		update_option( 'cptui_taxonomies', $new_taxonomies );
+	}
 }
