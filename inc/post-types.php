@@ -65,11 +65,17 @@ function cptui_manage_post_types() {
 
 	$ui->get_p( __('Deleting custom post types will <strong>NOT</strong> delete any content into the database or added to those post types. You can easily recreate your post types and the content will still exist.', 'cpt-plugin') );
 
-	<form method="post" <?php echo $RETURN_URL; ?>>
-		<?php
-			if ( function_exists( 'wp_nonce_field' ) )
-				wp_nonce_field( 'cpt_add_custom_post_type' );
+	//Will only be set if we're already on the edit screen
+	if ( !empty( $post_types ) ) { ?>
+		<form method="post">
+			<?php
+			cpt_post_types_dropdown( $post_types );
 			?>
+			<input type="submit" class="button-secondary" name="cptui_select_post_type_submit" value="<?php echo apply_filters( 'cptui_post_type_submit_select', __( 'Select Post Type', 'cpt-plugin' ) ); ?>" />
+		</form>
+	<?php
+	} ?>
+
 
 			<table>
 				<?php
