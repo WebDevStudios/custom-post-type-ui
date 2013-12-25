@@ -77,6 +77,7 @@ function cptui_manage_post_types() {
 	} ?>
 
 
+	<form method="post">
 			<table>
 				<?php
 				/*
