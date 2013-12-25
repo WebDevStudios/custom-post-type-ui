@@ -31,7 +31,10 @@ add_action( 'admin_menu', 'cpt_post_types_admin_menu' );
  * @return mixed  webpage
  */
 function cptui_manage_post_types() {
+	//Instantiate our UI class.
+	$ui = new cptui_admin_ui();
 
+	//Display any success messages or errors.
 	if ( $success = cptui_get_post_type_successes() ) {
 		echo $success;
 	}
