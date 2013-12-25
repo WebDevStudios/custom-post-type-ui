@@ -461,9 +461,9 @@ function cpt_load_ui_class() {
 /**
  * Flush our rewrite rules on deactivation
  *
- * @since  [since]
+ * @since  0.8
  *
- * @return [type]  [description]
+ * @return void
  */
 function cpt_deactivation() {
 	// Clear the permalinks to remove our post type's rules
@@ -484,7 +484,7 @@ function cpt_load_textdomain() {
 /**
  * Load our main menu
  *
- * @since  [since]
+ * @since  0.1
  *
  * @return void
  */
@@ -508,7 +508,7 @@ function cpt_create_submenus() {
 /**
  * Register our users' custom post types
  *
- * @since  [since]
+ * @since  0.5
  *
  * @return void
  */
@@ -649,9 +649,9 @@ function cpt_create_custom_taxonomies() {
 /**
  * Display our primary menu page
  *
- * @since  [since]
+ * @since  0.3
  *
- * @return [type]  [description]
+ * @return mixed  htmls
  */
 function cpt_settings() { ?>
 	<div class="wrap">
@@ -727,7 +727,7 @@ function cpt_settings() { ?>
 /**
  * Display footer links and plugin credits
  *
- * @since  [since]
+ * @since  0.3
  *
  * @return mixed  htmls
  */
@@ -740,7 +740,7 @@ function cpt_footer() { ?>
 /**
  * Return boolean status depending on passed in value
  *
- * @since  [since]
+ * @since  0.5
  *
  * @param  mixed  $booText text to compare to typical boolean values
  *
@@ -755,7 +755,15 @@ function get_disp_boolean($booText) {
 	return true;
 }
 
-//Return string versions of boolean values. Used in get_code
+/**
+ * Return string versions of boolean values.
+ *
+ * @since  0.1
+ *
+ * @param  string  $booText string boolean value
+ *
+ * @return string           standardized boolean text
+ */
 function disp_boolean($booText) {
 	$booText = (string) $booText;
 	if ( empty( $booText ) || $booText == '0' || $booText == 'false' ) {
