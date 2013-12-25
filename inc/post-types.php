@@ -42,6 +42,7 @@ function cptui_manage_post_types() {
 		echo $errors;
 	}
 
+	//Display our tabs.
 	cpt_settings_tab_menu();
 
 	if ( !empty( $_GET ) && 'edit' == $_GET['action'] ) {
