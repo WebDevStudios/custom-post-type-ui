@@ -312,7 +312,7 @@ function cptui_manage_post_types() {
 						)
 					);
 					$select['selected'] = ( isset( $cpt_public ) ) ? $cpt_public : '';
-					echo $ui->get_select_bool_input( array(
+					echo $ui->get_select_input( array(
 						'namearray'     => 'cpt_custom_post_type',
 						'name'          => 'public',
 						'labeltext'     => __( 'Public', 'cpt-plugin' ),
@@ -331,7 +331,7 @@ function cptui_manage_post_types() {
 						)
 					);
 					$select['selected'] = ( isset( $cpt_showui ) ) ? $cpt_showui : '';
-					echo $ui->get_select_bool_input( array(
+					echo $ui->get_select_input( array(
 						'namearray'     => 'cpt_custom_post_type',
 						'name'          => 'show_ui',
 						'labeltext'     => __( 'Show UI', 'cpt-plugin' ),
@@ -350,7 +350,7 @@ function cptui_manage_post_types() {
 						)
 					);
 					$select['selected'] = ( isset( $cpt_showui ) ) ? $cpt_showui : '';
-					echo $ui->get_select_bool_input( array(
+					echo $ui->get_select_input( array(
 						'namearray'     => 'cpt_custom_post_type',
 						'name'          => 'has_archive',
 						'labeltext'     => __( 'Has Archive', 'cpt-plugin' ),
@@ -369,7 +369,7 @@ function cptui_manage_post_types() {
 						)
 					);
 					$select['selected'] = ( isset( $cpt_showui ) ) ? $cpt_showui : '';
-					echo $ui->get_select_bool_input( array(
+					echo $ui->get_select_input( array(
 						'namearray'     => 'cpt_custom_post_type',
 						'name'          => 'exclude_from_search',
 						'labeltext'     => __( 'Exclude From Search', 'cpt-plugin' ),
@@ -399,7 +399,7 @@ function cptui_manage_post_types() {
 						)
 					);
 					$select['selected'] = ( isset( $cpt_showui ) ) ? $cpt_showui : '';
-					echo $ui->get_select_bool_input( array(
+					echo $ui->get_select_input( array(
 						'namearray'     => 'cpt_custom_post_type',
 						'name'          => 'hierarchical',
 						'labeltext'     => __( 'Hierarchical', 'cpt-plugin' ),
@@ -418,7 +418,7 @@ function cptui_manage_post_types() {
 						)
 					);
 					$select['selected'] = ( isset( $cpt_showui ) ) ? $cpt_showui : '';
-					echo $ui->get_select_bool_input( array(
+					echo $ui->get_select_input( array(
 						'namearray'     => 'cpt_custom_post_type',
 						'name'          => 'rewrite',
 						'labeltext'     => __( 'Rewrite', 'cpt-plugin' ),
@@ -449,7 +449,7 @@ function cptui_manage_post_types() {
 						)
 					);
 					$select['selected'] = ( isset( $cpt_showui ) ) ? $cpt_showui : '';
-					echo $ui->get_select_bool_input( array(
+					echo $ui->get_select_input( array(
 						'namearray'     => 'cpt_custom_post_type',
 						'name'          => 'rewrite_withfront',
 						'labeltext'     => __( 'With Front', 'cpt-plugin' ),
@@ -468,7 +468,7 @@ function cptui_manage_post_types() {
 						)
 					);
 					$select['selected'] = ( isset( $cpt_showui ) ) ? $cpt_showui : '';
-					echo $ui->get_select_bool_input( array(
+					echo $ui->get_select_input( array(
 						'namearray'     => 'cpt_custom_post_type',
 						'name'          => 'query_var',
 						'labeltext'     => __( 'Query Var', 'cpt-plugin' ),
@@ -506,7 +506,7 @@ function cptui_manage_post_types() {
 						)
 					);
 					$select['selected'] = ( isset( $cpt_showui ) ) ? $cpt_showui : '';
-					echo $ui->get_select_bool_input( array(
+					echo $ui->get_select_input( array(
 						'namearray'     => 'cpt_custom_post_type',
 						'name'          => 'show_in_menu',
 						'labeltext'     => __( 'Show In Menu', 'cpt-plugin' ),
