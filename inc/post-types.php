@@ -915,3 +915,55 @@ function cptui_get_post_type_code( $post_type ) {
 	$custom_post_type .= ") ); }";
 
 }
+
+/**
+ * Construct a dropdown of our post types so users can select which to edit.
+ *
+ * @since  0.9
+ *
+ * @param  array   $post_types array of post types that are registered
+ *
+ * @return mixed              html select dropdown.
+ */
+function cpt_post_types_dropdown( $post_types = array() ) {
+
+	//instantiate our class
+	$ui = new cptui_admin_ui();
+
+	if ( !empty( $post_types ) ) {
+		$select = array();
+		$select['options'] = array();
+
+		//Default empty.
+		$select['options'][] = array( 'attr' => '', 'text' => '' );
+
+		foreach( $post_types as $type ) {
+			$select['options'][] = array( 'attr' => $type['name'], 'text' => $type['label'] );
+		}
+
+		//Grab our current selected post type
+		$current = cpt_get_current_post_type();
+
+		$select['selected'] = ( !empty( $current ) ) ? $current : '';
+		echo $ui->get_select_input( array(
+			'namearray'     => 'cptui_selected_post_type',
+			'name'          => 'post_type',
+			'selections'    => $select
+		) );
+	}
+}
+
+/**
+ * Get the selected post type from the $_POST global.
+ *
+ * @since  0.9
+ *
+ * @return mixed  false on no result, sanitized post type if set.
+ */
+function cpt_get_current_post_type() {
+	if ( !empty( $_POST ) && isset( $_POST['cptui_selected_post_type']['post_type'] ) ) {
+		return sanitize_text_field( $_POST['cptui_selected_post_type']['post_type'] );
+	}
+
+	return false;
+}
