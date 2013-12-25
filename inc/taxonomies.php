@@ -143,7 +143,7 @@ function cptui_manage_taxonomies() {
 			</table>
 
 			<p class="submit">
-			<?php if ( !empty( $_GET ) && 'edit' == $_GET['action'] ) { ?>
+			<?php if ( !empty( $_GET ) && !empty( $_GET['action'] ) && 'edit' == $_GET['action'] ) { ?>
 				<input type="submit" class="button-primary" name="cpt_submit" value="<?php echo apply_filters( 'cptui_taxonomy_submit_edit', __( 'Edit Taxonomy', 'cpt-plugin' ) ); ?>" />
 			<?php } else { ?>
 				<input type="submit" class="button-primary" name="cpt_submit" value="<?php echo apply_filters( 'cptui_taxonomy_submit_add', __( 'Add Taxonomy', 'cpt-plugin' ) ); ?>" />
