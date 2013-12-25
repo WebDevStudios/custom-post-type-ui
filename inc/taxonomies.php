@@ -29,9 +29,18 @@ function cptui_manage_taxonomies() {
 	//Create our tabs.
 	cpt_settings_tab_menu( $page = 'taxonomies' );
 
-	if ( !empty( $_GET ) && 'edit' == $_GET['action'] ) {
-		//Fetch our taxonomies.
-		$taxonomies = get_option('cpt_custom_tax_types');
+	//Fetch and set up our taxonomies if we're in the edit tab.
+	if ( !empty( $_GET ) && !empty( $_GET['action'] ) && 'edit' == $_GET['action'] ) {
+		//Fetch our taxonomies and store in a variable.
+		$taxonomies = get_option( 'cptui_taxonomies' );
+
+		//Grab our current selected taxonomy to edit
+		$selected_taxonomy = cpt_get_current_taxonomy();
+
+		//fetch out of all of the available taxonomies.
+		if ( $selected_taxonomy ) {
+			$current = $taxonomies[ $selected_taxonomy ];
+		}
 	}
 
 	//Instantiate our UI class.
