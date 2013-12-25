@@ -269,7 +269,7 @@ function cptui_manage_taxonomies() {
 						)
 					);
 					$select['selected'] = ( isset( $cpt_tax_hierarchical ) ) ? $cpt_tax_hierarchical : '';
-					echo $ui->get_select_bool_input( array(
+					echo $ui->get_select_input( array(
 						'namearray'     => 'cpt_custom_tax',
 						'name'          => 'hierarchical',
 						'labeltext'     => __( 'Hierarchical', 'cpt-plugin' ),
@@ -285,7 +285,7 @@ function cptui_manage_taxonomies() {
 						)
 					);
 					$select['selected'] = ( isset( $cpt_tax_showui ) ) ? $cpt_tax_showui : '';
-					echo $ui->get_select_bool_input( array(
+					echo $ui->get_select_input( array(
 						'namearray'     => 'cpt_custom_tax',
 						'name'          => 'show_ui',
 						'labeltext'     => __( 'Show UI', 'cpt-plugin' ),
@@ -301,7 +301,7 @@ function cptui_manage_taxonomies() {
 						)
 					);
 					$select['selected'] = ( isset( $cpt_tax_query_var ) ) ? $cpt_tax_query_var : '';
-					echo $ui->get_select_bool_input( array(
+					echo $ui->get_select_input( array(
 						'namearray'     => 'cpt_custom_tax',
 						'name'          => 'show_ui',
 						'labeltext'     => __( 'Query Var', 'cpt-plugin' ),
@@ -316,7 +316,7 @@ function cptui_manage_taxonomies() {
 						)
 					);
 					$select['selected'] = ( isset( $cpt_tax_rewrite ) ) ? $cpt_tax_rewrite : '';
-					echo $ui->get_select_bool_input( array(
+					echo $ui->get_select_input( array(
 						'namearray'     => 'cpt_custom_tax',
 						'name'          => 'rewrite',
 						'labeltext'     => __( 'Rewrite', 'cpt-plugin' ),
@@ -343,7 +343,7 @@ function cptui_manage_taxonomies() {
 							)
 						);
 						$select['selected'] = ( isset( $cpt_tax_show_admin_column ) ) ? $cpt_tax_show_admin_column : '';
-						echo $ui->get_select_bool_input( array(
+						echo $ui->get_select_input( array(
 							'namearray'     => 'cpt_custom_tax',
 							'name'          => 'show_admin_column',
 							'labeltext'     => __( 'Show Admin Column', 'cpt-plugin' ),
