@@ -473,3 +473,55 @@ function cptui_get_taxonomy_code( $taxonomy ) {
 	$custom_tax .= ") ); \n}";
 
 }
+
+/**
+ * Construct a dropdown of our taxonomies so users can select which to edit.
+ *
+ * @since  0.9
+ *
+ * @param  array   $taxonomies array of taxonomies that are registered
+ *
+ * @return mixed              html select dropdown.
+ */
+function cpt_taxonomies_dropdown( $taxonomies = array() ) {
+
+	//instantiate our class
+	$ui = new cptui_admin_ui();
+
+	if ( !empty( $taxonomies ) ) {
+		$select = array();
+		$select['options'] = array();
+
+		//Default empty.
+		$select['options'][] = array( 'attr' => '', 'text' => '' );
+
+		foreach( $taxonomies as $tax ) {
+			$select['options'][] = array( 'attr' => $tax['name'], 'text' => $tax['label'] );
+		}
+
+		//Grab our current selected taxonomy
+		$current = cpt_get_current_taxonomy();
+
+		$select['selected'] = ( !empty( $current ) ) ? $current : '';
+		echo $ui->get_select_input( array(
+			'namearray'     => 'cptui_selected_taxonomy',
+			'name'          => 'taxonomy',
+			'selections'    => $select
+		) );
+	}
+}
+
+/**
+ * Get the selected taxonomy from the $_POST global.
+ *
+ * @since  0.9
+ *
+ * @return mixed  false on no result, sanitized taxonomy if set.
+ */
+function cpt_get_current_taxonomy() {
+	if ( !empty( $_POST ) && isset( $_POST['cptui_selected_taxonomy']['taxonomy'] ) ) {
+		return sanitize_text_field( $_POST['cptui_selected_taxonomy']['taxonomy'] );
+	}
+
+	return false;
+}
