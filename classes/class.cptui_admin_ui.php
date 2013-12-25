@@ -140,7 +140,7 @@ class cptui_admin_ui {
 	 *
 	 * @return string       Complete <select> input with options and selected attribute.
 	 */
-	public function get_select_bool_input( $args = array() ) {
+	public function get_select_input( $args = array() ) {
 		$defaults = $this->get_default_input_parameters(
 			array( 'selections' => array() )
 		);
