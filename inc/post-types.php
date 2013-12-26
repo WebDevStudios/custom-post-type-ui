@@ -49,7 +49,7 @@ function cptui_manage_post_types() {
 	cpt_settings_tab_menu();
 
 	//Fetch and set up our post types if we're in the edit tab.
-	if ( !empty( $_GET ) && !empty( $_GET['action'] ) && 'edit' == $_GET['action'] ) {
+	if ( 'edit' == $tab ) {
 		//Fetch our post types and store in a variable.
 		$post_types = get_option( 'cptui_post_types' );
 
