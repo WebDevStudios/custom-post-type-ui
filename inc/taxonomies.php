@@ -503,7 +503,7 @@ function cpt_taxonomies_dropdown( $taxonomies = array() ) {
 		$select['options'] = array();
 
 		//Default empty.
-		$select['options'][] = array( 'attr' => '', 'text' => '' );
+		$select['options'][] = array( 'attr' => '', 'text' => '--' );
 
 		foreach( $taxonomies as $tax ) {
 			$select['options'][] = array( 'attr' => $tax['name'], 'text' => $tax['label'] );
