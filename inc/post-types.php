@@ -744,7 +744,20 @@ function cptui_manage_post_types() {
 
 			</table>
 		</div>
-	</div>
+		<h3>Notes</h3>
+		<div>$ui->get_p( __('If you are unfamiliar with the options below only fill out the <strong>Post Type Name</strong> and <strong>Label</strong> fields and check which meta boxes to support. The other settings are set to the most common defaults for custom post types. Hover over the question mark for more details.', 'cpt-plugin') );
+
+	$ui->get_p( __('Deleting custom post types will <strong>NOT</strong> delete any content into the database or added to those post types. You can easily recreate your post types and the content will still exist.', 'cpt-plugin') );
+		</div>
+
+
+
+
+				</td>
+			</tr>
+		</table>
+	</form>
+	</div><!-- End .wrap -->
 <?php
 	cpt_footer();
 }
