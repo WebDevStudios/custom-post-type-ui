@@ -40,11 +40,12 @@ function cptui_manage_post_types() {
 	if ( $success = cptui_get_post_type_successes() ) {
 		echo $success;
 	}
+
 	if ( $errors = cptui_get_post_type_errors() ) {
 		echo $errors;
 	}
 
-	//Display our tabs.
+	//Create our tabs.
 	cpt_settings_tab_menu();
 
 	//Fetch and set up our post types if we're in the edit tab.
