@@ -782,6 +782,14 @@ function disp_boolean($booText) {
  */
 function cpt_help_style() { ?>
 	<style>
+		.help {
+			border-radius: 50%;
+			display: inline-block;
+			height: 15px;
+			margin-left: 2px;
+			text-align: center;
+			width: 15px;
+		}
 		.help:hover {
 			font-weight: bold;
 		}
