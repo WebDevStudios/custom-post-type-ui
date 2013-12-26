@@ -18,6 +18,10 @@ function taxonomies_admin_menu() {
 
 function cptui_manage_taxonomies() {
 
+	$tab = ( !empty( $_GET ) && !empty( $_GET['action'] ) && 'edit' == $_GET['action'] ) ? 'edit' : 'new';
+
+	echo '<div class="wrap">';
+
 	if ( $success = cptui_get_taxonomy_successes() ) {
 		echo $success;
 	}
@@ -30,7 +34,7 @@ function cptui_manage_taxonomies() {
 	cpt_settings_tab_menu( $page = 'taxonomies' );
 
 	//Fetch and set up our taxonomies if we're in the edit tab.
-	if ( !empty( $_GET ) && !empty( $_GET['action'] ) && 'edit' == $_GET['action'] ) {
+	if ( 'edit' == $tab ) {
 		//Fetch our taxonomies and store in a variable.
 		$taxonomies = get_option( 'cptui_taxonomies' );
 
@@ -52,10 +56,12 @@ function cptui_manage_taxonomies() {
 	//Will only be set if we're already on the edit screen
 	if ( !empty( $taxonomies ) ) { ?>
 		<form method="post">
+			<p>
 			<?php
 			cpt_taxonomies_dropdown( $taxonomies );
 			?>
 			<input type="submit" class="button-secondary" name="cptui_select_taxonomy_submit" value="<?php echo apply_filters( 'cptui_taxonomy_submit_select', __( 'Select Taxonomy', 'cpt-plugin' ) ); ?>" />
+			</p>
 		</form>
 	<?php
 	} ?>
