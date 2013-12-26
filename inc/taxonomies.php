@@ -164,7 +164,7 @@ function cptui_manage_taxonomies() {
 					<h3>Labels</h3>
 						<div>
 							<table>
-						<?php
+							<?php
 							echo $ui->get_text_input( array(
 								'namearray'     => 'cpt_tax_labels',
 								'name'          => 'search_items',
