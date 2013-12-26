@@ -795,6 +795,7 @@ function cpt_help_style() { ?>
 		}
 		.required { color: rgb(255,0,0); }
 		#slidepanel2 #excerpt { height: 16px; margin-right: 4px; width: auto; }
+		.cptui-table td { vertical-align: top; width: 50%; }
 	</style>
 <?php
 }
