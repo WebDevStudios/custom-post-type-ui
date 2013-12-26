@@ -31,8 +31,10 @@ add_action( 'admin_menu', 'cpt_post_types_admin_menu' );
  * @return mixed  webpage
  */
 function cptui_manage_post_types() {
-	//Instantiate our UI class.
-	$ui = new cptui_admin_ui();
+
+	$tab = ( !empty( $_GET ) && !empty( $_GET['action'] ) && 'edit' == $_GET['action'] ) ? 'edit' : 'new';
+
+	echo '<div class="wrap">';
 
 	//Display any success messages or errors.
 	if ( $success = cptui_get_post_type_successes() ) {
