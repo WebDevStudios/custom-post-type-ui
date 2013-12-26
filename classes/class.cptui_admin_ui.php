@@ -128,7 +128,7 @@ class cptui_admin_ui {
 	 * @return string             <a> tag with filled out parts
 	 */
 	public function get_help( $help_text = '' ) {
-		return '<a href="#" title="' . $help_text . '" class="help">?</a>';
+		return '<a href="#" title="' . $help_text . '" class="help wp-ui-highlight">?</a>';
 	}
 
 	/**
