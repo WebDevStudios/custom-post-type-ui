@@ -11,17 +11,32 @@ function cpt_taxonomies_enqueue_scripts() {
 }
 add_action( 'admin_enqueue_scripts', 'cpt_taxonomies_enqueue_scripts' );
 
-add_action( 'admin_menu', 'taxonomies_admin_menu' );
+/**
+ * Add our settings page to the menu.
+ *
+ * @since  0.9
+ *
+ * @return mixed  new menu
+ */
 function taxonomies_admin_menu() {
 	add_submenu_page( 'cpt_main_menu', __( 'Add/Edit Taxonomies', 'cpt-plugin' ), __( 'Add/Edit Taxonomies', 'cpt-plugin' ), 'manage_options', 'cptui_manage_taxonomies', 'cptui_manage_taxonomies' );
 }
+add_action( 'admin_menu', 'taxonomies_admin_menu' );
 
+/**
+ * Create our settings page output
+ *
+ * @since  0.9
+ *
+ * @return mixed  webpage
+ */
 function cptui_manage_taxonomies() {
 
 	$tab = ( !empty( $_GET ) && !empty( $_GET['action'] ) && 'edit' == $_GET['action'] ) ? 'edit' : 'new';
 
 	echo '<div class="wrap">';
 
+	//Display any success messages or errors.
 	if ( $success = cptui_get_taxonomy_successes() ) {
 		echo $success;
 	}
