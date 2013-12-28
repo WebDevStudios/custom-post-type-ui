@@ -658,21 +658,6 @@ function cpt_settings() { ?>
 		<?php do_action( 'cptui_main_page_start' ); ?>
 		<h2><?php _e( 'Custom Post Type UI', 'cpt-plugin' ); ?> <?php _e( 'version', 'cpt-plugin' ); ?>: <?php echo CPT_VERSION; ?></h2>
 
-		<?php do_action( 'cptui_main_page_before_faq' ); ?>
-		<h2><?php _e( 'Frequently Asked Questions', 'cpt-plugin' ); ?></h2>
-		<p><?php _e( 'Please note that this plugin will NOT handle display of registered post types or taxonomies in your current theme. It will simply register them for you.', 'cpt-plugin' ); ?>
-		<h3><?php _e( 'Q: <strong>How can I display content from a custom post type on my website?</strong>', 'cpt-plugin' ); ?></h3>
-		<p>
-			<?php _e( 'A: Justin Tadlock has written some great posts on the topic:', 'cpt-plugin' ); ?><br />
-			<a href="http://justintadlock.com/archives/2010/02/02/showing-custom-post-types-on-your-home-blog-page" target="_blank"><?php _e( 'Showing Custom Post Types on your Home Page', 'cpt-plugin' ); ?></a><br />
-			<a href="http://justintadlock.com/archives/2010/04/29/custom-post-types-in-wordpress" target="_blank"><?php _e( 'Custom Post Types in WordPress', 'cpt-plugin' ); ?></a>
-		</p>
-		<h3><?php _e( 'Q: <strong>How can I add custom meta boxes to my custom post types?</strong>', 'cpt-plugin' ); ?></h3>
-		<p><?php _e( 'A: The More Fields plugin does a great job at creating custom meta boxes and fully supports custom post types: ', 'cpt-plugin' ); ?><a href="http://wordpress.org/extend/plugins/more-fields/" target="_blank">http://wordpress.org/extend/plugins/more-fields/</a>.  The <a href="https://github.com/jaredatch/Custom-Metaboxes-and-Fields-for-WordPress" target="_blank">Custom Metaboxes and Fields for WordPress</a> class is a great alternative to a plugin for more advanced users.</p>
-		<h3><?php _e( 'Q: <strong>I changed my custom post type name and now I can\'t get to my posts</strong>', 'cpt-plugin' ); ?></h3>
-		<p><?php _e( 'A: You can either change the custom post type name back to the original name or try the Post Type Switcher plugin: ', 'cpt-plugin' ); ?><a href="http://wordpress.org/extend/plugins/post-type-switcher/" target="_blank">http://wordpress.org/extend/plugins/post-type-switcher/</a></p>
-		<?php do_action( 'cptui_main_page_after_faq' ); ?>
-
 		<div class="cp-rss-widget">
 
 		<?php do_action( 'cptui_main_page_before_books' ); ?>
