@@ -877,3 +877,25 @@ function cpt_convert_settings() {
 		update_option( 'cptui_taxonomies', $new_taxonomies );
 	}
 }
+
+//TODO: edit plugin site.
+
+/**
+ * Edit links that appear on installed plugins list page, for our plugin.
+ *
+ * @since  0.9
+ *
+ * @param  array  $links Array of links to display below our plugin listing.
+ *
+ * @return array         Amended array of links.
+ */
+function cptui_edit_plugin_list_links( $links ) {
+	//We shouldn't encourage editing directly.
+	unset( $links['edit'] );
+
+	//Add our custom links to the returned array value.
+	return array_merge( array(
+		'<a href="' . admin_url( 'admin.php?page=cptui_main_menu' ) . '">' . __( 'Settings' ) . '</a>', '<a href="' . admin_url( 'admin.php?page=cptui_support' ) . '">' . __( 'Help' ) . '</a>'
+	), $links );
+}
+add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'cptui_edit_plugin_list_links' );
