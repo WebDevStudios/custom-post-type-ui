@@ -1,4 +1,7 @@
 <?php
+/*
+ * TODO: help bubble link hover color
+ */
 /**
  * Add our cptui.js file, with dependencies on jQuery and jQuery UI
  *
