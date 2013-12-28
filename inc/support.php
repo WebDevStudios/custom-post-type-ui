@@ -7,7 +7,19 @@ function support_admin_menu() {
 
 function cptui_support() {
 	echo '<div class="wrap">';
-		echo '<h1>Testing</h1>';
+	?>
+		Template Hierarchy
+			http://codex.wordpress.org/Template_Hierarchy
+		WP_Query
+			http://codex.wordpress.org/Class_Reference/WP_Query
+		CPTs in Cat/Tag archives
+			http://wpmu.org/add-custom-post-types-to-tags-and-categories-in-wordpress/
+		add_theme_support()
+			post-formats
+			post-thumbnails
+			http://codex.wordpress.org/Function_Reference/add_theme_support
+
+	<?php
 	echo '</div>';
 
 	cpt_footer();
