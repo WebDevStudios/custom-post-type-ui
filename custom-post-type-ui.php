@@ -489,7 +489,7 @@ function cpt_load_textdomain() {
  * @return void
  */
 function cpt_plugin_menu() {
-	add_menu_page( __( 'Custom Post Types', 'cpt-plugin' ), __( 'CPT UI (dev)', 'cpt-plugin' ), 'manage_options', 'cpt_main_menu', 'cpt_settings' );
+	add_menu_page( __( 'Custom Post Types', 'cpt-plugin' ), __( 'CPT UI (dev)', 'cpt-plugin' ), 'manage_options', 'cptui_main_menu', 'cpt_settings' );
 }
 
 /**
