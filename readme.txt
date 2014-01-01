@@ -2,9 +2,9 @@
 Contributors: williamsba1, tw2113, webdevstudios
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3084056
 Tags: custom post types, CPT, CMS, post, types, post type, cck, taxonomy, tax, custom
-Requires at least: 3.1
-Tested up to: 3.6
-Stable tag: 0.8.1
+Requires at least: 3.7
+Tested up to: 3.8
+Stable tag: 0.9
 License: GPLv2
 
 Admin UI for creating custom post types and custom taxonomies in WordPress
