@@ -27,6 +27,9 @@ All official development on this plugin is on GitHub. Version bumps will still b
 
 == Changelog ==
 
+= 0.8.2 =
+* Fix with_front logic issue.
+
 = 0.8.1 =
 * Renamed menu entry to "CPT UI".
 * Fixes for potential "undefined index" WP DEBUG log notices.
@@ -141,6 +144,9 @@ All official development on this plugin is on GitHub. Version bumps will still b
 * First beta release
 
 == Upgrade Notice ==
+
+= 0.8.2 =
+* Fixes with_front logic issue that was defaulting to true.
 
 = 0.8.1 =
 * Many bug fixes and admittedly some features. Fixes the Get Code functionality primarily.
