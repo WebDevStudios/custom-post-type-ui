@@ -167,14 +167,6 @@ function cptui_manage_taxonomies() {
 						<div>
 							<table>
 							<?php
-							echo $ui->get_text_input( array(
-								'namearray'     => 'cpt_tax_labels',
-								'name'          => 'search_items',
-								'textvalue'     => ( isset( $current['labels']['search_items'] ) ) ? esc_attr( $current['labels']['search_items'] ) : '',
-								'aftertext'     => __( '(e.g. Search Actors)', 'cpt-plugin' ),
-								'labeltext'     => __( 'Search Items', 'cpt-plugin' ),
-								'helptext'      => esc_attr__( 'Custom taxonomy label. Used in the admin menu for displaying taxonomies.', 'cpt-plugin'),
-								) );
 
 							echo $ui->get_text_input( array(
 								'namearray'     => 'cpt_tax_labels',
