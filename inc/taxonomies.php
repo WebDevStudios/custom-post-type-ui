@@ -19,7 +19,7 @@ add_action( 'admin_enqueue_scripts', 'cpt_taxonomies_enqueue_scripts' );
  * @return mixed  new menu
  */
 function taxonomies_admin_menu() {
-	add_submenu_page( 'cpt_main_menu', __( 'Add/Edit Taxonomies', 'cpt-plugin' ), __( 'Add/Edit Taxonomies', 'cpt-plugin' ), 'manage_options', 'cptui_manage_taxonomies', 'cptui_manage_taxonomies' );
+	add_submenu_page( 'cptui_main_menu', __( 'Add/Edit Taxonomies', 'cpt-plugin' ), __( 'Add/Edit Taxonomies', 'cpt-plugin' ), 'manage_options', 'cptui_manage_taxonomies', 'cptui_manage_taxonomies' );
 }
 add_action( 'admin_menu', 'taxonomies_admin_menu' );
 
