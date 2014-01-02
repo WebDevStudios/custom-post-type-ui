@@ -287,7 +287,7 @@ function cptui_manage_taxonomies() {
 							echo $ui->get_text_input( array(
 								'namearray'     => 'cpt_tax_labels',
 								'name'          => 'choose_from_most_used',
-								'textvalue'     => ( isset( $current['labels']['choose_from_most_used'] ) ) ? esc_attr( $current['labels']['choose_from_most_used'] ) : '',
+								'textvalue'     => ( isset( $current['labels']['choose_from_most_used'] ) ) ? esc_attr( $current['labels']['choose_from_most_used'] ) : null,
 								'aftertext'     => __( '(e.g. Choose from the most used actors)', 'cpt-plugin' ),
 								'labeltext'     => __( 'Choose From Most Used', 'cpt-plugin' ),
 								'helptext'      => esc_attr__( 'Custom taxonomy label. Used in the admin menu for displaying taxonomies.', 'cpt-plugin'),
