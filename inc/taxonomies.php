@@ -292,6 +292,15 @@ function cptui_manage_taxonomies() {
 								'labeltext'     => __( 'Choose From Most Used', 'cpt-plugin' ),
 								'helptext'      => esc_attr__( 'Custom taxonomy label. Used in the admin menu for displaying taxonomies.', 'cpt-plugin'),
 								) );
+
+							echo $ui->get_text_input( array(
+								'namearray'     => 'cpt_tax_labels',
+								'name'          => 'not_found',
+								'textvalue'     => ( isset( $current['labels']['not_found'] ) ) ? esc_attr( $current['labels']['not_found'] ) : null,
+								'aftertext'     => __( '(e.g. No actors found)', 'cpt-plugin' ),
+								'labeltext'     => __( 'Not found', 'cpt-plugin' ),
+								'helptext'      => esc_attr__( 'Custom taxonomy label. Used in the admin menu for displaying taxonomies.', 'cpt-plugin'),
+								) );
 							?>
 						</table>
 					</div>
