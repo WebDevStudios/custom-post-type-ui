@@ -59,7 +59,7 @@ function cptui_manage_post_types() {
 		//Grab our current selected post type to edit
 		$selected_post_type = cpt_get_current_post_type();
 
-		//fetch out of all of the available post types.
+		//fetch current post type out of all available post types.
 		if ( $selected_post_type ) {
 			$current = $post_types[ $selected_post_type ];
 		}
