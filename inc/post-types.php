@@ -9,10 +9,10 @@
  *
  * @return mixed  js scripts
  */
-function cpt_post_type_enqueue_scripts() {
+function cptui_post_type_enqueue_scripts() {
 	wp_enqueue_script( 'cptui', plugins_url( 'js/cptui.js' , dirname(__FILE__) ) . '', array( 'jquery', 'jquery-ui-core', 'jquery-ui-accordion' ), '0.9', true );
 }
-add_action( 'admin_enqueue_scripts', 'cpt_post_type_enqueue_scripts' );
+add_action( 'admin_enqueue_scripts', 'cptui_post_type_enqueue_scripts' );
 
 /**
  * Add our settings page to the menu.
@@ -21,10 +21,10 @@ add_action( 'admin_enqueue_scripts', 'cpt_post_type_enqueue_scripts' );
  *
  * @return mixed  new menu
  */
-function cpt_post_types_admin_menu() {
+function cptui_post_types_admin_menu() {
 	add_submenu_page( 'cptui_main_menu', __( 'Add/Edit Post Types', 'cpt-plugin' ), __( 'Add/Edit Post Types', 'cpt-plugin' ), 'manage_options', 'cptui_manage_post_types', 'cptui_manage_post_types' );
 }
-add_action( 'admin_menu', 'cpt_post_types_admin_menu' );
+add_action( 'admin_menu', 'cptui_post_types_admin_menu' );
 
 /**
  * Create our settings page output
@@ -49,7 +49,7 @@ function cptui_manage_post_types() {
 	}
 
 	//Create our tabs.
-	cpt_settings_tab_menu();
+	cptui_settings_tab_menu();
 
 	//Fetch and set up our post types if we're in the edit tab.
 	if ( 'edit' == $tab ) {
@@ -57,7 +57,7 @@ function cptui_manage_post_types() {
 		$post_types = get_option( 'cptui_post_types' );
 
 		//Grab our current selected post type to edit
-		$selected_post_type = cpt_get_current_post_type();
+		$selected_post_type = cptui_get_current_post_type();
 
 		//fetch current post type out of all available post types.
 		if ( $selected_post_type ) {
@@ -72,7 +72,7 @@ function cptui_manage_post_types() {
 	if ( !empty( $post_types ) ) { ?>
 		<form id="cptui_select_post_type" method="post">
 			<?php
-			cpt_post_types_dropdown( $post_types );
+			cptui_post_types_dropdown( $post_types );
 			?>
 			<input type="submit" class="button-secondary" name="cptui_select_post_type_submit" value="<?php echo apply_filters( 'cptui_post_type_submit_select', __( 'Select Post Type', 'cpt-plugin' ) ); ?>" />
 		</form>
@@ -758,7 +758,7 @@ function cptui_manage_post_types() {
 	</form>
 	</div><!-- End .wrap -->
 <?php
-	cpt_footer();
+	cptui_footer();
 }
 
 /**
@@ -940,7 +940,7 @@ function cptui_get_post_type_code( $post_type ) {
  *
  * @return mixed              html select dropdown.
  */
-function cpt_post_types_dropdown( $post_types = array() ) {
+function cptui_post_types_dropdown( $post_types = array() ) {
 
 	//instantiate our class
 	$ui = new cptui_admin_ui();
@@ -957,7 +957,7 @@ function cpt_post_types_dropdown( $post_types = array() ) {
 		}
 
 		//Grab our current selected post type
-		$current = cpt_get_current_post_type();
+		$current = cptui_get_current_post_type();
 
 		$select['selected'] = ( !empty( $current ) ) ? $current : '';
 		echo $ui->get_select_input( array(
@@ -976,7 +976,7 @@ function cpt_post_types_dropdown( $post_types = array() ) {
  *
  * @return mixed  false on no result, sanitized post type if set.
  */
-function cpt_get_current_post_type() {
+function cptui_get_current_post_type() {
 	if ( !empty( $_POST ) && isset( $_POST['cptui_selected_post_type']['post_type'] ) ) {
 		return sanitize_text_field( $_POST['cptui_selected_post_type']['post_type'] );
 	}
