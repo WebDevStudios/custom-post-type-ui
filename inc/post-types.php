@@ -79,7 +79,6 @@ function cptui_manage_post_types() {
 	<?php
 	} ?>
 
-
 	<form method="post">
 		<table class="form-table cptui-table">
 			<tr>
