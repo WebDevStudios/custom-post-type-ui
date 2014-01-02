@@ -67,7 +67,7 @@ function cptui_manage_taxonomies() {
 
 	//Will only be set if we're already on the edit screen
 	if ( !empty( $taxonomies ) ) { ?>
-		<form method="post">
+		<form id="cptui_select_taxonomy" method="post">
 			<p>
 			<?php
 			cpt_taxonomies_dropdown( $taxonomies );
