@@ -20,10 +20,11 @@ define( 'CPTUI_WP_VERSION', get_bloginfo( 'version' ) ); // Define current WordP
  *
  * @return void
  */
-function cpt_load_ui_class() {
+function cptui_load_ui_class() {
 	//include our Admin UI class to help make things fabulous, and streamlined.
 	require_once( plugin_dir_path( __FILE__ ) . 'classes/class.cptui_admin_ui.php' );
 }
+add_action( 'init', 'cptui_load_ui_class' );
 
 /**
  * Flush our rewrite rules on deactivation
@@ -32,10 +33,11 @@ function cpt_load_ui_class() {
  *
  * @return void
  */
-function cpt_deactivation() {
+function cptui_deactivation() {
 	// Clear the permalinks to remove our post type's rules
 	flush_rewrite_rules();
 }
+register_deactivation_hook( __FILE__, 'cptui_deactivation' );
 
 /**
  * Register our text domain
@@ -44,9 +46,10 @@ function cpt_deactivation() {
  *
  * @return void
  */
-function cpt_load_textdomain() {
+function cptui_load_textdomain() {
 	load_plugin_textdomain( 'cpt-plugin', false, basename( dirname( __FILE__ ) ) . '/languages' );
 }
+add_action( 'init', 'cptui_load_textdomain' );
 
 /**
  * Load our main menu
@@ -55,9 +58,10 @@ function cpt_load_textdomain() {
  *
  * @return void
  */
-function cpt_plugin_menu() {
-	add_menu_page( __( 'Custom Post Types', 'cpt-plugin' ), __( 'CPT UI (dev)', 'cpt-plugin' ), 'manage_options', 'cptui_main_menu', 'cpt_settings' );
+function cptui_plugin_menu() {
+	add_menu_page( __( 'Custom Post Types', 'cpt-plugin' ), __( 'CPT UI (dev)', 'cpt-plugin' ), 'manage_options', 'cptui_main_menu', 'cptui_settings' );
 }
+add_action( 'admin_menu', 'cptui_plugin_menu' );
 
 /**
  * Load our submenus
@@ -66,11 +70,12 @@ function cpt_plugin_menu() {
  *
  * @return [type]  [description]
  */
-function cpt_create_submenus() {
+function cptui_create_submenus() {
 	require_once( plugin_dir_path( __FILE__ ) . 'inc/post-types.php' );
 	require_once( plugin_dir_path( __FILE__ ) . 'inc/taxonomies.php' );
 	require_once( plugin_dir_path( __FILE__ ) . 'inc/support.php' );
 }
+add_action( 'init', 'cptui_create_submenus' );
 
 /**
  * Register our users' custom post types
@@ -79,7 +84,7 @@ function cpt_create_submenus() {
  *
  * @return void
  */
-function cpt_create_custom_post_types() { //TODO: refactor for yet to be decided structure of new registrations.
+function cptui_create_custom_post_types() {
 	//register custom post types
 	$cpts = get_option('cpt_custom_post_types');
 
@@ -160,6 +165,7 @@ function cpt_create_custom_post_types() { //TODO: refactor for yet to be decided
 		}
 	}
 }
+add_action( 'init', 'cptui_create_custom_post_types' );
 
 function cpt_create_custom_taxonomies() {
 	//register custom taxonomies
@@ -212,6 +218,7 @@ function cpt_create_custom_taxonomies() {
 		}
 	}
 }
+add_action( 'init', 'cptui_create_custom_taxonomies' );
 
 /**
  * Display our primary menu page
@@ -220,7 +227,7 @@ function cpt_create_custom_taxonomies() {
  *
  * @return mixed  htmls
  */
-function cpt_settings() { ?>
+function cptui_settings() { ?>
 	<div class="wrap">
 		<?php do_action( 'cptui_main_page_start' ); ?>
 		<h2><?php _e( 'Custom Post Type UI', 'cpt-plugin' ); ?> <?php echo CPT_VERSION; ?></h2>
@@ -295,7 +302,7 @@ function cpt_settings() { ?>
 
 	</div>
 	<?php
-	cpt_footer();
+	cptui_footer();
 }
 
 /**
@@ -305,7 +312,7 @@ function cpt_settings() { ?>
  *
  * @return mixed  htmls
  */
-function cpt_footer() { ?>
+function cptui_footer() { ?>
 	<hr />
 	<p class="cp_about"><a target="_blank" href="http://webdevstudios.com/support/forum/custom-post-type-ui/"><?php _e( 'Custom Post Type UI', 'cpt-plugin' ); ?></a> <?php _e( 'version', 'cpt-plugin' ); echo ' '.CPT_VERSION; ?> by <a href="http://webdevstudios.com" target="_blank">WebDevStudios</a> - <a href="https://github.com/WebDevStudios/custom-post-type-ui" target="_blank"><?php _e( 'Please Report Bugs', 'cpt-plugin' ); ?></a> &middot; <?php _e( 'Follow on Twitter:', 'cpt-plugin' ); ?> <a href="http://twitter.com/williamsba" target="_blank">Brad</a> &middot; <a href="http://twitter.com/tw2113" target="_blank">Michael</a> &middot; <a href="http://twitter.com/webdevstudios" target="_blank">WebDevStudios</a> </p>
 <?php
@@ -354,7 +361,7 @@ function disp_boolean($booText) {
  *
  * @return mixed  html style blocks
  */
-function cpt_help_style() { ?>
+function cptui_help_style() { ?>
 	<style>
 		.help {
 			border-radius: 50%;
@@ -382,6 +389,7 @@ function cpt_help_style() { ?>
 	</style>
 <?php
 }
+add_action( 'admin_head', 'cptui_help_style' );
 
 /**
  * Construct and output tab navigation
@@ -392,7 +400,7 @@ function cpt_help_style() { ?>
  *
  * @return mixed        html tabs
  */
-function cpt_settings_tab_menu( $page = 'post_types' ) {
+function cptui_settings_tab_menu( $page = 'post_types' ) {
 	//initiate our arrays with default classes
 	$tab1 = $tab2 = array( 'nav-tab' );
 
@@ -435,7 +443,7 @@ function cpt_settings_tab_menu( $page = 'post_types' ) {
  *
  * @return void  updated new options.
  */
-function cpt_convert_settings() {
+function cptui_convert_settings() {
 
 	//We only want to run this if we don't have our new options.
 	if ( false === get_option( 'cptui_post_types' ) && ( $post_types = get_option( 'cpt_custom_post_types' ) ) ) {
@@ -475,8 +483,7 @@ function cpt_convert_settings() {
 		update_option( 'cptui_taxonomies', $new_taxonomies );
 	}
 }
-
-//TODO: edit plugin site.
+add_action( 'admin_init', 'cptui_convert_settings' );
 
 /**
  * Edit links that appear on installed plugins list page, for our plugin.
