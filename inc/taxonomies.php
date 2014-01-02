@@ -232,10 +232,37 @@ function cptui_manage_taxonomies() {
 
 							echo $ui->get_text_input( array(
 								'namearray'     => 'cpt_tax_labels',
-								'name'          => 'update_item',
-								'textvalue'     => ( isset( $current['labels']['update_item'] ) ) ? esc_attr( $current['labels']['update_item'] ) : '',
-								'aftertext'     => __( '(e.g. Update Actor Name)', 'cpt-plugin' ),
-								'labeltext'     => __( 'Update Item Name', 'cpt-plugin' ),
+								'name'          => 'parent_item',
+								'textvalue'     => ( isset( $current['labels']['parent_item'] ) ) ? esc_attr( $current['labels']['parent_item'] ) : '',
+								'aftertext'     => __( '(e.g. Parent Actor)', 'cpt-plugin' ),
+								'labeltext'     => __( 'Parent Item', 'cpt-plugin' ),
+								'helptext'      => esc_attr__( 'Custom taxonomy label. Used in the admin menu for displaying taxonomies.', 'cpt-plugin'),
+								) );
+
+							echo $ui->get_text_input( array(
+								'namearray'     => 'cpt_tax_labels',
+								'name'          => 'parent_item_colon',
+								'textvalue'     => ( isset( $current['labels']['parent_item_colon'] ) ) ? esc_attr( $current['labels']['parent_item_colon'] ) : '',
+								'aftertext'     => __( '(e.g. Parent Actor:)', 'cpt-plugin' ),
+								'labeltext'     => __( 'Parent Item Colon', 'cpt-plugin' ),
+								'helptext'      => esc_attr__( 'Custom taxonomy label. Used in the admin menu for displaying taxonomies.', 'cpt-plugin'),
+								) );
+
+							echo $ui->get_text_input( array(
+								'namearray'     => 'cpt_tax_labels',
+								'name'          => 'search_items',
+								'textvalue'     => ( isset( $current['labels']['search_items'] ) ) ? esc_attr( $current['labels']['search_items'] ) : '',
+								'aftertext'     => __( '(e.g. Search Actors)', 'cpt-plugin' ),
+								'labeltext'     => __( 'Search Items', 'cpt-plugin' ),
+								'helptext'      => esc_attr__( 'Custom taxonomy label. Used in the admin menu for displaying taxonomies.', 'cpt-plugin'),
+								) );
+
+							echo $ui->get_text_input( array(
+								'namearray'     => 'cpt_tax_labels',
+								'name'          => 'popular_items',
+								'textvalue'     => ( isset( $current['labels']['popular_items'] ) ) ? esc_attr( $current['labels']['popular_items'] ) : null,
+								'aftertext'     => __( '(e.g. Popular Actors)', 'cpt-plugin' ),
+								'labeltext'     => __( 'Popular Items', 'cpt-plugin' ),
 								'helptext'      => esc_attr__( 'Custom taxonomy label. Used in the admin menu for displaying taxonomies.', 'cpt-plugin'),
 								) );
 
