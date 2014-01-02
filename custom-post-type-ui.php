@@ -741,6 +741,9 @@ function cpt_help_style() { ?>
 		.wdsrss {
 			width: 33%;
 		}
+		#cptui_select_post_type, #cptui_select_taxonomy {
+			margin-top: 15px;
+		}
 	</style>
 <?php
 }
