@@ -167,7 +167,14 @@ function cptui_create_custom_post_types() {
 }
 add_action( 'init', 'cptui_create_custom_post_types' );
 
-function cpt_create_custom_taxonomies() {
+/**
+ * Register our users' custom taxonomies
+ *
+ * @since  0.5
+ *
+ * @return void
+ */
+function cptui_create_custom_taxonomies() {
 	//register custom taxonomies
 	$taxes = get_option('cptui_taxonomies');
 
