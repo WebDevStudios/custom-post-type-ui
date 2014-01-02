@@ -671,7 +671,20 @@ function cpt_settings() { ?>
 			</p>
 		</div>
 
-		<div class="cp-rss-widget">
+		<div class="wdsrss alignright">
+		<?php do_action( 'cptui_main_page_before_rss' ); ?>
+		<h2><?php _e( 'WebDevStudios News', 'cpt-plugin' ); ?></h2>
+		<?php
+
+		wp_widget_rss_output( esc_url( 'http://webdevstudios.com/feed/' ), array(
+			'items' => 3,
+			'show_summary' => 0,
+			'show_author' => 0,
+			'show_date' => 1
+		) );
+
+		do_action( 'cptui_main_page_after_rss' ); ?>
+		</div>
 
 		<?php do_action( 'cptui_main_page_before_books' ); ?>
 		<table border="0">
@@ -679,44 +692,40 @@ function cpt_settings() { ?>
 			<td colspan="3"><h2><?php _e( 'Help Support This Plugin!', 'cpt-plugin' ); ?></h2></td>
 			</tr>
 			<tr>
-			<td width="33%"><h3><?php _e( 'PayPal Donation', 'cpt-plugin' ); ?></h3></td>
-			<td width="33%"><h3><?php _e( 'Professional WordPress<br />Second Edition', 'cpt-plugin' ); ?></h3></td>
-			<td width="33%"><h3><?php _e( 'Professional WordPress<br />Plugin Development', 'cpt-plugin' ); ?></h3></td>
+				<td width="33%"><h3><?php _e( 'PayPal Donation', 'cpt-plugin' ); ?></h3></td>
+				<td width="33%"><h3><?php _e( 'Professional WordPress<br />Second Edition', 'cpt-plugin' ); ?></h3></td>
+				<td width="33%"><h3><?php _e( 'Professional WordPress<br />Plugin Development', 'cpt-plugin' ); ?></h3></td>
 			</tr>
 			<tr>
-			<td valign="top" width="33%">
-				<p><?php _e( 'Please donate to the development<br />of Custom Post Type UI:', 'cpt-plugin'); ?>
-				<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-				<input type="hidden" name="cmd" value="_s-xclick">
-				<input type="hidden" name="hosted_button_id" value="YJEDXPHE49Q3U">
-				<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-				<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
-				</form>
-				</p>
-			</td>
-			<td valign="top" width="33%"><a href="http://bit.ly/prowp2" target="_blank"><img src="<?php echo plugins_url( '/images/professional-wordpress-secondedition.jpg', __FILE__ ); ?>" width="200"></a><br /><?php _e( 'The leading book on WordPress design and development!<br /><strong>Brand new second edition!', 'cpt-plugin'); ?></strong></td>
-			<td valign="top" width="33%"><a href="http://amzn.to/plugindevbook" target="_blank"><img src="<?php echo plugins_url( '/images/professional-wordpress-plugin-development.png', __FILE__ ); ?>" width="200"></a><br /><?php _e( 'Highest rated WordPress development book on Amazon!', 'cpt-plugin' ); ?></td>
+				<td valign="top" width="33%">
+					<p><?php _e( 'Please donate to the development of Custom Post Type UI:', 'cpt-plugin'); ?>
+					<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+					<input type="hidden" name="cmd" value="_s-xclick">
+					<input type="hidden" name="hosted_button_id" value="YJEDXPHE49Q3U">
+					<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+					<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+					</form>
+					</p>
+				</td>
+				<td valign="top" width="33%">
+					<a href="http://bit.ly/prowp2" target="_blank">
+						<img src="<?php echo plugins_url( '/images/professional-wordpress-secondedition.jpg', __FILE__ ); ?>" width="200">
+					</a>
+					<br />
+					<?php _e( 'The leading book on WordPress design and development! Brand new second edition!', 'cpt-plugin'); ?>
+				</td>
+				<td valign="top" width="33%">
+					<a href="http://amzn.to/plugindevbook" target="_blank">
+						<img src="<?php echo plugins_url( '/images/professional-wordpress-plugin-development.png', __FILE__ ); ?>" width="200">
+					</a>
+					<br />
+					<?php _e( 'Highest rated WordPress development book on Amazon!', 'cpt-plugin' ); ?>
+				</td>
 			</tr>
 		</table>
 
 		<?php do_action( 'cptui_main_page_after_books' ); ?>
 
-		<?php do_action( 'cptui_main_page_before_rss' ); ?>
-		<h2><?php _e( 'WebDevStudios.com Recent News', 'cpt-plugin' ); ?></h2>
-		<?php
-
-		wp_widget_rss_output( array(
-			'url' => esc_url( 'http://webdevstudios.com/feed/' ),
-			'title' => __( 'WebDevStudios.com News', 'cpt-plugin' ),
-			'items' => 3,
-			'show_summary' => 1,
-			'show_author' => 0,
-			'show_date' => 1
-		) );
-		?>
-
-		<?php do_action( 'cptui_main_page_after_rss' ); ?>
-		</div>
 	</div>
 	<?php
 	cpt_footer();
