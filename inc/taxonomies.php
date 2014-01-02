@@ -6,10 +6,10 @@
  *
  * @return mixed  js scripts
  */
-function cpt_taxonomies_enqueue_scripts() {
+function cptui_taxonomies_enqueue_scripts() {
 	wp_enqueue_script( 'cptui', plugins_url( 'js/cptui.js' , dirname(__FILE__) ) . '', array( 'jquery', 'jquery-ui-core', 'jquery-ui-accordion' ), '0.9', true );
 }
-add_action( 'admin_enqueue_scripts', 'cpt_taxonomies_enqueue_scripts' );
+add_action( 'admin_enqueue_scripts', 'cptui_taxonomies_enqueue_scripts' );
 
 /**
  * Add our settings page to the menu.
@@ -18,10 +18,10 @@ add_action( 'admin_enqueue_scripts', 'cpt_taxonomies_enqueue_scripts' );
  *
  * @return mixed  new menu
  */
-function taxonomies_admin_menu() {
+function cptui_taxonomies_admin_menu() {
 	add_submenu_page( 'cptui_main_menu', __( 'Add/Edit Taxonomies', 'cpt-plugin' ), __( 'Add/Edit Taxonomies', 'cpt-plugin' ), 'manage_options', 'cptui_manage_taxonomies', 'cptui_manage_taxonomies' );
 }
-add_action( 'admin_menu', 'taxonomies_admin_menu' );
+add_action( 'admin_menu', 'cptui_taxonomies_admin_menu' );
 
 /**
  * Create our settings page output
@@ -46,7 +46,7 @@ function cptui_manage_taxonomies() {
 	}
 
 	//Create our tabs.
-	cpt_settings_tab_menu( $page = 'taxonomies' );
+	cptui_settings_tab_menu( $page = 'taxonomies' );
 
 	//Fetch and set up our taxonomies if we're in the edit tab.
 	if ( 'edit' == $tab ) {
@@ -54,7 +54,7 @@ function cptui_manage_taxonomies() {
 		$taxonomies = get_option( 'cptui_taxonomies' );
 
 		//Grab our current selected taxonomy to edit
-		$selected_taxonomy = cpt_get_current_taxonomy();
+		$selected_taxonomy = cptui_get_current_taxonomy();
 
 		//fetch out of all of the available taxonomies.
 		if ( $selected_taxonomy ) {
@@ -70,7 +70,7 @@ function cptui_manage_taxonomies() {
 		<form id="cptui_select_taxonomy" method="post">
 			<p>
 			<?php
-			cpt_taxonomies_dropdown( $taxonomies );
+			cptui_taxonomies_dropdown( $taxonomies );
 			?>
 			<input type="submit" class="button-secondary" name="cptui_select_taxonomy_submit" value="<?php echo apply_filters( 'cptui_taxonomy_submit_select', __( 'Select Taxonomy', 'cpt-plugin' ) ); ?>" />
 			</p>
@@ -416,7 +416,7 @@ function cptui_manage_taxonomies() {
 	</form>
 	</div><!-- End .wrap -->
 <?php
-	cpt_footer();
+	cptui_footer();
 }
 
 /**
@@ -543,7 +543,7 @@ function cptui_get_taxonomy_code( $taxonomy ) {
  *
  * @return mixed              html select dropdown.
  */
-function cpt_taxonomies_dropdown( $taxonomies = array() ) {
+function cptui_taxonomies_dropdown( $taxonomies = array() ) {
 
 	//instantiate our class
 	$ui = new cptui_admin_ui();
@@ -560,7 +560,7 @@ function cpt_taxonomies_dropdown( $taxonomies = array() ) {
 		}
 
 		//Grab our current selected taxonomy
-		$current = cpt_get_current_taxonomy();
+		$current = cptui_get_current_taxonomy();
 
 		$select['selected'] = ( !empty( $current ) ) ? $current : '';
 		echo $ui->get_select_input( array(
@@ -578,7 +578,7 @@ function cpt_taxonomies_dropdown( $taxonomies = array() ) {
  *
  * @return mixed  false on no result, sanitized taxonomy if set.
  */
-function cpt_get_current_taxonomy() {
+function cptui_get_current_taxonomy() {
 	if ( !empty( $_POST ) && isset( $_POST['cptui_selected_taxonomy']['taxonomy'] ) ) {
 		return sanitize_text_field( $_POST['cptui_selected_taxonomy']['taxonomy'] );
 	}
