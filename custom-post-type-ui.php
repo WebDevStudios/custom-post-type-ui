@@ -378,21 +378,13 @@ function cptui_help_style() { ?>
 			text-align: center;
 			width: 15px;
 		}
-		.help:hover {
-			font-weight: bold;
-		}
+		.help:hover { font-weight: bold; }
 		.required { color: rgb(255,0,0); }
 		.cptui-table #excerpt { height: 16px; margin-right: 4px; width: auto; }
 		.cptui-table td { vertical-align: top; width: 50%; }
-		.wdsintro {
-			width: 60%;
-		}
-		.wdsrss {
-			width: 33%;
-		}
-		#cptui_select_post_type, #cptui_select_taxonomy {
-			margin-top: 15px;
-		}
+		.wdsintro { width: 60%; }
+		.wdsrss { width: 33%; }
+		#cptui_select_post_type, #cptui_select_taxonomy { margin-top: 15px; }
 	</style>
 <?php
 }
