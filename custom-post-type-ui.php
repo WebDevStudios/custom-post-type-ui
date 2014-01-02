@@ -656,7 +656,20 @@ function cpt_create_custom_taxonomies() {
 function cpt_settings() { ?>
 	<div class="wrap">
 		<?php do_action( 'cptui_main_page_start' ); ?>
-		<h2><?php _e( 'Custom Post Type UI', 'cpt-plugin' ); ?> <?php _e( 'version', 'cpt-plugin' ); ?>: <?php echo CPT_VERSION; ?></h2>
+		<h2><?php _e( 'Custom Post Type UI', 'cpt-plugin' ); ?> <?php echo CPT_VERSION; ?></h2>
+
+		<div class="wdsintro alignleft">
+			<p><?php _e( 'Thank you for choosing to create with Custom Post Type UI. We hope that your experience with our plugin provides you efficiency and speed in creating post types and taxonomies, to better organize your content, without having to mess around with code.', 'cpt-plugin' ); ?></p>
+
+			<p><?php echo sprintf( __( 'To get started with creating some post types, please visit %s and for taxonomies, visit %s. If you need some help, check the %s page. If nothing there fits your issue, visit our %s and we will try to get to your question as soon as possible.', 'cpt-plugin' ),
+					sprintf( '<a href="' . admin_url( 'admin.php?page=cptui_manage_post_types' ) . '">%s</a>', __( 'Add/Edit Post Types', 'cpt-plugin' ) ),
+					sprintf( '<a href="' . admin_url( 'admin.php?page=cptui_manage_taxonomies' ) . '">%s</a>', __( 'Add/Edit Taxonomies', 'cpt-plugin' ) ),
+					sprintf( '<a href="' . admin_url( 'admin.php?page=cptui_support' ) . '">%s</a>', __( 'Help/Support', 'cpt-plugin' ) ),
+					sprintf( '<a href="http://wordpress.org/support/plugin/custom-post-type-ui">%s</a>', __( 'CPT UI Support Forum', 'cpt-plugin' ) )
+				);
+			?>
+			</p>
+		</div>
 
 		<div class="cp-rss-widget">
 
