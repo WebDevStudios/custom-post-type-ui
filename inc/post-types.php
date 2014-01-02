@@ -141,6 +141,8 @@ function cptui_manage_post_types() {
 				<p class="submit">
 					<?php if ( !empty( $_GET ) && !empty( $_GET['action'] ) && 'edit' == $_GET['action'] ) { ?>
 						<input type="submit" class="button-primary" name="cpt_submit" value="<?php echo apply_filters( 'cptui_post_type_submit_edit', __( 'Edit Post Type', 'cpt-plugin' ) ); ?>" />
+						<a class="button-secondary" id="cpt_submit_get_code" href="#"><?php echo apply_filters( 'cptui_post_type_submit_get_code', __( 'Get Post Type Code', 'cpt-plugin' ) ); ?></a>
+						<a class="button-secondary" id="cpt_submit_delete" href="<?php echo add_query_arg( array( 'delete' => 'true' ) ); ?>"><?php echo apply_filters( 'cptui_post_type_submit_delete', __( 'Delete Post Type', 'cpt-plugin' ) ); ?></a>
 					<?php } else { ?>
 						<input type="submit" class="button-primary" name="cpt_submit" value="<?php echo apply_filters( 'cptui_post_type_submit_add', __( 'Add Post Type', 'cpt-plugin' ) ); ?>" />
 					<?php } ?>
