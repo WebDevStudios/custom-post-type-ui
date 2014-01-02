@@ -516,7 +516,7 @@ function cpt_create_custom_post_types() { //TODO: refactor for yet to be decided
 	//register custom post types
 	$cpts = get_option('cpt_custom_post_types');
 
-	//check if option value is an Array before proceeding
+	//check if option value is an array before proceeding
 	if ( is_array( $cpts ) ) {
 		foreach ( $cpts as $type ) {
 			//set post type values
