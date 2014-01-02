@@ -169,7 +169,7 @@ add_action( 'init', 'cptui_create_custom_post_types' );
 
 function cpt_create_custom_taxonomies() {
 	//register custom taxonomies
-	$taxes = get_option('cpt_custom_tax_types');
+	$taxes = get_option('cptui_taxonomies');
 
 	//check if option value is an array before proceeding
 	if ( is_array( $taxes ) ) {
