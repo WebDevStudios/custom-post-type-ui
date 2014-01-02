@@ -174,7 +174,7 @@ function cptui_manage_post_types() {
 								'helptext'      => esc_attr__( 'Post type label.  Used in the admin menu for displaying post types.', 'cpt-plugin' ),
 								'namearray'     => 'cpt_labels',
 								'name'          => 'add_new',
-								'textvalue'     => ( isset( $current['labels']['add_new'] ) ) ? esc_attr( $current['labels'][''] ) : '',
+								'textvalue'     => ( isset( $current['labels']['add_new'] ) ) ? esc_attr( $current['labels']['add_new'] ) : '',
 								'aftertext'     => __( '(e.g. Add New)', 'cpt-plugin' )
 								) );
 
