@@ -605,7 +605,7 @@ function cpt_settings() { ?>
 
 		<div class="wdsrss alignright">
 		<?php do_action( 'cptui_main_page_before_rss' ); ?>
-		<h2><?php _e( 'WebDevStudios News', 'cpt-plugin' ); ?></h2>
+		<h3><?php _e( 'WebDevStudios News', 'cpt-plugin' ); ?></h3>
 		<?php
 
 		wp_widget_rss_output( esc_url( 'http://webdevstudios.com/feed/' ), array(
@@ -621,7 +621,7 @@ function cpt_settings() { ?>
 		<?php do_action( 'cptui_main_page_before_books' ); ?>
 		<table border="0">
 			<tr>
-			<td colspan="3"><h2><?php _e( 'Help Support This Plugin!', 'cpt-plugin' ); ?></h2></td>
+			<td colspan="3"><h3><?php _e( 'Help Support This Plugin!', 'cpt-plugin' ); ?></h3></td>
 			</tr>
 			<tr>
 				<td width="33%"><h3><?php _e( 'PayPal Donation', 'cpt-plugin' ); ?></h3></td>
