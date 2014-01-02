@@ -70,7 +70,7 @@ function cptui_manage_post_types() {
 
 	//Will only be set if we're already on the edit screen
 	if ( !empty( $post_types ) ) { ?>
-		<form method="post">
+		<form id="cptui_select_post_type" method="post">
 			<?php
 			cpt_post_types_dropdown( $post_types );
 			?>
