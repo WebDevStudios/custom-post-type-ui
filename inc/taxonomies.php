@@ -241,6 +241,15 @@ function cptui_manage_taxonomies() {
 
 							echo $ui->get_text_input( array(
 								'namearray'     => 'cpt_tax_labels',
+								'name'          => 'update_item',
+								'textvalue'     => ( isset( $current['labels']['update_item'] ) ) ? esc_attr( $current['labels']['update_item'] ) : '',
+								'aftertext'     => __( '(e.g. Update Actor Name)', 'cpt-plugin' ),
+								'labeltext'     => __( 'Update Item Name', 'cpt-plugin' ),
+								'helptext'      => esc_attr__( 'Custom taxonomy label. Used in the admin menu for displaying taxonomies.', 'cpt-plugin'),
+								) );
+
+							echo $ui->get_text_input( array(
+								'namearray'     => 'cpt_tax_labels',
 								'name'          => 'separate_items_with_commas',
 								'textvalue'     => ( isset( $current['labels']['separate_items_with_commas'] ) ) ? esc_attr( $current['labels']['separate_items_with_commas'] ) : '',
 								'aftertext'     => __( '(e.g. Separate actors with commas)', 'cpt-plugin' ),
