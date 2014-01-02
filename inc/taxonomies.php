@@ -269,7 +269,7 @@ function cptui_manage_taxonomies() {
 							echo $ui->get_text_input( array(
 								'namearray'     => 'cpt_tax_labels',
 								'name'          => 'separate_items_with_commas',
-								'textvalue'     => ( isset( $current['labels']['separate_items_with_commas'] ) ) ? esc_attr( $current['labels']['separate_items_with_commas'] ) : '',
+								'textvalue'     => ( isset( $current['labels']['separate_items_with_commas'] ) ) ? esc_attr( $current['labels']['separate_items_with_commas'] ) : null,
 								'aftertext'     => __( '(e.g. Separate actors with commas)', 'cpt-plugin' ),
 								'labeltext'     => __( 'Separate Items with Commas', 'cpt-plugin' ),
 								'helptext'      => esc_attr__( 'Custom taxonomy label. Used in the admin menu for displaying taxonomies.', 'cpt-plugin'),
@@ -278,7 +278,7 @@ function cptui_manage_taxonomies() {
 							echo $ui->get_text_input( array(
 								'namearray'     => 'cpt_tax_labels',
 								'name'          => 'add_or_remove_items',
-								'textvalue'     => ( isset( $current['labels']['add_or_remove_items'] ) ) ? esc_attr( $current['labels']['add_or_remove_items'] ) : '',
+								'textvalue'     => ( isset( $current['labels']['add_or_remove_items'] ) ) ? esc_attr( $current['labels']['add_or_remove_items'] ) : null,
 								'aftertext'     => __( '(e.g. Add or remove actors)', 'cpt-plugin' ),
 								'labeltext'     => __( 'Add or Remove Items', 'cpt-plugin' ),
 								'helptext'      => esc_attr__( 'Custom taxonomy label. Used in the admin menu for displaying taxonomies.', 'cpt-plugin'),
