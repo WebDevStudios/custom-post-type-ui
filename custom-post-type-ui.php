@@ -56,7 +56,6 @@ register_deactivation_hook( __FILE__, 'cpt_deactivation' );
 
 //delete custom post type or custom taxonomy
 function cpt_delete_post_type() {
-	global $CPT_URL;
 
 	//check if we are deleting a custom post type
 	if( isset( $_GET['deltype'] ) ) {
@@ -73,13 +72,7 @@ function cpt_delete_post_type() {
 
 		update_option( 'cpt_custom_post_types', $cpt_post_types );
 
-		if ( isset( $_GET['return'] ) ) {
-			$RETURN_URL = cpt_check_return( esc_attr( $_GET['return'] ) );
-		} else {
-			$RETURN_URL = $CPT_URL;
-		}
-
-		wp_redirect( $RETURN_URL .'&cpt_msg=del' );
+		//wp_redirect();
 	}
 
 	//check if we are deleting a custom taxonomy
@@ -95,19 +88,12 @@ function cpt_delete_post_type() {
 
 		update_option( 'cpt_custom_tax_types', $cpt_taxonomies );
 
-		if ( isset( $_GET['return'] ) ) {
-			$RETURN_URL = cpt_check_return( esc_attr( $_GET['return'] ) );
-		} else {
-			$RETURN_URL = $CPT_URL;
-		}
-
-		wp_redirect( $RETURN_URL .'&cpt_msg=del' );
+		//wp_redirect();
 	}
 
 }
 
 function cpt_register_settings() {
-	global $cpt_error, $CPT_URL;
 
 	if ( isset( $_POST['cpt_edit'] ) ) {
 		//edit a custom post type
@@ -146,13 +132,7 @@ function cpt_register_settings() {
 			//save custom post types
 			update_option( 'cpt_custom_post_types', $cpt_options );
 
-			if ( isset( $_GET['return'] ) ) {
-				$RETURN_URL = cpt_check_return( esc_attr( $_GET['return'] ) );
-			} else {
-				$RETURN_URL = $CPT_URL;
-			}
-
-			wp_redirect( $RETURN_URL );
+			//wp_redirect();
 
 		}
 
@@ -166,27 +146,17 @@ function cpt_register_settings() {
 		$cpt_form_fields = $_POST['cpt_custom_post_type'];
 
 		if ( empty( $cpt_form_fields["name"] ) ) {
-			if ( isset( $_GET['return'] ) ) {
-				$RETURN_URL = cpt_check_return( esc_attr( $_GET['return'] ) );
-			} else {
-				$RETURN_URL = $CPT_URL;
-			}
 
-			wp_redirect( $RETURN_URL .'&cpt_error=1' );
-			exit();
+			//wp_redirect();
+			//exit();
 		}
 		if ( false !== strpos( $cpt_form_fields["name"], '\'' ) ||
 			 false !== strpos( $cpt_form_fields["name"], '\"' ) ||
 			 false !== strpos( $cpt_form_fields["rewrite_slug"], '\'' ) ||
 			 false !== strpos( $cpt_form_fields["rewrite_slug"], '\"' ) ) {
-			if ( isset( $_GET['return'] ) ) {
-				$RETURN_URL = cpt_check_return( esc_attr( $_GET['return'] ) );
-			} else {
-				$RETURN_URL = $CPT_URL;
-			}
 
-			wp_redirect( $RETURN_URL .'&cpt_error=4' );
-			exit();
+			//wp_redirect();
+			//exit();
 		}
 
 		//add support checkbox values to array
@@ -215,13 +185,7 @@ function cpt_register_settings() {
 		//save new custom post type array in the CPT option
 		update_option( 'cpt_custom_post_types', $cpt_options );
 
-		if ( isset( $_GET['return'] ) ) {
-			$RETURN_URL = cpt_check_return( esc_attr( $_GET['return'] ) );
-		} else {
-			$RETURN_URL = $CPT_URL;
-		}
-
-		wp_redirect( $RETURN_URL .'&cpt_msg=1' );
+		//wp_redirect();
 	}
 
 	if ( isset( $_POST['cpt_edit_tax'] ) ) {
@@ -257,13 +221,7 @@ function cpt_register_settings() {
 			//save custom post types
 			update_option( 'cpt_custom_tax_types', $cpt_options );
 
-			if ( isset( $_GET['return'] ) ) {
-				$RETURN_URL = cpt_check_return( esc_attr( $_GET['return'] ) );
-			} else {
-				$RETURN_URL = $CPT_URL;
-			}
-
-			wp_redirect( $RETURN_URL );
+			//wp_redirect();
 
 		}
 
@@ -278,37 +236,21 @@ function cpt_register_settings() {
 
 		//verify required fields are filled out
 		if ( empty( $cpt_form_fields["name"] ) ) {
-			if ( isset( $_GET['return'] ) ) {
-				$RETURN_URL = cpt_check_return( esc_attr( $_GET['return'] ) );
-			} else {
-				$RETURN_URL = $CPT_URL;
-			}
-
-			wp_redirect( $RETURN_URL .'&cpt_error=2' );
-			exit();
+			//wp_redirect();
+			//exit();
 		} elseif ( empty( $_POST['cpt_post_types'] ) ) {
-			if ( isset( $_GET['return'] ) ) {
-				$RETURN_URL = cpt_check_return( esc_attr( $_GET['return'] ) );
-			} else {
-				$RETURN_URL = $CPT_URL;
-			}
 
-			wp_redirect( $RETURN_URL .'&cpt_error=3' );
-			exit();
+			//wp_redirect();
+			//exit();
 		}
 
 		if ( false !== strpos( $cpt_form_fields["name"], '\'' ) ||
 			 false !== strpos( $cpt_form_fields["name"], '\"' ) ||
 			 false !== strpos( $cpt_form_fields["rewrite_slug"], '\'' ) ||
 			 false !== strpos( $cpt_form_fields["rewrite_slug"], '\"' ) ) {
-			if ( isset( $_GET['return'] ) ) {
-				$RETURN_URL = cpt_check_return( esc_attr( $_GET['return'] ) );
-			} else {
-				$RETURN_URL = $CPT_URL;
-			}
 
-			wp_redirect( $RETURN_URL .'&cpt_error=5' );
-			exit();
+			//wp_redirect();
+			//exit();
 		}
 
 		//add label values to array
@@ -331,22 +273,13 @@ function cpt_register_settings() {
 		//save new custom taxonomy array in the CPT option
 		update_option( 'cpt_custom_tax_types', $cpt_options );
 
-		if ( isset( $_GET['return'] ) ) {
-			$RETURN_URL = cpt_check_return( esc_attr( $_GET['return'] ) );
-		} else {
-			$RETURN_URL = $CPT_URL;
-		}
-
-		wp_redirect( $RETURN_URL .'&cpt_msg=2' );
+		//wp_redirect();
 
 	}
 }
 
 //add new custom post type / taxonomy page
 function cpt_add_new() {
-	global $cpt_error, $CPT_URL;
-
-	$RETURN_URL = ( isset( $_GET['return'] ) ) ? 'action="' . cpt_check_return( esc_attr( $_GET['return'] ) ) . '"' : '';
 
 	//check if we are editing a custom post type or creating a new one
 	if ( isset( $_GET['edittype'] ) && !isset( $_GET['cpt_edit'] ) ) {
@@ -419,7 +352,6 @@ function cpt_add_new() {
 }
 
 function cpt_check_return( $return ) {
-	global $CPT_URL;
 
 	if ( $return == 'cpt' ) {
 		return ( isset( $_GET['return'] ) ) ? admin_url( 'admin.php?page=cpt_sub_manage_cpt&return=cpt' ) : admin_url( 'admin.php?page=cpt_sub_manage_cpt' );
