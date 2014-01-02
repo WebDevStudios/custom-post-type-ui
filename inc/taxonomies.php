@@ -322,7 +322,7 @@ function cptui_manage_taxonomies() {
 								$select['selected'] = ( isset( $current['query_var'] ) ) ? $current['query_var'] : '';
 								echo $ui->get_select_input( array(
 									'namearray'     => 'cpt_custom_tax',
-									'name'          => 'show_ui',
+									'name'          => 'query_var',
 									'labeltext'     => __( 'Query Var', 'cpt-plugin' ),
 									'aftertext'     => __( '(default: True)', 'cpt-plugin' ),
 									'selections'    => $select
