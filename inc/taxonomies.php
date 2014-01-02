@@ -92,7 +92,7 @@ function cptui_manage_taxonomies() {
 						echo $ui->get_text_input( array(
 							'namearray'     => 'cpt_custom_tax',
 							'name'          => 'name',
-							'textvalue'     => ( isset( $cpt_tax_name ) ) ? esc_attr( $cpt_tax_name ) : '',
+							'textvalue'     => ( isset( $current['name'] ) ) ? esc_attr( $current['name'] ) : '',
 							'aftertext'     => __( '(e.g. actors)', 'cpt-plugin' ),
 							'helptext'      => esc_attr__( 'The taxonomy name. Used to retrieve custom taxonomy content. Should be short and sweet', 'cpt-plugin'),
 							'required'      => true,
@@ -105,7 +105,7 @@ function cptui_manage_taxonomies() {
 						echo $ui->get_text_input( array(
 							'namearray'     => 'cpt_custom_tax',
 							'name'          => 'label',
-							'textvalue'     => ( isset( $cpt_tax_label ) ) ? esc_attr( $cpt_tax_label ) : '',
+							'textvalue'     => ( isset( $current['label'] ) ) ? esc_attr( $current['label'] ) : '',
 							'aftertext'     => __( '(e.g. Actors)', 'cpt-plugin' ),
 							'labeltext'     => __( 'Label', 'cpt-plugin' ),
 							'helptext'      => esc_attr__( 'Taxonomy label. Used in the admin menu for displaying custom taxonomy.', 'cpt-plugin'),
@@ -114,7 +114,7 @@ function cptui_manage_taxonomies() {
 						echo $ui->get_text_input( array(
 							'namearray'     => 'cpt_custom_tax',
 							'name'          => 'singular_label',
-							'textvalue'     => ( isset( $cpt_singular_label_tax ) ) ? esc_attr( $cpt_singular_label_tax ) : '',
+							'textvalue'     => ( isset( $current['singular_label'] ) ) ? esc_attr( $current['singular_label'] ) : '',
 							'aftertext'     => __( '(e.g. Actor)', 'cpt-plugin' ),
 							'labeltext'     => __( 'Singular Label', 'cpt-plugin' ),
 							'helptext'      => esc_attr__( 'Taxonomy Singular label.  Used in WordPress when a singular label is needed.', 'cpt-plugin'),
@@ -138,7 +138,7 @@ function cptui_manage_taxonomies() {
 							 */
 							echo $ui->get_check_input( array(
 								'checkvalue'        => $post_type->name,
-								'checked'           => ( !empty( $cpt_post_types ) && is_array( $cpt_post_types ) ) ? in_array( $post_type->name, $cpt_post_types ) : null,
+								'checked'           => ( !empty( $current['post_types'] ) && is_array( $current['post_types'] ) ) ? in_array( $post_type->name, $current['post_types'] ) : null,
 								'name'              => $post_type->name,
 								'namearray'         => 'cpt_post_types',
 								'textvalue'         => $post_type->name,
@@ -168,7 +168,7 @@ function cptui_manage_taxonomies() {
 							echo $ui->get_text_input( array(
 								'namearray'     => 'cpt_tax_labels',
 								'name'          => 'search_items',
-								'textvalue'     => ( isset( $cpt_tax_labels["search_items"] ) ) ? esc_attr( $cpt_tax_labels["search_items"] ) : '',
+								'textvalue'     => ( isset( $current['labels']['search_items'] ) ) ? esc_attr( $current['labels']['search_items'] ) : '',
 								'aftertext'     => __( '(e.g. Search Actors)', 'cpt-plugin' ),
 								'labeltext'     => __( 'Search Items', 'cpt-plugin' ),
 								'helptext'      => esc_attr__( 'Custom taxonomy label. Used in the admin menu for displaying taxonomies.', 'cpt-plugin'),
@@ -177,7 +177,7 @@ function cptui_manage_taxonomies() {
 							echo $ui->get_text_input( array(
 								'namearray'     => 'cpt_tax_labels',
 								'name'          => 'popular_items',
-								'textvalue'     => ( isset( $cpt_tax_labels["popular_items"] ) ) ? esc_attr( $cpt_tax_labels["popular_items"] ) : '',
+								'textvalue'     => ( isset( $current['labels']['popular_items'] ) ) ? esc_attr( $current['labels']['popular_items'] ) : '',
 								'aftertext'     => __( '(e.g. Popular Actors)', 'cpt-plugin' ),
 								'labeltext'     => __( 'Popular Items', 'cpt-plugin' ),
 								'helptext'      => esc_attr__( 'Custom taxonomy label. Used in the admin menu for displaying taxonomies.', 'cpt-plugin'),
@@ -186,7 +186,7 @@ function cptui_manage_taxonomies() {
 							echo $ui->get_text_input( array(
 								'namearray'     => 'cpt_tax_labels',
 								'name'          => 'all_items',
-								'textvalue'     => ( isset( $cpt_tax_labels["all_items"] ) ) ? esc_attr( $cpt_tax_labels["all_items"] ) : '',
+								'textvalue'     => ( isset( $current['labels']['all_items'] ) ) ? esc_attr( $current['labels']['all_items'] ) : '',
 								'aftertext'     => __( '(e.g. All Actors)', 'cpt-plugin' ),
 								'labeltext'     => __( 'All Items', 'cpt-plugin' ),
 								'helptext'      => esc_attr__( 'Custom taxonomy label. Used in the admin menu for displaying taxonomies.', 'cpt-plugin'),
@@ -195,7 +195,7 @@ function cptui_manage_taxonomies() {
 							echo $ui->get_text_input( array(
 								'namearray'     => 'cpt_tax_labels',
 								'name'          => 'parent_item',
-								'textvalue'     => ( isset( $cpt_tax_labels["parent_item"] ) ) ? esc_attr( $cpt_tax_labels["parent_item"] ) : '',
+								'textvalue'     => ( isset( $current['labels']['parent_item'] ) ) ? esc_attr( $current['labels']['parent_item'] ) : '',
 								'aftertext'     => __( '(e.g. Parent Actor)', 'cpt-plugin' ),
 								'labeltext'     => __( 'Parent Item', 'cpt-plugin' ),
 								'helptext'      => esc_attr__( 'Custom taxonomy label. Used in the admin menu for displaying taxonomies.', 'cpt-plugin'),
@@ -204,7 +204,7 @@ function cptui_manage_taxonomies() {
 							echo $ui->get_text_input( array(
 								'namearray'     => 'cpt_tax_labels',
 								'name'          => 'parent_item_colon',
-								'textvalue'     => ( isset( $cpt_tax_labels["parent_item_colon"] ) ) ? esc_attr( $cpt_tax_labels["parent_item_colon"] ) : '',
+								'textvalue'     => ( isset( $current['labels']['parent_item_colon'] ) ) ? esc_attr( $current['labels']['parent_item_colon'] ) : '',
 								'aftertext'     => __( '(e.g. Parent Actor:)', 'cpt-plugin' ),
 								'labeltext'     => __( 'Parent Item Colon', 'cpt-plugin' ),
 								'helptext'      => esc_attr__( 'Custom taxonomy label. Used in the admin menu for displaying taxonomies.', 'cpt-plugin'),
@@ -213,7 +213,7 @@ function cptui_manage_taxonomies() {
 							echo $ui->get_text_input( array(
 								'namearray'     => 'cpt_tax_labels',
 								'name'          => 'edit_item',
-								'textvalue'     => ( isset( $cpt_tax_labels["edit_item"] ) ) ? esc_attr( $cpt_tax_labels["edit_item"] ) : '',
+								'textvalue'     => ( isset( $current['labels']['edit_item'] ) ) ? esc_attr( $current['labels']['edit_item'] ) : '',
 								'aftertext'     => __( '(e.g. Edit Actor)', 'cpt-plugin' ),
 								'labeltext'     => __( 'Edit Item', 'cpt-plugin' ),
 								'helptext'      => esc_attr__( 'Custom taxonomy label. Used in the admin menu for displaying taxonomies.', 'cpt-plugin'),
@@ -222,7 +222,7 @@ function cptui_manage_taxonomies() {
 							echo $ui->get_text_input( array(
 								'namearray'     => 'cpt_tax_labels',
 								'name'          => 'add_new_item',
-								'textvalue'     => ( isset( $cpt_tax_labels["add_new_item"] ) ) ? esc_attr( $cpt_tax_labels["add_new_item"] ) : '',
+								'textvalue'     => ( isset( $current['labels']['add_new_item'] ) ) ? esc_attr( $current['labels']['add_new_item'] ) : '',
 								'aftertext'     => __( '(e.g. Add New Actor)', 'cpt-plugin' ),
 								'labeltext'     => __( 'Add New Item', 'cpt-plugin' ),
 								'helptext'      => esc_attr__( 'Custom taxonomy label. Used in the admin menu for displaying taxonomies.', 'cpt-plugin'),
@@ -231,7 +231,7 @@ function cptui_manage_taxonomies() {
 							echo $ui->get_text_input( array(
 								'namearray'     => 'cpt_tax_labels',
 								'name'          => 'new_item_name',
-								'textvalue'     => ( isset( $cpt_tax_labels["new_item_name"] ) ) ? esc_attr( $cpt_tax_labels["new_item_name"] ) : '',
+								'textvalue'     => ( isset( $current['labels']['new_item_name'] ) ) ? esc_attr( $current['labels']['new_item_name'] ) : '',
 								'aftertext'     => __( '(e.g. New Actor Name)', 'cpt-plugin' ),
 								'labeltext'     => __( 'New Item Name', 'cpt-plugin' ),
 								'helptext'      => esc_attr__( 'Custom taxonomy label. Used in the admin menu for displaying taxonomies.', 'cpt-plugin'),
@@ -240,7 +240,7 @@ function cptui_manage_taxonomies() {
 							echo $ui->get_text_input( array(
 								'namearray'     => 'cpt_tax_labels',
 								'name'          => 'separate_items_with_commas',
-								'textvalue'     => ( isset( $cpt_tax_labels["separate_items_with_commas"] ) ) ? esc_attr( $cpt_tax_labels["separate_items_with_commas"] ) : '',
+								'textvalue'     => ( isset( $current['labels']['separate_items_with_commas'] ) ) ? esc_attr( $current['labels']['separate_items_with_commas'] ) : '',
 								'aftertext'     => __( '(e.g. Separate actors with commas)', 'cpt-plugin' ),
 								'labeltext'     => __( 'Separate Items with Commas', 'cpt-plugin' ),
 								'helptext'      => esc_attr__( 'Custom taxonomy label. Used in the admin menu for displaying taxonomies.', 'cpt-plugin'),
@@ -249,7 +249,7 @@ function cptui_manage_taxonomies() {
 							echo $ui->get_text_input( array(
 								'namearray'     => 'cpt_tax_labels',
 								'name'          => 'add_or_remove_items',
-								'textvalue'     => ( isset( $cpt_tax_labels["add_or_remove_items"] ) ) ? esc_attr( $cpt_tax_labels["add_or_remove_items"] ) : '',
+								'textvalue'     => ( isset( $current['labels']['add_or_remove_items'] ) ) ? esc_attr( $current['labels']['add_or_remove_items'] ) : '',
 								'aftertext'     => __( '(e.g. Add or remove actors)', 'cpt-plugin' ),
 								'labeltext'     => __( 'Add or Remove Items', 'cpt-plugin' ),
 								'helptext'      => esc_attr__( 'Custom taxonomy label. Used in the admin menu for displaying taxonomies.', 'cpt-plugin'),
@@ -257,8 +257,8 @@ function cptui_manage_taxonomies() {
 
 							echo $ui->get_text_input( array(
 								'namearray'     => 'cpt_tax_labels',
-								'name'          => 'add_or_remove_items',
-								'textvalue'     => ( isset( $cpt_tax_labels["choose_from_most_used"] ) ) ? esc_attr( $cpt_tax_labels["choose_from_most_used"] ) : '',
+								'name'          => 'choose_from_most_used',
+								'textvalue'     => ( isset( $current['labels']['choose_from_most_used'] ) ) ? esc_attr( $current['labels']['choose_from_most_used'] ) : '',
 								'aftertext'     => __( '(e.g. Choose from the most used actors)', 'cpt-plugin' ),
 								'labeltext'     => __( 'Choose From Most Used', 'cpt-plugin' ),
 								'helptext'      => esc_attr__( 'Custom taxonomy label. Used in the admin menu for displaying taxonomies.', 'cpt-plugin'),
@@ -276,7 +276,7 @@ function cptui_manage_taxonomies() {
 										array( 'attr' => '1', 'text' => __( 'True', 'cpt-plugin' ) )
 									)
 								);
-								$select['selected'] = ( isset( $cpt_tax_hierarchical ) ) ? $cpt_tax_hierarchical : '';
+								$select['selected'] = ( isset( $current['hierarchical'] ) ) ? $current['hierarchical'] : '';
 								echo $ui->get_select_input( array(
 									'namearray'     => 'cpt_custom_tax',
 									'name'          => 'hierarchical',
@@ -292,7 +292,7 @@ function cptui_manage_taxonomies() {
 										array( 'attr' => '1', 'text' => __( 'True', 'cpt-plugin' ), 'default' => 'true' )
 									)
 								);
-								$select['selected'] = ( isset( $cpt_tax_showui ) ) ? $cpt_tax_showui : '';
+								$select['selected'] = ( isset( $current['show_ui'] ) ) ? $current['show_ui'] : '';
 								echo $ui->get_select_input( array(
 									'namearray'     => 'cpt_custom_tax',
 									'name'          => 'show_ui',
@@ -308,7 +308,7 @@ function cptui_manage_taxonomies() {
 										array( 'attr' => '1', 'text' => __( 'True', 'cpt-plugin' ), 'default' => 'true' )
 									)
 								);
-								$select['selected'] = ( isset( $cpt_tax_query_var ) ) ? $cpt_tax_query_var : '';
+								$select['selected'] = ( isset( $current['query_var'] ) ) ? $current['query_var'] : '';
 								echo $ui->get_select_input( array(
 									'namearray'     => 'cpt_custom_tax',
 									'name'          => 'show_ui',
@@ -323,7 +323,7 @@ function cptui_manage_taxonomies() {
 										array( 'attr' => '1', 'text' => __( 'True', 'cpt-plugin' ), 'default' => 'true' )
 									)
 								);
-								$select['selected'] = ( isset( $cpt_tax_rewrite ) ) ? $cpt_tax_rewrite : '';
+								$select['selected'] = ( isset( $current['rewrite'] ) ) ? $current['rewrite'] : '';
 								echo $ui->get_select_input( array(
 									'namearray'     => 'cpt_custom_tax',
 									'name'          => 'rewrite',
@@ -336,7 +336,7 @@ function cptui_manage_taxonomies() {
 								echo $ui->get_text_input( array(
 									'namearray'     => 'cpt_custom_tax',
 									'name'          => 'rewrite_slug',
-									'textvalue'     => ( isset( $cpt_tax_rewrite_slug ) ) ? esc_attr( $cpt_tax_rewrite_slug ) : '',
+									'textvalue'     => ( isset( $current['rewrite_slug'] ) ) ? esc_attr( $current['rewrite_slug'] ) : '',
 									'aftertext'     => __( '(default: taxonomy name)', 'cpt-plugin' ),
 									'labeltext'     => __( 'Custom Rewrite Slug', 'cpt-plugin' ),
 									'helptext'      => esc_attr__( 'Custom Taxonomy Rewrite Slug', 'cpt-plugin'),
@@ -350,7 +350,7 @@ function cptui_manage_taxonomies() {
 											array( 'attr' => '1', 'text' => __( 'True', 'cpt-plugin' ) )
 										)
 									);
-									$select['selected'] = ( isset( $cpt_tax_show_admin_column ) ) ? $cpt_tax_show_admin_column : '';
+									$select['selected'] = ( isset( $current['show_admin_column'] ) ) ? $current['show_admin_column'] : '';
 									echo $ui->get_select_input( array(
 										'namearray'     => 'cpt_custom_tax',
 										'name'          => 'show_admin_column',
