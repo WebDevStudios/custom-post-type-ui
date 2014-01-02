@@ -86,7 +86,7 @@ add_action( 'init', 'cptui_create_submenus' );
  */
 function cptui_create_custom_post_types() {
 	//register custom post types
-	$cpts = get_option('cpt_custom_post_types');
+	$cpts = get_option( 'cptui_post_types' );
 
 	//check if option value is an array before proceeding
 	if ( is_array( $cpts ) ) {
