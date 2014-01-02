@@ -961,7 +961,8 @@ function cpt_post_types_dropdown( $post_types = array() ) {
 		echo $ui->get_select_input( array(
 			'namearray'     => 'cptui_selected_post_type',
 			'name'          => 'post_type',
-			'selections'    => $select
+			'selections'    => $select,
+			'wrap'          => false
 		) );
 	}
 }
