@@ -585,3 +585,39 @@ function cptui_get_current_taxonomy() {
 
 	return false;
 }
+
+//delete custom post type or custom taxonomy
+function cptui_delete_taxonomy() {
+
+	//check if we are deleting a custom taxonomy
+	if( isset( $_GET['deltax'] ) ) {
+		check_admin_referer( 'cpt_delete_tax' );
+
+		$delType = intval( $_GET['deltax'] );
+		$cpt_taxonomies = get_option( 'cpt_custom_tax_types' );
+
+		unset( $cpt_taxonomies[$delType] );
+
+		$cpt_taxonomies = array_values( $cpt_taxonomies );
+
+		update_option( 'cpt_custom_tax_types', $cpt_taxonomies );
+
+		//wp_redirect();
+	}
+
+}
+
+function cptui_update_taxonomy( $data ) {
+	//clean up $_POST data here
+
+	if ( false !== strpos( $cpt_form_fields["name"], '\'' ) ||
+			 false !== strpos( $cpt_form_fields["name"], '\"' ) ||
+			 false !== strpos( $cpt_form_fields["rewrite_slug"], '\'' ) ||
+			 false !== strpos( $cpt_form_fields["rewrite_slug"], '\"' ) ) {
+
+			//wp_redirect();
+			//exit();
+		}
+
+	flush_rewrite_rules();
+}
