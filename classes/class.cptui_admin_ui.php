@@ -157,7 +157,7 @@ class cptui_admin_ui {
 			$value .= $this->get_th_end();
 			$value .= $this->get_td_start();
 		}
-		$value .= '<select name="' . $args['namearray'] . '[' . $args['name'] . ']">';
+		$value .= '<select id="' . $args['name'] . '" name="' . $args['namearray'] . '[' . $args['name'] . ']">';
 
 		foreach( $args['selections']['options'] as $val ) {
 			$set = false;
