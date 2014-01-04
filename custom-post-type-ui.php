@@ -386,6 +386,12 @@ function cptui_help_style() { ?>
 		.wdsintro { width: 60%; }
 		.wdsrss { width: 33%; }
 		#cptui_select_post_type, #cptui_select_taxonomy { margin-top: 15px; }
+		.cptui_post_import, .cptui_tax_import {
+			height: 200px;
+			margin-bottom: 10px;
+			resize: vertical;
+			width: 100%;
+		}
 	</style>
 <?php
 }
