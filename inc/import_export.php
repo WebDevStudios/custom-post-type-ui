@@ -32,7 +32,11 @@ add_action( 'admin_menu', 'cptui_importexport_admin_menu' );
  */
 function cptui_importexport() {
 
-	$tab = ( !empty( $_GET ) && !empty( $_GET['action'] ) && 'edit' == $_GET['action'] ) ? 'edit' : 'new';
+	$tab = ( !empty( $_GET ) && !empty( $_GET['action'] ) && 'get_code' == $_GET['action'] ) ? 'get_code' : 'importexport';
+
+	if ( !empty( $_POST ) ) {
+		cptui_import_types_taxes_settings();
+	}
 
 	echo '<div class="wrap">';
 
