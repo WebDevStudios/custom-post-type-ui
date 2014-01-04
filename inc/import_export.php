@@ -341,58 +341,39 @@ function cptui_get_post_type_code( $post_type ) {
 
 }
 
+/*
+TODO: verify this works. Check on array_values() part.
+ */
+/**
+ * Import the posted JSON data from a separate export.
+ *
+ * @since  0.9
+ *
+ * @return void
+ */
+function cptui_import_types_taxes_settings() {
 
-function cpt_import_export() {
-	global $CPT_URL, $wp_post_types;
+	if ( !empty( $_POST['cptui_post_import'] ) ) {
+		$data = stripslashes_deep( trim( $_POST['import'] ) );
+		$settings = json_decode( $data, true );
 
-	$RETURN_URL = ( isset( $_GET['return'] ) ) ? 'action="' . cpt_check_return( esc_attr( $_GET['return'] ) ) . '"' : '';
+		if ( $settings ) {
+			$settings = array_values( $settings );
 
-  if(isset($_POST['import']))
-  {
-//		check_admin_referer('cpt_import');
-	$data = trim($_POST['import']);
-	$data = stripslashes_deep($data);
-	$settings = json_decode($data,true);
-	if($settings)
-	{
-	  $settings = array_values($settings);
-			update_option( 'cpt_custom_post_types', $settings );
-	}
-  }
-	//flush rewrite rules
+			update_option( 'cptui_post_types', $settings );
+		}
+
+  	} elseif ( !empty( $_POST['cptui_tax_import'] ) ) {
+  		$data = stripslashes_deep( trim( $_POST['cptui_tax_import'] ) );
+		$settings = json_decode( $data, true );
+
+		if ( $settings ) {
+			$settings = array_values( $settings );
+
+			update_option( 'cptui_taxonomies', $settings );
+		}
+
+  	}
+	//Make them immediately available.
 	flush_rewrite_rules();
-?>
-	<div class="wrap">
-		<?php screen_icon( 'plugins' ); ?>
-		<h2><?php _e( 'Import/Export', 'cpt-plugin' ); ?> </h2>
-
-		<h2><?php _e( 'Import', 'cpt-plugin' ); ?></h2>
-		<p><?php _e( 'To import custom post types, paste the JSON text shown from a previous export', 'cpt-plugin' ); ?>
-		<form method="post" <?php echo $RETURN_URL; ?>>
-			<?php
-			if ( function_exists( 'wp_nonce_field' ) )
-				wp_nonce_field( 'cpt_import' );
-			?>
-	  <p>
-		<textarea name="import" style="width: 300px; height: 200px">
-		</textarea>
-	  </p>
-	  <p>
-		<input type="submit" value="Import"/>
-	  </p>
-	</form>
-		<h2><?php _e( 'Export', 'cpt-plugin' ); ?></h2>
-		<p><?php _e( 'The following is a JSON export of your current CPT settings. Copy this information to a different installation or simply save it for backup purposes.', 'cpt-plugin' ); ?>
-	<p>
-	  <?php
-		$cpt_post_types = get_option( 'cpt_custom_post_types', array() );
-		$json = json_encode($cpt_post_types);
-
-	  ?>
-	  <textarea style="width: 300px; height: 200px"><?php echo(esc_html($json))?></textarea>
-	</p>
-	</div>
-<?php
-//load footer
-cpt_footer();
 }
