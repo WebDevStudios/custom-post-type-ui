@@ -49,9 +49,61 @@ function cptui_importexport() {
 		echo $errors;
 	}
 
+	$ui = new cptui_admin_ui();
+
 	//Create our tabs.
 	cptui_settings_tab_menu( $page = 'importexport' );
 
+	if ( 'importexport' == $tab ) {
+	?>
+
+	<table class="form-table cptui-table">
+		<tr>
+			<td>
+				<h3><?php _e( 'Import Post Types', 'cpt-plugin' ); ?></h3>
+				<form method="post">
+					<textarea class="cptui_post_import" name="cptui_post_import"></textarea>
+					<p><strong><?php _e( 'To import post types from a different WordPress site, paste the exported content from that site and click the "Import" button.', 'cpt-plugin' ); ?>
+					<p><input class="button button-primary" type="submit" value="<?php esc_attr_e( 'Import', 'cpt-plugin' ); ?>"/></strong></p>
+				</form>
+			</td>
+			<td>
+				<h3><?php _e( 'Export Post Types', 'cpt-plugin' ); ?></h3>
+				<?php
+					$cptui_post_types = get_option( 'cptui_post_types', array() );
+					$json = json_encode($cptui_post_types);
+				?>
+				<textarea class="cptui_post_import"><?php echo esc_html( $json ); ?></textarea>
+				<p><strong><?php _e( 'Use the content above to import current post types into a different WordPress site. You can also use this to simply back up your post type settings.', 'cpt-plugin' ); ?></strong></p>
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				<h3><?php _e( 'Import Taxonomies', 'cpt-plugin' ); ?></h3>
+				<form method="post">
+					<textarea class="cptui_tax_import" name="cptui_tax_import"></textarea>
+					<p><strong><?php _e( 'To import taxonomies from a different WordPress site, paste the exported content from that site and click the "Import" button.', 'cpt-plugin' ); ?>
+					<p><input class="button button-primary" type="submit" value="<?php esc_attr_e( 'Import', 'cpt-plugin' ); ?>"/></strong></p>
+				</form>
+			</td>
+			<td>
+				<h3><?php _e( 'Export Taxonomies', 'cpt-plugin' ); ?></h3>
+				<?php
+					$cptui_taxonomies = get_option( 'cptui_taxonomies', array() );
+					$json = json_encode($cptui_taxonomies);
+				?>
+				<textarea class="cptui_tax_import"><?php echo esc_html( $json ); ?></textarea>
+				<p><strong><?php _e( 'Use the content above to import current taxonomies into a different WordPress site. You can also use this to simply back up your taxonomy settings.', 'cpt-plugin' ); ?></strong></p>
+			</td>
+		</tr>
+	</table>
+
+	<?php
+	} else { ?>
+		<h2><?php _e( 'Get Post Type and Taxonomy Code', 'cpt-plugin' ); ?></h2>
+	<?php
+	}
 
 	echo '</div><!-- End .wrap -->';
 
