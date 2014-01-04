@@ -74,6 +74,7 @@ function cptui_create_submenus() {
 	require_once( plugin_dir_path( __FILE__ ) . 'inc/post-types.php' );
 	require_once( plugin_dir_path( __FILE__ ) . 'inc/taxonomies.php' );
 	require_once( plugin_dir_path( __FILE__ ) . 'inc/support.php' );
+	require_once( plugin_dir_path( __FILE__ ) . 'inc/import_export.php' );
 }
 add_action( 'init', 'cptui_create_submenus' );
 
