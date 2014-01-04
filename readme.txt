@@ -17,6 +17,8 @@ Please note that this plugin will NOT handle display of registered post types or
 
 All official development on this plugin is on GitHub. Version bumps will still be published here on WordPress.org. You can find the repo at [https://github.com/WebDevStudios/custom-post-type-ui](https://github.com/WebDevStudios/custom-post-type-ui). Please file issues, bugs, and enhancement ideas there, when possible.
 
+Import/Export functionality amended from original contribution by [Ben Allfree](http://wordpress.org/support/profile/benallfree).
+
 == Screenshots ==
 
 1. Create a custom post type
