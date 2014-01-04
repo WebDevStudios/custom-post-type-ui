@@ -443,7 +443,7 @@ function cptui_settings_tab_menu( $page = 'post_types' ) {
 		<?php
 		}
 	} else { ?>
-		<a class="<?php echo $tab1; ?>" href="<?php echo admin_url( 'admin.php?page=cptui_' . $page ); ?>"><?php _e( 'Import/Export', 'cpt-plugin' ); ?></a>
+		<a class="<?php echo $tab1; ?>" href="<?php echo admin_url( 'admin.php?page=cptui_' . $page ); ?>"><?php _e( 'Import/Export Settings', 'cpt-plugin' ); ?></a>
 		<?php
 		if ( 'importexport' == $page ) { ?>
 			<a class="<?php echo $tab2; ?>" href="<?php echo add_query_arg( array( 'action' => 'get_code' ) ); ?>"><?php _e( 'Get Code', 'cpt-plugin' ); ?></a>
