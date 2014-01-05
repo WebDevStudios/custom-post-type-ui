@@ -85,7 +85,7 @@ function cptui_importexport() {
 				<p><strong><?php _e( 'Use the content above to import current post types into a different WordPress site. You can also use this to simply back up your post type settings.', 'cpt-plugin' ); ?></strong></p>
 			</td>
 		</tr>
-
+		<?php } elseif ( !empty( $_GET ) && 'taxonomies' == $_GET['action'] ) { ?>
 		<tr>
 			<td>
 				<h3><?php _e( 'Import Taxonomies', 'cpt-plugin' ); ?></h3>
@@ -109,6 +109,7 @@ function cptui_importexport() {
 				<p><strong><?php _e( 'Use the content above to import current taxonomies into a different WordPress site. You can also use this to simply back up your taxonomy settings.', 'cpt-plugin' ); ?></strong></p>
 			</td>
 		</tr>
+		<?php } ?>
 	</table>
 
 	<?php
