@@ -61,6 +61,7 @@ function cptui_importexport() {
 	?>
 
 	<table class="form-table cptui-table">
+		<?php if ( !empty( $_GET ) && empty( $_GET['action'] ) ) { ?>
 		<tr>
 			<td>
 				<h3><?php _e( 'Import Post Types', 'cpt-plugin' ); ?></h3>
