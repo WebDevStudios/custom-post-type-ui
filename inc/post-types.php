@@ -143,7 +143,9 @@ function cptui_manage_post_types() {
 						?>
 					</table>
 				<p class="submit">
+					<?php wp_nonce_field( 'cptui_select_post_type', 'cptui_select_post_type' ); ?>
 					<?php if ( !empty( $_GET ) && !empty( $_GET['action'] ) && 'edit' == $_GET['action'] ) { ?>
+						<?php wp_nonce_field( 'cptui_edit_post_type_nonce', 'cptui_edit_post_type_nonce' ); ?>
 						<input type="submit" class="button-primary" name="cpt_submit" value="<?php echo esc_attr( apply_filters( 'cptui_post_type_submit_edit', __( 'Edit Post Type', 'cpt-plugin' ) ) ); ?>" />
 						<a class="button-secondary" id="cpt_submit_delete" href="<?php echo add_query_arg( array( 'delete' => 'true' ) ); ?>"><?php echo apply_filters( 'cptui_post_type_submit_delete', __( 'Delete Post Type', 'cpt-plugin' ) ); ?></a>
 					<?php } else { ?>
@@ -875,35 +877,36 @@ function cptui_get_current_post_type() {
 //delete custom post type or custom taxonomy
 function cptui_delete_post_type() {
 
-	//check if we are deleting a custom post type
-	if( isset( $_GET['deltype'] ) ) {
+	check_admin_referer( 'cptui_delete_post_type_nonce', 'cptui_delete_post_type_nonce' );
+		//check if we are deleting a custom post type
+		if( isset( $_GET['deltype'] ) ) {
 
-		//nonce security check
-		check_admin_referer( 'cpt_delete_post_type' );
 
-		$delType = intval( $_GET['deltype'] );
-		$cpt_post_types = get_option( 'cpt_custom_post_types' );
 
-		unset( $cpt_post_types[$delType] );
+			$delType = intval( $_GET['deltype'] );
+			$cpt_post_types = get_option( 'cpt_custom_post_types' );
 
-		$cpt_post_types = array_values( $cpt_post_types );
+			unset( $cpt_post_types[$delType] );
 
-		update_option( 'cpt_custom_post_types', $cpt_post_types );
+			$cpt_post_types = array_values( $cpt_post_types );
 
-	}
+			update_option( 'cpt_custom_post_types', $cpt_post_types );
+
+		}
 }
-
+//Used to both add and edit.
 function cptui_update_post_type( $data ) {
+
+	check_admin_referer( 'cptui_edit_post_type_nonce', 'cptui_edit_post_type_nonce' );
 	//clean up $_POST data here
 
 	//bits of content validation
-	if ( false !== strpos( $cpt_form_fields["name"], '\'' ) ||
+		if ( false !== strpos( $cpt_form_fields["name"], '\'' ) ||
 			 false !== strpos( $cpt_form_fields["name"], '\"' ) ||
 			 false !== strpos( $cpt_form_fields["rewrite_slug"], '\'' ) ||
 			 false !== strpos( $cpt_form_fields["rewrite_slug"], '\"' ) ) {
 
 
 		}
-
 	flush_rewrite_rules();
 }
