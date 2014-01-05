@@ -57,7 +57,7 @@ function cptui_importexport() {
 	//Create our tabs.
 	cptui_settings_tab_menu( $page = 'importexport' );
 
-	if ( 'importexport' == $tab ) {
+	if ( 'post_types' == $tab || 'taxonomies' == $tab ) {
 	?>
 
 	<table class="form-table cptui-table">
