@@ -1,6 +1,6 @@
 <?php
-/*
- * TODO: help bubble link hover color
+/**
+ * This file controls all of the content from the Post Types page
  */
 /**
  * Add our cptui.js file, with dependencies on jQuery and jQuery UI
