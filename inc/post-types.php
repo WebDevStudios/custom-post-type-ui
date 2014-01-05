@@ -155,7 +155,7 @@ function cptui_manage_post_types() {
 				<p> <?php _e( 'Click headings to expand for more settings. Scroll or keyboard tab to navigate all options.', 'cpt-plugin' ); ?></p>
 
 				<div id="cptui_accordion">
-					<h3>Labels</h3>
+					<h3 title="<?php esc_attr_e( 'Click to expand', 'cpt-plugin' ); ?>"><?php _e( 'Labels', 'cpt-plugin' ); ?></h3>
 						<div>
 							<table>
 							<?php
@@ -305,7 +305,7 @@ function cptui_manage_post_types() {
 							?>
 							</table>
 						</div>
-					<h3>Settings</h3>
+					<h3 title="<?php esc_attr_e( 'Click to expand', 'cpt-plugin' ); ?>"><?php _e( 'Settings', 'cpt-plugin' ); ?></h3>
 						<div>
 							<table>
 							<?php
@@ -747,7 +747,7 @@ function cptui_manage_post_types() {
 							</table>
 						</div>
 						<?php if ( 'new' == $tab ) { ?>
-						<h3>Starter Notes</h3>
+						<h3 title="<?php esc_attr_e( 'Click to expand', 'cpt-plugin' ); ?>"><?php _e( 'Starter Notes', 'cpt-plugin' ); ?></h3>
 							<div><ol>
 								<?php
 								echo '<li>' . sprintf( __( 'Post Type names should have %s max 20 characters %s, and only contain alphanumeric, lowercase characters and underscores in place of spaces. Reserved names: post, page, attachment, revision, nav_menu_item.', 'cpt-plugin' ), '<strong class="wp-ui-highlight">', '</strong>' );
