@@ -27,7 +27,15 @@ add_action( 'admin_menu', 'cptui_importexport_admin_menu' );
  */
 function cptui_importexport() {
 
-	$tab = ( !empty( $_GET ) && !empty( $_GET['action'] ) && 'get_code' == $_GET['action'] ) ? 'get_code' : 'importexport';
+	if ( !empty( $_GET ) ) {
+		if ( !empty( $_GET['action'] ) && 'taxonomies' == $_GET['action'] ) {
+			$tab = 'taxonomies';
+		} elseif ( !empty( $_GET['action'] ) && 'get_code' == $_GET['action'] ) {
+			$tab = 'get_code';
+		} else {
+			$tab = 'post_types';
+		}
+	}
 
 	if ( !empty( $_POST ) ) {
 		cptui_import_types_taxes_settings();
