@@ -395,6 +395,9 @@ function cptui_help_style() { ?>
 			resize: vertical;
 			width: 100%;
 		}
+		#cptui_accordion h3:hover {
+			cursor: pointer;
+		}
 	</style>
 <?php
 }
