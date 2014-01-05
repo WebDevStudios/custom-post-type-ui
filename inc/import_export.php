@@ -2,10 +2,9 @@
 /**
  * This file controls all of the content from the Import/Export page
  */
-function cptui_importexport_enqueue_scripts() {
-	wp_enqueue_script( 'cptui', plugins_url( 'js/cptui.js' , dirname(__FILE__) ) . '', array( 'jquery', 'jquery-ui-core', 'jquery-ui-accordion' ), '0.9', true );
-}
-add_action( 'admin_enqueue_scripts', 'cptui_importexport_enqueue_scripts' );
+
+// Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) exit;
 
 /**
  * Add our settings page to the menu.
