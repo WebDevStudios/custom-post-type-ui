@@ -158,10 +158,10 @@ function cptui_manage_taxonomies() {
 					</table>
 				<p class="submit">
 					<?php if ( !empty( $_GET ) && !empty( $_GET['action'] ) && 'edit' == $_GET['action'] ) { ?>
-						<input type="submit" class="button-primary" name="cpt_submit" value="<?php echo apply_filters( 'cptui_taxonomy_submit_edit', __( 'Edit Taxonomy', 'cpt-plugin' ) ); ?>" />
+						<input type="submit" class="button-primary" name="cpt_submit" value="<?php echo esc_attr( apply_filters( 'cptui_taxonomy_submit_edit', __( 'Edit Taxonomy', 'cpt-plugin' ) ) ); ?>" />
 						<a class="button-secondary" id="cpt_submit_delete" href="<?php echo add_query_arg( array( 'delete' => 'true' ) ); ?>"><?php echo apply_filters( 'cptui_taxonomy_submit_delete', __( 'Delete Taxonomy', 'cpt-plugin' ) ); ?></a>
 					<?php } else { ?>
-						<input type="submit" class="button-primary" name="cpt_submit" value="<?php echo apply_filters( 'cptui_taxonomy_submit_add', __( 'Add Taxonomy', 'cpt-plugin' ) ); ?>" />
+						<input type="submit" class="button-primary" name="cpt_submit" value="<?php echo esc_attr( apply_filters( 'cptui_taxonomy_submit_add', __( 'Add Taxonomy', 'cpt-plugin' ) ) ); ?>" />
 					<?php } ?>
 				</p>
 			</td>
