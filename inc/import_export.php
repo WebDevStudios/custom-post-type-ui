@@ -1,10 +1,6 @@
 <?php
 /**
- * Add our cptui.js file, with dependencies on jQuery and jQuery UI
- *
- * @since  0.9
- *
- * @return mixed  js scripts
+ * This file controls all of the content from the Import/Export page
  */
 function cptui_importexport_enqueue_scripts() {
 	wp_enqueue_script( 'cptui', plugins_url( 'js/cptui.js' , dirname(__FILE__) ) . '', array( 'jquery', 'jquery-ui-core', 'jquery-ui-accordion' ), '0.9', true );
