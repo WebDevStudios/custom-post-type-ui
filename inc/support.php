@@ -38,6 +38,13 @@ function cptui_support() {
 					<li>How do I add a newly registered taxonomy to a post type that already exists? http://codex.wordpress.org/Function_Reference/register_taxonomy_for_object_type
 					<li>Post relationships http://pippinsplugins.com/introduction-posts-2-posts-plugin/
 					<li>Custom rewrite rules. What they all mean and what you can/can't do
+					<li>Filtering "enter title here" text
+							//Change text inside the post/page editor title field. Should be able to adapt as necessary.
+							function title_text_input( $title ){
+								global $post;
+								return (($post->post_type == 'page') ? 'Foo' : 'Bar');
+							}
+							add_filter( 'enter_title_here', 'title_text_input' );
 				</ol>
 			</div>
 			<div class="answers">
