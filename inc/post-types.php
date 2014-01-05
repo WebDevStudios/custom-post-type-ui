@@ -152,7 +152,7 @@ function cptui_manage_post_types() {
 				</p>
 			</td>
 			<td>
-				<?php echo '<small>' . __( 'Click headings to toggle. Scroll or keyboard tab to see all options.', 'cpt-plugin' ) . '</small>'; ?>
+				<p> <?php _e( 'Click headings to expand for more settings. Scroll or keyboard tab to navigate all options.', 'cpt-plugin' ); ?></p>
 
 				<div id="cptui_accordion">
 					<h3>Labels</h3>
