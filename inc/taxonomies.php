@@ -166,7 +166,7 @@ function cptui_manage_taxonomies() {
 				</p>
 			</td>
 			<td>
-				<?php echo '<small>' . __( 'Click headings to toggle. Scroll or keyboard tab to see all options.', 'cpt-plugin' ) . '</small>'; ?>
+				<?php echo '<p>' . __( 'Click headings to expand for more settings. Scroll or keyboard tab to navigate all options.', 'cpt-plugin' ) . '</p>'; ?>
 
 				<div id="cptui_accordion">
 					<h3 title="<?php esc_attr_e( 'Click to expand', 'cpt-plugin' ); ?>">Labels</h3>
