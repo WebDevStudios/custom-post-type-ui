@@ -78,7 +78,7 @@ function cptui_manage_post_types() {
 			<?php
 			cptui_post_types_dropdown( $post_types );
 			?>
-			<input type="submit" class="button-secondary" name="cptui_select_post_type_submit" value="<?php echo apply_filters( 'cptui_post_type_submit_select', __( 'Select Post Type', 'cpt-plugin' ) ); ?>" />
+			<input type="submit" class="button-secondary" name="cptui_select_post_type_submit" value="<?php echo esc_attr( apply_filters( 'cptui_post_type_submit_select', __( 'Select Post Type', 'cpt-plugin' ) ) ); ?>" />
 		</form>
 	<?php
 	} ?>
