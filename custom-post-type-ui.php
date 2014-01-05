@@ -10,6 +10,9 @@ Text Domain: cpt-plugin
 License: GPLv2
 */
 
+// Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 define( 'CPT_VERSION', '0.9' ); // Define current version constant
 define( 'CPTUI_WP_VERSION', get_bloginfo( 'version' ) ); // Define current WordPress version constant
 
