@@ -386,24 +386,22 @@ function cptui_manage_taxonomies() {
 									'helptext'      => esc_attr__( 'Custom Taxonomy Rewrite Slug', 'cpt-plugin'),
 									) );
 
-								if ( version_compare( CPTUI_WP_VERSION, '3.5', '>' ) ) {
-
-									$select = array(
-										'options' => array(
-											array( 'attr' => '0', 'text' => __( 'False', 'cpt-plugin' ), 'default' => 'true' ),
-											array( 'attr' => '1', 'text' => __( 'True', 'cpt-plugin' ) )
-										)
-									);
-									$select['selected'] = ( isset( $current['show_admin_column'] ) ) ? $current['show_admin_column'] : '';
-									echo $ui->get_select_input( array(
-										'namearray'     => 'cpt_custom_tax',
-										'name'          => 'show_admin_column',
-										'labeltext'     => __( 'Show Admin Column', 'cpt-plugin' ),
-										'aftertext'     => __( '(default: False)', 'cpt-plugin' ),
-										'helptext'      => esc_attr__( 'Whether to allow automatic creation of taxonomy columns on associated post-types.', 'cpt-plugin' ),
-										'selections'    => $select
-									) );
-								} ?>
+								$select = array(
+									'options' => array(
+										array( 'attr' => '0', 'text' => __( 'False', 'cpt-plugin' ), 'default' => 'true' ),
+										array( 'attr' => '1', 'text' => __( 'True', 'cpt-plugin' ) )
+									)
+								);
+								$select['selected'] = ( isset( $current['show_admin_column'] ) ) ? $current['show_admin_column'] : '';
+								echo $ui->get_select_input( array(
+									'namearray'     => 'cpt_custom_tax',
+									'name'          => 'show_admin_column',
+									'labeltext'     => __( 'Show Admin Column', 'cpt-plugin' ),
+									'aftertext'     => __( '(default: False)', 'cpt-plugin' ),
+									'helptext'      => esc_attr__( 'Whether to allow automatic creation of taxonomy columns on associated post-types.', 'cpt-plugin' ),
+									'selections'    => $select
+								) );
+								?>
 						</table>
 					</div>
 
