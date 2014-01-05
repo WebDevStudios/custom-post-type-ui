@@ -464,7 +464,7 @@ function cptui_settings_tab_menu( $page = 'post_types' ) {
  *
  * @since  0.9
  *
- * @return void  updated new options.
+ * @return bool  Whether or not options were successfully updated
  */
 function cptui_convert_settings() {
 
@@ -485,7 +485,7 @@ function cptui_convert_settings() {
 			); //Remove our previous indexed versions.
 		}
 		//Finally provide our new options.
-		update_option( 'cptui_post_types', $new_post_types );
+		return update_option( 'cptui_post_types', $new_post_types );
 	}
 
 	//We only want to run this if we don't have our new options.
@@ -503,7 +503,7 @@ function cptui_convert_settings() {
 			); //Remove our previous indexed versions.
 		}
 		//Finally provide our new options.
-		update_option( 'cptui_taxonomies', $new_taxonomies );
+		return update_option( 'cptui_taxonomies', $new_taxonomies );
 	}
 }
 add_action( 'admin_init', 'cptui_convert_settings' );
