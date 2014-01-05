@@ -163,12 +163,12 @@ function cptui_manage_post_types() {
 							 * Post Admin Menu Name
 							 */
 							echo $ui->get_text_input( array(
+								'labeltext'     => __( 'Menu Name', 'cpt-plugin' ),
+								'helptext'      => esc_attr__( 'Custom menu name for your custom post type.', 'cpt-plugin'),
 								'namearray'     => 'cpt_labels',
 								'name'          => 'menu_name',
 								'textvalue'     => ( isset( $current['labels']['menu_name'] ) ) ? esc_attr( $current['labels']['menu_name'] ) : '',
-								'labeltext'     => __( 'Menu Name', 'cpt-plugin' ),
-								'aftertext'     => __( '(e.g. My Movies)', 'cpt-plugin' ),
-								'helptext'      => esc_attr__( 'Custom menu name for your custom post type.', 'cpt-plugin')
+								'aftertext'     => __( '(e.g. My Movies)', 'cpt-plugin' )
 								) );
 
 							/*
