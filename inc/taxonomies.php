@@ -169,7 +169,7 @@ function cptui_manage_taxonomies() {
 				<?php echo '<small>' . __( 'Click headings to toggle. Scroll or keyboard tab to see all options.', 'cpt-plugin' ) . '</small>'; ?>
 
 				<div id="cptui_accordion">
-					<h3>Labels</h3>
+					<h3 title="<?php esc_attr_e( 'Click to expand', 'cpt-plugin' ); ?>">Labels</h3>
 						<div>
 							<table>
 							<?php
@@ -310,7 +310,7 @@ function cptui_manage_taxonomies() {
 							?>
 						</table>
 					</div>
-					<h3>Settings</h3>
+					<h3 title="<?php esc_attr_e( 'Click to expand', 'cpt-plugin' ); ?>">Settings</h3>
 					<div>
 						<table>
 							<?php
@@ -408,7 +408,7 @@ function cptui_manage_taxonomies() {
 					</div>
 
 					<?php if ( 'new' == $tab ) { ?>
-					<h3>Starter Notes</h3>
+					<h3 title="<?php esc_attr_e( 'Click to expand', 'cpt-plugin' ); ?>">Starter Notes</h3>
 						<div><ol>
 						<?php
 							echo '<li>' . sprintf( __( 'Taxonomy names should have %s max 32 characters %s, and only contain alphanumeric, lowercase, characters and underscores in place of spaces.', 'cpt-plugin' ), '<strong class="wp-ui-highlight">', '</strong>' );
