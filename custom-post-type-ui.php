@@ -71,7 +71,7 @@ add_action( 'admin_menu', 'cptui_plugin_menu' );
  *
  * @since  0.9
  *
- * @return [type]  [description]
+ * @return void
  */
 function cptui_create_submenus() {
 	require_once( plugin_dir_path( __FILE__ ) . 'inc/post-types.php' );
