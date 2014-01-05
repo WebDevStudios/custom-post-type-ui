@@ -66,7 +66,7 @@ function cptui_importexport() {
 			<td>
 				<h3><?php _e( 'Import Post Types', 'cpt-plugin' ); ?></h3>
 				<form method="post">
-					<textarea class="cptui_post_import" placeholder="<?php _e( 'Paste content here.', 'cpt-plugin' ); ?>" name="cptui_post_import"></textarea>
+					<textarea class="cptui_post_import" placeholder="<?php esc_attr_e( 'Paste content here.', 'cpt-plugin' ); ?>" name="cptui_post_import"></textarea>
 					<p><strong><?php _e( 'To import post types from a different WordPress site, paste the exported content from that site and click the "Import" button.', 'cpt-plugin' ); ?>
 					<p><input class="button button-primary" type="submit" value="<?php esc_attr_e( 'Import', 'cpt-plugin' ); ?>"/></strong></p>
 				</form>
@@ -81,7 +81,7 @@ function cptui_importexport() {
 						$content = __( 'No post types registered yet.', 'cpt-plugin' );
 					}
 				?>
-				<textarea title="<?php _e( 'To copy the system info, click below then press Ctrl + C (PC) or Cmd + C (Mac).', 'cpt-plugin' ); ?>" onclick="this.focus();this.select()" readonly="readonly" class="cptui_post_import"><?php echo $content; ?></textarea>
+				<textarea title="<?php esc_attr_e( 'To copy the system info, click below then press Ctrl + C (PC) or Cmd + C (Mac).', 'cpt-plugin' ); ?>" onclick="this.focus();this.select()" readonly="readonly" class="cptui_post_import"><?php echo $content; ?></textarea>
 				<p><strong><?php _e( 'Use the content above to import current post types into a different WordPress site. You can also use this to simply back up your post type settings.', 'cpt-plugin' ); ?></strong></p>
 			</td>
 		</tr>
@@ -90,7 +90,7 @@ function cptui_importexport() {
 			<td>
 				<h3><?php _e( 'Import Taxonomies', 'cpt-plugin' ); ?></h3>
 				<form method="post">
-					<textarea class="cptui_tax_import" placeholder="<?php _e( 'Paste content here.', 'cpt-plugin' ); ?>" name="cptui_tax_import"></textarea>
+					<textarea class="cptui_tax_import" placeholder="<?php esc_attr_e( 'Paste content here.', 'cpt-plugin' ); ?>" name="cptui_tax_import"></textarea>
 					<p><strong><?php _e( 'To import taxonomies from a different WordPress site, paste the exported content from that site and click the "Import" button.', 'cpt-plugin' ); ?>
 					<p><input class="button button-primary" type="submit" value="<?php esc_attr_e( 'Import', 'cpt-plugin' ); ?>"/></strong></p>
 				</form>
@@ -105,7 +105,7 @@ function cptui_importexport() {
 						$content = __( 'No taxonomies registered yet.', 'cpt-plugin' );
 					}
 				?>
-				<textarea title="<?php _e( 'To copy the system info, click below then press Ctrl + C (PC) or Cmd + C (Mac).', 'cpt-plugin' ); ?>" onclick="this.focus();this.select()" readonly="readonly" class="cptui_tax_import"><?php echo $content; ?></textarea>
+				<textarea title="<?php esc_attr_e( 'To copy the system info, click below then press Ctrl + C (PC) or Cmd + C (Mac).', 'cpt-plugin' ); ?>" onclick="this.focus();this.select()" readonly="readonly" class="cptui_tax_import"><?php echo $content; ?></textarea>
 				<p><strong><?php _e( 'Use the content above to import current taxonomies into a different WordPress site. You can also use this to simply back up your taxonomy settings.', 'cpt-plugin' ); ?></strong></p>
 			</td>
 		</tr>
