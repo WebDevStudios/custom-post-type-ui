@@ -75,9 +75,13 @@ function cptui_importexport() {
 				<h3><?php _e( 'Export Post Types', 'cpt-plugin' ); ?></h3>
 				<?php
 					$cptui_post_types = get_option( 'cptui_post_types', array() );
-					$json = json_encode($cptui_post_types);
+					if ( !empty( $cptui_post_types ) ) {
+						$content = esc_html( json_encode( $cptui_post_types ) );
+					} else {
+						$content = __( 'No post types registered yet.', 'cpt-plugin' );
+					}
 				?>
-				<textarea class="cptui_post_import"><?php echo esc_html( $json ); ?></textarea>
+				<textarea title="<?php _e( 'To copy the system info, click below then press Ctrl + C (PC) or Cmd + C (Mac).', 'cpt-plugin' ); ?>" onclick="this.focus();this.select()" readonly="readonly" class="cptui_post_import"><?php echo $content; ?></textarea>
 				<p><strong><?php _e( 'Use the content above to import current post types into a different WordPress site. You can also use this to simply back up your post type settings.', 'cpt-plugin' ); ?></strong></p>
 			</td>
 		</tr>
@@ -95,9 +99,13 @@ function cptui_importexport() {
 				<h3><?php _e( 'Export Taxonomies', 'cpt-plugin' ); ?></h3>
 				<?php
 					$cptui_taxonomies = get_option( 'cptui_taxonomies', array() );
-					$json = json_encode($cptui_taxonomies);
+					if ( !empty( $cptui_taxonomies ) ) {
+						$content = esc_html( json_encode( $cptui_taxonomies ) );
+					} else {
+						$content = __( 'No taxonomies registered yet.', 'cpt-plugin' );
+					}
 				?>
-				<textarea class="cptui_tax_import"><?php echo esc_html( $json ); ?></textarea>
+				<textarea title="<?php _e( 'To copy the system info, click below then press Ctrl + C (PC) or Cmd + C (Mac).', 'cpt-plugin' ); ?>" onclick="this.focus();this.select()" readonly="readonly" class="cptui_tax_import"><?php echo $content; ?></textarea>
 				<p><strong><?php _e( 'Use the content above to import current taxonomies into a different WordPress site. You can also use this to simply back up your taxonomy settings.', 'cpt-plugin' ); ?></strong></p>
 			</td>
 		</tr>
