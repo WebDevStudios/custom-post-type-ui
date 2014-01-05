@@ -2,6 +2,10 @@
 /**
  * This file controls all of the content from the Post Types page
  */
+
+// Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 /**
  * Add our cptui.js file, with dependencies on jQuery and jQuery UI
  *
