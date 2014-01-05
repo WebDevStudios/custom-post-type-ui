@@ -325,7 +325,27 @@ function cptui_settings() { ?>
  */
 function cptui_footer() { ?>
 	<hr />
-	<p class="cp_about"><a target="_blank" href="http://webdevstudios.com/support/forum/custom-post-type-ui/"><?php _e( 'Custom Post Type UI', 'cpt-plugin' ); ?></a> <?php _e( 'version', 'cpt-plugin' ); echo ' '.CPT_VERSION; ?> by <a href="http://webdevstudios.com" target="_blank">WebDevStudios</a> - <a href="https://github.com/WebDevStudios/custom-post-type-ui" target="_blank"><?php _e( 'Please Report Bugs', 'cpt-plugin' ); ?></a> &middot; <?php _e( 'Follow on Twitter:', 'cpt-plugin' ); ?> <a href="http://twitter.com/williamsba" target="_blank">Brad</a> &middot; <a href="http://twitter.com/tw2113" target="_blank">Michael</a> &middot; <a href="http://twitter.com/webdevstudios" target="_blank">WebDevStudios</a> </p>
+	<p class="cp_about">
+		<?php
+			echo sprintf(
+				__( '%s version %s by %s - %s %s &middot; %s &middot; %s &middot; %s', 'cpt-plugin' ),
+				sprintf(
+					'<a target="_blank" href="http://wordpress.org/support/plugin/custom-post-type-ui">%s</a>',
+					__( 'Custom Post Type UI', 'cpt-plugin' )
+				),
+				CPT_VERSION,
+				'<a href="http://webdevstudios.com" target="_blank">WebDevStudios</a>',
+				sprintf(
+					'<a href="https://github.com/WebDevStudios/custom-post-type-ui" target="_blank">%s</a>',
+					__( 'Please Report Bugs', 'cpt-plugin' )
+				),
+				__( 'Follow on Twitter:', 'cpt-plugin' ),
+				'<a href="http://twitter.com/williamsba" target="_blank">Brad</a>',
+				'<a href="http://twitter.com/tw2113" target="_blank">Michael</a>',
+				'<a href="http://twitter.com/webdevstudios" target="_blank">WebDevStudios</a>'
+			);
+		?>
+	 </p>
 <?php
 }
 
