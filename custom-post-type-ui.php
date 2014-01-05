@@ -411,7 +411,7 @@ add_action( 'admin_head', 'cptui_help_style' );
  */
 function cptui_settings_tab_menu( $page = 'post_types' ) {
 	//initiate our arrays with default classes
-	$tab1 = $tab2 = array( 'nav-tab' );
+	$tab1 = $tab2 = $tab3 = array( 'nav-tab' );
 
 	if ( 'importexport' == $page ) :
 		$title = __( 'Import/Export', 'cpt-plugin' );
@@ -421,14 +421,18 @@ function cptui_settings_tab_menu( $page = 'post_types' ) {
 		$title = __( 'Manage Post Types', 'cpt-plugin' );
 	endif;
 
-	if ( !empty( $_GET['action'] ) && ( 'edit' == $_GET['action'] || 'get_code' == $_GET['action'] ) ) {
-		$tab2[] = 'nav-tab-active';
-	} else {
+	if ( !empty( $_GET['action'] ) ) {
+		if ( 'edit' == $_GET['action'] || 'taxonomies' == $_GET['action'] ) {
+			$tab2[] = 'nav-tab-active';
+		} elseif ( 'get_code' == $_GET['action'] ) {
+			$tab3[] = 'nav-tab-active';
+		}
+	}  else {
 		$tab1[] = 'nav-tab-active';
 	}
 
 	//implode our arrays for class attributes
-	$tab1 = implode( ' ', $tab1 ); $tab2 = implode( ' ', $tab2 );
+	$tab1 = implode( ' ', $tab1 ); $tab2 = implode( ' ', $tab2 ); $tab3 = implode( ' ', $tab3 );
 
 	?>
 	<h2 class="nav-tab-wrapper">
@@ -439,19 +443,17 @@ function cptui_settings_tab_menu( $page = 'post_types' ) {
 		<a class="<?php echo $tab1; ?>" href="<?php echo admin_url( 'admin.php?page=cptui_manage_' . $page ); ?>"><?php _e( 'Add New', 'cpt-plugin' ); ?></a>
 		<?php
 		if ( 'post_types' == $page ) { ?>
-			<a class="<?php echo $tab2; ?>" href="<?php echo add_query_arg( array( 'action' => 'edit' ) ); ?>"><?php _e( 'Edit Post Types', 'cpt-plugin' ); ?></a>
+			<a class="<?php echo $tab2; ?>" href="<?php echo add_query_arg( array( 'action' => 'edit' ), admin_url( 'admin.php?page=cptui_manage_' . $page ) ); ?>"><?php _e( 'Edit Post Types', 'cpt-plugin' ); ?></a>
 		<?php
 		} elseif ( 'taxonomies' == $page ) { ?>
-			<a class="<?php echo $tab2; ?>" href="<?php echo add_query_arg( array( 'action' => 'edit' ) ); ?>"><?php _e( 'Edit Taxonomies', 'cpt-plugin' ); ?></a>
+			<a class="<?php echo $tab2; ?>" href="<?php echo add_query_arg( array( 'action' => 'edit' ), admin_url( 'admin.php?page=cptui_manage_' . $page ) ); ?>"><?php _e( 'Edit Taxonomies', 'cpt-plugin' ); ?></a>
 		<?php
 		}
 	} else { ?>
-		<a class="<?php echo $tab1; ?>" href="<?php echo admin_url( 'admin.php?page=cptui_' . $page ); ?>"><?php _e( 'Import/Export Settings', 'cpt-plugin' ); ?></a>
-		<?php
-		if ( 'importexport' == $page ) { ?>
-			<a class="<?php echo $tab2; ?>" href="<?php echo add_query_arg( array( 'action' => 'get_code' ) ); ?>"><?php _e( 'Get Code', 'cpt-plugin' ); ?></a>
-		<?php
-		}
+		<a class="<?php echo $tab1; ?>" href="<?php echo admin_url( 'admin.php?page=cptui_' . $page ); ?>"><?php _e( 'Post Types', 'cpt-plugin' ); ?></a>
+		<a class="<?php echo $tab2; ?>" href="<?php echo add_query_arg( array( 'action' => 'taxonomies' ), admin_url( 'admin.php?page=cptui_' . $page ) ); ?>"><?php _e( 'Taxonomies', 'cpt-plugin' ); ?></a>
+		<a class="<?php echo $tab3; ?>" href="<?php echo add_query_arg( array( 'action' => 'get_code' ), admin_url( 'admin.php?page=cptui_' . $page ) ); ?>"><?php _e( 'Get Code', 'cpt-plugin' ); ?></a>
+	<?php
 	} ?>
 	</h2>
 <?php
