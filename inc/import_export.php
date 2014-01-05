@@ -115,6 +115,9 @@ function cptui_importexport() {
 	<?php
 	} else { ?>
 		<h2><?php _e( 'Get Post Type and Taxonomy Code', 'cpt-plugin' ); ?></h2>
+
+		<h3>All CPT UI Post Types</h3>
+		<textarea class="cptui_post_type_get_code"><?php cptui_get_post_type_code(); ?></textarea>
 	<?php
 	}
 
@@ -239,18 +242,33 @@ function cptui_get_taxonomy_code( $taxonomy ) {
 }
 
 //TODO: refactor.
-function cptui_get_post_type_code( $post_type ) {
-	// Begin the display for the "Get code" feature
-	//display register_post_type code
-	$custom_post_type   = '';
-	$cpt_support_array  = '';
-	$cpt_tax_array      = '';
+function cptui_get_post_type_code( $post_type = 'all' ) {
 
-	$cpt_label = ( empty( $cpt_post_type["label"] ) ) ? esc_html($cpt_post_type["name"]) : esc_html($cpt_post_type["label"]);
-	$cpt_singular = ( empty( $cpt_post_type["singular_label"] ) ) ? $cpt_label : esc_html($cpt_post_type["singular_label"]);
-	$cpt_rewrite_slug = ( empty( $cpt_post_type["rewrite_slug"] ) ) ? esc_html($cpt_post_type["name"]) : esc_html($cpt_post_type["rewrite_slug"]);
-	$cpt_menu_position = ( empty( $cpt_post_type["menu_position"] ) ) ? null : intval($cpt_post_type["menu_position"]);
-	$cpt_menu_icon = ( !empty( $cpt_post_type["menu_icon"] ) ) ? esc_url($cpt_post_type["menu_icon"]) : null;
+	//fetch out post types
+	$cptui_post_types = get_option( 'cptui_post_types', array() );
+
+	if ( 'all' == $post_type ) {
+	//Whitespace very much matters here, thus why it's all flush against the left side
+	?>
+
+add_action( 'init', 'cptui_register_my_cpts' );
+function cptui_register_my_cpts() {
+<?php //space before this line reflects in textarea
+	foreach( $cptui_post_types as $type ) {
+	echo cptui_get_single_post_type_registery( $type ) . "\n";
+	} ?>
+// End of cptui_register_my_cpts()
+}
+
+<?php
+} //end of "all" check
+
+
+
+
+
+
+
 
 	if ( true == $cpt_post_type["show_ui"] ) {
 		$cpt_show_in_menu = ( $cpt_post_type["show_in_menu"] == 1 ) ? 1 : 0;
@@ -258,22 +276,6 @@ function cptui_get_post_type_code( $post_type ) {
 	} else {
 		$cpt_show_in_menu = 0;
 	}
-
-	//set custom label values
-	$cpt_labels['name'] = $cpt_label;
-	$cpt_labels['singular_name'] = $cpt_post_type["singular_label"];
-	$cpt_labels['menu_name'] = ( $cpt_post_type[2]["menu_name"] ) ? $cpt_post_type[2]["menu_name"] : $cpt_label;
-	$cpt_labels['add_new'] = ( $cpt_post_type[2]["add_new"] ) ? $cpt_post_type[2]["add_new"] : 'Add ' .$cpt_singular;
-	$cpt_labels['add_new_item'] = ( $cpt_post_type[2]["add_new_item"] ) ? $cpt_post_type[2]["add_new_item"] : 'Add New ' .$cpt_singular;
-	$cpt_labels['edit'] = ( $cpt_post_type[2]["edit"] ) ? $cpt_post_type[2]["edit"] : 'Edit';
-	$cpt_labels['edit_item'] = ( $cpt_post_type[2]["edit_item"] ) ? $cpt_post_type[2]["edit_item"] : 'Edit ' .$cpt_singular;
-	$cpt_labels['new_item'] = ( $cpt_post_type[2]["new_item"] ) ? $cpt_post_type[2]["new_item"] : 'New ' .$cpt_singular;
-	$cpt_labels['view'] = ( $cpt_post_type[2]["view"] ) ? $cpt_post_type[2]["view"] : 'View ' .$cpt_singular;
-	$cpt_labels['view_item'] = ( $cpt_post_type[2]["view_item"] ) ? $cpt_post_type[2]["view_item"] : 'View ' .$cpt_singular;
-	$cpt_labels['search_items'] = ( $cpt_post_type[2]["search_items"] ) ? $cpt_post_type[2]["search_items"] : 'Search ' .$cpt_label;
-	$cpt_labels['not_found'] = ( $cpt_post_type[2]["not_found"] ) ? $cpt_post_type[2]["not_found"] : 'No ' .$cpt_label. ' Found';
-	$cpt_labels['not_found_in_trash'] = ( $cpt_post_type[2]["not_found_in_trash"] ) ? $cpt_post_type[2]["not_found_in_trash"] : 'No ' .$cpt_label. ' Found in Trash';
-	$cpt_labels['parent'] = ( $cpt_post_type[2]["parent"] ) ? $cpt_post_type[2]["parent"] : 'Parent ' .$cpt_singular;
 
 	if( is_array( $cpt_post_type[0] ) ) {
 		$counter = 1;
@@ -301,17 +303,6 @@ function cptui_get_post_type_code( $post_type ) {
 			$counter++;
 		}
 	}
-
-	$custom_post_type = "add_action('init', 'cptui_register_my_cpt_" . $cpt_post_type["name"] . "');\n";
-	$custom_post_type .= "function cptui_register_my_cpt_" . $cpt_post_type["name"] . "() {\n";
-	$custom_post_type .= "register_post_type('" . $cpt_post_type["name"] . "', array(\n'label' => '" . $cpt_label . "',\n";
-	$custom_post_type .= "'description' => '" . $cpt_post_type["description"] . "',\n";
-	$custom_post_type .= "'public' => " . disp_boolean( $cpt_post_type["public"]) . ",\n";
-	$custom_post_type .= "'show_ui' => " . disp_boolean( $cpt_post_type["show_ui"]) . ",\n";
-	$custom_post_type .= "'show_in_menu' => " . disp_boolean( $cpt_show_in_menu) . ",\n";
-	$custom_post_type .= "'capability_type' => '" . $cpt_post_type["capability_type"] . "',\n";
-	$custom_post_type .= "'map_meta_cap' => " . disp_boolean( '1' ) . ",\n";
-	$custom_post_type .= "'hierarchical' => " . disp_boolean( $cpt_post_type["hierarchical"] ) . ",\n";
 
 	if ( !empty( $cpt_post_type["rewrite_slug"] ) ) {
 		$custom_post_type .= "'rewrite' => array('slug' => '" . $cpt_post_type["rewrite_slug"] . "', 'with_front' => " . $cpt_post_type['rewrite_withfront'] . "),\n";
@@ -352,6 +343,69 @@ function cptui_get_post_type_code( $post_type ) {
 
 	$custom_post_type .= ") ); }";
 
+}
+
+function cptui_get_single_post_type_registery( $post_type ) {
+		//Labels
+	    $cpt_label                  = ( !empty( $post_type['label'] ) ) ? strip_tags( $post_type['label'] ) : strip_tags( $post_type['name'] );
+	    $cpt_singular               = ( !empty( $post_type["singular_label"] ) ) ? strip_tags( $post_type["singular_label"] ) : $cpt_label;
+	    $cpt_menu_name              = ( !empty( $post_type['labels']['menu_name'] ) ) ? strip_tags( $post_type['labels']['menu_name'] ) : $cpt_label;
+	    $cpt_all_items              = ( !empty( $post_type['labels']['all_items'] ) ) ? strip_tags( $post_type['labels']['all_items'] ) : $cpt_label;
+	    $cpt_add_new                = ( !empty( $post_type['labels']['add_new'] ) ) ? strip_tags( $post_type['labels']['add_new'] ) : 'Add ' . $cpt_singular;
+	    $cpt_add_new_item           = ( !empty( $post_type['labels']['add_new_item'] ) ) ? strip_tags( $post_type['labels']['add_new_item'] ) : 'Add New ' . $cpt_singular;
+	    $cpt_edit                   = ( !empty( $post_type['labels']['edit'] ) ) ? strip_tags( $post_type['labels']['edit'] ) : 'Edit';
+	    $cpt_edit_item              = ( !empty( $post_type['labels']['edit_item'] ) ) ? strip_tags( $post_type['labels']['edit_item'] ) : 'Edit ' . $cpt_singular;
+	    $cpt_new_item               = ( !empty( $post_type['labels']['new_item'] ) ) ? strip_tags( $post_type['labels']['new_item'] ) : 'New ' . $cpt_singular;
+	    $cpt_view                   = ( !empty( $post_type['labels']['view'] ) ) ? strip_tags( $post_type['labels']['view'] ) : 'View ' . $cpt_singular;
+	    $cpt_view_item              = ( !empty( $post_type['labels']['view_item'] ) ) ? strip_tags( $post_type['labels']['view_item'] ) : 'View ' . $cpt_singular;
+	    $cpt_search_items           = ( !empty( $post_type['labels']['search_items'] ) ) ? strip_tags( $post_type['labels']['search_items'] ) : 'Search ' . $cpt_label;
+	    $cpt_not_found              = ( !empty( $post_type['labels']['not_found'] ) ) ? strip_tags( $post_type['labels']['not_found'] ) : 'No ' . $cpt_label. ' Found';
+	    $cpt_not_found_in_trash     = ( !empty( $post_type['labels']['not_found_in_trash'] ) ) ? strip_tags( $post_type['labels']['not_found_in_trash'] ) : 'No ' . $cpt_label . ' Found in Trash';
+	    $cpt_parent                 = ( !empty( $post_type['labels']["parent"] ) ) ? strip_tags( $post_type['labels']["parent"] ) : 'Parent: ' . $cpt_singular;
+    ?>
+	$labels = array(
+		'name' => '<?php echo $cpt_label; ?>',
+		'singular_name' => '<?php echo $cpt_singular; ?>',
+		'menu_name' => '<?php echo $cpt_menu_name; ?>',
+		'all_items' => '<?php echo $cpt_all_items; ?>',
+		'add_new' => '<?php echo $cpt_add_new; ?>',
+		'add_new_item' => '<?php echo $cpt_add_new_item; ?>',
+		'edit' => '<?php echo $cpt_edit; ?>',
+		'edit_item' => '<?php echo $cpt_edit_item; ?>',
+		'new_item' => '<?php echo $cpt_new_item; ?>',
+		'view' => '<?php echo $cpt_view; ?>',
+		'view_item' => '<?php echo $cpt_view_item; ?>',
+		'search_items' => '<?php echo $cpt_search_items; ?>',
+		'not_found' => '<?php echo $cpt_not_found; ?>',
+		'not_found_in_trash' => '<?php echo $cpt_not_found_in_trash; ?>',
+		'parent_item_colon' => '<?php echo $cpt_parent; ?>'
+	);
+	<?php
+		//Other parameters
+		$cpt_description            = ( !empty( $post_type['description'] ) )   ? esc_html( $post_type['description'] ) : '';
+		$cpt_public                 = disp_boolean( $post_type['public'] ) ;
+		$cpt_show_ui                = disp_boolean( $post_type["show_ui"] );
+		$cpt_show_in_menu           = disp_boolean( $post_type['show_in_menu'] );
+		$cpt_capability_type        = ( !empty( $post_type["capability_type"] ) ) ? esc_html( $post_type["capability_type"] ) : 'post';
+		$cpt_map_meta_cap           = disp_boolean( 'true' );
+		$cpt_hierarchical           = disp_boolean( $post_type["hierarchical"] );
+	    $cpt_rewrite_slug           = ( !empty( $post_type['rewrite_slug'] ) )  ? esc_html( $post_type['rewrite_slug'] ) : esc_html( $post_type['name'] );
+	    $cpt_menu_position          = ( !empty( $post_type['menu_position'] ) ) ? absint( $post_type['menu_position'] ) : null;
+	    $cpt_menu_icon              = ( !empty( $post_type['menu_icon'] ) )     ? esc_html($post_type['menu_icon']) : null;
+	?>
+
+	$args = array(
+		'labels' => $labels,
+		'description' => '<?php echo $cpt_description; ?>',
+		'public' => <?php echo $cpt_public; ?>,
+		'show_ui' => <?php echo $cpt_show_ui; ?>,
+		'show_in_menu' => <?php echo $cpt_show_in_menu; ?>,
+		'capability_type' => '<?php echo $cpt_capability_type; ?>',
+		'map_meta_cap' => <?php echo $cpt_map_meta_cap; ?>,
+		'hierarchical' => <?php echo $cpt_hierarchical; ?>,
+	);
+	register_post_type( '<?php echo $post_type['name']; ?>', $args );
+<?php
 }
 
 /*
