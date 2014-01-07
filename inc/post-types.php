@@ -779,6 +779,7 @@ function cptui_manage_post_types() {
  * @return mixed  false on no error, mixed when there is one.
  */
 function cptui_get_post_type_errors() {
+	//TODO: Marked for refactoring and admin_notices
 	if ( isset( $_GET['cpt_error'] ) ) :
 		$error = $_GET['cpt_error'];
 
@@ -808,15 +809,16 @@ function cptui_get_post_type_errors() {
  * @return mixed  false on no parameter, mixed when there is one.
  */
 function cptui_get_post_type_successes() {
+	//TODO: Marked for refactoring and admin_notices
 	if ( isset( $_GET['cpt_msg'] ) ) :
 		$success = $_GET['cpt_msg'];
 
 		$msg = '<div id="message" class="updated">';
-		//TODO: filters
+
 		if ( 1 == $success ) {
 			$msg .= '<p>' . __( 'Custom post type created successfully. You may need to refresh to view the new post type in the admin menu.', 'cpt-plugin' ) . '</p>';
 		}
-		//TODO: ADD SUCCESS FOR DELETING TYPES
+
 		$msg .= '</div>';
 
 		return $msg;
