@@ -69,6 +69,12 @@ function cptui_manage_post_types() {
 		}
 	}
 
+	//Only for our add/edit.
+	if ( !empty( $_POST ) && isset( $_POST['cpt_submit'] ) ) {
+		check_admin_referer( 'cptui_addedit_post_type_nonce_action', 'cptui_addedit_post_type_nonce_field' );
+		cptui_update_post_type( $_POST );
+	}
+
 	//Instantiate our UI class.
 	$ui = new cptui_admin_ui();
 
@@ -143,9 +149,8 @@ function cptui_manage_post_types() {
 						?>
 					</table>
 				<p class="submit">
-					<?php wp_nonce_field( 'cptui_select_post_type', 'cptui_select_post_type' ); ?>
+					<?php wp_nonce_field( 'cptui_addedit_post_type_nonce_action', 'cptui_addedit_post_type_nonce_field' ); ?>
 					<?php if ( !empty( $_GET ) && !empty( $_GET['action'] ) && 'edit' == $_GET['action'] ) { ?>
-						<?php wp_nonce_field( 'cptui_edit_post_type_nonce', 'cptui_edit_post_type_nonce' ); ?>
 						<input type="submit" class="button-primary" name="cpt_submit" value="<?php echo esc_attr( apply_filters( 'cptui_post_type_submit_edit', __( 'Edit Post Type', 'cpt-plugin' ) ) ); ?>" />
 						<a class="button-secondary" id="cpt_submit_delete" href="<?php echo add_query_arg( array( 'delete' => 'true' ) ); ?>"><?php echo apply_filters( 'cptui_post_type_submit_delete', __( 'Delete Post Type', 'cpt-plugin' ) ); ?></a>
 					<?php } else { ?>
