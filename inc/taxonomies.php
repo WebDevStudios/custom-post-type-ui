@@ -431,6 +431,7 @@ function cptui_manage_taxonomies() {
  * @return mixed  false on no error, mixed when there is one.
  */
 function cptui_get_taxonomy_errors() {
+	//TODO: Marked for refactoring and admin_notices
 	if ( isset( $_GET['cpt_error'] ) ) :
 		$error = $_GET['cpt_error'];
 
@@ -462,15 +463,16 @@ function cptui_get_taxonomy_errors() {
  * @return mixed  false on no parameter, mixed when there is one.
  */
 function cptui_get_taxonomy_successes() {
+	//TODO: Marked for refactoring and admin_notices
 	if ( isset( $_GET['cpt_msg'] ) ) :
 		$success = $_GET['cpt_msg'];
 
 		$msg = '<div id="message" class="updated">';
-		//TODO: filters
+
 		if ( 1 == $success ) {
 			$msg .= '<p>' . __( 'Custom taxonomy created successfully.  You may need to refresh to view the new taxonomy in the admin menu.', 'cpt-plugin' ) . '</p>';
 		}
-		//TODO: ADD SUCCESS FOR DELETING TAXES
+
 		$msg .= '</div>';
 
 		return $msg;
