@@ -791,6 +791,9 @@ function cptui_get_post_type_errors() {
 		if ( 2 == $error ) {
 			$msg .= '<p>' . __( 'Please do not use quotes in your post type slug or rewrite slug.', 'cpt-plugin' ) . '</p>';
 		}
+		if ( 3 == $error ) {
+			$msg .= '<p>' . __( 'Please select a unique slug for the custom post type.', 'cpt-plugin' ) . '</p>';
+		}
 
 		$msg .= '</div>';
 
