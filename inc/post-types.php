@@ -247,7 +247,7 @@ function cptui_manage_post_types() {
 								'namearray'     => 'cpt_labels',
 								'name'          => 'view',
 								'textvalue'     => ( isset( $current['labels']['view'] ) ) ? esc_attr( $current['labels']['view'] ) : '',
-								'aftertext'     => __( '(e.g. View Movie)', 'cpt-plugin' )
+								'aftertext'     => __( '(e.g. View)', 'cpt-plugin' )
 								) );
 
 							/*
