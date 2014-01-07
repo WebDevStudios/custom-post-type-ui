@@ -134,6 +134,7 @@ function cptui_importexport() {
  * @return mixed  false on no error, mixed when there is one.
  */
 function cptui_get_importexport_errors() {
+	//TODO: Marked for refactoring and admin_notices
 	if ( isset( $_GET['cpt_error'] ) ) :
 		$error = $_GET['cpt_error'];
 
@@ -165,15 +166,16 @@ function cptui_get_importexport_errors() {
  * @return mixed  false on no parameter, mixed when there is one.
  */
 function cptui_get_importexport_successes() {
+	//TODO: Marked for refactoring and admin_notices
 	if ( isset( $_GET['cpt_msg'] ) ) :
 		$success = $_GET['cpt_msg'];
 
 		$msg = '<div id="message" class="updated">';
-		//TODO: filters
+
 		if ( 1 == $success ) {
 			$msg .= '<p>' . __( 'Custom taxonomy created successfully.  You may need to refresh to view the new taxonomy in the admin menu.', 'cpt-plugin' ) . '</p>';
 		}
-		//TODO: ADD SUCCESS FOR DELETING TAXES
+
 		$msg .= '</div>';
 
 		return $msg;
@@ -183,7 +185,6 @@ function cptui_get_importexport_successes() {
 	return false;
 }
 
-//TODO: refactor.
 function cptui_get_taxonomy_code( $taxonomy ) {
 	$custom_tax = '';
 	$custom_tax = "add_action('init', 'cptui_register_my_taxes_" . $cpt_tax_type['name'] . "');\n";
@@ -240,8 +241,7 @@ function cptui_get_taxonomy_code( $taxonomy ) {
 	$custom_tax .= ") ); \n}";
 
 }
-
-//TODO: refactor.
+//creates output for all post types into one init callback.
 function cptui_get_post_type_code( $post_type = 'all' ) {
 
 	//fetch out post types
@@ -344,7 +344,7 @@ function cptui_register_my_cpts() {
 	$custom_post_type .= ") ); }";
 
 }
-
+//creates register_post_type for a single post type
 function cptui_get_single_post_type_registery( $post_type ) {
 		//Labels
 	    $cpt_label                  = ( !empty( $post_type['label'] ) ) ? strip_tags( $post_type['label'] ) : strip_tags( $post_type['name'] );
