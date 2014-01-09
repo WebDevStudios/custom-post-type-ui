@@ -320,7 +320,7 @@ function cptui_manage_taxonomies() {
 										array( 'attr' => '1', 'text' => __( 'True', 'cpt-plugin' ) )
 									)
 								);
-								$select['selected'] = ( isset( $current['hierarchical'] ) ) ? $current['hierarchical'] : '';
+								$select['selected'] = $current['hierarchical'];
 								echo $ui->get_select_input( array(
 									'namearray'     => 'cpt_custom_tax',
 									'name'          => 'hierarchical',
@@ -336,7 +336,7 @@ function cptui_manage_taxonomies() {
 										array( 'attr' => '1', 'text' => __( 'True', 'cpt-plugin' ), 'default' => 'true' )
 									)
 								);
-								$select['selected'] = ( isset( $current['show_ui'] ) ) ? $current['show_ui'] : '';
+								$select['selected'] = $current['show_ui'];
 								echo $ui->get_select_input( array(
 									'namearray'     => 'cpt_custom_tax',
 									'name'          => 'show_ui',
@@ -352,7 +352,7 @@ function cptui_manage_taxonomies() {
 										array( 'attr' => '1', 'text' => __( 'True', 'cpt-plugin' ), 'default' => 'true' )
 									)
 								);
-								$select['selected'] = ( isset( $current['query_var'] ) ) ? $current['query_var'] : '';
+								$select['selected'] = $current['query_var'];
 								echo $ui->get_select_input( array(
 									'namearray'     => 'cpt_custom_tax',
 									'name'          => 'query_var',
@@ -367,7 +367,7 @@ function cptui_manage_taxonomies() {
 										array( 'attr' => '1', 'text' => __( 'True', 'cpt-plugin' ), 'default' => 'true' )
 									)
 								);
-								$select['selected'] = ( isset( $current['rewrite'] ) ) ? $current['rewrite'] : '';
+								$select['selected'] = $current['rewrite'];
 								echo $ui->get_select_input( array(
 									'namearray'     => 'cpt_custom_tax',
 									'name'          => 'rewrite',
@@ -392,7 +392,7 @@ function cptui_manage_taxonomies() {
 										array( 'attr' => '1', 'text' => __( 'True', 'cpt-plugin' ) )
 									)
 								);
-								$select['selected'] = ( isset( $current['show_admin_column'] ) ) ? $current['show_admin_column'] : '';
+								$select['selected'] = $current['show_admin_column'];
 								echo $ui->get_select_input( array(
 									'namearray'     => 'cpt_custom_tax',
 									'name'          => 'show_admin_column',
@@ -510,7 +510,7 @@ function cptui_taxonomies_dropdown( $taxonomies = array() ) {
 		//Grab our current selected taxonomy
 		$current = cptui_get_current_taxonomy();
 
-		$select['selected'] = ( !empty( $current ) ) ? $current : '';
+		$select['selected'] = $current;
 		echo $ui->get_select_input( array(
 			'namearray'     => 'cptui_selected_taxonomy',
 			'name'          => 'taxonomy',
