@@ -909,7 +909,7 @@ function cptui_update_post_type( $data ) {
 
 	//They need tp provide a name
 	if ( empty( $data['cpt_custom_post_type']['name'] ) ) {
-		wp_redirect( add_query_arg( array( 'cpt_error' => '1' ), admin_url( 'admin.php?page=cptui_manage_post_types' ) ) );
+		//wp_redirect( add_query_arg( array( 'cpt_error' => '1' ), admin_url( 'admin.php?page=cptui_manage_post_types' ) ) );
 	}
 
 	//clean up $_POST data
@@ -921,7 +921,7 @@ function cptui_update_post_type( $data ) {
 		 false !== strpos( $data['cpt_custom_post_type']['rewrite_slug'], '\'' ) ||
 		 false !== strpos( $data['cpt_custom_post_type']['rewrite_slug'], '\"' ) ) {
 
-		wp_redirect( add_query_arg( array( 'cpt_error' => '2' ), admin_url( 'admin.php?page=cptui_manage_post_types' ) ) );
+		//wp_redirect( add_query_arg( array( 'cpt_error' => '2' ), admin_url( 'admin.php?page=cptui_manage_post_types' ) ) );
 
 	}
 
@@ -930,7 +930,7 @@ function cptui_update_post_type( $data ) {
 
 	//Check if we a;ready have a post type of that name.
 	if ( array_key_exists( strtolower( $data['cpt_custom_post_type']['name'] ), $post_types ) ) {
-		wp_redirect( add_query_arg( array( 'cpt_error' => '3' ), admin_url( 'admin.php?page=cptui_manage_post_types' ) ) );
+		//wp_redirect( add_query_arg( array( 'cpt_error' => '3' ), admin_url( 'admin.php?page=cptui_manage_post_types' ) ) );
 	}
 
 	$post_types[ $data['cpt_custom_post_type']['name']] = array(
@@ -959,5 +959,5 @@ function cptui_update_post_type( $data ) {
 
 	update_option( 'cptui_post_types', $post_types );
 
-	wp_redirect( add_query_arg( array( 'cpt_msg' => '1' ), admin_url( 'admin.php?page=cptui_manage_post_types' ) ) );
+	//wp_redirect( add_query_arg( array( 'cpt_msg' => '1' ), admin_url( 'admin.php?page=cptui_manage_post_types' ) ) );
 }
