@@ -160,17 +160,21 @@ class cptui_admin_ui {
 		$value .= '<select id="' . $args['name'] . '" name="' . $args['namearray'] . '[' . $args['name'] . ']">';
 
 		foreach( $args['selections']['options'] as $val ) {
-			$set = false;
-			//selected="selected" or empty string
-			$selected = selected( $args['selections']['selected'], $val['attr'], false );
-			$default = ( empty( $selected ) && !empty( $val['default'] ) ) ? true : false;
-			if ( !empty( $selected ) ) {
-				$result = $selected;
-				$set = true;
-			} elseif ( !$set && $default ) {
-				$result = 'selected="selected"';
+			//Touch and feel wrath.
+			if ( !empty( $args['selections']['selected'] ) ) {
+				if ( is_numeric( $args['selections']['selected'] ) && $args['selections']['selected'] === disp_boolean( $val['attr'] ) ) {
+					$result = 'selected="selected"';
+				} elseif ( $args['selections']['selected'] == $val['attr'] ) {
+					$result = 'selected="selected"';
+				} else {
+					$result = '';
+				}
 			} else {
-				$result = '';
+				if ( !empty( $val['default'] ) ) {
+					$result = 'selected="selected"';
+				} else {
+					$result = '';
+				}
 			}
 
 			$value .= '<option value="' . $val['attr'] . '" ' . $result . '>' . $val['text'] . '</option>';
