@@ -325,7 +325,7 @@ function cptui_manage_post_types() {
 									array( 'attr' => '1', 'text' => __( 'True', 'cpt-plugin' ), 'default' => 'true' )
 								)
 							);
-							$select['selected'] = ( isset( $current['public'] ) ) ? $current['public'] : '';
+							$select['selected'] = $current['public'];
 							echo $ui->get_select_input( array(
 								'namearray'     => 'cpt_custom_post_type',
 								'name'          => 'public',
@@ -344,7 +344,7 @@ function cptui_manage_post_types() {
 									array( 'attr' => '1', 'text' => __( 'True', 'cpt-plugin' ), 'default' => 'true' )
 								)
 							);
-							$select['selected'] = ( isset( $current['show_ui'] ) ) ? $current['show_ui'] : '';
+							$select['selected'] = $current['show_ui'];
 							echo $ui->get_select_input( array(
 								'namearray'     => 'cpt_custom_post_type',
 								'name'          => 'show_ui',
@@ -363,7 +363,7 @@ function cptui_manage_post_types() {
 									array( 'attr' => '1', 'text' => __( 'True', 'cpt-plugin' ) )
 								)
 							);
-							$select['selected'] = ( isset( $current['has_archive'] ) ) ? $current['has_archive'] : '';
+							$select['selected'] = $current['has_archive'];
 							echo $ui->get_select_input( array(
 								'namearray'     => 'cpt_custom_post_type',
 								'name'          => 'has_archive',
@@ -382,7 +382,7 @@ function cptui_manage_post_types() {
 									array( 'attr' => '1', 'text' => __( 'True', 'cpt-plugin' ) )
 								)
 							);
-							$select['selected'] = ( isset( $current['exclude_from_search'] ) ) ? $current['exclude_from_search'] : '';
+							$select['selected'] = $current['exclude_from_search'];
 							echo $ui->get_select_input( array(
 								'namearray'     => 'cpt_custom_post_type',
 								'name'          => 'exclude_from_search',
@@ -412,7 +412,7 @@ function cptui_manage_post_types() {
 									array( 'attr' => '1', 'text' => __( 'True', 'cpt-plugin' ) )
 								)
 							);
-							$select['selected'] = ( isset( $current['hierarchical'] ) ) ? $current['hierarchical'] : '';
+							$select['selected'] = $current['hierarchical'];
 							echo $ui->get_select_input( array(
 								'namearray'     => 'cpt_custom_post_type',
 								'name'          => 'hierarchical',
@@ -431,7 +431,7 @@ function cptui_manage_post_types() {
 									array( 'attr' => '1', 'text' => __( 'True', 'cpt-plugin' ), 'default' => 'true' )
 								)
 							);
-							$select['selected'] = ( isset( $current['rewrite'] ) ) ? $current['rewrite'] : '';
+							$select['selected'] = $current['rewrite'];
 							echo $ui->get_select_input( array(
 								'namearray'     => 'cpt_custom_post_type',
 								'name'          => 'rewrite',
@@ -462,7 +462,7 @@ function cptui_manage_post_types() {
 									array( 'attr' => '1', 'text' => __( 'True', 'cpt-plugin' ), 'default' => 'true' )
 								)
 							);
-							$select['selected'] = ( isset( $current['rewrite_withfront'] ) ) ? $current['rewrite_withfront'] : '';
+							$select['selected'] = $current['rewrite_withfront'];
 							echo $ui->get_select_input( array(
 								'namearray'     => 'cpt_custom_post_type',
 								'name'          => 'rewrite_withfront',
@@ -481,7 +481,7 @@ function cptui_manage_post_types() {
 									array( 'attr' => '1', 'text' => __( 'True', 'cpt-plugin' ), 'default' => 'true' )
 								)
 							);
-							$select['selected'] = ( isset( $current['query_var'] ) ) ? $current['query_var'] : '';
+							$select['selected'] = $current['query_var'];
 							echo $ui->get_select_input( array(
 								'namearray'     => 'cpt_custom_post_type',
 								'name'          => 'query_var',
@@ -519,7 +519,7 @@ function cptui_manage_post_types() {
 									array( 'attr' => '1', 'text' => __( 'True', 'cpt-plugin' ), 'default' => 'true' )
 								)
 							);
-							$select['selected'] = ( isset( $current['show_in_menu'] ) ) ? $current['show_in_menu'] : '';
+							$select['selected'] = $current['show_in_menu'];
 							echo $ui->get_select_input( array(
 								'namearray'     => 'cpt_custom_post_type',
 								'name'          => 'show_in_menu',
@@ -859,7 +859,7 @@ function cptui_post_types_dropdown( $post_types = array() ) {
 		//Grab our current selected post type
 		$current = cptui_get_current_post_type();
 
-		$select['selected'] = ( !empty( $current ) ) ? $current : '';
+		$select['selected'] = $current;
 		echo $ui->get_select_input( array(
 			'namearray'     => 'cptui_selected_post_type',
 			'name'          => 'post_type',
