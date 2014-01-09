@@ -573,6 +573,4 @@ function cptui_update_taxonomy( $data ) {
 			//wp_redirect();
 			//exit();
 		}
-
-	flush_rewrite_rules();
 }
