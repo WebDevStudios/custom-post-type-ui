@@ -547,24 +547,19 @@ function cptui_get_current_taxonomy() {
 }
 
 //delete custom post type or custom taxonomy
-function cptui_delete_taxonomy() {
-
-	//check if we are deleting a custom taxonomy
-	if( isset( $_GET['deltax'] ) ) {
-		check_admin_referer( 'cpt_delete_tax' );
-
-		$delType = intval( $_GET['deltax'] );
-		$cpt_taxonomies = get_option( 'cpt_custom_tax_types' );
-
-		unset( $cpt_taxonomies[$delType] );
-
-		$cpt_taxonomies = array_values( $cpt_taxonomies );
-
-		update_option( 'cpt_custom_tax_types', $cpt_taxonomies );
-
-		//wp_redirect();
+function cptui_delete_taxonomy( $data ) {
+	if ( empty( $data['cpt_custom_tax']['name'] ) ) {
+		return;
 	}
 
+	$taxonomies = get_option( 'cptui_taxonomies' );
+
+	if ( array_key_exists( strtolower( $data['cpt_custom_tax']['name'] ), $taxonomies ) ) {
+
+		unset( $taxonomies[ $data['cpt_custom_tax']['name'] ] );
+
+		update_option( 'cptui_taxonomies', $taxonomies );
+	}
 }
 
 function cptui_update_taxonomy( $data ) {
