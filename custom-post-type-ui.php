@@ -437,7 +437,7 @@ add_action( 'admin_head', 'cptui_help_style' );
 function cptui_settings_tab_menu( $page = 'post_types' ) {
 	//initiate our arrays with default classes
 	$tab1 = $tab2 = $tab3 = array( 'nav-tab' );
-
+	$has = ( get_option( 'cptui_post_types' ) || get_option( 'cptui_taxonomies' ) ) ? true : false;
 	if ( 'importexport' == $page ) :
 		$title = __( 'Import/Export', 'cpt-plugin' );
 	elseif ( 'taxonomies' == $page ) :
