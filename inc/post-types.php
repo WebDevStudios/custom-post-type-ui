@@ -75,6 +75,11 @@ function cptui_manage_post_types() {
 		cptui_update_post_type( $_POST );
 	}
 
+	if ( !empty( $_POST ) && isset( $_POST['cpt_delete'] ) ) {
+		check_admin_referer( 'cptui_addedit_post_type_nonce_action', 'cptui_addedit_post_type_nonce_field' );
+		cptui_delete_post_type( $_POST );
+	}
+
 	//Instantiate our UI class.
 	$ui = new cptui_admin_ui();
 
