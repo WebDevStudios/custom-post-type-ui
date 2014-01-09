@@ -467,12 +467,14 @@ function cptui_settings_tab_menu( $page = 'post_types' ) {
 	if ( 'importexport' != $page ) { ?>
 		<a class="<?php echo $tab1; ?>" href="<?php echo admin_url( 'admin.php?page=cptui_manage_' . $page ); ?>"><?php _e( 'Add New', 'cpt-plugin' ); ?></a>
 		<?php
-		if ( 'post_types' == $page ) { ?>
+		if ( 'post_types' == $page ) {
+			if ( $has ) { ?>
 			<a class="<?php echo $tab2; ?>" href="<?php echo add_query_arg( array( 'action' => 'edit' ), admin_url( 'admin.php?page=cptui_manage_' . $page ) ); ?>"><?php _e( 'Edit Post Types', 'cpt-plugin' ); ?></a>
-		<?php
-		} elseif ( 'taxonomies' == $page ) { ?>
+			<?php }
+		} elseif ( 'taxonomies' == $page ) {
+			if ( $has ) { ?>
 			<a class="<?php echo $tab2; ?>" href="<?php echo add_query_arg( array( 'action' => 'edit' ), admin_url( 'admin.php?page=cptui_manage_' . $page ) ); ?>"><?php _e( 'Edit Taxonomies', 'cpt-plugin' ); ?></a>
-		<?php
+			<?php }
 		}
 	} else { ?>
 		<a class="<?php echo $tab1; ?>" href="<?php echo admin_url( 'admin.php?page=cptui_' . $page ); ?>"><?php _e( 'Post Types', 'cpt-plugin' ); ?></a>
