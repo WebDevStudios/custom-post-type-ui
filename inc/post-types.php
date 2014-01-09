@@ -889,25 +889,27 @@ function cptui_get_current_post_type() {
 	return false;
 }
 
-//delete custom post type or custom taxonomy
-function cptui_delete_post_type() {
+/**
+ * Delete our custom post type from the array of post types.
+ *
+ * @param $data array $_POST values
+ *
+ * @since 0.9
+ */
+function cptui_delete_post_type( $data ) {
 
-	check_admin_referer( 'cptui_delete_post_type_nonce', 'cptui_delete_post_type_nonce' );
-		//check if we are deleting a custom post type
-		if( isset( $_GET['deltype'] ) ) {
+	if ( empty( $data['cpt_custom_post_type']['name'] ) ) {
+		return;
+	}
 
+	$post_types = get_option( 'cptui_post_types' );
 
+	if ( array_key_exists( strtolower( $data['cpt_custom_post_type']['name'] ), $post_types ) ) {
 
-			$delType = intval( $_GET['deltype'] );
-			$cpt_post_types = get_option( 'cptui_post_types' );
+		unset( $post_types[ $data['cpt_custom_post_type']['name'] ] );
 
-			unset( $cpt_post_types[$delType] );
-
-			$cpt_post_types = array_values( $cpt_post_types );
-
-			update_option( 'cptui_post_types', $cpt_post_types );
-
-		}
+		update_option( 'cptui_post_types', $cpt_post_types );
+	}
 }
 //Used to both add and edit.
 function cptui_update_post_type( $data ) {
