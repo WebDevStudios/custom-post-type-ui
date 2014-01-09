@@ -926,7 +926,7 @@ function cptui_update_post_type( $data ) {
 	}
 
 	//Fetch our post types
-	$post_types = get_option( 'cptui_post_types' );
+	$post_types = get_option( 'cptui_post_types', array() );
 
 	//Check if we a;ready have a post type of that name.
 	if ( array_key_exists( strtolower( $data['cpt_custom_post_type']['name'] ), $post_types ) ) {
