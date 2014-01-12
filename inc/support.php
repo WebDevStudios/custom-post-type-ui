@@ -26,6 +26,7 @@ add_action( 'admin_enqueue_scripts', 'cptui_support_enqueue_scripts' );
 function cptui_support_admin_menu() {
 	add_submenu_page( 'cptui_main_menu', __( 'Help/Support', 'cpt-plugin' ), __( 'Help/Support', 'cpt-plugin' ), 'manage_options', 'cptui_support', 'cptui_support' );
 }
+add_action( 'admin_menu', 'cptui_support_admin_menu' );
 
 function cptui_support() {
 	echo '<div class="wrap">';
