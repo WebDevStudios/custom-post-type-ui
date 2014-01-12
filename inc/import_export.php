@@ -65,7 +65,8 @@ function cptui_importexport() {
 				<h3><?php _e( 'Import Post Types', 'cpt-plugin' ); ?></h3>
 				<form method="post">
 					<textarea class="cptui_post_import" placeholder="<?php esc_attr_e( 'Paste content here.', 'cpt-plugin' ); ?>" name="cptui_post_import"></textarea>
-					<p><strong><?php _e( 'To import post types from a different WordPress site, paste the exported content from that site and click the "Import" button.', 'cpt-plugin' ); ?>
+					<p class="wp-ui-highlight"><strong><?php _e( 'Note:', 'cpt-plugin' ); ?></strong> <?php _e( 'Importing will overwrite previous registered settings.', 'cpt-plugin' ); ?></p>
+					<p><strong><?php _e( 'To import post types from a different WordPress site, paste the exported content from that site and click the "Import" button.', 'cpt-plugin' ); ?></strong></p>
 					<p><input class="button button-primary" type="submit" value="<?php esc_attr_e( 'Import', 'cpt-plugin' ); ?>"/></strong></p>
 				</form>
 			</td>
@@ -89,6 +90,7 @@ function cptui_importexport() {
 				<h3><?php _e( 'Import Taxonomies', 'cpt-plugin' ); ?></h3>
 				<form method="post">
 					<textarea class="cptui_tax_import" placeholder="<?php esc_attr_e( 'Paste content here.', 'cpt-plugin' ); ?>" name="cptui_tax_import"></textarea>
+					<p class="wp-ui-highlight"><strong><?php _e( 'Note:', 'cpt-plugin' ); ?></strong> <?php _e( 'Importing will overwrite previous registered settings.', 'cpt-plugin' ); ?></p>
 					<p><strong><?php _e( 'To import taxonomies from a different WordPress site, paste the exported content from that site and click the "Import" button.', 'cpt-plugin' ); ?>
 					<p><input class="button button-primary" type="submit" value="<?php esc_attr_e( 'Import', 'cpt-plugin' ); ?>"/></strong></p>
 				</form>
