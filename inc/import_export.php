@@ -117,7 +117,7 @@ function cptui_importexport() {
 		<h2><?php _e( 'Get Post Type and Taxonomy Code', 'cpt-plugin' ); ?></h2>
 
 		<h3>All CPT UI Post Types</h3>
-		<textarea class="cptui_post_type_get_code"><?php cptui_get_post_type_code(); ?></textarea>
+		<textarea class="cptui_post_type_get_code" onclick="this.focus();this.select()" readonly="readonly"><?php cptui_get_post_type_code(); ?></textarea>
 	<?php
 	}
 
