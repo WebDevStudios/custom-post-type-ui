@@ -38,7 +38,7 @@ function cptui_importexport() {
 	}
 
 	if ( !empty( $_POST ) ) {
-		cptui_import_types_taxes_settings();
+		cptui_import_types_taxes_settings( $_POST );
 	}
 
 	echo '<div class="wrap">';
@@ -418,25 +418,24 @@ TODO: verify this works. Check on array_values() part.
  *
  * @return void
  */
-function cptui_import_types_taxes_settings() {
+function cptui_import_types_taxes_settings( $postdata ) {
+	if ( !isset( $postdata['cptui_post_import'] ) && !isset( $postdata['cptui_tax_import'] ) ) {
+		return;
+	}
 
-	if ( !empty( $_POST['cptui_post_import'] ) ) {
-		$data = stripslashes_deep( trim( $_POST['import'] ) );
+	if ( !empty( $postdata['cptui_post_import'] ) ) {
+		$data = stripslashes_deep( trim( $postdata['cptui_post_import'] ) );
 		$settings = json_decode( $data, true );
 
 		if ( $settings ) {
-			$settings = array_values( $settings );
-
 			update_option( 'cptui_post_types', $settings );
 		}
 
-  	} elseif ( !empty( $_POST['cptui_tax_import'] ) ) {
-  		$data = stripslashes_deep( trim( $_POST['cptui_tax_import'] ) );
+  	} elseif ( !empty( $postdata['cptui_tax_import'] ) ) {
+  		$data = stripslashes_deep( trim( $postdata['cptui_tax_import'] ) );
 		$settings = json_decode( $data, true );
 
 		if ( $settings ) {
-			$settings = array_values( $settings );
-
 			update_option( 'cptui_taxonomies', $settings );
 		}
 
