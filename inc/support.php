@@ -1,7 +1,28 @@
 <?php
 /* This file controls everything about our support section */
 
-add_action( 'admin_menu', 'cptui_support_admin_menu' );
+// Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) exit;
+
+/**
+ * Add our cptui.js file, with dependencies on jQuery
+ *
+ * @since  0.9
+ *
+ * @return mixed  js scripts
+ */
+function cptui_support_enqueue_scripts() {
+	wp_enqueue_script( 'cptui', plugins_url( 'js/cptui.js' , dirname(__FILE__) ) . '', array( 'jquery' ), '0.9', true );
+}
+add_action( 'admin_enqueue_scripts', 'cptui_support_enqueue_scripts' );
+
+/**
+ * Add our settings page to the menu.
+ *
+ * @since  0.9
+ *
+ * @return mixed  new menu
+ */
 function cptui_support_admin_menu() {
 	add_submenu_page( 'cptui_main_menu', __( 'Help/Support', 'cpt-plugin' ), __( 'Help/Support', 'cpt-plugin' ), 'manage_options', 'cptui_support', 'cptui_support' );
 }
