@@ -231,9 +231,7 @@ function cptui_get_taxonomy_code( $taxonomy ) {
 		$custom_tax .= "\t'rewrite' => array( 'slug' => '" . $cpt_tax_type["rewrite_slug"] . "' ),\n";
 	}
 
-	if ( version_compare( CPTUI_WP_VERSION, '3.5', '>' ) ) {
-		$custom_tax .= "\t'show_admin_column' => " . disp_boolean( $cpt_tax_type["show_admin_column"] ) . ",\n";
-	}
+	$custom_tax .= "\t'show_admin_column' => " . disp_boolean( $cpt_tax_type["show_admin_column"] ) . ",\n";
 
 	if ( !empty( $labels ) )
 		$custom_tax .= "\t'labels' => " . $labels . "\n";
