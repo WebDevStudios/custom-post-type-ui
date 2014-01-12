@@ -52,8 +52,6 @@ function cptui_importexport() {
 		echo $errors;
 	}
 
-	$ui = new cptui_admin_ui();
-
 	//Create our tabs.
 	cptui_settings_tab_menu( $page = 'importexport' );
 
