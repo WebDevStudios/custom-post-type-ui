@@ -4,7 +4,7 @@
 
 	//confirm our deletions
 	$( '#cpt_submit_delete' ).on( 'click', function() {
-		if( confirm( 'Are you sure you want to delete this?' ) ) {
+		if( confirm( confirmdata.confirm ) ) {
 			return true;
 		}
 		return false;
