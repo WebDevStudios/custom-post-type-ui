@@ -1,4 +1,5 @@
 <?php
+/* This file controls everything about our support section */
 
 add_action( 'admin_menu', 'cptui_support_admin_menu' );
 function cptui_support_admin_menu() {
