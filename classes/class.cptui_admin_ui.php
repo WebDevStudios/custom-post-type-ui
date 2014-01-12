@@ -290,7 +290,7 @@ class cptui_admin_ui {
 		$defaults = $this->get_default_input_parameters(
 			array(
 				'checkvalue'        => '',
-				'checked'           => true,
+				'checked'           => 'true',
 				'checklisttext'     => '',
 				'default'           => false
 			)
