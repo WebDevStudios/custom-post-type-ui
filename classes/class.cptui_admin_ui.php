@@ -307,8 +307,9 @@ class cptui_admin_ui {
 			$value .= $this->get_th_end();
 			$value .= $this->get_td_start();
 		}
-		if ( false === $args['default'] ) {
-			$value .= '<input type="checkbox" id="' . $args['name'] . '" name="' . $args['namearray'] . '[]" value="' . $args['checkvalue'] . '"' . checked( $args['checked'], true, false) . ' />';
+
+		if ( isset( $args['checked'] ) && 'false' == $args['checked'] ) {
+			$value .= '<input type="checkbox" id="' . $args['name'] . '" name="' . $args['namearray'] . '[]" value="' . $args['checkvalue'] . '" />';
 		} else {
 			$value .= '<input type="checkbox" id="' . $args['name'] . '" name="' . $args['namearray'] . '[]" value="' . $args['checkvalue'] . '" checked="checked" />';
 		}
