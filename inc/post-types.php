@@ -565,7 +565,7 @@ function cptui_manage_post_types() {
 							 */
 							echo $ui->get_check_input( array(
 								'checkvalue'    => 'title',
-								'checked'       => ( !empty( $current['supports'] ) && is_array( $current['supports'] ) ) ? in_array( 'title', $current['supports'] ) : false,
+								'checked'       => ( !empty( $current['supports'] ) && is_array( $current['supports'] ) && in_array( 'title', $current['supports'] ) ) ? 'true' : 'false',
 								'name'          => 'title',
 								'namearray'     => 'cpt_supports',
 								'textvalue'     => 'title',
@@ -580,7 +580,7 @@ function cptui_manage_post_types() {
 							 */
 							echo $ui->get_check_input( array(
 								'checkvalue'    => 'editor',
-								'checked'       => ( !empty( $current['supports'] ) && is_array( $current['supports'] ) ) ? in_array( 'editor', $current['supports'] ) : false,
+								'checked'       => ( !empty( $current['supports'] ) && is_array( $current['supports'] ) && in_array( 'editor', $current['supports'] ) ) ? 'true' : 'false',
 								'name'          => 'editor',
 								'namearray'     => 'cpt_supports',
 								'textvalue'     => 'editor',
@@ -595,7 +595,7 @@ function cptui_manage_post_types() {
 							 */
 							echo $ui->get_check_input( array(
 								'checkvalue'    => 'excerpt',
-								'checked'       => ( !empty( $current['supports'] ) && is_array( $current['supports'] ) ) ? in_array( 'excerpt', $current['supports'] ) : false,
+								'checked'       => ( !empty( $current['supports'] ) && is_array( $current['supports'] ) && in_array( 'excerpt', $current['supports'] ) ) ? 'true' : 'false',
 								'name'          => 'excerpt',
 								'namearray'     => 'cpt_supports',
 								'textvalue'     => 'excerpt',
@@ -610,7 +610,7 @@ function cptui_manage_post_types() {
 							 */
 							echo $ui->get_check_input( array(
 								'checkvalue'    => 'trackbacks',
-								'checked'       => ( !empty( $current['supports'] ) && is_array( $current['supports'] ) ) ? in_array( 'trackbacks', $current['supports'] ) : false,
+								'checked'       => ( !empty( $current['supports'] ) && is_array( $current['supports'] ) && in_array( 'trackbacks', $current['supports'] ) ) ? 'true' : 'false',
 								'name'          => 'trackbacks',
 								'namearray'     => 'cpt_supports',
 								'textvalue'     => 'trackbacks',
@@ -625,7 +625,7 @@ function cptui_manage_post_types() {
 							 */
 							echo $ui->get_check_input( array(
 								'checkvalue'    => 'custom-fields',
-								'checked'       => ( !empty( $current['supports'] ) && is_array( $current['supports'] ) ) ? in_array( 'custom-fields', $current['supports'] ) : false,
+								'checked'       => ( !empty( $current['supports'] ) && is_array( $current['supports'] ) && in_array( 'custom-fields', $current['supports'] ) ) ? 'true' : 'false',
 								'name'          => 'custom-fields',
 								'namearray'     => 'cpt_supports',
 								'textvalue'     => 'custom-fields',
@@ -640,7 +640,7 @@ function cptui_manage_post_types() {
 							 */
 							echo $ui->get_check_input( array(
 								'checkvalue'    => 'comments',
-								'checked'       => ( !empty( $current['supports'] ) && is_array( $current['supports'] ) ) ? in_array( 'comments', $current['supports'] ) : false,
+								'checked'       => ( !empty( $current['supports'] ) && is_array( $current['supports'] ) && in_array( 'comments', $current['supports'] ) ) ? 'true' : 'false',
 								'name'          => 'comments',
 								'namearray'     => 'cpt_supports',
 								'textvalue'     => 'comments',
@@ -655,7 +655,7 @@ function cptui_manage_post_types() {
 							 */
 							echo $ui->get_check_input( array(
 								'checkvalue'    => 'revisions',
-								'checked'       => ( !empty( $current['supports'] ) && is_array( $current['supports'] ) ) ? in_array( 'revisions', $current['supports'] ) : false,
+								'checked'       => ( !empty( $current['supports'] ) && is_array( $current['supports'] ) && in_array( 'revisions', $current['supports'] ) ) ? 'true' : 'false',
 								'name'          => 'revisions',
 								'namearray'     => 'cpt_supports',
 								'textvalue'     => 'revisions',
@@ -670,7 +670,7 @@ function cptui_manage_post_types() {
 							 */
 							echo $ui->get_check_input( array(
 								'checkvalue'    => 'thumbnail',
-								'checked'       => ( !empty( $current['supports'] ) && is_array( $current['supports'] ) ) ? in_array( 'thumbnail', $current['supports'] ) : false,
+								'checked'       => ( !empty( $current['supports'] ) && is_array( $current['supports'] ) && in_array( 'thumbnail', $current['supports'] ) ) ? 'true' : 'false',
 								'name'          => 'thumbnail',
 								'namearray'     => 'cpt_supports',
 								'textvalue'     => 'thumbnail',
@@ -685,7 +685,7 @@ function cptui_manage_post_types() {
 							 */
 							echo $ui->get_check_input( array(
 								'checkvalue'    => 'author',
-								'checked'       => ( !empty( $current['supports'] ) && is_array( $current['supports'] ) ) ? in_array( 'author', $current['supports'] ) : false,
+								'checked'       => ( !empty( $current['supports'] ) && is_array( $current['supports'] ) && in_array( 'author', $current['supports'] ) ) ? 'true' : 'false',
 								'name'          => 'author',
 								'namearray'     => 'cpt_supports',
 								'textvalue'     => 'author',
@@ -700,7 +700,7 @@ function cptui_manage_post_types() {
 							 */
 							echo $ui->get_check_input( array(
 								'checkvalue'    => 'page-attributes',
-								'checked'       => ( !empty( $current['supports'] ) && is_array( $current['supports'] ) ) ? in_array( 'page-attributes', $current['supports'] ) : false,
+								'checked'       => ( !empty( $current['supports'] ) && is_array( $current['supports'] ) && in_array( 'page-attributes', $current['supports'] ) ) ? 'true' : 'false',
 								'name'          => 'page-attributes',
 								'namearray'     => 'cpt_supports',
 								'textvalue'     => 'page-attributes',
@@ -715,7 +715,7 @@ function cptui_manage_post_types() {
 							 */
 							echo $ui->get_check_input( array(
 								'checkvalue'    => 'post-formats',
-								'checked'       => ( !empty( $current['supports'] ) && is_array( $current['supports'] ) ) ? in_array( 'post-formats', $current['supports'] ) : false,
+								'checked'       => ( !empty( $current['supports'] ) && is_array( $current['supports'] ) && in_array( 'post-formats', $current['supports'] ) ) ? 'true' : 'false',
 								'name'          => 'post-formats',
 								'namearray'     => 'cpt_supports',
 								'textvalue'     => 'post-formats',
@@ -746,7 +746,7 @@ function cptui_manage_post_types() {
 								 */
 								echo $ui->get_check_input( array(
 									'checkvalue'        => $add_tax->name,
-									'checked'           => ( !empty( $current['taxonomies'] ) && is_array( $current['taxonomies'] ) ) ? in_array( $add_tax->name, $current['taxonomies'] ) : null,
+									'checked'           => ( !empty( $current['taxonomies'] ) && is_array( $current['taxonomies'] ) && in_array( $add_tax->name, $current['taxonomies'] ) ) ? 'true' : 'false',
 									'name'              => $add_tax->name,
 									'namearray'         => 'cpt_addon_taxes',
 									'textvalue'         => $add_tax->name,
