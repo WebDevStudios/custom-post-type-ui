@@ -532,6 +532,7 @@ function cptui_convert_settings() {
 		//Finally provide our new options.
 		return update_option( 'cptui_taxonomies', $new_taxonomies );
 	}
+	return false;
 }
 add_action( 'admin_init', 'cptui_convert_settings' );
 
