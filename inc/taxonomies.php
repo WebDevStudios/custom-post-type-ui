@@ -40,10 +40,11 @@ add_action( 'admin_menu', 'cptui_taxonomies_admin_menu' );
  */
 function cptui_manage_taxonomies() {
 
-	$tab = ( !empty( $_GET ) && !empty( $_GET['action'] ) && 'edit' == $_GET['action'] ) ? 'edit' : 'new';
+	$tab = ( !empty( $_GET ) && !empty( $_GET['action'] ) && 'edit' == $_GET['action'] ) ? 'edit' : 'new'; ?>
 
-	echo '<div class="wrap">';
+	<div class="wrap">
 
+	<?php
 	//Display any success messages or errors.
 	if ( $success = cptui_get_taxonomy_successes() ) {
 		echo $success;
