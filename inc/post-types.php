@@ -910,7 +910,7 @@ function cptui_delete_post_type( $data ) {
 
 		unset( $post_types[ $data['cpt_custom_post_type']['name'] ] );
 
-		update_option( 'cptui_post_types', $cpt_post_types );
+		update_option( 'cptui_post_types', $post_types );
 	}
 }
 //Used to both add and edit.
