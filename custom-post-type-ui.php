@@ -283,14 +283,14 @@ function cptui_settings() { ?>
 			</tr>
 			<tr>
 				<td valign="top" width="33%">
-					<p><?php _e( 'Please donate to the development of Custom Post Type UI:', 'cpt-plugin'); ?>
+					<p><?php _e( 'Please donate to the development of Custom Post Type UI:', 'cpt-plugin'); ?></p>
 					<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
 					<input type="hidden" name="cmd" value="_s-xclick">
 					<input type="hidden" name="hosted_button_id" value="YJEDXPHE49Q3U">
 					<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="<?php esc_attr_e( 'PayPal - The safer, easier way to pay online!', 'cpt-plugin' ); ?>">
 					<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
 					</form>
-					</p>
+
 				</td>
 				<td valign="top" width="33%">
 					<a href="http://bit.ly/prowp2" target="_blank">
