@@ -138,7 +138,7 @@ function cptui_support() {
 						<p></p>
 					</div>
 					<div class="answer five">
-						<p><?php _e( 'Change text inside the post/page editor title field. Should be able to adapt as necessary.', 'cpt-plugin' ); ?>
+						<p><?php _e( 'Change text inside the post/page editor title field. Should be able to adapt as necessary.', 'cpt-plugin' ); ?></p>
 <pre><code>function my_custom_title_text( $title ){
 	global $post;
 	if ( 'ENTER POST TYPE SLUG HERE' == $post->post_type )
@@ -147,7 +147,7 @@ function cptui_support() {
 }
 add_filter( 'enter_title_here', 'my_custom_title_text' );
 </code></pre>
-						</p>
+
 					</div>
 				</td>
 			</tr>
