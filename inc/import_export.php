@@ -246,7 +246,6 @@ function cptui_get_single_taxonomy_registery( $taxonomy = array() ) { ?>
 		$custom_tax .= "\t'labels' => " . $labels . "\n";
 
 	$custom_tax .= ") ); \n}";
-
 }
 
 /**
@@ -271,7 +270,6 @@ function cptui_register_my_cpts() {
 	} ?>
 // End of cptui_register_my_cpts()
 }
-
 <?php
 }
 //creates register_post_type for a single post type
