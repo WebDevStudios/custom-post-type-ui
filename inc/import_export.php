@@ -248,8 +248,15 @@ function cptui_get_single_taxonomy_registery( $taxonomy = array() ) { ?>
 	$custom_tax .= ") ); \n}";
 
 }
-//creates output for all post types into one init callback.
-function cptui_get_post_type_code( $post_type = 'all' ) {
+
+/**
+ * Create and display all of the "Get code" content for the main textarea
+ *
+ * @since 0.9
+ *
+ * @return string    All code for the post types
+ */
+function cptui_get_post_type_code() {
 
 	//fetch out post types
 	$cptui_post_types = get_option( 'cptui_post_types', array() );
