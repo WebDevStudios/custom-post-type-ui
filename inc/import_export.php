@@ -188,23 +188,21 @@ function cptui_get_importexport_successes() {
 	return false;
 }
 
-function cptui_get_taxonomy_code( $taxonomy ) {
-	$custom_tax = '';
-	$custom_tax = "add_action('init', 'cptui_register_my_taxes_" . $cpt_tax_type['name'] . "');\n";
-	$custom_tax .= "function cptui_register_my_taxes_" . $cpt_tax_type['name'] . "() {\n";
+function cptui_get_taxonomy_code() {
 
-	if ( !$cpt_tax_type["label"] ) {
-		$cpt_label = esc_html( $cpt_tax_type["name"] );
-	} else {
-		$cpt_label = esc_html( $cpt_tax_type["label"] );
-	}
-
-	//check if singular label was filled out
-	if ( !$cpt_tax_type["singular_label"] ) {
-		$cpt_singular_label = esc_html( $cpt_tax_type["name"] );
-	} else {
-		$cpt_singular_label = esc_html( $cpt_tax_type["singular_label"] );
-	}
+	//fetch out taxonomies
+	$cptui_taxonomies = get_option( 'cptui_taxonomies', array() );
+	?>
+add_action( 'init', 'cptui_register_my_taxes' );
+function cptui_register_my_taxes() {
+<?php
+	foreach( $cptui_taxonomies as $tax ) {
+		echo cptui_get_single_taxonomy_registery( $tax ) . "\n";
+	} ?>
+//End cptui_register_my_taxes
+}
+<?php
+}
 
 	$labels = var_export( array(
 		'search_items' => ( !empty( $cpt_tax_type["singular_label"] ) ) ? esc_html( $cpt_tax_type["singular_label"] ) : '',
