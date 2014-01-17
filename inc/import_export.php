@@ -303,29 +303,24 @@ function cptui_get_single_post_type_registery( $post_type = array() ) {
 		'not_found_in_trash' => '<?php echo $post_type['labels']['not_found_in_trash']; ?>',
 		'parent_item_colon' => '<?php echo $post_type['labels']["parent"]; ?>'
 	);
-	<?php
-		//Other parameters
-		$cpt_description            = ( !empty( $post_type['description'] ) )   ? esc_html( $post_type['description'] ) : '';
-		$cpt_public                 = disp_boolean( $post_type['public'] ) ;
-		$cpt_show_ui                = disp_boolean( $post_type["show_ui"] );
-		$cpt_show_in_menu           = disp_boolean( $post_type['show_in_menu'] );
-		$cpt_capability_type        = ( !empty( $post_type["capability_type"] ) ) ? esc_html( $post_type["capability_type"] ) : 'post';
-		$cpt_map_meta_cap           = disp_boolean( 'true' );
-		$cpt_hierarchical           = disp_boolean( $post_type["hierarchical"] );
-	    $cpt_rewrite_slug           = ( !empty( $post_type['rewrite_slug'] ) )  ? esc_html( $post_type['rewrite_slug'] ) : esc_html( $post_type['name'] );
-	    $cpt_menu_position          = ( !empty( $post_type['menu_position'] ) ) ? absint( $post_type['menu_position'] ) : null;
-	    $cpt_menu_icon              = ( !empty( $post_type['menu_icon'] ) )     ? esc_html($post_type['menu_icon']) : null;
-	?>
 
 	$args = array(
 		'labels' => $labels,
-		'description' => '<?php echo $cpt_description; ?>',
-		'public' => <?php echo $cpt_public; ?>,
-		'show_ui' => <?php echo $cpt_show_ui; ?>,
-		'show_in_menu' => <?php echo $cpt_show_in_menu; ?>,
-		'capability_type' => '<?php echo $cpt_capability_type; ?>',
-		'map_meta_cap' => <?php echo $cpt_map_meta_cap; ?>,
-		'hierarchical' => <?php echo $cpt_hierarchical; ?>,
+		'description' => '<?php echo $post_type['description']; ?>',
+		'public' => <?php echo $post_type['public']; ?>,
+		'show_ui' => <?php echo $post_type['show_ui']; ?>,
+		'has_archive' => <?php echo $post_type['show_ui']; ?>,
+		'show_in_menu' => <?php echo $post_type['show_in_menu']; ?>,
+		'exclude_from_search' => <?php echo $post_type['exclude_from_search']; ?>,
+		'capability_type' => '<?php echo $post_type['capability_type']; ?>',
+		'map_meta_cap' => <?php echo $post_type['map_meta_cap']; ?>,
+		'hierarchical' => <?php echo $post_type['hierarchical']; ?>,
+		'rewrite' => <?php echo $post_type['rewrite']; ?>,
+		'menu_position' => <?php echo $post_type['menu_position']; ?>,
+		'menu_icon' => <?php echo $post_type['menu_icon']; ?>,
+		'query_var' => <?php echo $post_type['query_var']; ?>,
+		'supports' => array( <?php echo $supports; ?> ),
+		'taxonomies' => array( <?php echo $taxonomies; ?> )
 	);
 	register_post_type( '<?php echo $post_type['name']; ?>', $args );
 <?php
