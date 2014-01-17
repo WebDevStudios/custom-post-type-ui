@@ -272,25 +272,20 @@ function cptui_register_my_cpts() {
 }
 <?php
 }
-//creates register_post_type for a single post type
-function cptui_get_single_post_type_registery( $post_type ) {
-		//Labels
-	    $cpt_label                  = ( !empty( $post_type['label'] ) ) ? strip_tags( $post_type['label'] ) : strip_tags( $post_type['name'] );
-	    $cpt_singular               = ( !empty( $post_type["singular_label"] ) ) ? strip_tags( $post_type["singular_label"] ) : $cpt_label;
-	    $cpt_menu_name              = ( !empty( $post_type['labels']['menu_name'] ) ) ? strip_tags( $post_type['labels']['menu_name'] ) : $cpt_label;
-	    $cpt_all_items              = ( !empty( $post_type['labels']['all_items'] ) ) ? strip_tags( $post_type['labels']['all_items'] ) : $cpt_label;
-	    $cpt_add_new                = ( !empty( $post_type['labels']['add_new'] ) ) ? strip_tags( $post_type['labels']['add_new'] ) : 'Add ' . $cpt_singular;
-	    $cpt_add_new_item           = ( !empty( $post_type['labels']['add_new_item'] ) ) ? strip_tags( $post_type['labels']['add_new_item'] ) : 'Add New ' . $cpt_singular;
-	    $cpt_edit                   = ( !empty( $post_type['labels']['edit'] ) ) ? strip_tags( $post_type['labels']['edit'] ) : 'Edit';
-	    $cpt_edit_item              = ( !empty( $post_type['labels']['edit_item'] ) ) ? strip_tags( $post_type['labels']['edit_item'] ) : 'Edit ' . $cpt_singular;
-	    $cpt_new_item               = ( !empty( $post_type['labels']['new_item'] ) ) ? strip_tags( $post_type['labels']['new_item'] ) : 'New ' . $cpt_singular;
-	    $cpt_view                   = ( !empty( $post_type['labels']['view'] ) ) ? strip_tags( $post_type['labels']['view'] ) : 'View ' . $cpt_singular;
-	    $cpt_view_item              = ( !empty( $post_type['labels']['view_item'] ) ) ? strip_tags( $post_type['labels']['view_item'] ) : 'View ' . $cpt_singular;
-	    $cpt_search_items           = ( !empty( $post_type['labels']['search_items'] ) ) ? strip_tags( $post_type['labels']['search_items'] ) : 'Search ' . $cpt_label;
-	    $cpt_not_found              = ( !empty( $post_type['labels']['not_found'] ) ) ? strip_tags( $post_type['labels']['not_found'] ) : 'No ' . $cpt_label. ' Found';
-	    $cpt_not_found_in_trash     = ( !empty( $post_type['labels']['not_found_in_trash'] ) ) ? strip_tags( $post_type['labels']['not_found_in_trash'] ) : 'No ' . $cpt_label . ' Found in Trash';
-	    $cpt_parent                 = ( !empty( $post_type['labels']["parent"] ) ) ? strip_tags( $post_type['labels']["parent"] ) : 'Parent: ' . $cpt_singular;
-    ?>
+
+/**
+ * Create output for single post type to be ready for copy/paste from Get Code
+ *
+ * @since 0.9
+ *
+ * @param array $post_type Post type data to output
+ * @return string          Copy/paste ready "php" cod
+ */
+function cptui_get_single_post_type_registery( $post_type = array() ) {
+	//Do a little bit of php work to get these into strings.
+	$supports = implode( ', ', $post_type['supports'] );
+	$taxonomies = implode( ', ', $post_type['taxonomies'] );
+	?>
 	$labels = array(
 		'name' => '<?php echo $cpt_label; ?>',
 		'singular_name' => '<?php echo $cpt_singular; ?>',
