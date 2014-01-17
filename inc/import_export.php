@@ -204,20 +204,28 @@ function cptui_register_my_taxes() {
 <?php
 }
 
-	$labels = var_export( array(
-		'search_items' => ( !empty( $cpt_tax_type["singular_label"] ) ) ? esc_html( $cpt_tax_type["singular_label"] ) : '',
-		'popular_items' => ( !empty( $cpt_tax_type[0]["popular_items"] ) ) ? esc_html( $cpt_tax_type[0]["popular_items"] ) : '',
-		'all_items' => ( !empty( $cpt_tax_type[0]["all_items"] ) ) ? esc_html( $cpt_tax_type[0]["all_items"] ) : '',
-		'parent_item' => ( !empty( $cpt_tax_type[0]["parent_item"] ) ) ? esc_html( $cpt_tax_type[0]["parent_item"] ) : '',
-		'parent_item_colon' => ( !empty( $cpt_tax_type[0]["parent_item_colon"] ) ) ? esc_html( $cpt_tax_type[0]["parent_item_colon"] ) : '',
-		'edit_item' => ( !empty( $cpt_tax_type[0]["edit_item"] ) ) ? esc_html( $cpt_tax_type[0]["edit_item"] ) : '',
-		'update_item' => ( !empty( $cpt_tax_type[0]["update_item"] ) ) ? esc_html( $cpt_tax_type[0]["update_item"] ) : '',
-		'add_new_item' => ( !empty( $cpt_tax_type[0]["add_new_item"] ) ) ? esc_html( $cpt_tax_type[0]["add_new_item"] ) : '',
-		'new_item_name' => ( !empty( $cpt_tax_type[0]["new_item_name"] ) ) ? esc_html( $cpt_tax_type[0]["new_item_name"] ) : '',
-		'separate_items_with_commas' => ( !empty( $cpt_tax_type[0]["separate_items_with_commas"] ) ) ? esc_html( $cpt_tax_type[0]["separate_items_with_commas"] ) : '',
-		'add_or_remove_items' => ( !empty( $cpt_tax_type[0]["add_or_remove_items"] ) ) ? esc_html( $cpt_tax_type[0]["add_or_remove_items"] ) : '',
-		'choose_from_most_used' => ( !empty( $cpt_tax_type[0]["choose_from_most_used"] ) ) ? esc_html( $cpt_tax_type[0]["choose_from_most_used"] ) : ''
-	), true );
+function cptui_get_single_taxonomy_registery( $taxonomy = array() ) { ?>
+
+	$labels = array(
+		'name' => '<?php echo $taxonomy['name']; ?>',
+		'label' => '<?php echo $taxonomy['label']; ?>',
+		'singular_label' => '<?php echo $taxonomy['singular_label']; ?>',
+		'search_items' => '<?php echo $taxonomy['labels']['search_items']; ?>',
+		'popular_items' => '<?php echo $taxonomy['labels']['popular_items']; ?>',
+		'all_items' => '<?php echo $taxonomy['labels']['all_items']; ?>',
+		'parent_item' => '<?php echo $taxonomy['labels']['parent_item']; ?>',
+		'parent_item_colon' => '<?php echo $taxonomy['labels']['parent_item_colon']; ?>',
+		'edit_item' => '<?php echo $taxonomy['labels']['edit_item']; ?>',
+		'update_item' => '<?php echo $taxonomy['labels']['update_item']; ?>',
+		'add_new_item' => '<?php echo $taxonomy['labels']['add_new_item']; ?>',
+		'new_item_name' => '<?php echo $taxonomy['labels']['new_item_name']; ?>',
+		'separate_items_with_commas' => '<?php echo $taxonomy['labels']['separate_items_with_commas']; ?>',
+		'add_or_remove_items' => '<?php echo $taxonomy['labels']['add_or_remove_items']; ?>',
+		'choose_from_most_used' => '<?php echo $taxonomy['labels']['choose_from_most_used']; ?>'
+	);
+<?php //register_taxonomy( $taxonomy, $object_type, $args ); NEED TO DETERMINE THE $object_type ?>
+	register_taxonomy( '<?php echo $taxonomy['name']; ?>', $args );
+	<?php
 
 	$cpt_post_types = ( !$cpt_tax_type[1] ) ? $cpt_tax_type["cpt_name"] : var_export( $cpt_tax_type[1], true );
 
