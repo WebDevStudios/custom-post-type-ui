@@ -261,10 +261,8 @@ function cptui_get_post_type_code() {
 	//fetch out post types
 	$cptui_post_types = get_option( 'cptui_post_types', array() );
 
-	if ( 'all' == $post_type ) {
 	//Whitespace very much matters here, thus why it's all flush against the left side
 	?>
-
 add_action( 'init', 'cptui_register_my_cpts' );
 function cptui_register_my_cpts() {
 <?php //space before this line reflects in textarea
