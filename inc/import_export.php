@@ -118,6 +118,9 @@ function cptui_importexport() {
 
 		<h3>All CPT UI Post Types</h3>
 		<textarea class="cptui_post_type_get_code" onclick="this.focus();this.select()" readonly="readonly"><?php cptui_get_post_type_code(); ?></textarea>
+
+		<h3>All CPT UI Taxonomies</h3>
+		<textarea class="cptui_tax_get_code" onclick="this.focus();this.select()" readonly="readonly"><?php cptui_get_taxonomy_code(); ?></textarea>
 	<?php
 	}
 
