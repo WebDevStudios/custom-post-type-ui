@@ -326,9 +326,6 @@ function cptui_get_single_post_type_registery( $post_type = array() ) {
 <?php
 }
 
-/*
-TODO: verify this works. Check on array_values() part.
- */
 /**
  * Import the posted JSON data from a separate export.
  *
