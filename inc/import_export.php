@@ -279,7 +279,7 @@ function cptui_register_my_cpts() {
  * @since 0.9
  *
  * @param array $post_type Post type data to output
- * @return string          Copy/paste ready "php" cod
+ * @return string          Copy/paste ready "php" code
  */
 function cptui_get_single_post_type_registery( $post_type = array() ) {
 	//Do a little bit of php work to get these into strings.
