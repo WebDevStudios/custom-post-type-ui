@@ -288,7 +288,7 @@ function cptui_get_single_post_type_registery( $post_type = array() ) {
 	?>
 	$labels = array(
 		'name' => '<?php echo $post_type['label']; ?>',
-		'singular_name' => '<?php echo $post_type["singular_label"]; ?>',
+		'singular_name' => '<?php echo $post_type['singular_label']; ?>',
 		'menu_name' => '<?php echo $post_type['labels']['menu_name'] ?>',
 		'all_items' => '<?php echo $post_type['labels']['all_items']; ?>',
 		'add_new' => '<?php echo $post_type['labels']['add_new']; ?>',
@@ -301,7 +301,7 @@ function cptui_get_single_post_type_registery( $post_type = array() ) {
 		'search_items' => '<?php echo $post_type['labels']['search_items']; ?>',
 		'not_found' => '<?php echo $post_type['labels']['not_found']; ?>',
 		'not_found_in_trash' => '<?php echo $post_type['labels']['not_found_in_trash']; ?>',
-		'parent_item_colon' => '<?php echo $post_type['labels']["parent"]; ?>'
+		'parent_item_colon' => '<?php echo $post_type['labels']['parent']; ?>'
 	);
 
 	$args = array(
