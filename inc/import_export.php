@@ -283,8 +283,8 @@ function cptui_register_my_cpts() {
  */
 function cptui_get_single_post_type_registery( $post_type = array() ) {
 	//Do a little bit of php work to get these into strings.
-	$supports = implode( ', ', $post_type['supports'] );
-	$taxonomies = implode( ', ', $post_type['taxonomies'] );
+	$supports = 'array( ' . implode( ', ', $post_type['supports'] ) . ' )';
+	$taxonomies = 'array( ' . implode( ', ', $post_type['taxonomies'] ) . ' )';
 	?>
 	$labels = array(
 		'name' => '<?php echo $post_type['label']; ?>',
