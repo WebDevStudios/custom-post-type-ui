@@ -233,29 +233,19 @@ function cptui_get_single_taxonomy_registery( $taxonomy = array() ) {
 		'add_or_remove_items' => '<?php echo $taxonomy['labels']['add_or_remove_items']; ?>',
 		'choose_from_most_used' => '<?php echo $taxonomy['labels']['choose_from_most_used']; ?>'
 	);
+
+	$args = array(
+		'labels' => $labels,
+		'hierarchical' => <?php echo $taxonomy['hierarchical']; ?>,
+		'label' => '<?php echo $taxonomy['label']; ?>',
+		'show_ui' => <?php echo $taxonomy['show_ui']; ?>,
+		'query_var' => <?php echo $taxonomy['query_var'];?>,
+		'rewrite' => <?php echo $taxonomy['rewrite']; ?>,
+		'show_admin_column' => <?php echo $taxonomy['show_admin_column']; ?>,
+	);
 <?php //register_taxonomy( $taxonomy, $object_type, $args ); NEED TO DETERMINE THE $object_type ?>
-	register_taxonomy( '<?php echo $taxonomy['name']; ?>', $args );
-	<?php
-
-	$cpt_post_types = ( !$cpt_tax_type[1] ) ? $cpt_tax_type["cpt_name"] : var_export( $cpt_tax_type[1], true );
-
-	//register our custom taxonomies
-	$custom_tax .= "register_taxonomy( '" . $cpt_tax_type["name"] . "',";
-	$custom_tax .= $cpt_post_types . ",\n";
-	$custom_tax .= "array( 'hierarchical' => " . disp_boolean( $cpt_tax_type["hierarchical"] ) . ",\n";
-	$custom_tax .= "\t'label' => '" . $cpt_label . "',\n";
-	$custom_tax .= "\t'show_ui' => " . disp_boolean( $cpt_tax_type["show_ui"] ) . ",\n";
-	$custom_tax .= "\t'query_var' => " . disp_boolean( $cpt_tax_type["query_var"] ) . ",\n";
-	if ( !empty( $cpt_tax_type["rewrite_slug"] ) ) {
-		$custom_tax .= "\t'rewrite' => array( 'slug' => '" . $cpt_tax_type["rewrite_slug"] . "' ),\n";
-	}
-
-	$custom_tax .= "\t'show_admin_column' => " . disp_boolean( $cpt_tax_type["show_admin_column"] ) . ",\n";
-
-	if ( !empty( $labels ) )
-		$custom_tax .= "\t'labels' => " . $labels . "\n";
-
-	$custom_tax .= ") ); \n}";
+	register_taxonomy( '<?php echo $taxonomy['name']; ?>', <?php echo $post_types; ?>, $args );
+<?php
 }
 
 /**
