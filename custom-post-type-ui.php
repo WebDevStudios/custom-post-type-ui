@@ -98,6 +98,7 @@ function cptui_create_custom_post_types() {
 			cptui_register_single_post_type( $post_type );
 		}
 	}
+	return;
 }
 add_action( 'init', 'cptui_create_custom_post_types' );
 
