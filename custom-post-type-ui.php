@@ -102,6 +102,56 @@ function cptui_create_custom_post_types() {
 add_action( 'init', 'cptui_create_custom_post_types' );
 
 /**
+ * Helper function to register the actual post_type
+ *
+ * @since 0.9
+ *
+ * @param array $post_type Post type array to register
+ *
+ * @return void
+ */
+function cptui_register_single_post_type( $post_type = array() ) {
+
+	$labels = array(
+		'name'               => $post_type['label'],
+		'singular_name'      => $post_type["singular_label"],
+		'menu_name'          => $post_type['labels']['menu_name'],
+		'all_items'          => $post_type['labels']['all_items'],
+		'add_new'            => $post_type['labels']['add_new'],
+		'add_new_item'       => $post_type['labels']['add_new_item'],
+		'edit'               => $post_type['labels']['edit'],
+		'edit_item'          => $post_type['labels']['edit_item'],
+		'new_item'           => $post_type['labels']['new_item'],
+		'view'               => $post_type['labels']['view'],
+		'view_item'          => $post_type['labels']['view_item'],
+		'search_items'       => $post_type['labels']['search_items'],
+		'not_found'          => $post_type['labels']['not_found'],
+		'not_found_in_trash' => $post_type['labels']['not_found_in_trash'],
+		'parent_item_colon'  => $post_type['labels']['parent']
+	);
+
+	$args = array(
+		'labels'              => $labels,
+		'description'         => $post_type['description'],
+		'public'              => get_disp_boolean( $post_type['public'] ),
+		'show_ui'             => get_disp_boolean( $post_type['show_ui'] ),
+		'has_archive'         => get_disp_boolean( $post_type['has_archive'] ),
+		'show_in_menu'        => get_disp_boolean( $post_type['show_in_menu'] ),
+		'exclude_from_search' => get_disp_boolean( $post_type['exclude_from_search'] ),
+		'capability_type'     => $post_type['capability_type'],
+		'map_meta_cap'        => $post_type['map_meta_cap'],
+		'hierarchical'        => get_disp_boolean( $post_type['hierarchical'] ),
+		'rewrite'             => $post_type['rewrite'],
+		'menu_position'       => $post_type['menu_position'],
+		'menu_icon'           => $post_type['menu_icon'],
+		'query_var'           => $post_type['query_var'],
+		'supports'            => $post_type['supports'],
+		'taxonomies'          => $post_type['taxonomies']
+	);
+	return register_post_type( $post_type['name'], $args );
+}
+
+/**
  * Register our users' custom taxonomies
  *
  * @since  0.5
