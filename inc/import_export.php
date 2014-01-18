@@ -319,8 +319,8 @@ function cptui_get_single_post_type_registery( $post_type = array() ) {
 		'menu_position' => <?php echo $post_type['menu_position']; ?>,
 		'menu_icon' => <?php echo $post_type['menu_icon']; ?>,
 		'query_var' => <?php echo $post_type['query_var']; ?>,
-		'supports' => array( <?php echo $supports; ?> ),
-		'taxonomies' => array( <?php echo $taxonomies; ?> )
+		'supports' => <?php echo $supports; ?> ,
+		'taxonomies' => <?php echo $taxonomies; ?>
 	);
 	register_post_type( '<?php echo $post_type['name']; ?>', $args );
 <?php
