@@ -165,51 +165,52 @@ function cptui_create_custom_taxonomies() {
 	//check if option value is an array before proceeding
 	if ( is_array( $taxes ) ) {
 		foreach ($taxes as $tax) {
-
-			//set custom taxonomy values
-			$cpt_label              = ( !empty( $tax["label"] ) ) ? esc_html( $tax["label"] ) : esc_html( $tax["name"] );
-			$cpt_singular_label     = ( !empty( $tax["singular_label"] ) ) ? esc_html( $tax["singular_label"] ) : esc_html( $tax["name"] );
-			$cpt_rewrite_slug       = ( !empty( $tax["rewrite_slug"] ) ) ? esc_html( $tax["rewrite_slug"] ) : esc_html( $tax["name"] );
-			$cpt_tax_show_admin_column = ( !empty( $tax["show_admin_column"] ) ) ? esc_html( $tax["show_admin_column"] ) : false;
-			$cpt_post_types         = ( !empty( $tax[1] ) ) ? $tax[1] : $tax["cpt_name"];
-
-			//set custom label values
-			$cpt_labels['name']                         = $cpt_label;
-			$cpt_labels['singular_name']                = $tax["singular_label"];
-			$cpt_labels['search_items']                 = ( $tax[0]["search_items"] ) ? $tax[0]["search_items"] : 'Search ' .$cpt_label;
-			$cpt_labels['popular_items']                = ( $tax[0]["popular_items"] ) ? $tax[0]["popular_items"] : 'Popular ' .$cpt_label;
-			$cpt_labels['all_items']                    = ( $tax[0]["all_items"] ) ? $tax[0]["all_items"] : 'All ' .$cpt_label;
-			$cpt_labels['parent_item']                  = ( $tax[0]["parent_item"] ) ? $tax[0]["parent_item"] : 'Parent ' .$cpt_singular_label;
-			$cpt_labels['parent_item_colon']            = ( $tax[0]["parent_item_colon"] ) ? $tax[0]["parent_item_colon"] : 'Parent ' .$cpt_singular_label. ':';
-			$cpt_labels['edit_item']                    = ( $tax[0]["edit_item"] ) ? $tax[0]["edit_item"] : 'Edit ' .$cpt_singular_label;
-			$cpt_labels['update_item']                  = ( $tax[0]["update_item"] ) ? $tax[0]["update_item"] : 'Update ' .$cpt_singular_label;
-			$cpt_labels['add_new_item']                 = ( $tax[0]["add_new_item"] ) ? $tax[0]["add_new_item"] : 'Add New ' .$cpt_singular_label;
-			$cpt_labels['new_item_name']                = ( $tax[0]["new_item_name"] ) ? $tax[0]["new_item_name"] : 'New ' .$cpt_singular_label. ' Name';
-			$cpt_labels['separate_items_with_commas']   = ( $tax[0]["separate_items_with_commas"] ) ? $tax[0]["separate_items_with_commas"] : 'Separate ' .$cpt_label. ' with commas';
-			$cpt_labels['add_or_remove_items']          = ( $tax[0]["add_or_remove_items"] ) ? $tax[0]["add_or_remove_items"] : 'Add or remove ' .$cpt_label;
-			$cpt_labels['choose_from_most_used']        = ( $tax[0]["choose_from_most_used"] ) ? $tax[0]["choose_from_most_used"] : 'Choose from the most used ' .$cpt_label;
-
-			$cpt_pre_register_taxonomy_args = array(
-				'hierarchical' => get_disp_boolean($tax["hierarchical"]),
-				'label' => $cpt_label,
-				'show_ui' => get_disp_boolean($tax["show_ui"]),
-				'query_var' => get_disp_boolean($tax["query_var"]),
-				'rewrite' => array('slug' => $cpt_rewrite_slug),
-				'singular_label' => $cpt_singular_label,
-				'labels' => $cpt_labels,
-				'show_admin_column' => $cpt_tax_show_admin_column
-			);
-
-			//pass all of our arguments as well as the future taxonomy name and assigned post types through a filter.
-			$cpt_register_taxonomy_args = apply_filters( 'cptui_register_taxonomy_args', $cpt_pre_register_taxonomy_args, $tax["name"], $cpt_post_types );
-			/*if ( !is_array( $cpt_register_taxonomy_args ) )
-				wp_die( 'Please return an array to the \'cptui_register_taxonomy_args\' filter.' );*/
-			//register our custom taxonomies
-			register_taxonomy( $tax["name"], $cpt_post_types, $cpt_register_taxonomy_args );
+			cptui_register_single_taxonomy( $tax );
 		}
 	}
 }
 add_action( 'init', 'cptui_create_custom_taxonomies' );
+
+/**
+ * Helper function to register the actual taxonomy
+ *
+ * @param array $taxonomy Taxonomy array to register
+ *
+ * @return void
+ */
+function cptui_register_single_taxonomy( $taxonomy = array() ) {
+
+	$labels = array(
+		'name'                       => $taxonomy['name'],
+		'label'                      => $taxonomy['label'],
+		'singular_label'             => $taxonomy['singular_label'],
+		'search_items'               => $taxonomy['labels']['search_items'],
+		'popular_items'              => $taxonomy['labels']['popular_items'],
+		'all_items'                  => $taxonomy['labels']['all_items'],
+		'parent_item'                => $taxonomy['labels']['parent_item'],
+		'parent_item_colon'          => $taxonomy['labels']['parent_item_colon'],
+		'edit_item'                  => $taxonomy['labels']['edit_item'],
+		'update_item'                => $taxonomy['labels']['update_item'],
+		'add_new_item'               => $taxonomy['labels']['add_new_item'],
+		'new_item_name'              => $taxonomy['labels']['new_item_name'],
+		'separate_items_with_commas' => $taxonomy['labels']['separate_items_with_commas'],
+		'add_or_remove_items'        => $taxonomy['labels']['add_or_remove_items'],
+		'choose_from_most_used'      => $taxonomy['labels']['choose_from_most_used']
+	);
+
+	$args = array(
+		'labels'            => $labels,
+		'hierarchical'      => $taxonomy[ 'hierarchical' ],
+		'label'             => $taxonomy[ 'label' ],
+		'show_ui'           => $taxonomy[ 'show_ui' ],
+		'query_var'         => $taxonomy[ 'query_var' ],
+		'rewrite'           => $taxonomy[ 'rewrite' ],
+		'show_admin_column' => $taxonomy[ 'show_admin_column' ]
+	);
+
+	//register_taxonomy( $taxonomy, $object_type, $args ); NEED TO DETERMINE THE $object_type
+	return register_taxonomy( $taxonomy['name'], $taxonomy['post_types'], $args );
+}
 
 /**
  * Display our primary menu page
