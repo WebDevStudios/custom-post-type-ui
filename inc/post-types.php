@@ -892,7 +892,7 @@ function cptui_update_post_type( $data ) {
 
 	}
 
-	$post_types[ $data['cpt_custom_post_type']['name']] = array(
+	$post_types[ $data['cpt_custom_post_type']['name'] ] = array(
         'name'                  => $data['cpt_custom_post_type']['name'],
         'label'                 => $data['cpt_custom_post_type']['label'],
         'singular_label'        => $data['cpt_custom_post_type']['singular_label'],
