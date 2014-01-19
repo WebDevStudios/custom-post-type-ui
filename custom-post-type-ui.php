@@ -597,4 +597,3 @@ function cptui_admin_notices( $action = '', $object_type = '', $success = true ,
 
 	return false;
 }
-
