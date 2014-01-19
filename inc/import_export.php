@@ -44,6 +44,7 @@ function cptui_importexport() {
 	if ( isset( $notice ) ) {
 		echo $notice;
 	}
+	echo '<div class="wrap">';
 
 	//Create our tabs.
 	cptui_settings_tab_menu( $page = 'importexport' );
