@@ -56,13 +56,10 @@ function cptui_manage_taxonomies() {
 	<div class="wrap">
 
 	<?php
-	//Display any success messages or errors.
-	if ( $success = cptui_get_taxonomy_successes() ) {
-		echo $success;
-	}
 
-	if ( $errors = cptui_get_taxonomy_errors() ) {
-		echo $errors;
+	//Echo our notice if we have one.
+	if ( isset( $notice ) ) {
+		echo $notice;
 	}
 
 	//Create our tabs.
