@@ -202,9 +202,10 @@ function cptui_get_single_taxonomy_registery( $taxonomy = array() ) {
 function cptui_get_post_type_code() {
 
 	//fetch out post types
-	$cptui_post_types = get_option( 'cptui_post_types', array() );
+	$cptui_post_types = get_option( 'cptui_post_types' );
 
 	//Whitespace very much matters here, thus why it's all flush against the left side
+	if ( !empty( $cptui_post_types ) ) {
 	?>
 add_action( 'init', 'cptui_register_my_cpts' );
 function cptui_register_my_cpts() {
@@ -215,6 +216,9 @@ function cptui_register_my_cpts() {
 // End of cptui_register_my_cpts()
 }
 <?php
+	} else {
+		_e( 'No post types to display at this time', 'cpt-plugin' );
+	}
 }
 
 /**
