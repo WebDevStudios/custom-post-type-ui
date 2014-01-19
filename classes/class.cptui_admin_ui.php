@@ -131,6 +131,13 @@ class cptui_admin_ui {
 		return '<a href="#" title="' . $help_text . '" class="help wp-ui-highlight">?</a>';
 	}
 
+	public function get_maxlength( $length ) {
+		return 'maxlength="' . $length . '"';
+	}
+	public function get_onblur( $text ) {
+		return 'onblur="' . $text . '"';
+	}
+
 	/**
 	 * Return a populated <select> input
 	 *
