@@ -399,6 +399,7 @@ function cptui_help_style() { ?>
 		}
 		.cptui_post_type_get_code, .cptui_tax_get_code {
 			height: 300px;
+			resize: vertical;
 			width: 100%;
 		}
 		#cptui_accordion h3:hover { cursor: pointer; }
