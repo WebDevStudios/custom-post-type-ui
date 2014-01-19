@@ -438,65 +438,6 @@ function cptui_manage_taxonomies() {
 }
 
 /**
- * Fetch error message based on $_GET parameter
- *
- * @since  0.9
- *
- * @return mixed  false on no error, mixed when there is one.
- */
-function cptui_get_taxonomy_errors() {
-	//TODO: Marked for refactoring and admin_notices
-	if ( isset( $_GET['cpt_error'] ) ) :
-		$error = $_GET['cpt_error'];
-
-		$msg = '<div class="error">';
-
-		if ( 1 == $error ) {
-			$msg .= '<p>' . __( 'Taxonomy name is a required field.', 'cpt-plugin' ) . '</p>';
-		}
-		if ( 2 == $error ) {
-			$msg .= '<p>' . __( 'You must assign your custom taxonomy to at least one post type.', 'cpt-plugin' ) . '</p>';
-		}
-		if ( 3 == $error ) {
-			$msg .= '<p>' . __( 'Please do not use quotes in your taxonomy slug or rewrite slug.', 'cpt-plugin' ) . '</p>';
-		}
-		$msg .= '</div>';
-
-		return $msg;
-
-	endif;
-
-	return false;
-}
-
-/**
- * Fetch success message based on $_GET parameter
- *
- * @since  0.9
- *
- * @return mixed  false on no parameter, mixed when there is one.
- */
-function cptui_get_taxonomy_successes() {
-	//TODO: Marked for refactoring and admin_notices
-	if ( isset( $_GET['cpt_msg'] ) ) :
-		$success = $_GET['cpt_msg'];
-
-		$msg = '<div id="message" class="updated">';
-
-		if ( 1 == $success ) {
-			$msg .= '<p>' . __( 'Custom taxonomy created successfully.  You may need to refresh to view the new taxonomy in the admin menu.', 'cpt-plugin' ) . '</p>';
-		}
-
-		$msg .= '</div>';
-
-		return $msg;
-
-	endif;
-
-	return false;
-}
-
-/**
  * Construct a dropdown of our taxonomies so users can select which to edit.
  *
  * @since  0.9
