@@ -774,66 +774,6 @@ function cptui_manage_post_types() {
 }
 
 /**
- * Fetch error message based on $_GET parameter
- *
- * @since  0.9
- *
- * @return mixed  false on no error, mixed when there is one.
- */
-function cptui_get_post_type_errors() {
-	//TODO: Marked for refactoring and admin_notices
-	if ( isset( $_GET['cpt_error'] ) ) :
-		$error = $_GET['cpt_error'];
-
-		$msg = '<div class="error">';
-
-		if ( 1 == $error ) {
-			$msg .= '<p>' . __( 'Post type name is a required field.', 'cpt-plugin' ) . '</p>';
-		}
-		if ( 2 == $error ) {
-			$msg .= '<p>' . __( 'Please do not use quotes in your post type slug or rewrite slug.', 'cpt-plugin' ) . '</p>';
-		}
-		if ( 3 == $error ) {
-			$msg .= '<p>' . __( 'Please select a unique slug for the custom post type.', 'cpt-plugin' ) . '</p>';
-		}
-
-		$msg .= '</div>';
-
-		return $msg;
-
-	endif;
-
-	return false;
-}
-
-/**
- * Fetch success message based on $_GET parameter
- *
- * @since  0.9
- *
- * @return mixed  false on no parameter, mixed when there is one.
- */
-function cptui_get_post_type_successes() {
-	//TODO: Marked for refactoring and admin_notices
-	if ( isset( $_GET['cpt_msg'] ) ) :
-		$success = $_GET['cpt_msg'];
-
-		$msg = '<div id="message" class="updated">';
-
-		if ( 1 == $success ) {
-			$msg .= '<p>' . __( 'Custom post type created successfully. You may need to refresh to view the new post type in the admin menu.', 'cpt-plugin' ) . '</p>';
-		}
-
-		$msg .= '</div>';
-
-		return $msg;
-
-	endif;
-
-	return false;
-}
-
-/**
  * Construct a dropdown of our post types so users can select which to edit.
  *
  * @since  0.9
