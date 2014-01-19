@@ -502,7 +502,7 @@ function cptui_delete_taxonomy( $data ) {
 
 	//Check if they selected one to delete
 	if ( empty( $data['cpt_custom_tax']['name'] ) ) {
-		return;
+		return cptui_admin_notices(	'error', '', false, __( 'Please provide a taxonomy to delete', 'cpt-plugin' ) );
 	}
 
 	//Grab our taxonomies
@@ -513,18 +513,40 @@ function cptui_delete_taxonomy( $data ) {
 
 		unset( $taxonomies[ $data['cpt_custom_tax']['name'] ] );
 
-		update_option( 'cptui_taxonomies', $taxonomies );
+		$success = update_option( 'cptui_taxonomies', $taxonomies );
 	}
+
+	//If we have succeeded, let let them know.
+	if ( isset( $success ) ) {
+		return cptui_admin_notices( 'delete', $data['cpt_custom_tax']['name'], $success );
+	}
+	return false;
 }
 
 function cptui_update_taxonomy( $data ) {
 
-	if ( false !== strpos( $cpt_form_fields["name"], '\'' ) ||
-			 false !== strpos( $cpt_form_fields["name"], '\"' ) ||
-			 false !== strpos( $cpt_form_fields["rewrite_slug"], '\'' ) ||
-			 false !== strpos( $cpt_form_fields["rewrite_slug"], '\"' ) ) {
+	//They need to provide a name
+	if ( empty( $data['cpt_custom_tax']['name'] ) ) {
+		return cptui_admin_notices(	'error', '', false, __( 'Please provide a taxonomy name', 'cpt-plugin' ) );
+	}
 
-			//wp_redirect();
-			//exit();
+	if ( false !== strpos( $data["name"], '\'' ) ||
+			 false !== strpos( $data["name"], '\"' ) ||
+			 false !== strpos( $data["rewrite_slug"], '\'' ) ||
+			 false !== strpos( $data["rewrite_slug"], '\"' ) ) {
+
+			return cptui_admin_notices(	'error', '', false, __( 'Please do not use quotes in taxonomy names or rewrite slugs', 'cpt-plugin' ) );
 		}
+
+
+
+
+
+
+
+
+	if ( isset( $success ) ) {
+		return cptui_admin_notices( 'update', $data['cpt_custom_tax']['name'], $success );
+	}
+	return false;
 }
