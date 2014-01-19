@@ -228,10 +228,17 @@ class cptui_admin_ui {
 			$value .= $this->get_td_start();
 		}
 
-		$maxlength = ( $args['maxlength'] ) ? 'maxlength="' . $args['maxlength'] . '"' : '';
-		$onblur = ( $args['onblur'] ) ? 'onblur="' . $args['onblur'] . '"' : '';
+		$value .= '<input type="text" id="' . $args['name'] . '" name="' . $args['namearray'] . '[' . $args['name'] . ']" value="' . $args['textvalue'] . '"';
 
-		$value .= '<input type="text" id="' . $args['name'] . '" name="' . $args['namearray'] . '[' . $args['name'] . ']" value="' . $args['textvalue'] . '" ' . $maxlength . ' ' . $onblur . ' /><br/>';
+		if ( $args['maxlength'] ) {
+			$value .= ' ' . $this->get_maxlength( $args['maxlength'] );
+		}
+
+		if ( $args['onblur'] ) {
+			$value .= ' ' . $this->get_onblur( $args['onblur'] );
+		}
+		
+		$value .= ' /><br/>';
 
 		if ( !empty( $args['aftertext'] ) )
 			$value .= $args['aftertext'];
