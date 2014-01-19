@@ -551,7 +551,7 @@ add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'cptui_edit_pl
  *
  * @return bool|string              false on no message, else HTML div with our notice message.
  */
-function cptui_admin_notices( $action = '', $object_type = '', bool $success, $custom = '' ) {
+function cptui_admin_notices( $action = '', $object_type = '', $success = true , $custom = '' ) {
 
 	//Set our class based on status of $success
 	$class = ( $success ) ? 'updated' : 'error';
