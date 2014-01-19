@@ -528,12 +528,20 @@ function cptui_update_taxonomy( $data ) {
 	}
 
 	if ( false !== strpos( $data["name"], '\'' ) ||
-			 false !== strpos( $data["name"], '\"' ) ||
-			 false !== strpos( $data["rewrite_slug"], '\'' ) ||
-			 false !== strpos( $data["rewrite_slug"], '\"' ) ) {
+		false !== strpos( $data["name"], '\"' ) ||
+		false !== strpos( $data["rewrite_slug"], '\'' ) ||
+		false !== strpos( $data["rewrite_slug"], '\"' ) ) {
 
-			return cptui_admin_notices(	'error', '', false, __( 'Please do not use quotes in taxonomy names or rewrite slugs', 'cpt-plugin' ) );
-		}
+		return cptui_admin_notices(	'error', '', false, __( 'Please do not use quotes in taxonomy names or rewrite slugs', 'cpt-plugin' ) );
+	}
+
+	//Fetch our post types
+	$taxonomies = get_option( 'cptui_taxonomies', array() );
+
+	//Check if we already have a post type of that name.
+	if ( 'Add Taxonomy' == $data['cpt_submit'] && array_key_exists( strtolower( $data['cpt_custom_post_type']['name'] ), $taxonomies ) ) {
+		return cptui_admin_notices(	'error', '', false, sprintf( __( 'Please choose a different taxonomy name. %s is already used.', 'cpt-plugin' ), $data['cpt_custom_tax']['name'] ) );
+	}
 
 
 
@@ -541,9 +549,15 @@ function cptui_update_taxonomy( $data ) {
 
 
 
+
+	$success = update_option( 'cptui_taxonomies', $taxonomies );
 
 	if ( isset( $success ) ) {
-		return cptui_admin_notices( 'update', $data['cpt_custom_tax']['name'], $success );
+		if ( 'Add Taxonomy' == $data['cpt_submit'] ) {
+			return cptui_admin_notices( 'add', $data['cpt_custom_tax']['name'], $success );
+		} else {
+			return cptui_admin_notices( 'update', $data['cpt_custom_tax']['name'], $success );
+		}
 	}
 	return false;
 }
