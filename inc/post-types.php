@@ -56,15 +56,10 @@ function cptui_manage_post_types() {
 	<div class="wrap">
 
 	<?php
-	//Display any success messages or errors.
-	if ( $success = cptui_get_post_type_successes() ) {
-		echo $success;
+	//Echo our notice if we have one.
+	if ( isset( $notice ) ) {
+		echo $notice;
 	}
-
-	if ( $errors = cptui_get_post_type_errors() ) {
-		echo $errors;
-	}
-
 	//Create our tabs.
 	cptui_settings_tab_menu();
 
