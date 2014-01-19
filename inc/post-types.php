@@ -829,9 +829,11 @@ function cptui_get_current_post_type() {
 /**
  * Delete our custom post type from the array of post types.
  *
+ * @since 0.9
+ *
  * @param $data array $_POST values
  *
- * @since 0.9
+ * @return mixed      false on failure, string on success.
  */
 function cptui_delete_post_type( $data ) {
 
@@ -848,10 +850,19 @@ function cptui_delete_post_type( $data ) {
 		update_option( 'cptui_post_types', $post_types );
 	}
 }
-//Used to both add and edit.
+
+/**
+ * Add to or update our CPTUI option with new data.
+ *
+ * @since 0.9
+ *
+ * @param $data
+ *
+ * @return bool|string    false on failure, admin notice on success.
+ */
 function cptui_update_post_type( $data ) {
 
-	//They need tp provide a name
+	//They need to provide a name
 	if ( empty( $data['cpt_custom_post_type']['name'] ) ) {
 
 	}
