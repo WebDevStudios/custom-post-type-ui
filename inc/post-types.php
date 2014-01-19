@@ -40,6 +40,17 @@ add_action( 'admin_menu', 'cptui_post_types_admin_menu' );
  */
 function cptui_manage_post_types() {
 
+	//Only for our add/edit.
+	if ( !empty( $_POST ) && isset( $_POST['cpt_submit'] ) ) {
+		check_admin_referer( 'cptui_addedit_post_type_nonce_action', 'cptui_addedit_post_type_nonce_field' );
+		$notice = cptui_update_post_type( $_POST );
+	}
+	//Only for our delete.
+	if ( !empty( $_POST ) && isset( $_POST['cpt_delete'] ) ) {
+		check_admin_referer( 'cptui_addedit_post_type_nonce_action', 'cptui_addedit_post_type_nonce_field' );
+		$notice = cptui_delete_post_type( $_POST );
+	}
+
 	$tab = ( !empty( $_GET ) && !empty( $_GET['action'] ) && 'edit' == $_GET['action'] ) ? 'edit' : 'new'; ?>
 
 	<div class="wrap">
@@ -69,17 +80,6 @@ function cptui_manage_post_types() {
 		if ( $selected_post_type ) {
 			$current = $post_types[ $selected_post_type ];
 		}
-	}
-
-	//Only for our add/edit.
-	if ( !empty( $_POST ) && isset( $_POST['cpt_submit'] ) ) {
-		check_admin_referer( 'cptui_addedit_post_type_nonce_action', 'cptui_addedit_post_type_nonce_field' );
-		cptui_update_post_type( $_POST );
-	}
-
-	if ( !empty( $_POST ) && isset( $_POST['cpt_delete'] ) ) {
-		check_admin_referer( 'cptui_addedit_post_type_nonce_action', 'cptui_addedit_post_type_nonce_field' );
-		cptui_delete_post_type( $_POST );
 	}
 
 	//Instantiate our UI class.
