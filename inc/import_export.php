@@ -153,7 +153,11 @@ function cptui_register_my_taxes() {
  * @return string          Copy/paste ready "php" code
  */
 function cptui_get_single_taxonomy_registery( $taxonomy = array() ) {
-	$post_types = 'array( ' . implode( ', ', $taxonomy['post_types'] ) . ' )';
+	if ( is_array( $post_types ) ) {
+		$post_types = 'array( ' . implode( ', ', $taxonomy['post_types'] ) . ' )';
+	} else {
+
+	}
 	?>
 
 	$labels = array(
