@@ -127,7 +127,8 @@ function cptui_importexport() {
 function cptui_get_taxonomy_code() {
 
 	//fetch out taxonomies
-	$cptui_taxonomies = get_option( 'cptui_taxonomies', array() );
+	$cptui_taxonomies = get_option( 'cptui_taxonomies' );
+	if ( !empty( $cptui_taxonomies ) ) {
 	?>
 add_action( 'init', 'cptui_register_my_taxes' );
 function cptui_register_my_taxes() {
@@ -138,6 +139,9 @@ function cptui_register_my_taxes() {
 //End cptui_register_my_taxes
 }
 <?php
+	} else {
+		_e( 'No taxonomies to display at this time', 'cpt-plugin' );
+	}
 }
 
 /**
