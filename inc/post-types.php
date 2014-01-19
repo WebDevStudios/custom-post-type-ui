@@ -880,7 +880,7 @@ function cptui_update_post_type( $data ) {
 		 false !== strpos( $data['cpt_custom_post_type']['rewrite_slug'], '\'' ) ||
 		 false !== strpos( $data['cpt_custom_post_type']['rewrite_slug'], '\"' ) ) {
 
-		return cptui_admin_notices(	'error', '', false, __( 'Please do not use quotes in post type names or rewrite slugs', 'cpt-plugin' ) );
+		return cptui_admin_notices( 'error', '', false, __( 'Please do not use quotes in post type names or rewrite slugs', 'cpt-plugin' ) );
 	}
 
 	//Fetch our post types
