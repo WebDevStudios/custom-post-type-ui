@@ -40,6 +40,17 @@ add_action( 'admin_menu', 'cptui_taxonomies_admin_menu' );
  */
 function cptui_manage_taxonomies() {
 
+	//Only for our add/edit.
+	if ( !empty( $_POST ) ) {
+		if ( isset( $_POST['cpt_submit'] ) ) {
+			check_admin_referer( 'cptui_addedit_taxonomy_nonce_action', 'cptui_addedit_taxonomy_nonce_field' );
+			$notice = cptui_update_taxonomy( $_POST );
+		} elseif ( isset( $_POST['cpt_delete'] ) ) {
+			check_admin_referer( 'cptui_addedit_taxonomy_nonce_action', 'cptui_addedit_taxonomy_nonce_field' );
+			$notice = cptui_delete_taxonomy( $_POST );
+		}
+	}
+
 	$tab = ( !empty( $_GET ) && !empty( $_GET['action'] ) && 'edit' == $_GET['action'] ) ? 'edit' : 'new'; ?>
 
 	<div class="wrap">
