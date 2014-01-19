@@ -887,8 +887,8 @@ function cptui_update_post_type( $data ) {
 	$post_types = get_option( 'cptui_post_types', array() );
 
 	//Check if we a;ready have a post type of that name.
-	if ( array_key_exists( strtolower( $data['cpt_custom_post_type']['name'] ), $post_types ) ) {
-
+	if ( 'Add Post Type' == $data['cpt_submit'] && array_key_exists( strtolower( $data['cpt_custom_post_type']['name'] ), $post_types ) ) {
+		return cptui_admin_notices( 'error', '', false, sprintf( __( 'Please choose a different post type name. %s is already used.', 'cpt-plugin' ), $data['cpt_custom_post_type']['name'] ) );
 	}
 
 	$post_types[ $data['cpt_custom_post_type']['name'] ] = array(
@@ -918,7 +918,11 @@ function cptui_update_post_type( $data ) {
 	$success = update_option( 'cptui_post_types', $post_types );
 
 	if ( isset( $success ) ) {
-		return cptui_admin_notices( 'update', $data['cpt_custom_post_type']['name'], $success );
+		if ( 'Add Post Type' == $data['cpt_submit'] ) {
+			return cptui_admin_notices( 'add', $data['cpt_custom_post_type']['name'], $success );
+		} else {
+			return cptui_admin_notices( 'update', $data['cpt_custom_post_type']['name'], $success );
+		}
 	}
 	return false;
 }
