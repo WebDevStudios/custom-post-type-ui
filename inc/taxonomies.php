@@ -79,17 +79,6 @@ function cptui_manage_taxonomies() {
 		}
 	}
 
-	//Only for our add/edit.
-	if ( !empty( $_POST ) && isset( $_POST['cpt_submit'] ) ) {
-		check_admin_referer( 'cptui_addedit_post_type_nonce_action', 'cptui_addedit_post_type_nonce_field' );
-		cptui_update_taxonomy( $_POST );
-	}
-
-	if ( !empty( $_POST ) && isset( $_POST['cpt_delete'] ) ) {
-		check_admin_referer( 'cptui_addedit_taxonomy_nonce_action', 'cptui_addedit_taxonomy_nonce_field' );
-		cptui_delete_taxonomy( $_POST );
-	}
-
 	//Instantiate our UI class.
 	$ui = new cptui_admin_ui();
 
