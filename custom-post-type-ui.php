@@ -537,3 +537,63 @@ function cptui_edit_plugin_list_links( $links ) {
 	), $links );
 }
 add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'cptui_edit_plugin_list_links' );
+
+/**
+ * Return a notice based on conditions.
+ *
+ * @since 0.9
+ *
+ * @param string $action       The type of action that occurred
+ * @param string $object_type  Whether it's from a post type or taxonomy.
+ * @param bool   $success      Whether the action succeeded or not.
+ * @param string $custom       Custom message if necessary
+ *
+ * @return bool|string              false on no message, else HTML div with our notice message.
+ */
+function cptui_admin_notices( $action = '', $object_type = '', bool $success, $custom = '' ) {
+
+	//Set our class based on status of $success
+	$class = ( $success ) ? 'updated' : 'error';
+	//Get our markup started
+	$messagewrapstart = '<div class="' . $class . '">';
+	$message = '';
+	//Finish up our markup
+	$messagewrapend .= '</div>';
+
+	if ( 'add' == $action ) {
+		if ( $success ) {
+			$message .= sprintf( __( '%s has been successfully added', 'cpt-plugin' ), $object_type );
+		} else {
+			$message .= sprintf( __( '%s has been failed to add', 'cpt-plugin' ), $object_type );
+		}
+	} elseif ( 'update' == $action ) {
+		if ( $success ) {
+			$message .= sprintf( __( '%s has been successfully updated', 'cpt-plugin' ), $object_type );
+		} else {
+			$message .= sprintf( __( '%s has been failed to update', 'cpt-plugin' ), $object_type );
+		}
+	} elseif ( 'delete' == $action ) {
+		if ( $success ) {
+			$message .= sprintf( __( '%s has been successfully deleted', 'cpt-plugin' ), $object_type );
+		} else {
+			$message .= sprintf( __( '%s has been failed to delete', 'cpt-plugin' ), $object_type );
+		}
+	} elseif ( 'import' == $action ) {
+		if ( $success ) {
+			$message .= sprintf( __( '%s has been successfully imported', 'cpt-plugin' ), $object_type );
+		} else {
+			$message .= sprintf( __( '%s has been failed to import', 'cpt-plugin' ), $object_type );
+		}
+	} elseif ( 'error' == $action ) {
+		if ( !empty( $custom ) ) {
+			$message = $custom;
+		}
+	}
+
+	if ( $message ) {
+		return $messagewrapstart . $message . $messagewrapend;
+	}
+
+	return false;
+}
+
