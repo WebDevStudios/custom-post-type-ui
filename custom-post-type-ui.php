@@ -565,25 +565,25 @@ function cptui_admin_notices( $action = '', $object_type = '', $success = true ,
 		if ( $success ) {
 			$message .= sprintf( __( '%s has been successfully added', 'cpt-plugin' ), $object_type );
 		} else {
-			$message .= sprintf( __( '%s has been failed to add', 'cpt-plugin' ), $object_type );
+			$message .= sprintf( __( '%s has failed to be added', 'cpt-plugin' ), $object_type );
 		}
 	} elseif ( 'update' == $action ) {
 		if ( $success ) {
 			$message .= sprintf( __( '%s has been successfully updated', 'cpt-plugin' ), $object_type );
 		} else {
-			$message .= sprintf( __( '%s has been failed to update', 'cpt-plugin' ), $object_type );
+			$message .= sprintf( __( '%s has failed to be updated', 'cpt-plugin' ), $object_type );
 		}
 	} elseif ( 'delete' == $action ) {
 		if ( $success ) {
 			$message .= sprintf( __( '%s has been successfully deleted', 'cpt-plugin' ), $object_type );
 		} else {
-			$message .= sprintf( __( '%s has been failed to delete', 'cpt-plugin' ), $object_type );
+			$message .= sprintf( __( '%s has failed to be deleted', 'cpt-plugin' ), $object_type );
 		}
 	} elseif ( 'import' == $action ) {
 		if ( $success ) {
 			$message .= sprintf( __( '%s has been successfully imported', 'cpt-plugin' ), $object_type );
 		} else {
-			$message .= sprintf( __( '%s has been failed to import', 'cpt-plugin' ), $object_type );
+			$message .= sprintf( __( '%s has failed to be imported', 'cpt-plugin' ), $object_type );
 		}
 	} elseif ( 'error' == $action ) {
 		if ( !empty( $custom ) ) {
