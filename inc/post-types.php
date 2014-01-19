@@ -838,7 +838,7 @@ function cptui_get_current_post_type() {
 function cptui_delete_post_type( $data ) {
 
 	if ( empty( $data['cpt_custom_post_type']['name'] ) ) {
-		return;
+		return cptui_admin_notices(	'error', '', false, __( 'Please provide a post type to delete', 'cpt-plugin' ) );
 	}
 
 	$post_types = get_option( 'cptui_post_types' );
@@ -847,8 +847,13 @@ function cptui_delete_post_type( $data ) {
 
 		unset( $post_types[ $data['cpt_custom_post_type']['name'] ] );
 
-		update_option( 'cptui_post_types', $post_types );
+		$success = update_option( 'cptui_post_types', $post_types );
 	}
+
+	if ( isset( $success ) ) {
+		return cptui_admin_notices( 'delete', $data['cpt_custom_post_type']['name'], $success );
+	}
+	return false;
 }
 
 /**
@@ -864,7 +869,7 @@ function cptui_update_post_type( $data ) {
 
 	//They need to provide a name
 	if ( empty( $data['cpt_custom_post_type']['name'] ) ) {
-
+		return cptui_admin_notices(	'error', '', false, __( 'Please provide a post type name', 'cpt-plugin' ) );
 	}
 
 	//clean up $_POST data
@@ -875,6 +880,8 @@ function cptui_update_post_type( $data ) {
 		 false !== strpos( $data['cpt_custom_post_type']['name'], '\"' ) ||
 		 false !== strpos( $data['cpt_custom_post_type']['rewrite_slug'], '\'' ) ||
 		 false !== strpos( $data['cpt_custom_post_type']['rewrite_slug'], '\"' ) ) {
+
+		return cptui_admin_notices(	'error', '', false, __( 'Please do not use quotes in post type names or rewrite slugs', 'cpt-plugin' ) );
 	}
 
 	//Fetch our post types
@@ -909,5 +916,10 @@ function cptui_update_post_type( $data ) {
         'labels'                => $data['cpt_labels']
 	);
 
-	update_option( 'cptui_post_types', $post_types );
+	$success = update_option( 'cptui_post_types', $post_types );
+
+	if ( isset( $success ) ) {
+		return cptui_admin_notices( 'update', $data['cpt_custom_post_type']['name'], $success );
+	}
+	return false;
 }
