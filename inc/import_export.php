@@ -38,18 +38,11 @@ function cptui_importexport() {
 	}
 
 	if ( !empty( $_POST ) ) {
-		cptui_import_types_taxes_settings( $_POST );
+		$notice = cptui_import_types_taxes_settings( $_POST );
 	}
 
-	echo '<div class="wrap">';
-
-	//Display any success messages or errors.
-	if ( $success = cptui_get_importexport_successes() ) {
-		echo $success;
-	}
-
-	if ( $errors = cptui_get_importexport_errors() ) {
-		echo $errors;
+	if ( isset( $notice ) ) {
+		echo $notice;
 	}
 
 	//Create our tabs.
@@ -344,17 +337,18 @@ function cptui_import_types_taxes_settings( $postdata ) {
 		$settings = json_decode( $data, true );
 
 		if ( $settings ) {
-			update_option( 'cptui_post_types', $settings );
+			$success = update_option( 'cptui_post_types', $settings );
 		}
+		return cptui_admin_notices( 'import', '', $success );
 
   	} elseif ( !empty( $postdata['cptui_tax_import'] ) ) {
   		$data = stripslashes_deep( trim( $postdata['cptui_tax_import'] ) );
 		$settings = json_decode( $data, true );
 
 		if ( $settings ) {
-			update_option( 'cptui_taxonomies', $settings );
+			$success = update_option( 'cptui_taxonomies', $settings );
 		}
-
+		return cptui_admin_notices( 'import', '', $success );
   	}
 	//Make them immediately available.
 	flush_rewrite_rules();
