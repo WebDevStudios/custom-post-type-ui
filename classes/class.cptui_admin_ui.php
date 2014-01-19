@@ -237,7 +237,7 @@ class cptui_admin_ui {
 		if ( $args['onblur'] ) {
 			$value .= ' ' . $this->get_onblur( $args['onblur'] );
 		}
-		
+
 		$value .= ' /><br/>';
 
 		if ( !empty( $args['aftertext'] ) )
