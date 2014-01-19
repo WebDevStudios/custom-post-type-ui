@@ -489,14 +489,26 @@ function cptui_get_current_taxonomy() {
 	return false;
 }
 
-//delete custom post type or custom taxonomy
+/**
+ * Delete our custom taxonomy from the array of taxonomies.
+ *
+ * @since 0.9
+ *
+ * @param $data array $_POST values
+ *
+ * @return mixed      false on failure, string on success.
+ */
 function cptui_delete_taxonomy( $data ) {
+
+	//Check if they selected one to delete
 	if ( empty( $data['cpt_custom_tax']['name'] ) ) {
 		return;
 	}
 
+	//Grab our taxonomies
 	$taxonomies = get_option( 'cptui_taxonomies' );
 
+	//If the selected taxonomy exists, let's remove it.
 	if ( array_key_exists( strtolower( $data['cpt_custom_tax']['name'] ), $taxonomies ) ) {
 
 		unset( $taxonomies[ $data['cpt_custom_tax']['name'] ] );
@@ -506,7 +518,6 @@ function cptui_delete_taxonomy( $data ) {
 }
 
 function cptui_update_taxonomy( $data ) {
-	//clean up $_POST data here
 
 	if ( false !== strpos( $cpt_form_fields["name"], '\'' ) ||
 			 false !== strpos( $cpt_form_fields["name"], '\"' ) ||
