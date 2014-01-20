@@ -35,6 +35,7 @@ function cptui_support() {
 
 		<h1><?php _e( 'Custom Post Type UI Support', 'cpt-plugin' ); ?></h1>
 
+		<p><?php _e( 'Click on a question below to see the answer. Click again if you wish to re-hide', 'cpt-plugin' ); ?></p>
 		<p><?php _e( 'Please note that this plugin will NOT handle display of registered post types or taxonomies in your current theme. It will simply register them for you.', 'cpt-plugin' ); ?></p>
 
 		<table class="form-table cptui-table">
