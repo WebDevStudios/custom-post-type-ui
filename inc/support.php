@@ -116,8 +116,8 @@ add_filter( 'enter_title_here', 'my_custom_title_text' );
 			</tr>
 		</table>
 
-		<?php do_action( 'cptui_main_page_after_faq' ); ?>
-	<?php
+		<?php do_action( 'cptui_main_page_after_faq' );
+
 	echo '</div>';
 
 	cptui_footer();
