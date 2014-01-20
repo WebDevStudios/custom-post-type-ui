@@ -30,15 +30,9 @@ add_action( 'admin_menu', 'cptui_support_admin_menu' );
 
 function cptui_support() {
 	echo '<div class="wrap">';
-	?>
-		<?php
-		/* Ideas:
-			Searching
-			admin sorting
-			admin filtering.
-		 */
-		?>
-		<?php do_action( 'cptui_main_page_before_faq' ); ?>
+
+		do_action( 'cptui_main_page_before_faq' ); ?>
+
 		<h1><?php _e( 'Custom Post Type UI Support', 'cpt-plugin' ); ?></h1>
 
 		<p><?php _e( 'Please note that this plugin will NOT handle display of registered post types or taxonomies in your current theme. It will simply register them for you.', 'cpt-plugin' ); ?></p>
