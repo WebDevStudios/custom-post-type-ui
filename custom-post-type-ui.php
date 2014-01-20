@@ -403,6 +403,8 @@ function cptui_help_style() { ?>
 			width: 100%;
 		}
 		#cptui_accordion h3:hover { cursor: pointer; }
+		.question { font-size: 18px; font-weight: bold; }
+		.answer { margin: 10px 0 0 20px; }
 	</style>
 <?php
 }
