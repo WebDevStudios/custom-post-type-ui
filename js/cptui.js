@@ -16,16 +16,6 @@
 			$(this).hide();
 		}
 	});
-	$("#questions li").on( 'click', function(e){
-		if( $(this).hasClass( 'active' ) ) {
-			e.preventDefault();
-		}
-		var choice = $(this).attr('class');
-		$('#qa .active').fadeOut().removeClass('active');
-		$('#qa .'+choice).delay(500).fadeIn().addClass('active');
-		$('#questions .active').removeClass('active');
-		$(this).addClass('active');
-	});
 
 	$('#questions .question').each(function() {
 		var tis = $(this), state = false, answer = tis.next('div').slideUp();
