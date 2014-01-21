@@ -47,3 +47,30 @@
 	position: absolute;
 }
 #support ol li { list-style: none; }
+
+.ui-accordion-content {
+	overflow: auto;
+	margin: 0 auto;
+
+	background:
+		/* Shadow covers */
+		linear-gradient(#F1F1F1 30%, rgba(255,255,255,0)),
+		linear-gradient(rgba(255,255,255,0), #F1F1F1 70%) 0 100%,
+
+		/* Shadows */
+		radial-gradient(50% 0, farthest-side, rgba(0,0,0,.2), rgba(0,0,0,0)),
+		radial-gradient(50% 100%,farthest-side, rgba(0,0,0,.2), rgba(0,0,0,0)) 0 100%;
+	background:
+		/* Shadow covers */
+		linear-gradient(#F1F1F1 30%, rgba(255,255,255,0)),
+		linear-gradient(rgba(255,255,255,0), #F1F1F1 70%) 0 100%,
+
+		/* Shadows */
+		radial-gradient(farthest-side at 50% 0, rgba(0,0,0,.2), rgba(0,0,0,0)),
+		radial-gradient(farthest-side at 50% 100%, rgba(0,0,0,.2), rgba(0,0,0,0)) 0 100%;
+	background-repeat: no-repeat;
+	background-size: 100% 40px, 100% 40px, 100% 14px, 100% 14px;
+
+	/* Opera doesn't support this in the shorthand */
+	background-attachment: local, local, scroll, scroll;
+}
