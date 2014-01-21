@@ -160,7 +160,7 @@ function cptui_manage_post_types() {
 				</p>
 			</td>
 			<td>
-				<p> <?php _e( 'Click headings to expand for more settings. Scroll or keyboard tab to navigate all options.', 'cpt-plugin' ); ?></p>
+				<p> <?php _e( 'Scroll or keyboard tab to navigate all options.', 'cpt-plugin' ); ?></p>
 
 				<div id="cptui_accordion">
 					<h3 title="<?php esc_attr_e( 'Click to expand', 'cpt-plugin' ); ?>"><?php _e( 'Labels', 'cpt-plugin' ); ?></h3>
