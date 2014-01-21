@@ -565,7 +565,7 @@ function cptui_admin_notices( $action = '', $object_type = '', $success = true ,
 	$messagewrapstart = '<div class="' . $class . '">';
 	$message = '';
 	//Finish up our markup
-	$messagewrapend .= '</div>';
+	$messagewrapend = '</div>';
 
 	if ( 'add' == $action ) {
 		if ( $success ) {
