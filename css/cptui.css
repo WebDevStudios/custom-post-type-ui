@@ -30,17 +30,20 @@
 #support li {
 	position: relative;
 }
-#cptui_accordion h3:after, #support li:before {
-	content: "\f156";
+#cptui_accordion h3:after, #support .question:before {
+	content: "\f139";
 	display: inline-block;
-	font: normal 20px/1 'dashicons';
+	font: normal 25px/1 'dashicons';
 	-webkit-font-smoothing: antialiased;
 }
-#support li:before {
+#cptui_accordion h3.ui-state-active:after, #support .question.active:before {
+	content: "\f140";
+}
+#support .question:before {
 	margin-left: -25px;
 	position: absolute;
 }
 #cptui_accordion h3:after {
-	padding-left: 5px;
+	position: absolute;
 }
 #support ol li { list-style: none; }
