@@ -10,14 +10,7 @@
 		return false;
 	});
 
-	//Used in our support tab.
-	$("#qa .answer").each(function(){
-		if(!$(this).hasClass( 'active' )) {
-			$(this).hide();
-		}
-	});
-
-	$('#questions .question').each(function() {
+	$('#support .question').each(function() {
 		var tis = $(this), state = false, answer = tis.next('div').slideUp();
 		tis.click(function() {
 			state = !state;
