@@ -81,6 +81,11 @@ function cptui_create_submenus() {
 }
 add_action( 'init', 'cptui_create_submenus' );
 
+function cptui_add_styles() {
+	wp_enqueue_style( 'cptui-css', plugins_url( 'css/cptui.css', __FILE__ ) );
+}
+add_action( 'admin_enqueue_scripts', 'cptui_add_styles' );
+
 /**
  * Register our users' custom post types
  *
@@ -366,49 +371,6 @@ function disp_boolean($booText) {
 
 	return 'true';
 }
-
-/**
- * Add some styles to help with our fields
- *
- * @since  0.8
- *
- * @return mixed  html style blocks
- */
-function cptui_help_style() { ?>
-	<style>
-		.help {
-			border-radius: 50%;
-			display: inline-block;
-			height: 15px;
-			margin-left: 2px;
-			text-align: center;
-			width: 15px;
-		}
-		.help:hover { font-weight: bold; }
-		.required { color: rgb(255,0,0); }
-		.cptui-table #excerpt { height: 16px; margin-right: 4px; width: auto; }
-		.cptui-table td { vertical-align: top; width: 50%; }
-		.wdsintro { width: 60%; }
-		.wdsrss { width: 33%; }
-		#cptui_select_post_type, #cptui_select_taxonomy { margin-top: 15px; }
-		.cptui_post_import, .cptui_tax_import {
-			height: 200px;
-			margin-bottom: 10px;
-			resize: vertical;
-			width: 100%;
-		}
-		.cptui_post_type_get_code, .cptui_tax_get_code {
-			height: 300px;
-			resize: vertical;
-			width: 100%;
-		}
-		#cptui_accordion h3:hover { cursor: pointer; }
-		.question { font-size: 18px; font-weight: bold; }
-		.answer { margin: 10px 0 0 20px; }
-	</style>
-<?php
-}
-add_action( 'admin_head', 'cptui_help_style' );
 
 /**
  * Construct and output tab navigation
