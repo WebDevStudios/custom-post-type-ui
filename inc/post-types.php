@@ -118,7 +118,7 @@ function cptui_manage_post_types() {
 							'namearray'     => 'cpt_custom_post_type',
 							'name'          => 'label',
 							'textvalue'     => ( isset( $current['label'] ) ) ? esc_attr( $current['label'] ) : '',
-							'labeltext'     => __( 'Label', 'cpt-plugin' ),
+							'labeltext'     => __( 'Plural Label', 'cpt-plugin' ),
 							'aftertext'     => __( '(e.g. Movies)', 'cpt-plugin' ),
 							'helptext'      => esc_attr__( 'Post type label.  Used in the admin menu for displaying post types.', 'cpt-plugin' ),
 							) );
