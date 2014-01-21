@@ -37,11 +37,11 @@ function cptui_support() {
 
 		<p><?php _e( 'Please note that this plugin will NOT handle display of registered post types or taxonomies in your current theme. It will simply register them for you.', 'cpt-plugin' ); ?></p>
 
-		<table class="form-table cptui-table">
+		<table id="support" class="form-table cptui-table">
 			<tr>
 				<td>
 					<h2><?php _e( 'General', 'cpt-plugin' ); ?></h2>
-					<ol id="questions">
+					<ol id="questions_general">
 						<li>
 							<span class="question"><?php _e( 'I changed my custom post type name and now I can not get to my posts. How do I get them back?', 'cpt-plugin' ); ?></span>
 							<div class="answer"><?php _e( 'You can either change the custom post type name back to the original name or try the Post Type Switcher plugin', 'cpt-plugin' ); ?> <a href="http://wordpress.org/plugins/post-type-switcher/" target="_blank">http://wordpress.org/extend/plugins/post-type-switcher/</a></div>
@@ -54,7 +54,7 @@ function cptui_support() {
 				</td>
 				<td>
 					<h2><?php _e( 'Frontend Display', 'cpt-plugin' ); ?></h2>
-					<ol id="questions">
+					<ol id="questions_front">
 						<li>
 							<span class="question"><?php _e( 'How do I add my custom post type to my frontpage?', 'cpt-plugin' ); ?></span>
 							<div class="answer"></div>
@@ -77,7 +77,7 @@ function cptui_support() {
 			<tr>
 				<td>
 					<h2><?php _e( 'Advanced', 'cpt-plugin' ); ?></h2>
-					<ol id="questions">
+					<ol id="questions_advanced">
 						<li>
 							<span class="question"><?php _e( 'How do I add custom metaboxes to my post type?', 'cpt-plugin' ); ?></span>
 							<div class="answer"><?php _e( 'Custom Metaboxes and Fields for WordPress class is a great alternative to a plugin for more advanced users.', 'cpt-plugin' ); ?> https://github.com/WebDevStudios/Custom-Metaboxes-and-Fields-for-WordPress</div>
