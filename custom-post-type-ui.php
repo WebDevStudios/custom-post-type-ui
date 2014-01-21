@@ -422,13 +422,17 @@ add_action( 'admin_head', 'cptui_help_style' );
 function cptui_settings_tab_menu( $page = 'post_types' ) {
 	//initiate our arrays with default classes
 	$tab1 = $tab2 = $tab3 = array( 'nav-tab' );
-	$has = ( get_option( 'cptui_post_types' ) || get_option( 'cptui_taxonomies' ) ) ? true : false;
+
 	if ( 'importexport' == $page ) :
 		$title = __( 'Import/Export', 'cpt-plugin' );
 	elseif ( 'taxonomies' == $page ) :
 		$title = __( 'Manage Taxonomies', 'cpt-plugin' );
+		$taxes = get_option( 'cptui_taxonomies' );
+		$has = ( !empty( $taxes ) ) ? true : false;
 	else :
 		$title = __( 'Manage Post Types', 'cpt-plugin' );
+		$types = get_option( 'cptui_post_types' );
+		$has = ( !empty( $types ) ) ? true : false;
 	endif;
 
 	if ( !empty( $_GET['action'] ) ) {
