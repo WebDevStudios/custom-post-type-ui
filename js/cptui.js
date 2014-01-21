@@ -19,4 +19,14 @@
 		});
 	});
 
+	var orig, highlight;
+	$('#cptui_accordion h3').hover(function(){
+			orig = $(this).css('color');
+			highlight = $('.wp-ui-highlight').css('background-color');
+			$(this).css({'color':highlight});
+		}, function() {
+			$(this).css({'color':orig });
+		}
+	);
+
 })(jQuery);
