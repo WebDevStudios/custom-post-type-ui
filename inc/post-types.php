@@ -891,6 +891,10 @@ function cptui_update_post_type( $data ) {
 		return cptui_admin_notices( 'error', '', false, sprintf( __( 'Please choose a different post type name. %s is already used.', 'cpt-plugin' ), $data['cpt_custom_post_type']['name'] ) );
 	}
 
+	if ( !is_array( $data['cpt_addon_taxes'] ) && empty( $data['cpt_addon_taxes'] ) ) {
+		$data['cpt_addon_taxes'] = array();
+	}
+
 	$post_types[ $data['cpt_custom_post_type']['name'] ] = array(
         'name'                  => $data['cpt_custom_post_type']['name'],
         'label'                 => $data['cpt_custom_post_type']['label'],
