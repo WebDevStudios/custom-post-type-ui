@@ -502,7 +502,7 @@ function cptui_edit_plugin_list_links( $links ) {
 
 	//Add our custom links to the returned array value.
 	return array_merge( array(
-		'<a href="' . admin_url( 'admin.php?page=cptui_main_menu' ) . '">' . __( 'Settings' ) . '</a>', '<a href="' . admin_url( 'admin.php?page=cptui_support' ) . '">' . __( 'Help' ) . '</a>'
+		'<a href="' . admin_url( 'admin.php?page=cptui_main_menu' ) . '">' . __( 'Settings', 'cpt-plugin' ) . '</a>', '<a href="' . admin_url( 'admin.php?page=cptui_support' ) . '">' . __( 'Help', 'cpt-plugin' ) . '</a>'
 	), $links );
 }
 add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'cptui_edit_plugin_list_links' );
