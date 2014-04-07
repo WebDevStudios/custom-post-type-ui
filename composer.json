@@ -1,6 +1,6 @@
 {
 	"name": "WebDevStudios/wp-custom-post-type-ui",
-	"description": "A single class to help you build more advanced custom post types quickly.",
+	"description": "The Custom Post Type UI Plugin for Wordpress found at https://wordpress.org/plugins/custom-post-type-ui/ ",
 	"homepage": "https://github.com/WebDevStudios/custom-post-type-ui",
 	"license": "MIT",
 	"authors": [
