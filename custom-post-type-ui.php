@@ -99,7 +99,7 @@ function cpt_create_custom_post_types() {
             $cpt_rewrite_slug       = ( !empty( $cpt_post_type["rewrite_slug"] ) ) ? esc_html( $cpt_post_type["rewrite_slug"] ) : $cpt_post_type["name"];
             $cpt_rewrite_withfront  = ( isset($cpt_post_type["rewrite_withfront"]) ) ? get_disp_boolean( $cpt_post_type["rewrite_withfront"] ) : true; //reversed because false is empty, and with_front option is true/false
             $cpt_menu_position      = ( !empty( $cpt_post_type["menu_position"] ) ) ? intval( $cpt_post_type["menu_position"] ) : null; //must be null
-            $cpt_menu_icon          = ( !empty( $cpt_post_type["menu_icon"] ) ) ? esc_url( $cpt_post_type["menu_icon"] ) : null; //must be null
+            $cpt_menu_icon          = ( !empty( $cpt_post_type["menu_icon"] ) ) ? (filter_var($cpt_post_type["menu_icon"], FILTER_VALIDATE_URL) === FALSE ? $cpt_post_type["menu_icon"] : esc_url( $cpt_post_type["menu_icon"] )) : null; //must be null
             $cpt_taxonomies         = ( !empty( $cpt_post_type[1] ) ) ? $cpt_post_type[1] : array();
             $cpt_supports           = ( !empty( $cpt_post_type[0] ) ) ? $cpt_post_type[0] : array();
 
