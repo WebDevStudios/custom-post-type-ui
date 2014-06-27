@@ -99,7 +99,7 @@ function cpt_create_custom_post_types() {
             $cpt_rewrite_slug       = ( !empty( $cpt_post_type["rewrite_slug"] ) ) ? esc_html( $cpt_post_type["rewrite_slug"] ) : $cpt_post_type["name"];
             $cpt_rewrite_withfront  = ( isset($cpt_post_type["rewrite_withfront"]) ) ? get_disp_boolean( $cpt_post_type["rewrite_withfront"] ) : true; //reversed because false is empty, and with_front option is true/false
             $cpt_menu_position      = ( !empty( $cpt_post_type["menu_position"] ) ) ? intval( $cpt_post_type["menu_position"] ) : null; //must be null
-            $cpt_menu_icon          = ( !empty( $cpt_post_type["menu_icon"] ) ) ? esc_url( $cpt_post_type["menu_icon"] ) : null; //must be null
+            $cpt_menu_icon          = ( !empty( $cpt_post_type["menu_icon"] ) ) ? esc_attr( $cpt_post_type["menu_icon"] ) : null; //must be null
             $cpt_taxonomies         = ( !empty( $cpt_post_type[1] ) ) ? $cpt_post_type[1] : array();
             $cpt_supports           = ( !empty( $cpt_post_type[0] ) ) ? $cpt_post_type[0] : array();
 
@@ -678,7 +678,7 @@ if ( isset($_GET['cpt_msg'] ) && $_GET['cpt_msg'] == 'del' ) { ?>
 						$cpt_rewrite_slug = ( empty( $cpt_post_type["rewrite_slug"] ) ) ? esc_html( $cpt_post_type["name"] ) : esc_html($cpt_post_type["rewrite_slug"]);
 						$cpt_rewrite_withfront = ( empty( $cpt_post_type['rewrite_withfront'] ) ) ? get_disp_boolean( $cpt_post_type['rewrite_withfront'] ) : 'true'; //not reversed because false is empty, making the assignment go to true
 						$cpt_menu_position = ( empty( $cpt_post_type["menu_position"] ) ) ? null : intval($cpt_post_type["menu_position"]);
-						$cpt_menu_icon = ( !empty( $cpt_post_type["menu_icon"] ) ) ? esc_url($cpt_post_type["menu_icon"]) : null;
+						$cpt_menu_icon = ( !empty( $cpt_post_type["menu_icon"] ) ) ? esc_attr($cpt_post_type["menu_icon"]) : null;
 
 						if ( true == $cpt_post_type["show_ui"] ) {
 							$cpt_show_in_menu = ( $cpt_post_type["show_in_menu"] == 1 ) ? 1 : 0;
