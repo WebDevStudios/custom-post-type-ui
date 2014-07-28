@@ -74,3 +74,9 @@
 	/* Opera doesn't support this in the shorthand */
 	background-attachment: local, local, scroll, scroll;
 }
+.one-third {
+	width: 33%;
+}
+.valign {
+	vertical-align: top;
+}
