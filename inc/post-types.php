@@ -279,7 +279,7 @@ function cptui_manage_post_types() {
 								'namearray'     => 'cpt_labels',
 								'name'          => 'not_found',
 								'textvalue'     => ( isset( $current['labels']['not_found'] ) ) ? esc_attr( $current['labels']['not_found'] ) : '',
-								'aftertext'     => __( '(e.g. No Movies Found)', 'cpt-plugin' )
+								'aftertext'     => __( '(e.g. No Movies found)', 'cpt-plugin' )
 								) );
 
 							/*
