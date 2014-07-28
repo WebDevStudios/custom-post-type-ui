@@ -264,29 +264,29 @@ function cptui_settings() { ?>
 			<td colspan="3"><h3><?php _e( 'Help Support This Plugin!', 'cpt-plugin' ); ?></h3></td>
 			</tr>
 			<tr>
-				<td width="33%"><h3><?php _e( 'PayPal Donation', 'cpt-plugin' ); ?></h3></td>
-				<td width="33%"><h3><?php _e( 'Professional WordPress<br />Second Edition', 'cpt-plugin' ); ?></h3></td>
-				<td width="33%"><h3><?php _e( 'Professional WordPress<br />Plugin Development', 'cpt-plugin' ); ?></h3></td>
+				<td class="one-third"><h3><?php _e( 'PayPal Donation', 'cpt-plugin' ); ?></h3></td>
+				<td class="one-third"><h3><?php _e( 'Professional WordPress<br />Second Edition', 'cpt-plugin' ); ?></h3></td>
+				<td class="one-third"><h3><?php _e( 'Professional WordPress<br />Plugin Development', 'cpt-plugin' ); ?></h3></td>
 			</tr>
 			<tr>
-				<td valign="top" width="33%">
+				<td class="one-third valign">
 					<p><?php _e( 'Please donate to the development of Custom Post Type UI:', 'cpt-plugin'); ?></p>
 					<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
 					<input type="hidden" name="cmd" value="_s-xclick">
 					<input type="hidden" name="hosted_button_id" value="YJEDXPHE49Q3U">
-					<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="<?php esc_attr_e( 'PayPal - The safer, easier way to pay online!', 'cpt-plugin' ); ?>">
+					<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donateCC_LG.gif" name="submit" alt="<?php esc_attr_e( 'PayPal - The safer, easier way to pay online!', 'cpt-plugin' ); ?>">
 					<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
 					</form>
 
 				</td>
-				<td valign="top" width="33%">
+				<td class="one-third">
 					<a href="http://bit.ly/prowp2" target="_blank">
 						<img src="<?php echo plugins_url( '/images/professional-wordpress-secondedition.jpg', __FILE__ ); ?>" width="200">
 					</a>
 					<br />
 					<?php _e( 'The leading book on WordPress design and development! Brand new second edition!', 'cpt-plugin'); ?>
 				</td>
-				<td valign="top" width="33%">
+				<td class="one-third">
 					<a href="http://amzn.to/plugindevbook" target="_blank">
 						<img src="<?php echo plugins_url( '/images/professional-wordpress-plugin-development.png', __FILE__ ); ?>" width="200">
 					</a>
