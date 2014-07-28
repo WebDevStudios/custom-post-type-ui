@@ -182,7 +182,7 @@ add_action( 'init', 'cptui_create_custom_taxonomies' );
  *
  * @param array $taxonomy Taxonomy array to register
  *
- * @return void
+ * @return null|WP_Error Result of register_taxonomy
  */
 function cptui_register_single_taxonomy( $taxonomy = array() ) {
 
