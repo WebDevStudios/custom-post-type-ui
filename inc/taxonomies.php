@@ -105,7 +105,7 @@ function cptui_manage_taxonomies() {
 							'name'          => 'name',
 							'textvalue'     => ( isset( $current['name'] ) ) ? esc_attr( $current['name'] ) : '',
 							'aftertext'     => __( '(e.g. actors)', 'cpt-plugin' ),
-							'helptext'      => esc_attr__( 'The taxonomy name. Used to retrieve custom taxonomy content. Should be short and sweet', 'cpt-plugin'),
+							'helptext'      => esc_attr__( 'The taxonomy name. Used to retrieve custom taxonomy content. Should be short and unique', 'cpt-plugin'),
 							'required'      => true,
 							'wrap'          => false,
 							'maxlength'     => '32',
