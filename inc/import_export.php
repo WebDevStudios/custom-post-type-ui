@@ -297,6 +297,8 @@ function cptui_import_types_taxes_settings( $postdata ) {
 		return false;
 	}
 
+	$success = false;
+
 	if ( !empty( $postdata['cptui_post_import'] ) ) {
 		$data = stripslashes_deep( trim( $postdata['cptui_post_import'] ) );
 		$settings = json_decode( $data, true );
@@ -317,4 +319,6 @@ function cptui_import_types_taxes_settings( $postdata ) {
   	}
 	//Make them immediately available.
 	flush_rewrite_rules();
+
+	return $success;
 }
