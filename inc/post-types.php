@@ -545,8 +545,8 @@ function cptui_manage_post_types() {
 								'name'          => 'menu_icon',
 								'textvalue'     => ( isset( $current['menu_icon'] ) ) ? esc_attr( $current['menu_icon'] ) : '',
 								'labeltext'     => __( 'Menu Icon', 'cpt-plugin' ),
-								'aftertext'     => __( '(Full URL for icon)', 'cpt-plugin' ),
-								'helptext'      => esc_attr__( 'URL to image to be used as menu icon.', 'cpt-plugin' ),
+								'aftertext'     => __( '(Full URL for icon or Dashicon class)', 'cpt-plugin' ),
+								'helptext'      => esc_attr__( 'URL to image to be used as menu icon or Dashicon class to use instead.', 'cpt-plugin' ),
 							) );
 
 							echo $ui->get_tr_start() . $ui->get_th_start() . __('Supports', 'cpt-plugin') . $ui->get_th_end() . $ui->get_td_start();
