@@ -55,28 +55,23 @@ function cptui_manage_post_types() {
 	<div class="wrap">
 
 	<?php
-	//Echo our notice if we have one.
 	if ( isset( $notice ) ) {
 		echo $notice;
 	}
-	//Create our tabs.
+
 	cptui_settings_tab_menu();
 
-	//Fetch and set up our post types if we're in the edit tab.
 	if ( 'edit' == $tab ) {
-		//Fetch our post types and store in a variable.
+
 		$post_types = get_option( 'cptui_post_types' );
 
-		//Grab our current selected post type to edit
 		$selected_post_type = cptui_get_current_post_type();
 
-		//fetch current post type out of all available post types.
 		if ( $selected_post_type ) {
 			$current = $post_types[ $selected_post_type ];
 		}
 	}
 
-	//Instantiate our UI class.
 	$ui = new cptui_admin_ui();
 
 	//Will only be set if we're already on the edit screen
@@ -783,21 +778,18 @@ function cptui_manage_post_types() {
  */
 function cptui_post_types_dropdown( $post_types = array() ) {
 
-	//instantiate our class
 	$ui = new cptui_admin_ui();
 
 	if ( !empty( $post_types ) ) {
 		$select = array();
 		$select['options'] = array();
 
-		//Default empty.
 		$select['options'][] = array( 'attr' => '', 'text' => '--' );
 
 		foreach( $post_types as $type ) {
 			$select['options'][] = array( 'attr' => $type['name'], 'text' => $type['label'] );
 		}
 
-		//Grab our current selected post type
 		$current = cptui_get_current_post_type();
 
 		$select['selected'] = $current;
@@ -883,7 +875,6 @@ function cptui_update_post_type( $data ) {
 		return cptui_admin_notices( 'error', '', false, __( 'Please do not use quotes in post type names or rewrite slugs', 'cpt-plugin' ) );
 	}
 
-	//Fetch our post types
 	$post_types = get_option( 'cptui_post_types', array() );
 
 	//Check if we a;ready have a post type of that name.
