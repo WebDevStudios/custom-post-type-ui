@@ -384,6 +384,7 @@ function disp_boolean($booText) {
 function cptui_settings_tab_menu( $page = 'post_types' ) {
 	//initiate our arrays with default classes
 	$tab1 = $tab2 = $tab3 = array( 'nav-tab' );
+	$has = false;
 
 	if ( 'importexport' == $page ) :
 		$title = __( 'Import/Export', 'cpt-plugin' );
