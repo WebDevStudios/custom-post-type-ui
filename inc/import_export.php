@@ -111,11 +111,13 @@ function cptui_importexport() {
 	} else { ?>
 		<h2><?php _e( 'Get Post Type and Taxonomy Code', 'cpt-plugin' ); ?></h2>
 
-		<h3>All CPT UI Post Types</h3>
-		<textarea class="cptui_post_type_get_code" onclick="this.focus();this.select()" readonly="readonly"><?php cptui_get_post_type_code(); ?></textarea>
+		<h3><?php _e( 'All CPT UI Post Types', 'cpt-plugin' ); ?></h3>
+		<label for="cptui_post_type_get_code"><?php _e( 'Copy/paste the code below into your desired location.', 'cpt-plugin' ); ?></label>
+		<textarea name="cptui_post_type_get_code" id="cptui_post_type_get_code" class="cptui_post_type_get_code" onclick="this.focus();this.select()" readonly="readonly"><?php cptui_get_post_type_code(); ?></textarea>
 
-		<h3>All CPT UI Taxonomies</h3>
-		<textarea class="cptui_tax_get_code" onclick="this.focus();this.select()" readonly="readonly"><?php cptui_get_taxonomy_code(); ?></textarea>
+		<h3><?php _e( 'All CPT UI Taxonomies', 'cpt-plugin' ); ?></h3>
+		<label for="cptui_tax_get_code"><?php _e( 'Copy/paste the code below into your desired location.', 'cpt-plugin' ); ?></label>
+		<textarea name="cptui_tax_get_code" id="cptui_tax_get_code" class="cptui_tax_get_code" onclick="this.focus();this.select()" readonly="readonly"><?php cptui_get_taxonomy_code(); ?></textarea>
 	<?php
 	}
 
