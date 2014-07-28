@@ -40,7 +40,6 @@ add_action( 'admin_menu', 'cptui_taxonomies_admin_menu' );
  */
 function cptui_manage_taxonomies() {
 
-	//Only for our add/edit.
 	if ( !empty( $_POST ) ) {
 		if ( isset( $_POST['cpt_submit'] ) ) {
 			check_admin_referer( 'cptui_addedit_taxonomy_nonce_action', 'cptui_addedit_taxonomy_nonce_field' );
@@ -57,7 +56,6 @@ function cptui_manage_taxonomies() {
 
 	<?php
 
-	//Echo our notice if we have one.
 	if ( isset( $notice ) ) {
 		echo $notice;
 	}
@@ -65,21 +63,17 @@ function cptui_manage_taxonomies() {
 	//Create our tabs.
 	cptui_settings_tab_menu( $page = 'taxonomies' );
 
-	//Fetch and set up our taxonomies if we're in the edit tab.
 	if ( 'edit' == $tab ) {
-		//Fetch our taxonomies and store in a variable.
+
 		$taxonomies = get_option( 'cptui_taxonomies' );
 
-		//Grab our current selected taxonomy to edit
 		$selected_taxonomy = cptui_get_current_taxonomy();
 
-		//fetch out of all of the available taxonomies.
 		if ( $selected_taxonomy ) {
 			$current = $taxonomies[ $selected_taxonomy ];
 		}
 	}
 
-	//Instantiate our UI class.
 	$ui = new cptui_admin_ui();
 
 	//Will only be set if we're already on the edit screen
@@ -445,21 +439,18 @@ function cptui_manage_taxonomies() {
  */
 function cptui_taxonomies_dropdown( $taxonomies = array() ) {
 
-	//instantiate our class
 	$ui = new cptui_admin_ui();
 
 	if ( !empty( $taxonomies ) ) {
 		$select = array();
 		$select['options'] = array();
 
-		//Default empty.
 		$select['options'][] = array( 'attr' => '', 'text' => '--' );
 
 		foreach( $taxonomies as $tax ) {
 			$select['options'][] = array( 'attr' => $tax['name'], 'text' => $tax['label'] );
 		}
 
-		//Grab our current selected taxonomy
 		$current = cptui_get_current_taxonomy();
 
 		$select['selected'] = $current;
@@ -502,10 +493,8 @@ function cptui_delete_taxonomy( $data ) {
 		return cptui_admin_notices(	'error', '', false, __( 'Please provide a taxonomy to delete', 'cpt-plugin' ) );
 	}
 
-	//Grab our taxonomies
 	$taxonomies = get_option( 'cptui_taxonomies' );
 
-	//If the selected taxonomy exists, let's remove it.
 	if ( array_key_exists( strtolower( $data['cpt_custom_tax']['name'] ), $taxonomies ) ) {
 
 		unset( $taxonomies[ $data['cpt_custom_tax']['name'] ] );
@@ -513,7 +502,6 @@ function cptui_delete_taxonomy( $data ) {
 		$success = update_option( 'cptui_taxonomies', $taxonomies );
 	}
 
-	//If we have succeeded, let let them know.
 	if ( isset( $success ) ) {
 		return cptui_admin_notices( 'delete', $data['cpt_custom_tax']['name'], $success );
 	}
@@ -535,10 +523,8 @@ function cptui_update_taxonomy( $data ) {
 		return cptui_admin_notices(	'error', '', false, __( 'Please do not use quotes in taxonomy names or rewrite slugs', 'cpt-plugin' ) );
 	}
 
-	//Fetch our post types
 	$taxonomies = get_option( 'cptui_taxonomies', array() );
 
-	//Check if we already have a post type of that name.
 	if ( 'Add Taxonomy' == $data['cpt_submit'] && array_key_exists( strtolower( $data['cpt_custom_post_type']['name'] ), $taxonomies ) ) {
 		return cptui_admin_notices(	'error', '', false, sprintf( __( 'Please choose a different taxonomy name. %s is already used.', 'cpt-plugin' ), $data['cpt_custom_tax']['name'] ) );
 	}
