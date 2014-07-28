@@ -11,20 +11,21 @@ License: GPLv2
 */
 
 // Exit if accessed directly
-if ( ! defined( 'ABSPATH' ) ) exit;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
-define( 'CPT_VERSION', '0.9' ); // Define current version constant
-define( 'CPTUI_WP_VERSION', get_bloginfo( 'version' ) ); // Define current WordPress version constant
+define( 'CPT_VERSION', '0.9' );
+define( 'CPTUI_WP_VERSION', get_bloginfo( 'version' ) );
 
 /**
- * Load our OOP class that powers our form inputs
+ * Load our Admin UI class that powers our form inputs
  *
  * @since  0.9
  *
  * @return void
  */
 function cptui_load_ui_class() {
-	//include our Admin UI class to help make things fabulous, and streamlined.
 	require_once( plugin_dir_path( __FILE__ ) . 'classes/class.cptui_admin_ui.php' );
 }
 add_action( 'init', 'cptui_load_ui_class' );
@@ -37,7 +38,6 @@ add_action( 'init', 'cptui_load_ui_class' );
  * @return void
  */
 function cptui_deactivation() {
-	// Clear the permalinks to remove our post type's rules
 	flush_rewrite_rules();
 }
 register_deactivation_hook( __FILE__, 'cptui_deactivation' );
@@ -94,10 +94,8 @@ add_action( 'admin_enqueue_scripts', 'cptui_add_styles' );
  * @return void
  */
 function cptui_create_custom_post_types() {
-	//register custom post types
 	$cpts = get_option( 'cptui_post_types' );
 
-	//check if option value is an array before proceeding
 	if ( is_array( $cpts ) ) {
 		foreach ( $cpts as $post_type ) {
 			cptui_register_single_post_type( $post_type );
@@ -165,10 +163,8 @@ function cptui_register_single_post_type( $post_type = array() ) {
  * @return void
  */
 function cptui_create_custom_taxonomies() {
-	//register custom taxonomies
 	$taxes = get_option('cptui_taxonomies');
 
-	//check if option value is an array before proceeding
 	if ( is_array( $taxes ) ) {
 		foreach ($taxes as $tax) {
 			cptui_register_single_taxonomy( $tax );
@@ -447,10 +443,8 @@ function cptui_settings_tab_menu( $page = 'post_types' ) {
  */
 function cptui_convert_settings() {
 
-	//We only want to run this if we don't have our new options.
 	if ( false === get_option( 'cptui_post_types' ) && ( $post_types = get_option( 'cpt_custom_post_types' ) ) ) {
 
-		//create a new array for us to store our options in.
 		$new_post_types = array();
 		foreach( $post_types as $type ) {
             $new_post_types[ $type['name'] ]                = $type;    //Named arrays are our friend.
@@ -463,14 +457,12 @@ function cptui_convert_settings() {
 				$new_post_types[ $type['name'] ][2]
 			); //Remove our previous indexed versions.
 		}
-		//Finally provide our new options.
+
 		return update_option( 'cptui_post_types', $new_post_types );
 	}
 
-	//We only want to run this if we don't have our new options.
 	if ( false === get_option( 'cptui_taxonomies' ) && ( $taxonomies = get_option( 'cpt_custom_tax_types' ) ) ) {
 
-		//create a new array for us to store our options in.
 		$new_taxonomies = array();
 		foreach( $taxonomies as $tax ) {
             $new_taxonomies[ $tax['name'] ]                 = $tax;    //Yep, still our friend.
@@ -479,9 +471,9 @@ function cptui_convert_settings() {
 			unset(
 				$new_taxonomies[ $tax['name'] ][0],
 				$new_taxonomies[ $tax['name'] ][1]
-			); //Remove our previous indexed versions.
+			);
 		}
-		//Finally provide our new options.
+
 		return update_option( 'cptui_taxonomies', $new_taxonomies );
 	}
 	return false;
@@ -522,12 +514,11 @@ add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'cptui_edit_pl
  */
 function cptui_admin_notices( $action = '', $object_type = '', $success = true , $custom = '' ) {
 
-	//Set our class based on status of $success
 	$class = ( $success ) ? 'updated' : 'error';
-	//Get our markup started
+
 	$messagewrapstart = '<div class="' . $class . '">';
 	$message = '';
-	//Finish up our markup
+
 	$messagewrapend = '</div>';
 
 	if ( 'add' == $action ) {
