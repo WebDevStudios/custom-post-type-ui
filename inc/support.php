@@ -96,7 +96,7 @@ function cptui_support() {
 						</li>
 						<li>
 							<span class="question"><?php _e( 'How do I filter the "enter title here" text in the post editor screen.', 'cpt-plugin' ); ?></span>
-							<div class="answer"><?php _e( 'Change text inside the post/page editor title field. Should be able to adapt as necessary.', 'cpt-plugin' ); ?></p>
+							<div class="answer"><p><?php _e( 'Change text inside the post/page editor title field. Should be able to adapt as necessary.', 'cpt-plugin' ); ?></p>
 <pre><code>function my_custom_title_text( $title ){
 	global $post;
 	if ( 'ENTER POST TYPE SLUG HERE' == $post->post_type )
