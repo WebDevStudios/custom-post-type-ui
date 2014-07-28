@@ -754,7 +754,7 @@ function cptui_manage_post_types() {
 							<div><ol>
 								<?php
 								echo '<li>' . sprintf( __( 'Post Type names should have %s max 20 characters %s, and only contain alphanumeric, lowercase characters and underscores in place of spaces. Reserved names: post, page, attachment, revision, nav_menu_item.', 'cpt-plugin' ), '<strong class="wp-ui-highlight">', '</strong>' );
-								echo '<li>' . sprintf( __( 'If you are unfamiliar with the advanced post type settings, just fill in the %s Post Type Name %s and %s Label %s fields. RRemaining settings will use default values. Labels, if left blank, will be automatically created based on the post type name. Hover over the question mark for more details.', 'cpt-plugin' ), '<strong class="wp-ui-highlight">', '</strong>', '<strong class="wp-ui-highlight">', '</strong>' );
+								echo '<li>' . sprintf( __( 'If you are unfamiliar with the advanced post type settings, just fill in the %s Post Type Name %s and %s Label %s fields. Remaining settings will use default values. Labels, if left blank, will be automatically created based on the post type name. Hover over the question mark for more details.', 'cpt-plugin' ), '<strong class="wp-ui-highlight">', '</strong>', '<strong class="wp-ui-highlight">', '</strong>' );
 								echo '<li>' . sprintf( __( 'Deleting custom post types will %s NOT %s delete any content into the database or added to those post types. You can easily recreate your post types and the content will still exist.', 'cpt-plugin' ), '<strong class="wp-ui-highlight">', '</strong>' ); ?>
 							</ol></div>
 						<?php } ?>
