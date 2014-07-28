@@ -490,7 +490,7 @@ add_action( 'admin_init', 'cptui_convert_settings' );
  * @return array         Amended array of links.
  */
 function cptui_edit_plugin_list_links( $links ) {
-	//We shouldn't encourage editing directly.
+	//We shouldn't encourage editing our plugin directly.
 	unset( $links['edit'] );
 
 	//Add our custom links to the returned array value.
