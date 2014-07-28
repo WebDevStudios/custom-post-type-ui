@@ -114,7 +114,7 @@ add_action( 'init', 'cptui_create_custom_post_types' );
  *
  * @param array $post_type Post type array to register
  *
- * @return void
+ * @return null Result of register_post_type.
  */
 function cptui_register_single_post_type( $post_type = array() ) {
 
@@ -182,7 +182,7 @@ add_action( 'init', 'cptui_create_custom_taxonomies' );
  *
  * @param array $taxonomy Taxonomy array to register
  *
- * @return null|WP_Error Result of register_taxonomy
+ * @return null Result of register_taxonomy
  */
 function cptui_register_single_taxonomy( $taxonomy = array() ) {
 
