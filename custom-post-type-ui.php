@@ -257,7 +257,7 @@ function cptui_settings() { ?>
 		<?php do_action( 'cptui_main_page_before_books' ); ?>
 		<table border="0">
 			<tr>
-			<td colspan="3"><h3><?php _e( 'Help Support This Plugin!', 'cpt-plugin' ); ?></h3></td>
+			<td colspan="3"><h2><?php _e( 'Help Support This Plugin!', 'cpt-plugin' ); ?></h2></td>
 			</tr>
 			<tr>
 				<td class="one-third"><h3><?php _e( 'PayPal Donation', 'cpt-plugin' ); ?></h3></td>
