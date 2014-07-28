@@ -128,7 +128,6 @@ function cptui_importexport() {
 
 function cptui_get_taxonomy_code() {
 
-	//fetch out taxonomies
 	$cptui_taxonomies = get_option( 'cptui_taxonomies' );
 	if ( !empty( $cptui_taxonomies ) ) {
 	?>
@@ -203,7 +202,6 @@ function cptui_get_single_taxonomy_registery( $taxonomy = array() ) {
  */
 function cptui_get_post_type_code() {
 
-	//fetch out post types
 	$cptui_post_types = get_option( 'cptui_post_types' );
 
 	//Whitespace very much matters here, thus why it's all flush against the left side
@@ -317,7 +315,7 @@ function cptui_import_types_taxes_settings( $postdata ) {
 		}
 		return cptui_admin_notices( 'import', '', $success );
   	}
-	//Make them immediately available.
+
 	flush_rewrite_rules();
 
 	return $success;
