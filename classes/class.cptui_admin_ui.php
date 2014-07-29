@@ -164,27 +164,32 @@ class cptui_admin_ui {
 			$value .= $this->get_th_end();
 			$value .= $this->get_td_start();
 		}
+
 		$value .= '<select id="' . $args['name'] . '" name="' . $args['namearray'] . '[' . $args['name'] . ']">';
+		if ( !empty( $args['selections']['options'] ) && is_array( $args['selections']['options'] ) ) {
+			foreach( $args['selections']['options'] as $val ) {
+				$result = '';
+				$bool = disp_boolean( $val['attr'] );
+				if (
+					( is_numeric( $args['selections']['selected'] ) || in_array( $args['selections']['selected'], array( 'true', 'false' ) ) )
+					&&
+					$args['selections']['selected'] === $bool
+				) {
+					$result = ' selected="selected"';
+				} else {
+					if ( !empty( $val['default'] ) ) {
+						if ( $args['selections']['selected'] == $val['default'] ) {
+							$result = ' selected="selected"';
+						}
+					}
+				}
 
-		foreach( $args['selections']['options'] as $val ) {
-			//Touch and feel wrath.
-			if ( !empty( $args['selections']['selected'] ) ) {
-				if ( is_numeric( $args['selections']['selected'] ) && $args['selections']['selected'] === disp_boolean( $val['attr'] ) ) {
-					$result = 'selected="selected"';
-				} elseif ( $args['selections']['selected'] == $val['attr'] ) {
-					$result = 'selected="selected"';
-				} else {
-					$result = '';
+				if ( !is_numeric( $args['selections']['selected'] ) && $args['selections']['selected'] == $val['attr'] ) { //for not bool based selects
+					$result = ' selected="selected"';
 				}
-			} else {
-				if ( !empty( $val['default'] ) ) {
-					$result = 'selected="selected"';
-				} else {
-					$result = '';
-				}
+
+				$value .= '<option value="' . $val['attr'] . '"' . $result . '>' . $val['text'] . '</option>';
 			}
-
-			$value .= '<option value="' . $val['attr'] . '" ' . $result . '>' . $val['text'] . '</option>';
 		}
 		$value .= '</select>';
 
