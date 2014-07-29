@@ -903,7 +903,7 @@ function cptui_update_post_type( $data ) {
         'query_var'             => disp_boolean( $data['cpt_custom_post_type']['query_var'] ),
         'menu_position'         => $data['cpt_custom_post_type']['menu_position'],
         'show_in_menu'          => disp_boolean( $data['cpt_custom_post_type']['show_in_menu'] ),
-        'show_in_menu_string'   => disp_boolean( $data['cpt_custom_post_type']['show_in_menu_string'] ),
+        'show_in_menu_string'   => $data['cpt_custom_post_type']['show_in_menu_string'],
         'menu_icon'             => $data['cpt_custom_post_type']['menu_icon'],
         'supports'              => $data['cpt_supports'],
         'taxonomies'            => $data['cpt_addon_taxes'],
