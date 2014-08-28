@@ -959,10 +959,11 @@ if (isset($_GET['cpt_msg']) && $_GET['cpt_msg']=='del') { ?>
 				<td colspan="10">
 					<div style="display:none;" id="slidepanel<?php echo $thecounter; ?>">
 						<?php
+						$cpt_tax_sanitized_name = str_replace( '-', '_', $cpt_tax_type["name"] );
 						//display register_taxonomy code
 						$custom_tax = '';
-						$custom_tax = "add_action('init', 'cptui_register_my_taxes_" . $cpt_tax_type['name'] . "');\n";
-						$custom_tax .= "function cptui_register_my_taxes_" . $cpt_tax_type['name'] . "() {\n";
+						$custom_tax = "add_action('init', 'cptui_register_my_taxes_" . $cpt_tax_sanitized_name . "');\n";
+						$custom_tax .= "function cptui_register_my_taxes_" . $cpt_tax_sanitized_name . "() {\n";
 
 						if ( !$cpt_tax_type["label"] ) {
 							$cpt_label = esc_html( $cpt_tax_type["name"] );
