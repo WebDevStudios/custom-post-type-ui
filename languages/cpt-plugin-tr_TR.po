@@ -1,0 +1,1065 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Custom Post Type UI 0.8\n"
+"POT-Creation-Date: 2013-09-08 19:13-0600\n"
+"PO-Revision-Date: 2014-10-11 15:06+0200\n"
+"Last-Translator: TrStar <trstar@gmail.com>\n"
+"Language-Team: TrStar <trstar@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.9\n"
+"X-Poedit-KeywordsList: __;_e;esc_attr__;esc_attr_e;esc_attr_x;_n;_x;_ex;_nx;"
+"esc_html__;esc_html_e;esc_html_x\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language: tr_TR\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../custom-post-type-ui.php:52
+msgid "Custom Post Types"
+msgstr "Özel Yazı Türleri"
+
+#: ../custom-post-type-ui.php:52
+msgid "CPT UI"
+msgstr "CPT KA"
+
+#: ../custom-post-type-ui.php:55 ../custom-post-type-ui.php:1214
+msgid "Add New"
+msgstr "Yeni Ekle"
+
+#: ../custom-post-type-ui.php:56
+msgid "Manage Post Types"
+msgstr "Yazı Türlerini Yönet"
+
+#: ../custom-post-type-ui.php:57
+msgid "Manage Taxonomies"
+msgstr "Sınıflandırmaları Yönet"
+
+#: ../custom-post-type-ui.php:505 ../custom-post-type-ui.php:1673
+msgid "Custom Post Type UI"
+msgstr "Özel Yazı Türleri KA"
+
+#: ../custom-post-type-ui.php:505 ../custom-post-type-ui.php:1673
+msgid "version"
+msgstr "versiyon"
+
+#: ../custom-post-type-ui.php:507
+msgid "Frequently Asked Questions"
+msgstr "Sıkça sorulan sorular"
+
+#: ../custom-post-type-ui.php:508
+msgid ""
+"Please note that this plugin will NOT handle display of registered post "
+"types or taxonomies in your current theme. It will simply register them for "
+"you."
+msgstr ""
+"Bu eklenti mevcut tema kayıtlı sonrası türleri veya sınıflandırmalar ekrana "
+"otomatik eklenmez unutmayın. Sadece sizin için bunları kayıt edeceğiz."
+
+#: ../custom-post-type-ui.php:509
+msgid ""
+"Q: <strong>How can I display content from a custom post type on my website?</"
+"strong>"
+msgstr ""
+"S: <strong>Web sitemde nasıl özel yazı türü içerik görüntüleyebilirsiniz?</"
+"strong>"
+
+#: ../custom-post-type-ui.php:511
+msgid "A: Justin Tadlock has written some great posts on the topic:"
+msgstr "C: Justin Tadlock konu hakkında bazı makaleler hazırlamıştır:"
+
+#: ../custom-post-type-ui.php:512
+msgid "Showing Custom Post Types on your Home Page"
+msgstr "Ana Sayfada Özel Yazı Türleri gösteriliyor"
+
+#: ../custom-post-type-ui.php:513
+msgid "Custom Post Types in WordPress"
+msgstr "WordPress Özel Yazı Türleri"
+
+#: ../custom-post-type-ui.php:515
+msgid ""
+"Q: <strong>How can I add custom meta boxes to my custom post types?</strong>"
+msgstr ""
+"S: <strong>Nasıl özel yazılan tipleri için özel meta kutuları "
+"ekleyebilirsiniz?</strong>"
+
+#: ../custom-post-type-ui.php:516
+msgid ""
+"A: The More Fields plugin does a great job at creating custom meta boxes and "
+"fully supports custom post types: "
+msgstr ""
+"A: Alanlar eklentisi özel meta kutuları oluşturarak iş yapar ve tamamen "
+"bütün oluşturulan türleri destekler:"
+
+#: ../custom-post-type-ui.php:517
+msgid ""
+"Q: <strong>I changed my custom post type name and now I can't get to my "
+"posts</strong>"
+msgstr ""
+"S: <strong>Özel yazı türü adı değişti ve şimdi benim yazılarım "
+"gösterilmiyor</strong>"
+
+#: ../custom-post-type-ui.php:518
+msgid ""
+"A: You can either change the custom post type name back to the original name "
+"or try the Post Type Switcher plugin: "
+msgstr ""
+"A: Ya önceki adına geri dönersiniz veya  Post Type Switcher eklentisi "
+"deneyebilirsiniz:"
+
+#: ../custom-post-type-ui.php:523
+msgid "Help Support This Plugin!"
+msgstr "Eklentiye Destek, Yardım!"
+
+#: ../custom-post-type-ui.php:526
+msgid "PayPal Donation"
+msgstr "PayPal Bağış"
+
+#: ../custom-post-type-ui.php:527
+msgid "Professional WordPress<br />Second Edition"
+msgstr "Profesyonel WordPress<br/>İkinci Baskı"
+
+#: ../custom-post-type-ui.php:528
+msgid "Professional WordPress<br />Plugin Development"
+msgstr "Profesyonel WordPress<br/>Eklenti Geliştirme"
+
+#: ../custom-post-type-ui.php:532
+msgid "Please donate to the development<br />of Custom Post Type UI:"
+msgstr "Özel Yazı Türü KA geliştirme <br/> için bağış yapın:"
+
+#: ../custom-post-type-ui.php:541
+msgid ""
+"The leading book on WordPress design and development!<br /><strong>Brand new "
+"second edition!"
+msgstr ""
+"WordPress tasarım ve geliştirme öncü kitap! <br/> <Strong>Yepyeni ikinci "
+"sürüm !"
+
+#: ../custom-post-type-ui.php:542
+msgid "Highest rated WordPress development book on Amazon!"
+msgstr "Amazondaki En Yüksek Puanlı WordPress geliştirici kitabı!"
+
+#: ../custom-post-type-ui.php:545
+msgid "WebDevStudios.com Recent News"
+msgstr "WebDevStudios.com Son Haberler"
+
+#: ../custom-post-type-ui.php:550
+msgid "WebDevStudios.com News"
+msgstr "WebDevStudios.com Haberler"
+
+#: ../custom-post-type-ui.php:576
+msgid "Custom post type deleted successfully"
+msgstr "Özel Yazı Türü başarıyla silindi"
+
+#: ../custom-post-type-ui.php:582
+msgid "Manage Custom Post Types"
+msgstr "Özel Yazı Türlerini Yönet"
+
+#: ../custom-post-type-ui.php:583
+msgid ""
+"Deleting custom post types will <strong>NOT</strong> delete any content into "
+"the database or added to those post types.  You can easily recreate your "
+"post types and the content will still exist."
+msgstr ""
+"Özel yazı türlerini silmek veritabanında herhangi bir içeriği silmek veya bu "
+"yazı türlerini değiştirmeyecektir. Yazılan tipleri yeniden ve içeriği hala "
+"veritabanında olacaktır."
+
+#: ../custom-post-type-ui.php:592 ../custom-post-type-ui.php:607
+#: ../custom-post-type-ui.php:882 ../custom-post-type-ui.php:895
+msgid "Action"
+msgstr "Eylem"
+
+#: ../custom-post-type-ui.php:593 ../custom-post-type-ui.php:608
+#: ../custom-post-type-ui.php:798 ../custom-post-type-ui.php:810
+#: ../custom-post-type-ui.php:883 ../custom-post-type-ui.php:896
+msgid "Name"
+msgstr "İsim"
+
+#: ../custom-post-type-ui.php:594 ../custom-post-type-ui.php:609
+#: ../custom-post-type-ui.php:799 ../custom-post-type-ui.php:811
+#: ../custom-post-type-ui.php:884 ../custom-post-type-ui.php:897
+#: ../custom-post-type-ui.php:1177 ../custom-post-type-ui.php:1469
+msgid "Label"
+msgstr "Etiket"
+
+#: ../custom-post-type-ui.php:595 ../custom-post-type-ui.php:610
+#: ../custom-post-type-ui.php:800 ../custom-post-type-ui.php:812
+#: ../custom-post-type-ui.php:1285
+msgid "Public"
+msgstr "Genel"
+
+#: ../custom-post-type-ui.php:596 ../custom-post-type-ui.php:611
+#: ../custom-post-type-ui.php:801 ../custom-post-type-ui.php:813
+#: ../custom-post-type-ui.php:888 ../custom-post-type-ui.php:901
+#: ../custom-post-type-ui.php:1295 ../custom-post-type-ui.php:1603
+msgid "Show UI"
+msgstr "KA Göster"
+
+#: ../custom-post-type-ui.php:597 ../custom-post-type-ui.php:612
+#: ../custom-post-type-ui.php:802 ../custom-post-type-ui.php:814
+#: ../custom-post-type-ui.php:887 ../custom-post-type-ui.php:900
+#: ../custom-post-type-ui.php:1330 ../custom-post-type-ui.php:1593
+msgid "Hierarchical"
+msgstr "Hiyerarşik"
+
+#: ../custom-post-type-ui.php:598 ../custom-post-type-ui.php:613
+#: ../custom-post-type-ui.php:803 ../custom-post-type-ui.php:815
+#: ../custom-post-type-ui.php:889 ../custom-post-type-ui.php:902
+#: ../custom-post-type-ui.php:1340 ../custom-post-type-ui.php:1623
+msgid "Rewrite"
+msgstr "Rewrite"
+
+#: ../custom-post-type-ui.php:599 ../custom-post-type-ui.php:614
+#: ../custom-post-type-ui.php:804 ../custom-post-type-ui.php:816
+#: ../custom-post-type-ui.php:890 ../custom-post-type-ui.php:903
+msgid "Rewrite Slug"
+msgstr "Rewrite Slug"
+
+#: ../custom-post-type-ui.php:600 ../custom-post-type-ui.php:615
+msgid "Total Published"
+msgstr "Yayınlanan Toplamı"
+
+#: ../custom-post-type-ui.php:601 ../custom-post-type-ui.php:616
+msgid "Total Drafts"
+msgstr "Taslaklar Toplamı"
+
+#: ../custom-post-type-ui.php:602 ../custom-post-type-ui.php:617
+#: ../custom-post-type-ui.php:1401
+msgid "Supports"
+msgstr "Destekler"
+
+#: ../custom-post-type-ui.php:636 ../custom-post-type-ui.php:919
+msgid "Delete"
+msgstr "Sil"
+
+#: ../custom-post-type-ui.php:636 ../custom-post-type-ui.php:919
+#: ../custom-post-type-ui.php:1226
+msgid "Edit"
+msgstr "Düzenle"
+
+#: ../custom-post-type-ui.php:636 ../custom-post-type-ui.php:919
+msgid "Get Code"
+msgstr "Kodu Alın"
+
+#: ../custom-post-type-ui.php:766
+msgid ""
+"Place the below code in your themes functions.php file to manually create "
+"this custom post type."
+msgstr ""
+"El ile bu özel yazı alanı oluşturmak için functions.php dosyasına aşağıdaki "
+"kodu yerleştirin."
+
+#: ../custom-post-type-ui.php:767
+msgid ""
+"This is a <strong>BETA</strong> feature. Please <a href=\"https://github.com/"
+"WebDevStudios/custom-post-type-ui\">report bugs</a>."
+msgstr ""
+"Bu<strong> BETA</strong> özelliğidir. Lütfen <a href=\"https://github.com/"
+"WebDevStudios/custom-post tipi-ui\"> hata raporu </a>"
+
+#: ../custom-post-type-ui.php:788
+msgid "Additional Custom Post Types"
+msgstr "Ek Özel Yazı Türleri"
+
+#: ../custom-post-type-ui.php:789
+msgid ""
+"The custom post types below are registered in WordPress but were not created "
+"by the Custom Post Type UI Plugin."
+msgstr ""
+"Özel yazı türleri kayıtlı ancak, Özel Post Tür KA Eklentisi tarafından "
+"oluşturulmamış."
+
+#: ../custom-post-type-ui.php:805 ../custom-post-type-ui.php:817
+#: ../custom-post-type-ui.php:1365 ../custom-post-type-ui.php:1613
+msgid "Query Var"
+msgstr "Sorgu Tanımı"
+
+#: ../custom-post-type-ui.php:842
+msgid "No additional post types found"
+msgstr "Hiçbir ek yazı türleri bulunamadı"
+
+#: ../custom-post-type-ui.php:866
+msgid "Custom taxonomy deleted successfully"
+msgstr "Özel sınıflandırma başarıyla silindi"
+
+#: ../custom-post-type-ui.php:872
+msgid "Manage Custom Taxonomies"
+msgstr "Özel Sınıflandırmayı Yönet"
+
+#: ../custom-post-type-ui.php:873
+msgid ""
+"Deleting custom taxonomies does <strong>NOT</strong> delete any content "
+"added to those taxonomies.  You can easily recreate your taxonomies and the "
+"content will still exist."
+msgstr ""
+"Özel sınıflandırmaları silmek işlemi sonrasında veritabanında sınıflandırma "
+"içerikleri kalacaktır."
+
+#: ../custom-post-type-ui.php:885 ../custom-post-type-ui.php:898
+#: ../custom-post-type-ui.php:1182 ../custom-post-type-ui.php:1474
+msgid "Singular Label"
+msgstr "Tekil Etiket"
+
+#: ../custom-post-type-ui.php:886 ../custom-post-type-ui.php:899
+msgid "Attached Post Types"
+msgstr "Ek Yazı Türleri"
+
+#: ../custom-post-type-ui.php:1000
+msgid ""
+"Place the below code in your themes functions.php file to manually create "
+"this custom taxonomy"
+msgstr ""
+"El ile bu özel sınıflandırma oluşturmak için functions.php dosyasına "
+"aşağıdaki kodu yerleştirin"
+
+#: ../custom-post-type-ui.php:1001
+msgid ""
+"This is a <strong>BETA</strong> feature. Please <a href=\"http://"
+"webdevstudios.com/support/forum/custom-post-type-ui/\">report bugs</a>."
+msgstr ""
+"Bu<strong> BETA</strong> özelliğidir. Lütfen <a href=\"http://webdevstudios."
+"com/support/forum/custom-post-type-ui/\"> hata raporu </a>"
+
+#: ../custom-post-type-ui.php:1057
+msgid "Save Custom Post Type"
+msgstr "Özel Yazı Türü Kaydet"
+
+#: ../custom-post-type-ui.php:1059
+msgid "Create Custom Post Type"
+msgstr "Özel Yazı Türü Oluştur"
+
+#: ../custom-post-type-ui.php:1085
+msgid "Save Custom Taxonomy"
+msgstr "Özel Sınıflandırma Kaydet"
+
+#: ../custom-post-type-ui.php:1087
+msgid "Create Custom Taxonomy"
+msgstr "Özel Sınıflandırma Oluştur"
+
+#: ../custom-post-type-ui.php:1104
+msgid ""
+"Custom post type created successfully. You may need to refresh to view the "
+"new post type in the admin menu."
+msgstr ""
+"Özel yazı türü başarıyla oluşturuldu. Yönetici menüsünde okunmamış yazı "
+"türünü görüntülemek için sayfayı yenilemeniz gerekebilir."
+
+#: ../custom-post-type-ui.php:1105
+msgid "Manage custom post types"
+msgstr "Özel yazı türlerini yönetin"
+
+#: ../custom-post-type-ui.php:1107
+msgid ""
+"Custom taxonomy created successfully.  You may need to refresh to view the "
+"new taxonomy in the admin menu."
+msgstr ""
+"Özel sınıflandırma başarıyla oluşturuldu.  Yönetici menüsünde yeni "
+"sınıflandırmayı görüntülemek için sayfayı yenilemeniz gerekebilir."
+
+#: ../custom-post-type-ui.php:1108
+msgid "Manage custom taxonomies"
+msgstr "Özel sınıflandırmaları yönet"
+
+#: ../custom-post-type-ui.php:1116
+msgid "Post type name is a required field."
+msgstr "Yazı türü adı doldurulması zorunlu bir alandır."
+
+#: ../custom-post-type-ui.php:1119
+msgid "Taxonomy name is a required field."
+msgstr "Sınıflandırma adı doldurulması zorunlu bir alandır."
+
+#: ../custom-post-type-ui.php:1122
+msgid "You must assign your custom taxonomy to at least one post type."
+msgstr "En az bir yazı türüne özel sınıflandırma atamanız gerekir."
+
+#: ../custom-post-type-ui.php:1125
+msgid "Please doe not use quotes in your post type slug or rewrite slug."
+msgstr ""
+"Lütfen özel yazı türü slug oluştururken  tırnak işaretlerini kullanmayınız."
+
+#: ../custom-post-type-ui.php:1128
+msgid "Please doe not use quotes in your taxonomy slug or rewrite slug."
+msgstr ""
+"Lütfen özel sınıflandırma slug oluştururken  tırnak işaretlerini "
+"kullanmayınız."
+
+#: ../custom-post-type-ui.php:1139
+msgid "Edit Custom Post Type or Taxonomy"
+msgstr "Özel Yazı Türü veya Sınıflandırma Düzenle"
+
+#: ../custom-post-type-ui.php:1141 ../custom-post-type-ui.php:1148
+msgid "Reset"
+msgstr "Sıfırla"
+
+#: ../custom-post-type-ui.php:1146
+msgid "Create New Custom Post Type or Taxonomy"
+msgstr "Yeni Özel Yazı Türü veya Sınıflandırma Oluştur"
+
+#: ../custom-post-type-ui.php:1158
+msgid ""
+"If you are unfamiliar with the options below only fill out the <strong>Post "
+"Type Name</strong> and <strong>Label</strong> fields and check which meta "
+"boxes to support.  The other settings are set to the most common defaults "
+"for custom post types. Hover over the question mark for more details."
+msgstr ""
+"Sadece Adı ve Etiket alanlarını doldurun kullanıyorsanız diğer kutuları da "
+"doldurabilirsiniz. Diğer ayarlar özel yazı türleri için en yaygın varsayılan "
+"olarak ayarlanır. Daha fazla bilgi için soru işareti üzerinde gezinin."
+
+#: ../custom-post-type-ui.php:1169
+msgid "Post Type Name"
+msgstr "Yazı Türü Adı"
+
+#: ../custom-post-type-ui.php:1169
+msgid ""
+"The post type name.  Used to retrieve custom post type content.  Should be "
+"short and sweet"
+msgstr ""
+"Kısa ve şirin bir ad belirleyin, bu daha sonra bu alanı çağırmak için "
+"kullanılacaktır."
+
+#: ../custom-post-type-ui.php:1170
+msgid "(e.g. movie)"
+msgstr "(örnek: film)"
+
+#: ../custom-post-type-ui.php:1172
+msgid ""
+"Max 20 characters, can not contain capital letters or spaces. Reserved post "
+"types: post, page, attachment, revision, nav_menu_item."
+msgstr ""
+"Maksimum 20 karakter, harf veya boşluk içeremez.  Ayrılmış sonrası tipleri: "
+"post, sayfa, ek, revizyon, nav_menu_item."
+
+#: ../custom-post-type-ui.php:1177 ../custom-post-type-ui.php:1214
+#: ../custom-post-type-ui.php:1220 ../custom-post-type-ui.php:1226
+#: ../custom-post-type-ui.php:1232 ../custom-post-type-ui.php:1238
+#: ../custom-post-type-ui.php:1244 ../custom-post-type-ui.php:1250
+#: ../custom-post-type-ui.php:1256 ../custom-post-type-ui.php:1262
+#: ../custom-post-type-ui.php:1268 ../custom-post-type-ui.php:1274
+msgid "Post type label.  Used in the admin menu for displaying post types."
+msgstr ""
+"Yazı türü etiketi. Admin menüsünde yazı türlerini göstermek için "
+"kullanılacak."
+
+#: ../custom-post-type-ui.php:1178
+msgid "(e.g. Movies)"
+msgstr "(örneğin: Filmler)"
+
+#: ../custom-post-type-ui.php:1182
+msgid ""
+"Custom Post Type Singular label.  Used in WordPress when a singular label is "
+"needed."
+msgstr ""
+"Özel Yazı Türü tekil etiketi. Wordpress ihtiyaç duyarsa tekil etiketi "
+"kullanacak."
+
+#: ../custom-post-type-ui.php:1183
+msgid "(e.g. Movie)"
+msgstr "(örneğin: Film)"
+
+#: ../custom-post-type-ui.php:1188
+msgid "Description"
+msgstr "Açıklama"
+
+#: ../custom-post-type-ui.php:1188
+msgid ""
+"Custom Post Type Description.  Describe what your custom post type is used "
+"for."
+msgstr ""
+"Özel Yazı Türü Açıklaması. Bu açıklama türü kullanacak kişiye gösterilecek."
+
+#: ../custom-post-type-ui.php:1195 ../custom-post-type-ui.php:1505
+msgid "Advanced Label Options"
+msgstr "Gelişmiş Etiket Ayarları"
+
+#: ../custom-post-type-ui.php:1196 ../custom-post-type-ui.php:1506
+msgid "Advanced Options"
+msgstr "Gelişmiş Ayarlar"
+
+#: ../custom-post-type-ui.php:1204
+msgid ""
+"Below are the advanced label options for custom post types.  If you are "
+"unfamiliar with these labels, leave them blank and the plugin will "
+"automatically create labels based off of your custom post type name"
+msgstr ""
+"Aşağıda özel yazı türleri için gelişmiş etiket seçenekleri vardır. Eğer "
+"bunlara kullanmayı bilmiyorsanız boş bırakın. Eklenti sizin için otomatik "
+"olarak özel yazı türü adının varsayılan ayarlarıyla oluşturulacak."
+
+#: ../custom-post-type-ui.php:1208
+msgid "Menu Name"
+msgstr "Menü Adı"
+
+#: ../custom-post-type-ui.php:1208
+msgid "Custom menu name for your custom post type."
+msgstr "Özel yazı türü için özel menü adı."
+
+#: ../custom-post-type-ui.php:1210
+msgid "(e.g. My Movies)"
+msgstr "(örneğin: Benim Filmlerim)"
+
+#: ../custom-post-type-ui.php:1216
+msgid "(e.g. Add New)"
+msgstr "(örneğin: Yeni Ekle)"
+
+#: ../custom-post-type-ui.php:1220 ../custom-post-type-ui.php:1559
+msgid "Add New Item"
+msgstr "Yeni Eleman Ekle"
+
+#: ../custom-post-type-ui.php:1222
+msgid "(e.g. Add New Movie)"
+msgstr "(örneğin: Yeni Film ekle)"
+
+#: ../custom-post-type-ui.php:1228
+msgid "(e.g. Edit)"
+msgstr "(örneğin: Düzenle)"
+
+#: ../custom-post-type-ui.php:1232 ../custom-post-type-ui.php:1547
+msgid "Edit Item"
+msgstr "Eleman Düzenle"
+
+#: ../custom-post-type-ui.php:1234
+msgid "(e.g. Edit Movie)"
+msgstr "(örneğin: Film Düzenle)"
+
+#: ../custom-post-type-ui.php:1238
+msgid "New Item"
+msgstr "Yeni Eleman"
+
+#: ../custom-post-type-ui.php:1240
+msgid "(e.g. New Movie)"
+msgstr "(örneğin: Yeni Film)"
+
+#: ../custom-post-type-ui.php:1244
+msgid "View"
+msgstr "Göster"
+
+#: ../custom-post-type-ui.php:1246 ../custom-post-type-ui.php:1252
+msgid "(e.g. View Movie)"
+msgstr "(örneğin: Film Göster)"
+
+#: ../custom-post-type-ui.php:1250
+msgid "View Item"
+msgstr "Elemanı Göster"
+
+#: ../custom-post-type-ui.php:1256 ../custom-post-type-ui.php:1517
+msgid "Search Items"
+msgstr "Eleman Ara"
+
+#: ../custom-post-type-ui.php:1258
+msgid "(e.g. Search Movies)"
+msgstr "(örneğin: Filmleri Ara)"
+
+#: ../custom-post-type-ui.php:1262
+msgid "Not Found"
+msgstr "Bulunamadı"
+
+#: ../custom-post-type-ui.php:1264
+msgid "(e.g. No Movies Found)"
+msgstr "(örneğin: Filmler bulunamadı)"
+
+#: ../custom-post-type-ui.php:1268
+msgid "Not Found in Trash"
+msgstr "Çöpte Bulunamadı"
+
+#: ../custom-post-type-ui.php:1270
+msgid "(e.g. No Movies found in Trash)"
+msgstr "(örneğin: Çöpte Filmler bulunamadı)"
+
+#: ../custom-post-type-ui.php:1274
+msgid "Parent"
+msgstr "Temel"
+
+#: ../custom-post-type-ui.php:1276
+msgid "(e.g. Parent Movie)"
+msgstr "(örneğin: Temel Film)"
+
+#: ../custom-post-type-ui.php:1285
+msgid "Whether posts of this type should be shown in the admin UI"
+msgstr ""
+"Bu tip mesajların gerekip gerekmediğini yönetici arabiriminde gösterilir "
+
+#: ../custom-post-type-ui.php:1288 ../custom-post-type-ui.php:1298
+#: ../custom-post-type-ui.php:1308 ../custom-post-type-ui.php:1318
+#: ../custom-post-type-ui.php:1333 ../custom-post-type-ui.php:1343
+#: ../custom-post-type-ui.php:1358 ../custom-post-type-ui.php:1368
+#: ../custom-post-type-ui.php:1387 ../custom-post-type-ui.php:1606
+#: ../custom-post-type-ui.php:1616 ../custom-post-type-ui.php:1626
+#: ../custom-post-type-ui.php:1643 ../custom-post-type-ui.php:1646
+msgid "False"
+msgstr "False"
+
+#: ../custom-post-type-ui.php:1289 ../custom-post-type-ui.php:1299
+#: ../custom-post-type-ui.php:1309 ../custom-post-type-ui.php:1319
+#: ../custom-post-type-ui.php:1334 ../custom-post-type-ui.php:1344
+#: ../custom-post-type-ui.php:1359 ../custom-post-type-ui.php:1369
+#: ../custom-post-type-ui.php:1388 ../custom-post-type-ui.php:1607
+#: ../custom-post-type-ui.php:1617 ../custom-post-type-ui.php:1627
+#: ../custom-post-type-ui.php:1644 ../custom-post-type-ui.php:1647
+msgid "True"
+msgstr "True"
+
+#: ../custom-post-type-ui.php:1290 ../custom-post-type-ui.php:1300
+#: ../custom-post-type-ui.php:1345 ../custom-post-type-ui.php:1360
+#: ../custom-post-type-ui.php:1370 ../custom-post-type-ui.php:1608
+#: ../custom-post-type-ui.php:1618 ../custom-post-type-ui.php:1628
+msgid "(default: True)"
+msgstr "(varsayılan: Doğru)"
+
+#: ../custom-post-type-ui.php:1295
+msgid "Whether to generate a default UI for managing this post type"
+msgstr ""
+"Bu yazı türünün varsayılan kullanıcı arayüzünden yönetililp yönetilmeyeceği "
+
+#: ../custom-post-type-ui.php:1305
+msgid "Has Archive"
+msgstr "Arşivlenebilir mi?"
+
+#: ../custom-post-type-ui.php:1305
+msgid "Whether the post type will have a post type archive page"
+msgstr "Yazı türünün arşivlenebilir tür olup olmadığı"
+
+#: ../custom-post-type-ui.php:1310 ../custom-post-type-ui.php:1320
+#: ../custom-post-type-ui.php:1335 ../custom-post-type-ui.php:1598
+#: ../custom-post-type-ui.php:1649
+msgid "(default: False)"
+msgstr "(varsayılan:Yanlış)"
+
+#: ../custom-post-type-ui.php:1315
+msgid "Exclude From Search"
+msgstr "Arama Dışında Bırak"
+
+#: ../custom-post-type-ui.php:1315
+msgid "Whether the post type will be searchable"
+msgstr "Yazı türünün aranabilir olup olmadığı"
+
+#: ../custom-post-type-ui.php:1325
+msgid "Capability Type"
+msgstr "Yetenek Türü"
+
+#: ../custom-post-type-ui.php:1325
+msgid "The post type to use for checking read, edit, and delete capabilities"
+msgstr "Bu yazı türü okunabilir, düzenlenebilir ve silinebilir yetenekleri"
+
+#: ../custom-post-type-ui.php:1330
+msgid "Whether the post type can have parent-child relationships"
+msgstr "Yazı türünün üst sayfa, alt sayfa ilişkisinin olup olmadığı"
+
+#: ../custom-post-type-ui.php:1340
+msgid "Triggers the handling of rewrites for this post type"
+msgstr "Bu Yazı türü için rewrite işlenmesini tetikler"
+
+#: ../custom-post-type-ui.php:1350 ../custom-post-type-ui.php:1633
+msgid "Custom Rewrite Slug"
+msgstr "Özel Rewrite Slug"
+
+#: ../custom-post-type-ui.php:1350
+msgid "Custom slug to use instead of the default."
+msgstr "Özel slug yerine varsayılan kullanmak için."
+
+#: ../custom-post-type-ui.php:1351
+msgid "(default: post type name)"
+msgstr "(varsayılan: yazı türü adı)"
+
+#: ../custom-post-type-ui.php:1355
+msgid "With Front"
+msgstr "Cephesinden"
+
+#: ../custom-post-type-ui.php:1355
+msgid "Should the permastruct be prepended with the front base."
+msgstr "Perma yapı ön tabanı ile önüne alınmalıdır."
+
+#: ../custom-post-type-ui.php:1375
+msgid "Menu Position"
+msgstr "Menü Pozisyonu"
+
+#: ../custom-post-type-ui.php:1375
+msgid ""
+"The position in the menu order the post type should appear. show_in_menu "
+"must be true."
+msgstr ""
+"Menüsündeki pozisyon sonrası tipi görünmelidir. show_in_menu doğru olması "
+"gerekir."
+
+#: ../custom-post-type-ui.php:1376
+msgid ""
+"See <a href=\"http://codex.wordpress.org/Function_Reference/"
+"register_post_type#Parameters\">Available options</a> in the \"menu_position"
+"\" section. Range of 5-100"
+msgstr ""
+"Bak <a href=\"http://codex.wordpress.org/Function_Reference/"
+"register_post_type#Parameters\">Kullanılabilir ayarlar</a> \"menu_pozisyonu "
+"bölümü\". Aralık 5 ile 100"
+
+#: ../custom-post-type-ui.php:1382
+msgid "Show in Menu"
+msgstr "Menüde Göster"
+
+#: ../custom-post-type-ui.php:1382
+msgid ""
+"Whether to show the post type in the admin menu and where to show that menu. "
+"Note that show_ui must be true"
+msgstr "Admin menüsünde yazı türünün görünüp görünmeyeceği"
+
+#: ../custom-post-type-ui.php:1383
+msgid ""
+"\"Show UI\" must be \"true\". If an existing top level page such as \"tools."
+"php\" is indicated for second input, post type will be sub menu of that."
+msgstr ""
+"\"Göster UI \" \"gerçek \" edilmelidir. \"Tools.php \" ikinci giriş için "
+"belirtilen varolan üst düzey sayfasında ise, sonrası türü bu alt menü "
+"olacaktır."
+
+#: ../custom-post-type-ui.php:1395
+msgid "Menu Icon"
+msgstr "Menü Simgesi"
+
+#: ../custom-post-type-ui.php:1395
+msgid "URL to image to be used as menu icon."
+msgstr "Görüntünün URL menü simgesi olarak kullanılacak."
+
+#: ../custom-post-type-ui.php:1403
+msgid "Title"
+msgstr "Başlık"
+
+#: ../custom-post-type-ui.php:1403
+msgid "Adds the title meta box when creating content for this custom post type"
+msgstr "Bu özel yazı türü için içerik oluştururken başlık meta kutusu ekler"
+
+#: ../custom-post-type-ui.php:1404
+msgid "Editor"
+msgstr "Editör"
+
+#: ../custom-post-type-ui.php:1404
+msgid ""
+"Adds the content editor meta box when creating content for this custom post "
+"type"
+msgstr ""
+"Bu özel yazı türü için içerik oluştururken içerik editörü meta kutusu ekler"
+
+#: ../custom-post-type-ui.php:1405
+msgid "Excerpt"
+msgstr "Alıntı"
+
+#: ../custom-post-type-ui.php:1405
+msgid ""
+"Adds the excerpt meta box when creating content for this custom post type"
+msgstr "Bu özel yazı türü için içerik oluştururken alıntı meta kutusu ekler"
+
+#: ../custom-post-type-ui.php:1406
+msgid "Trackbacks"
+msgstr "Parçagönderimi"
+
+#: ../custom-post-type-ui.php:1406
+msgid ""
+"Adds the trackbacks meta box when creating content for this custom post type"
+msgstr ""
+"Bu özel yazı türü için içerik oluştururken parçagönderimi meta kutusu ekler"
+
+#: ../custom-post-type-ui.php:1407
+msgid "Custom Fields"
+msgstr "Özel Alanlar"
+
+#: ../custom-post-type-ui.php:1407
+msgid ""
+"Adds the custom fields meta box when creating content for this custom post "
+"type"
+msgstr "Bu özel yazı türü için içerik oluştururken özel alan meta kutusu ekler"
+
+#: ../custom-post-type-ui.php:1408
+msgid "Comments"
+msgstr "Yorumlar"
+
+#: ../custom-post-type-ui.php:1408
+msgid ""
+"Adds the comments meta box when creating content for this custom post type"
+msgstr "Bu özel yazı türü için içerik oluştururken Yorumlar meta kutusu ekler"
+
+#: ../custom-post-type-ui.php:1409
+msgid "Revisions"
+msgstr "Düzenlemeler"
+
+#: ../custom-post-type-ui.php:1409
+msgid ""
+"Adds the revisions meta box when creating content for this custom post type"
+msgstr ""
+"Bu özel yazı türü için içerik oluştururken revizyonlar meta kutusu ekler"
+
+#: ../custom-post-type-ui.php:1410
+msgid "Featured Image"
+msgstr "Öne Çıkan Görüntü"
+
+#: ../custom-post-type-ui.php:1410
+msgid ""
+"Adds the featured image meta box when creating content for this custom post "
+"type"
+msgstr ""
+"Bu özel yazı türü için içerik oluştururken öne  çıkan görüntü meta kutusu "
+"ekler"
+
+#: ../custom-post-type-ui.php:1411
+msgid "Author"
+msgstr "Yazar"
+
+#: ../custom-post-type-ui.php:1411
+msgid ""
+"Adds the author meta box when creating content for this custom post type"
+msgstr "Bu özel yazı türü için içerik oluştururken yazar meta kutusu ekler"
+
+#: ../custom-post-type-ui.php:1412
+msgid "Page Attributes"
+msgstr "Sayfa Öznitelikleri"
+
+#: ../custom-post-type-ui.php:1412
+msgid ""
+"Adds the page attribute meta box when creating content for this custom post "
+"type"
+msgstr ""
+"Bu özel yazı türü için içerik oluştururken sayfa öznitelikleri meta kutusunu "
+"ekler "
+
+#: ../custom-post-type-ui.php:1413
+msgid "Post Formats"
+msgstr "Yazı Formatları"
+
+#: ../custom-post-type-ui.php:1413
+msgid "Adds post format support"
+msgstr "Bu Yazı format desteği ekler"
+
+#: ../custom-post-type-ui.php:1418
+msgid "Built-in Taxonomies"
+msgstr "Dahili Sınıflandırmalar"
+
+#: ../custom-post-type-ui.php:1451
+msgid ""
+"If you are unfamiliar with the options below only fill out the "
+"<strong>Taxonomy Name</strong> and <strong>Post Type Name</strong> fields.  "
+"The other settings are set to the most common defaults for custom "
+"taxonomies. Hover over the question mark for more details."
+msgstr ""
+"Diğer ayarlar özel sınıflandırmalar için en yaygın varsayılan olarak "
+"ayarlanır. Daha fazla bilgi için soru işareti üzerinde gezinin."
+
+#: ../custom-post-type-ui.php:1460
+msgid "Taxonomy Name"
+msgstr "Sınıflandırma Adı"
+
+#: ../custom-post-type-ui.php:1460
+msgid ""
+"The taxonomy name.  Used to retrieve custom taxonomy content.  Should be "
+"short and sweet"
+msgstr ""
+"Sınıflandırma adı. Özel sınıflandırma içeriği almak için kullanılır. Kısa ve "
+"tatlı olmalıdır"
+
+#: ../custom-post-type-ui.php:1461
+msgid ""
+"Note: Changing the name, after adding terms to the taxonomy, will not update "
+"the terms in the database."
+msgstr ""
+"Not: Sınıflandırma terimleri ekledikten sonra, adının değiştirilmesi, "
+"veritabanında koşullarını güncelleme yapılmayacak."
+
+#: ../custom-post-type-ui.php:1463
+msgid "(e.g. actors)"
+msgstr "(örneğin: aktörler)"
+
+#: ../custom-post-type-ui.php:1464
+msgid ""
+"Max 32 characters, should only contain alphanumeric lowercase characters and "
+"underscores in place of spaces."
+msgstr ""
+"Maksimum 32 karakter, sadece alfanümerik küçük harf karakterleri içeren ve "
+"boşluk yerine alt çizgi olmalıdır."
+
+#: ../custom-post-type-ui.php:1469
+msgid "Taxonomy label.  Used in the admin menu for displaying custom taxonomy."
+msgstr ""
+"Sınıflandırma etiketi. Özel sınıflandırma görüntülemek için yönetici "
+"menüsünde kullanılan."
+
+#: ../custom-post-type-ui.php:1470
+msgid "(e.g. Actors)"
+msgstr "(örneğin: Aktörler)"
+
+#: ../custom-post-type-ui.php:1474
+msgid ""
+"Taxonomy Singular label.  Used in WordPress when a singular label is needed."
+msgstr ""
+"Sınıflandırma Tekil etiketi. WordPress bir tekil etiket gerektiğinde "
+"kullanır."
+
+#: ../custom-post-type-ui.php:1475
+msgid "(e.g. Actor)"
+msgstr "(örneğin: Aktör)"
+
+#: ../custom-post-type-ui.php:1479
+msgid "Attach to Post Type"
+msgstr "Yazı Türüne ekle"
+
+#: ../custom-post-type-ui.php:1479
+msgid ""
+"What post type object to attach the custom taxonomy to.  Can be post, page, "
+"or link by default.  Can also be any custom post type name."
+msgstr ""
+"Yazı türü nesnesi için özel sınıflandırma oluşturmak için. Sayfa veya link "
+"varsayılan olabilir. Ayrıca herhangi bir özel yazı türü adı olabilir."
+
+#: ../custom-post-type-ui.php:1482
+msgid ""
+"This is the old method.  Delete the post type from the textbox and check "
+"which post type to attach this taxonomy to</strong>"
+msgstr ""
+"Bu, eski bir yöntemdir. Metin kutusu sonrası türünü silmek ve bu "
+"sınıflandırma eklemek sonrası hangi tip onay"
+
+#: ../custom-post-type-ui.php:1483
+msgid "(e.g. movies)"
+msgstr "(örneğin: filmler)"
+
+#: ../custom-post-type-ui.php:1514
+msgid ""
+"Below are the advanced label options for custom taxonomies.  If you are "
+"unfamiliar with these labels the plugin will automatically create labels "
+"based off of your custom taxonomy name"
+msgstr ""
+"Aşağıda özel sınıflandırmalar için gelişmiş etiket seçenekleri vardır. Eğer "
+"bu etiket ile aşina değilseniz eklenti otomatik olarak özel sınıflandırma "
+"adının kapalıya dayalı etiketlerini oluşturacak."
+
+#: ../custom-post-type-ui.php:1517 ../custom-post-type-ui.php:1523
+#: ../custom-post-type-ui.php:1529 ../custom-post-type-ui.php:1535
+#: ../custom-post-type-ui.php:1541 ../custom-post-type-ui.php:1547
+#: ../custom-post-type-ui.php:1553 ../custom-post-type-ui.php:1559
+#: ../custom-post-type-ui.php:1565 ../custom-post-type-ui.php:1571
+#: ../custom-post-type-ui.php:1577 ../custom-post-type-ui.php:1583
+msgid ""
+"Custom taxonomy label.  Used in the admin menu for displaying taxonomies."
+msgstr ""
+"Özel sınıflandırma etiketi. Sınıflandırmaları görüntülemek için yönetici "
+"menüsünde kullanılan."
+
+#: ../custom-post-type-ui.php:1519
+msgid "(e.g. Search Actors)"
+msgstr "(örneğin: Aktörleri Ara)"
+
+#: ../custom-post-type-ui.php:1523
+msgid "Popular Items"
+msgstr "Popüler Elemanlar"
+
+#: ../custom-post-type-ui.php:1525
+msgid "(e.g. Popular Actors)"
+msgstr "(örneğin: Popüler Aktörler)"
+
+#: ../custom-post-type-ui.php:1529
+msgid "All Items"
+msgstr "Bütün Elemanlar"
+
+#: ../custom-post-type-ui.php:1531
+msgid "(e.g. All Actors)"
+msgstr "(örneğin: Bütün Aktörler)"
+
+#: ../custom-post-type-ui.php:1535
+msgid "Parent Item"
+msgstr "Temel Eleman"
+
+#: ../custom-post-type-ui.php:1537
+msgid "(e.g. Parent Actor)"
+msgstr "(örneğin: Temel Aktör)"
+
+#: ../custom-post-type-ui.php:1541
+msgid "Parent Item Colon"
+msgstr "Temel Eleman Kolon"
+
+#: ../custom-post-type-ui.php:1543
+msgid "(e.g. Parent Actor:)"
+msgstr "(örneğin: Temel Aktör:)"
+
+#: ../custom-post-type-ui.php:1549
+msgid "(e.g. Edit Actor)"
+msgstr "(örneğin: Aktör Düzenle)"
+
+#: ../custom-post-type-ui.php:1553
+msgid "Update Item"
+msgstr "Eleman Güncelle"
+
+#: ../custom-post-type-ui.php:1555
+msgid "(e.g. Update Actor)"
+msgstr "(örneğin: Aktörü Güncelle)"
+
+#: ../custom-post-type-ui.php:1561
+msgid "(e.g. Add New Actor)"
+msgstr "(örneğin: Yeni Aktör Ekle)"
+
+#: ../custom-post-type-ui.php:1565
+msgid "New Item Name"
+msgstr "Yeni Eleman Adı"
+
+#: ../custom-post-type-ui.php:1567
+msgid "(e.g. New Actor Name)"
+msgstr "(örneğin: Yeni Aktör Adı)"
+
+#: ../custom-post-type-ui.php:1571
+msgid "Separate Items with Commas"
+msgstr "Elemanları virgül ile ayır"
+
+#: ../custom-post-type-ui.php:1573
+msgid "(e.g. Separate actors with commas)"
+msgstr "(örneğin: Aktörleri virgülle ayırınız)"
+
+#: ../custom-post-type-ui.php:1577
+msgid "Add or Remove Items"
+msgstr "Elemanları Ekle veya Çıkar "
+
+#: ../custom-post-type-ui.php:1579
+msgid "(e.g. Add or remove actors)"
+msgstr "(örneğin: Aktörleri ekle veya çıkar)"
+
+#: ../custom-post-type-ui.php:1583
+msgid "Choose From Most Used"
+msgstr "Çok Kullanılandan Seç"
+
+#: ../custom-post-type-ui.php:1585
+msgid "(e.g. Choose from the most used actors)"
+msgstr "(örneğin: Çok kullanılan aktörlerden seç)"
+
+#: ../custom-post-type-ui.php:1593
+msgid "Whether the taxonomy can have parent-child relationships"
+msgstr "Sınıflandırma alt-üst sayfa ilişkisine sahip mi?"
+
+#: ../custom-post-type-ui.php:1603
+msgid "Whether to generate a default UI for managing this custom taxonomy"
+msgstr "Varsayılan arayüzden bu özel sınıflandırma oluşturulabilir mi"
+
+#: ../custom-post-type-ui.php:1623
+msgid "Triggers the handling of rewrites for this taxonomy"
+msgstr "Bu sınıflandırma için rewrite işlenmesini tetikler"
+
+#: ../custom-post-type-ui.php:1633
+msgid "Custom Taxonomy Rewrite Slug"
+msgstr "Özel Sınıflandırma Rewrite Slug"
+
+#: ../custom-post-type-ui.php:1634
+msgid "(default: taxonomy name)"
+msgstr "(varsayılan: sınıflandırma adı)"
+
+#: ../custom-post-type-ui.php:1639
+msgid "Show Admin Column"
+msgstr "Yönetici Sütunu Göster"
+
+#: ../custom-post-type-ui.php:1639
+msgid ""
+"Whether to allow automatic creation of taxonomy columns on associated post-"
+"types."
+msgstr ""
+"Sınıflandırma sütunu otomatik olarak oluşturulmasını izin verilip verilmediği"
+
+#: ../custom-post-type-ui.php:1673
+msgid "Please Report Bugs"
+msgstr "Lütfen Hataları Bildirin"
+
+#: ../custom-post-type-ui.php:1673
+msgid "Follow on Twitter:"
+msgstr "Twitterden takip et:"
