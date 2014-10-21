@@ -115,6 +115,14 @@ function cpt_create_custom_post_types() {
 				$cpt_show_in_menu = false;
 			}
 
+			//Has Archive
+			//If the string is empty, we will need boolean, else use the string.
+			if ( empty( $cpt_post_type['has_archive_string'] ) ) {
+				$cpt_has_archive = ( $cpt_post_type["has_archive"] == 1 ) ? true : false;
+			} else {
+				$cpt_has_archive = $cpt_post_type['has_archive_string'];
+			}
+
 			//Rewrite combination.
 			if ( false === (bool) $cpt_post_type["rewrite"] ) {
 				$rewrite = false;
@@ -129,7 +137,6 @@ function cpt_create_custom_post_types() {
 				$cpt_labels['menu_name'] = ( !empty( $cpt_post_type[2]["menu_name"] ) ) ? $cpt_post_type[2]["menu_name"] : $cpt_label;
 			}
 
-			$cpt_has_archive                    = ( !empty( $cpt_post_type["has_archive"] ) ) ? get_disp_boolean( $cpt_post_type["has_archive"] ) : '';
 			$cpt_exclude_from_search            = ( !empty( $cpt_post_type["exclude_from_search"] ) ) ? get_disp_boolean( $cpt_post_type["exclude_from_search"] ) : '';
 			$cpt_labels['add_new']              = ( !empty( $cpt_post_type[2]["add_new"] ) ) ? $cpt_post_type[2]["add_new"] : 'Add ' .$cpt_singular;
 			$cpt_labels['add_new_item']         = ( !empty( $cpt_post_type[2]["add_new_item"] ) ) ? $cpt_post_type[2]["add_new_item"] : 'Add New ' .$cpt_singular;
@@ -1067,6 +1074,7 @@ function cpt_add_new() {
 		$cpt_taxes              = ( isset( $cpt_options[ $editType ][1] ) )? $cpt_options[ $editType ][1] : null;
 		$cpt_labels             = ( isset( $cpt_options[ $editType ][2] ) ) ? $cpt_options[ $editType ][2] : null;
 		$cpt_has_archive        = ( isset( $cpt_options[$editType]["has_archive"] ) ) ? $cpt_options[$editType]["has_archive"] : null;
+		$cpt_has_archive_string = ( isset( $cpt_options[$editType]["has_archive_string"] ) ) ? $cpt_options[$editType]["has_archive_string"] : null;
 		$cpt_exclude_from_search = ( isset( $cpt_options[$editType]["exclude_from_search"] ) ) ? $cpt_options[$editType]["exclude_from_search"] : null;
 		$cpt_show_in_menu        = ( isset( $cpt_options[$editType]["show_in_menu"] ) ) ? $cpt_options[$editType]["show_in_menu"] : true;
 		$cpt_show_in_menu_string = ( isset( $cpt_options[$editType]["show_in_menu_string"] ) ) ? $cpt_options[$editType]["show_in_menu_string"] : null;
@@ -1319,12 +1327,15 @@ function cpt_add_new() {
 							</tr>
 
 							<tr valign="top">
-							<th scope="row"><?php _e('Has Archive', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Whether the post type will have a post type archive page', 'cpt-plugin' ); ?>" class="help">?</a></th>
+							<th scope="row"><?php _e('Has Archive', 'cpt-plugin') ?> <a href="#" title="<?php esc_attr_e( 'Whether the post type will have a post type archive page and what slug to use for it', 'cpt-plugin' ); ?>" class="help">?</a>
+							<p><?php _e( 'If a string is indicated for second input, post type will use that slug for the archive page instead.', 'cpt-plugins' ); ?></p></th>
 							<td>
-								<select name="cpt_custom_post_type[has_archive]">
+								<p><select name="cpt_custom_post_type[has_archive]" tabindex="6">
 									<option value="0" <?php if (isset($cpt_has_archive)) { if ($cpt_has_archive == 0) { echo 'selected="selected"'; } } else { echo 'selected="selected"'; } ?>><?php _e( 'False', 'cpt-plugin' ); ?></option>
 									<option value="1" <?php if (isset($cpt_has_archive)) { if ($cpt_has_archive == 1) { echo 'selected="selected"'; } } ?>><?php _e( 'True', 'cpt-plugin' ); ?></option>
-								</select> <?php _e( '(default: False)', 'cpt-plugin' ); ?>
+								</select> <?php _e( '(default: False)', 'cpt-plugin' ); ?></p>
+								<p>
+								<input type="text" name="cpt_custom_post_type[has_archive_string]" tabindex="12" size="20" value="<?php if (isset($cpt_has_archive_string)) { echo esc_attr($cpt_has_archive_string); } ?>" /> <?php _e( '(default: post type name)', 'cpt-plugin' ); ?></p>
 							</td>
 							</tr>
 
