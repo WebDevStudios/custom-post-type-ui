@@ -672,11 +672,11 @@ if ( isset($_GET['cpt_msg'] ) && $_GET['cpt_msg'] == 'del' ) { ?>
 						$custom_post_type   = '';
 						$cpt_support_array  = '';
 						$cpt_tax_array      = '';
+						$cpt_sanitized_name = str_replace( '-', '_', $cpt_post_type['name'] );
 
 						$cpt_label = ( empty( $cpt_post_type["label"] ) ) ? esc_html($cpt_post_type["name"]) : esc_html($cpt_post_type["label"]);
 						$cpt_singular = ( empty( $cpt_post_type["singular_label"] ) ) ? $cpt_label : esc_html($cpt_post_type["singular_label"]);
-						$cpt_rewrite_slug = ( empty( $cpt_post_type["rewrite_slug"] ) ) ? esc_html( $cpt_post_type["name"] ) : esc_html($cpt_post_type["rewrite_slug"]);
-						$cpt_rewrite_withfront = ( empty( $cpt_post_type['rewrite_withfront'] ) ) ? get_disp_boolean( $cpt_post_type['rewrite_withfront'] ) : 'true'; //not reversed because false is empty, making the assignment go to true
+						$cpt_rewrite_slug = ( empty( $cpt_post_type["rewrite_slug"] ) ) ? esc_html($cpt_post_type["name"]) : esc_html($cpt_post_type["rewrite_slug"]);
 						$cpt_menu_position = ( empty( $cpt_post_type["menu_position"] ) ) ? null : intval($cpt_post_type["menu_position"]);
 						$cpt_menu_icon = ( !empty( $cpt_post_type["menu_icon"] ) ) ? esc_attr($cpt_post_type["menu_icon"]) : null;
 
