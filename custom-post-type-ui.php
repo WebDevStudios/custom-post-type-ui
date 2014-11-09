@@ -739,8 +739,8 @@ if ( isset($_GET['cpt_msg'] ) && $_GET['cpt_msg'] == 'del' ) { ?>
 								$counter++;
 							}
 						}
-						$custom_post_type = "add_action('init', 'cptui_register_my_cpt_" . $cpt_post_type["name"] . "');\n";
-						$custom_post_type .= "function cptui_register_my_cpt_" . $cpt_post_type["name"] . "() {\n";
+						$custom_post_type = "add_action('init', 'cptui_register_my_cpt_" . $cpt_sanitized_name . "');\n";
+						$custom_post_type .= "function cptui_register_my_cpt_" . $cpt_sanitized_name . "() {\n";
 						$custom_post_type .= "register_post_type('" . $cpt_post_type["name"] . "', array(\n'label' => '" . $cpt_label . "',\n";
 						$custom_post_type .= "'description' => '" . $cpt_post_type["description"] . "',\n";
 						$custom_post_type .= "'public' => " . disp_boolean( $cpt_post_type["public"]) . ",\n";
