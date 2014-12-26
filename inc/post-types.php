@@ -175,6 +175,18 @@ function cptui_manage_post_types() {
 								) );
 
 							/*
+							 * Post All Items
+							 */
+							echo $ui->get_text_input( array(
+								'labeltext'     => __( 'All Items', 'cpt-plugin' ),
+								'helptext'      => esc_attr__( 'Post type label. Used in the admin menu for displaying post types.', 'cpt-plugin'),
+								'namearray'     => 'cpt_labels',
+								'name'          => 'all_items',
+								'textvalue'     => ( isset( $current['labels']['all_items'] ) ) ? esc_attr( $current['labels']['all_items'] ) : '',
+								'aftertext'     => __( '(e.g. All Movies)', 'cpt-plugin' )
+								) );
+
+							/*
 							 * Add New Label
 							 */
 							echo $ui->get_text_input( array(
