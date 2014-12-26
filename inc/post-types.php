@@ -321,7 +321,7 @@ function cptui_manage_post_types() {
 									array( 'attr' => '1', 'text' => __( 'True', 'cpt-plugin' ), 'default' => 'true' )
 								)
 							);
-							$select['selected'] = $current['public'];
+							$select['selected'] = ( !empty( $current['public'] ) ) ? $current['public'] : '';
 							echo $ui->get_select_input( array(
 								'namearray'     => 'cpt_custom_post_type',
 								'name'          => 'public',
@@ -340,7 +340,7 @@ function cptui_manage_post_types() {
 									array( 'attr' => '1', 'text' => __( 'True', 'cpt-plugin' ), 'default' => 'true' )
 								)
 							);
-							$select['selected'] = $current['show_ui'];
+							$select['selected'] = ( !empty( $current['show_ui'] ) ) ? $current['show_ui'] : '';
 							echo $ui->get_select_input( array(
 								'namearray'     => 'cpt_custom_post_type',
 								'name'          => 'show_ui',
@@ -359,7 +359,7 @@ function cptui_manage_post_types() {
 									array( 'attr' => '1', 'text' => __( 'True', 'cpt-plugin' ) )
 								)
 							);
-							$select['selected'] = $current['has_archive'];
+							$select['selected'] = ( !empty( $current['has_archive'] ) ) ? $current['has_archive'] : '';
 							echo $ui->get_select_input( array(
 								'namearray'     => 'cpt_custom_post_type',
 								'name'          => 'has_archive',
@@ -378,7 +378,7 @@ function cptui_manage_post_types() {
 									array( 'attr' => '1', 'text' => __( 'True', 'cpt-plugin' ) )
 								)
 							);
-							$select['selected'] = $current['exclude_from_search'];
+							$select['selected'] = ( !empty( $current['exclude_from_search'] ) ) ? $current['exclude_from_search'] : '';
 							echo $ui->get_select_input( array(
 								'namearray'     => 'cpt_custom_post_type',
 								'name'          => 'exclude_from_search',
@@ -408,7 +408,7 @@ function cptui_manage_post_types() {
 									array( 'attr' => '1', 'text' => __( 'True', 'cpt-plugin' ) )
 								)
 							);
-							$select['selected'] = $current['hierarchical'];
+							$select['selected'] = ( !empty( $current['hierarchical'] ) ) ? $current['hierarchical'] : '';
 							echo $ui->get_select_input( array(
 								'namearray'     => 'cpt_custom_post_type',
 								'name'          => 'hierarchical',
@@ -427,7 +427,7 @@ function cptui_manage_post_types() {
 									array( 'attr' => '1', 'text' => __( 'True', 'cpt-plugin' ), 'default' => 'true' )
 								)
 							);
-							$select['selected'] = $current['rewrite'];
+							$select['selected'] = ( !empty( $current['rewrite'] ) ) ? $current['rewrite'] : '';
 							echo $ui->get_select_input( array(
 								'namearray'     => 'cpt_custom_post_type',
 								'name'          => 'rewrite',
@@ -458,7 +458,7 @@ function cptui_manage_post_types() {
 									array( 'attr' => '1', 'text' => __( 'True', 'cpt-plugin' ), 'default' => 'true' )
 								)
 							);
-							$select['selected'] = $current['rewrite_withfront'];
+							$select['selected'] = ( !empty( $current['rewrite_withfront'] ) ) ? $current['rewrite_withfront'] : '';
 							echo $ui->get_select_input( array(
 								'namearray'     => 'cpt_custom_post_type',
 								'name'          => 'rewrite_withfront',
@@ -477,7 +477,7 @@ function cptui_manage_post_types() {
 									array( 'attr' => '1', 'text' => __( 'True', 'cpt-plugin' ), 'default' => 'true' )
 								)
 							);
-							$select['selected'] = $current['query_var'];
+							$select['selected'] = ( !empty( $current['query_var'] ) ) ? $current['query_var'] : '';
 							echo $ui->get_select_input( array(
 								'namearray'     => 'cpt_custom_post_type',
 								'name'          => 'query_var',
@@ -515,7 +515,7 @@ function cptui_manage_post_types() {
 									array( 'attr' => '1', 'text' => __( 'True', 'cpt-plugin' ), 'default' => 'true' )
 								)
 							);
-							$select['selected'] = $current['show_in_menu'];
+							$select['selected'] = ( !empty( $current['show_in_menu'] ) ) ? $current['show_in_menu'] : '';
 							echo $ui->get_select_input( array(
 								'namearray'     => 'cpt_custom_post_type',
 								'name'          => 'show_in_menu',
