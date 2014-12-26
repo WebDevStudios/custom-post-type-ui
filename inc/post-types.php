@@ -102,7 +102,7 @@ function cptui_manage_post_types() {
 							'onblur'        => 'this.value=this.value.toLowerCase()',
 							'labeltext'     => __( 'Post Type Name', 'cpt-plugin' ),
 							'aftertext'     => __( '(e.g. movie)', 'cpt-plugin' ),
-							'helptext'      => esc_attr__( 'The post type name.  Used to retrieve custom post type content.  Should be short and unique', 'cpt-plugin'),
+							'helptext'      => esc_attr__( 'The post type name. Used to retrieve custom post type content. Should be short and unique', 'cpt-plugin'),
 							'required'      => true
 							) );
 
@@ -115,7 +115,7 @@ function cptui_manage_post_types() {
 							'textvalue'     => ( isset( $current['label'] ) ) ? esc_attr( $current['label'] ) : '',
 							'labeltext'     => __( 'Plural Label', 'cpt-plugin' ),
 							'aftertext'     => __( '(e.g. Movies)', 'cpt-plugin' ),
-							'helptext'      => esc_attr__( 'Post type label.  Used in the admin menu for displaying post types.', 'cpt-plugin' ),
+							'helptext'      => esc_attr__( 'Post type label. Used in the admin menu for displaying post types.', 'cpt-plugin' ),
 							) );
 
 						/*
@@ -179,7 +179,7 @@ function cptui_manage_post_types() {
 							 */
 							echo $ui->get_text_input( array(
 								'labeltext'     => __( 'Add New', 'cpt-plugin' ),
-								'helptext'      => esc_attr__( 'Post type label.  Used in the admin menu for displaying post types.', 'cpt-plugin' ),
+								'helptext'      => esc_attr__( 'Post type label. Used in the admin menu for displaying post types.', 'cpt-plugin' ),
 								'namearray'     => 'cpt_labels',
 								'name'          => 'add_new',
 								'textvalue'     => ( isset( $current['labels']['add_new'] ) ) ? esc_attr( $current['labels']['add_new'] ) : '',
@@ -191,7 +191,7 @@ function cptui_manage_post_types() {
 							 */
 							echo $ui->get_text_input( array(
 								'labeltext'     => __( 'Add New Item', 'cpt-plugin' ),
-								'helptext'      => esc_attr__( 'Post type label.  Used in the admin menu for displaying post types.', 'cpt-plugin' ),
+								'helptext'      => esc_attr__( 'Post type label. Used in the admin menu for displaying post types.', 'cpt-plugin' ),
 								'namearray'     => 'cpt_labels',
 								'name'          => 'add_new_item',
 								'textvalue'     => ( isset( $current['labels']['add_new_item'] ) ) ? esc_attr( $current['labels']['add_new_item'] ) : '',
@@ -203,7 +203,7 @@ function cptui_manage_post_types() {
 							 */
 							echo $ui->get_text_input( array(
 								'labeltext'     => __( 'Edit', 'cpt-plugin' ),
-								'helptext'      => esc_attr__( 'Post type label.  Used in the admin menu for displaying post types.', 'cpt-plugin' ),
+								'helptext'      => esc_attr__( 'Post type label. Used in the admin menu for displaying post types.', 'cpt-plugin' ),
 								'namearray'     => 'cpt_labels',
 								'name'          => 'edit',
 								'textvalue'     => ( isset( $current['labels']['edit'] ) ) ? esc_attr( $current['labels']['edit'] ) : '',
@@ -215,7 +215,7 @@ function cptui_manage_post_types() {
 							 */
 							echo $ui->get_text_input( array(
 								'labeltext'     => __( 'Edit Item', 'cpt-plugin' ),
-								'helptext'      => esc_attr__( 'Post type label.  Used in the admin menu for displaying post types.', 'cpt-plugin' ),
+								'helptext'      => esc_attr__( 'Post type label. Used in the admin menu for displaying post types.', 'cpt-plugin' ),
 								'namearray'     => 'cpt_labels',
 								'name'          => 'edit_item',
 								'textvalue'     => ( isset( $current['labels']['edit_item'] ) ) ? esc_attr( $current['labels']['edit_item'] ) : '',
@@ -227,7 +227,7 @@ function cptui_manage_post_types() {
 							 */
 							echo $ui->get_text_input( array(
 								'labeltext'     => __( 'New Item', 'cpt-plugin' ),
-								'helptext'      => esc_attr__( 'Post type label.  Used in the admin menu for displaying post types.', 'cpt-plugin' ),
+								'helptext'      => esc_attr__( 'Post type label. Used in the admin menu for displaying post types.', 'cpt-plugin' ),
 								'namearray'     => 'cpt_labels',
 								'name'          => 'new_item',
 								'textvalue'     => ( isset( $current['labels']['new_item'] ) ) ? esc_attr( $current['labels']['new_item'] ) : '',
@@ -239,7 +239,7 @@ function cptui_manage_post_types() {
 							 */
 							echo $ui->get_text_input( array(
 								'labeltext'     => __( 'View', 'cpt-plugin' ),
-								'helptext'      => esc_attr__( 'Post type label.  Used in the admin menu for displaying post types.', 'cpt-plugin' ),
+								'helptext'      => esc_attr__( 'Post type label. Used in the admin menu for displaying post types.', 'cpt-plugin' ),
 								'namearray'     => 'cpt_labels',
 								'name'          => 'view',
 								'textvalue'     => ( isset( $current['labels']['view'] ) ) ? esc_attr( $current['labels']['view'] ) : '',
@@ -251,7 +251,7 @@ function cptui_manage_post_types() {
 							 */
 							echo $ui->get_text_input( array(
 								'labeltext'     => __( 'View Item', 'cpt-plugin' ),
-								'helptext'      => esc_attr__( 'Post type label.  Used in the admin menu for displaying post types.', 'cpt-plugin' ),
+								'helptext'      => esc_attr__( 'Post type label. Used in the admin menu for displaying post types.', 'cpt-plugin' ),
 								'namearray'     => 'cpt_labels',
 								'name'          => 'view_item',
 								'textvalue'     => ( isset( $current['labels']['view_item'] ) ) ? esc_attr( $current['labels']['view_item'] ) : '',
@@ -263,7 +263,7 @@ function cptui_manage_post_types() {
 							 */
 							echo $ui->get_text_input( array(
 								'labeltext'     => __( 'Search Item', 'cpt-plugin' ),
-								'helptext'      => esc_attr__( 'Post type label.  Used in the admin menu for displaying post types.', 'cpt-plugin' ),
+								'helptext'      => esc_attr__( 'Post type label. Used in the admin menu for displaying post types.', 'cpt-plugin' ),
 								'namearray'     => 'cpt_labels',
 								'name'          => 'search_items',
 								'textvalue'     => ( isset( $current['labels']['search_items'] ) ) ? esc_attr( $current['labels']['search_items'] ) : '',
@@ -275,7 +275,7 @@ function cptui_manage_post_types() {
 							 */
 							echo $ui->get_text_input( array(
 								'labeltext'     => __( 'Not Found', 'cpt-plugin' ),
-								'helptext'      => esc_attr__( 'Post type label.  Used in the admin menu for displaying post types.', 'cpt-plugin' ),
+								'helptext'      => esc_attr__( 'Post type label. Used in the admin menu for displaying post types.', 'cpt-plugin' ),
 								'namearray'     => 'cpt_labels',
 								'name'          => 'not_found',
 								'textvalue'     => ( isset( $current['labels']['not_found'] ) ) ? esc_attr( $current['labels']['not_found'] ) : '',
@@ -287,7 +287,7 @@ function cptui_manage_post_types() {
 							 */
 							echo $ui->get_text_input( array(
 								'labeltext'     => __( 'Not Found in Trash', 'cpt-plugin' ),
-								'helptext'      => esc_attr__( 'Post type label.  Used in the admin menu for displaying post types.', 'cpt-plugin' ),
+								'helptext'      => esc_attr__( 'Post type label. Used in the admin menu for displaying post types.', 'cpt-plugin' ),
 								'namearray'     => 'cpt_labels',
 								'name'          => 'not_found_in_trash',
 								'textvalue'     => ( isset( $current['labels']['not_found_in_trash'] ) ) ? esc_attr( $current['labels']['not_found_in_trash'] ) : '',
@@ -299,7 +299,7 @@ function cptui_manage_post_types() {
 							 */
 							echo $ui->get_text_input( array(
 								'labeltext'     => __( 'Parent', 'cpt-plugin' ),
-								'helptext'      => esc_attr__( 'Post type label.  Used in the admin menu for displaying post types.', 'cpt-plugin' ),
+								'helptext'      => esc_attr__( 'Post type label. Used in the admin menu for displaying post types.', 'cpt-plugin' ),
 								'namearray'     => 'cpt_labels',
 								'name'          => 'parent',
 								'textvalue'     => ( isset( $current['labels']['parent'] ) ) ? esc_attr( $current['labels']['parent'] ) : '',
