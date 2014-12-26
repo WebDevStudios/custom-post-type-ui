@@ -889,7 +889,7 @@ function cptui_update_post_type( $data ) {
 
 	$post_types = get_option( 'cptui_post_types', array() );
 
-	//Check if we a;ready have a post type of that name.
+	//Check if we already have a post type of that name.
 	if ( 'Add Post Type' == $data['cpt_submit'] && array_key_exists( strtolower( $data['cpt_custom_post_type']['name'] ), $post_types ) ) {
 		return cptui_admin_notices( 'error', '', false, sprintf( __( 'Please choose a different post type name. %s is already used.', 'cpt-plugin' ), $data['cpt_custom_post_type']['name'] ) );
 	}
