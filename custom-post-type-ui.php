@@ -319,7 +319,7 @@ function cptui_footer() { ?>
 				CPT_VERSION,
 				'<a href="http://webdevstudios.com" target="_blank">WebDevStudios</a>',
 				sprintf(
-					'<a href="https://github.com/WebDevStudios/custom-post-type-ui" target="_blank">%s</a>',
+					'<a href="https://github.com/WebDevStudios/custom-post-type-ui/issues" target="_blank">%s</a>',
 					__( 'Please Report Bugs', 'cpt-plugin' )
 				),
 				__( 'Follow on Twitter:', 'cpt-plugin' ),
