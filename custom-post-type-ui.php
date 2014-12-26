@@ -257,15 +257,11 @@ function cptui_settings() { ?>
 		<?php do_action( 'cptui_main_page_before_books' ); ?>
 		<table border="0">
 			<tr>
-			<td colspan="3"><h2><?php _e( 'Help Support This Plugin!', 'cpt-plugin' ); ?></h2></td>
-			</tr>
-			<tr>
-				<td class="one-third"><h3><?php _e( 'PayPal Donation', 'cpt-plugin' ); ?></h3></td>
-				<td class="one-third"><h3><?php _e( 'Professional WordPress<br />Second Edition', 'cpt-plugin' ); ?></h3></td>
-				<td class="one-third"><h3><?php _e( 'Professional WordPress<br />Plugin Development', 'cpt-plugin' ); ?></h3></td>
+				<td colspan="3"><h2><?php _e( 'Help Support This Plugin!', 'cpt-plugin' ); ?></h2></td>
 			</tr>
 			<tr>
 				<td class="one-third valign">
+					<h3><?php _e( 'PayPal Donation', 'cpt-plugin' ); ?></h3>
 					<p><?php _e( 'Please donate to the development of Custom Post Type UI:', 'cpt-plugin'); ?></p>
 					<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
 					<input type="hidden" name="cmd" value="_s-xclick">
@@ -275,14 +271,16 @@ function cptui_settings() { ?>
 					</form>
 
 				</td>
-				<td class="one-third">
+				<td class="one-third valign">
+					<h3><?php _e( 'Professional WordPress<br />Second Edition', 'cpt-plugin' ); ?></h3>
 					<a href="http://bit.ly/prowp2" target="_blank">
 						<img src="<?php echo plugins_url( '/images/professional-wordpress-secondedition.jpg', __FILE__ ); ?>" width="200">
 					</a>
 					<br />
 					<?php _e( 'The leading book on WordPress design and development! Brand new second edition!', 'cpt-plugin'); ?>
 				</td>
-				<td class="one-third">
+				<td class="one-third valign">
+					<h3><?php _e( 'Professional WordPress<br />Plugin Development', 'cpt-plugin' ); ?></h3>
 					<a href="http://amzn.to/plugindevbook" target="_blank">
 						<img src="<?php echo plugins_url( '/images/professional-wordpress-plugin-development.png', __FILE__ ); ?>" width="200">
 					</a>
