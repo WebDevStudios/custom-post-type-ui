@@ -325,7 +325,7 @@ function cptui_manage_taxonomies() {
 										array( 'attr' => '1', 'text' => __( 'True', 'cpt-plugin' ) )
 									)
 								);
-								$select['selected'] = $current['hierarchical'];
+								$select['selected'] = ( !empty( $current['hierarchical'] ) ) ? $current['hierarchical'] : '';
 								echo $ui->get_select_input( array(
 									'namearray'     => 'cpt_custom_tax',
 									'name'          => 'hierarchical',
@@ -341,7 +341,7 @@ function cptui_manage_taxonomies() {
 										array( 'attr' => '1', 'text' => __( 'True', 'cpt-plugin' ), 'default' => 'true' )
 									)
 								);
-								$select['selected'] = $current['show_ui'];
+								$select['selected'] = ( !empty( $current['show_ui'] ) ) ? $current['show_ui'] : '';
 								echo $ui->get_select_input( array(
 									'namearray'     => 'cpt_custom_tax',
 									'name'          => 'show_ui',
@@ -357,7 +357,7 @@ function cptui_manage_taxonomies() {
 										array( 'attr' => '1', 'text' => __( 'True', 'cpt-plugin' ), 'default' => 'true' )
 									)
 								);
-								$select['selected'] = $current['query_var'];
+								$select['selected'] = ( !empty( $current['query_var'] ) ) ? $current['query_var'] : '';
 								echo $ui->get_select_input( array(
 									'namearray'     => 'cpt_custom_tax',
 									'name'          => 'query_var',
@@ -372,7 +372,7 @@ function cptui_manage_taxonomies() {
 										array( 'attr' => '1', 'text' => __( 'True', 'cpt-plugin' ), 'default' => 'true' )
 									)
 								);
-								$select['selected'] = $current['rewrite'];
+								$select['selected'] = ( !empty( $current['rewrite'] ) ) ? $current['rewrite'] : '';
 								echo $ui->get_select_input( array(
 									'namearray'     => 'cpt_custom_tax',
 									'name'          => 'rewrite',
@@ -397,7 +397,7 @@ function cptui_manage_taxonomies() {
 										array( 'attr' => '1', 'text' => __( 'True', 'cpt-plugin' ) )
 									)
 								);
-								$select['selected'] = $current['show_admin_column'];
+								$select['selected'] = ( !empty( $current['show_admin_column'] ) ) ? $current['show_admin_column'] : '';
 								echo $ui->get_select_input( array(
 									'namearray'     => 'cpt_custom_tax',
 									'name'          => 'show_admin_column',
