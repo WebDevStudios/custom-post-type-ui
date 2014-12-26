@@ -35,7 +35,9 @@ function cptui_support() {
 
 		<h1><?php _e( 'Custom Post Type UI Support', 'cpt-plugin' ); ?></h1>
 
-		<p><?php _e( 'Please note that this plugin will NOT handle display of registered post types or taxonomies in your current theme. It will simply register them for you.', 'cpt-plugin' ); ?></p>
+		<p><?php printf( __( 'Please note that this plugin will NOT handle display of registered post types or taxonomies in your current theme. It will simply register them for you. If all else fails, visit us on the %s', 'cpt-plugin' ),
+				'<a href="http://www.wordpress.org/support/plugin/custom-post-type-ui/">' . __( 'Support Forums', 'cpt-plugin' ) . '</a>'
+			); ?></p>
 
 		<table id="support" class="form-table cptui-table">
 			<tr>
