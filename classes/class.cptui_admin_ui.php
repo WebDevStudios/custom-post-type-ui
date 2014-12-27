@@ -165,7 +165,7 @@ class cptui_admin_ui {
 
 		$value = '';
 		if ( $args['wrap'] ) {
-			$value = $this->get_tr_start();
+			$value  = $this->get_tr_start();
 			$value .= $this->get_th_start();
 			$value .= $this->get_label( $args['name'], $args['labeltext'] );
 			if ( $args['required'] ) { $value .= $this->get_required(); }
