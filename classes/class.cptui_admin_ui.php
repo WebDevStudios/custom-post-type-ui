@@ -148,13 +148,13 @@ class cptui_admin_ui {
 	}
 
 	/**
-	 * Return a populated <select> input
+	 * Return a populated <select> input.
 	 *
-	 * @since  1.0
+	 * @since 1.0
 	 *
-	 * @param  array  $args Arguments to use with the <select> input
+	 * @param array $args Arguments to use with the <select> input.
 	 *
-	 * @return string       Complete <select> input with options and selected attribute.
+	 * @return string $value Complete <select> input with options and selected attribute.
 	 */
 	public function get_select_input( $args = array() ) {
 		$defaults = $this->get_default_input_parameters(
