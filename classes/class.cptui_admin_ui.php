@@ -135,7 +135,7 @@ class cptui_admin_ui {
 	 * @return string $value Maxlength HTML attribute.
 	 */
 	public function get_maxlength( $length ) {
-		return 'maxlength="' . $length . '"';
+		return 'maxlength="' . esc_attr( $length ) . '"';
 	}
 
 	/**
@@ -146,7 +146,7 @@ class cptui_admin_ui {
 	 * @return string $value Onblur HTML attribute.
 	 */
 	public function get_onblur( $text ) {
-		return 'onblur="' . $text . '"';
+		return 'onblur="' . esc_attr( $text ) . '"';
 	}
 
 	/**
