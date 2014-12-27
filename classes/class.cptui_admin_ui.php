@@ -42,11 +42,11 @@ class cptui_admin_ui {
 	}
 
 	/**
-	 * Return a closing </th> tag
+	 * Return a closing </th> tag.
 	 *
-	 * @since  1.0
+	 * @since 1.0
 	 *
-	 * @return string  closing </th> tag
+	 * @return string $value Closing </th> tag.
 	 */
 	public function get_th_end() {
 		return '</th>';
