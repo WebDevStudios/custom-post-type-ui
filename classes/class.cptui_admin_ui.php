@@ -8,10 +8,6 @@
 */
 class cptui_admin_ui {
 
-	function __construct() {
-
-	}
-
 	/**
 	 * Return an opening <tr> tag
 	 *
