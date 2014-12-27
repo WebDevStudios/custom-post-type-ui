@@ -127,9 +127,24 @@ class cptui_admin_ui {
 		return '<a href="#" title="' . $help_text . '" class="help wp-ui-highlight">?</a>';
 	}
 
+	/**
+	 * Return a maxlength HTML attribute with a specified length.
+	 *
+	 * @param string $length How many characters the max length should be set to.
+	 *
+	 * @return string $value Maxlength HTML attribute.
+	 */
 	public function get_maxlength( $length ) {
 		return 'maxlength="' . $length . '"';
 	}
+
+	/**
+	 * Return a onblur HTML attribute for a specified value.
+	 *
+	 * @param string $text Text to place in the onblur attribute.
+	 *
+	 * @return string $value Onblur HTML attribute.
+	 */
 	public function get_onblur( $text ) {
 		return 'onblur="' . $text . '"';
 	}
