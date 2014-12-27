@@ -9,11 +9,11 @@
 class cptui_admin_ui {
 
 	/**
-	 * Return an opening <tr> tag
+	 * Return an opening <tr> tag.
 	 *
-	 * @since  1.0
+	 * @since 1.0
 	 *
-	 * @return string  opening <tr> tag with attributes
+	 * @return string $value Opening <tr> tag with attributes.
 	 */
 	public function get_tr_start() {
 		return '<tr valign="top">';
