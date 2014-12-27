@@ -143,7 +143,7 @@ class cptui_admin_ui {
 	 *
 	 * @return string $value Onblur HTML attribute.
 	 */
-	public function get_onblur( $text ) {
+	public function get_onblur( $text = '' ) {
 		return 'onblur="' . esc_attr( $text ) . '"';
 	}
 
