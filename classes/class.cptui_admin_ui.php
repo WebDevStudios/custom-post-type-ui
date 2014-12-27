@@ -53,11 +53,11 @@ class cptui_admin_ui {
 	}
 
 	/**
-	 * Return an opening <td> tag
+	 * Return an opening <td> tag.
 	 *
-	 * @since  1.0
+	 * @since 1.0
 	 *
-	 * @return string  opening <td> tag
+	 * @return string $value Opening <td> tag.
 	 */
 	public function get_td_start() {
 		return '<td>';
