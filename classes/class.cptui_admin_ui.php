@@ -310,13 +310,13 @@ class cptui_admin_ui {
 	}
 
 	/**
-	 * Return a checkbox <input>
+	 * Return a checkbox <input>.
 	 *
-	 * @since  1.0
+	 * @since 1.0
 	 *
-	 * @param  array   $args Arguments to use with the checkbox input
+	 * @param array $args Arguments to use with the checkbox input.
 	 *
-	 * @return string        Complete checkbox <input> with proper attributes
+	 * @return string $value Complete checkbox <input> with proper attributes.
 	 */
 	public function get_check_input( $args = array() ) {
 		$defaults = $this->get_default_input_parameters(
