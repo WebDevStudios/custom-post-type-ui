@@ -84,6 +84,190 @@ class Test_CPTUI extends WP_UnitTestCase {
 		$this->assertEquals( $result, $this->ui->get_text_input( $args ) );
 	}
 
+	/**
+	 * Tests our select input.
+	 */
+	public function test_CPTUI_select_no_required_no_saved() {
+		$select = array(
+			'options' => array(
+				array( 'attr' => '0', 'text' => __( 'False', 'cpt-plugin' ) ),
+				array( 'attr' => '1', 'text' => __( 'True', 'cpt-plugin' ), 'default' => 'true' )
+			)
+		);
+
+		$select['selected'] = '';
+		$args = array(
+			'namearray'     => 'cpt_custom_post_type',
+			'name'          => 'public',
+			'labeltext'     => __( 'Public', 'cpt-plugin' ),
+			'aftertext'     => __( '(default: True)', 'cpt-plugin' ),
+			'helptext'      => esc_attr__( 'Whether posts of this type should be shown in the admin UI', 'cpt-plugin' ),
+			'selections'    => $select
+		);
+
+		$expected = '<tr valign="top"><th scope="row"><label for="public">Public</label><a href="#" title="Whether posts of this type should be shown in the admin UI" class="help wp-ui-highlight">?</a></th><td><select id="public" name="cpt_custom_post_type[public]"><option value="0">False</option><option value="1" selected="selected">True</option></select>(default: True)</td></tr>';
+
+		$actual = $this->ui->get_select_input( $args );
+
+		$this->assertEquals( $expected, $actual );
+	}
+
+	public function test_CPTUI_select_required_no_saved() {
+		$select = array(
+			'options' => array(
+				array( 'attr' => '0', 'text' => __( 'False', 'cpt-plugin' ) ),
+				array( 'attr' => '1', 'text' => __( 'True', 'cpt-plugin' ), 'default' => 'true' )
+			)
+		);
+
+		$select['selected'] = '';
+		$args = array(
+			'namearray'     => 'cpt_custom_post_type',
+			'name'          => 'public',
+			'labeltext'     => __( 'Public', 'cpt-plugin' ),
+			'aftertext'     => __( '(default: True)', 'cpt-plugin' ),
+			'helptext'      => esc_attr__( 'Whether posts of this type should be shown in the admin UI', 'cpt-plugin' ),
+			'selections'    => $select,
+			'required'      => true
+		);
+
+		$expected = '<tr valign="top"><th scope="row"><label for="public">Public</label><span class="required">*</span><a href="#" title="Whether posts of this type should be shown in the admin UI" class="help wp-ui-highlight">?</a></th><td><select id="public" name="cpt_custom_post_type[public]"><option value="0">False</option><option value="1" selected="selected">True</option></select>(default: True)</td></tr>';
+
+		$actual = $this->ui->get_select_input( $args );
+
+		$this->assertEquals( $expected, $actual );
+	}
+
+	public function test_CPTUI_select_no_required_true_saved() {
+		$select = array(
+			'options' => array(
+				array( 'attr' => '0', 'text' => __( 'False', 'cpt-plugin' ) ),
+				array( 'attr' => '1', 'text' => __( 'True', 'cpt-plugin' ), 'default' => 'true' )
+			)
+		);
+
+		$select['selected'] = '1';
+		$args = array(
+			'namearray'     => 'cpt_custom_post_type',
+			'name'          => 'public',
+			'labeltext'     => __( 'Public', 'cpt-plugin' ),
+			'aftertext'     => __( '(default: True)', 'cpt-plugin' ),
+			'helptext'      => esc_attr__( 'Whether posts of this type should be shown in the admin UI', 'cpt-plugin' ),
+			'selections'    => $select,
+		);
+
+		$expected = '<tr valign="top"><th scope="row"><label for="public">Public</label><a href="#" title="Whether posts of this type should be shown in the admin UI" class="help wp-ui-highlight">?</a></th><td><select id="public" name="cpt_custom_post_type[public]"><option value="0">False</option><option value="1" selected="selected">True</option></select>(default: True)</td></tr>';
+
+		$actual = $this->ui->get_select_input( $args );
+
+		$this->assertEquals( $expected, $actual );
+	}
+
+	public function test_CPTUI_select_no_required_false_saved() {
+		$select = array(
+			'options' => array(
+				array( 'attr' => '0', 'text' => __( 'False', 'cpt-plugin' ) ),
+				array( 'attr' => '1', 'text' => __( 'True', 'cpt-plugin' ), 'default' => 'true' )
+			)
+		);
+
+		$select['selected'] = '0';
+		$args = array(
+			'namearray'     => 'cpt_custom_post_type',
+			'name'          => 'public',
+			'labeltext'     => __( 'Public', 'cpt-plugin' ),
+			'aftertext'     => __( '(default: True)', 'cpt-plugin' ),
+			'helptext'      => esc_attr__( 'Whether posts of this type should be shown in the admin UI', 'cpt-plugin' ),
+			'selections'    => $select,
+		);
+
+		$expected = '<tr valign="top"><th scope="row"><label for="public">Public</label><a href="#" title="Whether posts of this type should be shown in the admin UI" class="help wp-ui-highlight">?</a></th><td><select id="public" name="cpt_custom_post_type[public]"><option value="0" selected="selected">False</option><option value="1">True</option></select>(default: True)</td></tr>';
+
+		$actual = $this->ui->get_select_input( $args );
+
+		$this->assertEquals( $expected, $actual );
+	}
+
+	/**
+	 * Tests non boolean based select inputs
+	 */
+	public function test_CPTUI_select_non_bool_no_option() {
+
+		$select = array();
+		$select['options'] = array();
+
+		$select['options'][] = array( 'attr' => '', 'text' => '--' );
+		$select['options'][] = array( 'attr' => 'movie', 'text' => 'Movies' );
+		$select['options'][] = array( 'attr' => 'tv_show', 'text' => 'TV Show' );
+
+		$select['selected'] = '';
+		$args = array(
+			'namearray'     => 'cptui_selected_post_type',
+			'name'          => 'post_type',
+			'selections'    => $select,
+			'wrap'          => false
+		);
+
+		$expected = '<select id="post_type" name="cptui_selected_post_type[post_type]"><option value="">--</option><option value="movie">Movies</option><option value="tv_show">TV Show</option></select>';
+
+		$actual = $this->ui->get_select_input( $args );
+
+		$this->assertEquals( $expected, $actual );
+	}
+
+	/**
+	 * Tests non boolean based select inputs
+	 */
+	public function test_CPTUI_select_non_bool_first_first_option() {
+
+		$select = array();
+		$select['options'] = array();
+
+		$select['options'][] = array( 'attr' => '', 'text' => '--' );
+		$select['options'][] = array( 'attr' => 'movie', 'text' => 'Movies' );
+		$select['options'][] = array( 'attr' => 'tv_show', 'text' => 'TV Show' );
+
+		$select['selected'] = 'movie';
+		$args = array(
+			'namearray'     => 'cptui_selected_post_type',
+			'name'          => 'post_type',
+			'selections'    => $select,
+			'wrap'          => false
+		);
+
+		$expected = '<select id="post_type" name="cptui_selected_post_type[post_type]"><option value="">--</option><option value="movie" selected="selected">Movies</option><option value="tv_show">TV Show</option></select>';
+
+		$actual = $this->ui->get_select_input( $args );
+
+		$this->assertEquals( $expected, $actual );
+	}
+
+	/**
+	 * Tests non boolean based select inputs
+	 */
+	public function test_CPTUI_select_non_bool_second_option() {
+
+		$select = array();
+		$select['options'] = array();
+
+		$select['options'][] = array( 'attr' => '', 'text' => '--' );
+		$select['options'][] = array( 'attr' => 'movie', 'text' => 'Movies' );
+		$select['options'][] = array( 'attr' => 'tv_show', 'text' => 'TV Show' );
+
+		$select['selected'] = 'tv_show';
+		$args = array(
+			'namearray'     => 'cptui_selected_post_type',
+			'name'          => 'post_type',
+			'selections'    => $select,
+			'wrap'          => false
+		);
+
+		$expected = '<select id="post_type" name="cptui_selected_post_type[post_type]"><option value="">--</option><option value="movie">Movies</option><option value="tv_show" selected="selected">TV Show</option></select>';
+
+		$actual = $this->ui->get_select_input( $args );
+
+		$this->assertEquals( $expected, $actual );
+	}
 
 	public function providertest_something()
 	{
