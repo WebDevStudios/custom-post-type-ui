@@ -64,11 +64,11 @@ class cptui_admin_ui {
 	}
 
 	/**
-	 * Return a closing </td> tag
+	 * Return a closing </td> tag.
 	 *
-	 * @since  1.0
+	 * @since 1.0
 	 *
-	 * @return string  closing </td> tag
+	 * @return string $value Closing </td> tag.
 	 */
 	public function get_td_end() {
 		return '</td>';
