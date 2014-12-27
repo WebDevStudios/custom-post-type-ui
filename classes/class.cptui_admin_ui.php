@@ -170,21 +170,22 @@ class cptui_admin_ui {
 			foreach( $args['selections']['options'] as $val ) {
 				$result = '';
 				$bool = disp_boolean( $val['attr'] );
-				if (
-					( is_numeric( $args['selections']['selected'] ) || in_array( $args['selections']['selected'], array( 'true', 'false' ) ) )
-					&&
-					$args['selections']['selected'] === $bool
-				) {
+
+				if ( is_numeric( $args['selections']['selected'] ) ) {
+					$selected = disp_boolean( $args['selections']['selected'] );
+				}
+
+				if ( ( !empty( $selected ) && in_array( $selected, array( 'true', 'false' ) ) ) && $selected === $bool ) {
 					$result = ' selected="selected"';
 				} else {
-					if ( !empty( $val['default'] ) ) {
-						if ( $args['selections']['selected'] == $val['default'] ) {
+					if ( array_key_exists( 'default', $val ) && !empty( $val['default'] ) ) {
+						if ( empty( $selected ) ) {
 							$result = ' selected="selected"';
 						}
 					}
 				}
 
-				if ( !is_numeric( $args['selections']['selected'] ) && $args['selections']['selected'] == $val['attr'] ) { //for not bool based selects
+				if ( !is_numeric( $args['selections']['selected'] ) && ( !empty( $args['selections']['selected'] ) && $args['selections']['selected'] == $val['attr'] ) ) {
 					$result = ' selected="selected"';
 				}
 
