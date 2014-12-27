@@ -267,13 +267,13 @@ class cptui_admin_ui {
 	}
 
 	/**
-	 * Return a <textarea> input
+	 * Return a <textarea> input.
 	 *
-	 * @since  1.0
+	 * @since 1.0
 	 *
-	 * @param  array   $args Arguments to use with the textarea input
+	 * @param array $args Arguments to use with the textarea input.
 	 *
-	 * @return string        Complete <textarea> input with proper attributes
+	 * @return string $value Complete <textarea> input with proper attributes.
 	 */
 	public function get_textarea_input( $args = array() ) {
 		$defaults = $this->get_default_input_parameters(
