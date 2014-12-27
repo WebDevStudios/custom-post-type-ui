@@ -31,11 +31,11 @@ class cptui_admin_ui {
 	}
 
 	/**
-	 * Return an opening <th> tag
+	 * Return an opening <th> tag.
 	 *
-	 * @since  1.0
+	 * @since 1.0
 	 *
-	 * @return string  opening <th> tag with attributes
+	 * @return string $value Opening <th> tag with attributes.
 	 */
 	public function get_th_start() {
 		return '<th scope="row">';
