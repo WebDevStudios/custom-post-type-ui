@@ -88,14 +88,14 @@ class cptui_admin_ui {
 	}
 
 	/**
-	 * Return a form <label> with for attribute
+	 * Return a form <label> with for attribute.
 	 *
-	 * @since  1.0
+	 * @since 1.0
 	 *
-	 * @param  string  $label_for  form input to associate <label> with
-	 * @param  string  $label_text text to display in the <label> tag
+	 * @param string $label_for  Form input to associate <label> with.
+	 * @param string $label_text Text to display in the <label> tag.
 	 *
-	 * @return string              <label> tag with filled out parts
+	 * @return string $value <label> tag with filled out parts.
 	 */
 	public function get_label( $label_for, $label_text ) {
 		$label = '<label for="' . $label_for . '">' . $label_text . '</label>';
