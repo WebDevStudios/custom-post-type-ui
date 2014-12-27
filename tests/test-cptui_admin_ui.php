@@ -10,14 +10,14 @@ class Test_CPTUI extends WP_UnitTestCase {
 	}
 
 	/*
-	Test that we are able to instantiate our class and get an object back.
+	 * Test that we are able to instantiate our class and get an object back.
 	 */
 	public function test_CPTUI_objects() {
 		$this->assertInstanceOf( 'cptui_admin_ui', $this->ui );
 	}
 
 	/*
-	These tests just assert proper markup for our wrappers to go with the inputs.
+	 * Tests our class wrapper methods.
 	 */
 	public function test_CPTUI_wrappers() {
         $o_tr   = '<tr valign="top">';
@@ -39,7 +39,7 @@ class Test_CPTUI extends WP_UnitTestCase {
 	}
 
 	/*
-
+	 * Tests our label method.
 	 */
 	public function test_CPTUI_label() {
 		$label = '<label for="testing">Testing</label>';
