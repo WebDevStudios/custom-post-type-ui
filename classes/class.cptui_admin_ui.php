@@ -113,13 +113,13 @@ class cptui_admin_ui {
 	}
 
 	/**
-	 * Return an <a> tag with title attribute holding help text
+	 * Return an <a> tag with title attribute holding help text.
 	 *
-	 * @since  1.0
+	 * @since 1.0
 	 *
-	 * @param  string  $help_text Text to use in the title attribute
+	 * @param string $help_text Text to use in the title attribute.
 	 *
-	 * @return string             <a> tag with filled out parts
+	 * @return string <a> tag with filled out parts.
 	 */
 	public function get_help( $help_text = '' ) {
 		return '<a href="#" title="' . $help_text . '" class="help wp-ui-highlight">?</a>';
