@@ -215,13 +215,13 @@ class cptui_admin_ui {
 	}
 
 	/**
-	 * Return a text input
+	 * Return a text input.
 	 *
-	 * @since  1.0
+	 * @since 1.0
 	 *
-	 * @param  array   $args Arguments to use with the text input
+	 * @param array $args Arguments to use with the text input.
 	 *
-	 * @return string        Complete text <input> with proper attributes
+	 * @return string Complete text <input> with proper attributes.
 	 */
 	public function get_text_input( $args = array() ) {
 		$defaults = $this->get_default_input_parameters(
