@@ -75,13 +75,13 @@ class cptui_admin_ui {
 	}
 
 	/**
-	 * Return string wrapped in a <p> tag
+	 * Return string wrapped in a <p> tag.
 	 *
-	 * @since  1.0
+	 * @since 1.0
 	 *
-	 * @param  string  $text Content to wrap in a <p> tag
+	 * @param string $text Content to wrap in a <p> tag.
 	 *
-	 * @return string        Content wrapped in a <p> tag
+	 * @return string $value Content wrapped in a <p> tag.
 	 */
 	public function get_p( $text = '' ) {
 		return '<p>' . $text . '</p>';
