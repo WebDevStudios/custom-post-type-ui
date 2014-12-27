@@ -102,11 +102,11 @@ class cptui_admin_ui {
 	}
 
 	/**
-	 * Return a <span> to indicate required status, with class attribute
+	 * Return a <span> to indicate required status, with class attribute.
 	 *
-	 * @since  1.0
+	 * @since 1.0
 	 *
-	 * @return string  span tag
+	 * @return string span tag.
 	 */
 	public function get_required() {
 		return '<span class="required">*</span>';
