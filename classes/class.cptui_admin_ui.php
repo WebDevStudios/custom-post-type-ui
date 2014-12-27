@@ -358,13 +358,13 @@ class cptui_admin_ui {
 	}
 
 	/**
-	 * Return some array_merged default arguments for all input types
+	 * Return some array_merged default arguments for all input types.
 	 *
-	 * @since  1.0
+	 * @since 1.0
 	 *
-	 * @param  array   $additions Arguments array to merge with our defaults
+	 * @param array $additions Arguments array to merge with our defaults.
 	 *
-	 * @return array             Merged arrays for our default parameters.
+	 * @return array $value Merged arrays for our default parameters.
 	 */
 	public function get_default_input_parameters( $additions = array() ) {
 		return array_merge(
