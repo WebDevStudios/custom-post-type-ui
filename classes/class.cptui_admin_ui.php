@@ -132,7 +132,7 @@ class cptui_admin_ui {
 	 *
 	 * @return string $value Maxlength HTML attribute.
 	 */
-	public function get_maxlength( $length ) {
+	public function get_maxlength( $length = '' ) {
 		return 'maxlength="' . esc_attr( $length ) . '"';
 	}
 
