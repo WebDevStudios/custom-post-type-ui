@@ -97,10 +97,8 @@ class cptui_admin_ui {
 	 *
 	 * @return string $value <label> tag with filled out parts.
 	 */
-	public function get_label( $label_for, $label_text ) {
-		$label = '<label for="' . $label_for . '">' . $label_text . '</label>';
-
-		return $label;
+	public function get_label( $label_for = '', $label_text = '' ) {
+		return '<label for="' . esc_attr( $label_for ) . '">' . strip_tags( $label_text ) . '</label>';
 	}
 
 	/**
