@@ -20,11 +20,11 @@ class cptui_admin_ui {
 	}
 
 	/**
-	 * Return a closing </tr> tag
+	 * Return a closing </tr> tag.
 	 *
-	 * @since  1.0
+	 * @since 1.0
 	 *
-	 * @return string  closing </tr> tag
+	 * @return string $value Closing </tr> tag.
 	 */
 	public function get_tr_end() {
 		return '</tr>';
