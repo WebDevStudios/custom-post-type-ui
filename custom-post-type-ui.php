@@ -306,8 +306,8 @@ function cptui_footer() { ?>
 					__( 'Please Report Bugs', 'cpt-plugin' )
 				),
 				__( 'Follow on Twitter:', 'cpt-plugin' ),
-				'<a href="http://twitter.com/williamsba" target="_blank">Brad</a>',
 				'<a href="http://twitter.com/tw2113" target="_blank">Michael</a>',
+				'<a href="http://twitter.com/williamsba" target="_blank">Brad</a>',
 				'<a href="http://twitter.com/webdevstudios" target="_blank">WebDevStudios</a>'
 			);
 		?>
