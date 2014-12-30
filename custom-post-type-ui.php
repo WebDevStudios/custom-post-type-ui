@@ -279,7 +279,6 @@ function cptui_settings() { ?>
 
 	</div>
 	<?php
-	cptui_footer();
 }
 
 /**
