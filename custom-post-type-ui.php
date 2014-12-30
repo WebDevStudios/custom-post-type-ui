@@ -286,6 +286,8 @@ function cptui_settings() { ?>
  *
  * @since  0.3
  *
+ * @param string $original Original footer content.
+ *
  * @return mixed  htmls
  */
 function cptui_footer() { ?>
