@@ -41,11 +41,11 @@ $GLOBALS['wp_tests_options'] = array(
 /**
  * Run custom functionality after mu-plugins are loaded.
  */
-function _tests_load_badgeos() {
+function _tests_load_cptui() {
 	define( 'CPTUI_DIRECTORY_PATH', trailingslashit( dirname( dirname( __FILE__ ) ) ) );
 	require CPTUI_DIRECTORY_PATH . 'custom-post-type-ui.php';
 }
-tests_add_filter( 'muplugins_loaded', '_tests_load_badgeos' );
+tests_add_filter( 'muplugins_loaded', '_tests_load_cptui' );
 
 /**
  * Bootstraps the WordPress stack.
