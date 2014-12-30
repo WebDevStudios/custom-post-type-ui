@@ -182,9 +182,11 @@ class cptui_admin_ui {
 
 				if ( is_numeric( $args['selections']['selected'] ) ) {
 					$selected = disp_boolean( $args['selections']['selected'] );
+				} elseif ( in_array( $args['selections']['selected'], array( 'true', 'false' ) ) ) {
+					$selected = $args['selections']['selected'];
 				}
 
-				if ( ( !empty( $selected ) && in_array( $selected, array( 'true', 'false' ) ) ) && $selected === $bool ) {
+				if ( ( !empty( $selected ) ) && $selected === $bool ) {
 					$result = ' selected="selected"';
 				} else {
 					if ( array_key_exists( 'default', $val ) && !empty( $val['default'] ) ) {
