@@ -239,21 +239,6 @@ function cptui_settings() { ?>
 			</p>
 		</div>
 
-		<div class="wdsrss alignright">
-		<?php do_action( 'cptui_main_page_before_rss' ); ?>
-		<h3><?php _e( 'WebDevStudios News', 'cpt-plugin' ); ?></h3>
-		<?php
-
-		wp_widget_rss_output( esc_url( 'http://webdevstudios.com/feed/' ), array(
-			'items' => 3,
-			'show_summary' => 0,
-			'show_author' => 0,
-			'show_date' => 1
-		) );
-
-		do_action( 'cptui_main_page_after_rss' ); ?>
-		</div>
-
 		<?php do_action( 'cptui_main_page_before_books' ); ?>
 		<table border="0">
 			<tr>
