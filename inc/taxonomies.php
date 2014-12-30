@@ -425,7 +425,6 @@ function cptui_manage_taxonomies() {
 	</form>
 	</div><!-- End .wrap -->
 <?php
-	cptui_footer();
 }
 
 /**
