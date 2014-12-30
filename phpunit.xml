@@ -6,6 +6,9 @@
 	convertNoticesToExceptions="true"
 	convertWarningsToExceptions="true"
 	>
+	<logging>
+		<log type="coverage-html" target="reports" />
+	</logging>
 	<testsuites>
 		<testsuite>
 			<!--<directory prefix="test-" suffix=".php">./</directory>-->
