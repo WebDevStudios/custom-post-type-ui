@@ -122,8 +122,6 @@ function cptui_importexport() {
 	}
 
 	echo '</div><!-- End .wrap -->';
-
-	cptui_footer();
 }
 
 function cptui_get_taxonomy_code() {
