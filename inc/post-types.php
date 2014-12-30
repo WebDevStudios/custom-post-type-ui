@@ -776,7 +776,6 @@ function cptui_manage_post_types() {
 	</form>
 	</div><!-- End .wrap -->
 <?php
-	cptui_footer();
 }
 
 /**
