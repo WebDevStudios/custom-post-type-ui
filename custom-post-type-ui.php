@@ -290,31 +290,33 @@ function cptui_settings() { ?>
  *
  * @return mixed  htmls
  */
-function cptui_footer() { ?>
-	<hr />
-	<p class="cp_about">
-		<?php
-			echo sprintf(
-				__( '%s version %s by %s - %s %s &middot; %s &middot; %s &middot; %s', 'cpt-plugin' ),
-				sprintf(
-					'<a target="_blank" href="http://wordpress.org/support/plugin/custom-post-type-ui">%s</a>',
-					__( 'Custom Post Type UI', 'cpt-plugin' )
-				),
-				CPT_VERSION,
-				'<a href="http://webdevstudios.com" target="_blank">WebDevStudios</a>',
-				sprintf(
-					'<a href="https://github.com/WebDevStudios/custom-post-type-ui/issues" target="_blank">%s</a>',
-					__( 'Please Report Bugs', 'cpt-plugin' )
-				),
-				__( 'Follow on Twitter:', 'cpt-plugin' ),
-				'<a href="http://twitter.com/tw2113" target="_blank">Michael</a>',
-				'<a href="http://twitter.com/williamsba" target="_blank">Brad</a>',
-				'<a href="http://twitter.com/webdevstudios" target="_blank">WebDevStudios</a>'
-			);
-		?>
-	 </p>
-<?php
+function cptui_footer( $original = '' ) {
+
+	$screen = get_current_screen();
+
+	if ( 'cptui_main_menu' != $screen->parent_base ) {
+		return $original;
+	}
+
+	echo sprintf(
+		__( '%s version %s by %s - %s %s &middot; %s &middot; %s &middot; %s', 'cpt-plugin' ),
+		sprintf(
+			'<a target="_blank" href="http://wordpress.org/support/plugin/custom-post-type-ui">%s</a>',
+			__( 'Custom Post Type UI', 'cpt-plugin' )
+		),
+		CPT_VERSION,
+		'<a href="http://webdevstudios.com" target="_blank">WebDevStudios</a>',
+		sprintf(
+			'<a href="https://github.com/WebDevStudios/custom-post-type-ui/issues" target="_blank">%s</a>',
+			__( 'Please Report Bugs', 'cpt-plugin' )
+		),
+		__( 'Follow on Twitter:', 'cpt-plugin' ),
+		'<a href="http://twitter.com/tw2113" target="_blank">Michael</a>',
+		'<a href="http://twitter.com/williamsba" target="_blank">Brad</a>',
+		'<a href="http://twitter.com/webdevstudios" target="_blank">WebDevStudios</a>'
+	);
 }
+add_filter( 'admin_footer_text', 'cptui_footer' );
 
 /**
  * Return boolean status depending on passed in value
