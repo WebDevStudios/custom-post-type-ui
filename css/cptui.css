@@ -10,8 +10,6 @@
 .required { color: rgb(255,0,0); }
 .cptui-table #excerpt { height: 16px; margin-right: 4px; width: auto; }
 .cptui-table td { vertical-align: top; width: 50%; }
-.wdsintro { width: 60%; }
-.wdsrss { width: 33%; }
 #cptui_select_post_type, #cptui_select_taxonomy { margin-top: 15px; }
 .cptui_post_import, .cptui_tax_import {
 	height: 200px;
