@@ -104,8 +104,16 @@ add_action( 'init', 'cptui_create_custom_post_types' );
  */
 function cptui_register_single_post_type( $post_type = array() ) {
 
-	# If they need to be able to manually set this, do they really need our plugin?
-	$post_type['map_meta_cap'] = true;
+	/**
+	 * Filters the map_meta_cap value.
+	 *
+	 * @since 0.9.0
+	 *
+	 * @param bool   $value     True.
+	 * @param string $name      Post type name being registered.
+	 * @param array  $post_type All parameters for post type registration.
+	 */
+	$post_type['map_meta_cap'] = apply_filters( 'cptui_map_meta_cap', true, $post_type['name'], $post_type );
 
 	$labels = array(
 		'name'               => $post_type['label'],
