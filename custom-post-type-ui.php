@@ -155,6 +155,7 @@ function cptui_register_single_post_type( $post_type = array() ) {
 		'supports'            => $post_type['supports'],
 		'taxonomies'          => $post_type['taxonomies']
 	);
+
 	return register_post_type( $post_type['name'], $args );
 }
 
