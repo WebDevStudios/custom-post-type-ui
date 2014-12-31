@@ -226,7 +226,9 @@ function cptui_register_my_cpts() {
  * @return string          Copy/paste ready "php" code
  */
 function cptui_get_single_post_type_registery( $post_type = array() ) {
-	$post_type['map_meta_cap'] = 'true';
+
+	/** This filter is documented in custom-post-type-ui/custom-post-type-ui.php */
+	$post_type['map_meta_cap'] = apply_filters( 'cptui_map_meta_cap', true, $post_type['name'], $post_type );
 
 	$supports = '';
 	# Do a little bit of php work to get these into strings.
