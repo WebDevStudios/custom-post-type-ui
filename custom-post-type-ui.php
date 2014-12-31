@@ -310,7 +310,7 @@ add_filter( 'admin_footer_text', 'cptui_footer' );
  *
  * @return bool Which bool value the passed in value was.
  */
-function get_disp_boolean($booText) {
+function get_disp_boolean( $booText ) {
 	$booText = (string) $booText;
 	if ( empty( $booText ) || $booText == '0' || $booText == 'false' ) {
 		return false;
