@@ -1,17 +1,15 @@
 <?php
 /**
- * This file controls all of the content from the Post Types page
+ * This file controls all of the content from the Post Types page.
  */
 
 # Exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 /**
- * Add our cptui.js file, with dependencies on jQuery and jQuery UI
+ * Add our cptui.js file, with dependencies on jQuery and jQuery UI.
  *
- * @since  0.9
- *
- * @return mixed  js scripts
+ * @since 0.9.0
  */
 function cptui_post_type_enqueue_scripts() {
 	wp_enqueue_script( 'cptui', plugins_url( 'js/cptui.js' , dirname(__FILE__) ) . '', array( 'jquery', 'jquery-ui-core', 'jquery-ui-accordion' ), '0.9', true );
@@ -22,9 +20,7 @@ add_action( 'admin_enqueue_scripts', 'cptui_post_type_enqueue_scripts' );
 /**
  * Add our settings page to the menu.
  *
- * @since  0.9
- *
- * @return mixed  new menu
+ * @since 0.9.0
  */
 function cptui_post_types_admin_menu() {
 	add_submenu_page( 'cptui_main_menu', __( 'Add/Edit Post Types', 'cpt-plugin' ), __( 'Add/Edit Post Types', 'cpt-plugin' ), 'manage_options', 'cptui_manage_post_types', 'cptui_manage_post_types' );
@@ -32,11 +28,11 @@ function cptui_post_types_admin_menu() {
 add_action( 'admin_menu', 'cptui_post_types_admin_menu' );
 
 /**
- * Create our settings page output
+ * Create our settings page output.
  *
- * @since  0.9
+ * @since 0.9.0
  *
- * @return mixed  webpage
+ * @return string HTML output for the page.
  */
 function cptui_manage_post_types() {
 
@@ -784,11 +780,11 @@ function cptui_manage_post_types() {
 /**
  * Construct a dropdown of our post types so users can select which to edit.
  *
- * @since  0.9
+ * @since 0.9.0
  *
- * @param  array   $post_types array of post types that are registered
+ * @param array $post_types Array of post types that are registered.
  *
- * @return mixed              html select dropdown.
+ * @return string HTML select dropdown.
  */
 function cptui_post_types_dropdown( $post_types = array() ) {
 
@@ -819,9 +815,9 @@ function cptui_post_types_dropdown( $post_types = array() ) {
 /**
  * Get the selected post type from the $_POST global.
  *
- * @since  0.9
+ * @since 0.9.0
  *
- * @return mixed  false on no result, sanitized post type if set.
+ * @return bool|string $value False on no result, sanitized post type if set.
  */
 function cptui_get_current_post_type() {
 	if ( !empty( $_POST ) ) {
@@ -840,11 +836,11 @@ function cptui_get_current_post_type() {
 /**
  * Delete our custom post type from the array of post types.
  *
- * @since 0.9
+ * @since 0.9.0
  *
- * @param $data array $_POST values
+ * @param $data array $_POST values.
  *
- * @return mixed      false on failure, string on success.
+ * @return bool|string False on failure, string on success.
  */
 function cptui_delete_post_type( $data ) {
 
@@ -870,11 +866,11 @@ function cptui_delete_post_type( $data ) {
 /**
  * Add to or update our CPTUI option with new data.
  *
- * @since 0.9
+ * @since 0.9.0
  *
- * @param $data
+ * @param array $data Array of post type data to update.
  *
- * @return bool|string  false on failure, admin notice on success.
+ * @return bool|string False on failure, string on success.
  */
 function cptui_update_post_type( $data ) {
 
