@@ -230,6 +230,10 @@ function cptui_register_my_cpts() {
 function cptui_get_single_post_type_registery( $post_type = array() ) {
 	$post_type['map_meta_cap'] = 'true';
 
+	$supports = '';
+	# Do a little bit of php work to get these into strings.
+	if ( !empty( $post_type['supports'] ) && is_array( $post_type['supports'] ) ) {
+		$supports = 'array( \'' . implode( '\', \'', $post_type['supports'] ) . '\' )';
 	}
 	if ( is_array( $taxonomies) ) {
 		$taxonomies = 'array( ' . implode( ', ', $post_type['taxonomies'] ) . ' )';
