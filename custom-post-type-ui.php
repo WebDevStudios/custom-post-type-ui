@@ -157,7 +157,7 @@ function cptui_create_custom_taxonomies() {
 	$taxes = get_option('cptui_taxonomies');
 
 	if ( is_array( $taxes ) ) {
-		foreach ($taxes as $tax) {
+		foreach ( $taxes as $tax ) {
 			cptui_register_single_taxonomy( $tax );
 		}
 	}
