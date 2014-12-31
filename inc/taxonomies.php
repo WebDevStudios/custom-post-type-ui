@@ -544,5 +544,5 @@ function cptui_update_taxonomy( $data ) {
 		}
 	}
 
-	return cptui_admin_notices( 'update', $data['cpt_custom_tax']['name'], $success );
+	return cptui_admin_notices( 'update', $data['cpt_custom_tax']['name'], true );
 }
