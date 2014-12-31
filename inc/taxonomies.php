@@ -540,7 +540,7 @@ function cptui_update_taxonomy( $data ) {
 
 	$taxonomies = get_option( 'cptui_taxonomies', array() );
 
-	if ( 'Add Taxonomy' == $data['cpt_submit'] && array_key_exists( strtolower( $data['cpt_custom_post_type']['name'] ), $taxonomies ) ) {
+	if ( 'Add Taxonomy' == $data['cpt_submit'] && array_key_exists( strtolower( $data['cpt_custom_tax']['name'] ), $taxonomies ) ) {
 		return cptui_admin_notices(	'error', '', false, sprintf( __( 'Please choose a different taxonomy name. %s is already used.', 'cpt-plugin' ), $data['cpt_custom_tax']['name'] ) );
 	}
 
