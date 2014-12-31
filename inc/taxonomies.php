@@ -470,8 +470,14 @@ function cptui_taxonomies_dropdown( $taxonomies = array() ) {
  * @return mixed  false on no result, sanitized taxonomy if set.
  */
 function cptui_get_current_taxonomy() {
-	if ( !empty( $_POST ) && isset( $_POST['cptui_selected_taxonomy']['taxonomy'] ) ) {
-		return sanitize_text_field( $_POST['cptui_selected_taxonomy']['taxonomy'] );
+	if ( !empty( $_POST ) ) {
+		if ( isset( $_POST['cptui_selected_taxonomy']['taxonomy'] ) ) {
+			return sanitize_text_field( $_POST['cptui_selected_taxonomy']['taxonomy'] );
+		}
+
+		if ( isset( $_POST['cpt_custom_tax']['name'] ) ) {
+			return sanitize_text_field( $_POST['cpt_custom_tax']['name'] );
+		}
 	}
 
 	return false;
