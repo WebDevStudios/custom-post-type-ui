@@ -217,7 +217,7 @@ function cptui_settings() { ?>
 		<h2><?php _e( 'Custom Post Type UI', 'cpt-plugin' ); ?> <?php echo CPT_VERSION; ?></h2>
 
 		<div class="alignleft">
-			<p><?php _e( 'Thank you for choosing to create with Custom Post Type UI. We hope that your experience with our plugin provides you efficiency and speed in creating post types and taxonomies, to better organize your content, without having to mess around with code.', 'cpt-plugin' ); ?></p>
+			<p><?php _e( 'Thank you for choosing Custom Post Type UI. We hope that your experience with our plugin provides efficiency and speed in creating post types and taxonomies, to better organize your content, without having to touch code.', 'cpt-plugin' ); ?></p>
 
 			<p><?php echo sprintf( __( 'To get started with creating some post types, please visit %s and for taxonomies, visit %s. If you need some help, check the %s page. If nothing there fits your issue, visit our %s and we will try to get to your question as soon as possible.', 'cpt-plugin' ),
 					sprintf( '<a href="' . admin_url( 'admin.php?page=cptui_manage_post_types' ) . '">%s</a>', __( 'Add/Edit Post Types', 'cpt-plugin' ) ),
