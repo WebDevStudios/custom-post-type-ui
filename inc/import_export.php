@@ -1,6 +1,6 @@
 <?php
 /**
- * This file controls all of the content from the Import/Export page
+ * This file controls all of the content from the Import/Export page.
  */
 
 # Exit if accessed directly
@@ -9,9 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 /**
  * Add our settings page to the menu.
  *
- * @since  0.9
- *
- * @return mixed  new menu
+ * @since 0.9.0
  */
 function cptui_importexport_admin_menu() {
 	add_submenu_page( 'cptui_main_menu', __( 'Import/Export', 'cpt-plugin' ), __( 'Import/Export', 'cpt-plugin' ), 'manage_options', 'cptui_importexport', 'cptui_importexport' );
@@ -19,11 +17,11 @@ function cptui_importexport_admin_menu() {
 add_action( 'admin_menu', 'cptui_importexport_admin_menu' );
 
 /**
- * Create our settings page output
+ * Create our settings page output.
  *
- * @since  0.9
+ * @since 0.9.0
  *
- * @return mixed  webpage
+ * @return string HTML output for the page.
  */
 function cptui_importexport() {
 
@@ -129,6 +127,13 @@ function cptui_importexport() {
 	echo '</div><!-- End .wrap -->';
 }
 
+/**
+ * Display our copy-able code for registered taxonomies.
+ *
+ * @since 0.9.0
+ *
+ * @return string Taxonomy registration text for use elsewhere.
+ */
 function cptui_get_taxonomy_code() {
 
 	$cptui_taxonomies = get_option( 'cptui_taxonomies' );
@@ -151,7 +156,7 @@ function cptui_register_my_taxes() {
 /**
  * Create output for single taxonomy to be ready for copy/paste from Get Code.
  *
- * @since 0.9
+ * @since 0.9.0
  *
  * @param array $taxonomy Taxonomy data to output.
  *
@@ -190,11 +195,11 @@ function cptui_get_single_taxonomy_registery( $taxonomy = array() ) {
 }
 
 /**
- * Create and display all of the "Get code" content for the main textarea
+ * Display our copy-able code for registered post types.
  *
- * @since 0.9
+ * @since 0.9.0
  *
- * @return string    All code for the post types
+ * @return string Post type registration text for use elsewhere.
  */
 function cptui_get_post_type_code() {
 
@@ -218,12 +223,13 @@ function cptui_register_my_cpts() {
 }
 
 /**
- * Create output for single post type to be ready for copy/paste from Get Code
+ * Create output for single post type to be ready for copy/paste from Get Code.
  *
- * @since 0.9
+ * @since 0.9.0
  *
- * @param array $post_type Post type data to output
- * @return string          Copy/paste ready "php" code
+ * @param array $post_type Post type data to output.
+ *
+ * @return string Copy/paste ready "php" code.
  */
 function cptui_get_single_post_type_registery( $post_type = array() ) {
 
@@ -277,7 +283,7 @@ function cptui_get_single_post_type_registery( $post_type = array() ) {
 /**
  * Import the posted JSON data from a separate export.
  *
- * @since  0.9
+ * @since 0.9.0
  *
  * @param array $postdata $_POST data as json.
  *
