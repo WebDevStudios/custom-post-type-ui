@@ -51,8 +51,13 @@ function cptui_importexport() {
 
 	if ( isset( $tab ) && ( 'post_types' == $tab || 'taxonomies' == $tab ) ) {
 	?>
-	<p><?php _e( 'If you are wanting to migrate registered post types or taxonomies from this site to another, that will also use Custom Post Type UI, use the import and export functionality. If you are moving away from Custom Post Type UI, use the information in the "Get Code" tab', 'cpt-plugin' ); ?></p>
+	<p><?php _e( 'If you are wanting to migrate registered post types or taxonomies from this site to another, that will also use Custom Post Type UI, use the import and export functionality. If you are moving away from Custom Post Type UI, use the information in the "Get Code" tab.', 'cpt-plugin' ); ?></p>
 
+	<p><?php printf( '<strong>%s</strong>: %s',
+			__( 'NOTE', 'cpt-plugin' ),
+			__( 'This will not export the associated posts, just the settings.', 'cpt-plugin' )
+		); ?>
+	</p>
 	<table class="form-table cptui-table">
 		<?php if ( !empty( $_GET ) && empty( $_GET['action'] ) ) { ?>
 		<tr>
