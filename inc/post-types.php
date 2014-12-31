@@ -946,6 +946,8 @@ function cptui_update_post_type( $data ) {
 
 	$success = update_option( 'cptui_post_types', $post_types );
 
+	flush_rewrite_rules();
+
 	if ( isset( $success ) ) {
 		if ( 'Add Post Type' == $data['cpt_submit'] ) {
 			return cptui_admin_notices( 'add', $data['cpt_custom_post_type']['name'], $success );
