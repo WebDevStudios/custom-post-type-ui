@@ -872,7 +872,7 @@ function cptui_delete_post_type( $data ) {
  *
  * @return bool|string False on failure, string on success.
  */
-function cptui_update_post_type( $data ) {
+function cptui_update_post_type( $data = array() ) {
 
 	# They need to provide a name
 	if ( empty( $data['cpt_custom_post_type']['name'] ) ) {
