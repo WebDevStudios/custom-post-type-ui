@@ -281,7 +281,7 @@ function cptui_get_single_post_type_registery( $post_type = array() ) {
  *
  * @return mixed false on nothing to do, otherwise void.
  */
-function cptui_import_types_taxes_settings( $postdata ) {
+function cptui_import_types_taxes_settings( $postdata = array() ) {
 	if ( !isset( $postdata['cptui_post_import'] ) && !isset( $postdata['cptui_tax_import'] ) ) {
 		return false;
 	}
