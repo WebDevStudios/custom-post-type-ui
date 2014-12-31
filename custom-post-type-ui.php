@@ -428,7 +428,7 @@ function cptui_convert_settings() {
 			); # Remove our previous indexed versions.
 		}
 
-		return update_option( 'cptui_post_types', $new_post_types );
+		$retval = update_option( 'cptui_post_types', $new_post_types );
 	}
 
 	if ( false === get_option( 'cptui_taxonomies' ) && ( $taxonomies = get_option( 'cpt_custom_tax_types' ) ) ) {
@@ -444,9 +444,10 @@ function cptui_convert_settings() {
 			);
 		}
 
-		return update_option( 'cptui_taxonomies', $new_taxonomies );
+		$retval = update_option( 'cptui_taxonomies', $new_taxonomies );
 	}
-	return false;
+
+	return $retval;
 }
 add_action( 'admin_init', 'cptui_convert_settings' );
 
