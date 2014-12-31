@@ -184,6 +184,7 @@ function cptui_manage_taxonomies() {
 								'namearray'     => 'cpt_tax_labels',
 								'name'          => 'menu_name',
 								'textvalue'     => ( isset( $current['labels']['menu_name'] ) ) ? esc_attr( $current['labels']['menu_name'] ) : '',
+								'aftertext'     => __( '(e.g. Actors)', 'cpt-plugin' ),
 								'labeltext'     => __( 'Menu Name', 'cpt-plugin' ),
 								'helptext'      => esc_attr__( 'Custom taxonomy label. Used in the admin menu for displaying taxonomies.', 'cpt-plugin'),
 								) );
