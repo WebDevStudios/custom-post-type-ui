@@ -3,7 +3,7 @@
  * This file controls all of the content from the Taxonomies page
  */
 
-// Exit if accessed directly
+# Exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 /**
@@ -60,7 +60,7 @@ function cptui_manage_taxonomies() {
 		echo $notice;
 	}
 
-	//Create our tabs.
+	# Create our tabs.
 	cptui_settings_tab_menu( $page = 'taxonomies' );
 
 	if ( 'edit' == $tab ) {
@@ -76,7 +76,7 @@ function cptui_manage_taxonomies() {
 
 	$ui = new cptui_admin_ui();
 
-	//Will only be set if we're already on the edit screen
+	# Will only be set if we're already on the edit screen
 	if ( !empty( $taxonomies ) ) { ?>
 		<form id="cptui_select_taxonomy" method="post">
 			<p>
@@ -136,11 +136,11 @@ function cptui_manage_taxonomies() {
 
 						$args = apply_filters( 'cptui_attach_post_types_to_taxonomy', array( 'public' => true ) );
 
-						//If they don't return an array, fall back to the original default. Don't need to check for empty, because empty array is default for $args param in get_post_types anyway.
+						# If they don't return an array, fall back to the original default. Don't need to check for empty, because empty array is default for $args param in get_post_types anyway.
 						if ( !is_array( $args ) ) {
 							$args = array( 'public' => true );
 						}
-						$output = 'objects'; // or objects
+						$output = 'objects'; # or objects
 						$post_types = get_post_types( $args, $output );
 
 						foreach ($post_types  as $post_type ) {
@@ -487,7 +487,7 @@ function cptui_get_current_taxonomy() {
  */
 function cptui_delete_taxonomy( $data ) {
 
-	//Check if they selected one to delete
+	#Check if they selected one to delete
 	if ( empty( $data['cpt_custom_tax']['name'] ) ) {
 		return cptui_admin_notices(	'error', '', false, __( 'Please provide a taxonomy to delete', 'cpt-plugin' ) );
 	}
@@ -509,7 +509,7 @@ function cptui_delete_taxonomy( $data ) {
 
 function cptui_update_taxonomy( $data ) {
 
-	//They need to provide a name
+	# They need to provide a name
 	if ( empty( $data['cpt_custom_tax']['name'] ) ) {
 		return cptui_admin_notices(	'error', '', false, __( 'Please provide a taxonomy name', 'cpt-plugin' ) );
 	}
