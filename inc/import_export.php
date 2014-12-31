@@ -267,8 +267,8 @@ function cptui_get_single_post_type_registery( $post_type = array() ) {
 		'menu_position' => <?php echo $post_type['menu_position']; ?>,
 		'menu_icon' => <?php echo $post_type['menu_icon']; ?>,
 		'query_var' => <?php echo $post_type['query_var']; ?>,
-		'supports' => <?php echo $supports; ?> ,
-		'taxonomies' => <?php echo $taxonomies; ?>
+		<?php if ( !empty( $supports ) ) { ?>'supports' => <?php echo $supports; ?>,<?php } ?>
+		<?php if ( !empty( $taxonomies ) ) { ?>'taxonomies' => <?php echo $taxonomies; ?><?php } ?>
 	);
 	register_post_type( '<?php echo $post_type['name']; ?>', $args );
 <?php
