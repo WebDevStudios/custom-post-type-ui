@@ -168,19 +168,11 @@ function cptui_get_single_taxonomy_registery( $taxonomy = array() ) {
 	$labels = array(
 		'name' => '<?php echo $taxonomy['name']; ?>',
 		'label' => '<?php echo $taxonomy['label']; ?>',
-		'singular_label' => '<?php echo $taxonomy['singular_label']; ?>',
-		'search_items' => '<?php echo $taxonomy['labels']['search_items']; ?>',
-		'popular_items' => '<?php echo $taxonomy['labels']['popular_items']; ?>',
-		'all_items' => '<?php echo $taxonomy['labels']['all_items']; ?>',
-		'parent_item' => '<?php echo $taxonomy['labels']['parent_item']; ?>',
-		'parent_item_colon' => '<?php echo $taxonomy['labels']['parent_item_colon']; ?>',
-		'edit_item' => '<?php echo $taxonomy['labels']['edit_item']; ?>',
-		'update_item' => '<?php echo $taxonomy['labels']['update_item']; ?>',
-		'add_new_item' => '<?php echo $taxonomy['labels']['add_new_item']; ?>',
-		'new_item_name' => '<?php echo $taxonomy['labels']['new_item_name']; ?>',
-		'separate_items_with_commas' => '<?php echo $taxonomy['labels']['separate_items_with_commas']; ?>',
-		'add_or_remove_items' => '<?php echo $taxonomy['labels']['add_or_remove_items']; ?>',
-		'choose_from_most_used' => '<?php echo $taxonomy['labels']['choose_from_most_used']; ?>'
+		<?php foreach( $taxonomy['labels'] as $key => $label ) {
+			if ( !empty( $label ) ) {
+			echo "'$key' => '$label',\n\t\t";
+			}
+		} ?>
 	);
 
 	$args = array(
