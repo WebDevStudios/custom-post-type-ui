@@ -277,8 +277,9 @@ function cptui_get_single_post_type_registery( $post_type = array() ) {
  *
  * @since  0.9
  *
- * @param string $postdata    $_POST data as json
- * @return mixed              false on nothing to do, otherwise void
+ * @param array $postdata $_POST data as json.
+ *
+ * @return mixed false on nothing to do, otherwise void.
  */
 function cptui_import_types_taxes_settings( $postdata ) {
 	if ( !isset( $postdata['cptui_post_import'] ) && !isset( $postdata['cptui_tax_import'] ) ) {
