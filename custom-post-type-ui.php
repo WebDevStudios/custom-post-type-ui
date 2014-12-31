@@ -180,22 +180,15 @@ add_action( 'init', 'cptui_create_custom_taxonomies' );
 function cptui_register_single_taxonomy( $taxonomy = array() ) {
 
 	$labels = array(
-		'name'                       => $taxonomy['name'],
-		'label'                      => $taxonomy['label'],
-		'singular_label'             => $taxonomy['singular_label'],
-		'search_items'               => $taxonomy['labels']['search_items'],
-		'popular_items'              => $taxonomy['labels']['popular_items'],
-		'all_items'                  => $taxonomy['labels']['all_items'],
-		'parent_item'                => $taxonomy['labels']['parent_item'],
-		'parent_item_colon'          => $taxonomy['labels']['parent_item_colon'],
-		'edit_item'                  => $taxonomy['labels']['edit_item'],
-		'update_item'                => $taxonomy['labels']['update_item'],
-		'add_new_item'               => $taxonomy['labels']['add_new_item'],
-		'new_item_name'              => $taxonomy['labels']['new_item_name'],
-		'separate_items_with_commas' => $taxonomy['labels']['separate_items_with_commas'],
-		'add_or_remove_items'        => $taxonomy['labels']['add_or_remove_items'],
-		'choose_from_most_used'      => $taxonomy['labels']['choose_from_most_used']
+		'name'               => $taxonomy['label'],
+		'singular_name'      => $taxonomy['singular_label']
 	);
+
+	foreach( $taxonomy['labels'] as $key => $label ) {
+		if ( !empty( $label ) ) {
+			$labels[ $key ] = $label;
+		}
+	}
 
 	$args = array(
 		'labels'            => $labels,
