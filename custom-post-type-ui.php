@@ -342,9 +342,9 @@ function disp_boolean($booText) {
  *
  * @since 0.9.0
  *
- * @param  string  $page Whether it's the CPT or Taxonomy page
+ * @param string $page Whether it's the CPT or Taxonomy page.
  *
- * @return mixed        html tabs
+ * @return string $value HTML tabs.
  */
 function cptui_settings_tab_menu( $page = 'post_types' ) {
 
