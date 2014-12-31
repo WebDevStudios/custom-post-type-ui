@@ -541,9 +541,8 @@ function cptui_update_taxonomy( $data ) {
 	if ( isset( $success ) ) {
 		if ( 'Add Taxonomy' == $data['cpt_submit'] ) {
 			return cptui_admin_notices( 'add', $data['cpt_custom_tax']['name'], $success );
-		} else {
-			return cptui_admin_notices( 'update', $data['cpt_custom_tax']['name'], $success );
 		}
 	}
-	return false;
+
+	return cptui_admin_notices( 'update', $data['cpt_custom_tax']['name'], $success );
 }
