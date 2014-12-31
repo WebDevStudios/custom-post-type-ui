@@ -874,7 +874,7 @@ function cptui_delete_post_type( $data ) {
  *
  * @param $data
  *
- * @return bool|string    false on failure, admin notice on success.
+ * @return bool|string  false on failure, admin notice on success.
  */
 function cptui_update_post_type( $data ) {
 
