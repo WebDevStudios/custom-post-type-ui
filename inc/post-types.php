@@ -3,7 +3,7 @@
  * This file controls all of the content from the Post Types page
  */
 
-// Exit if accessed directly
+# Exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 /**
@@ -74,7 +74,7 @@ function cptui_manage_post_types() {
 
 	$ui = new cptui_admin_ui();
 
-	//Will only be set if we're already on the edit screen
+	# Will only be set if we're already on the edit screen
 	if ( !empty( $post_types ) ) { ?>
 		<form id="cptui_select_post_type" method="post">
 			<?php
@@ -731,11 +731,11 @@ function cptui_manage_post_types() {
 
 							echo $ui->get_tr_start() . $ui->get_th_start() . __('Built-in Taxonomies', 'cpt-plugin') . $ui->get_th_end() . $ui->get_td_start();
 
-							//load built-in WP Taxonomies
+							# load built-in WP Taxonomies
 							$args = apply_filters( 'cptui_attach_taxonomies_to_post_type', array( 'public' => true ) );
 							$output = apply_filters( 'cptui_attach_taxonomies_to_post_type_output', 'objects' );
 
-							//If they don't return an array, fall back to the original default. Don't need to check for empty, because empty array is default for $args param in get_post_types anyway.
+							# If they don't return an array, fall back to the original default. Don't need to check for empty, because empty array is default for $args param in get_post_types anyway.
 							if ( !is_array( $args ) ) {
 								$args = array( 'public' => true );
 							}
@@ -875,15 +875,15 @@ function cptui_delete_post_type( $data ) {
  */
 function cptui_update_post_type( $data ) {
 
-	//They need to provide a name
+	# They need to provide a name
 	if ( empty( $data['cpt_custom_post_type']['name'] ) ) {
 		return cptui_admin_notices(	'error', '', false, __( 'Please provide a post type name', 'cpt-plugin' ) );
 	}
 
-	//clean up $_POST data
-	//$data = array_map( 'sanitize_text_field', $data );
+	# clean up $_POST data
+	# $data = array_map( 'sanitize_text_field', $data );
 
-	//Check if they didn't put quotes in the name or rewrite slug.
+	# Check if they didn't put quotes in the name or rewrite slug.
 	if ( false !== strpos( $data['cpt_custom_post_type']['name'], '\'' ) ||
 		 false !== strpos( $data['cpt_custom_post_type']['name'], '\"' ) ||
 		 false !== strpos( $data['cpt_custom_post_type']['rewrite_slug'], '\'' ) ||
@@ -894,7 +894,7 @@ function cptui_update_post_type( $data ) {
 
 	$post_types = get_option( 'cptui_post_types', array() );
 
-	//Check if we already have a post type of that name.
+	# Check if we already have a post type of that name.
 	if ( 'Add Post Type' == $data['cpt_submit'] && array_key_exists( strtolower( $data['cpt_custom_post_type']['name'] ), $post_types ) ) {
 		return cptui_admin_notices( 'error', '', false, sprintf( __( 'Please choose a different post type name. %s is already registered.', 'cpt-plugin' ), $data['cpt_custom_post_type']['name'] ) );
 	}
