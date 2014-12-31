@@ -19,7 +19,7 @@ define( 'CPT_VERSION', '0.9.0' );
 define( 'CPTUI_WP_VERSION', get_bloginfo( 'version' ) );
 
 /**
- * Load our Admin UI class that powers our form inputs
+ * Load our Admin UI class that powers our form inputs.
  *
  * @since 0.9.0
  */
@@ -29,9 +29,7 @@ function cptui_load_ui_class() {
 add_action( 'init', 'cptui_load_ui_class' );
 
 /**
- * Flush our rewrite rules on deactivation
- *
- * @since  0.8
+ * Flush our rewrite rules on deactivation.
  *
  * @since 0.8.0
  */
@@ -41,9 +39,7 @@ function cptui_deactivation() {
 register_deactivation_hook( __FILE__, 'cptui_deactivation' );
 
 /**
- * Register our text domain
- *
- * @since  0.8
+ * Register our text domain.
  *
  * @since 0.8.0
  */
@@ -53,7 +49,7 @@ function cptui_load_textdomain() {
 add_action( 'init', 'cptui_load_textdomain' );
 
 /**
- * Load our main menu
+ * Load our main menu.
  *
  * @since 0.1.0
  */
@@ -63,9 +59,7 @@ function cptui_plugin_menu() {
 add_action( 'admin_menu', 'cptui_plugin_menu' );
 
 /**
- * Load our submenus
- *
- * @since  0.9
+ * Load our submenus.
  *
  * @since 0.9.0
  */
@@ -83,7 +77,7 @@ function cptui_add_styles() {
 add_action( 'admin_enqueue_scripts', 'cptui_add_styles' );
 
 /**
- * Register our users' custom post types
+ * Register our users' custom post types.
  *
  * @since 0.5.0
  */
@@ -147,9 +141,7 @@ function cptui_register_single_post_type( $post_type = array() ) {
 }
 
 /**
- * Register our users' custom taxonomies
- *
- * @since  0.5
+ * Register our users' custom taxonomies.
  *
  * @since 0.5.0
  */
@@ -165,11 +157,11 @@ function cptui_create_custom_taxonomies() {
 add_action( 'init', 'cptui_create_custom_taxonomies' );
 
 /**
- * Helper function to register the actual taxonomy
+ * Helper function to register the actual taxonomy.
  *
- * @param array $taxonomy Taxonomy array to register
+ * @param array $taxonomy Taxonomy array to register.
  *
- * @return null Result of register_taxonomy
+ * @return null Result of register_taxonomy.
  */
 function cptui_register_single_taxonomy( $taxonomy = array() ) {
 
@@ -194,16 +186,15 @@ function cptui_register_single_taxonomy( $taxonomy = array() ) {
 		'show_admin_column' => $taxonomy[ 'show_admin_column' ]
 	);
 
-	# register_taxonomy( $taxonomy, $object_type, $args ); NEED TO DETERMINE THE $object_type
 	return register_taxonomy( $taxonomy['name'], $taxonomy['object_type'], $args );
 }
 
 /**
- * Display our primary menu page
+ * Display our primary menu page.
  *
  * @since  0.3.0
  *
- * @return mixed  htmls
+ * @return string $value HTML markup for the page.
  */
 function cptui_settings() { ?>
 	<div class="wrap">
@@ -266,13 +257,13 @@ function cptui_settings() { ?>
 }
 
 /**
- * Display footer links and plugin credits
+ * Display footer links and plugin credits.
  *
  * @since 0.3.0
  *
  * @param string $original Original footer content.
  *
- * @return mixed  htmls
+ * @return string $value HTML for footer.
  */
 function cptui_footer( $original = '' ) {
 
@@ -303,13 +294,13 @@ function cptui_footer( $original = '' ) {
 add_filter( 'admin_footer_text', 'cptui_footer' );
 
 /**
- * Return boolean status depending on passed in value
+ * Return boolean status depending on passed in value.
  *
  * @since 0.5.0
  *
- * @param  mixed  $booText text to compare to typical boolean values
+ * @param mixed $booText text to compare to typical boolean values.
  *
- * @return bool           which bool value the passed in value was.
+ * @return bool Which bool value the passed in value was.
  */
 function get_disp_boolean($booText) {
 	$booText = (string) $booText;
@@ -325,9 +316,9 @@ function get_disp_boolean($booText) {
  *
  * @since 0.1.0
  *
- * @param  string  $booText string boolean value
+ * @param string $booText String boolean value.
  *
- * @return string           standardized boolean text
+ * @return string standardized boolean text.
  */
 function disp_boolean($booText) {
 	$booText = (string) $booText;
@@ -339,7 +330,7 @@ function disp_boolean($booText) {
 }
 
 /**
- * Construct and output tab navigation
+ * Construct and output tab navigation.
  *
  * @since 0.9.0
  *
@@ -410,7 +401,7 @@ function cptui_settings_tab_menu( $page = 'post_types' ) {
  *
  * @since 0.9.0
  *
- * @return bool  Whether or not options were successfully updated
+ * @return bool Whether or not options were successfully updated.
  */
 function cptui_convert_settings() {
 
@@ -456,9 +447,9 @@ add_action( 'admin_init', 'cptui_convert_settings' );
  *
  * @since 0.9.0
  *
- * @param  array  $links Array of links to display below our plugin listing.
+ * @param array $links Array of links to display below our plugin listing.
  *
- * @return array         Amended array of links.
+ * @return array Amended array of links.
  */
 function cptui_edit_plugin_list_links( $links ) {
 	# We shouldn't encourage editing our plugin directly.
@@ -476,12 +467,12 @@ add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'cptui_edit_pl
  *
  * @since 0.9.0
  *
- * @param string $action       The type of action that occurred
+ * @param string $action       The type of action that occurred.
  * @param string $object_type  Whether it's from a post type or taxonomy.
  * @param bool   $success      Whether the action succeeded or not.
- * @param string $custom       Custom message if necessary
+ * @param string $custom       Custom message if necessary.
  *
- * @return bool|string              false on no message, else HTML div with our notice message.
+ * @return bool|string false on no message, else HTML div with our notice message.
  */
 function cptui_admin_notices( $action = '', $object_type = '', $success = true , $custom = '' ) {
 
