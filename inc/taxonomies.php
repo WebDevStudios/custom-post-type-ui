@@ -544,6 +544,9 @@ function cptui_update_taxonomy( $data ) {
 		return cptui_admin_notices(	'error', '', false, sprintf( __( 'Please choose a different taxonomy name. %s is already used.', 'cpt-plugin' ), $data['cpt_custom_tax']['name'] ) );
 	}
 
+	if ( empty( $data['cpt_post_types'] ) || !is_array( $data['cpt_post_types'] ) ) {
+		$data['cpt_post_types'] = '';
+	}
 
 
 
