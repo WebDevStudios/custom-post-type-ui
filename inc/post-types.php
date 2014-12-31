@@ -884,7 +884,13 @@ function cptui_update_post_type( $data ) {
 	}
 
 	# clean up $_POST data
-	# $data = array_map( 'sanitize_text_field', $data );
+	foreach( $data as $key => $value ) {
+		if ( is_string( $value ) ) {
+			$data[ $key ] = sanitize_text_field( $value );
+		} else {
+			array_map( 'sanitize_text_field', $data[ $key ] );
+		}
+	}
 
 	# Check if they didn't put quotes in the name or rewrite slug.
 	if ( false !== strpos( $data['cpt_custom_post_type']['name'], '\'' ) ||
