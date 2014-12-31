@@ -70,7 +70,9 @@ function cptui_manage_taxonomies() {
 		$selected_taxonomy = cptui_get_current_taxonomy();
 
 		if ( $selected_taxonomy ) {
-			$current = $taxonomies[ $selected_taxonomy ];
+			if ( array_key_exists( $selected_taxonomy, $taxonomies ) ) {
+				$current = $taxonomies[ $selected_taxonomy ];
+			}
 		}
 	}
 
