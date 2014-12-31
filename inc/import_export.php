@@ -158,10 +158,10 @@ function cptui_register_my_taxes() {
  * @return string Copy/paste ready "php" code.
  */
 function cptui_get_single_taxonomy_registery( $taxonomy = array() ) {
-	if ( is_array( $post_types ) ) {
-		$post_types = 'array( ' . implode( ', ', $taxonomy['post_types'] ) . ' )';
-	} else {
 
+	$post_types = '';
+	if ( is_array( $taxonomy['object_type'] ) ) {
+		$post_types = 'array( \'' . implode( '\', \'', $taxonomy['object_type'] ) . '\' )';
 	}
 	?>
 
