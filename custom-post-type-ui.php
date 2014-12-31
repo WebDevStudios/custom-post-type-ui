@@ -10,7 +10,7 @@ Text Domain: cpt-plugin
 License: GPLv2
 */
 
-// Exit if accessed directly
+# Exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
@@ -210,7 +210,7 @@ function cptui_register_single_taxonomy( $taxonomy = array() ) {
 		'show_admin_column' => $taxonomy[ 'show_admin_column' ]
 	);
 
-	//register_taxonomy( $taxonomy, $object_type, $args ); NEED TO DETERMINE THE $object_type
+	# register_taxonomy( $taxonomy, $object_type, $args ); NEED TO DETERMINE THE $object_type
 	return register_taxonomy( $taxonomy['name'], $taxonomy['post_types'], $args );
 }
 
@@ -364,7 +364,8 @@ function disp_boolean($booText) {
  * @return mixed        html tabs
  */
 function cptui_settings_tab_menu( $page = 'post_types' ) {
-	//initiate our arrays with default classes
+
+	# initiate our arrays with default classes
 	$tab1 = $tab2 = $tab3 = array( 'nav-tab' );
 	$has = false;
 
@@ -390,14 +391,14 @@ function cptui_settings_tab_menu( $page = 'post_types' ) {
 		$tab1[] = 'nav-tab-active';
 	}
 
-	//implode our arrays for class attributes
+	# implode our arrays for class attributes
 	$tab1 = implode( ' ', $tab1 ); $tab2 = implode( ' ', $tab2 ); $tab3 = implode( ' ', $tab3 );
 
 	?>
 	<h2 class="nav-tab-wrapper">
 	<?php echo $title;
 
-	//Import/Export area is getting different tabs, so we need to separate out.
+	# Import/Export area is getting different tabs, so we need to separate out.
 	if ( 'importexport' != $page ) { ?>
 		<a class="<?php echo $tab1; ?>" href="<?php echo admin_url( 'admin.php?page=cptui_manage_' . $page ); ?>"><?php _e( 'Add New', 'cpt-plugin' ); ?></a>
 		<?php
@@ -433,15 +434,15 @@ function cptui_convert_settings() {
 
 		$new_post_types = array();
 		foreach( $post_types as $type ) {
-            $new_post_types[ $type['name'] ]                = $type;    //Named arrays are our friend.
-            $new_post_types[ $type['name'] ]['supports']    = $type[0]; //Especially
-            $new_post_types[ $type['name'] ]['taxonomies']  = $type[1]; //for multidimensional
-            $new_post_types[ $type['name'] ]['labels']      = $type[2]; //arrays
+            $new_post_types[ $type['name'] ]                = $type;    # Named arrays are our friend.
+            $new_post_types[ $type['name'] ]['supports']    = $type[0]; # Especially
+            $new_post_types[ $type['name'] ]['taxonomies']  = $type[1]; # for multidimensional
+            $new_post_types[ $type['name'] ]['labels']      = $type[2]; # arrays
 			unset(
 				$new_post_types[ $type['name'] ][0],
 				$new_post_types[ $type['name'] ][1],
 				$new_post_types[ $type['name'] ][2]
-			); //Remove our previous indexed versions.
+			); # Remove our previous indexed versions.
 		}
 
 		return update_option( 'cptui_post_types', $new_post_types );
@@ -451,9 +452,9 @@ function cptui_convert_settings() {
 
 		$new_taxonomies = array();
 		foreach( $taxonomies as $tax ) {
-            $new_taxonomies[ $tax['name'] ]                 = $tax;    //Yep, still our friend.
-            $new_taxonomies[ $tax['name'] ]['labels']       = $tax[0]; // Taxonomies are the only thing with
-            $new_taxonomies[ $tax['name'] ]['post_types']   = $tax[1]; // "tax" in the name that I like.
+            $new_taxonomies[ $tax['name'] ]                 = $tax;    # Yep, still our friend.
+            $new_taxonomies[ $tax['name'] ]['labels']       = $tax[0]; # Taxonomies are the only thing with
+            $new_taxonomies[ $tax['name'] ]['post_types']   = $tax[1]; # "tax" in the name that I like.
 			unset(
 				$new_taxonomies[ $tax['name'] ][0],
 				$new_taxonomies[ $tax['name'] ][1]
@@ -476,10 +477,10 @@ add_action( 'admin_init', 'cptui_convert_settings' );
  * @return array         Amended array of links.
  */
 function cptui_edit_plugin_list_links( $links ) {
-	//We shouldn't encourage editing our plugin directly.
+	# We shouldn't encourage editing our plugin directly.
 	unset( $links['edit'] );
 
-	//Add our custom links to the returned array value.
+	# Add our custom links to the returned array value.
 	return array_merge( array(
 		'<a href="' . admin_url( 'admin.php?page=cptui_main_menu' ) . '">' . __( 'Settings', 'cpt-plugin' ) . '</a>', '<a href="' . admin_url( 'admin.php?page=cptui_support' ) . '">' . __( 'Help', 'cpt-plugin' ) . '</a>'
 	), $links );
