@@ -522,10 +522,18 @@ function cptui_update_taxonomy( $data ) {
 		return cptui_admin_notices(	'error', '', false, __( 'Please provide a taxonomy name', 'cpt-plugin' ) );
 	}
 
-	if ( false !== strpos( $data["name"], '\'' ) ||
-		false !== strpos( $data["name"], '\"' ) ||
-		false !== strpos( $data["rewrite_slug"], '\'' ) ||
-		false !== strpos( $data["rewrite_slug"], '\"' ) ) {
+	foreach( $data as $key => $value ) {
+		if ( is_string( $value ) ) {
+			$data[ $key ] = sanitize_text_field( $value );
+		} else {
+			array_map( 'sanitize_text_field', $data[ $key ] );
+		}
+	}
+
+	if ( false !== strpos( $data['cpt_custom_tax']['name'], '\'' ) ||
+		false !== strpos( $data['cpt_custom_tax']['name'], '\"' ) ||
+		false !== strpos( $data['cpt_custom_tax']['rewrite_slug'], '\'' ) ||
+		false !== strpos( $data['cpt_custom_tax']['rewrite_slug'], '\"' ) ) {
 
 		return cptui_admin_notices(	'error', '', false, __( 'Please do not use quotes in taxonomy names or rewrite slugs', 'cpt-plugin' ) );
 	}
