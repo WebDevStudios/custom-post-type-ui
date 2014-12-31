@@ -548,6 +548,11 @@ function cptui_update_taxonomy( $data ) {
 		$data['cpt_post_types'] = '';
 	}
 
+	foreach( $data['cpt_tax_labels'] as $key => $label ) {
+		if ( empty( $label ) ) {
+			unset( $data['cpt_tax_labels'][ $key ] );
+		}
+	}
 
 
 
