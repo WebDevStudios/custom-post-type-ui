@@ -502,10 +502,10 @@ function cptui_admin_notices( $action = '', $object_type = '', $success = true ,
 
 	$class = ( $success ) ? 'updated' : 'error';
 
-	$messagewrapstart = '<div class="' . $class . '">';
+	$messagewrapstart = '<div id="message" class="' . $class . '"><p>';
 	$message = '';
 
-	$messagewrapend = '</div>';
+	$messagewrapend = '</p></div>';
 
 	if ( 'add' == $action ) {
 		if ( $success ) {
