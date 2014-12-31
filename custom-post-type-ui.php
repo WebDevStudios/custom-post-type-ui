@@ -94,11 +94,11 @@ function cptui_create_custom_post_types() {
 add_action( 'init', 'cptui_create_custom_post_types' );
 
 /**
- * Helper function to register the actual post_type
+ * Helper function to register the actual post_type.
  *
  * @since 0.9.0
  *
- * @param array $post_type Post type array to register
+ * @param array $post_type Post type array to register.
  *
  * @return null Result of register_post_type.
  */
