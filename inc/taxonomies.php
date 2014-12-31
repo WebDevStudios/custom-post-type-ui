@@ -144,7 +144,7 @@ function cptui_manage_taxonomies() {
 						$output = 'objects'; # or objects
 						$post_types = get_post_types( $args, $output );
 
-						foreach ($post_types  as $post_type ) {
+						foreach ( $post_types  as $post_type ) {
 							/*
 							 * Supports Taxonomies Checkbox
 							 */
