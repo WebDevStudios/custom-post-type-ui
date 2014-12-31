@@ -903,6 +903,10 @@ function cptui_update_post_type( $data ) {
 		$data['cpt_addon_taxes'] = array();
 	}
 
+	if ( empty( $data['cpt_supports'] ) || !is_array( $data['cpt_supports'] ) ) {
+		$data['cpt_supports'] = array();
+	}
+
 	$post_types[ $data['cpt_custom_post_type']['name'] ] = array(
         'name'                  => $data['cpt_custom_post_type']['name'],
         'label'                 => $data['cpt_custom_post_type']['label'],
