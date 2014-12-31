@@ -821,8 +821,14 @@ function cptui_post_types_dropdown( $post_types = array() ) {
  * @return mixed  false on no result, sanitized post type if set.
  */
 function cptui_get_current_post_type() {
-	if ( !empty( $_POST ) && isset( $_POST['cptui_selected_post_type']['post_type'] ) ) {
-		return sanitize_text_field( $_POST['cptui_selected_post_type']['post_type'] );
+	if ( !empty( $_POST ) ) {
+		if ( isset( $_POST['cptui_selected_post_type']['post_type'] ) ) {
+			return sanitize_text_field( $_POST['cptui_selected_post_type']['post_type'] );
+		}
+
+		if ( isset( $_POST['cpt_custom_post_type']['name'] ) ) {
+			return sanitize_text_field( $_POST['cpt_custom_post_type']['name'] );
+		}
 	}
 
 	return false;
