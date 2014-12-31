@@ -121,7 +121,7 @@ function cptui_register_single_post_type( $post_type = array() ) {
 
 	$labels = array(
 		'name'               => $post_type['label'],
-		'singular_name'      => $post_type["singular_label"]
+		'singular_name'      => $post_type['singular_label']
 	);
 
 	foreach( $post_type['labels'] as $key => $label ) {
