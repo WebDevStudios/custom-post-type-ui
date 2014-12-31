@@ -201,7 +201,7 @@ function cptui_register_single_taxonomy( $taxonomy = array() ) {
 	);
 
 	# register_taxonomy( $taxonomy, $object_type, $args ); NEED TO DETERMINE THE $object_type
-	return register_taxonomy( $taxonomy['name'], $taxonomy['post_types'], $args );
+	return register_taxonomy( $taxonomy['name'], $taxonomy['object_type'], $args );
 }
 
 /**
