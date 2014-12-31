@@ -413,6 +413,8 @@ function cptui_settings_tab_menu( $page = 'post_types' ) {
  */
 function cptui_convert_settings() {
 
+	$retval = '';
+
 	if ( false === get_option( 'cptui_post_types' ) && ( $post_types = get_option( 'cpt_custom_post_types' ) ) ) {
 
 		$new_post_types = array();
