@@ -235,8 +235,10 @@ function cptui_get_single_post_type_registery( $post_type = array() ) {
 	if ( !empty( $post_type['supports'] ) && is_array( $post_type['supports'] ) ) {
 		$supports = 'array( \'' . implode( '\', \'', $post_type['supports'] ) . '\' )';
 	}
-	if ( is_array( $taxonomies) ) {
-		$taxonomies = 'array( ' . implode( ', ', $post_type['taxonomies'] ) . ' )';
+
+	$taxonomies = '';
+	if ( !empty( $post_type['taxonomies'] ) && is_array( $post_type['taxonomies'] ) ) {
+		$taxonomies = 'array( \'' . implode( '\', \'', $post_type['taxonomies'] ) . '\' )';
 	} else {
 
 	}
