@@ -149,12 +149,13 @@ function cptui_register_my_taxes() {
 }
 
 /**
- * Create output for single taxonomy to be ready for copy/paste from Get Code
+ * Create output for single taxonomy to be ready for copy/paste from Get Code.
  *
  * @since 0.9
  *
- * @param array $taxonomy Taxonomy data to output
- * @return string          Copy/paste ready "php" code
+ * @param array $taxonomy Taxonomy data to output.
+ *
+ * @return string Copy/paste ready "php" code.
  */
 function cptui_get_single_taxonomy_registery( $taxonomy = array() ) {
 	if ( is_array( $post_types ) ) {
