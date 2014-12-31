@@ -68,7 +68,9 @@ function cptui_manage_post_types() {
 		$selected_post_type = cptui_get_current_post_type();
 
 		if ( $selected_post_type ) {
-			$current = $post_types[ $selected_post_type ];
+			if ( array_key_exists( $selected_post_type, $post_types ) ) {
+				$current = $post_types[ $selected_post_type ];
+			}
 		}
 	}
 
