@@ -4,7 +4,7 @@ Plugin Name: Custom Post Type UI
 Plugin URI: https://github.com/WebDevStudios/custom-post-type-ui/
 Description: Admin panel for creating custom post types and custom taxonomies in WordPress
 Author: WebDevStudios.com
-Version: 0.9
+Version: 0.9.0
 Author URI: http://webdevstudios.com/
 Text Domain: cpt-plugin
 License: GPLv2
@@ -15,15 +15,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'CPT_VERSION', '0.9' );
+define( 'CPT_VERSION', '0.9.0' );
 define( 'CPTUI_WP_VERSION', get_bloginfo( 'version' ) );
 
 /**
  * Load our Admin UI class that powers our form inputs
  *
- * @since  0.9
- *
- * @return void
+ * @since 0.9.0
  */
 function cptui_load_ui_class() {
 	require_once( plugin_dir_path( __FILE__ ) . 'classes/class.cptui_admin_ui.php' );
@@ -35,7 +33,7 @@ add_action( 'init', 'cptui_load_ui_class' );
  *
  * @since  0.8
  *
- * @return void
+ * @since 0.8.0
  */
 function cptui_deactivation() {
 	flush_rewrite_rules();
@@ -47,7 +45,7 @@ register_deactivation_hook( __FILE__, 'cptui_deactivation' );
  *
  * @since  0.8
  *
- * @return void
+ * @since 0.8.0
  */
 function cptui_load_textdomain() {
 	load_plugin_textdomain( 'cpt-plugin', false, basename( dirname( __FILE__ ) ) . '/languages' );
@@ -57,9 +55,7 @@ add_action( 'init', 'cptui_load_textdomain' );
 /**
  * Load our main menu
  *
- * @since  0.1
- *
- * @return void
+ * @since 0.1.0
  */
 function cptui_plugin_menu() {
 	add_menu_page( __( 'Custom Post Types', 'cpt-plugin' ), __( 'CPT UI (dev)', 'cpt-plugin' ), 'manage_options', 'cptui_main_menu', 'cptui_settings' );
@@ -71,7 +67,7 @@ add_action( 'admin_menu', 'cptui_plugin_menu' );
  *
  * @since  0.9
  *
- * @return void
+ * @since 0.9.0
  */
 function cptui_create_submenus() {
 	require_once( plugin_dir_path( __FILE__ ) . 'inc/post-types.php' );
@@ -89,9 +85,7 @@ add_action( 'admin_enqueue_scripts', 'cptui_add_styles' );
 /**
  * Register our users' custom post types
  *
- * @since  0.5
- *
- * @return void
+ * @since 0.5.0
  */
 function cptui_create_custom_post_types() {
 	$cpts = get_option( 'cptui_post_types' );
@@ -108,7 +102,7 @@ add_action( 'init', 'cptui_create_custom_post_types' );
 /**
  * Helper function to register the actual post_type
  *
- * @since 0.9
+ * @since 0.9.0
  *
  * @param array $post_type Post type array to register
  *
@@ -157,7 +151,7 @@ function cptui_register_single_post_type( $post_type = array() ) {
  *
  * @since  0.5
  *
- * @return void
+ * @since 0.5.0
  */
 function cptui_create_custom_taxonomies() {
 	$taxes = get_option('cptui_taxonomies');
@@ -207,7 +201,7 @@ function cptui_register_single_taxonomy( $taxonomy = array() ) {
 /**
  * Display our primary menu page
  *
- * @since  0.3
+ * @since  0.3.0
  *
  * @return mixed  htmls
  */
@@ -274,7 +268,7 @@ function cptui_settings() { ?>
 /**
  * Display footer links and plugin credits
  *
- * @since  0.3
+ * @since 0.3.0
  *
  * @param string $original Original footer content.
  *
@@ -311,7 +305,7 @@ add_filter( 'admin_footer_text', 'cptui_footer' );
 /**
  * Return boolean status depending on passed in value
  *
- * @since  0.5
+ * @since 0.5.0
  *
  * @param  mixed  $booText text to compare to typical boolean values
  *
@@ -329,7 +323,7 @@ function get_disp_boolean($booText) {
 /**
  * Return string versions of boolean values.
  *
- * @since  0.1
+ * @since 0.1.0
  *
  * @param  string  $booText string boolean value
  *
@@ -347,7 +341,7 @@ function disp_boolean($booText) {
 /**
  * Construct and output tab navigation
  *
- * @since  0.9
+ * @since 0.9.0
  *
  * @param  string  $page Whether it's the CPT or Taxonomy page
  *
@@ -414,7 +408,7 @@ function cptui_settings_tab_menu( $page = 'post_types' ) {
 /**
  * Convert our old settings to the new options keys.
  *
- * @since  0.9
+ * @since 0.9.0
  *
  * @return bool  Whether or not options were successfully updated
  */
@@ -460,7 +454,7 @@ add_action( 'admin_init', 'cptui_convert_settings' );
 /**
  * Edit links that appear on installed plugins list page, for our plugin.
  *
- * @since  0.9
+ * @since 0.9.0
  *
  * @param  array  $links Array of links to display below our plugin listing.
  *
@@ -480,7 +474,7 @@ add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'cptui_edit_pl
 /**
  * Return a notice based on conditions.
  *
- * @since 0.9
+ * @since 0.9.0
  *
  * @param string $action       The type of action that occurred
  * @param string $object_type  Whether it's from a post type or taxonomy.
