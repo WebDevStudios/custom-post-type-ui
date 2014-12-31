@@ -907,6 +907,12 @@ function cptui_update_post_type( $data ) {
 		$data['cpt_supports'] = array();
 	}
 
+	foreach( $data['cpt_labels'] as $key => $label ) {
+		if ( empty( $label ) ) {
+			unset( $data['cpt_labels'][ $key ] );
+		}
+	}
+
 	$post_types[ $data['cpt_custom_post_type']['name'] ] = array(
         'name'                  => $data['cpt_custom_post_type']['name'],
         'label'                 => $data['cpt_custom_post_type']['label'],
