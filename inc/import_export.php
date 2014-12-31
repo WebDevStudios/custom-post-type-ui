@@ -246,20 +246,11 @@ function cptui_get_single_post_type_registery( $post_type = array() ) {
 	$labels = array(
 		'name' => '<?php echo $post_type['label']; ?>',
 		'singular_name' => '<?php echo $post_type['singular_label']; ?>',
-		'menu_name' => '<?php echo $post_type['labels']['menu_name'] ?>',
-		'all_items' => '<?php echo $post_type['labels']['all_items']; ?>',
-		'add_new' => '<?php echo $post_type['labels']['add_new']; ?>',
-		'add_new_item' => '<?php echo $post_type['labels']['add_new_item']; ?>',
-		'edit' => '<?php echo $post_type['labels']['edit']; ?>',
-		'edit_item' => '<?php echo $post_type['labels']['edit_item']; ?>',
-		'new_item' => '<?php echo $post_type['labels']['new_item']; ?>',
-		'view' => '<?php echo $post_type['labels']['view']; ?>',
-		'view_item' => '<?php echo $post_type['labels']['view_item']; ?>',
-		'search_items' => '<?php echo $post_type['labels']['search_items']; ?>',
-		'not_found' => '<?php echo $post_type['labels']['not_found']; ?>',
-		'not_found_in_trash' => '<?php echo $post_type['labels']['not_found_in_trash']; ?>',
-		'parent_item_colon' => '<?php echo $post_type['labels']['parent']; ?>'
-	);
+		<?php foreach( $post_type['labels'] as $key => $label ) {
+			if ( !empty( $label ) ) {
+				echo "'$key' => '$label',\n\t\t";
+			}
+		} ?>);
 
 	$args = array(
 		'labels' => $labels,
