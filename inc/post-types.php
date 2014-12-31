@@ -936,9 +936,7 @@ function cptui_update_post_type( $data ) {
 	if ( isset( $success ) ) {
 		if ( 'Add Post Type' == $data['cpt_submit'] ) {
 			return cptui_admin_notices( 'add', $data['cpt_custom_post_type']['name'], $success );
-		} else {
-			return cptui_admin_notices( 'update', $data['cpt_custom_post_type']['name'], $success );
 		}
 	}
-	return false;
+	return cptui_admin_notices( 'update', $data['cpt_custom_post_type']['name'], true );
 }
