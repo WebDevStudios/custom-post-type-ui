@@ -135,7 +135,7 @@ function cptui_register_my_taxes() {
 	foreach( $cptui_taxonomies as $tax ) {
 		echo cptui_get_single_taxonomy_registery( $tax ) . "\n";
 	} ?>
-//End cptui_register_my_taxes
+// End cptui_register_my_taxes
 }
 <?php
 	} else {
