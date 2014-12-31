@@ -228,10 +228,7 @@ function cptui_register_my_cpts() {
  * @return string          Copy/paste ready "php" code
  */
 function cptui_get_single_post_type_registery( $post_type = array() ) {
-	# Do a little bit of php work to get these into strings.
-	if ( is_array( $supports ) ) {
-		$supports = 'array( ' . implode( ', ', $post_type['supports'] ) . ' )';
-	} else {
+	$post_type['map_meta_cap'] = 'true';
 
 	}
 	if ( is_array( $taxonomies) ) {
