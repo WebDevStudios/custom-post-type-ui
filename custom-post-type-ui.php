@@ -121,21 +121,14 @@ function cptui_register_single_post_type( $post_type = array() ) {
 
 	$labels = array(
 		'name'               => $post_type['label'],
-		'singular_name'      => $post_type["singular_label"],
-		'menu_name'          => $post_type['labels']['menu_name'],
-		'all_items'          => $post_type['labels']['all_items'],
-		'add_new'            => $post_type['labels']['add_new'],
-		'add_new_item'       => $post_type['labels']['add_new_item'],
-		'edit'               => $post_type['labels']['edit'],
-		'edit_item'          => $post_type['labels']['edit_item'],
-		'new_item'           => $post_type['labels']['new_item'],
-		'view'               => $post_type['labels']['view'],
-		'view_item'          => $post_type['labels']['view_item'],
-		'search_items'       => $post_type['labels']['search_items'],
-		'not_found'          => $post_type['labels']['not_found'],
-		'not_found_in_trash' => $post_type['labels']['not_found_in_trash'],
-		'parent_item_colon'  => $post_type['labels']['parent']
+		'singular_name'      => $post_type["singular_label"]
 	);
+
+	foreach( $post_type['labels'] as $key => $label ) {
+		if ( !empty( $label ) ) {
+			$labels[ $key ] = $label;
+		}
+	}
 
 	$args = array(
 		'labels'              => $labels,
