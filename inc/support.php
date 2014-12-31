@@ -1,7 +1,7 @@
 <?php
 /* This file controls everything about our support section */
 
-// Exit if accessed directly
+# Exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 /**
