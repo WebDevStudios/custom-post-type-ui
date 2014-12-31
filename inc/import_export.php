@@ -3,7 +3,7 @@
  * This file controls all of the content from the Import/Export page
  */
 
-// Exit if accessed directly
+# Exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 /**
@@ -46,7 +46,7 @@ function cptui_importexport() {
 	}
 	echo '<div class="wrap">';
 
-	//Create our tabs.
+	# Create our tabs.
 	cptui_settings_tab_menu( $page = 'importexport' );
 
 	if ( isset( $tab ) && ( 'post_types' == $tab || 'taxonomies' == $tab ) ) {
@@ -186,7 +186,7 @@ function cptui_get_single_taxonomy_registery( $taxonomy = array() ) {
 		'rewrite' => <?php echo $taxonomy['rewrite']; ?>,
 		'show_admin_column' => <?php echo $taxonomy['show_admin_column']; ?>,
 	);
-<?php //register_taxonomy( $taxonomy, $object_type, $args ); NEED TO DETERMINE THE $object_type ?>
+<?php # register_taxonomy( $taxonomy, $object_type, $args ); NEED TO DETERMINE THE $object_type ?>
 	register_taxonomy( '<?php echo $taxonomy['name']; ?>', <?php echo $post_types; ?>, $args );
 <?php
 }
@@ -202,12 +202,12 @@ function cptui_get_post_type_code() {
 
 	$cptui_post_types = get_option( 'cptui_post_types' );
 
-	//Whitespace very much matters here, thus why it's all flush against the left side
+	# Whitespace very much matters here, thus why it's all flush against the left side
 	if ( !empty( $cptui_post_types ) ) {
 	?>
 add_action( 'init', 'cptui_register_my_cpts' );
 function cptui_register_my_cpts() {
-<?php //space before this line reflects in textarea
+<?php #space before this line reflects in textarea
 	foreach( $cptui_post_types as $type ) {
 	echo cptui_get_single_post_type_registery( $type ) . "\n";
 	} ?>
@@ -228,7 +228,7 @@ function cptui_register_my_cpts() {
  * @return string          Copy/paste ready "php" code
  */
 function cptui_get_single_post_type_registery( $post_type = array() ) {
-	//Do a little bit of php work to get these into strings.
+	# Do a little bit of php work to get these into strings.
 	if ( is_array( $supports ) ) {
 		$supports = 'array( ' . implode( ', ', $post_type['supports'] ) . ' )';
 	} else {
