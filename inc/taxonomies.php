@@ -489,7 +489,7 @@ function cptui_get_current_taxonomy() {
  *
  * @return bool|string False on failure, string on success.
  */
-function cptui_delete_taxonomy( $data ) {
+function cptui_delete_taxonomy( $data = array() ) {
 
 	#Check if they selected one to delete
 	if ( empty( $data['cpt_custom_tax']['name'] ) ) {
