@@ -251,6 +251,8 @@ function cptui_get_single_post_type_registery( $post_type = array() ) {
 	if ( !empty( $post_type['taxonomies'] ) && is_array( $post_type['taxonomies'] ) ) {
 		$taxonomies = 'array( \'' . implode( '\', \'', $post_type['taxonomies'] ) . '\' )';
 	}
+
+	$post_type['description'] = addslashes( $post_type['description'] );
 	?>
 	$labels = array(
 		'name' => '<?php echo $post_type['label']; ?>',
