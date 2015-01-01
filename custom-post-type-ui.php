@@ -240,7 +240,7 @@ function cptui_settings() { ?>
 						<img src="<?php echo plugins_url( '/images/professional-wordpress-secondedition.jpg', __FILE__ ); ?>" width="200">
 					</a>
 					<br />
-					<?php _e( 'The leading book on WordPress design and development! Brand new second edition!', 'cpt-plugin'); ?>
+					<?php _e( 'The leading book on WordPress design and development! Brand new second edition!', 'cpt-plugin' ); ?>
 				</td>
 				<td class="one-third valign">
 					<h3><?php _e( 'Professional WordPress<br />Plugin Development', 'cpt-plugin' ); ?></h3>
@@ -252,7 +252,7 @@ function cptui_settings() { ?>
 				</td>
 				<td class="one-third valign">
 					<h3><?php _e( 'PayPal Donation', 'cpt-plugin' ); ?></h3>
-					<p><?php _e( 'Please donate to the development of Custom Post Type UI:', 'cpt-plugin'); ?></p>
+					<p><?php _e( 'Please donate to the development of Custom Post Type UI:', 'cpt-plugin' ); ?></p>
 					<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
 					<input type="hidden" name="cmd" value="_s-xclick">
 					<input type="hidden" name="hosted_button_id" value="YJEDXPHE49Q3U">
