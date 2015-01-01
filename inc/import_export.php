@@ -236,6 +236,12 @@ function cptui_get_single_post_type_registery( $post_type = array() ) {
 	/** This filter is documented in custom-post-type-ui/custom-post-type-ui.php */
 	$post_type['map_meta_cap'] = apply_filters( 'cptui_map_meta_cap', true, $post_type['name'], $post_type );
 
+
+	$user_supports_params = apply_filters( 'cptui_user_supports_params', array(), $post_type['name'], $post_type );
+	if ( is_array( $user_supports_params ) ) {
+		$post_type['supports'] = array_merge( $post_type['supports'], $user_supports_params );
+	}
+
 	$supports = '';
 	# Do a little bit of php work to get these into strings.
 	if ( !empty( $post_type['supports'] ) && is_array( $post_type['supports'] ) ) {
