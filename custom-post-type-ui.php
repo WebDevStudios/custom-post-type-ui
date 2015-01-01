@@ -115,6 +115,12 @@ function cptui_register_single_post_type( $post_type = array() ) {
 	 */
 	$post_type['map_meta_cap'] = apply_filters( 'cptui_map_meta_cap', true, $post_type['name'], $post_type );
 
+	$user_supports_params = apply_filters( 'cptui_user_supports_params', array(), $post_type['name'], $post_type );
+
+	if ( is_array( $user_supports_params ) ) {
+		$post_type['supports'] = array_merge( $post_type['supports'], $user_supports_params );
+	}
+
 	$labels = array(
 		'name'               => $post_type['label'],
 		'singular_name'      => $post_type['singular_label']
