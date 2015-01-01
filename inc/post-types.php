@@ -959,3 +959,23 @@ function cptui_update_post_type( $data = array() ) {
 	}
 	return cptui_admin_notices( 'update', $data['cpt_custom_post_type']['name'], true );
 }
+
+/**
+ * Return an array of names that users should not or can not use for post type names.
+ *
+ * @since 0.9.0
+ *
+ * @return array $value Array of names that are recommended against.
+ */
+function cptui_reserved_post_types() {
+	return array(
+		'post',
+	    'page',
+	    'attachment',
+	    'revision',
+	    'nav_menu_item',
+		'action',
+	    'order',
+	    'theme'
+	);
+}
