@@ -166,7 +166,7 @@ function cptui_manage_post_types() {
 							 */
 							echo $ui->get_text_input( array(
 								'labeltext'     => __( 'Menu Name', 'cpt-plugin' ),
-								'helptext'      => esc_attr__( 'Custom menu name for your custom post type.', 'cpt-plugin'),
+								'helptext'      => esc_attr__( 'Custom menu name for your custom post type.', 'cpt-plugin' ),
 								'namearray'     => 'cpt_labels',
 								'name'          => 'menu_name',
 								'textvalue'     => ( isset( $current['labels']['menu_name'] ) ) ? esc_attr( $current['labels']['menu_name'] ) : '',
@@ -178,7 +178,7 @@ function cptui_manage_post_types() {
 							 */
 							echo $ui->get_text_input( array(
 								'labeltext'     => __( 'All Items', 'cpt-plugin' ),
-								'helptext'      => esc_attr__( 'Post type label. Used in the admin menu for displaying post types.', 'cpt-plugin'),
+								'helptext'      => esc_attr__( 'Post type label. Used in the admin menu for displaying post types.', 'cpt-plugin' ),
 								'namearray'     => 'cpt_labels',
 								'name'          => 'all_items',
 								'textvalue'     => ( isset( $current['labels']['all_items'] ) ) ? esc_attr( $current['labels']['all_items'] ) : '',
@@ -498,7 +498,7 @@ function cptui_manage_post_types() {
 								'selections'    => $select
 							) );
 
-							echo $ui->get_tr_start() . $ui->get_th_start() . __('Menu Position', 'cpt-plugin');
+							echo $ui->get_tr_start() . $ui->get_th_start() . __( 'Menu Position', 'cpt-plugin' );
 
 							echo $ui->get_help( esc_attr__( 'The position in the menu order the post type should appear. show_in_menu must be true.', 'cpt-plugin' ) );
 							echo $ui->get_p( __( 'See <a href="http://codex.wordpress.org/Function_Reference/register_post_type#Parameters">Available options</a> in the "menu_position" section. Range of 5-100', 'cpt-plugin' ) );
@@ -513,7 +513,7 @@ function cptui_manage_post_types() {
 							) );
 							echo $ui->get_td_end() . $ui->get_tr_end();
 
-							echo $ui->get_tr_start() . $ui->get_th_start() . __('Show in Menu', 'cpt-plugin');
+							echo $ui->get_tr_start() . $ui->get_th_start() . __( 'Show in Menu', 'cpt-plugin' );
 							echo $ui->get_p( __( '"Show UI" must be "true". If an existing top level page such as "tools.php" is indicated for second input, post type will be sub menu of that.', 'cpt-plugins' ) );
 							echo $ui->get_th_end() . $ui->get_td_start();
 
@@ -560,7 +560,7 @@ function cptui_manage_post_types() {
 								'helptext'      => esc_attr__( 'URL to image to be used as menu icon or Dashicon class to use instead.', 'cpt-plugin' ),
 							) );
 
-							echo $ui->get_tr_start() . $ui->get_th_start() . __('Supports', 'cpt-plugin') . $ui->get_th_end() . $ui->get_td_start();
+							echo $ui->get_tr_start() . $ui->get_th_start() . __( 'Supports', 'cpt-plugin' ) . $ui->get_th_end() . $ui->get_td_start();
 							/*
 							 * Supports Title Checkbox
 							 */
@@ -728,7 +728,7 @@ function cptui_manage_post_types() {
 
 							echo $ui->get_td_end() . $ui->get_tr_end();
 
-							echo $ui->get_tr_start() . $ui->get_th_start() . __('Built-in Taxonomies', 'cpt-plugin') . $ui->get_th_end() . $ui->get_td_start();
+							echo $ui->get_tr_start() . $ui->get_th_start() . __( 'Built-in Taxonomies', 'cpt-plugin' ) . $ui->get_th_end() . $ui->get_td_start();
 
 							# load built-in WP Taxonomies
 							$args = apply_filters( 'cptui_attach_taxonomies_to_post_type', array( 'public' => true ) );
