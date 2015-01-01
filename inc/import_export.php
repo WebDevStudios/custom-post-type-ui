@@ -250,8 +250,6 @@ function cptui_get_single_post_type_registery( $post_type = array() ) {
 	$taxonomies = '';
 	if ( !empty( $post_type['taxonomies'] ) && is_array( $post_type['taxonomies'] ) ) {
 		$taxonomies = 'array( \'' . implode( '\', \'', $post_type['taxonomies'] ) . '\' )';
-	} else {
-
 	}
 	?>
 	$labels = array(
