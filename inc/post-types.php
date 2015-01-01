@@ -922,6 +922,8 @@ function cptui_update_post_type( $data = array() ) {
 		$data['cpt_custom_post_type']['menu_icon'] = null;
 	}
 
+	$data['cpt_custom_post_type']['description'] = stripslashes_deep( $data['cpt_custom_post_type']['description'] );
+
 	$post_types[ $data['cpt_custom_post_type']['name'] ] = array(
         'name'                  => $data['cpt_custom_post_type']['name'],
         'label'                 => $data['cpt_custom_post_type']['label'],
