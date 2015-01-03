@@ -194,10 +194,11 @@ function cptui_register_single_taxonomy( $taxonomy = array() ) {
 
 	$args = array(
 		'labels'            => $labels,
-		'hierarchical'      => $taxonomy[ 'hierarchical' ],
 		'label'             => $taxonomy[ 'label' ],
-		'show_ui'           => $taxonomy[ 'show_ui' ],
+		'hierarchical'      => get_disp_boolean( $taxonomy[ 'hierarchical' ] ),
+		'show_ui'           => get_disp_boolean( $taxonomy[ 'show_ui' ] ),
 		'query_var'         => $taxonomy[ 'query_var' ],
+		'query_var_slug'    => $taxonomy[ 'query_var_slug' ],
 		'rewrite'           => $taxonomy[ 'rewrite' ],
 		'show_admin_column' => $taxonomy[ 'show_admin_column' ]
 	);
