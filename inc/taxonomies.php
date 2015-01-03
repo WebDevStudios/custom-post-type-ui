@@ -367,14 +367,6 @@ function cptui_manage_taxonomies() {
 									'selections'    => $select
 								) );
 
-								$select = array(
-									'options' => array(
-										array( 'attr' => '0', 'text' => __( 'False', 'cpt-plugin' ) ),
-										array( 'attr' => '1', 'text' => __( 'True', 'cpt-plugin' ), 'default' => 'true' )
-									)
-								);
-								$select['selected'] = ( !empty( $current['rewrite'] ) ) ? $current['rewrite'] : '';
-
 								echo $ui->get_text_input( array(
 									'namearray'     => 'cpt_custom_tax',
 									'name'          => 'query_var_slug',
@@ -384,6 +376,14 @@ function cptui_manage_taxonomies() {
 									'helptext'      => esc_attr__( 'Custom Query Var Slug', 'cpt-plugin'),
 									) );
 
+								$select = array(
+									'options' => array(
+										array( 'attr' => '0', 'text' => __( 'False', 'cpt-plugin' ) ),
+										array( 'attr' => '1', 'text' => __( 'True', 'cpt-plugin' ), 'default' => 'true' )
+									)
+								);
+								$selected = ( isset( $current ) ) ? disp_boolean( $current['rewrite'] ) : '';
+								$select['selected'] = ( !empty( $selected ) ) ? $current['rewrite'] : '';
 								echo $ui->get_select_input( array(
 									'namearray'     => 'cpt_custom_tax',
 									'name'          => 'rewrite',
