@@ -608,17 +608,19 @@ function cptui_update_taxonomy( $data = array() ) {
 	}
 
 	$taxonomies[ $data['cpt_custom_tax']['name'] ] = array(
-		'name'              => $data['cpt_custom_tax']['name'],
-		'label'             => $data['cpt_custom_tax']['label'],
-		'singular_label'    => $data['cpt_custom_tax']['singular_label'],
-		'hierarchical'      => disp_boolean( $data['cpt_custom_tax']['hierarchical'] ),
-		'show_ui'           => disp_boolean( $data['cpt_custom_tax']['show_ui'] ),
-		'query_var'         => disp_boolean( $data['cpt_custom_tax']['query_var'] ),
-		'query_var_slug'    => $data['cpt_custom_tax']['query_var_slug'],
-		'rewrite'           => disp_boolean( $data['cpt_custom_tax']['rewrite'] ),
-		'rewrite_slug'      => $data['cpt_custom_tax']['rewrite_slug'],
-		'show_admin_column' => disp_boolean( $data['cpt_custom_tax']['show_admin_column'] ),
-		'labels'            => $data['cpt_tax_labels']
+		'name'                 => $data['cpt_custom_tax']['name'],
+		'label'                => $data['cpt_custom_tax']['label'],
+		'singular_label'       => $data['cpt_custom_tax']['singular_label'],
+		'hierarchical'         => disp_boolean( $data['cpt_custom_tax']['hierarchical'] ),
+		'show_ui'              => disp_boolean( $data['cpt_custom_tax']['show_ui'] ),
+		'query_var'            => disp_boolean( $data['cpt_custom_tax']['query_var'] ),
+		'query_var_slug'       => $data['cpt_custom_tax']['query_var_slug'],
+		'rewrite'              => disp_boolean( $data['cpt_custom_tax']['rewrite'] ),
+		'rewrite_slug'         => $data['cpt_custom_tax']['rewrite_slug'],
+		'rewrite_withfront'    => $data['cpt_custom_tax']['rewrite_withfront'],
+		'rewrite_hierarchical' => $data['cpt_custom_tax']['rewrite_hierarchical'],
+		'show_admin_column'    => disp_boolean( $data['cpt_custom_tax']['show_admin_column'] ),
+		'labels'               => $data['cpt_tax_labels']
 	);
 
 	$taxonomies[ $data['cpt_custom_tax']['name'] ]['object_type'] = $data['cpt_post_types'];
