@@ -371,6 +371,16 @@ function cptui_manage_taxonomies() {
 									)
 								);
 								$select['selected'] = ( !empty( $current['rewrite'] ) ) ? $current['rewrite'] : '';
+
+								echo $ui->get_text_input( array(
+									'namearray'     => 'cpt_custom_tax',
+									'name'          => 'query_var_slug',
+									'textvalue'     => ( isset( $current['query_var_slug'] ) ) ? esc_attr( $current['query_var_slug'] ) : '',
+									'aftertext'     => __( '(default: none). Query Var needs to be true to use.', 'cpt-plugin' ),
+									'labeltext'     => __( 'Custom Query Var String', 'cpt-plugin' ),
+									'helptext'      => esc_attr__( 'Custom Query Var Slug', 'cpt-plugin'),
+									) );
+
 								echo $ui->get_select_input( array(
 									'namearray'     => 'cpt_custom_tax',
 									'name'          => 'rewrite',
