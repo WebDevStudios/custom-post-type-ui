@@ -134,6 +134,7 @@ function cptui_register_single_post_type( $post_type = array() ) {
 
 	$rewrite = get_disp_boolean( $post_type['rewrite' ] );
 	if ( false !== $rewrite ) {
+		$rewrite = array();
 		if ( !empty( $post_type['rewrite_slug'] ) ) {
 			$rewrite['slug'] = $post_type['rewrite_slug'];
 		}
@@ -204,6 +205,7 @@ function cptui_register_single_taxonomy( $taxonomy = array() ) {
 
 	$rewrite = get_disp_boolean( $taxonomy['rewrite' ] );
 	if ( false !== get_disp_boolean( $taxonomy['rewrite' ] ) ) {
+		$rewrite = array();
 		if ( !empty( $taxonomy['rewrite_slug'] ) ) {
 			$rewrite['slug'] = $taxonomy['rewrite_slug'];
 		}
