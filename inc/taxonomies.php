@@ -404,6 +404,40 @@ function cptui_manage_taxonomies() {
 
 								$select = array(
 									'options' => array(
+										array( 'attr' => '0', 'text' => __( 'False', 'cpt-plugin' ) ),
+										array( 'attr' => '1', 'text' => __( 'True', 'cpt-plugin' ), 'default' => 'true' )
+									)
+								);
+								$selected = ( isset( $current ) ) ? disp_boolean( $current['rewrite_withfront'] ) : '';
+								$select['selected'] = ( !empty( $selected ) ) ? $current['rewrite_withfront'] : '';
+								echo $ui->get_select_input( array(
+									'namearray'     => 'cpt_custom_tax',
+									'name'          => 'rewrite_withfront',
+									'labeltext'     => __( 'Rewrite With Front', 'cpt-plugin' ),
+									'aftertext'     => __( '(default: true)', 'cpt-plugin' ),
+									'helptext'      => esc_attr__( 'Should the permastruct be prepended with the front base.', 'cpt-plugin' ),
+									'selections'    => $select
+								) );
+
+								$select = array(
+									'options' => array(
+										array( 'attr' => '0', 'text' => __( 'False', 'cpt-plugin' ), 'default' => 'false' ),
+										array( 'attr' => '1', 'text' => __( 'True', 'cpt-plugin' ) )
+									)
+								);
+								$selected = ( isset( $current ) ) ? disp_boolean( $current['rewrite_hierarchical'] ) : '';
+								$select['selected'] = ( !empty( $selected ) ) ? $current['rewrite_hierarchical'] : '';
+								echo $ui->get_select_input( array(
+									'namearray'     => 'cpt_custom_tax',
+									'name'          => 'rewrite_hierarchical',
+									'labeltext'     => __( 'Rewrite Hierarchical', 'cpt-plugin' ),
+									'aftertext'     => __( '(default: false)', 'cpt-plugin' ),
+									'helptext'      => esc_attr__( 'Should the permastruct allow hierarchical urls.', 'cpt-plugin' ),
+									'selections'    => $select
+								) );
+
+								$select = array(
+									'options' => array(
 										array( 'attr' => '0', 'text' => __( 'False', 'cpt-plugin' ), 'default' => 'true' ),
 										array( 'attr' => '1', 'text' => __( 'True', 'cpt-plugin' ) )
 									)
