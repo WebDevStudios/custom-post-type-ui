@@ -202,6 +202,23 @@ function cptui_register_single_taxonomy( $taxonomy = array() ) {
 		}
 	}
 
+	$rewrite = get_disp_boolean( $taxonomy['rewrite' ] );
+	if ( false !== get_disp_boolean( $taxonomy['rewrite' ] ) ) {
+		if ( !empty( $taxonomy['rewrite_slug'] ) ) {
+			$rewrite['slug'] = $taxonomy['rewrite_slug'];
+		}
+
+		$withfront = disp_boolean( $taxonomy['rewrite_withfront'] );
+		if ( !empty( $withfront ) ) {
+			$rewrite['with_front'] = $taxonomy['rewrite_withfront'];
+		}
+
+		$hierarchical = disp_boolean( $taxonomy['rewrite_hierarchical'] );
+		if ( !empty( $hierarchical ) ) {
+			$rewrite['rewrite_hierarchical'] = $taxonomy['rewrite_hierarchical'];
+		}
+	}
+
 	$args = array(
 		'labels'            => $labels,
 		'label'             => $taxonomy[ 'label' ],
@@ -209,7 +226,7 @@ function cptui_register_single_taxonomy( $taxonomy = array() ) {
 		'show_ui'           => get_disp_boolean( $taxonomy[ 'show_ui' ] ),
 		'query_var'         => $taxonomy[ 'query_var' ],
 		'query_var_slug'    => $taxonomy[ 'query_var_slug' ],
-		'rewrite'           => $taxonomy[ 'rewrite' ],
+		'rewrite'           => $rewrite,
 		'show_admin_column' => $taxonomy[ 'show_admin_column' ]
 	);
 
