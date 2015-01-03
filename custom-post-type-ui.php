@@ -121,6 +121,10 @@ function cptui_register_single_post_type( $post_type = array() ) {
 		$post_type['supports'] = array_merge( $post_type['supports'], $user_supports_params );
 	}
 
+	if ( in_array( 'none', $post_type['supports'] ) ) {
+		$post_type['supports'] = false;
+	}
+
 	$labels = array(
 		'name'               => $post_type['label'],
 		'singular_name'      => $post_type['singular_label']
