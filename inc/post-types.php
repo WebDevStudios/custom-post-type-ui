@@ -735,6 +735,20 @@ function cptui_manage_post_types() {
 								'wrap'          => false
 							) );
 
+							echo $ui->get_p( __( '"Use the option below to explicitly set "supports" to false.', 'cpt-plugins' ) );
+
+							echo $ui->get_check_input( array(
+								'checkvalue'    => 'none',
+								'checked'       => ( !empty( $current['supports'] ) && ( is_array( $current['supports'] ) && in_array( 'none', $current['supports'] ) ) ) ? 'true' : 'false',
+								'name'          => 'none',
+								'namearray'     => 'cpt_supports',
+								'textvalue'     => 'none',
+								'labeltext'     => __( 'None' , 'cpt-plugin' ),
+								'helptext'      => esc_attr__( 'Remove all support features', 'cpt-plugin' ),
+								'default'       => false,
+								'wrap'          => false
+							) );
+
 							echo $ui->get_td_end() . $ui->get_tr_end();
 
 							echo $ui->get_tr_start() . $ui->get_th_start() . __( 'Built-in Taxonomies', 'cpt-plugin' ) . $ui->get_th_end() . $ui->get_td_start();
