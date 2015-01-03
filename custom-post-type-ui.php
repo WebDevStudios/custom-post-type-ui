@@ -334,7 +334,7 @@ function get_disp_boolean( $booText ) {
  *
  * @return string standardized boolean text.
  */
-function disp_boolean($booText) {
+function disp_boolean( $booText ) {
 	$booText = (string) $booText;
 	if ( empty( $booText ) || $booText == '0' || $booText == 'false' ) {
 		return 'false';
