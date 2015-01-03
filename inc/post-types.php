@@ -332,7 +332,8 @@ function cptui_manage_post_types() {
 									array( 'attr' => '1', 'text' => __( 'True', 'cpt-plugin' ), 'default' => 'true' )
 								)
 							);
-							$select['selected'] = ( !empty( $current['public'] ) ) ? $current['public'] : '';
+							$selected = ( isset( $current ) ) ? disp_boolean( $current['public'] ) : '';
+							$select['selected'] = ( !empty( $selected ) ) ? $current['public'] : '';
 							echo $ui->get_select_input( array(
 								'namearray'     => 'cpt_custom_post_type',
 								'name'          => 'public',
@@ -351,7 +352,8 @@ function cptui_manage_post_types() {
 									array( 'attr' => '1', 'text' => __( 'True', 'cpt-plugin' ), 'default' => 'true' )
 								)
 							);
-							$select['selected'] = ( !empty( $current['show_ui'] ) ) ? $current['show_ui'] : '';
+							$selected = ( isset( $current ) ) ? disp_boolean( $current['show_ui'] ) : '';
+							$select['selected'] = ( !empty( $selected ) ) ? $current['show_ui'] : '';
 							echo $ui->get_select_input( array(
 								'namearray'     => 'cpt_custom_post_type',
 								'name'          => 'show_ui',
@@ -370,7 +372,8 @@ function cptui_manage_post_types() {
 									array( 'attr' => '1', 'text' => __( 'True', 'cpt-plugin' ) )
 								)
 							);
-							$select['selected'] = ( !empty( $current['has_archive'] ) ) ? $current['has_archive'] : '';
+							$selected = ( isset( $current ) ) ? disp_boolean( $current['has_archive'] ) : '';
+							$select['selected'] = ( !empty( $selected ) ) ? $current['has_archive'] : '';
 							echo $ui->get_select_input( array(
 								'namearray'     => 'cpt_custom_post_type',
 								'name'          => 'has_archive',
@@ -389,7 +392,8 @@ function cptui_manage_post_types() {
 									array( 'attr' => '1', 'text' => __( 'True', 'cpt-plugin' ) )
 								)
 							);
-							$select['selected'] = ( !empty( $current['exclude_from_search'] ) ) ? $current['exclude_from_search'] : '';
+							$selected = ( isset( $current ) ) ? disp_boolean( $current['exclude_from_search'] ) : '';
+							$select['selected'] = ( !empty( $selected ) ) ? $current['exclude_from_search'] : '';
 							echo $ui->get_select_input( array(
 								'namearray'     => 'cpt_custom_post_type',
 								'name'          => 'exclude_from_search',
@@ -419,7 +423,8 @@ function cptui_manage_post_types() {
 									array( 'attr' => '1', 'text' => __( 'True', 'cpt-plugin' ) )
 								)
 							);
-							$select['selected'] = ( !empty( $current['hierarchical'] ) ) ? $current['hierarchical'] : '';
+							$selected = ( isset( $current ) ) ? disp_boolean( $current['hierarchical'] ) : '';
+							$select['selected'] = ( !empty( $selected ) ) ? $current['hierarchical'] : '';
 							echo $ui->get_select_input( array(
 								'namearray'     => 'cpt_custom_post_type',
 								'name'          => 'hierarchical',
@@ -438,7 +443,8 @@ function cptui_manage_post_types() {
 									array( 'attr' => '1', 'text' => __( 'True', 'cpt-plugin' ), 'default' => 'true' )
 								)
 							);
-							$select['selected'] = ( !empty( $current['rewrite'] ) ) ? $current['rewrite'] : '';
+							$selected = ( isset( $current ) ) ? disp_boolean( $current['rewrite'] ) : '';
+							$select['selected'] = ( !empty( $selected ) ) ? $current['rewrite'] : '';
 							echo $ui->get_select_input( array(
 								'namearray'     => 'cpt_custom_post_type',
 								'name'          => 'rewrite',
@@ -469,7 +475,8 @@ function cptui_manage_post_types() {
 									array( 'attr' => '1', 'text' => __( 'True', 'cpt-plugin' ), 'default' => 'true' )
 								)
 							);
-							$select['selected'] = ( !empty( $current['rewrite_withfront'] ) ) ? $current['rewrite_withfront'] : '';
+							$selected = ( isset( $current ) ) ? disp_boolean( $current['rewrite_withfront'] ) : '';
+							$select['selected'] = ( !empty( $selected ) ) ? $current['rewrite_withfront'] : '';
 							echo $ui->get_select_input( array(
 								'namearray'     => 'cpt_custom_post_type',
 								'name'          => 'rewrite_withfront',
@@ -488,7 +495,8 @@ function cptui_manage_post_types() {
 									array( 'attr' => '1', 'text' => __( 'True', 'cpt-plugin' ), 'default' => 'true' )
 								)
 							);
-							$select['selected'] = ( !empty( $current['query_var'] ) ) ? $current['query_var'] : '';
+							$selected = ( isset( $current ) ) ? disp_boolean( $current['query_var'] ) : '';
+							$select['selected'] = ( !empty( $selected ) ) ? $current['query_var'] : '';
 							echo $ui->get_select_input( array(
 								'namearray'     => 'cpt_custom_post_type',
 								'name'          => 'query_var',
@@ -526,7 +534,8 @@ function cptui_manage_post_types() {
 									array( 'attr' => '1', 'text' => __( 'True', 'cpt-plugin' ), 'default' => 'true' )
 								)
 							);
-							$select['selected'] = ( !empty( $current['show_in_menu'] ) ) ? $current['show_in_menu'] : '';
+							$selected = ( isset( $current ) ) ? disp_boolean( $current['show_in_menu'] ) : '';
+							$select['selected'] = ( !empty( $selected ) ) ? $current['show_in_menu'] : '';
 							echo $ui->get_select_input( array(
 								'namearray'     => 'cpt_custom_post_type',
 								'name'          => 'show_in_menu',
