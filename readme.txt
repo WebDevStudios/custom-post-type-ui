@@ -2,7 +2,7 @@
 Contributors: williamsba1, tw2113, webdevstudios
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3084056
 Tags: custom post types, CPT, CMS, post, types, post type, cck, taxonomy, tax, custom
-Requires at least: 3.7
+Requires at least: 3.8
 Tested up to: 4.1
 Stable tag: 0.9
 License: GPLv2
