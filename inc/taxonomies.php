@@ -131,6 +131,13 @@ function cptui_manage_taxonomies() {
 						echo $ui->get_tr_start() . $ui->get_th_start() . __( 'Attach to Post Type', 'cpt-plugin' ) . $ui->get_required();
 						echo $ui->get_th_end() . $ui->get_td_start();
 
+						/**
+						 * Filters the arguments for post types to list for taxonomy association.
+						 *
+						 * @since 0.9.0
+						 *
+						 * @param array $value Array of default arguments.
+						 */
 						$args = apply_filters( 'cptui_attach_post_types_to_taxonomy', array( 'public' => true ) );
 
 						# If they don't return an array, fall back to the original default. Don't need to check for empty, because empty array is default for $args param in get_post_types anyway.
@@ -539,6 +546,15 @@ function cptui_get_current_taxonomy() {
  */
 function cptui_delete_taxonomy( $data = array() ) {
 
+	/**
+	 * Fires before a taxonomy is deleted from our saved options.
+	 *
+	 * @since 0.9.0
+	 *
+	 * @param array $data Array of taxonomy data we are deleting.
+	 */
+	do_action( 'cptui_before_delete_taxonomy', $data );
+
 	#Check if they selected one to delete
 	if ( empty( $data['cpt_custom_tax']['name'] ) ) {
 		return cptui_admin_notices(	'error', '', false, __( 'Please provide a taxonomy to delete', 'cpt-plugin' ) );
@@ -552,6 +568,15 @@ function cptui_delete_taxonomy( $data = array() ) {
 
 		$success = update_option( 'cptui_taxonomies', $taxonomies );
 	}
+
+	/**
+	 * Fires after a taxonomy is deleted from our saved options.
+	 *
+	 * @since 0.9.0
+	 *
+	 * @param array $data Array of taxonomy data that was deleted.
+	 */
+	do_action( 'cptui_after_delete_taxonomy', $data );
 
 	if ( isset( $success ) ) {
 		return cptui_admin_notices( 'delete', $data['cpt_custom_tax']['name'], $success );
@@ -569,6 +594,15 @@ function cptui_delete_taxonomy( $data = array() ) {
  * @return bool|string False on failure, string on success.
  */
 function cptui_update_taxonomy( $data = array() ) {
+
+	/**
+	 * Fires before a taxonomy is updated to our saved options.
+	 *
+	 * @since 0.9.0
+	 *
+	 * @param array $data Array of taxonomy data we are updating.
+	 */
+	do_action( 'cptui_before_delete_taxonomy', $data );
 
 	# They need to provide a name
 	if ( empty( $data['cpt_custom_tax']['name'] ) ) {
@@ -626,6 +660,15 @@ function cptui_update_taxonomy( $data = array() ) {
 	$taxonomies[ $data['cpt_custom_tax']['name'] ]['object_type'] = $data['cpt_post_types'];
 
 	$success = update_option( 'cptui_taxonomies', $taxonomies );
+
+	/**
+	 * Fires after a taxonomy is updated to our saved options.
+	 *
+	 * @since 0.9.0
+	 *
+	 * @param array $data Array of taxonomy data that was updated.
+	 */
+	do_action( 'cptui_after_delete_taxonomy', $data );
 
 	flush_rewrite_rules();
 
