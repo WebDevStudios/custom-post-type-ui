@@ -753,8 +753,22 @@ function cptui_manage_post_types() {
 
 							echo $ui->get_tr_start() . $ui->get_th_start() . __( 'Built-in Taxonomies', 'cpt-plugin' ) . $ui->get_th_end() . $ui->get_td_start();
 
-							# load built-in WP Taxonomies
+							/**
+							 * Filters the arguments for taxonomies to list for post type association.
+							 *
+							 * @since 0.9.0
+							 *
+							 * @param array $value Array of default arguments.
+							 */
 							$args = apply_filters( 'cptui_attach_taxonomies_to_post_type', array( 'public' => true ) );
+
+							/**
+							 * Filters the arguments for output type for returned results.
+							 *
+							 * @since 0.9.0
+							 *
+							 * @param string $value Default output type.
+							 */
 							$output = apply_filters( 'cptui_attach_taxonomies_to_post_type_output', 'objects' );
 
 							# If they don't return an array, fall back to the original default. Don't need to check for empty, because empty array is default for $args param in get_post_types anyway.
@@ -871,6 +885,15 @@ function cptui_delete_post_type( $data ) {
 		return cptui_admin_notices(	'error', '', false, __( 'Please provide a post type to delete', 'cpt-plugin' ) );
 	}
 
+	/**
+	 * Fires before a post type is deleted from our saved options.
+	 *
+	 * @since 0.9.0
+	 *
+	 * @param array $data Array of post type data we are deleting.
+	 */
+	do_action( 'cptui_before_delete_post_type', $data );
+
 	$post_types = get_option( 'cptui_post_types' );
 
 	if ( array_key_exists( strtolower( $data['cpt_custom_post_type']['name'] ), $post_types ) ) {
@@ -879,6 +902,15 @@ function cptui_delete_post_type( $data ) {
 
 		$success = update_option( 'cptui_post_types', $post_types );
 	}
+
+	/**
+	 * Fires after a post type is deleted from our saved options.
+	 *
+	 * @since 0.9.0
+	 *
+	 * @param array $data Array of post type data that was deleted.
+	 */
+	do_action( 'cptui_after_delete_post_type', $data );
 
 	if ( isset( $success ) ) {
 		return cptui_admin_notices( 'delete', $data['cpt_custom_post_type']['name'], $success );
@@ -896,6 +928,15 @@ function cptui_delete_post_type( $data ) {
  * @return bool|string False on failure, string on success.
  */
 function cptui_update_post_type( $data = array() ) {
+
+	/**
+	 * Fires before a post_type is updated to our saved options.
+	 *
+	 * @since 0.9.0
+	 *
+	 * @param array $data Array of post_type data we are updating.
+	 */
+	do_action( 'cptui_before_update_post_type', $data );
 
 	# They need to provide a name
 	if ( empty( $data['cpt_custom_post_type']['name'] ) ) {
@@ -973,6 +1014,15 @@ function cptui_update_post_type( $data = array() ) {
 
 	$success = update_option( 'cptui_post_types', $post_types );
 
+	/**
+	 * Fires after a post type is updated to our saved options.
+	 *
+	 * @since 0.9.0
+	 *
+	 * @param array $data Array of post type data that was updated.
+	 */
+	do_action( 'cptui_after_update_post_type', $data );
+
 	flush_rewrite_rules();
 
 	if ( isset( $success ) ) {
@@ -991,7 +1041,17 @@ function cptui_update_post_type( $data = array() ) {
  * @return array $value Array of names that are recommended against.
  */
 function cptui_reserved_post_types() {
-	return array(
+
+	/**
+	 * Filters the list of reserved post types to check against.
+	 *
+	 * 3rd party plugin authors could use this to prevent duplicate post types.
+	 *
+	 * @since 0.9.0
+	 *
+	 * @param array $value Array of post type slugs to forbid.
+	 */
+	return apply_filters( 'cptui_reserved_post_types', array(
 		'post',
 	    'page',
 	    'attachment',
@@ -1000,5 +1060,5 @@ function cptui_reserved_post_types() {
 		'action',
 	    'order',
 	    'theme'
-	);
+	) );
 }
