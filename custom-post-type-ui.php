@@ -348,7 +348,7 @@ function cptui_footer( $original = '' ) {
 
 	$screen = get_current_screen();
 
-	if ( 'cptui_main_menu' != $screen->parent_base ) {
+	if ( ! is_object( $screen ) || 'cptui_main_menu' != $screen->parent_base ) {
 		return $original;
 	}
 
