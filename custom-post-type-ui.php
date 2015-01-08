@@ -257,7 +257,14 @@ function cptui_register_single_taxonomy( $taxonomy = array() ) {
  */
 function cptui_settings() { ?>
 	<div class="wrap">
-		<?php do_action( 'cptui_main_page_start' ); ?>
+		<?php
+
+		/**
+		 * Fires inside and at the top of the wrapper for the main plugin landing page.
+		 *
+		 * @since 0.9.0
+		 */
+		do_action( 'cptui_main_page_start' ); ?>
 		<h2><?php _e( 'Custom Post Type UI', 'cpt-plugin' ); ?> <?php echo CPT_VERSION; ?></h2>
 
 		<div class="alignleft">
@@ -273,7 +280,14 @@ function cptui_settings() { ?>
 			</p>
 		</div>
 
-		<?php do_action( 'cptui_main_page_before_books' ); ?>
+		<?php
+
+		/**
+		 * Fires right above the table displaying the promoted books.
+		 *
+		 * @since 0.9.0
+		 */
+		do_action( 'cptui_main_page_before_books' ); ?>
 		<table border="0">
 			<tr>
 				<td colspan="3"><h2><?php _e( 'Help Support This Plugin!', 'cpt-plugin' ); ?></h2></td>
@@ -309,7 +323,13 @@ function cptui_settings() { ?>
 			</tr>
 		</table>
 
-		<?php do_action( 'cptui_main_page_after_books' ); ?>
+		<?php
+		/**
+		 * Fires right after the table displaying the promoted books.
+		 *
+		 * @since 0.9.0
+		 */
+		do_action( 'cptui_main_page_after_books' ); ?>
 
 	</div>
 	<?php
