@@ -34,6 +34,11 @@ add_action( 'admin_menu', 'cptui_support_admin_menu' );
 function cptui_support() {
 	echo '<div class="wrap">';
 
+		/**
+		 * Fires at the top of the FAQ/Support page.
+		 *
+		 * @since 0.9.0
+		 */
 		do_action( 'cptui_main_page_before_faq' ); ?>
 
 		<h1><?php _e( 'Custom Post Type UI Support', 'cpt-plugin' ); ?></h1>
@@ -130,12 +135,27 @@ add_filter( 'enter_title_here', 'my_custom_title_text' );
 				</td>
 				<td>
 					&nbsp;
-				<!--Next group of questions here-->
+					<?php
+
+					/**
+					 * Fires in the last table cell of the FAQ list.
+					 *
+					 * @since 0.9.0
+					 */
+					do_action( 'cptui_main_page_custom_questions' );
+					?>
 				</td>
 			</tr>
 		</table>
 
-		<?php do_action( 'cptui_main_page_after_faq' );
+		<?php
+
+		/**
+		 * Fires at the bottom of the FAQ/Support page.
+		 *
+		 * @since 0.9.0
+		 */
+		do_action( 'cptui_main_page_after_faq' );
 
 	echo '</div>';
 }
