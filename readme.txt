@@ -15,7 +15,7 @@ This plugin provides an easy to use interface to create and administer custom po
 
 Please note that this plugin will NOT handle display of registered post types or taxonomies in your current theme. It will simply register them for you.
 
-All official development on this plugin is on GitHub. Version bumps will still be published here on WordPress.org. You can find the repo at [https://github.com/WebDevStudios/custom-post-type-ui](https://github.com/WebDevStudios/custom-post-type-ui). Please file issues, bugs, and enhancement ideas there, when possible.
+All official development on this plugin is on GitHub. Version bumps will still be published here on WordPress.org. You can find the repo at [https://github.com/WebDevStudios/custom-post-type-ui](https://github.com/WebDevStudios/custom-post-type-ui). Please file confirmed issues, bugs, and enhancement ideas there, when possible.
 
 Import/Export functionality amended from original contribution by [Ben Allfree](http://wordpress.org/support/profile/benallfree).
 
