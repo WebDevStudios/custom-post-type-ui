@@ -33,6 +33,31 @@ Import/Export functionality amended from original contribution by [Ben Allfree](
 
 == Changelog ==
 
+= 0.9.0 =
+* CPTUI has been given a new UI!
+* Separated out post type and taxonomy creation to their own screens.
+* Added import/export ability for post type and taxonomy settings.
+* Added a Help/Support Screen.
+* Added/Updated available parameters for post types and parameters.
+* Updated i18n and translation files.
+* Added Confirmation prompts before deleting post types and taxonomies.
+* Added actions and filters for 3rd party customization.
+* Added function that automatically converts 0.8.x and down settings to new setting arrangement.
+* Changed how settings are stored so that post types and taxonomies are in named array indexes.
+* Bug fixes not mentioned above.
+
+= 0.8.5 =
+* Fix issue with menu_postion being quoted in CPT get_code functionality.
+
+= 0.8.4 =
+* Fix issue with get code and post types/taxonomies that use a dash instead of underscore. Props Evan Mullins/circlecube.
+
+= 0.8.3 =
+* Dashicon support
+
+= 0.8.2 =
+* Fix with_front logic issue.
+
 = 0.8.2 =
 * Fix with_front logic issue.
 
