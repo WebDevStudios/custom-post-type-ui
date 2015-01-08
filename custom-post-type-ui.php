@@ -604,7 +604,19 @@ function cptui_admin_notices( $action = '', $object_type = '', $success = true ,
 	}
 
 	if ( $message ) {
-		return $messagewrapstart . $message . $messagewrapend;
+
+		/**
+		 * Filters the custom admin notice for CPTUI.
+		 *
+		 * @since 0.9.0
+		 *
+		 * @param string $value            Complete HTML output for notice.
+		 * @param string $action           Action whose message is being generated.
+		 * @param string $message          The message to be displayed.
+		 * @param string $messagewrapstart Beginning wrap HTML.
+		 * @param string $messagewrapend   Ending wrap HTML.
+		 */
+		return apply_filters( 'cptui_admin_notice', $messagewrapstart . $message . $messagewrapend, $action, $message, $messagewrapstart, $messagewrapend );
 	}
 
 	return false;
