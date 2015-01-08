@@ -470,7 +470,15 @@ function cptui_settings_tab_menu( $page = 'post_types' ) {
 		<a class="<?php echo $tab2; ?>" href="<?php echo add_query_arg( array( 'action' => 'taxonomies' ), admin_url( 'admin.php?page=cptui_' . $page ) ); ?>"><?php _e( 'Taxonomies', 'cpt-plugin' ); ?></a>
 		<a class="<?php echo $tab3; ?>" href="<?php echo add_query_arg( array( 'action' => 'get_code' ), admin_url( 'admin.php?page=cptui_' . $page ) ); ?>"><?php _e( 'Get Code', 'cpt-plugin' ); ?></a>
 	<?php
-	} ?>
+	}
+
+	/**
+	 * Fires inside and at end of the `<h2>` tag for settings tabs area.
+	 *
+	 * @since 0.9.0
+	 */
+	do_action( 'cptui_settings_tabs_after' );
+	?>
 	</h2>
 <?php
 }
