@@ -115,6 +115,15 @@ function cptui_register_single_post_type( $post_type = array() ) {
 	 */
 	$post_type['map_meta_cap'] = apply_filters( 'cptui_map_meta_cap', true, $post_type['name'], $post_type );
 
+	/**
+	 * Filters custom supports parameters for 3rd party plugins.
+	 *
+	 * @since 0.9.0
+	 *
+	 * @param array  $value     Empty array to add supports keys to.
+	 * @param string $name      Post type slug being registered.
+	 * @param array  $post_type Array of post type arguments to be registered.
+	 */
 	$user_supports_params = apply_filters( 'cptui_user_supports_params', array(), $post_type['name'], $post_type );
 
 	if ( is_array( $user_supports_params ) ) {
