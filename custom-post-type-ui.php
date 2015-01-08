@@ -271,12 +271,12 @@ function cptui_settings() { ?>
 			</tr>
 			<tr>
 				<td class="one-third valign">
-					<h3><?php _e( 'Professional WordPress<br />Second Edition', 'cpt-plugin' ); ?></h3>
-					<a href="http://bit.ly/prowp2" target="_blank">
-						<img src="<?php echo plugins_url( '/images/professional-wordpress-secondedition.jpg', __FILE__ ); ?>" width="200">
+					<h3><?php _e( 'Professional WordPress<br />Third Edition', 'cpt-plugin' ); ?></h3>
+					<a href="http://bit.ly/prowp3" target="_blank">
+						<img src="<?php echo plugins_url( '/images/professional-wordpress-thirdedition.jpg', __FILE__ ); ?>" width="200">
 					</a>
 					<br />
-					<?php _e( 'The leading book on WordPress design and development! Brand new second edition!', 'cpt-plugin' ); ?>
+					<?php _e( 'The leading book on WordPress design and development! Brand new third edition!', 'cpt-plugin' ); ?>
 				</td>
 				<td class="one-third valign">
 					<h3><?php _e( 'Professional WordPress<br />Plugin Development', 'cpt-plugin' ); ?></h3>
