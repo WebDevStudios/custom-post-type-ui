@@ -63,6 +63,7 @@ class CPTUI_Utility extends WP_UnitTestCase {
 		$movie = get_post_type_object( 'movie' );
 		$this->assertTrue( is_object( $movie ) );
 		$this->assertTrue( is_object( $movie->labels ) );
+		$this->assertNotEmpty( $movie->labels, 'No labels available' );
 
 		$this->assertEquals( 'Movies', $movie->labels->name );
 		$this->assertEquals( 'Movie', $movie->labels->singular_name );
