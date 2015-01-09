@@ -149,4 +149,8 @@ class CPTUI_Utility extends WP_UnitTestCase {
 	public function register_post_type() {
 		cptui_register_single_post_type( $this->post_type_array['movie'] );
 	}
+
+	public function register_taxonomy() {
+		cptui_register_single_taxonomy( $this->taxonomy_array['actors'] );
+	}
 }
