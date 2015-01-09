@@ -275,9 +275,9 @@ function cptui_get_single_post_type_registery( $post_type = array() ) {
 		'map_meta_cap' => <?php echo $post_type['map_meta_cap']; ?>,
 		'hierarchical' => <?php echo $post_type['hierarchical']; ?>,
 		'rewrite' => <?php echo $post_type['rewrite']; ?>,
-		'menu_position' => <?php echo $post_type['menu_position']; ?>,
-		'menu_icon' => <?php echo $post_type['menu_icon']; ?>,
 		'query_var' => <?php echo $post_type['query_var']; ?>,
+		<?php if ( !empty( $post_type['menu_position'] ) ) { ?>'menu_position' => <?php echo $post_type['menu_position']; ?>,<?php } ?>
+		<?php if ( !empty( $post_type['menu_icon'] ) ) { ?>'menu_icon' => <?php echo $post_type['menu_icon']; ?>,<?php } ?>
 		<?php if ( !empty( $supports ) ) { ?>'supports' => <?php echo $supports; ?>,<?php } ?>
 		<?php if ( !empty( $taxonomies ) ) { ?>'taxonomies' => <?php echo $taxonomies; ?><?php } ?>
 	);
