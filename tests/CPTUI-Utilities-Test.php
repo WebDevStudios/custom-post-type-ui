@@ -3,6 +3,7 @@
 class CPTUI_Utility extends WP_UnitTestCase {
 
 	public $post_type_array = array();
+	public $taxonomy_array = array();
 
 	public function setUp() {
 		parent::setUp();
@@ -15,15 +16,17 @@ class CPTUI_Utility extends WP_UnitTestCase {
 	/**
 	 * @before
 	 */
-	public function setupPostType() {
+	public function setupPostTypeTax() {
 		$this->post_type_array = $this->setup_cpt_option();
+		$this->taxonomy_array = $this->setup_tax_option();
 	}
 
 	/**
 	 * @after
 	 */
-	public function removePostType() {
+	public function removePostTypeTax() {
 		_unregister_post_type( 'movie' );
+		_unregister_taxonomy( 'actors' );
 	}
 
 	/**
