@@ -113,7 +113,7 @@ function cptui_register_single_post_type( $post_type = array() ) {
 	 * @param string $name      Post type name being registered.
 	 * @param array  $post_type All parameters for post type registration.
 	 */
-	$post_type['map_meta_cap'] = apply_filters( 'cptui_map_meta_cap', true, $post_type['name'], $post_type );
+	$post_type['map_meta_cap'] = apply_filters( 'cptui_map_meta_cap', 'true', $post_type['name'], $post_type );
 
 	/**
 	 * Filters custom supports parameters for 3rd party plugins.
