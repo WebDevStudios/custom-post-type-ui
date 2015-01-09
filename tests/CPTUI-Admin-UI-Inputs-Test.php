@@ -15,9 +15,8 @@ class CPTUI_Admin_UI_Inputs_Test extends WP_UnitTestCase {
 
 	/**
 	 * Tests our label method.
-	 * @test
 	 */
-	public function CPTUI_Label() {
+	public function test_CPTUI_Label() {
 		$ui = new cptui_admin_ui();
 		$expected = '<label for="testing">Testing</label>';
 
@@ -26,9 +25,8 @@ class CPTUI_Admin_UI_Inputs_Test extends WP_UnitTestCase {
 
 	/**
 	 * Tests our required field method.
-	 * @test
 	 */
-	public function CPTUI_Required() {
+	public function test_CPTUI_Required() {
 		$ui = new cptui_admin_ui();
 		$expected = '<span class="required">*</span>';
 
@@ -37,9 +35,8 @@ class CPTUI_Admin_UI_Inputs_Test extends WP_UnitTestCase {
 
 	/**
 	 * Tests our textarea field method.
-	 * @test
 	 */
-	public function CPTUI_Textarea() {
+	public function test_CPTUI_Textarea() {
 		$ui = new cptui_admin_ui();
 
 		$expected = '<tr valign="top"><th scope="row"><label for="name">Description</label><a href="#" title="Helper text." class="help wp-ui-highlight">?</a></th><td><textarea id="name" name="name_array[name]" rows="4" cols="40">saved value</textarea></td></tr>';
@@ -59,9 +56,8 @@ class CPTUI_Admin_UI_Inputs_Test extends WP_UnitTestCase {
 
 	/**
 	 * Tests our text field method.
-	 * @test
 	 */
-	public function CPTUI_Text() {
+	public function test_CPTUI_Text() {
 		$ui = new cptui_admin_ui();
 
 		$expected = '<tr valign="top"><th scope="row"><label for="name">Description</label><a href="#" title="Helper text." class="help wp-ui-highlight">?</a></th><td><input type="text" id="name" name="name_array[name]" value="saved value" /><br/></td></tr>';
@@ -83,9 +79,8 @@ class CPTUI_Admin_UI_Inputs_Test extends WP_UnitTestCase {
 	 * Tests our select input.
 	 *
 	 * This test checks for no required boolean and no saved value.
-	 * @test
 	 */
-	public function CPTUI_Select_No_Required_No_Saved() {
+	public function test_CPTUI_Select_No_Required_No_Saved() {
 		$ui = new cptui_admin_ui();
 
 		$select = array(
@@ -116,9 +111,8 @@ class CPTUI_Admin_UI_Inputs_Test extends WP_UnitTestCase {
 	 * Tests our select input.
 	 *
 	 * This test checks for no required boolean and no saved value.
-	 * @test
 	 */
-	public function CPTUI_Select_Required_No_Saved() {
+	public function test_CPTUI_Select_Required_No_Saved() {
 		$ui = new cptui_admin_ui();
 
 		$select = array(
@@ -150,9 +144,8 @@ class CPTUI_Admin_UI_Inputs_Test extends WP_UnitTestCase {
 	 * Tests our select input.
 	 *
 	 * This test checks for no required boolean and a "true" saved value.
-	 * @test
 	 */
-	public function CPTUI_Select_No_Required_True_Saved() {
+	public function test_CPTUI_Select_No_Required_True_Saved() {
 		$ui = new cptui_admin_ui();
 
 		$select = array(
@@ -183,9 +176,8 @@ class CPTUI_Admin_UI_Inputs_Test extends WP_UnitTestCase {
 	 * Tests our select input.
 	 *
 	 * This test checks for no required boolean and a "false" saved value.
-	 * @test
 	 */
-	public function CPTUI_Select_No_Required_False_Saved() {
+	public function test_CPTUI_Select_No_Required_False_Saved() {
 		$ui = new cptui_admin_ui();
 
 		$select = array(
@@ -214,9 +206,8 @@ class CPTUI_Admin_UI_Inputs_Test extends WP_UnitTestCase {
 
 	/**
 	 * Tests non boolean based select inputs
-	 * @test
 	 */
-	public function CPTUI_Select_Non_Bool_No_Option() {
+	public function test_CPTUI_Select_Non_Bool_No_Option() {
 		$ui = new cptui_admin_ui();
 
 		$select = array();
@@ -243,9 +234,8 @@ class CPTUI_Admin_UI_Inputs_Test extends WP_UnitTestCase {
 
 	/**
 	 * Tests non boolean based select inputs
-	 * @test
 	 */
-	public function CPTUI_Select_Non_Bool_First_Option() {
+	public function test_CPTUI_Select_Non_Bool_First_Option() {
 		$ui = new cptui_admin_ui();
 
 		$select = array();
@@ -272,9 +262,8 @@ class CPTUI_Admin_UI_Inputs_Test extends WP_UnitTestCase {
 
 	/**
 	 * Tests non boolean based select inputs
-	 * @test
 	 */
-	public function CPTUI_Select_Non_Bool_Second_Option() {
+	public function test_CPTUI_Select_Non_Bool_Second_Option() {
 		$ui = new cptui_admin_ui();
 
 		$select = array();
