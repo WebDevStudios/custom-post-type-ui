@@ -15,9 +15,8 @@ class CPTUI_Admin_UI_Wrappers extends WP_UnitTestCase {
 
 	/**
 	 * Tests our opening tr method.
-	 * @test
 	 */
-	public function CPTUI_Opening_TR() {
+	public function test_CPTUI_Opening_TR() {
 		$ui       = new cptui_admin_ui();
 		$expected = '<tr valign="top">';
 
@@ -26,9 +25,8 @@ class CPTUI_Admin_UI_Wrappers extends WP_UnitTestCase {
 
 	/**
 	 * Tests our closing tr method.
-	 * @test
 	 */
-	public function CPTUI_Closing_TR() {
+	public function test_CPTUI_Closing_TR() {
 		$ui       = new cptui_admin_ui();
 		$expected = '</tr>';
 
@@ -37,9 +35,8 @@ class CPTUI_Admin_UI_Wrappers extends WP_UnitTestCase {
 
 	/**
 	 * Tests our opening th method.
-	 * @test
 	 */
-	public function CPTUI_Opening_TH() {
+	public function test_CPTUI_Opening_TH() {
 		$ui       = new cptui_admin_ui();
 		$expected = '<th scope="row">';
 
@@ -48,9 +45,8 @@ class CPTUI_Admin_UI_Wrappers extends WP_UnitTestCase {
 
 	/**
 	 * Tests our closing th method.
-	 * @test
 	 */
-	public function CPTUI_Closing_TH() {
+	public function test_CPTUI_Closing_TH() {
 		$ui       = new cptui_admin_ui();
 		$expected = '</th>';
 
@@ -59,9 +55,8 @@ class CPTUI_Admin_UI_Wrappers extends WP_UnitTestCase {
 
 	/**
 	 * Tests our opening td method.
-	 * @test
 	 */
-	public function CPTUI_Opening_TD() {
+	public function test_CPTUI_Opening_TD() {
 		$ui       = new cptui_admin_ui();
 		$expected = '<td>';
 
@@ -70,9 +65,8 @@ class CPTUI_Admin_UI_Wrappers extends WP_UnitTestCase {
 
 	/**
 	 * Tests our closing td method.
-	 * @test
 	 */
-	public function CPTUI_Closing_TD() {
+	public function test_CPTUI_Closing_TD() {
 		$ui       = new cptui_admin_ui();
 		$expected = '</td>';
 
@@ -81,9 +75,8 @@ class CPTUI_Admin_UI_Wrappers extends WP_UnitTestCase {
 
 	/**
 	 * Tests our wrapping p tag.
-	 * @test
 	 */
-	public function CPTUI_P_Wrap() {
+	public function test_CPTUI_P_Wrap() {
 		$ui       = new cptui_admin_ui();
 		$expected = '<p>CPTUI is Awesome!</p>';
 
