@@ -498,10 +498,10 @@ function cptui_convert_settings() {
 
 		$new_post_types = array();
 		foreach( $post_types as $type ) {
-            $new_post_types[ $type['name'] ]                = $type;    # Named arrays are our friend.
-            $new_post_types[ $type['name'] ]['supports']    = $type[0]; # Especially
-            $new_post_types[ $type['name'] ]['taxonomies']  = $type[1]; # for multidimensional
-            $new_post_types[ $type['name'] ]['labels']      = $type[2]; # arrays
+            $new_post_types[ $type['name'] ]                = $type; #This one assigns the # indexes       # Named arrays are our friend.
+            $new_post_types[ $type['name'] ]['supports']    = ( !empty( $type[0] ) ) ? $type[0] : array(); # Especially
+            $new_post_types[ $type['name'] ]['taxonomies']  = ( !empty( $type[1] ) ) ? $type[1] : array(); # for multidimensional
+            $new_post_types[ $type['name'] ]['labels']      = ( !empty( $type[2] ) ) ? $type[2] : array(); # arrays
 			unset(
 				$new_post_types[ $type['name'] ][0],
 				$new_post_types[ $type['name'] ][1],
