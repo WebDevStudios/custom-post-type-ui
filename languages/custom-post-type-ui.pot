@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Custom Post Type UI 0.9\n"
-"POT-Creation-Date: 2015-01-07 21:51-0600\n"
-"PO-Revision-Date: 2015-01-07 21:52-0600\n"
+"POT-Creation-Date: 2015-01-09 22:38-0600\n"
+"PO-Revision-Date: 2015-01-09 22:38-0600\n"
 "Last-Translator: Michael Beckwith <michael.d.beckwith@gmail.com>\n"
 "Language-Team: WebDevStudios <contact@webdevstudios.com>\n"
 "Language: en\n"
@@ -510,10 +510,10 @@ msgstr ""
 #: ../inc/taxonomies.php:346 ../inc/taxonomies.php:363
 #: ../inc/taxonomies.php:388 ../inc/taxonomies.php:414
 #: ../inc/taxonomies.php:431 ../inc/taxonomies.php:448
-#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:93
-#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:126
-#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:160
-#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:193
+#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:88
+#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:120
+#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:153
+#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:185
 msgid "False"
 msgstr ""
 
@@ -525,17 +525,17 @@ msgstr ""
 #: ../inc/taxonomies.php:347 ../inc/taxonomies.php:364
 #: ../inc/taxonomies.php:389 ../inc/taxonomies.php:415
 #: ../inc/taxonomies.php:432 ../inc/taxonomies.php:449
-#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:94
-#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:127
-#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:161
-#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:194
+#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:89
+#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:121
+#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:154
+#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:186
 msgid "True"
 msgstr ""
 
-#: ../inc/post-types.php:340 ../tests/CPTUI-Admin-UI-Inputs-Test.php:102
-#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:135
-#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:169
-#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:202
+#: ../inc/post-types.php:340 ../tests/CPTUI-Admin-UI-Inputs-Test.php:97
+#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:129
+#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:162
+#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:194
 msgid "Public"
 msgstr ""
 
@@ -543,17 +543,17 @@ msgstr ""
 #: ../inc/post-types.php:452 ../inc/post-types.php:484
 #: ../inc/post-types.php:504 ../inc/post-types.php:543
 #: ../inc/taxonomies.php:356 ../inc/taxonomies.php:373
-#: ../inc/taxonomies.php:398 ../tests/CPTUI-Admin-UI-Inputs-Test.php:103
-#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:136
-#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:170
-#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:203
+#: ../inc/taxonomies.php:398 ../tests/CPTUI-Admin-UI-Inputs-Test.php:98
+#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:130
+#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:163
+#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:195
 msgid "(default: True)"
 msgstr ""
 
-#: ../inc/post-types.php:342 ../tests/CPTUI-Admin-UI-Inputs-Test.php:104
-#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:137
-#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:171
-#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:204
+#: ../inc/post-types.php:342 ../tests/CPTUI-Admin-UI-Inputs-Test.php:99
+#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:131
+#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:164
+#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:196
 msgid "Whether posts of this type should be shown in the admin UI"
 msgstr ""
 
