@@ -19,6 +19,10 @@ All official development on this plugin is on GitHub. Version bumps will still b
 
 Import/Export functionality amended from original contribution by [Ben Allfree](http://wordpress.org/support/profile/benallfree).
 
+Implied credit to:
+
+* [exeQutor](https://github.com/exeQutor) For proper supports fix.
+
 == Screenshots ==
 
 1. Landing page screen.
