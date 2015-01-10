@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Custom Post Type UI 0.9\n"
-"POT-Creation-Date: 2015-01-09 23:19-0600\n"
-"PO-Revision-Date: 2015-01-09 23:20-0600\n"
+"POT-Creation-Date: 2015-01-09 23:28-0600\n"
+"PO-Revision-Date: 2015-01-09 23:28-0600\n"
 "Last-Translator: Michael Beckwith <michael.d.beckwith@gmail.com>\n"
 "Language-Team: WebDevStudios <contact@webdevstudios.com>\n"
 "Language: en\n"
@@ -654,7 +654,7 @@ msgid ""
 msgstr ""
 
 #: ../inc/post-types.php:519
-msgid "URL or Dashicon for image to be used as menu icon."
+msgid "URL or Dashicon value for image to be used as menu icon."
 msgstr ""
 
 #: ../inc/post-types.php:524
