@@ -77,7 +77,7 @@ function cptui_manage_taxonomies() {
 	# Will only be set if we're already on the edit screen
 	if ( !empty( $taxonomies ) ) { ?>
 		<form id="cptui_select_taxonomy" method="post">
-			<p><?php _e( 'Select a taxonomy to edit', 'cpt-plugin' ); ?></p>
+			<p><?php _e( 'Select a taxonomy to edit. DO NOT EDIT the taxonomy slug unless necessary. Changing that value registers a new taxonomy entry for your install.', 'cpt-plugin' ); ?></p>
 			<?php
 			cptui_taxonomies_dropdown( $taxonomies );
 			?>
