@@ -75,7 +75,7 @@ function cptui_manage_post_types() {
 	# Will only be set if we're already on the edit screen
 	if ( !empty( $post_types ) ) { ?>
 		<form id="cptui_select_post_type" method="post">
-			<p><?php _e( 'Select a post type to edit', 'cpt-plugin' ); ?></p>
+			<p><?php _e( 'Select a post type to edit. DO NOT EDIT the post type slug unless necessary. Changing that value registers a new post type entry for your install.', 'cpt-plugin' ); ?></p>
 			<?php
 			cptui_post_types_dropdown( $post_types );
 			?>
