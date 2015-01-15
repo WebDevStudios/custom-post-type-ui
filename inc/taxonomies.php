@@ -97,12 +97,12 @@ function cptui_manage_taxonomies() {
 							'namearray'     => 'cpt_custom_tax',
 							'name'          => 'name',
 							'textvalue'     => ( isset( $current['name'] ) ) ? esc_attr( $current['name'] ) : '',
+							'maxlength'     => '32',
+							'onblur'        => 'this.value=this.value.toLowerCase()',
+							'labeltext'     => __( 'Taxonomy Slug', 'cpt-plugin' ),
 							'aftertext'     => __( '(e.g. actors)', 'cpt-plugin' ),
 							'helptext'      => esc_attr__( 'The taxonomy name. Used to retrieve custom taxonomy content. Should be short and unique', 'cpt-plugin'),
 							'required'      => true,
-							'wrap'          => false,
-							'maxlength'     => '32',
-							'onblur'        => 'this.value=this.value.toLowerCase()'
 						) );
 
 						echo $ui->get_text_input( array(
