@@ -110,7 +110,7 @@ function cptui_manage_taxonomies() {
 							'name'          => 'label',
 							'textvalue'     => ( isset( $current['label'] ) ) ? esc_attr( $current['label'] ) : '',
 							'aftertext'     => __( '(e.g. Actors)', 'cpt-plugin' ),
-							'labeltext'     => __( 'Label', 'cpt-plugin' ),
+							'labeltext'     => __( 'Plural Label', 'cpt-plugin' ),
 							'helptext'      => esc_attr__( 'Taxonomy label. Used in the admin menu for displaying custom taxonomy.', 'cpt-plugin'),
 						) );
 
