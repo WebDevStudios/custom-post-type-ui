@@ -90,6 +90,7 @@ function cptui_manage_post_types() {
 				<td><!--LEFT SIDE-->
 					<table>
 						<?php
+
 						/*
 						 * Post Slug
 						 */
