@@ -93,10 +93,6 @@ function cptui_manage_taxonomies() {
 					<table>
 						<?php
 
-						echo $ui->get_tr_start() . $ui->get_th_start() . __( 'Taxonomy Name', 'cpt-plugin' );
-
-						echo $ui->get_th_end() . $ui->get_td_start();
-
 						echo $ui->get_text_input( array(
 							'namearray'     => 'cpt_custom_tax',
 							'name'          => 'name',
@@ -109,7 +105,6 @@ function cptui_manage_taxonomies() {
 							'onblur'        => 'this.value=this.value.toLowerCase()'
 						) );
 
-						echo $ui->get_td_end() . $ui->get_tr_end();
 						echo $ui->get_text_input( array(
 							'namearray'     => 'cpt_custom_tax',
 							'name'          => 'label',
