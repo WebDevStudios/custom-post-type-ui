@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Custom Post Type UI 0.9\n"
-"POT-Creation-Date: 2015-01-09 23:28-0600\n"
-"PO-Revision-Date: 2015-01-09 23:28-0600\n"
+"POT-Creation-Date: 2015-01-15 13:34-0600\n"
+"PO-Revision-Date: 2015-01-15 13:34-0600\n"
 "Last-Translator: Michael Beckwith <michael.d.beckwith@gmail.com>\n"
 "Language-Team: WebDevStudios <contact@webdevstudios.com>\n"
 "Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.6.10\n"
+"X-Generator: Poedit 1.7.3\n"
 "X-Poedit-KeywordsList: __;_e;esc_attr__;esc_attr_e;esc_attr_x;_n;_x;_ex;_nx;"
 "esc_html__;esc_html_e;esc_html_x\n"
 "X-Poedit-Basepath: .\n"
@@ -119,7 +119,7 @@ msgstr ""
 msgid "Manage Post Types"
 msgstr ""
 
-#: ../custom-post-type-ui.php:457 ../inc/post-types.php:192
+#: ../custom-post-type-ui.php:457 ../inc/post-types.php:193
 msgid "Add New"
 msgstr ""
 
@@ -143,8 +143,8 @@ msgstr ""
 msgid "Get Code"
 msgstr ""
 
-#: ../custom-post-type-ui.php:550 ../inc/post-types.php:322
-#: ../inc/taxonomies.php:323
+#: ../custom-post-type-ui.php:550 ../inc/post-types.php:323
+#: ../inc/taxonomies.php:318
 msgid "Settings"
 msgstr ""
 
@@ -309,207 +309,209 @@ msgid "Are you sure you want to delete this?"
 msgstr ""
 
 #: ../inc/post-types.php:78
-msgid "Select a post type to edit"
+msgid ""
+"Select a post type to edit. DO NOT EDIT the post type slug unless necessary. "
+"Changing that value registers a new post type entry for your install."
 msgstr ""
 
 #: ../inc/post-types.php:82 ../inc/taxonomies.php:84
 msgid "Select"
 msgstr ""
 
-#: ../inc/post-types.php:102
-msgid "Post Type Name"
-msgstr ""
-
 #: ../inc/post-types.php:103
-msgid "(e.g. movie)"
+msgid "Post Type Slug"
 msgstr ""
 
 #: ../inc/post-types.php:104
+msgid "(e.g. movie)"
+msgstr ""
+
+#: ../inc/post-types.php:105
 msgid ""
 "The post type name. Used to retrieve custom post type content. Should be "
 "short and unique"
 msgstr ""
 
-#: ../inc/post-types.php:115
+#: ../inc/post-types.php:116 ../inc/taxonomies.php:113
 msgid "Plural Label"
 msgstr ""
 
-#: ../inc/post-types.php:116
+#: ../inc/post-types.php:117
 msgid "(e.g. Movies)"
 msgstr ""
 
-#: ../inc/post-types.php:117 ../inc/post-types.php:181
-#: ../inc/post-types.php:193 ../inc/post-types.php:205
-#: ../inc/post-types.php:217 ../inc/post-types.php:229
-#: ../inc/post-types.php:241 ../inc/post-types.php:253
-#: ../inc/post-types.php:265 ../inc/post-types.php:277
-#: ../inc/post-types.php:289 ../inc/post-types.php:301
-#: ../inc/post-types.php:313
+#: ../inc/post-types.php:118 ../inc/post-types.php:182
+#: ../inc/post-types.php:194 ../inc/post-types.php:206
+#: ../inc/post-types.php:218 ../inc/post-types.php:230
+#: ../inc/post-types.php:242 ../inc/post-types.php:254
+#: ../inc/post-types.php:266 ../inc/post-types.php:278
+#: ../inc/post-types.php:290 ../inc/post-types.php:302
+#: ../inc/post-types.php:314
 msgid "Post type label. Used in the admin menu for displaying post types."
 msgstr ""
 
-#: ../inc/post-types.php:127 ../inc/taxonomies.php:127
+#: ../inc/post-types.php:128 ../inc/taxonomies.php:122
 msgid "Singular Label"
 msgstr ""
 
-#: ../inc/post-types.php:128
+#: ../inc/post-types.php:129
 msgid "(e.g. Movie)"
 msgstr ""
 
-#: ../inc/post-types.php:129
+#: ../inc/post-types.php:130
 msgid ""
 "Custom Post Type Singular label. Used in WordPress when a singular label is "
 "needed."
 msgstr ""
 
-#: ../inc/post-types.php:141
+#: ../inc/post-types.php:142
 msgid "Description"
 msgstr ""
 
-#: ../inc/post-types.php:142
+#: ../inc/post-types.php:143
 msgid ""
 "Custom Post Type Description. Describe what your custom post type is used "
 "for."
 msgstr ""
 
-#: ../inc/post-types.php:149
+#: ../inc/post-types.php:150
 msgid "Edit Post Type"
 msgstr ""
 
-#: ../inc/post-types.php:150
+#: ../inc/post-types.php:151
 msgid "Delete Post Type"
 msgstr ""
 
-#: ../inc/post-types.php:152
+#: ../inc/post-types.php:153
 msgid "Add Post Type"
 msgstr ""
 
-#: ../inc/post-types.php:157 ../inc/taxonomies.php:178
+#: ../inc/post-types.php:158 ../inc/taxonomies.php:173
 msgid "Click headings to reveal available options."
 msgstr ""
 
-#: ../inc/post-types.php:160 ../inc/post-types.php:322
-#: ../inc/post-types.php:801 ../inc/taxonomies.php:181
-#: ../inc/taxonomies.php:323 ../inc/taxonomies.php:467
+#: ../inc/post-types.php:161 ../inc/post-types.php:323
+#: ../inc/post-types.php:802 ../inc/taxonomies.php:176
+#: ../inc/taxonomies.php:318 ../inc/taxonomies.php:462
 msgid "Click to expand"
 msgstr ""
 
-#: ../inc/post-types.php:160 ../inc/taxonomies.php:181
+#: ../inc/post-types.php:161 ../inc/taxonomies.php:176
 msgid "Labels"
 msgstr ""
 
-#: ../inc/post-types.php:168 ../inc/taxonomies.php:191
+#: ../inc/post-types.php:169 ../inc/taxonomies.php:186
 msgid "Menu Name"
 msgstr ""
 
-#: ../inc/post-types.php:169
+#: ../inc/post-types.php:170
 msgid "Custom menu name for your custom post type."
 msgstr ""
 
-#: ../inc/post-types.php:173
+#: ../inc/post-types.php:174
 msgid "(e.g. My Movies)"
 msgstr ""
 
-#: ../inc/post-types.php:180 ../inc/taxonomies.php:200
+#: ../inc/post-types.php:181 ../inc/taxonomies.php:195
 msgid "All Items"
 msgstr ""
 
-#: ../inc/post-types.php:185
+#: ../inc/post-types.php:186
 msgid "(e.g. All Movies)"
 msgstr ""
 
-#: ../inc/post-types.php:197
+#: ../inc/post-types.php:198
 msgid "(e.g. Add New)"
 msgstr ""
 
-#: ../inc/post-types.php:204 ../inc/taxonomies.php:236
+#: ../inc/post-types.php:205 ../inc/taxonomies.php:231
 msgid "Add New Item"
 msgstr ""
 
-#: ../inc/post-types.php:209
+#: ../inc/post-types.php:210
 msgid "(e.g. Add New Movie)"
 msgstr ""
 
-#: ../inc/post-types.php:216
+#: ../inc/post-types.php:217
 msgid "Edit"
 msgstr ""
 
-#: ../inc/post-types.php:221
+#: ../inc/post-types.php:222
 msgid "(e.g. Edit)"
 msgstr ""
 
-#: ../inc/post-types.php:228 ../inc/taxonomies.php:209
+#: ../inc/post-types.php:229 ../inc/taxonomies.php:204
 msgid "Edit Item"
 msgstr ""
 
-#: ../inc/post-types.php:233
+#: ../inc/post-types.php:234
 msgid "(e.g. Edit Movie)"
 msgstr ""
 
-#: ../inc/post-types.php:240
+#: ../inc/post-types.php:241
 msgid "New Item"
 msgstr ""
 
-#: ../inc/post-types.php:245
+#: ../inc/post-types.php:246
 msgid "(e.g. New Movie)"
 msgstr ""
 
-#: ../inc/post-types.php:252
+#: ../inc/post-types.php:253
 msgid "View"
 msgstr ""
 
-#: ../inc/post-types.php:257
+#: ../inc/post-types.php:258
 msgid "(e.g. View)"
 msgstr ""
 
-#: ../inc/post-types.php:264 ../inc/taxonomies.php:218
+#: ../inc/post-types.php:265 ../inc/taxonomies.php:213
 msgid "View Item"
 msgstr ""
 
-#: ../inc/post-types.php:269
+#: ../inc/post-types.php:270
 msgid "(e.g. View Movie)"
 msgstr ""
 
-#: ../inc/post-types.php:276
+#: ../inc/post-types.php:277
 msgid "Search Item"
 msgstr ""
 
-#: ../inc/post-types.php:281
+#: ../inc/post-types.php:282
 msgid "(e.g. Search Movie)"
 msgstr ""
 
-#: ../inc/post-types.php:288
+#: ../inc/post-types.php:289
 msgid "Not Found"
 msgstr ""
 
-#: ../inc/post-types.php:293
+#: ../inc/post-types.php:294
 msgid "(e.g. No Movies found)"
 msgstr ""
 
-#: ../inc/post-types.php:300
+#: ../inc/post-types.php:301
 msgid "Not Found in Trash"
 msgstr ""
 
-#: ../inc/post-types.php:305
+#: ../inc/post-types.php:306
 msgid "(e.g. No Movies found in Trash)"
 msgstr ""
 
-#: ../inc/post-types.php:312
+#: ../inc/post-types.php:313
 msgid "Parent"
 msgstr ""
 
-#: ../inc/post-types.php:317
+#: ../inc/post-types.php:318
 msgid "(e.g. Parent Movie)"
 msgstr ""
 
-#: ../inc/post-types.php:331 ../inc/post-types.php:351
-#: ../inc/post-types.php:371 ../inc/post-types.php:391
-#: ../inc/post-types.php:422 ../inc/post-types.php:442
-#: ../inc/post-types.php:474 ../inc/post-types.php:494
-#: ../inc/post-types.php:533 ../inc/taxonomies.php:329
-#: ../inc/taxonomies.php:346 ../inc/taxonomies.php:363
-#: ../inc/taxonomies.php:388 ../inc/taxonomies.php:414
-#: ../inc/taxonomies.php:431 ../inc/taxonomies.php:448
+#: ../inc/post-types.php:332 ../inc/post-types.php:352
+#: ../inc/post-types.php:372 ../inc/post-types.php:392
+#: ../inc/post-types.php:423 ../inc/post-types.php:443
+#: ../inc/post-types.php:475 ../inc/post-types.php:495
+#: ../inc/post-types.php:534 ../inc/taxonomies.php:324
+#: ../inc/taxonomies.php:341 ../inc/taxonomies.php:358
+#: ../inc/taxonomies.php:383 ../inc/taxonomies.php:409
+#: ../inc/taxonomies.php:426 ../inc/taxonomies.php:443
 #: ../tests/CPTUI-Admin-UI-Inputs-Test.php:88
 #: ../tests/CPTUI-Admin-UI-Inputs-Test.php:120
 #: ../tests/CPTUI-Admin-UI-Inputs-Test.php:153
@@ -517,14 +519,14 @@ msgstr ""
 msgid "False"
 msgstr ""
 
-#: ../inc/post-types.php:332 ../inc/post-types.php:352
-#: ../inc/post-types.php:372 ../inc/post-types.php:392
-#: ../inc/post-types.php:423 ../inc/post-types.php:443
-#: ../inc/post-types.php:475 ../inc/post-types.php:495
-#: ../inc/post-types.php:534 ../inc/taxonomies.php:330
-#: ../inc/taxonomies.php:347 ../inc/taxonomies.php:364
-#: ../inc/taxonomies.php:389 ../inc/taxonomies.php:415
-#: ../inc/taxonomies.php:432 ../inc/taxonomies.php:449
+#: ../inc/post-types.php:333 ../inc/post-types.php:353
+#: ../inc/post-types.php:373 ../inc/post-types.php:393
+#: ../inc/post-types.php:424 ../inc/post-types.php:444
+#: ../inc/post-types.php:476 ../inc/post-types.php:496
+#: ../inc/post-types.php:535 ../inc/taxonomies.php:325
+#: ../inc/taxonomies.php:342 ../inc/taxonomies.php:359
+#: ../inc/taxonomies.php:384 ../inc/taxonomies.php:410
+#: ../inc/taxonomies.php:427 ../inc/taxonomies.php:444
 #: ../tests/CPTUI-Admin-UI-Inputs-Test.php:89
 #: ../tests/CPTUI-Admin-UI-Inputs-Test.php:121
 #: ../tests/CPTUI-Admin-UI-Inputs-Test.php:154
@@ -532,298 +534,298 @@ msgstr ""
 msgid "True"
 msgstr ""
 
-#: ../inc/post-types.php:340 ../tests/CPTUI-Admin-UI-Inputs-Test.php:97
+#: ../inc/post-types.php:341 ../tests/CPTUI-Admin-UI-Inputs-Test.php:97
 #: ../tests/CPTUI-Admin-UI-Inputs-Test.php:129
 #: ../tests/CPTUI-Admin-UI-Inputs-Test.php:162
 #: ../tests/CPTUI-Admin-UI-Inputs-Test.php:194
 msgid "Public"
 msgstr ""
 
-#: ../inc/post-types.php:341 ../inc/post-types.php:361
-#: ../inc/post-types.php:452 ../inc/post-types.php:484
-#: ../inc/post-types.php:504 ../inc/post-types.php:543
-#: ../inc/taxonomies.php:356 ../inc/taxonomies.php:373
-#: ../inc/taxonomies.php:398 ../tests/CPTUI-Admin-UI-Inputs-Test.php:98
+#: ../inc/post-types.php:342 ../inc/post-types.php:362
+#: ../inc/post-types.php:453 ../inc/post-types.php:485
+#: ../inc/post-types.php:505 ../inc/post-types.php:544
+#: ../inc/taxonomies.php:351 ../inc/taxonomies.php:368
+#: ../inc/taxonomies.php:393 ../tests/CPTUI-Admin-UI-Inputs-Test.php:98
 #: ../tests/CPTUI-Admin-UI-Inputs-Test.php:130
 #: ../tests/CPTUI-Admin-UI-Inputs-Test.php:163
 #: ../tests/CPTUI-Admin-UI-Inputs-Test.php:195
 msgid "(default: True)"
 msgstr ""
 
-#: ../inc/post-types.php:342 ../tests/CPTUI-Admin-UI-Inputs-Test.php:99
+#: ../inc/post-types.php:343 ../tests/CPTUI-Admin-UI-Inputs-Test.php:99
 #: ../tests/CPTUI-Admin-UI-Inputs-Test.php:131
 #: ../tests/CPTUI-Admin-UI-Inputs-Test.php:164
 #: ../tests/CPTUI-Admin-UI-Inputs-Test.php:196
 msgid "Whether posts of this type should be shown in the admin UI"
 msgstr ""
 
-#: ../inc/post-types.php:360 ../inc/taxonomies.php:355
+#: ../inc/post-types.php:361 ../inc/taxonomies.php:350
 msgid "Show UI"
 msgstr ""
 
-#: ../inc/post-types.php:362
+#: ../inc/post-types.php:363
 msgid "Whether to generate a default UI for managing this post type"
 msgstr ""
 
-#: ../inc/post-types.php:380
+#: ../inc/post-types.php:381
 msgid "Has Archive"
 msgstr ""
 
-#: ../inc/post-types.php:381 ../inc/post-types.php:401
-#: ../inc/post-types.php:432 ../inc/taxonomies.php:339
-#: ../inc/taxonomies.php:458
+#: ../inc/post-types.php:382 ../inc/post-types.php:402
+#: ../inc/post-types.php:433 ../inc/taxonomies.php:334
+#: ../inc/taxonomies.php:453
 msgid "(default: False)"
 msgstr ""
 
-#: ../inc/post-types.php:382
+#: ../inc/post-types.php:383
 msgid "Whether the post type will have a post type archive page"
 msgstr ""
 
-#: ../inc/post-types.php:400
+#: ../inc/post-types.php:401
 msgid "Exclude From Search"
 msgstr ""
 
-#: ../inc/post-types.php:402
+#: ../inc/post-types.php:403
 msgid "Whether the post type will be searchable"
 msgstr ""
 
-#: ../inc/post-types.php:413
+#: ../inc/post-types.php:414
 msgid "Capability Type"
 msgstr ""
 
-#: ../inc/post-types.php:414
+#: ../inc/post-types.php:415
 msgid "The post type to use for checking read, edit, and delete capabilities"
 msgstr ""
 
-#: ../inc/post-types.php:431 ../inc/taxonomies.php:338
+#: ../inc/post-types.php:432 ../inc/taxonomies.php:333
 msgid "Hierarchical"
 msgstr ""
 
-#: ../inc/post-types.php:433
+#: ../inc/post-types.php:434
 msgid "Whether the post type can have parent-child relationships"
 msgstr ""
 
-#: ../inc/post-types.php:451 ../inc/taxonomies.php:397
+#: ../inc/post-types.php:452 ../inc/taxonomies.php:392
 msgid "Rewrite"
 msgstr ""
 
-#: ../inc/post-types.php:453
+#: ../inc/post-types.php:454
 msgid "Triggers the handling of rewrites for this post type"
 msgstr ""
 
-#: ../inc/post-types.php:464 ../inc/taxonomies.php:408
+#: ../inc/post-types.php:465 ../inc/taxonomies.php:403
 msgid "Custom Rewrite Slug"
 msgstr ""
 
-#: ../inc/post-types.php:465
+#: ../inc/post-types.php:466
 msgid "(default: post type name)"
 msgstr ""
 
-#: ../inc/post-types.php:466
+#: ../inc/post-types.php:467
 msgid "Custom slug to use instead of the default."
 msgstr ""
 
-#: ../inc/post-types.php:483
+#: ../inc/post-types.php:484
 msgid "With Front"
 msgstr ""
 
-#: ../inc/post-types.php:485 ../inc/post-types.php:505
-#: ../inc/taxonomies.php:425
+#: ../inc/post-types.php:486 ../inc/post-types.php:506
+#: ../inc/taxonomies.php:420
 msgid "Should the permastruct be prepended with the front base."
 msgstr ""
 
-#: ../inc/post-types.php:503 ../inc/taxonomies.php:372
+#: ../inc/post-types.php:504 ../inc/taxonomies.php:367
 msgid "Query Var"
 msgstr ""
 
-#: ../inc/post-types.php:509
+#: ../inc/post-types.php:510
 msgid "Menu Position"
 msgstr ""
 
-#: ../inc/post-types.php:511
+#: ../inc/post-types.php:512
 msgid ""
 "The position in the menu order the post type should appear. show_in_menu "
 "must be true."
 msgstr ""
 
-#: ../inc/post-types.php:512
+#: ../inc/post-types.php:513
 msgid ""
 "See <a href=\"http://codex.wordpress.org/Function_Reference/"
 "register_post_type#Parameters\">Available options</a> in the \"menu_position"
 "\" section. Range of 5-100"
 msgstr ""
 
-#: ../inc/post-types.php:519
+#: ../inc/post-types.php:520
 msgid "URL or Dashicon value for image to be used as menu icon."
 msgstr ""
 
-#: ../inc/post-types.php:524
+#: ../inc/post-types.php:525
 msgid "Show in Menu"
 msgstr ""
 
-#: ../inc/post-types.php:525
+#: ../inc/post-types.php:526
 msgid ""
 "\"Show UI\" must be \"true\". If an existing top level page such as \"tools."
 "php\" is indicated for second input, post type will be sub menu of that."
 msgstr ""
 
-#: ../inc/post-types.php:542
+#: ../inc/post-types.php:543
 msgid "Show In Menu"
 msgstr ""
 
-#: ../inc/post-types.php:544
+#: ../inc/post-types.php:545
 msgid ""
 "Whether to show the post type in the admin menu and where to show that menu. "
 "Note that show_ui must be true"
 msgstr ""
 
-#: ../inc/post-types.php:556
+#: ../inc/post-types.php:557
 msgid "URL to image to be used as menu icon."
 msgstr ""
 
-#: ../inc/post-types.php:567
+#: ../inc/post-types.php:568
 msgid "Menu Icon"
 msgstr ""
 
-#: ../inc/post-types.php:568
+#: ../inc/post-types.php:569
 msgid "(Full URL for icon or Dashicon class)"
 msgstr ""
 
-#: ../inc/post-types.php:569
+#: ../inc/post-types.php:570
 msgid "URL to image to be used as menu icon or Dashicon class to use instead."
 msgstr ""
 
-#: ../inc/post-types.php:572
+#: ../inc/post-types.php:573
 msgid "Supports"
 msgstr ""
 
-#: ../inc/post-types.php:582
+#: ../inc/post-types.php:583
 msgid "Title"
 msgstr ""
 
-#: ../inc/post-types.php:583
+#: ../inc/post-types.php:584
 msgid "Adds the title meta box when creating content for this custom post type"
 msgstr ""
 
-#: ../inc/post-types.php:597
+#: ../inc/post-types.php:598
 msgid "Editor"
 msgstr ""
 
-#: ../inc/post-types.php:598
+#: ../inc/post-types.php:599
 msgid ""
 "Adds the content editor meta box when creating content for this custom post "
 "type"
 msgstr ""
 
-#: ../inc/post-types.php:612
+#: ../inc/post-types.php:613
 msgid "Excerpt"
 msgstr ""
 
-#: ../inc/post-types.php:613
+#: ../inc/post-types.php:614
 msgid ""
 "Adds the excerpt meta box when creating content for this custom post type"
 msgstr ""
 
-#: ../inc/post-types.php:627
+#: ../inc/post-types.php:628
 msgid "Trackbacks"
 msgstr ""
 
-#: ../inc/post-types.php:628
+#: ../inc/post-types.php:629
 msgid ""
 "Adds the trackbacks meta box when creating content for this custom post type"
 msgstr ""
 
-#: ../inc/post-types.php:642
+#: ../inc/post-types.php:643
 msgid "Custom Fields"
 msgstr ""
 
-#: ../inc/post-types.php:643
+#: ../inc/post-types.php:644
 msgid ""
 "Adds the custom fields meta box when creating content for this custom post "
 "type"
 msgstr ""
 
-#: ../inc/post-types.php:657
+#: ../inc/post-types.php:658
 msgid "Comments"
 msgstr ""
 
-#: ../inc/post-types.php:658
+#: ../inc/post-types.php:659
 msgid ""
 "Adds the comments meta box when creating content for this custom post type"
 msgstr ""
 
-#: ../inc/post-types.php:672
+#: ../inc/post-types.php:673
 msgid "Revisions"
 msgstr ""
 
-#: ../inc/post-types.php:673
+#: ../inc/post-types.php:674
 msgid ""
 "Adds the revisions meta box when creating content for this custom post type"
 msgstr ""
 
-#: ../inc/post-types.php:687
+#: ../inc/post-types.php:688
 msgid "Featured Image"
 msgstr ""
 
-#: ../inc/post-types.php:688
+#: ../inc/post-types.php:689
 msgid ""
 "Adds the featured image meta box when creating content for this custom post "
 "type"
 msgstr ""
 
-#: ../inc/post-types.php:702
+#: ../inc/post-types.php:703
 msgid "Author"
 msgstr ""
 
-#: ../inc/post-types.php:703
+#: ../inc/post-types.php:704
 msgid ""
 "Adds the author meta box when creating content for this custom post type"
 msgstr ""
 
-#: ../inc/post-types.php:717
+#: ../inc/post-types.php:718
 msgid "Page Attributes"
 msgstr ""
 
-#: ../inc/post-types.php:718
+#: ../inc/post-types.php:719
 msgid ""
 "Adds the page attribute meta box when creating content for this custom post "
 "type"
 msgstr ""
 
-#: ../inc/post-types.php:732
+#: ../inc/post-types.php:733
 msgid "Post Formats"
 msgstr ""
 
-#: ../inc/post-types.php:733
+#: ../inc/post-types.php:734
 msgid "Adds post format support"
 msgstr ""
 
-#: ../inc/post-types.php:738
+#: ../inc/post-types.php:739
 msgid "\"Use the option below to explicitly set \"supports\" to false."
 msgstr ""
 
-#: ../inc/post-types.php:746
+#: ../inc/post-types.php:747
 msgid "None"
 msgstr ""
 
-#: ../inc/post-types.php:747
+#: ../inc/post-types.php:748
 msgid "Remove all support features"
 msgstr ""
 
-#: ../inc/post-types.php:754
+#: ../inc/post-types.php:755
 msgid "Built-in Taxonomies"
 msgstr ""
 
-#: ../inc/post-types.php:792 ../inc/taxonomies.php:161
+#: ../inc/post-types.php:793 ../inc/taxonomies.php:156
 #, php-format
 msgid "Adds %s support"
 msgstr ""
 
-#: ../inc/post-types.php:801 ../inc/taxonomies.php:467
+#: ../inc/post-types.php:802 ../inc/taxonomies.php:462
 msgid "Starter Notes"
 msgstr ""
 
-#: ../inc/post-types.php:804
+#: ../inc/post-types.php:805
 #, php-format
 msgid ""
 "Post Type names should have %smax 20 characters%s, and only contain "
@@ -832,7 +834,7 @@ msgid ""
 "revision, nav_menu_item."
 msgstr ""
 
-#: ../inc/post-types.php:805
+#: ../inc/post-types.php:806
 #, php-format
 msgid ""
 "If you are unfamiliar with the advanced post type settings, just fill in the "
@@ -841,7 +843,7 @@ msgid ""
 "post type name. Hover over the question mark for more details."
 msgstr ""
 
-#: ../inc/post-types.php:806
+#: ../inc/post-types.php:807
 #, php-format
 msgid ""
 "Deleting custom post types will %sNOT%s delete any content into the database "
@@ -849,19 +851,19 @@ msgid ""
 "the content will still exist."
 msgstr ""
 
-#: ../inc/post-types.php:885
+#: ../inc/post-types.php:886
 msgid "Please provide a post type to delete"
 msgstr ""
 
-#: ../inc/post-types.php:943
+#: ../inc/post-types.php:944
 msgid "Please provide a post type name"
 msgstr ""
 
-#: ../inc/post-types.php:961
+#: ../inc/post-types.php:962
 msgid "Please do not use quotes in post type names or rewrite slugs"
 msgstr ""
 
-#: ../inc/post-types.php:968
+#: ../inc/post-types.php:969
 #, php-format
 msgid "Please choose a different post type name. %s is already registered."
 msgstr ""
@@ -888,14 +890,16 @@ msgstr ""
 
 #: ../inc/support.php:56
 msgid ""
-"I changed my custom post type name and now I can not get to my posts. How do "
-"I get them back?"
+"I changed my custom post type or taxonomy slug and now I have duplicates "
+"shown. How do I remove the duplicate?"
 msgstr ""
 
 #: ../inc/support.php:57
 msgid ""
-"You can either change the custom post type name back to the original name or "
-"try the Post Type Switcher plugin"
+"Renaming the slug for a post type or taxonomy creates a new entry in our "
+"saved option which gets registered as its own post type or taxonomy. Since "
+"the settings will be mirrored from the previous slug, you will just need to "
+"delete the previous version's entry."
 msgstr ""
 
 #: ../inc/support.php:60
@@ -998,231 +1002,229 @@ msgid ""
 msgstr ""
 
 #: ../inc/taxonomies.php:80
-msgid "Select a taxonomy to edit"
+msgid ""
+"Select a taxonomy to edit. DO NOT EDIT the taxonomy slug unless necessary. "
+"Changing that value registers a new taxonomy entry for your install."
 msgstr ""
 
-#: ../inc/taxonomies.php:96
-msgid "Taxonomy Name"
+#: ../inc/taxonomies.php:102
+msgid "Taxonomy Slug"
 msgstr ""
 
-#: ../inc/taxonomies.php:104
+#: ../inc/taxonomies.php:103
 msgid "(e.g. actors)"
 msgstr ""
 
-#: ../inc/taxonomies.php:105
+#: ../inc/taxonomies.php:104
 msgid ""
 "The taxonomy name. Used to retrieve custom taxonomy content. Should be short "
 "and unique"
 msgstr ""
 
-#: ../inc/taxonomies.php:117 ../inc/taxonomies.php:190
+#: ../inc/taxonomies.php:112 ../inc/taxonomies.php:185
 msgid "(e.g. Actors)"
 msgstr ""
 
-#: ../inc/taxonomies.php:118
-msgid "Label"
-msgstr ""
-
-#: ../inc/taxonomies.php:119
+#: ../inc/taxonomies.php:114
 msgid "Taxonomy label. Used in the admin menu for displaying custom taxonomy."
 msgstr ""
 
-#: ../inc/taxonomies.php:126
+#: ../inc/taxonomies.php:121
 msgid "(e.g. Actor)"
 msgstr ""
 
-#: ../inc/taxonomies.php:128
+#: ../inc/taxonomies.php:123
 msgid ""
 "Taxonomy Singular label.  Used in WordPress when a singular label is needed."
 msgstr ""
 
-#: ../inc/taxonomies.php:131
+#: ../inc/taxonomies.php:126
 msgid "Attach to Post Type"
 msgstr ""
 
-#: ../inc/taxonomies.php:170
+#: ../inc/taxonomies.php:165
 msgid "Edit Taxonomy"
 msgstr ""
 
-#: ../inc/taxonomies.php:171
+#: ../inc/taxonomies.php:166
 msgid "Delete Taxonomy"
 msgstr ""
 
-#: ../inc/taxonomies.php:173
+#: ../inc/taxonomies.php:168
 msgid "Add Taxonomy"
 msgstr ""
 
-#: ../inc/taxonomies.php:192 ../inc/taxonomies.php:201
-#: ../inc/taxonomies.php:210 ../inc/taxonomies.php:219
-#: ../inc/taxonomies.php:228 ../inc/taxonomies.php:237
-#: ../inc/taxonomies.php:246 ../inc/taxonomies.php:255
-#: ../inc/taxonomies.php:264 ../inc/taxonomies.php:273
-#: ../inc/taxonomies.php:282 ../inc/taxonomies.php:291
-#: ../inc/taxonomies.php:300 ../inc/taxonomies.php:309
-#: ../inc/taxonomies.php:318
+#: ../inc/taxonomies.php:187 ../inc/taxonomies.php:196
+#: ../inc/taxonomies.php:205 ../inc/taxonomies.php:214
+#: ../inc/taxonomies.php:223 ../inc/taxonomies.php:232
+#: ../inc/taxonomies.php:241 ../inc/taxonomies.php:250
+#: ../inc/taxonomies.php:259 ../inc/taxonomies.php:268
+#: ../inc/taxonomies.php:277 ../inc/taxonomies.php:286
+#: ../inc/taxonomies.php:295 ../inc/taxonomies.php:304
+#: ../inc/taxonomies.php:313
 msgid ""
 "Custom taxonomy label. Used in the admin menu for displaying taxonomies."
 msgstr ""
 
-#: ../inc/taxonomies.php:199
+#: ../inc/taxonomies.php:194
 msgid "(e.g. All Actors)"
 msgstr ""
 
-#: ../inc/taxonomies.php:208
+#: ../inc/taxonomies.php:203
 msgid "(e.g. Edit Actor)"
 msgstr ""
 
-#: ../inc/taxonomies.php:217
+#: ../inc/taxonomies.php:212
 msgid "(e.g. View Actor)"
 msgstr ""
 
-#: ../inc/taxonomies.php:226
+#: ../inc/taxonomies.php:221
 msgid "(e.g. Update Actor Name)"
 msgstr ""
 
-#: ../inc/taxonomies.php:227
+#: ../inc/taxonomies.php:222
 msgid "Update Item Name"
 msgstr ""
 
-#: ../inc/taxonomies.php:235
+#: ../inc/taxonomies.php:230
 msgid "(e.g. Add New Actor)"
 msgstr ""
 
-#: ../inc/taxonomies.php:244
+#: ../inc/taxonomies.php:239
 msgid "(e.g. New Actor Name)"
 msgstr ""
 
-#: ../inc/taxonomies.php:245
+#: ../inc/taxonomies.php:240
 msgid "New Item Name"
 msgstr ""
 
-#: ../inc/taxonomies.php:253
+#: ../inc/taxonomies.php:248
 msgid "(e.g. Parent Actor)"
 msgstr ""
 
-#: ../inc/taxonomies.php:254
+#: ../inc/taxonomies.php:249
 msgid "Parent Item"
 msgstr ""
 
-#: ../inc/taxonomies.php:262
+#: ../inc/taxonomies.php:257
 msgid "(e.g. Parent Actor:)"
 msgstr ""
 
-#: ../inc/taxonomies.php:263
+#: ../inc/taxonomies.php:258
 msgid "Parent Item Colon"
 msgstr ""
 
-#: ../inc/taxonomies.php:271
+#: ../inc/taxonomies.php:266
 msgid "(e.g. Search Actors)"
 msgstr ""
 
-#: ../inc/taxonomies.php:272
+#: ../inc/taxonomies.php:267
 msgid "Search Items"
 msgstr ""
 
-#: ../inc/taxonomies.php:280
+#: ../inc/taxonomies.php:275
 msgid "(e.g. Popular Actors)"
 msgstr ""
 
-#: ../inc/taxonomies.php:281
+#: ../inc/taxonomies.php:276
 msgid "Popular Items"
 msgstr ""
 
-#: ../inc/taxonomies.php:289
+#: ../inc/taxonomies.php:284
 msgid "(e.g. Separate actors with commas)"
 msgstr ""
 
-#: ../inc/taxonomies.php:290
+#: ../inc/taxonomies.php:285
 msgid "Separate Items with Commas"
 msgstr ""
 
-#: ../inc/taxonomies.php:298
+#: ../inc/taxonomies.php:293
 msgid "(e.g. Add or remove actors)"
 msgstr ""
 
-#: ../inc/taxonomies.php:299
+#: ../inc/taxonomies.php:294
 msgid "Add or Remove Items"
 msgstr ""
 
-#: ../inc/taxonomies.php:307
+#: ../inc/taxonomies.php:302
 msgid "(e.g. Choose from the most used actors)"
 msgstr ""
 
-#: ../inc/taxonomies.php:308
+#: ../inc/taxonomies.php:303
 msgid "Choose From Most Used"
 msgstr ""
 
-#: ../inc/taxonomies.php:316
+#: ../inc/taxonomies.php:311
 msgid "(e.g. No actors found)"
 msgstr ""
 
-#: ../inc/taxonomies.php:317
+#: ../inc/taxonomies.php:312
 msgid "Not found"
 msgstr ""
 
-#: ../inc/taxonomies.php:340
+#: ../inc/taxonomies.php:335
 msgid "Whether the taxonomy can have parent-child relationships"
 msgstr ""
 
-#: ../inc/taxonomies.php:357
+#: ../inc/taxonomies.php:352
 msgid "Whether to generate a default UI for managing this custom taxonomy"
 msgstr ""
 
-#: ../inc/taxonomies.php:381
+#: ../inc/taxonomies.php:376
 msgid "(default: none). Query Var needs to be true to use."
 msgstr ""
 
-#: ../inc/taxonomies.php:382
+#: ../inc/taxonomies.php:377
 msgid "Custom Query Var String"
 msgstr ""
 
-#: ../inc/taxonomies.php:383
+#: ../inc/taxonomies.php:378
 msgid "Custom Query Var Slug"
 msgstr ""
 
-#: ../inc/taxonomies.php:399
+#: ../inc/taxonomies.php:394
 msgid "Triggers the handling of rewrites for this taxonomy"
 msgstr ""
 
-#: ../inc/taxonomies.php:407
+#: ../inc/taxonomies.php:402
 msgid "(default: taxonomy name)"
 msgstr ""
 
-#: ../inc/taxonomies.php:409
+#: ../inc/taxonomies.php:404
 msgid "Custom Taxonomy Rewrite Slug"
 msgstr ""
 
-#: ../inc/taxonomies.php:423
+#: ../inc/taxonomies.php:418
 msgid "Rewrite With Front"
 msgstr ""
 
-#: ../inc/taxonomies.php:424
+#: ../inc/taxonomies.php:419
 msgid "(default: true)"
 msgstr ""
 
-#: ../inc/taxonomies.php:440
+#: ../inc/taxonomies.php:435
 msgid "Rewrite Hierarchical"
 msgstr ""
 
-#: ../inc/taxonomies.php:441
+#: ../inc/taxonomies.php:436
 msgid "(default: false)"
 msgstr ""
 
-#: ../inc/taxonomies.php:442
+#: ../inc/taxonomies.php:437
 msgid "Should the permastruct allow hierarchical urls."
 msgstr ""
 
-#: ../inc/taxonomies.php:457
+#: ../inc/taxonomies.php:452
 msgid "Show Admin Column"
 msgstr ""
 
-#: ../inc/taxonomies.php:459
+#: ../inc/taxonomies.php:454
 msgid ""
 "Whether to allow automatic creation of taxonomy columns on associated post-"
 "types."
 msgstr ""
 
-#: ../inc/taxonomies.php:470
+#: ../inc/taxonomies.php:465
 #, php-format
 msgid ""
 "Taxonomy names should have %smax 32 characters%s, and only contain "
@@ -1230,7 +1232,7 @@ msgid ""
 "letters that do not have accents."
 msgstr ""
 
-#: ../inc/taxonomies.php:471
+#: ../inc/taxonomies.php:466
 #, php-format
 msgid ""
 "If you are unfamiliar with the advanced taxonomy settings, just fill in the "
@@ -1240,7 +1242,7 @@ msgid ""
 "marks for more details."
 msgstr ""
 
-#: ../inc/taxonomies.php:472
+#: ../inc/taxonomies.php:467
 #, php-format
 msgid ""
 "Deleting custom taxonomies do %sNOT%s delete terms added to those "
@@ -1249,19 +1251,19 @@ msgid ""
 "terms in the database."
 msgstr ""
 
-#: ../inc/taxonomies.php:560
+#: ../inc/taxonomies.php:555
 msgid "Please provide a taxonomy to delete"
 msgstr ""
 
-#: ../inc/taxonomies.php:609
+#: ../inc/taxonomies.php:604
 msgid "Please provide a taxonomy name"
 msgstr ""
 
-#: ../inc/taxonomies.php:625
+#: ../inc/taxonomies.php:620
 msgid "Please do not use quotes in taxonomy names or rewrite slugs"
 msgstr ""
 
-#: ../inc/taxonomies.php:631
+#: ../inc/taxonomies.php:626
 #, php-format
 msgid "Please choose a different taxonomy name. %s is already used."
 msgstr ""
