@@ -306,27 +306,7 @@ That's it! Now you can easily start creating custom post types and taxonomies in
 
 == Frequently Asked Questions ==
 
-= How can I display content from a custom post type on my website? =
-
-Justin Tadlock has written some great posts on the topic:
-[Showing Custom Post Types on your Home Page](https://github.com/WebDevStudios/custom-post-type-ui)
-[Custom Post Types in WordPress](http://justintadlock.com/archives/2010/04/29/custom-post-types-in-wordpress)
-
-= How can I add custom meta boxes to my custom post types? =
-
-The More Fields plugin does a great job at creating custom meta boxes and fully supports custom post types: http://wordpress.org/extend/plugins/more-fields/
-
-= I changed my custom post type name and now I can't get to my posts =
-
-You can either change the custom post type name back to the original name or try the Post Type Switcher plugin here: http://wordpress.org/extend/plugins/post-type-switcher/
-
-= I receive a 404 error when viewing custom post type content =
-
-This is usually caused if the rewrite slug was changed.  To fix this issue simply visit Settings > Permalinks to flush the rewrite rules in WordPress
-
-= Will this work in previous version of WordPress =
-
-The register_post_type function was added in WordPress 2.9 so technically it should work in 2.9, but there is no admin menu UI so all post types are created and used behind the scenes.
+Please see the Help/Support section for FAQs and start a new thread on the support forums for Custom Post Type UI if none of those answer your question.
 
 == Other Notes ==
 
