@@ -260,6 +260,16 @@ function cptui_register_single_taxonomy( $taxonomy = array() ) {
 		'show_admin_column' => $taxonomy[ 'show_admin_column' ]
 	);
 
+	/**
+	 * Filters the arguments used for a taxonomy right before registering.
+	 *
+	 * @since 0.9.0
+	 *
+	 * @param array  $args Array of arguments to use for registering taxonomy.
+	 * @param string $value Taxonomy slug to be registered.
+	 */
+	$args = apply_filters( 'cptui_pre_register_taxonomy', $args, $taxonomy['name'] );
+
 	return register_taxonomy( $taxonomy['name'], $taxonomy['object_type'], $args );
 }
 
