@@ -182,6 +182,16 @@ function cptui_register_single_post_type( $post_type = array() ) {
 		'taxonomies'          => $post_type['taxonomies']
 	);
 
+	/**
+	 * Filters the arguments used for a post type right before registering.
+	 *
+	 * @since 0.9.0
+	 *
+	 * @param array  $args Array of arguments to use for registering post type.
+	 * @param string $value Post type slug to be registered.
+	 */
+	$args = apply_filters( 'cptui_pre_register_post_type', $args, $post_type['name'] );
+
 	return register_post_type( $post_type['name'], $args );
 }
 
