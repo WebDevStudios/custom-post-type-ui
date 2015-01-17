@@ -53,6 +53,12 @@ function cptui_support() {
 					<h2><?php _e( 'General', 'cpt-plugin' ); ?></h2>
 					<ol id="questions_general">
 						<li>
+							<span class="question"><?php _e( 'I changed my custom post type name and now I can not get to my posts. How do I get them back?', 'cpt-plugin' ); ?></span>
+							<div class="answer"><?php _e( 'You can either change the custom post type name back to the original name or try the Post Type Switcher plugin', 'cpt-plugin' ); ?>
+								<a href="http://wordpress.org/plugins/post-type-switcher/" target="_blank">http://wordpress.org/extend/plugins/post-type-switcher/</a>
+							</div>
+						</li>
+						<li>
 							<span class="question"><?php _e( 'I changed my custom post type or taxonomy slug and now I have duplicates shown. How do I remove the duplicate?', 'cpt-plugin' ); ?></span>
 							<div class="answer"><?php _e( 'Renaming the slug for a post type or taxonomy creates a new entry in our saved option which gets registered as its own post type or taxonomy. Since the settings will be mirrored from the previous slug, you will just need to delete the previous version\'s entry.', 'cpt-plugin' ); ?> <a href="http://wordpress.org/plugins/post-type-switcher/" target="_blank">http://wordpress.org/extend/plugins/post-type-switcher/</a></div>
 						</li>
