@@ -23,7 +23,7 @@
 	width: 100%;
 }
 #cptui_accordion { height: 500px; }
-#cptui_accordion h3:hover { cursor: pointer; }
+#cptui_accordion h3:hover, .cptui-table .question:hover { cursor: pointer; }
 .question { font-size: 18px; font-weight: bold; }
 .answer { margin: 10px 0 0 20px; }
 #support li {
