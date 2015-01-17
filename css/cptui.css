@@ -79,3 +79,71 @@
 .valign {
 	vertical-align: top;
 }
+
+.about-wrap .cptui-feature {
+	overflow: visible !important;
+	*zoom:1;
+}
+.about-wrap h3 + .cptui-feature {
+	margin-top: 0;
+}
+.about-wrap .cptui-feature:before,
+.about-wrap .cptui-feature:after {
+	content: " ";
+	display: table;
+}
+.about-wrap .cptui-feature:after {
+	clear: both;
+}
+.about-wrap .feature-rest div {
+	width: 50% !important;
+	padding-right: 100px;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	margin: 0 !important;
+}
+.rtl .about-wrap .feature-rest div {
+	padding-left: 100px;
+}
+.about-wrap .feature-rest div.last-feature {
+	padding-left: 100px;
+	padding-right: 0;
+}
+.rtl .about-wrap .feature-rest div.last-feature {
+	padding-right: 100px;
+	padding-left: 0;
+}
+.about-wrap div.icon {
+	width: 0 !important;
+	padding: 0;
+	margin: 0;
+}
+.about-wrap .feature-rest div.icon:before {
+	font-weight: normal;
+	width: 100%;
+	font-size: 170px;
+	line-height: 125px;
+	color: #9c5d90;
+	display: inline-block;
+	position: relative;
+	text-align: center;
+	speak: none;
+	margin: 0 0 0 -100px;
+	content: "\e01d";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+.rtl .about-wrap .feature-rest div.icon:before {
+	margin: 0 -100px 0 0;
+}
+.about-integrations {
+	background: #fff;
+	margin: 20px 0;
+	padding: 1px 20px 10px;
+}
+.changelog h4 {
+	line-height: 1.4;
+}
+.cptui-about-text {
+    margin-bottom: 1em !important;
+}
