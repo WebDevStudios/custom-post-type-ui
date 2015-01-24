@@ -167,6 +167,7 @@ function cptui_manage_taxonomies() {
 					<?php } else { ?>
 						<input type="submit" class="button-primary" name="cpt_submit" value="<?php echo esc_attr( apply_filters( 'cptui_taxonomy_submit_add', __( 'Add Taxonomy', 'cpt-plugin' ) ) ); ?>" />
 					<?php } ?>
+					<input type="hidden" name="cpt_tax_status" id="cpt_tax_status" value="<?php echo $tab; ?>" />
 				</p>
 			</td>
 			<td>
@@ -622,7 +623,7 @@ function cptui_update_taxonomy( $data = array() ) {
 
 	$taxonomies = get_option( 'cptui_taxonomies', array() );
 
-	if ( 'Add Taxonomy' == $data['cpt_submit'] && array_key_exists( strtolower( $data['cpt_custom_tax']['name'] ), $taxonomies ) ) {
+	if ( 'new' == $data['cpt_tax_status'] && array_key_exists( strtolower( $data['cpt_custom_tax']['name'] ), $taxonomies ) ) {
 		return cptui_admin_notices(	'error', '', false, sprintf( __( 'Please choose a different taxonomy name. %s is already used.', 'cpt-plugin' ), $data['cpt_custom_tax']['name'] ) );
 	}
 
@@ -668,7 +669,7 @@ function cptui_update_taxonomy( $data = array() ) {
 	flush_rewrite_rules();
 
 	if ( isset( $success ) ) {
-		if ( 'Add Taxonomy' == $data['cpt_submit'] ) {
+		if ( 'new' == $data['cpt_tax_status'] ) {
 			return cptui_admin_notices( 'add', $data['cpt_custom_tax']['name'], $success );
 		}
 	}
