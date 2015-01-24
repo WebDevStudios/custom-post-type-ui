@@ -152,6 +152,9 @@ function cptui_manage_post_types() {
 					<?php } else { ?>
 						<input type="submit" class="button-primary" name="cpt_submit" value="<?php echo esc_attr( apply_filters( 'cptui_post_type_submit_add', __( 'Add Post Type', 'cpt-plugin' ) ) ); ?>" />
 					<?php } ?>
+					<?php if ( !empty( $current ) ) { ?>
+						<input type="hidden" name="cpt_original" id="cpt_original" value="<?php echo $current['name']; ?>" />
+					<?php } ?>
 					<input type="hidden" name="cpt_type_status" id="cpt_type_status" value="<?php echo $tab; ?>" />
 				</p>
 			</td>
@@ -945,6 +948,12 @@ function cptui_update_post_type( $data = array() ) {
 		return cptui_admin_notices(	'error', '', false, __( 'Please provide a post type name', 'cpt-plugin' ) );
 	}
 
+	if ( !empty( $data['cpt_original'] ) && $data['cpt_original'] != $data['cpt_custom_post_type']['name'] ) {
+		if ( !empty( $data['cpt_custom_post_type']['update_post_types'] ) ) {
+			cptui_convert_post_type_posts( $data['cpt_original'], $data['cpt_custom_post_type']['name'] );
+		}
+	}
+
 	# clean up $_POST data
 	foreach( $data as $key => $value ) {
 		if ( is_string( $value ) ) {
@@ -1081,4 +1090,6 @@ function cptui_convert_post_type_posts( $original_slug = '', $new_slug = '' ) {
 	if ( $convert->have_posts() ) : while ( $convert->have_posts() ) : $convert->the_post();
 		set_post_type( get_the_ID(), $new_slug );
 	endwhile; endif;
+
+	cptui_delete_post_type( $original_slug );
 }
