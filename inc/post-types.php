@@ -1063,3 +1063,21 @@ function cptui_reserved_post_types() {
 	    'theme'
 	) );
 }
+
+/**
+ * Converts post type between original and newly renamed.
+ *
+ * @param string $original_slug Original post type slug.
+ * @param string $new_slug      New post type slug.
+ */
+function cptui_convert_post_type_posts( $original_slug = '', $new_slug = '' ) {
+	$args = array(
+		'posts_per_page' => -1,
+		'post_type'      => $original_slug
+	);
+	$convert = new WP_Query( $args );
+
+	if ( $convert->have_posts() ) : while ( $convert->have_posts() ) : $convert->the_post();
+		set_post_type( get_the_ID(), $new_slug );
+	endwhile; endif;
+}
