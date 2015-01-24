@@ -949,7 +949,7 @@ function cptui_update_post_type( $data = array() ) {
 	}
 
 	if ( !empty( $data['cpt_original'] ) && $data['cpt_original'] != $data['cpt_custom_post_type']['name'] ) {
-		if ( !empty( $data['cpt_custom_post_type']['update_post_types'] ) ) {
+		if ( !empty( $data['update_post_types'] ) ) {
 			cptui_convert_post_type_posts( $data['cpt_original'], $data['cpt_custom_post_type']['name'] );
 		}
 	}
