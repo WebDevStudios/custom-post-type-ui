@@ -188,4 +188,5 @@ class CPTUI_Utility extends WP_UnitTestCase {
 	public function register_taxonomy() {
 		cptui_register_single_taxonomy( $this->taxonomy_array['actors'] );
 	}
+
 }
