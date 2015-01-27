@@ -122,6 +122,41 @@ class CPTUI_Utility extends WP_UnitTestCase {
 
 	}
 
+	public function test_get_disp_boolean() {
+
+		$this->assertFalse( get_disp_boolean( 0 ) );
+		$this->assertFalse( get_disp_boolean( '0' ) );
+		$this->assertFalse( get_disp_boolean( false ) );
+		$this->assertFalse( get_disp_boolean( 'false' ) );
+		$this->assertFalse( get_disp_boolean( '' ) );
+		$this->assertFalse( get_disp_boolean( null ) );
+
+		$this->assertTrue( get_disp_boolean( 1 ) );
+		$this->assertTrue( get_disp_boolean( '1' ) );
+		$this->assertTrue( get_disp_boolean( true ) );
+		$this->assertTrue( get_disp_boolean( 'true' ) );
+		$this->assertTrue( get_disp_boolean( 'abcd' ) );
+		$this->assertTrue( get_disp_boolean( 1235 ) );
+	}
+
+	public function test_disp_boolean() {
+
+		$this->assertEquals( 'false', disp_boolean( 0 ) );
+		$this->assertEquals( 'false', disp_boolean( '0' ) );
+		$this->assertEquals( 'false', disp_boolean( false ) );
+		$this->assertEquals( 'false', disp_boolean( 'false' ) );
+		$this->assertEquals( 'false', disp_boolean( '' ) );
+		$this->assertEquals( 'false', disp_boolean( null ) );
+
+		$this->assertEquals( 'true', disp_boolean( 1 ) );
+		$this->assertEquals( 'true', disp_boolean( '1' ) );
+		$this->assertEquals( 'true', disp_boolean( true ) );
+		$this->assertEquals( 'true', disp_boolean( 'true' ) );
+		$this->assertEquals( 'true', disp_boolean( 'abcd' ) );
+		$this->assertEquals( 'true', disp_boolean( 1235 ) );
+
+	}
+
 	/**
 	 * Create our base post type to test.
 	 * @return mixed|void
@@ -153,4 +188,5 @@ class CPTUI_Utility extends WP_UnitTestCase {
 	public function register_taxonomy() {
 		cptui_register_single_taxonomy( $this->taxonomy_array['actors'] );
 	}
+
 }
