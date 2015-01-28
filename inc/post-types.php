@@ -160,12 +160,11 @@ function cptui_manage_post_types() {
 							) );
 
 						echo $ui->get_check_input( array(
-							'checkvalue'    => 'migrate',
+							'checkvalue'    => 'update_post_types',
 							'checked'       => 'false',
-							'name'          => 'migrate',
-							'namearray'     => 'migrate',
-							'textvalue'     => 'migrate',
-							'labeltext'     => __( 'Migrate posts in post type?' , 'cpt-plugin' ),
+							'name'          => 'update_post_types',
+							'namearray'     => 'update_post_types',
+							'labeltext'     => __( 'Migrate posts to newly renamed post type?' , 'cpt-plugin' ),
 							'helptext'      => esc_attr__( 'Check this to migrate posts if and when renaming your post type.', 'cpt-plugin' ),
 							'default'       => false
 						) );
