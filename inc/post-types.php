@@ -12,6 +12,15 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * @since 0.9.0
  */
 function cptui_post_type_enqueue_scripts() {
+	$cpts = get_option( 'cptui_post_types' );
+
+	if ( is_array( $cpts ) ) {
+		$cpt_names = array();
+		foreach ( $cpts as $type ) {
+			$cpt_names[] = $type['name'];
+		}
+	}
+
 	wp_enqueue_script( 'cptui', plugins_url( 'js/cptui.js', dirname(__FILE__) ), array( 'jquery', 'jquery-ui-core', 'jquery-ui-accordion' ), '0.9', true );
 	wp_localize_script(	'cptui', 'confirmdata', array( 'confirm' => __( 'Are you sure you want to delete this?', 'cpt-plugin' ) ) );
 }
