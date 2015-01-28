@@ -281,7 +281,7 @@ function cptui_register_single_taxonomy( $taxonomy = array() ) {
  * @return string $value HTML markup for the page.
  */
 function cptui_settings() { ?>
-	<div class="wrap">
+	<div class="wrap about-wrap">
 		<?php
 
 		/**
@@ -290,72 +290,32 @@ function cptui_settings() { ?>
 		 * @since 0.9.0
 		 */
 		do_action( 'cptui_main_page_start' ); ?>
-		<h2><?php _e( 'Custom Post Type UI', 'cpt-plugin' ); ?> <?php echo CPT_VERSION; ?></h2>
+		<h1><?php _e( 'Custom Post Type UI', 'cpt-plugin' ); ?> <?php echo CPT_VERSION; ?></h1>
 
-		<div class="alignleft">
-			<p><?php _e( 'Thank you for choosing Custom Post Type UI. We hope that your experience with our plugin provides efficiency and speed in creating post types and taxonomies, to better organize your content, without having to touch code.', 'cpt-plugin' ); ?></p>
-
-			<p><?php echo sprintf( __( 'To get started with creating some post types, please visit %s and for taxonomies, visit %s. If you need some help, check the %s page. If nothing there fits your issue, visit our %s and we will try to get to your question as soon as possible.', 'cpt-plugin' ),
-					sprintf( '<a href="' . admin_url( 'admin.php?page=cptui_manage_post_types' ) . '">%s</a>', __( 'Add/Edit Post Types', 'cpt-plugin' ) ),
-					sprintf( '<a href="' . admin_url( 'admin.php?page=cptui_manage_taxonomies' ) . '">%s</a>', __( 'Add/Edit Taxonomies', 'cpt-plugin' ) ),
-					sprintf( '<a href="' . admin_url( 'admin.php?page=cptui_support' ) . '">%s</a>', __( 'Help/Support', 'cpt-plugin' ) ),
-					sprintf( '<a href="http://wordpress.org/support/plugin/custom-post-type-ui">%s</a>', __( 'CPT UI Support Forum', 'cpt-plugin' ) )
-				);
-			?>
-			</p>
+		<div class="about-text cptui-about-text">
+			<?php _e( 'Thank you for choosing Custom Post Type UI. We hope that your experience with our plugin provides efficiency and speed in creating post types and taxonomies, to better organize your content, without having to touch code.', 'cpt-plugin' ); ?>
 		</div>
 
-		<?php
-
-		/**
-		 * Fires right above the table displaying the promoted books.
-		 *
-		 * @since 0.9.0
-		 */
-		do_action( 'cptui_main_page_before_books' ); ?>
-		<table border="0">
-			<tr>
-				<td colspan="3"><h2><?php _e( 'Help Support This Plugin!', 'cpt-plugin' ); ?></h2></td>
-			</tr>
-			<tr>
-				<td class="one-third valign">
-					<h3><?php _e( 'Professional WordPress<br />Third Edition', 'cpt-plugin' ); ?></h3>
-					<a href="http://bit.ly/prowp3" target="_blank">
-						<img src="<?php echo plugins_url( '/images/professional-wordpress-thirdedition.jpg', __FILE__ ); ?>" width="200">
-					</a>
-					<br />
-					<?php _e( 'The leading book on WordPress design and development! Brand new third edition!', 'cpt-plugin' ); ?>
-				</td>
-				<td class="one-third valign">
-					<h3><?php _e( 'Professional WordPress<br />Plugin Development', 'cpt-plugin' ); ?></h3>
-					<a href="http://amzn.to/plugindevbook" target="_blank">
-						<img src="<?php echo plugins_url( '/images/professional-wordpress-plugin-development.png', __FILE__ ); ?>" width="200">
-					</a>
-					<br />
-					<?php _e( 'Highest rated WordPress development book on Amazon!', 'cpt-plugin' ); ?>
-				</td>
-				<td class="one-third valign">
-					<h3><?php _e( 'PayPal Donation', 'cpt-plugin' ); ?></h3>
-					<p><?php _e( 'Please donate to the development of Custom Post Type UI:', 'cpt-plugin' ); ?></p>
-					<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-					<input type="hidden" name="cmd" value="_s-xclick">
-					<input type="hidden" name="hosted_button_id" value="YJEDXPHE49Q3U">
-					<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donateCC_LG.gif" name="submit" alt="<?php esc_attr_e( 'PayPal - The safer, easier way to pay online!', 'cpt-plugin' ); ?>">
-					<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
-					</form>
-
-				</td>
-			</tr>
-		</table>
-
-		<?php
-		/**
-		 * Fires right after the table displaying the promoted books.
-		 *
-		 * @since 0.9.0
-		 */
-		do_action( 'cptui_main_page_after_books' ); ?>
-
+		<div class="changelog about-integrations">
+			<h3><?php _e( 'About Custom Post Type UI', 'reactor' ); ?></h3>
+			<div class="cptui-feature feature-section col three-col">
+				<div>
+					IMG GOES HERE
+					<h4><?php _e( 'headline', 'cpt-plugin' ); ?></h4>
+					<p><?php _e( 'about' ); ?></p>
+				</div>
+				<div>
+					IMG GOES HERE
+					<h4><?php _e( 'headline', 'cpt-plugin' ); ?></h4>
+					<p><?php _e( 'about' ); ?></p>
+				</div>
+				<div class="last-feature">
+					IMG GOES HERE
+					<h4><?php _e( 'headline', 'cpt-plugin' ); ?></h4>
+					<p><?php _e( 'about' ); ?></p>
+				</div>
+			</div>
+		</div>
 	</div>
 	<?php
 }
