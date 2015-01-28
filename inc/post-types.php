@@ -22,7 +22,13 @@ function cptui_post_type_enqueue_scripts() {
 	}
 
 	wp_enqueue_script( 'cptui', plugins_url( 'js/cptui.js', dirname(__FILE__) ), array( 'jquery', 'jquery-ui-core', 'jquery-ui-accordion' ), '0.9', true );
-	wp_localize_script(	'cptui', 'confirmdata', array( 'confirm' => __( 'Are you sure you want to delete this?', 'cpt-plugin' ) ) );
+	wp_localize_script(	'cptui', 'cptui_type_data',
+		array(
+			'confirm' => __( 'Are you sure you want to delete this?', 'cpt-plugin' ),
+			'post_change_name' => '<span class="typetax-rename cptui-hidden">' . __( 'Changing without converting posts will create a new post type.', 'cpt-plugin' ) . '</span>',
+			'post_types' => $cpt_names
+		)
+	);
 }
 add_action( 'admin_enqueue_scripts', 'cptui_post_type_enqueue_scripts' );
 
