@@ -14,6 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 function cptui_post_type_enqueue_scripts() {
 	$cpts = get_option( 'cptui_post_types' );
 
+	$cpt_names = array();
 	if ( is_array( $cpts ) ) {
 		$cpt_names = array();
 		foreach ( $cpts as $type ) {
