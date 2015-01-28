@@ -159,15 +159,17 @@ function cptui_manage_post_types() {
 							'helptext' => esc_attr__( 'Custom Post Type Description. Describe what your custom post type is used for.', 'cpt-plugin' )
 							) );
 
-						echo $ui->get_check_input( array(
-							'checkvalue'    => 'update_post_types',
-							'checked'       => 'false',
-							'name'          => 'update_post_types',
-							'namearray'     => 'update_post_types',
-							'labeltext'     => __( 'Migrate posts to newly renamed post type?' , 'cpt-plugin' ),
-							'helptext'      => esc_attr__( 'Check this to migrate posts if and when renaming your post type.', 'cpt-plugin' ),
-							'default'       => false
-						) );
+						if ( 'edit' == $tab ) {
+							echo $ui->get_check_input( array(
+								'checkvalue' => 'update_post_types',
+								'checked'    => 'false',
+								'name'       => 'update_post_types',
+								'namearray'  => 'update_post_types',
+								'labeltext'  => __( 'Migrate posts to newly renamed post type?', 'cpt-plugin' ),
+								'helptext'   => esc_attr__( 'Check this to migrate posts if and when renaming your post type.', 'cpt-plugin' ),
+								'default'    => false
+							) );
+						}
 						?>
 					</table>
 				<p class="submit">
