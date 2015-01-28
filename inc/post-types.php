@@ -157,6 +157,17 @@ function cptui_manage_post_types() {
 							'labeltext' => __('Description', 'cpt-plugin'),
 							'helptext' => esc_attr__( 'Custom Post Type Description. Describe what your custom post type is used for.', 'cpt-plugin' )
 							) );
+
+						echo $ui->get_check_input( array(
+							'checkvalue'    => 'migrate',
+							'checked'       => 'false',
+							'name'          => 'migrate',
+							'namearray'     => 'migrate',
+							'textvalue'     => 'migrate',
+							'labeltext'     => __( 'Migrate posts in post type?' , 'cpt-plugin' ),
+							'helptext'      => esc_attr__( 'Check this to migrate posts if and when renaming your post type.', 'cpt-plugin' ),
+							'default'       => false
+						) );
 						?>
 					</table>
 				<p class="submit">
