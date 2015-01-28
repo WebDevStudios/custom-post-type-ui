@@ -79,3 +79,10 @@
 .valign {
 	vertical-align: top;
 }
+.typetax-rename {
+	color: rgb(255,0,0);
+	display: block;
+}
+.typetax-rename.cptui-hidden {
+	display: none;
+}
