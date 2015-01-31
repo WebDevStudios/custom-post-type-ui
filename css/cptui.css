@@ -1,0 +1,81 @@
+.help {
+	border-radius: 50%;
+	display: inline-block;
+	height: 15px;
+	margin-left: 2px;
+	text-align: center;
+	width: 15px;
+}
+.help:hover { font-weight: bold; }
+.required { color: rgb(255,0,0); }
+.cptui-table #excerpt { height: 16px; margin-right: 4px; width: auto; }
+.cptui-table td { vertical-align: top; width: 50%; }
+#cptui_select_post_type, #cptui_select_taxonomy { margin-top: 15px; }
+.cptui_post_import, .cptui_tax_import {
+	height: 200px;
+	margin-bottom: 10px;
+	resize: vertical;
+	width: 100%;
+}
+.cptui_post_type_get_code, .cptui_tax_get_code {
+	height: 300px;
+	resize: vertical;
+	width: 100%;
+}
+#cptui_accordion { height: 500px; }
+#cptui_accordion h3:hover, .cptui-table .question:hover { cursor: pointer; }
+.question { font-size: 18px; font-weight: bold; }
+.answer { margin: 10px 0 0 20px; }
+#support li {
+	position: relative;
+}
+#cptui_accordion h3:after, #support .question:before {
+	content: "\f139";
+	display: inline-block;
+	font: normal 25px/1 'dashicons';
+	-webkit-font-smoothing: antialiased;
+}
+#cptui_accordion h3.ui-state-active:after, #support .question.active:before {
+	content: "\f140";
+}
+#support .question:before {
+	margin-left: -25px;
+	position: absolute;
+}
+#cptui_accordion h3:after {
+	position: absolute;
+}
+#support ol li { list-style: none; }
+
+.ui-accordion-content {
+	overflow: auto;
+	margin: 0 auto;
+
+	background:
+		/* Shadow covers */
+		linear-gradient(#F1F1F1 30%, rgba(255,255,255,0)),
+		linear-gradient(rgba(255,255,255,0), #F1F1F1 70%) 0 100%,
+
+		/* Shadows */
+		radial-gradient(50% 0, farthest-side, rgba(0,0,0,.3), rgba(0,0,0,0)),
+		radial-gradient(50% 100%,farthest-side, rgba(0,0,0,.3), rgba(0,0,0,0)) 0 100%;
+	background:
+		/* Shadow covers */
+		linear-gradient(#F1F1F1 30%, rgba(255,255,255,0)),
+		linear-gradient(rgba(255,255,255,0), #F1F1F1 70%) 0 100%,
+
+		/* Shadows */
+		radial-gradient(farthest-side at 50% 0, rgba(0,0,0,.3), rgba(0,0,0,0)),
+		radial-gradient(farthest-side at 50% 100%, rgba(0,0,0,.3), rgba(0,0,0,0)) 0 100%;
+	background-repeat: no-repeat;
+	background-size: 100% 40px, 100% 40px, 100% 14px, 100% 14px;
+
+	/* Opera doesn't support this in the shorthand */
+	background-attachment: local, local, scroll, scroll;
+}
+.one-third {
+	width: 33%;
+}
+.valign {
+	vertical-align: top;
+}
