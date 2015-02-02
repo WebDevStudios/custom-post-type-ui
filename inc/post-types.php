@@ -917,6 +917,8 @@ function cptui_delete_post_type( $data = array() ) {
 	 */
 	do_action( 'cptui_after_delete_post_type', $data );
 
+	flush_rewrite_rules();
+
 	if ( isset( $success ) ) {
 		return cptui_admin_notices( 'delete', $data['cpt_custom_post_type']['name'], $success );
 	}
