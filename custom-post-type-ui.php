@@ -554,6 +554,10 @@ function cptui_convert_settings() {
 		$retval = update_option( 'cptui_taxonomies', $new_taxonomies );
 	}
 
+	if ( !empty( $retval ) ) {
+		flush_rewrite_rules();
+	}
+
 	return $retval;
 }
 add_action( 'admin_init', 'cptui_convert_settings' );
