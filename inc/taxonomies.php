@@ -574,6 +574,8 @@ function cptui_delete_taxonomy( $data = array() ) {
 	 */
 	do_action( 'cptui_after_delete_taxonomy', $data );
 
+	flush_rewrite_rules();
+
 	if ( isset( $success ) ) {
 		return cptui_admin_notices( 'delete', $data['cpt_custom_tax']['name'], $success );
 	}
