@@ -238,12 +238,12 @@ function cptui_register_single_taxonomy( $taxonomy = array() ) {
 			$rewrite['slug'] = $taxonomy['rewrite_slug'];
 		}
 
-		$withfront = disp_boolean( $taxonomy['rewrite_withfront'] );
+		$withfront = ( !empty( $taxonomy['rewrite_withfront'] ) ) ? disp_boolean( $taxonomy['rewrite_withfront'] ) : '';
 		if ( !empty( $withfront ) ) {
 			$rewrite['with_front'] = $taxonomy['rewrite_withfront'];
 		}
 
-		$hierarchical = disp_boolean( $taxonomy['rewrite_hierarchical'] );
+		$hierarchical = ( !empty( $taxonomy['rewrite_hierarchical'] ) ) ? disp_boolean( $taxonomy['rewrite_hierarchical'] ) : '';
 		if ( !empty( $hierarchical ) ) {
 			$rewrite['rewrite_hierarchical'] = $taxonomy['rewrite_hierarchical'];
 		}
