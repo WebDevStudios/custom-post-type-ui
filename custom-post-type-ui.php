@@ -177,7 +177,7 @@ function cptui_register_single_post_type( $post_type = array() ) {
 		'rewrite'             => $rewrite,
 		'menu_position'       => $post_type['menu_position'],
 		'menu_icon'           => $post_type['menu_icon'],
-		'query_var'           => $post_type['query_var'],
+		'query_var'           => get_disp_boolean( $post_type['query_var'] ),
 		'supports'            => $post_type['supports'],
 		'taxonomies'          => $post_type['taxonomies']
 	);
