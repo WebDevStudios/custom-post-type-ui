@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 /**
  * Add our cptui.js file, with dependencies on jQuery.
  *
- * @since 0.9.0
+ * @since 1.0.0
  */
 function cptui_support_enqueue_scripts() {
 	wp_enqueue_script( 'cptui', plugins_url( 'js/cptui.js' , dirname(__FILE__) ) . '', array( 'jquery' ), '0.9', true );
@@ -17,7 +17,7 @@ add_action( 'admin_enqueue_scripts', 'cptui_support_enqueue_scripts' );
 /**
  * Add our settings page to the menu.
  *
- * @since 0.9.0
+ * @since 1.0.0
  */
 function cptui_support_admin_menu() {
 	add_submenu_page( 'cptui_main_menu', __( 'Help/Support', 'cpt-plugin' ), __( 'Help/Support', 'cpt-plugin' ), 'manage_options', 'cptui_support', 'cptui_support' );
@@ -27,7 +27,7 @@ add_action( 'admin_menu', 'cptui_support_admin_menu' );
 /**
  * Create our settings page output.
  *
- * @since 0.9.0
+ * @since 1.0.0
  *
  * @return string HTML output for the page.
  */
@@ -37,7 +37,7 @@ function cptui_support() {
 		/**
 		 * Fires at the top of the FAQ/Support page.
 		 *
-		 * @since 0.9.0
+		 * @since 1.0.0
 		 */
 		do_action( 'cptui_main_page_before_faq' ); ?>
 
@@ -146,7 +146,7 @@ add_filter( 'enter_title_here', 'my_custom_title_text' );
 					/**
 					 * Fires in the last table cell of the FAQ list.
 					 *
-					 * @since 0.9.0
+					 * @since 1.0.0
 					 */
 					do_action( 'cptui_main_page_custom_questions' );
 					?>
@@ -159,7 +159,7 @@ add_filter( 'enter_title_here', 'my_custom_title_text' );
 		/**
 		 * Fires at the bottom of the FAQ/Support page.
 		 *
-		 * @since 0.9.0
+		 * @since 1.0.0
 		 */
 		do_action( 'cptui_main_page_after_faq' );
 

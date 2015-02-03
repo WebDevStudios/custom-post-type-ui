@@ -4,7 +4,7 @@ Plugin Name: Custom Post Type UI
 Plugin URI: https://github.com/WebDevStudios/custom-post-type-ui/
 Description: Admin panel for creating custom post types and custom taxonomies in WordPress
 Author: WebDevStudios.com
-Version: 0.9.0
+Version: 1.0.0
 Author URI: http://webdevstudios.com/
 Text Domain: cpt-plugin
 License: GPLv2
@@ -15,13 +15,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'CPT_VERSION', '0.9.0' );
+define( 'CPT_VERSION', '1.0.0' );
 define( 'CPTUI_WP_VERSION', get_bloginfo( 'version' ) );
 
 /**
  * Load our Admin UI class that powers our form inputs.
  *
- * @since 0.9.0
+ * @since 1.0.0
  */
 function cptui_load_ui_class() {
 	require_once( plugin_dir_path( __FILE__ ) . 'classes/class.cptui_admin_ui.php' );
@@ -61,7 +61,7 @@ add_action( 'admin_menu', 'cptui_plugin_menu' );
 /**
  * Load our submenus.
  *
- * @since 0.9.0
+ * @since 1.0.0
  */
 function cptui_create_submenus() {
 	require_once( plugin_dir_path( __FILE__ ) . 'inc/post-types.php' );
@@ -96,7 +96,7 @@ add_action( 'init', 'cptui_create_custom_post_types', 11 ); //Priority 11 so tha
 /**
  * Helper function to register the actual post_type.
  *
- * @since 0.9.0
+ * @since 1.0.0
  *
  * @param array $post_type Post type array to register.
  *
@@ -107,7 +107,7 @@ function cptui_register_single_post_type( $post_type = array() ) {
 	/**
 	 * Filters the map_meta_cap value.
 	 *
-	 * @since 0.9.0
+	 * @since 1.0.0
 	 *
 	 * @param bool   $value     True.
 	 * @param string $name      Post type name being registered.
@@ -118,7 +118,7 @@ function cptui_register_single_post_type( $post_type = array() ) {
 	/**
 	 * Filters custom supports parameters for 3rd party plugins.
 	 *
-	 * @since 0.9.0
+	 * @since 1.0.0
 	 *
 	 * @param array  $value     Empty array to add supports keys to.
 	 * @param string $name      Post type slug being registered.
@@ -185,7 +185,7 @@ function cptui_register_single_post_type( $post_type = array() ) {
 	/**
 	 * Filters the arguments used for a post type right before registering.
 	 *
-	 * @since 0.9.0
+	 * @since 1.0.0
 	 *
 	 * @param array  $args Array of arguments to use for registering post type.
 	 * @param string $value Post type slug to be registered.
@@ -263,7 +263,7 @@ function cptui_register_single_taxonomy( $taxonomy = array() ) {
 	/**
 	 * Filters the arguments used for a taxonomy right before registering.
 	 *
-	 * @since 0.9.0
+	 * @since 1.0.0
 	 *
 	 * @param array  $args Array of arguments to use for registering taxonomy.
 	 * @param string $value Taxonomy slug to be registered.
@@ -287,7 +287,7 @@ function cptui_settings() { ?>
 		/**
 		 * Fires inside and at the top of the wrapper for the main plugin landing page.
 		 *
-		 * @since 0.9.0
+		 * @since 1.0.0
 		 */
 		do_action( 'cptui_main_page_start' ); ?>
 		<h2><?php _e( 'Custom Post Type UI', 'cpt-plugin' ); ?> <?php echo CPT_VERSION; ?></h2>
@@ -310,7 +310,7 @@ function cptui_settings() { ?>
 		/**
 		 * Fires right above the table displaying the promoted books.
 		 *
-		 * @since 0.9.0
+		 * @since 1.0.0
 		 */
 		do_action( 'cptui_main_page_before_books' ); ?>
 		<table border="0">
@@ -351,7 +351,7 @@ function cptui_settings() { ?>
 		/**
 		 * Fires right after the table displaying the promoted books.
 		 *
-		 * @since 0.9.0
+		 * @since 1.0.0
 		 */
 		do_action( 'cptui_main_page_after_books' ); ?>
 
@@ -435,7 +435,7 @@ function disp_boolean( $booText ) {
 /**
  * Construct and output tab navigation.
  *
- * @since 0.9.0
+ * @since 1.0.0
  *
  * @param string $page Whether it's the CPT or Taxonomy page.
  *
@@ -500,7 +500,7 @@ function cptui_settings_tab_menu( $page = 'post_types' ) {
 	/**
 	 * Fires inside and at end of the `<h2>` tag for settings tabs area.
 	 *
-	 * @since 0.9.0
+	 * @since 1.0.0
 	 */
 	do_action( 'cptui_settings_tabs_after' );
 	?>
@@ -512,7 +512,7 @@ function cptui_settings_tab_menu( $page = 'post_types' ) {
 /**
  * Convert our old settings to the new options keys.
  *
- * @since 0.9.0
+ * @since 1.0.0
  *
  * @return bool Whether or not options were successfully updated.
  */
@@ -565,7 +565,7 @@ add_action( 'admin_init', 'cptui_convert_settings' );
 /**
  * Edit links that appear on installed plugins list page, for our plugin.
  *
- * @since 0.9.0
+ * @since 1.0.0
  *
  * @param array $links Array of links to display below our plugin listing.
  *
@@ -585,7 +585,7 @@ add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'cptui_edit_pl
 /**
  * Return a notice based on conditions.
  *
- * @since 0.9.0
+ * @since 1.0.0
  *
  * @param string $action       The type of action that occurred.
  * @param string $object_type  Whether it's from a post type or taxonomy.
@@ -638,7 +638,7 @@ function cptui_admin_notices( $action = '', $object_type = '', $success = true ,
 		/**
 		 * Filters the custom admin notice for CPTUI.
 		 *
-		 * @since 0.9.0
+		 * @since 1.0.0
 		 *
 		 * @param string $value            Complete HTML output for notice.
 		 * @param string $action           Action whose message is being generated.

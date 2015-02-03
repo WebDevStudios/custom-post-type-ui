@@ -9,10 +9,10 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 /**
  * Add our cptui.js file, with dependencies on jQuery and jQuery UI.
  *
- * @since 0.9.0
+ * @since 1.0.0
  */
 function cptui_post_type_enqueue_scripts() {
-	wp_enqueue_script( 'cptui', plugins_url( 'js/cptui.js', dirname(__FILE__) ), array( 'jquery', 'jquery-ui-core', 'jquery-ui-accordion' ), '0.9', true );
+	wp_enqueue_script( 'cptui', plugins_url( 'js/cptui.js', dirname(__FILE__) ), array( 'jquery', 'jquery-ui-core', 'jquery-ui-accordion' ), CPT_VERSION, true );
 	wp_localize_script(	'cptui', 'confirmdata', array( 'confirm' => __( 'Are you sure you want to delete this?', 'cpt-plugin' ) ) );
 }
 add_action( 'admin_enqueue_scripts', 'cptui_post_type_enqueue_scripts' );
@@ -20,7 +20,7 @@ add_action( 'admin_enqueue_scripts', 'cptui_post_type_enqueue_scripts' );
 /**
  * Add our settings page to the menu.
  *
- * @since 0.9.0
+ * @since 1.0.0
  */
 function cptui_post_types_admin_menu() {
 	add_submenu_page( 'cptui_main_menu', __( 'Add/Edit Post Types', 'cpt-plugin' ), __( 'Add/Edit Post Types', 'cpt-plugin' ), 'manage_options', 'cptui_manage_post_types', 'cptui_manage_post_types' );
@@ -30,7 +30,7 @@ add_action( 'admin_menu', 'cptui_post_types_admin_menu' );
 /**
  * Create our settings page output.
  *
- * @since 0.9.0
+ * @since 1.0.0
  *
  * @return string HTML output for the page.
  */
@@ -761,7 +761,7 @@ function cptui_manage_post_types() {
 							/**
 							 * Filters the arguments for taxonomies to list for post type association.
 							 *
-							 * @since 0.9.0
+							 * @since 1.0.0
 							 *
 							 * @param array $value Array of default arguments.
 							 */
@@ -770,7 +770,7 @@ function cptui_manage_post_types() {
 							/**
 							 * Filters the arguments for output type for returned results.
 							 *
-							 * @since 0.9.0
+							 * @since 1.0.0
 							 *
 							 * @param string $value Default output type.
 							 */
@@ -822,7 +822,7 @@ function cptui_manage_post_types() {
 /**
  * Construct a dropdown of our post types so users can select which to edit.
  *
- * @since 0.9.0
+ * @since 1.0.0
  *
  * @param array $post_types Array of post types that are registered.
  *
@@ -857,7 +857,7 @@ function cptui_post_types_dropdown( $post_types = array() ) {
 /**
  * Get the selected post type from the $_POST global.
  *
- * @since 0.9.0
+ * @since 1.0.0
  *
  * @return bool|string $value False on no result, sanitized post type if set.
  */
@@ -878,7 +878,7 @@ function cptui_get_current_post_type() {
 /**
  * Delete our custom post type from the array of post types.
  *
- * @since 0.9.0
+ * @since 1.0.0
  *
  * @param $data array $_POST values.
  *
@@ -893,7 +893,7 @@ function cptui_delete_post_type( $data = array() ) {
 	/**
 	 * Fires before a post type is deleted from our saved options.
 	 *
-	 * @since 0.9.0
+	 * @since 1.0.0
 	 *
 	 * @param array $data Array of post type data we are deleting.
 	 */
@@ -911,7 +911,7 @@ function cptui_delete_post_type( $data = array() ) {
 	/**
 	 * Fires after a post type is deleted from our saved options.
 	 *
-	 * @since 0.9.0
+	 * @since 1.0.0
 	 *
 	 * @param array $data Array of post type data that was deleted.
 	 */
@@ -928,7 +928,7 @@ function cptui_delete_post_type( $data = array() ) {
 /**
  * Add to or update our CPTUI option with new data.
  *
- * @since 0.9.0
+ * @since 1.0.0
  *
  * @param array $data Array of post type data to update.
  *
@@ -939,7 +939,7 @@ function cptui_update_post_type( $data = array() ) {
 	/**
 	 * Fires before a post_type is updated to our saved options.
 	 *
-	 * @since 0.9.0
+	 * @since 1.0.0
 	 *
 	 * @param array $data Array of post_type data we are updating.
 	 */
@@ -1037,7 +1037,7 @@ function cptui_update_post_type( $data = array() ) {
 	/**
 	 * Fires after a post type is updated to our saved options.
 	 *
-	 * @since 0.9.0
+	 * @since 1.0.0
 	 *
 	 * @param array $data Array of post type data that was updated.
 	 */
@@ -1056,7 +1056,7 @@ function cptui_update_post_type( $data = array() ) {
 /**
  * Return an array of names that users should not or can not use for post type names.
  *
- * @since 0.9.0
+ * @since 1.0.0
  *
  * @return array $value Array of names that are recommended against.
  */
@@ -1067,7 +1067,7 @@ function cptui_reserved_post_types() {
 	 *
 	 * 3rd party plugin authors could use this to prevent duplicate post types.
 	 *
-	 * @since 0.9.0
+	 * @since 1.0.0
 	 *
 	 * @param array $value Array of post type slugs to forbid.
 	 */

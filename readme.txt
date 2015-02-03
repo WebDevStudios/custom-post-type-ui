@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: custom post types, CPT, CMS, post, types, post type, cck, taxonomy, tax, custom
 Requires at least: 3.8
 Tested up to: 4.1
-Stable tag: 0.9.0
+Stable tag: 1.0.0
 License: GPLv2
 
 Admin UI for creating custom post types and custom taxonomies in WordPress
@@ -37,7 +37,7 @@ Implied credit to:
 
 == Changelog ==
 
-= 0.9.0 =
+= 1.0.0 =
 * CPTUI has been given a new UI!
 * Separated out post type and taxonomy creation to their own screens.
 * Added import/export ability for post type and taxonomy settings.
@@ -49,6 +49,12 @@ Implied credit to:
 * Added function that automatically converts 0.8.x and down settings to new setting arrangement.
 * Changed how settings are stored so that post types and taxonomies are in named array indexes.
 * Bug fixes not mentioned above.
+
+= 0.9.5 =
+* Revert 0.9.0 release until unfound bugs are fixed.
+
+= 0.9.0 =
+* See 1.0.0 list. This was reverted by 0.9.5 release.
 
 = 0.8.5 =
 * Fix issue with menu_postion being quoted in CPT get_code functionality.
@@ -177,7 +183,7 @@ Implied credit to:
 
 == Upgrade Notice ==
 
-= 0.9.0 =
+= 1.0.0 =
 
 This is a major upgrade. This includes a new UI and a settings conversion to new stored arangement. 0.8.x settings will not be deleted if for some reason you must revert to the previous version.
 
@@ -193,6 +199,12 @@ Full list:
 * Added function that automatically converts 0.8.x and down settings to new setting arrangement.
 * Changed how settings are stored so that post types and taxonomies are in named array indexes.
 * Bug fixes not mentioned above.
+
+= 0.9.5 =
+* Revert 0.9.0 release until unfound bugs are fixed.
+
+= 0.9.0 =
+* See 1.0.0 list. This was reverted by 0.9.5 release.
 
 = 0.8.5 =
 * Fix issue with menu_postion being quoted in CPT get_code functionality.

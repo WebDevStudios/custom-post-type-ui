@@ -9,10 +9,10 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 /**
  * Add our cptui.js file, with dependencies on jQuery and jQuery UI.
  *
- * @since 0.9.0
+ * @since 1.0.0
  */
 function cptui_taxonomies_enqueue_scripts() {
-	wp_enqueue_script( 'cptui', plugins_url( 'js/cptui.js' , dirname(__FILE__) ) . '', array( 'jquery', 'jquery-ui-core', 'jquery-ui-accordion' ), '0.9', true );
+	wp_enqueue_script( 'cptui', plugins_url( 'js/cptui.js' , dirname(__FILE__) ) . '', array( 'jquery', 'jquery-ui-core', 'jquery-ui-accordion' ), CPT_VERSION, true );
 	wp_localize_script(	'cptui', 'confirmdata', array( 'confirm' => __( 'Are you sure you want to delete this?', 'cpt-plugin' ) ) );
 }
 add_action( 'admin_enqueue_scripts', 'cptui_taxonomies_enqueue_scripts' );
@@ -20,7 +20,7 @@ add_action( 'admin_enqueue_scripts', 'cptui_taxonomies_enqueue_scripts' );
 /**
  * Add our settings page to the menu.
  *
- * @since 0.9.0
+ * @since 1.0.0
  */
 function cptui_taxonomies_admin_menu() {
 	add_submenu_page( 'cptui_main_menu', __( 'Add/Edit Taxonomies', 'cpt-plugin' ), __( 'Add/Edit Taxonomies', 'cpt-plugin' ), 'manage_options', 'cptui_manage_taxonomies', 'cptui_manage_taxonomies' );
@@ -30,7 +30,7 @@ add_action( 'admin_menu', 'cptui_taxonomies_admin_menu' );
 /**
  * Create our settings page output.
  *
- * @since 0.9.0
+ * @since 1.0.0
  *
  * @return string HTML output for the page.
  */
@@ -129,7 +129,7 @@ function cptui_manage_taxonomies() {
 						/**
 						 * Filters the arguments for post types to list for taxonomy association.
 						 *
-						 * @since 0.9.0
+						 * @since 1.0.0
 						 *
 						 * @param array $value Array of default arguments.
 						 */
@@ -479,7 +479,7 @@ function cptui_manage_taxonomies() {
 /**
  * Construct a dropdown of our taxonomies so users can select which to edit.
  *
- * @since 0.9.0
+ * @since 1.0.0
  *
  * @param array $taxonomies Array of taxonomies that are registered.
  *
@@ -513,7 +513,7 @@ function cptui_taxonomies_dropdown( $taxonomies = array() ) {
 /**
  * Get the selected taxonomy from the $_POST global.
  *
- * @since 0.9.0
+ * @since 1.0.0
  *
  * @return bool|string False on no result, sanitized taxonomy if set.
  */
@@ -534,7 +534,7 @@ function cptui_get_current_taxonomy() {
 /**
  * Delete our custom taxonomy from the array of taxonomies.
  *
- * @since 0.9.0
+ * @since 1.0.0
  *
  * @param $data array $_POST values.
  *
@@ -545,7 +545,7 @@ function cptui_delete_taxonomy( $data = array() ) {
 	/**
 	 * Fires before a taxonomy is deleted from our saved options.
 	 *
-	 * @since 0.9.0
+	 * @since 1.0.0
 	 *
 	 * @param array $data Array of taxonomy data we are deleting.
 	 */
@@ -568,7 +568,7 @@ function cptui_delete_taxonomy( $data = array() ) {
 	/**
 	 * Fires after a taxonomy is deleted from our saved options.
 	 *
-	 * @since 0.9.0
+	 * @since 1.0.0
 	 *
 	 * @param array $data Array of taxonomy data that was deleted.
 	 */
@@ -585,7 +585,7 @@ function cptui_delete_taxonomy( $data = array() ) {
 /**
  * Add to or update our CPTUI option with new data.
  *
- * @since 0.9.0
+ * @since 1.0.0
  *
  * @param array $data Array of taxonomy data to update.
  *
@@ -596,7 +596,7 @@ function cptui_update_taxonomy( $data = array() ) {
 	/**
 	 * Fires before a taxonomy is updated to our saved options.
 	 *
-	 * @since 0.9.0
+	 * @since 1.0.0
 	 *
 	 * @param array $data Array of taxonomy data we are updating.
 	 */
@@ -676,7 +676,7 @@ function cptui_update_taxonomy( $data = array() ) {
 	/**
 	 * Fires after a taxonomy is updated to our saved options.
 	 *
-	 * @since 0.9.0
+	 * @since 1.0.0
 	 *
 	 * @param array $data Array of taxonomy data that was updated.
 	 */
