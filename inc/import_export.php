@@ -307,7 +307,9 @@ function cptui_import_types_taxes_settings( $postdata = array() ) {
 		$settings = json_decode( $data, true );
 
 		if ( $settings ) {
-			$deleted = delete_option( 'cptui_post_types' );
+			if ( false !== get_option( 'cptui_post_types' ) ) {
+				delete_option( 'cptui_post_types' );
+			}
 
 			$success = update_option( 'cptui_post_types', $settings );
 		}
@@ -318,7 +320,9 @@ function cptui_import_types_taxes_settings( $postdata = array() ) {
 		$settings = json_decode( $data, true );
 
 		if ( $settings ) {
-			$deleted = delete_option( 'cptui_taxonomies' );
+			if ( false !== get_option( 'cptui_taxonomies' ) ) {
+				delete_option( 'cptui_taxonomies' );
+			}
 
 			$success = update_option( 'cptui_taxonomies', $settings );
 		}
