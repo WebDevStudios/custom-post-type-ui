@@ -253,12 +253,16 @@ function cptui_register_single_taxonomy( $taxonomy = array() ) {
 		}
 	}
 
+	if ( in_array( $taxonomy['query_var'], array( 'true', 'false', '0', '1' ) ) ) {
+		$taxonomy['query_var'] = get_disp_boolean( $taxonomy['query_var'] );
+	}
+
 	$args = array(
 		'labels'            => $labels,
 		'label'             => $taxonomy[ 'label' ],
 		'hierarchical'      => get_disp_boolean( $taxonomy[ 'hierarchical' ] ),
 		'show_ui'           => get_disp_boolean( $taxonomy[ 'show_ui' ] ),
-		'query_var'         => get_disp_boolean( $taxonomy[ 'query_var' ] ),
+		'query_var'         => $taxonomy[ 'query_var' ],
 		'query_var_slug'    => $taxonomy[ 'query_var_slug' ],
 		'rewrite'           => $rewrite,
 		'show_admin_column' => $taxonomy[ 'show_admin_column' ]
