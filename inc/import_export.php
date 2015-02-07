@@ -9,7 +9,11 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 /**
  * Add our settings page to the menu.
  *
+<<<<<<< HEAD
  * @since 0.9.0
+=======
+ * @since 1.0.0
+>>>>>>> master
  */
 function cptui_importexport_admin_menu() {
 	add_submenu_page( 'cptui_main_menu', __( 'Import/Export', 'cpt-plugin' ), __( 'Import/Export', 'cpt-plugin' ), 'manage_options', 'cptui_importexport', 'cptui_importexport' );
@@ -19,7 +23,11 @@ add_action( 'admin_menu', 'cptui_importexport_admin_menu' );
 /**
  * Create our settings page output.
  *
+<<<<<<< HEAD
  * @since 0.9.0
+=======
+ * @since 1.0.0
+>>>>>>> master
  *
  * @return string HTML output for the page.
  */
@@ -73,6 +81,7 @@ function cptui_importexport() {
 				<?php
 					$cptui_post_types = get_option( 'cptui_post_types', array() );
 					if ( !empty( $cptui_post_types ) ) {
+						$cptui_post_types = stripslashes_deep( $cptui_post_types );
 						$content = esc_html( json_encode( $cptui_post_types ) );
 					} else {
 						$content = __( 'No post types registered yet.', 'cpt-plugin' );
@@ -130,7 +139,7 @@ function cptui_importexport() {
 /**
  * Display our copy-able code for registered taxonomies.
  *
- * @since 0.9.0
+ * @since 1.0.0
  *
  * @return string Taxonomy registration text for use elsewhere.
  */
@@ -156,7 +165,7 @@ function cptui_register_my_taxes() {
 /**
  * Create output for single taxonomy to be ready for copy/paste from Get Code.
  *
- * @since 0.9.0
+ * @since 1.0.0
  *
  * @param array $taxonomy Taxonomy data to output.
  *
@@ -197,7 +206,7 @@ function cptui_get_single_taxonomy_registery( $taxonomy = array() ) {
 /**
  * Display our copy-able code for registered post types.
  *
- * @since 0.9.0
+ * @since 1.0.0
  *
  * @return string Post type registration text for use elsewhere.
  */
@@ -225,7 +234,7 @@ function cptui_register_my_cpts() {
 /**
  * Create output for single post type to be ready for copy/paste from Get Code.
  *
- * @since 0.9.0
+ * @since 1.0.0
  *
  * @param array $post_type Post type data to output.
  *
@@ -288,7 +297,7 @@ function cptui_get_single_post_type_registery( $post_type = array() ) {
 /**
  * Import the posted JSON data from a separate export.
  *
- * @since 0.9.0
+ * @since 1.0.0
  *
  * @param array $postdata $_POST data as json.
  *
@@ -306,18 +315,26 @@ function cptui_import_types_taxes_settings( $postdata = array() ) {
 		$settings = json_decode( $data, true );
 
 		if ( $settings ) {
+			if ( false !== get_option( 'cptui_post_types' ) ) {
+				delete_option( 'cptui_post_types' );
+			}
+
 			$success = update_option( 'cptui_post_types', $settings );
 		}
-		return cptui_admin_notices( 'import', '', $success );
+		return cptui_admin_notices( 'import', __( 'Post types', 'cpt-plugin' ), $success );
 
   	} elseif ( !empty( $postdata['cptui_tax_import'] ) ) {
   		$data = stripslashes_deep( trim( $postdata['cptui_tax_import'] ) );
 		$settings = json_decode( $data, true );
 
 		if ( $settings ) {
+			if ( false !== get_option( 'cptui_taxonomies' ) ) {
+				delete_option( 'cptui_taxonomies' );
+			}
+
 			$success = update_option( 'cptui_taxonomies', $settings );
 		}
-		return cptui_admin_notices( 'import', '', $success );
+		return cptui_admin_notices( 'import', __( 'Taxonomies', 'cpt-plugin' ), $success );
   	}
 
 	flush_rewrite_rules();

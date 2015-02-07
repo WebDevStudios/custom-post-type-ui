@@ -9,24 +9,18 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 /**
  * Add our cptui.js file, with dependencies on jQuery and jQuery UI.
  *
- * @since 0.9.0
+ * @since 1.0.0
  */
 function cptui_taxonomies_enqueue_scripts() {
-	wp_enqueue_script( 'cptui', plugins_url( 'js/cptui.js' , dirname(__FILE__) ) . '', array( 'jquery', 'jquery-ui-core', 'jquery-ui-accordion' ), '0.9', true );
-	wp_localize_script(	'cptui', 'cptui_tax_data',
-		array(
-			'confirm' => __( 'Are you sure you want to delete this?', 'cpt-plugin' ),
-			'tax_change_name' => '<span class="typetax-rename cptui-hidden">' . __( 'Changing without converting terms will create a new taxonomy.', 'cpt-plugin' ) . '</span>',
-			'taxonomies' => ''
-		)
-	);
+	wp_enqueue_script( 'cptui', plugins_url( 'js/cptui.js' , dirname(__FILE__) ) . '', array( 'jquery', 'jquery-ui-core', 'jquery-ui-accordion' ), CPT_VERSION, true );
+	wp_localize_script(	'cptui', 'confirmdata', array( 'confirm' => __( 'Are you sure you want to delete this?', 'cpt-plugin' ) ) );
 }
 add_action( 'admin_enqueue_scripts', 'cptui_taxonomies_enqueue_scripts' );
 
 /**
  * Add our settings page to the menu.
  *
- * @since 0.9.0
+ * @since 1.0.0
  */
 function cptui_taxonomies_admin_menu() {
 	add_submenu_page( 'cptui_main_menu', __( 'Add/Edit Taxonomies', 'cpt-plugin' ), __( 'Add/Edit Taxonomies', 'cpt-plugin' ), 'manage_options', 'cptui_manage_taxonomies', 'cptui_manage_taxonomies' );
@@ -36,7 +30,7 @@ add_action( 'admin_menu', 'cptui_taxonomies_admin_menu' );
 /**
  * Create our settings page output.
  *
- * @since 0.9.0
+ * @since 1.0.0
  *
  * @return string HTML output for the page.
  */
@@ -135,7 +129,7 @@ function cptui_manage_taxonomies() {
 						/**
 						 * Filters the arguments for post types to list for taxonomy association.
 						 *
-						 * @since 0.9.0
+						 * @since 1.0.0
 						 *
 						 * @param array $value Array of default arguments.
 						 */
@@ -485,7 +479,7 @@ function cptui_manage_taxonomies() {
 /**
  * Construct a dropdown of our taxonomies so users can select which to edit.
  *
- * @since 0.9.0
+ * @since 1.0.0
  *
  * @param array $taxonomies Array of taxonomies that are registered.
  *
@@ -519,7 +513,7 @@ function cptui_taxonomies_dropdown( $taxonomies = array() ) {
 /**
  * Get the selected taxonomy from the $_POST global.
  *
- * @since 0.9.0
+ * @since 1.0.0
  *
  * @return bool|string False on no result, sanitized taxonomy if set.
  */
@@ -540,7 +534,7 @@ function cptui_get_current_taxonomy() {
 /**
  * Delete our custom taxonomy from the array of taxonomies.
  *
- * @since 0.9.0
+ * @since 1.0.0
  *
  * @param $data array $_POST values.
  *
@@ -551,7 +545,7 @@ function cptui_delete_taxonomy( $data = array() ) {
 	/**
 	 * Fires before a taxonomy is deleted from our saved options.
 	 *
-	 * @since 0.9.0
+	 * @since 1.0.0
 	 *
 	 * @param array $data Array of taxonomy data we are deleting.
 	 */
@@ -574,11 +568,13 @@ function cptui_delete_taxonomy( $data = array() ) {
 	/**
 	 * Fires after a taxonomy is deleted from our saved options.
 	 *
-	 * @since 0.9.0
+	 * @since 1.0.0
 	 *
 	 * @param array $data Array of taxonomy data that was deleted.
 	 */
 	do_action( 'cptui_after_delete_taxonomy', $data );
+
+	flush_rewrite_rules();
 
 	if ( isset( $success ) ) {
 		return cptui_admin_notices( 'delete', $data['cpt_custom_tax']['name'], $success );
@@ -589,7 +585,7 @@ function cptui_delete_taxonomy( $data = array() ) {
 /**
  * Add to or update our CPTUI option with new data.
  *
- * @since 0.9.0
+ * @since 1.0.0
  *
  * @param array $data Array of taxonomy data to update.
  *
@@ -600,7 +596,7 @@ function cptui_update_taxonomy( $data = array() ) {
 	/**
 	 * Fires before a taxonomy is updated to our saved options.
 	 *
-	 * @since 0.9.0
+	 * @since 1.0.0
 	 *
 	 * @param array $data Array of taxonomy data we are updating.
 	 */
@@ -641,12 +637,26 @@ function cptui_update_taxonomy( $data = array() ) {
 		if ( empty( $label ) ) {
 			unset( $data['cpt_tax_labels'][ $key ] );
 		}
+
+		$label = str_replace( "'", "", $label );
+		$label = str_replace( '"', '', $label );
+
+		$data['cpt_tax_labels'][ $key ] = stripslashes_deep( $label );
 	}
+
+	$data['cpt_custom_tax']['label'] = stripslashes( $data['cpt_custom_tax']['label'] );
+	$data['cpt_custom_tax']['singular_label'] = stripslashes( $data['cpt_custom_tax']['singular_label'] );
+
+	$label = str_replace( "'", "", $data['cpt_custom_tax']['label'] );
+	$label = stripslashes( str_replace( '"', '', $label ) );
+
+	$singular_label = str_replace( "'", "", $data['cpt_custom_tax']['singular_label'] );
+	$singular_label = stripslashes( str_replace( '"', '', $singular_label ) );
 
 	$taxonomies[ $data['cpt_custom_tax']['name'] ] = array(
 		'name'                 => $data['cpt_custom_tax']['name'],
-		'label'                => $data['cpt_custom_tax']['label'],
-		'singular_label'       => $data['cpt_custom_tax']['singular_label'],
+		'label'                => $label,
+		'singular_label'       => $singular_label,
 		'hierarchical'         => disp_boolean( $data['cpt_custom_tax']['hierarchical'] ),
 		'show_ui'              => disp_boolean( $data['cpt_custom_tax']['show_ui'] ),
 		'query_var'            => disp_boolean( $data['cpt_custom_tax']['query_var'] ),
@@ -666,7 +676,7 @@ function cptui_update_taxonomy( $data = array() ) {
 	/**
 	 * Fires after a taxonomy is updated to our saved options.
 	 *
-	 * @since 0.9.0
+	 * @since 1.0.0
 	 *
 	 * @param array $data Array of taxonomy data that was updated.
 	 */

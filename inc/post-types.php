@@ -9,34 +9,18 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 /**
  * Add our cptui.js file, with dependencies on jQuery and jQuery UI.
  *
- * @since 0.9.0
+ * @since 1.0.0
  */
 function cptui_post_type_enqueue_scripts() {
-	$cpts = get_option( 'cptui_post_types' );
-
-	$cpt_names = array();
-	if ( is_array( $cpts ) ) {
-		$cpt_names = array();
-		foreach ( $cpts as $type ) {
-			$cpt_names[] = $type['name'];
-		}
-	}
-
-	wp_enqueue_script( 'cptui', plugins_url( 'js/cptui.js', dirname(__FILE__) ), array( 'jquery', 'jquery-ui-core', 'jquery-ui-accordion' ), '0.9', true );
-	wp_localize_script(	'cptui', 'cptui_type_data',
-		array(
-			'confirm' => __( 'Are you sure you want to delete this?', 'cpt-plugin' ),
-			'post_change_name' => '<span class="typetax-rename cptui-hidden">' . __( 'Changing without converting posts will create a new post type.', 'cpt-plugin' ) . '</span>',
-			'post_types' => $cpt_names
-		)
-	);
+	wp_enqueue_script( 'cptui', plugins_url( 'js/cptui.js', dirname(__FILE__) ), array( 'jquery', 'jquery-ui-core', 'jquery-ui-accordion' ), CPT_VERSION, true );
+	wp_localize_script(	'cptui', 'confirmdata', array( 'confirm' => __( 'Are you sure you want to delete this?', 'cpt-plugin' ) ) );
 }
 add_action( 'admin_enqueue_scripts', 'cptui_post_type_enqueue_scripts' );
 
 /**
  * Add our settings page to the menu.
  *
- * @since 0.9.0
+ * @since 1.0.0
  */
 function cptui_post_types_admin_menu() {
 	add_submenu_page( 'cptui_main_menu', __( 'Add/Edit Post Types', 'cpt-plugin' ), __( 'Add/Edit Post Types', 'cpt-plugin' ), 'manage_options', 'cptui_manage_post_types', 'cptui_manage_post_types' );
@@ -46,7 +30,7 @@ add_action( 'admin_menu', 'cptui_post_types_admin_menu' );
 /**
  * Create our settings page output.
  *
- * @since 0.9.0
+ * @since 1.0.0
  *
  * @return string HTML output for the page.
  */
@@ -149,6 +133,10 @@ function cptui_manage_post_types() {
 						/*
 						 * Post Description
 						 */
+						if ( isset( $current['description'] ) ) {
+							$current['description'] = stripslashes_deep( $current['description'] );
+						}
+
 						echo $ui->get_textarea_input( array(
 							'namearray' => 'cpt_custom_post_type',
 							'name' => 'description',
@@ -180,9 +168,11 @@ function cptui_manage_post_types() {
 					<?php } else { ?>
 						<input type="submit" class="button-primary" name="cpt_submit" value="<?php echo esc_attr( apply_filters( 'cptui_post_type_submit_add', __( 'Add Post Type', 'cpt-plugin' ) ) ); ?>" />
 					<?php } ?>
+
 					<?php if ( !empty( $current ) ) { ?>
 						<input type="hidden" name="cpt_original" id="cpt_original" value="<?php echo $current['name']; ?>" />
 					<?php } ?>
+
 					<input type="hidden" name="cpt_type_status" id="cpt_type_status" value="<?php echo $tab; ?>" />
 				</p>
 			</td>
@@ -789,7 +779,7 @@ function cptui_manage_post_types() {
 							/**
 							 * Filters the arguments for taxonomies to list for post type association.
 							 *
-							 * @since 0.9.0
+							 * @since 1.0.0
 							 *
 							 * @param array $value Array of default arguments.
 							 */
@@ -798,7 +788,7 @@ function cptui_manage_post_types() {
 							/**
 							 * Filters the arguments for output type for returned results.
 							 *
-							 * @since 0.9.0
+							 * @since 1.0.0
 							 *
 							 * @param string $value Default output type.
 							 */
@@ -850,7 +840,7 @@ function cptui_manage_post_types() {
 /**
  * Construct a dropdown of our post types so users can select which to edit.
  *
- * @since 0.9.0
+ * @since 1.0.0
  *
  * @param array $post_types Array of post types that are registered.
  *
@@ -885,7 +875,7 @@ function cptui_post_types_dropdown( $post_types = array() ) {
 /**
  * Get the selected post type from the $_POST global.
  *
- * @since 0.9.0
+ * @since 1.0.0
  *
  * @return bool|string $value False on no result, sanitized post type if set.
  */
@@ -906,7 +896,7 @@ function cptui_get_current_post_type() {
 /**
  * Delete our custom post type from the array of post types.
  *
- * @since 0.9.0
+ * @since 1.0.0
  *
  * @param $data array $_POST values.
  *
@@ -929,7 +919,7 @@ function cptui_delete_post_type( $data = array() ) {
 	/**
 	 * Fires before a post type is deleted from our saved options.
 	 *
-	 * @since 0.9.0
+	 * @since 1.0.0
 	 *
 	 * @param array $data Array of post type data we are deleting.
 	 */
@@ -947,11 +937,13 @@ function cptui_delete_post_type( $data = array() ) {
 	/**
 	 * Fires after a post type is deleted from our saved options.
 	 *
-	 * @since 0.9.0
+	 * @since 1.0.0
 	 *
 	 * @param array $data Array of post type data that was deleted.
 	 */
 	do_action( 'cptui_after_delete_post_type', $data );
+
+	flush_rewrite_rules();
 
 	if ( isset( $success ) ) {
 		return cptui_admin_notices( 'delete', $data['cpt_custom_post_type']['name'], $success );
@@ -962,7 +954,7 @@ function cptui_delete_post_type( $data = array() ) {
 /**
  * Add to or update our CPTUI option with new data.
  *
- * @since 0.9.0
+ * @since 1.0.0
  *
  * @param array $data Array of post type data to update.
  *
@@ -973,7 +965,7 @@ function cptui_update_post_type( $data = array() ) {
 	/**
 	 * Fires before a post_type is updated to our saved options.
 	 *
-	 * @since 0.9.0
+	 * @since 1.0.0
 	 *
 	 * @param array $data Array of post_type data we are updating.
 	 */
@@ -1027,19 +1019,33 @@ function cptui_update_post_type( $data = array() ) {
 		if ( empty( $label ) ) {
 			unset( $data['cpt_labels'][ $key ] );
 		}
+
+		$label = str_replace( "'", "", $label );
+		$label = str_replace( '"', '', $label );
+
+		$data['cpt_labels'][ $key ] = stripslashes_deep( $label );
 	}
 
 	if ( empty( $data['cpt_custom_post_type']['menu_icon'] ) ) {
 		$data['cpt_custom_post_type']['menu_icon'] = null;
 	}
 
-	$data['cpt_custom_post_type']['description'] = stripslashes_deep( $data['cpt_custom_post_type']['description'] );
+	$data['cpt_custom_post_type']['label'] = stripslashes( $data['cpt_custom_post_type']['label'] );
+	$data['cpt_custom_post_type']['singular_label'] = stripslashes( $data['cpt_custom_post_type']['singular_label'] );
+
+	$label = str_replace( "'", "", $data['cpt_custom_post_type']['label'] );
+	$label = stripslashes( str_replace( '"', '', $label ) );
+
+	$singular_label = str_replace( "'", "", $data['cpt_custom_post_type']['singular_label'] );
+	$singular_label = stripslashes( str_replace( '"', '', $singular_label ) );
+
+	$description = stripslashes_deep( $data['cpt_custom_post_type']['description'] );
 
 	$post_types[ $data['cpt_custom_post_type']['name'] ] = array(
         'name'                  => $data['cpt_custom_post_type']['name'],
-        'label'                 => $data['cpt_custom_post_type']['label'],
-        'singular_label'        => $data['cpt_custom_post_type']['singular_label'],
-        'description'           => $data['cpt_custom_post_type']['description'],
+        'label'                 => $label,
+        'singular_label'        => $singular_label,
+        'description'           => $description,
         'public'                => disp_boolean( $data['cpt_custom_post_type']['public'] ),
         'show_ui'               => disp_boolean( $data['cpt_custom_post_type']['show_ui'] ),
         'has_archive'           => disp_boolean( $data['cpt_custom_post_type']['has_archive'] ),
@@ -1064,7 +1070,7 @@ function cptui_update_post_type( $data = array() ) {
 	/**
 	 * Fires after a post type is updated to our saved options.
 	 *
-	 * @since 0.9.0
+	 * @since 1.0.0
 	 *
 	 * @param array $data Array of post type data that was updated.
 	 */
@@ -1083,7 +1089,7 @@ function cptui_update_post_type( $data = array() ) {
 /**
  * Return an array of names that users should not or can not use for post type names.
  *
- * @since 0.9.0
+ * @since 1.0.0
  *
  * @return array $value Array of names that are recommended against.
  */
@@ -1094,7 +1100,7 @@ function cptui_reserved_post_types() {
 	 *
 	 * 3rd party plugin authors could use this to prevent duplicate post types.
 	 *
-	 * @since 0.9.0
+	 * @since 1.0.0
 	 *
 	 * @param array $value Array of post type slugs to forbid.
 	 */
