@@ -164,6 +164,8 @@ function cptui_register_single_post_type( $post_type = array() ) {
 		}
 	}
 
+	$menu_icon = ( !empty( $post_type['menu_icon'] ) ) ? $post_type['menu_icon'] : null;
+
 	if ( in_array( $post_type['query_var'], array( 'true', 'false', '0', '1' ) ) ) {
 		$post_type['query_var'] = get_disp_boolean( $post_type['query_var'] );
 	}
@@ -181,7 +183,7 @@ function cptui_register_single_post_type( $post_type = array() ) {
 		'hierarchical'        => get_disp_boolean( $post_type['hierarchical'] ),
 		'rewrite'             => $rewrite,
 		'menu_position'       => $post_type['menu_position'],
-		'menu_icon'           => $post_type['menu_icon'],
+		'menu_icon'           => $menu_icon,
 		'query_var'           => $post_type['query_var'],
 		'supports'            => $post_type['supports'],
 		'taxonomies'          => $post_type['taxonomies']
