@@ -259,17 +259,20 @@ function cptui_register_single_taxonomy( $taxonomy = array() ) {
 	if ( in_array( $taxonomy['query_var'], array( 'true', 'false', '0', '1' ) ) ) {
 		$taxonomy['query_var'] = get_disp_boolean( $taxonomy['query_var'] );
 	}
+	$query_var_slug = ( !empty( $taxonomy['query_var_slug'] ) ) ? $taxonomy['query_var_slug'] : '';
 
 	$args = array(
 		'labels'            => $labels,
-		'label'             => $taxonomy[ 'label' ],
-		'hierarchical'      => get_disp_boolean( $taxonomy[ 'hierarchical' ] ),
-		'show_ui'           => get_disp_boolean( $taxonomy[ 'show_ui' ] ),
-		'query_var'         => $taxonomy[ 'query_var' ],
-		'query_var_slug'    => $taxonomy[ 'query_var_slug' ],
+		'label'             => $taxonomy['label'],
+		'hierarchical'      => get_disp_boolean( $taxonomy['hierarchical'] ),
+		'show_ui'           => get_disp_boolean( $taxonomy['show_ui'] ),
+		'query_var'         => $taxonomy['query_var'],
+		'query_var_slug'    => $query_var_slug,
 		'rewrite'           => $rewrite,
-		'show_admin_column' => $taxonomy[ 'show_admin_column' ]
+		'show_admin_column' => $taxonomy['show_admin_column']
 	);
+
+	$object_type = ( !empty( $taxonomy['object_type'] ) ) ? $taxonomy['object_type'] : '';
 
 	/**
 	 * Filters the arguments used for a taxonomy right before registering.
@@ -281,7 +284,7 @@ function cptui_register_single_taxonomy( $taxonomy = array() ) {
 	 */
 	$args = apply_filters( 'cptui_pre_register_taxonomy', $args, $taxonomy['name'] );
 
-	return register_taxonomy( $taxonomy['name'], $taxonomy['object_type'], $args );
+	return register_taxonomy( $taxonomy['name'], $object_type, $args );
 }
 
 /**
