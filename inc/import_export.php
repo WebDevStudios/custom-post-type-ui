@@ -242,6 +242,31 @@ function cptui_get_single_post_type_registery( $post_type = array() ) {
 		$post_type['supports'] = array_merge( $post_type['supports'], $user_supports_params );
 	}
 
+	$rewrite = get_disp_boolean( $post_type['rewrite' ] );
+	if ( false !== $rewrite ) {
+		$rewrite = disp_boolean( $post_type['rewrite'] );
+
+		$rewrite_slug = ' \'slug\' => \'' . $post_type['name'] . '\',';
+		if ( !empty( $post_type['rewrite_slug'] ) ) {
+			$rewrite_slug = ' \'slug\' => \'' . $post_type['rewrite_slug'] . '\',';
+		}
+
+		$withfront = disp_boolean( $post_type['rewrite_withfront'] );
+		if ( !empty( $withfront ) ) {
+			$rewrite_withfront = ' \'with_front\' => ' . $withfront . ' ';
+		}
+
+		if ( !empty( $post_type['rewrite_slug'] ) || !empty( $post_type['rewrite_withfront'] ) ) {
+			$rewrite_start = 'array(';
+			$rewrite_end   = ')';
+
+			$rewrite = $rewrite_start . $rewrite_slug . $rewrite_withfront . $rewrite_end;
+		}
+
+	} else {
+		$rewrite = disp_boolean( $post_type['rewrite'] );
+	}
+
 	$supports = '';
 	# Do a little bit of php work to get these into strings.
 	if ( !empty( $post_type['supports'] ) && is_array( $post_type['supports'] ) ) {
@@ -275,7 +300,7 @@ function cptui_get_single_post_type_registery( $post_type = array() ) {
 		'capability_type' => '<?php echo $post_type['capability_type']; ?>',
 		'map_meta_cap' => <?php echo $post_type['map_meta_cap']; ?>,
 		'hierarchical' => <?php echo $post_type['hierarchical']; ?>,
-		'rewrite' => <?php echo $post_type['rewrite']; ?>,
+		'rewrite' => <?php echo $rewrite; ?>,
 		'query_var' => <?php echo $post_type['query_var']; ?>,
 		<?php if ( !empty( $post_type['menu_position'] ) ) { ?>'menu_position' => <?php echo $post_type['menu_position']; ?>,<?php } ?>
 		<?php if ( !empty( $post_type['menu_icon'] ) ) { ?>'menu_icon' => '<?php echo $post_type['menu_icon']; ?>',<?php } ?>
