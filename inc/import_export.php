@@ -165,10 +165,11 @@ function cptui_register_my_taxes() {
  */
 function cptui_get_single_taxonomy_registery( $taxonomy = array() ) {
 
-	$post_types = '';
+	$post_types = "''";
 	if ( is_array( $taxonomy['object_type'] ) ) {
 		$post_types = 'array( \'' . implode( '\', \'', $taxonomy['object_type'] ) . '\' )';
 	}
+
 	?>
 
 	$labels = array(
