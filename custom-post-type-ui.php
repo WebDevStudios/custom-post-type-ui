@@ -170,6 +170,11 @@ function cptui_register_single_post_type( $post_type = array() ) {
 		$post_type['query_var'] = get_disp_boolean( $post_type['query_var'] );
 	}
 
+	$menu_position = '';
+	if ( !empty( $post_type['menu_position'] ) ) {
+		$menu_position = (int) $post_type['menu_position'];
+	}
+
 	$args = array(
 		'labels'              => $labels,
 		'description'         => $post_type['description'],
@@ -182,7 +187,7 @@ function cptui_register_single_post_type( $post_type = array() ) {
 		'map_meta_cap'        => $post_type['map_meta_cap'],
 		'hierarchical'        => get_disp_boolean( $post_type['hierarchical'] ),
 		'rewrite'             => $rewrite,
-		'menu_position'       => $post_type['menu_position'],
+		'menu_position'       => $menu_position,
 		'menu_icon'           => $menu_icon,
 		'query_var'           => $post_type['query_var'],
 		'supports'            => $post_type['supports'],
