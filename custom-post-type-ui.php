@@ -269,7 +269,7 @@ function cptui_register_single_taxonomy( $taxonomy = array() ) {
 		'query_var'         => $taxonomy['query_var'],
 		'query_var_slug'    => $query_var_slug,
 		'rewrite'           => $rewrite,
-		'show_admin_column' => $taxonomy['show_admin_column']
+		'show_admin_column' => get_disp_boolean( $taxonomy['show_admin_column'] )
 	);
 
 	$object_type = ( !empty( $taxonomy['object_type'] ) ) ? $taxonomy['object_type'] : '';
