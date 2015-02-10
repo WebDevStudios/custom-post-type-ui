@@ -1,4 +1,4 @@
-.help {
+.cptui-help {
 	border-radius: 50%;
 	display: inline-block;
 	height: 15px;
@@ -6,7 +6,7 @@
 	text-align: center;
 	width: 15px;
 }
-.help:hover { font-weight: bold; }
+.cptui-help:hover { font-weight: bold; }
 .required { color: rgb(255,0,0); }
 .cptui-table #excerpt { height: 16px; margin-right: 4px; width: auto; }
 .cptui-table td { vertical-align: top; width: 50%; }
