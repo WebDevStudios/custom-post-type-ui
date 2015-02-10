@@ -39,7 +39,7 @@ class CPTUI_Admin_UI_Inputs_Test extends WP_UnitTestCase {
 	public function test_CPTUI_Textarea() {
 		$ui = new cptui_admin_ui();
 
-		$expected = '<tr valign="top"><th scope="row"><label for="name">Description</label><a href="#" title="Helper text." class="help wp-ui-highlight">?</a></th><td><textarea id="name" name="name_array[name]" rows="4" cols="40">saved value</textarea></td></tr>';
+		$expected = '<tr valign="top"><th scope="row"><label for="name">Description</label><a href="#" title="Helper text." class="cptui-help wp-ui-highlight">?</a></th><td><textarea id="name" name="name_array[name]" rows="4" cols="40">saved value</textarea></td></tr>';
 
 		$args = array(
 			'namearray' => 'name_array',
@@ -60,7 +60,7 @@ class CPTUI_Admin_UI_Inputs_Test extends WP_UnitTestCase {
 	public function test_CPTUI_Text() {
 		$ui = new cptui_admin_ui();
 
-		$expected = '<tr valign="top"><th scope="row"><label for="name">Description</label><a href="#" title="Helper text." class="help wp-ui-highlight">?</a></th><td><input type="text" id="name" name="name_array[name]" value="saved value" /><br/></td></tr>';
+		$expected = '<tr valign="top"><th scope="row"><label for="name">Description</label><a href="#" title="Helper text." class="cptui-help wp-ui-highlight">?</a></th><td><input type="text" id="name" name="name_array[name]" value="saved value" /><br/></td></tr>';
 
 		$args = array(
 			'namearray' => 'name_array',
@@ -100,7 +100,7 @@ class CPTUI_Admin_UI_Inputs_Test extends WP_UnitTestCase {
 			'selections'    => $select
 		);
 
-		$expected = '<tr valign="top"><th scope="row"><label for="public">Public</label><a href="#" title="Whether posts of this type should be shown in the admin UI" class="help wp-ui-highlight">?</a></th><td><select id="public" name="cpt_custom_post_type[public]"><option value="0">False</option><option value="1" selected="selected">True</option></select>(default: True)</td></tr>';
+		$expected = '<tr valign="top"><th scope="row"><label for="public">Public</label><a href="#" title="Whether posts of this type should be shown in the admin UI" class="cptui-help wp-ui-highlight">?</a></th><td><select id="public" name="cpt_custom_post_type[public]"><option value="0">False</option><option value="1" selected="selected">True</option></select>(default: True)</td></tr>';
 
 		$actual = $ui->get_select_input( $args );
 
@@ -133,7 +133,7 @@ class CPTUI_Admin_UI_Inputs_Test extends WP_UnitTestCase {
 			'required'      => true
 		);
 
-		$expected = '<tr valign="top"><th scope="row"><label for="public">Public</label><span class="required">*</span><a href="#" title="Whether posts of this type should be shown in the admin UI" class="help wp-ui-highlight">?</a></th><td><select id="public" name="cpt_custom_post_type[public]"><option value="0">False</option><option value="1" selected="selected">True</option></select>(default: True)</td></tr>';
+		$expected = '<tr valign="top"><th scope="row"><label for="public">Public</label><span class="required">*</span><a href="#" title="Whether posts of this type should be shown in the admin UI" class="cptui-help wp-ui-highlight">?</a></th><td><select id="public" name="cpt_custom_post_type[public]"><option value="0">False</option><option value="1" selected="selected">True</option></select>(default: True)</td></tr>';
 
 		$actual = $ui->get_select_input( $args );
 
@@ -165,7 +165,7 @@ class CPTUI_Admin_UI_Inputs_Test extends WP_UnitTestCase {
 			'selections'    => $select,
 		);
 
-		$expected = '<tr valign="top"><th scope="row"><label for="public">Public</label><a href="#" title="Whether posts of this type should be shown in the admin UI" class="help wp-ui-highlight">?</a></th><td><select id="public" name="cpt_custom_post_type[public]"><option value="0">False</option><option value="1" selected="selected">True</option></select>(default: True)</td></tr>';
+		$expected = '<tr valign="top"><th scope="row"><label for="public">Public</label><a href="#" title="Whether posts of this type should be shown in the admin UI" class="cptui-help wp-ui-highlight">?</a></th><td><select id="public" name="cpt_custom_post_type[public]"><option value="0">False</option><option value="1" selected="selected">True</option></select>(default: True)</td></tr>';
 
 		$actual = $ui->get_select_input( $args );
 
@@ -197,7 +197,7 @@ class CPTUI_Admin_UI_Inputs_Test extends WP_UnitTestCase {
 			'selections'    => $select,
 		);
 
-		$expected = '<tr valign="top"><th scope="row"><label for="public">Public</label><a href="#" title="Whether posts of this type should be shown in the admin UI" class="help wp-ui-highlight">?</a></th><td><select id="public" name="cpt_custom_post_type[public]"><option value="0" selected="selected">False</option><option value="1">True</option></select>(default: True)</td></tr>';
+		$expected = '<tr valign="top"><th scope="row"><label for="public">Public</label><a href="#" title="Whether posts of this type should be shown in the admin UI" class="cptui-help wp-ui-highlight">?</a></th><td><select id="public" name="cpt_custom_post_type[public]"><option value="0" selected="selected">False</option><option value="1">True</option></select>(default: True)</td></tr>';
 
 		$actual = $ui->get_select_input( $args );
 
