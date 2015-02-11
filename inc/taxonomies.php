@@ -669,7 +669,7 @@ function cptui_update_taxonomy( $data = array() ) {
 		'labels'               => $data['cpt_tax_labels']
 	);
 
-	$taxonomies[ $data['cpt_custom_tax']['name'] ]['object_type'] = $data['cpt_post_types'];
+	$taxonomies[ $data['cpt_custom_tax']['name'] ]['object_types'] = $data['cpt_post_types'];
 
 	$success = update_option( 'cptui_taxonomies', $taxonomies );
 
