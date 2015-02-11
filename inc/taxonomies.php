@@ -600,7 +600,7 @@ function cptui_update_taxonomy( $data = array() ) {
 	 *
 	 * @param array $data Array of taxonomy data we are updating.
 	 */
-	do_action( 'cptui_before_delete_taxonomy', $data );
+	do_action( 'cptui_before_update_taxonomy', $data );
 
 	# They need to provide a name
 	if ( empty( $data['cpt_custom_tax']['name'] ) ) {
@@ -680,7 +680,7 @@ function cptui_update_taxonomy( $data = array() ) {
 	 *
 	 * @param array $data Array of taxonomy data that was updated.
 	 */
-	do_action( 'cptui_after_delete_taxonomy', $data );
+	do_action( 'cptui_after_update_taxonomy', $data );
 
 	flush_rewrite_rules();
 
