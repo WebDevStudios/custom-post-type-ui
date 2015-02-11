@@ -285,7 +285,7 @@ function cptui_register_single_taxonomy( $taxonomy = array() ) {
 		'show_admin_column' => get_disp_boolean( $taxonomy['show_admin_column'] )
 	);
 
-	$object_type = ( !empty( $taxonomy['object_type'] ) ) ? $taxonomy['object_type'] : '';
+	$object_type = ( !empty( $taxonomy['object_types'] ) ) ? $taxonomy['object_types'] : '';
 
 	/**
 	 * Filters the arguments used for a taxonomy right before registering.
