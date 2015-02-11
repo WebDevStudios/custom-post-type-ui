@@ -740,7 +740,7 @@ function cptui_manage_post_types() {
 								'wrap'          => false
 							) );
 
-							echo $ui->get_p( __( '"Use the option below to explicitly set "supports" to false.', 'cpt-plugins' ) );
+							echo $ui->get_p( __( 'Use the option below to explicitly set "supports" to false.', 'cpt-plugins' ) );
 
 							echo $ui->get_check_input( array(
 								'checkvalue'    => 'none',
