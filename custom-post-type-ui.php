@@ -404,7 +404,7 @@ function cptui_footer( $original = '' ) {
 	}
 
 	return sprintf(
-		__( '%s version %s by %s - %s %s &middot; %s &middot; %s &middot; %s', 'cpt-plugin' ),
+		__( '%s version %s by %s - %s %s %s &middot; %s &middot; %s', 'cpt-plugin' ),
 		sprintf(
 			'<a target="_blank" href="http://wordpress.org/support/plugin/custom-post-type-ui">%s</a>',
 			__( 'Custom Post Type UI', 'cpt-plugin' )
