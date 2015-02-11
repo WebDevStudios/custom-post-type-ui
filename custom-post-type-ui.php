@@ -251,8 +251,8 @@ function cptui_register_single_taxonomy( $taxonomy = array() ) {
 		}
 	}
 
-	$rewrite = get_disp_boolean( $taxonomy['rewrite' ] );
-	if ( false !== get_disp_boolean( $taxonomy['rewrite' ] ) ) {
+	$rewrite = get_disp_boolean( $taxonomy['rewrite'] );
+	if ( false !== get_disp_boolean( $taxonomy['rewrite'] ) ) {
 		$rewrite = array();
 		if ( !empty( $taxonomy['rewrite_slug'] ) ) {
 			$rewrite['slug'] = $taxonomy['rewrite_slug'];
