@@ -571,7 +571,7 @@ function cptui_convert_settings() {
 		foreach( $taxonomies as $tax ) {
             $new_taxonomies[ $tax['name'] ]                 = $tax;    # Yep, still our friend.
             $new_taxonomies[ $tax['name'] ]['labels']       = $tax[0]; # Taxonomies are the only thing with
-            $new_taxonomies[ $tax['name'] ]['post_types']   = $tax[1]; # "tax" in the name that I like.
+            $new_taxonomies[ $tax['name'] ]['object_types'] = $tax[1]; # "tax" in the name that I like.
 			unset(
 				$new_taxonomies[ $tax['name'] ][0],
 				$new_taxonomies[ $tax['name'] ][1]
