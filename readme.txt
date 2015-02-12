@@ -43,6 +43,7 @@ Implied credit to:
 * Update some text strings after localization feedback.
 * Fix typos in textdomain for two spots.
 * Updating progressing translation files.
+* Fix value for with_front parameter.
 
 = 1.0.1 =
 * Fix issues with taxonomy transfer and registration.
@@ -206,6 +207,7 @@ Implied credit to:
 * Update some text strings after localization feedback.
 * Fix typos in textdomain for two spots.
 * Updating progressing translation files.
+* Fix value for with_front parameter.
 
 = 1.0.1 =
 * Fix issues with taxonomy transfer and registration. May need to delete new option value and re-convert afterwards.
