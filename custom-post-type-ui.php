@@ -160,7 +160,7 @@ function cptui_register_single_post_type( $post_type = array() ) {
 
 		$withfront = ( !empty( $post_type['rewrite_withfront'] ) ) ? disp_boolean( $post_type['rewrite_withfront'] ) : '';
 		if ( !empty( $withfront ) ) {
-			$rewrite['with_front'] = $post_type['rewrite_withfront'];
+			$rewrite['with_front'] = get_disp_boolean( $post_type['rewrite_withfront'] );
 		}
 	}
 
