@@ -199,6 +199,14 @@ Implied credit to:
 
 == Upgrade Notice ==
 
+= 1.0.2 =
+* PLEASE TEST THIS UPDATE ON A DEV SITE IF YOU CAN, BEFORE UPDATING ON A LIVE SITE.
+* Fix issue with checked checkboxes for post type associations for taxonomies.
+* Fix "Get Code" spot related to post type associations for taxonomies.
+* Update some text strings after localization feedback.
+* Fix typos in textdomain for two spots.
+* Updating progressing translation files.
+
 = 1.0.1 =
 * Fix issues with taxonomy transfer and registration. May need to delete new option value and re-convert afterwards.
 * Fix issue with taxonomy "show admin column" evaluating to true regardless of setting.
