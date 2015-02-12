@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cus\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-11 21:09-0600\n"
-"PO-Revision-Date: 2015-02-11 21:09-0600\n"
+"POT-Creation-Date: 2015-02-12 10:01-0600\n"
+"PO-Revision-Date: 2015-02-12 10:02-0600\n"
 "Last-Translator: Michael Beckwith <michael.d.beckwith@gmail.com>\n"
 "Language-Team: ja <jotaki@digitalcube.jp>\n"
 "Language: ja_JP\n"
@@ -25,19 +25,19 @@ msgstr "利用する投稿タイプ"
 msgid "CPT UI"
 msgstr ""
 
-#: ../custom-post-type-ui.php:320 ../custom-post-type-ui.php:410
+#: ../custom-post-type-ui.php:321 ../custom-post-type-ui.php:411
 #, fuzzy
 msgid "Custom Post Type UI"
 msgstr "利用する投稿タイプ"
 
-#: ../custom-post-type-ui.php:323
+#: ../custom-post-type-ui.php:324
 msgid ""
 "Thank you for choosing Custom Post Type UI. We hope that your experience "
 "with our plugin provides efficiency and speed in creating post types and "
 "taxonomies, to better organize your content, without having to touch code."
 msgstr ""
 
-#: ../custom-post-type-ui.php:325
+#: ../custom-post-type-ui.php:326
 #, php-format
 msgid ""
 "To get started with creating some post types, please visit %s and for "
@@ -46,159 +46,159 @@ msgid ""
 "as soon as possible."
 msgstr ""
 
-#: ../custom-post-type-ui.php:326 ../inc/post-types.php:26
+#: ../custom-post-type-ui.php:327 ../inc/post-types.php:26
 #, fuzzy
 msgid "Add/Edit Post Types"
 msgstr "カスタム投稿タイプを編集"
 
-#: ../custom-post-type-ui.php:327 ../inc/taxonomies.php:26
+#: ../custom-post-type-ui.php:328 ../inc/taxonomies.php:26
 #, fuzzy
 msgid "Add/Edit Taxonomies"
 msgstr "ビルトイン分類"
 
-#: ../custom-post-type-ui.php:328 ../inc/support.php:23
+#: ../custom-post-type-ui.php:329 ../inc/support.php:23
 #, fuzzy
 msgid "Help/Support"
 msgstr "サポート"
 
-#: ../custom-post-type-ui.php:329
+#: ../custom-post-type-ui.php:330
 msgid "CPT UI Support Forum"
 msgstr ""
 
-#: ../custom-post-type-ui.php:345
+#: ../custom-post-type-ui.php:346
 msgid "Help Support This Plugin!"
 msgstr ""
 
-#: ../custom-post-type-ui.php:349
+#: ../custom-post-type-ui.php:350
 msgid "Professional WordPress<br />Third Edition"
 msgstr ""
 
-#: ../custom-post-type-ui.php:354
+#: ../custom-post-type-ui.php:355
 msgid ""
 "The leading book on WordPress design and development! Brand new third "
 "edition!"
 msgstr ""
 
-#: ../custom-post-type-ui.php:357
+#: ../custom-post-type-ui.php:358
 msgid "Professional WordPress<br />Plugin Development"
 msgstr ""
 
-#: ../custom-post-type-ui.php:362
+#: ../custom-post-type-ui.php:363
 msgid "Highest rated WordPress development book on Amazon!"
 msgstr ""
 
-#: ../custom-post-type-ui.php:365
+#: ../custom-post-type-ui.php:366
 msgid "PayPal Donation"
 msgstr ""
 
-#: ../custom-post-type-ui.php:366
+#: ../custom-post-type-ui.php:367
 msgid "Please donate to the development of Custom Post Type UI:"
 msgstr ""
 
-#: ../custom-post-type-ui.php:370
+#: ../custom-post-type-ui.php:371
 msgid "PayPal - The safer, easier way to pay online!"
 msgstr ""
 
-#: ../custom-post-type-ui.php:407
+#: ../custom-post-type-ui.php:408
 #, php-format
 msgid "%s version %s by %s - %s %s %s &middot; %s &middot; %s"
 msgstr ""
 
-#: ../custom-post-type-ui.php:416
+#: ../custom-post-type-ui.php:417
 msgid "Please Report Bugs"
 msgstr ""
 
-#: ../custom-post-type-ui.php:418
+#: ../custom-post-type-ui.php:419
 msgid "Follow on Twitter:"
 msgstr ""
 
-#: ../custom-post-type-ui.php:478 ../inc/import_export.php:15
+#: ../custom-post-type-ui.php:479 ../inc/import_export.php:15
 msgid "Import/Export"
 msgstr ""
 
-#: ../custom-post-type-ui.php:480
+#: ../custom-post-type-ui.php:481
 #, fuzzy
 msgid "Manage Taxonomies"
 msgstr "カスタム分類の管理"
 
-#: ../custom-post-type-ui.php:484
+#: ../custom-post-type-ui.php:485
 #, fuzzy
 msgid "Manage Post Types"
 msgstr "カスタム投稿タイプの管理"
 
-#: ../custom-post-type-ui.php:508 ../inc/post-types.php:197
+#: ../custom-post-type-ui.php:509 ../inc/post-types.php:197
 msgid "Add New"
 msgstr "新規追加"
 
-#: ../custom-post-type-ui.php:513
+#: ../custom-post-type-ui.php:514
 #, fuzzy
 msgid "Edit Post Types"
 msgstr "カスタム投稿タイプを編集"
 
-#: ../custom-post-type-ui.php:517
+#: ../custom-post-type-ui.php:518
 #, fuzzy
 msgid "Edit Taxonomies"
 msgstr "ビルトイン分類"
 
-#: ../custom-post-type-ui.php:521
+#: ../custom-post-type-ui.php:522
 #, fuzzy
 msgid "Post Types"
 msgstr "投稿タイプ名"
 
-#: ../custom-post-type-ui.php:522 ../inc/import_export.php:355
+#: ../custom-post-type-ui.php:523 ../inc/import_export.php:355
 #, fuzzy
 msgid "Taxonomies"
 msgstr "ビルトイン分類"
 
-#: ../custom-post-type-ui.php:523
+#: ../custom-post-type-ui.php:524
 msgid "Get Code"
 msgstr ""
 
-#: ../custom-post-type-ui.php:607 ../inc/post-types.php:327
+#: ../custom-post-type-ui.php:608 ../inc/post-types.php:327
 #: ../inc/taxonomies.php:319
 msgid "Settings"
 msgstr ""
 
-#: ../custom-post-type-ui.php:607
+#: ../custom-post-type-ui.php:608
 msgid "Help"
 msgstr ""
 
-#: ../custom-post-type-ui.php:635
+#: ../custom-post-type-ui.php:636
 #, php-format
 msgid "%s has been successfully added"
 msgstr ""
 
-#: ../custom-post-type-ui.php:637
+#: ../custom-post-type-ui.php:638
 #, php-format
 msgid "%s has failed to be added"
 msgstr ""
 
-#: ../custom-post-type-ui.php:641
+#: ../custom-post-type-ui.php:642
 #, php-format
 msgid "%s has been successfully updated"
 msgstr ""
 
-#: ../custom-post-type-ui.php:643
+#: ../custom-post-type-ui.php:644
 #, php-format
 msgid "%s has failed to be updated"
 msgstr ""
 
-#: ../custom-post-type-ui.php:647
+#: ../custom-post-type-ui.php:648
 #, php-format
 msgid "%s has been successfully deleted"
 msgstr ""
 
-#: ../custom-post-type-ui.php:649
+#: ../custom-post-type-ui.php:650
 #, php-format
 msgid "%s has failed to be deleted"
 msgstr ""
 
-#: ../custom-post-type-ui.php:653
+#: ../custom-post-type-ui.php:654
 #, php-format
 msgid "%s has been successfully imported"
 msgstr ""
 
-#: ../custom-post-type-ui.php:655
+#: ../custom-post-type-ui.php:656
 #, php-format
 msgid "%s has failed to be imported"
 msgstr ""
@@ -401,7 +401,7 @@ msgstr ""
 #: ../inc/post-types.php:153
 #, fuzzy
 msgid "Edit Post Type"
-msgstr "利用する投稿タイプ"
+msgstr "編集"
 
 #: ../inc/post-types.php:154
 #, fuzzy
