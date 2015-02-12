@@ -1033,6 +1033,7 @@ function cptui_update_post_type( $data = array() ) {
         'public'                => disp_boolean( $data['cpt_custom_post_type']['public'] ),
         'show_ui'               => disp_boolean( $data['cpt_custom_post_type']['show_ui'] ),
         'has_archive'           => disp_boolean( $data['cpt_custom_post_type']['has_archive'] ),
+        'has_archive_string'    => $data['cpt_custom_post_type']['has_archive_string'],
         'exclude_from_search'   => disp_boolean( $data['cpt_custom_post_type']['exclude_from_search'] ),
         'capability_type'       => $data['cpt_custom_post_type']['capability_type'],
         'hierarchical'          => disp_boolean( $data['cpt_custom_post_type']['hierarchical'] ),
