@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Custom Post Type UI 1.0\n"
 "POT-Creation-Date: 2015-02-12 12:34-0600\n"
-"PO-Revision-Date: 2015-02-12 12:34-0600\n"
-"Last-Translator: Michael Beckwith <michael.d.beckwith@gmail.com>\n"
+"PO-Revision-Date: 2015-02-12 20:00+0100\n"
+"Last-Translator: Ralf Koller <r.koller@gmail.com>\n"
 "Language-Team: Pascal Kläres & Ralf Koller <pascal.klaeres@gmail.com & r."
 "koller@gmail.com>\n"
 "Language: de_DE\n"
@@ -630,6 +630,8 @@ msgstr "Hat einen Archiv-Index"
 #: ../inc/post-types.php:375
 msgid "If left blank, the archive slug will default to the post type slug."
 msgstr ""
+"Wird das Feld leer gelassen übernimmt der Archiv-Kurzlink den Inhalt des "
+"Post Type-Kurzlink."
 
 #: ../inc/post-types.php:390 ../inc/post-types.php:423
 #: ../inc/post-types.php:454 ../inc/taxonomies.php:335
@@ -643,7 +645,7 @@ msgstr "Soll es für den Post Type einen Archiv-Index geben"
 
 #: ../inc/post-types.php:403
 msgid "Slug to be used for archive page."
-msgstr ""
+msgstr "Kurzlink der für die Archiv Seite verwendet wird."
 
 #: ../inc/post-types.php:422
 msgid "Exclude From Search"
@@ -1371,7 +1373,7 @@ msgstr ""
 
 #: ../inc/taxonomies.php:378
 msgid "Custom Query Var String"
-msgstr "Benutzerdefinierte Quer Var Zeile"
+msgstr "Benutzerdefinierte Query Var Zeile"
 
 #: ../inc/taxonomies.php:379
 msgid "Custom Query Var Slug"
