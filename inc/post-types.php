@@ -371,6 +371,10 @@ function cptui_manage_post_types() {
 							/*
 							 * Has Archive Boolean
 							 */
+							echo $ui->get_tr_start() . $ui->get_th_start() . __( 'Has Archive', 'cpt-plugin' );
+							echo $ui->get_p( __( '"Has Archive" must be "true". If left blank, slug will default to the post type slug.', 'cpt-plugin' ) );
+							echo $ui->get_th_end() . $ui->get_td_start();
+
 							$select = array(
 								'options' => array(
 									array( 'attr' => '0', 'text' => __( 'False', 'cpt-plugin' ), 'default' => 'true' ),
@@ -385,8 +389,21 @@ function cptui_manage_post_types() {
 								'labeltext'     => __( 'Has Archive', 'cpt-plugin' ),
 								'aftertext'     => __( '(default: False)', 'cpt-plugin' ),
 								'helptext'      => esc_attr__( 'Whether the post type will have a post type archive page', 'cpt-plugin' ),
-								'selections'    => $select
+								'selections'    => $select,
+								'wrap'          => false
 							) );
+							
+							/*
+							 * Has Archive Input
+							 */
+							echo $ui->get_text_input( array(
+								'namearray'     => 'cpt_custom_post_type',
+								'name'          => 'has_archive_string',
+								'textvalue'     => ( isset( $current['has_archive_string'] ) ) ? esc_attr( $current['has_archive_string'] ) : '',
+								'helptext'      => esc_attr__( 'Slug to be used for archive page.', 'cpt-plugin' ),
+								'wrap'          => false
+							) );
+							echo $ui->get_td_end() . $ui->get_tr_end();
 
 							/*
 							 * Exclude From Search Boolean
@@ -526,13 +543,13 @@ function cptui_manage_post_types() {
 							) );
 							echo $ui->get_td_end() . $ui->get_tr_end();
 
+							/*
+							 * Show In Menu Boolean
+							 */
 							echo $ui->get_tr_start() . $ui->get_th_start() . __( 'Show in Menu', 'cpt-plugin' );
 							echo $ui->get_p( __( '"Show UI" must be "true". If an existing top level page such as "tools.php" is indicated for second input, post type will be sub menu of that.', 'cpt-plugin' ) );
 							echo $ui->get_th_end() . $ui->get_td_start();
 
-							/*
-							 * Show In Menu Boolean
-							 */
 							$select = array(
 								'options' => array(
 									array( 'attr' => '0', 'text' => __( 'False', 'cpt-plugin' ) ),
