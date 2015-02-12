@@ -148,7 +148,7 @@ function cptui_manage_taxonomies() {
 							 */
 							echo $ui->get_check_input( array(
 								'checkvalue'        => $post_type->name,
-								'checked'           => ( !empty( $current['object_type'] ) && is_array( $current['object_type'] ) && in_array( $post_type->name, $current['object_type'] ) ) ? 'true' : 'false',
+								'checked'           => ( !empty( $current['object_types'] ) && is_array( $current['object_types'] ) && in_array( $post_type->name, $current['object_types'] ) ) ? 'true' : 'false',
 								'name'              => $post_type->name,
 								'namearray'         => 'cpt_post_types',
 								'textvalue'         => $post_type->name,
