@@ -527,7 +527,7 @@ function cptui_manage_post_types() {
 							echo $ui->get_td_end() . $ui->get_tr_end();
 
 							echo $ui->get_tr_start() . $ui->get_th_start() . __( 'Show in Menu', 'cpt-plugin' );
-							echo $ui->get_p( __( '"Show UI" must be "true". If an existing top level page such as "tools.php" is indicated for second input, post type will be sub menu of that.', 'cpt-plugins' ) );
+							echo $ui->get_p( __( '"Show UI" must be "true". If an existing top level page such as "tools.php" is indicated for second input, post type will be sub menu of that.', 'cpt-plugin' ) );
 							echo $ui->get_th_end() . $ui->get_td_start();
 
 							/*
@@ -740,7 +740,7 @@ function cptui_manage_post_types() {
 								'wrap'          => false
 							) );
 
-							echo $ui->get_p( __( 'Use the option below to explicitly set "supports" to false.', 'cpt-plugins' ) );
+							echo $ui->get_p( __( 'Use the option below to explicitly set "supports" to false.', 'cpt-plugin' ) );
 
 							echo $ui->get_check_input( array(
 								'checkvalue'    => 'none',
