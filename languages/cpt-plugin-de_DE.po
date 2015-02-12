@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Custom Post Type UI 1.0\n"
-"POT-Creation-Date: 2015-02-11 19:50-0600\n"
-"PO-Revision-Date: 2015-02-11 19:54-0600\n"
+"POT-Creation-Date: 2015-02-11 20:32-0600\n"
+"PO-Revision-Date: 2015-02-11 20:32-0600\n"
 "Last-Translator: Michael Beckwith <michael.d.beckwith@gmail.com>\n"
 "Language-Team: Pascal Kläres & Ralf Koller <pascal.klaeres@gmail.com & r."
 "koller@gmail.com>\n"
@@ -1154,10 +1154,10 @@ msgstr ""
 
 #: ../inc/support.php:129
 msgid ""
-"How do I filter the \"enter title here\" text in the post editor screen."
+"How do I filter the \"enter title here\" text in the post editor screen?"
 msgstr ""
 "Wie kann ich den \"Titel hier eingeben\" Text im Neuen Beitrage erstellen "
-"Fenster ändern."
+"Fenster ändern?"
 
 #: ../inc/support.php:130
 msgid ""

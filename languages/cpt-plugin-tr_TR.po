@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Custom Post Type UI 0.8\n"
-"POT-Creation-Date: 2015-02-11 19:58-0600\n"
-"PO-Revision-Date: 2015-02-11 19:59-0600\n"
+"POT-Creation-Date: 2015-02-11 20:31-0600\n"
+"PO-Revision-Date: 2015-02-11 20:31-0600\n"
 "Last-Translator: Michael Beckwith <michael.d.beckwith@gmail.com>\n"
 "Language-Team: TrStar <trstar@gmail.com>\n"
 "Language: tr_TR\n"
@@ -57,7 +57,7 @@ msgstr "Dahili Sınıflandırmalar"
 #: ../custom-post-type-ui.php:328 ../inc/support.php:23
 #, fuzzy
 msgid "Help/Support"
-msgstr "Destekler"
+msgstr "Eklentiye Destek, Yardım!"
 
 #: ../custom-post-type-ui.php:329
 msgid "CPT UI Support Forum"
@@ -144,7 +144,7 @@ msgstr "Dahili Sınıflandırmalar"
 #: ../custom-post-type-ui.php:521
 #, fuzzy
 msgid "Post Types"
-msgstr "Yazı Türü Adı"
+msgstr "Özel Yazı Türleri"
 
 #: ../custom-post-type-ui.php:522 ../inc/import_export.php:355
 #, fuzzy
@@ -272,7 +272,7 @@ msgstr ""
 #: ../inc/import_export.php:89
 #, fuzzy
 msgid "Import Taxonomies"
-msgstr "Dahili Sınıflandırmalar"
+msgstr "Sınıflandırmaları Yönet"
 
 #: ../inc/import_export.php:93
 msgid ""
@@ -283,7 +283,7 @@ msgstr ""
 #: ../inc/import_export.php:98
 #, fuzzy
 msgid "Export Taxonomies"
-msgstr "Dahili Sınıflandırmalar"
+msgstr "Sınıflandırmaları Yönet"
 
 #: ../inc/import_export.php:104
 msgid "No taxonomies registered yet."
@@ -345,7 +345,7 @@ msgstr ""
 #: ../inc/post-types.php:103
 #, fuzzy
 msgid "Post Type Slug"
-msgstr "Yazı Türü Adı"
+msgstr "Bu Yazı türü için rewrite işlenmesini tetikler"
 
 #: ../inc/post-types.php:104
 msgid "(e.g. movie)"
@@ -424,7 +424,7 @@ msgstr "Ek Yazı Türleri"
 #: ../inc/post-types.php:156
 #, fuzzy
 msgid "Add Post Type"
-msgstr "Ek Yazı Türleri"
+msgstr "Bu Yazı türü için rewrite işlenmesini tetikler"
 
 #: ../inc/post-types.php:162 ../inc/taxonomies.php:174
 msgid "Click headings to reveal available options."
@@ -532,7 +532,7 @@ msgstr "Bulunamadı"
 #: ../inc/post-types.php:298
 #, fuzzy
 msgid "(e.g. No Movies found)"
-msgstr "(örneğin: Filmler bulunamadı)"
+msgstr "(örneğin: Çöpte Filmler bulunamadı)"
 
 #: ../inc/post-types.php:305
 msgid "Not Found in Trash"
@@ -1098,7 +1098,7 @@ msgstr ""
 
 #: ../inc/support.php:129
 msgid ""
-"How do I filter the \"enter title here\" text in the post editor screen."
+"How do I filter the \"enter title here\" text in the post editor screen?"
 msgstr ""
 
 #: ../inc/support.php:130

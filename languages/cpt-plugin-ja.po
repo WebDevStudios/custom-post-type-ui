@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cus\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-10 19:33-0600\n"
-"PO-Revision-Date: 2015-02-11 19:58-0600\n"
+"POT-Creation-Date: 2015-02-11 20:31-0600\n"
+"PO-Revision-Date: 2015-02-11 20:32-0600\n"
 "Last-Translator: Michael Beckwith <michael.d.beckwith@gmail.com>\n"
 "Language-Team: ja <jotaki@digitalcube.jp>\n"
 "Language: ja_JP\n"
@@ -19,7 +19,7 @@ msgstr ""
 #: ../custom-post-type-ui.php:57
 #, fuzzy
 msgid "Custom Post Types"
-msgstr "Custom Post Types UI"
+msgstr "利用する投稿タイプ"
 
 #: ../custom-post-type-ui.php:57
 msgid "CPT UI"
@@ -28,7 +28,7 @@ msgstr ""
 #: ../custom-post-type-ui.php:320 ../custom-post-type-ui.php:410
 #, fuzzy
 msgid "Custom Post Type UI"
-msgstr "Custom Post Types UI"
+msgstr "利用する投稿タイプ"
 
 #: ../custom-post-type-ui.php:323
 msgid ""
@@ -101,7 +101,7 @@ msgstr ""
 
 #: ../custom-post-type-ui.php:407
 #, php-format
-msgid "%s version %s by %s - %s %s &middot; %s &middot; %s &middot; %s"
+msgid "%s version %s by %s - %s %s %s &middot; %s &middot; %s"
 msgstr ""
 
 #: ../custom-post-type-ui.php:416
@@ -148,7 +148,7 @@ msgstr "投稿タイプ名"
 #: ../custom-post-type-ui.php:522 ../inc/import_export.php:355
 #, fuzzy
 msgid "Taxonomies"
-msgstr "分類名"
+msgstr "ビルトイン分類"
 
 #: ../custom-post-type-ui.php:523
 msgid "Get Code"
@@ -401,7 +401,7 @@ msgstr ""
 #: ../inc/post-types.php:153
 #, fuzzy
 msgid "Edit Post Type"
-msgstr "カスタム投稿タイプを編集"
+msgstr "利用する投稿タイプ"
 
 #: ../inc/post-types.php:154
 #, fuzzy
@@ -483,8 +483,9 @@ msgid "New Item"
 msgstr "新規項目"
 
 #: ../inc/post-types.php:250
+#, fuzzy
 msgid "(e.g. New Movie)"
-msgstr ""
+msgstr "新規項目追加"
 
 #: ../inc/post-types.php:257
 msgid "View"
@@ -837,7 +838,7 @@ msgid "Adds post format support"
 msgstr ""
 
 #: ../inc/post-types.php:743
-msgid "\"Use the option below to explicitly set \"supports\" to false."
+msgid "Use the option below to explicitly set \"supports\" to false."
 msgstr ""
 
 #: ../inc/post-types.php:751
@@ -1033,8 +1034,9 @@ msgid "Check out the %s function for documentation and usage examples."
 msgstr ""
 
 #: ../inc/support.php:119
+#, fuzzy
 msgid "Post relationships?"
-msgstr ""
+msgstr "利用する投稿タイプ"
 
 #: ../inc/support.php:120
 #, php-format
@@ -1045,7 +1047,7 @@ msgstr ""
 
 #: ../inc/support.php:129
 msgid ""
-"How do I filter the \"enter title here\" text in the post editor screen."
+"How do I filter the \"enter title here\" text in the post editor screen?"
 msgstr ""
 
 #: ../inc/support.php:130
@@ -1250,8 +1252,9 @@ msgid "Triggers the handling of rewrites for this taxonomy"
 msgstr ""
 
 #: ../inc/taxonomies.php:403
+#, fuzzy
 msgid "(default: taxonomy name)"
-msgstr ""
+msgstr "新規項目名"
 
 #: ../inc/taxonomies.php:405
 #, fuzzy

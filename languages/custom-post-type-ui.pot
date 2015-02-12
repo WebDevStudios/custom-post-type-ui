@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Custom Post Type UI 0.9\n"
-"POT-Creation-Date: 2015-02-10 19:33-0600\n"
-"PO-Revision-Date: 2015-02-10 19:33-0600\n"
+"POT-Creation-Date: 2015-02-11 20:31-0600\n"
+"PO-Revision-Date: 2015-02-11 20:31-0600\n"
 "Last-Translator: Michael Beckwith <michael.d.beckwith@gmail.com>\n"
 "Language-Team: WebDevStudios <contact@webdevstudios.com>\n"
 "Language: en\n"
@@ -96,7 +96,7 @@ msgstr ""
 
 #: ../custom-post-type-ui.php:407
 #, php-format
-msgid "%s version %s by %s - %s %s &middot; %s &middot; %s &middot; %s"
+msgid "%s version %s by %s - %s %s %s &middot; %s &middot; %s"
 msgstr ""
 
 #: ../custom-post-type-ui.php:416
@@ -805,7 +805,7 @@ msgid "Adds post format support"
 msgstr ""
 
 #: ../inc/post-types.php:743
-msgid "\"Use the option below to explicitly set \"supports\" to false."
+msgid "Use the option below to explicitly set \"supports\" to false."
 msgstr ""
 
 #: ../inc/post-types.php:751
@@ -1008,7 +1008,7 @@ msgstr ""
 
 #: ../inc/support.php:129
 msgid ""
-"How do I filter the \"enter title here\" text in the post editor screen."
+"How do I filter the \"enter title here\" text in the post editor screen?"
 msgstr ""
 
 #: ../inc/support.php:130
