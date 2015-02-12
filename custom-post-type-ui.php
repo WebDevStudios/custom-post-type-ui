@@ -272,7 +272,9 @@ function cptui_register_single_taxonomy( $taxonomy = array() ) {
 	if ( in_array( $taxonomy['query_var'], array( 'true', 'false', '0', '1' ) ) ) {
 		$taxonomy['query_var'] = get_disp_boolean( $taxonomy['query_var'] );
 	}
-	$query_var_slug = ( !empty( $taxonomy['query_var_slug'] ) ) ? $taxonomy['query_var_slug'] : '';
+	if ( true === $taxonomy['query_var'] && !empty( $taxonomy['query_var_slug'] ) ) {
+		$taxonomy['query_var'] = $taxonomy['query_var_slug'];
+	}
 
 	$args = array(
 		'labels'            => $labels,
