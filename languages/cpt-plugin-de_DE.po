@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Custom Post Type UI 1.0\n"
-"POT-Creation-Date: 2015-02-12 10:02-0600\n"
-"PO-Revision-Date: 2015-02-12 10:02-0600\n"
+"POT-Creation-Date: 2015-02-12 10:01-0600\n"
+"PO-Revision-Date: 2015-02-12 12:01-0600\n"
 "Last-Translator: Michael Beckwith <michael.d.beckwith@gmail.com>\n"
 "Language-Team: Pascal Kläres & Ralf Koller <pascal.klaeres@gmail.com & r."
 "koller@gmail.com>\n"
@@ -411,8 +411,8 @@ msgid ""
 "Custom Post Type Singular label. Used in WordPress when a singular label is "
 "needed."
 msgstr ""
-"Custom Post Type-Beschriftung (Singular). Wird von WordPress verwendet wenn "
-"Beschriftungen im Singular benötigt werden."
+"Custom Post Type-Beschriftung (Singular). Wird in WordPress verwendet wenn "
+"Beschriftungen in der Einzahl benötigt werden."
 
 #: ../inc/post-types.php:145
 msgid "Description"
@@ -625,7 +625,7 @@ msgstr ""
 
 #: ../inc/post-types.php:385
 msgid "Has Archive"
-msgstr "Archiv anlegen"
+msgstr "Hat einen Archiv-Index"
 
 #: ../inc/post-types.php:386 ../inc/post-types.php:406
 #: ../inc/post-types.php:437 ../inc/taxonomies.php:335
@@ -635,7 +635,7 @@ msgstr "(Voreinstellung: deaktiviert)"
 
 #: ../inc/post-types.php:387
 msgid "Whether the post type will have a post type archive page"
-msgstr "Soll der Post Type eine Post Type-Archiv Seite haben"
+msgstr "Soll es für den Post Type einen Archiv-Index geben"
 
 #: ../inc/post-types.php:405
 msgid "Exclude From Search"
@@ -748,27 +748,27 @@ msgid ""
 "Whether to show the post type in the admin menu and where to show that menu. "
 "Note that show_ui must be true"
 msgstr ""
-"Soll der Post Type im Admin-Menü angezeigt werden soll und an welcher "
-"Position dieses Menü angezeigt werden. Beachten Sie dass "
-"\"Benutzeroberfläche anzeigen\" dafür aktiviert sein muss"
+"Soll der Post Type im Admin-Menü angezeigt werden und an welcher Position "
+"dieses Menü angezeigt werden. Beachten Sie dass \"Benutzeroberfläche anzeigen"
+"\" dafür aktiviert sein muss"
 
 #: ../inc/post-types.php:561
 msgid "URL to image to be used as menu icon."
-msgstr "URL zum Bild das als Menü Icon benutzt werden soll."
+msgstr "URL zum Bild das als Menü-Icon benutzt werden soll."
 
 #: ../inc/post-types.php:572
 msgid "Menu Icon"
-msgstr "Menü Icon"
+msgstr "Menü-Icon"
 
 #: ../inc/post-types.php:573
 msgid "(Full URL for icon or Dashicon class)"
-msgstr "(Komplette URL für das Icon oder die Dashicon Klasse)"
+msgstr "(Komplette URL für das Icon oder die Dashicon-Klasse)"
 
 #: ../inc/post-types.php:574
 msgid "URL to image to be used as menu icon or Dashicon class to use instead."
 msgstr ""
-"URL zum Bild das anstelle dessen als Menü-Icon oder Dashicon-Klasse "
-"verwendet wird."
+"URL zum Bild das als Menü-Icon verwendet wird; oder zur Dashicon-Klasse "
+"anstelle dessen."
 
 #: ../inc/post-types.php:577
 msgid "Supports"
@@ -793,8 +793,8 @@ msgid ""
 "Adds the content editor meta box when creating content for this custom post "
 "type"
 msgstr ""
-"Fügt eine Editor Meta Box hinzu sobald Inhalte für diesen Custom Post Type "
-"erstellt werden"
+"Fügt eine Text-Editor Meta Box hinzu sobald Inhalte für diesen Custom Post "
+"Type erstellt werden"
 
 #: ../inc/post-types.php:617
 msgid "Excerpt"
@@ -804,8 +804,8 @@ msgstr "Auszug"
 msgid ""
 "Adds the excerpt meta box when creating content for this custom post type"
 msgstr ""
-"Fügt eine Zusammenfassung Meta Box hinzu sobald Inhalte für diesen Custom "
-"Post Type erstellt werden"
+"Fügt eine Auszugs Meta Box hinzu sobald Inhalte für diesen Custom Post Type "
+"erstellt werden"
 
 #: ../inc/post-types.php:632
 msgid "Trackbacks"
@@ -820,7 +820,7 @@ msgstr ""
 
 #: ../inc/post-types.php:647
 msgid "Custom Fields"
-msgstr "Benutzerdefinierte Felder"
+msgstr "Eigene Felder"
 
 #: ../inc/post-types.php:648
 msgid ""
@@ -849,8 +849,8 @@ msgstr "Revisionen"
 msgid ""
 "Adds the revisions meta box when creating content for this custom post type"
 msgstr ""
-"Fügt eine Versions Meta Box hinzu sobald Inhalte für diesen Custom Post Type "
-"erstellt werden"
+"Fügt eine Revisions Meta Box hinzu sobald Inhalte für diesen Custom Post "
+"Type erstellt werden"
 
 #: ../inc/post-types.php:692
 msgid "Featured Image"
@@ -861,8 +861,8 @@ msgid ""
 "Adds the featured image meta box when creating content for this custom post "
 "type"
 msgstr ""
-"Fügt eine Featured Image Meta Box hinzu sobald Inhalte für diesen Custom "
-"Post Type erstellt werden"
+"Fügt eine Beitragsbild Meta Box hinzu sobald Inhalte für diesen Custom Post "
+"Type erstellt werden"
 
 #: ../inc/post-types.php:707
 msgid "Author"
@@ -889,21 +889,21 @@ msgstr ""
 
 #: ../inc/post-types.php:737
 msgid "Post Formats"
-msgstr "Formatvorlagen"
+msgstr "Format"
 
 #: ../inc/post-types.php:738
 msgid "Adds post format support"
-msgstr "Fügt die Unterstützung für Formvorlagen für Posts hinzu"
+msgstr "Fügt die Unterstützung für Formate in Beiträgen hinzu"
 
 #: ../inc/post-types.php:743
 msgid "Use the option below to explicitly set \"supports\" to false."
 msgstr ""
-"Benutzen Sie die Option unten an um die \"Unterstützung\" explizit zu "
-"deaktivieren."
+"Haken Sie die Checkbox \"Keine\" an um alle \"Unterstützt\" Funktionen "
+"explizit zu deaktivieren."
 
 #: ../inc/post-types.php:751
 msgid "None"
-msgstr "Keines"
+msgstr "Keine"
 
 #: ../inc/post-types.php:752
 msgid "Remove all support features"
@@ -911,16 +911,16 @@ msgstr "Entferne alle Support Features"
 
 #: ../inc/post-types.php:759
 msgid "Built-in Taxonomies"
-msgstr "Verbundene Taxonomien"
+msgstr "Vorhandene Taxonomien"
 
 #: ../inc/post-types.php:797 ../inc/taxonomies.php:156
 #, php-format
 msgid "Adds %s support"
-msgstr "Fügt %s Support hinzu"
+msgstr "Fügt %s Unterstützung hinzu"
 
 #: ../inc/post-types.php:806 ../inc/taxonomies.php:463
 msgid "Starter Notes"
-msgstr "Beginne Notizen"
+msgstr "Tips für Neulinge"
 
 #: ../inc/post-types.php:809
 #, php-format
@@ -930,10 +930,11 @@ msgid ""
 "letters that do not have accents. Reserved names: post, page, attachment, "
 "revision, nav_menu_item."
 msgstr ""
-"Post Type Name sollten %smaximal 20 Zeichen%s lang sein; alphanumerisch, nur "
-"Kleinbuchstaben, Unterstriche anstelle Leerzeichen und es dürfen keine "
-"Akzente enthalten sein. Reservierte und schon vergebene Post Type Namen: "
-"post, page, attachment, revision, nav_menu_item."
+"Post Type-Namen dürfen %smaximal 20 Zeichen%s lang sein und nur "
+"alphanumerische Zeichen sowie Kleinbuchstaben enthalten. Unterstriche "
+"sollten Leerzeichen ersetzen und es dürfen keine Akzente vorkommen. "
+"Reservierte und schon vergebene Post Type-Namen sind post, page, attachment, "
+"revision, nav_menu_item."
 
 #: ../inc/post-types.php:810
 #, php-format
@@ -943,13 +944,13 @@ msgid ""
 "values. Labels, if left blank, will be automatically created based on the "
 "post type name. Hover over the question mark for more details."
 msgstr ""
-"Sollten sie mit der Nutzung der Erweiterten Post Type Einstellungen nicht "
-"vertraut sein, dann tragen Sie nur Werte in den %sPost Type Name%s und "
-"%sBeschriftungs%s Feldern ein. Für die übrigen Einstellungen werden "
-"Werkseinstellungen verwendet. Im Falle, dass keine Beschriftungen "
-"eingetragen wurden, werden selbige automatisch basierend auf dem Post Type "
-"Name erstellt. Fahren Sie mit dem Mauszeiger über das Fragezeichen für "
-"weiterführende Informationen."
+"Sollten sie mit der Nutzung der erweiterten Post Type-Einstellungen nicht "
+"vertraut sein, dann tragen Sie nur Werte in den %sPost Type-Namen%s sowie in "
+"das %sBeschriftungs%s Felde ein. Für die übrigen Einstellungen gelten die "
+"Voreinstellungen. Im Falle dessen, dass keine Beschriftungen eingetragen "
+"wurden, werden selbige automatisch, basierend auf dem Post Type-Namen, "
+"erstellt. Für weitergehende Informationen fahren Sie mit dem Mauszeiger über "
+"die roten Fragezeichen."
 
 #: ../inc/post-types.php:811
 #, php-format
@@ -959,8 +960,8 @@ msgid ""
 "the content will still exist."
 msgstr ""
 "Das Löschen eines Post Types führt %sNICHT%s zur Entfernung von Inhalten aus "
-"der Datenbank bzw. mit ihnen assoziierten. Sie können Ihre Post Type leicht "
-"erneut erstellen und die bereits erstellten Inhalte sind wieder bearbeitbar."
+"der Datenbank. Sie können Ihre Post Types leicht erneut erstellen und die "
+"bereits eingegebenen Inhalte sind wieder sicht- und bearbeitbar."
 
 #: ../inc/post-types.php:890
 msgid "Please provide a post type to delete"
@@ -968,18 +969,19 @@ msgstr "Bitte geben Sie einen Post Type zum Löschen an"
 
 #: ../inc/post-types.php:950
 msgid "Please provide a post type name"
-msgstr "Bitte geben Sie einen Post Type Namen an"
+msgstr "Bitte geben Sie einen Namen für den Post Type an"
 
 #: ../inc/post-types.php:968
 msgid "Please do not use quotes in post type names or rewrite slugs"
 msgstr ""
-"Bitte verwenden Sie keine Anführungszeichen in Post Type Namen oder Kurzlinks"
+"Bitte verwenden Sie keine Anführungszeichen in Post Type-Namen oder Rewrite-"
+"Kurzlinks"
 
 #: ../inc/post-types.php:975
 #, php-format
 msgid "Please choose a different post type name. %s is already registered."
 msgstr ""
-"Bitte wählen Sie einen anderen Post Type Namen. %s ist bereits in Verwendung."
+"Bitte wählen Sie einen anderen Post Type-Namen. %s ist bereits in Verwendung."
 
 #: ../inc/support.php:44
 msgid "Custom Post Type UI Support"
@@ -993,8 +995,9 @@ msgid ""
 "you. If all else fails, visit us on the %s"
 msgstr ""
 "Beachten Sie bitte, dass dieses Plugin NICHT die Anzeige der erstellten Post "
-"Types oder Taxonomien in Ihrem aktiven Theme regeln wird. Es wird sie "
-"lediglich für Sie registrieren. Bei weiteren Problemen besuchen Sie uns im %s"
+"Types oder Taxonomien in Ihrem aktiven Theme übernimmt. Es wird sie "
+"lediglich für Sie registrieren. Bei allen weiteren Problemen besuchen Sie "
+"uns in den %s"
 
 #: ../inc/support.php:47
 msgid "Support Forums"
@@ -1010,7 +1013,7 @@ msgid ""
 "I get them back?"
 msgstr ""
 "Ich habe den Namen meines Custom Post Types verändert und jetzt habe ich "
-"keinen Zugriff mehr auf meine Beiträge. Wie bekomme ich sie wieder zurück?"
+"keinen Zugriff mehr auf meine Beiträge. Wie bekomme ich diese wieder zurück?"
 
 #: ../inc/support.php:57
 msgid ""
@@ -1018,15 +1021,15 @@ msgid ""
 "try the Post Type Switcher plugin"
 msgstr ""
 "Sie können entweder den Namen des Custom Post Types auf den ursprünglichen "
-"zurücksetzen oder aber sie verwenden das Post Type Switcher-Plugin"
+"zurücksetzen oder aber Sie verwenden das Post Type Switcher-Plugin"
 
 #: ../inc/support.php:62
 msgid ""
 "I changed my custom post type or taxonomy slug and now I have duplicates "
 "shown. How do I remove the duplicate?"
 msgstr ""
-"Ich habe meinen Custom Post Type oder den Taxonomie Kurzlink verändert. "
-"Jetzt werden Duplikate angezeigt. Wie kann ich diese wieder entfernen?"
+"Ich habe meinen Custom Post Type oder den Taxonomie-Kurzlink verändert und "
+"jetzt werden Duplikate angezeigt. Wie kann ich diese wieder entfernen?"
 
 #: ../inc/support.php:63
 msgid ""
@@ -1035,26 +1038,26 @@ msgid ""
 "the settings will be mirrored from the previous slug, you will just need to "
 "delete the previous version's entry."
 msgstr ""
-"Die Umbenennung eines Kurzlinks zu einem Post Type oder einer Taxonomie "
-"erstellt einen neuen eigenen Post Type oder Taxonomie. Nachdem die "
-"Einstellung aus dem vorherigen Kurzlink übernommen werden müssen Sie einfach "
-"den ursprünglichen Eintrag löschen."
+"Die Umbenennung des Kurzlinks eines Post Types oder einer Taxonomie erstellt "
+"einen neuen, eigenen, Post Type oder Taxonomie. Nachdem die Einstellung aus "
+"dem vorherigen Kurzlink übernommen werden müssen Sie einfach den "
+"ursprünglichen Eintrag löschen."
 
 #: ../inc/support.php:66
 msgid ""
 "I have added post thumbnail and/or post format support to my post type, but "
 "those do not appear when adding a post type post."
 msgstr ""
-"Ich habe Post Thumbnails und oder Post Format Support zu meinem Post Type "
-"hinzugefügt, aber diese werden nicht angezeigt wenn ich einen Beitrag für "
-"diesen Post Type hinzufüge."
+"Ich habe ein Beitrags-Thumbnail und/oder einen Format-Support zu meinem Post "
+"Type hinzugefügt. Diese werden aber nicht angezeigt wenn ich einen Beitrag "
+"mit diesem Post Type hinzufüge."
 
 #: ../inc/support.php:67
 msgid ""
 "Make sure your theme has post \"post-thumbnails\" theme support enabled."
 msgstr ""
-"Stellen Sie sicher, dass Ihr Theme den Support für Post \"post-thumbnails\" "
-"aktiviert hat"
+"Stellen Sie sicher, dass Ihr Theme für Beiträge den Support von \"Beitrags-"
+"Thumbnails\" aktiviert hat"
 
 #: ../inc/support.php:72
 msgid "Front-end Display"
@@ -1063,8 +1066,8 @@ msgstr "Front-End Anzeige"
 #: ../inc/support.php:75
 msgid "What template files should I edit to alter my post type display?"
 msgstr ""
-"Welche Template Files sollte ich bearbeiten um meine Post Type Anzeige zu "
-"verändern?"
+"Welche Template Files sollte ich bearbeiten um die Anzeige meiner Post Types "
+"zu verändern?"
 
 #: ../inc/support.php:76
 #, php-format
@@ -1072,12 +1075,13 @@ msgid ""
 "Please visit the %sTemplate Hierarchy%s page on the WordPress codex for "
 "details about available templates."
 msgstr ""
-"Besuchen Sie bitte die %sTemplate Hierarchy%s Seite im WordPress Code um "
-"mehr über die verfügbaren Template zu erfahren."
+"Besuchen Sie bitte die %sTemplate Hierarchie%s Seite im WordPress Codex um "
+"mehr über die verfügbaren verschiedenen Arten von Templates zu erfahren."
 
 #: ../inc/support.php:83
 msgid "How do I display my custom post type on my site?"
-msgstr "Wie kann ich meine Custom Post Types auf meiner Webseite anzeigen?"
+msgstr ""
+"Wie kann ich meine Custom Post Types auf meiner Webseite anzeigen lassen?"
 
 #: ../inc/support.php:84
 #, php-format
@@ -1086,10 +1090,10 @@ msgid ""
 "locations. If you have set the post type to have archives, the archive url "
 "should be something like \"http://www.mysite.com/post-type-slug\""
 msgstr ""
-"Sie werden die %sWP_Query%s nutzen müssen um den Ort der Darstellung frei "
-"wählen zu können. Sollten für den Post Type eingestellt haben, dass er "
-"Archive hat, sollte die Archiv URL z.B. \"http://www.mysite.com/post-type-"
-"slug\" lauten."
+"Sie werden %sWP_Query%s nutzen müssen um den Ort der Darstellung frei wählen "
+"zu können. Sollten Sie für den Post Type eingestellt haben, dass er ein "
+"Archiv hat, sollte die Archiv-URL z.B. \"http://www.mysite.com/post-type-slug"
+"\" lauten."
 
 #: ../inc/support.php:90
 msgid ""
@@ -1097,7 +1101,7 @@ msgid ""
 "appear in the archives."
 msgstr ""
 "Ich habe Kategorien und Tags zu meinem Custom Post Type hinzugefügt, aber "
-"jetzt werden Sie nicht im Archiv angezeigt."
+"sie werden nicht in den Archiven angezeigt."
 
 #: ../inc/support.php:91
 #, php-format
@@ -1106,9 +1110,9 @@ msgid ""
 "category and tag archives query for. You can see a tutorial on how to do "
 "that at %s"
 msgstr ""
-"Sie müssen Ihren neue erstellen Post Type zu den Types hinzufügen in den "
-"denen Kategorien und Tag Archive durchsucht werden. Sie finden ein Tutorial "
-"dazu unter %s"
+"Sie müssen Ihren neu erstellten Post Type zu der Gruppe hinzufügen die "
+"Kategorien- und Ettiketten-Archive durchsuchen. Sie finden ein Tutorial dazu "
+"unter %s"
 
 #: ../inc/support.php:100
 msgid "Advanced"
@@ -1137,11 +1141,13 @@ msgstr ""
 #: ../inc/support.php:113
 #, php-format
 msgid "Check out the %s function for documentation and usage examples."
-msgstr "Gehen Sie zur %s Funktion für Dokumentation und Nutzungsbeispiele."
+msgstr ""
+"Werfen Sie einen Blick auf die %s-Funktion hinsichtlich Dokumentation und "
+"Nutzungsbeispielen."
 
 #: ../inc/support.php:119
 msgid "Post relationships?"
-msgstr "Beitragsbeziehung?"
+msgstr "Beitragsbeziehungen?"
 
 #: ../inc/support.php:120
 #, php-format
@@ -1149,23 +1155,23 @@ msgid ""
 "%s has an excellent %spost%s introducing users to the %sPosts 2 Posts%s "
 "plugin that should be a good start."
 msgstr ""
-"%s hat einen ausgezeichnet %sEinführung%s in die Nutzung des %sPosts 2 Posts"
+"%s hat eine ausgezeichnet %sEinführung%s in die Nutzung des %sPosts 2 Posts"
 "%s Plugins veröffentlicht."
 
 #: ../inc/support.php:129
 msgid ""
 "How do I filter the \"enter title here\" text in the post editor screen?"
 msgstr ""
-"Wie kann ich den \"Titel hier eingeben\" Text im Neuen Beitrage erstellen "
-"Fenster ändern?"
+"Wie kann ich den \"Titel hier eingeben\" Text im \"Neuen Beitrage erstellen"
+"\"-Fenster ändern?"
 
 #: ../inc/support.php:130
 msgid ""
 "Change text inside the post/page editor title field. Should be able to adapt "
 "as necessary."
 msgstr ""
-"Ändern Sie den Text innerhalb des Beitrag/Seiten Editor Titel Feldes. Es "
-"sollte möglich sein es anzupassen falls notwendig."
+"Ändern Sie den Text innerhalb des Beitrag/Seiten-Editor Titel-Feldes. Es "
+"sollte möglich sein dies anzupassen falls notwendig."
 
 #: ../inc/taxonomies.php:80
 msgid ""
@@ -1178,40 +1184,40 @@ msgstr ""
 
 #: ../inc/taxonomies.php:102
 msgid "Taxonomy Slug"
-msgstr "Taxonomie Kurzlink"
+msgstr "Taxonomie-Kurzlink"
 
 #: ../inc/taxonomies.php:103
 msgid "(e.g. actors)"
-msgstr "(z. B. Schauspieler)"
+msgstr "(z. B. regisseure)"
 
 #: ../inc/taxonomies.php:104
 msgid ""
 "The taxonomy name. Used to retrieve custom taxonomy content. Should be short "
 "and unique"
 msgstr ""
-"Der Taxonomie Name. Wird zum abrufen von benutzerdefinierten Taxonomie "
+"Der Taxonomie Name. Wird zum Abrufen von benutzerdefinierten Taxonomie-"
 "Inhalten verwendet. Er sollte kurz, prägnant und ein Unikat sein."
 
 #: ../inc/taxonomies.php:112 ../inc/taxonomies.php:186
 msgid "(e.g. Actors)"
-msgstr "(z. B. Schauspieler)"
+msgstr "(z. B. Regisseure)"
 
 #: ../inc/taxonomies.php:114
 msgid "Taxonomy label. Used in the admin menu for displaying custom taxonomy."
 msgstr ""
-"Taxonomie Beschreibung. Wird im Admin-Menü dazu verwendet benutzerdefinierte "
+"Taxonomie-Beschreibung. Wird im Admin-Menü dazu verwendet benutzerdefinierte "
 "Taxonomien anzuzeigen."
 
 #: ../inc/taxonomies.php:121
 msgid "(e.g. Actor)"
-msgstr "(z. B. Schauspieler)"
+msgstr "(z. B. Regisseur)"
 
 #: ../inc/taxonomies.php:123
 msgid ""
 "Taxonomy Singular label.  Used in WordPress when a singular label is needed."
 msgstr ""
-"Taxonomie Beschriftung (Singular). Wird in WordPress verwendet wenn eine "
-"Beschriftung in der Einzahl benötigt wird."
+"Taxonomie-Beschreibung (Singular). Wird in WordPress verwendet wenn "
+"Beschriftungen in der Einzahl benötigt werden."
 
 #: ../inc/taxonomies.php:126
 msgid "Attach to Post Type"
@@ -1245,19 +1251,19 @@ msgstr ""
 
 #: ../inc/taxonomies.php:195
 msgid "(e.g. All Actors)"
-msgstr "(z. B. Alle Schauspieler)"
+msgstr "(z. B. Alle Regisseure)"
 
 #: ../inc/taxonomies.php:204
 msgid "(e.g. Edit Actor)"
-msgstr "(z. B. Schauspieler bearbeiten)"
+msgstr "(z. B. Regisseur bearbeiten)"
 
 #: ../inc/taxonomies.php:213
 msgid "(e.g. View Actor)"
-msgstr "(z. B. Schauspieler anzeigen)"
+msgstr "(z. B. Regisseur anzeigen)"
 
 #: ../inc/taxonomies.php:222
 msgid "(e.g. Update Actor Name)"
-msgstr "(z. B. Namen des Schauspielers aktualisieren)"
+msgstr "(z. B. Namen des Regisseurs aktualisieren)"
 
 #: ../inc/taxonomies.php:223
 msgid "Update Item Name"
@@ -1265,35 +1271,35 @@ msgstr "Eintragsname aktualisieren"
 
 #: ../inc/taxonomies.php:231
 msgid "(e.g. Add New Actor)"
-msgstr "(z. B. Neuen Schauspieler hinzufügen)"
+msgstr "(z. B. Neuen Regisseur hinzufügen)"
 
 #: ../inc/taxonomies.php:240
 msgid "(e.g. New Actor Name)"
-msgstr "(z. B. Neuer Schauspieler Name)"
+msgstr "(z. B. Neuer Regisseursname)"
 
 #: ../inc/taxonomies.php:241
 msgid "New Item Name"
-msgstr "Eintragsname aktualisieren"
+msgstr "Neuer Eintragsname"
 
 #: ../inc/taxonomies.php:249
 msgid "(e.g. Parent Actor)"
-msgstr "(z. B. übergeordneter Regisseur)"
+msgstr "(z. B. Parent Regisseur)"
 
 #: ../inc/taxonomies.php:250
 msgid "Parent Item"
-msgstr "Übergeordneter Eintrag"
+msgstr "Parent Eintrag"
 
 #: ../inc/taxonomies.php:258
 msgid "(e.g. Parent Actor:)"
-msgstr "(z. B. Übergeordneter Regisseur:)"
+msgstr "(z. B. Parent Regisseur:)"
 
 #: ../inc/taxonomies.php:259
 msgid "Parent Item Colon"
-msgstr "Übergeordneter Eintrag (:)"
+msgstr "Parent Eintrag Komma"
 
 #: ../inc/taxonomies.php:267
 msgid "(e.g. Search Actors)"
-msgstr "(z. B. Regisseur durchsuchen)"
+msgstr "(z. B. Regisseure durchsuchen)"
 
 #: ../inc/taxonomies.php:268
 msgid "Search Items"
@@ -1309,31 +1315,31 @@ msgstr "Beliebte Einträge"
 
 #: ../inc/taxonomies.php:285
 msgid "(e.g. Separate actors with commas)"
-msgstr "(z. B. Trenne die Regisseure mit Komma)"
+msgstr "(z. B. Trenne die Regisseure mittels Komma)"
 
 #: ../inc/taxonomies.php:286
 msgid "Separate Items with Commas"
-msgstr "Trenne Einträge mit Komma"
+msgstr "Trenne Einträge mittels Komma"
 
 #: ../inc/taxonomies.php:294
 msgid "(e.g. Add or remove actors)"
-msgstr "(z. B. lösche oder füge Regisseure hinzu)"
+msgstr "(z. B. Lösche oder füge Regisseure hinzu)"
 
 #: ../inc/taxonomies.php:295
 msgid "Add or Remove Items"
-msgstr "Füge lösche oder füge Einträge hinzu"
+msgstr "Lösche oder füge Einträge hinzu"
 
 #: ../inc/taxonomies.php:303
 msgid "(e.g. Choose from the most used actors)"
-msgstr "(z. B. wähle aus den meist genutzten Regisseuren)"
+msgstr "(z. B. Wähle aus den meist genutzten Regisseuren)"
 
 #: ../inc/taxonomies.php:304
 msgid "Choose From Most Used"
-msgstr "Wähle aus den meist Verwendeten"
+msgstr "Wähle aus den am meisten Verwendeten"
 
 #: ../inc/taxonomies.php:312
 msgid "(e.g. No actors found)"
-msgstr "(z. B. Keine Schauspieler gefunden)"
+msgstr "(z. B. Keine Regisseure gefunden)"
 
 #: ../inc/taxonomies.php:313
 msgid "Not found"
@@ -1341,13 +1347,13 @@ msgstr "Nicht gefunden"
 
 #: ../inc/taxonomies.php:336
 msgid "Whether the taxonomy can have parent-child relationships"
-msgstr "Ob die Taxonomie eine parent-child Beziehung haben darf"
+msgstr "Soll die Taxonomie eine parent-child Beziehung haben"
 
 #: ../inc/taxonomies.php:353
 msgid "Whether to generate a default UI for managing this custom taxonomy"
 msgstr ""
-"Ob eine Standard UI erstellt werden soll um diese benutzerdefinierte "
-"Taxonomie zu verwalten"
+"Soll eine Standard-Benutzeroberfläche für die Verwaltung der "
+"benutzerdefinierten Taxonomien erstellt werden"
 
 #: ../inc/taxonomies.php:377
 msgid "(default: none). Query Var needs to be true to use."
@@ -1361,11 +1367,11 @@ msgstr "Benutzerdefinierte Quer Var Zeile"
 
 #: ../inc/taxonomies.php:379
 msgid "Custom Query Var Slug"
-msgstr "Benutzerdefinierter Query Var Kurzlink"
+msgstr "Benutzerdefinierter Query Var-Kurzlink"
 
 #: ../inc/taxonomies.php:395
 msgid "Triggers the handling of rewrites for this taxonomy"
-msgstr "Stösst Rewrites für diese Taxonomie an"
+msgstr "Veranlasst die Durchführung von Rewrites für diese Taxonomie"
 
 #: ../inc/taxonomies.php:403
 msgid "(default: taxonomy name)"
@@ -1373,11 +1379,11 @@ msgstr "(Voreinstellung: Taxanomie Name)"
 
 #: ../inc/taxonomies.php:405
 msgid "Custom Taxonomy Rewrite Slug"
-msgstr "Benutzerdefinierte Taxonomie Kurzlink"
+msgstr "Benutzerdefinierter Taxonomie Rewrite-Kurzlink"
 
 #: ../inc/taxonomies.php:419
 msgid "Rewrite With Front"
-msgstr "Überschreiben mittels With Front"
+msgstr "Rewrite mittels With Front"
 
 #: ../inc/taxonomies.php:420
 msgid "(default: true)"
@@ -1385,7 +1391,7 @@ msgstr "(Voreinstellung: aktiviert)"
 
 #: ../inc/taxonomies.php:436
 msgid "Rewrite Hierarchical"
-msgstr "Hierarchisches überschreiben"
+msgstr "Hierarchischer Rewrite"
 
 #: ../inc/taxonomies.php:437
 msgid "(default: false)"
@@ -1397,15 +1403,15 @@ msgstr "Darf die Permalink-Struktur hierarchische URLs erlauben."
 
 #: ../inc/taxonomies.php:453
 msgid "Show Admin Column"
-msgstr "Anzeige als Admin-Menüpunkt"
+msgstr "Anzeige von Admin-Spalten"
 
 #: ../inc/taxonomies.php:455
 msgid ""
 "Whether to allow automatic creation of taxonomy columns on associated post-"
 "types."
 msgstr ""
-"Ob es erlaubt ist Taxonomie Spalten in assoziierten Post Types automatisch "
-"zu erstellen."
+"Soll die automatische Erstellung von Taxonomie Spalten in verbundenen Post "
+"Types erlaubt werden."
 
 #: ../inc/taxonomies.php:466
 #, php-format
@@ -1414,9 +1420,9 @@ msgid ""
 "alphanumeric, lowercase, characters, underscores in place of spaces, and "
 "letters that do not have accents."
 msgstr ""
-"Taxonomie Namen sollten %smaximal 32 Zeichen%s lang sein; alphanumerisch, "
-"nur Kleinbuchstaben, Unterstriche anstelle Leerzeichen und es dürfen keine "
-"Akzente enthalten sein."
+"Taxonomie Namen dürfen %smaximal 32 Zeichen%s lang sein und nur "
+"alphanumerische Zeichen sowie Kleinbuchstaben enthalten. Unterstriche "
+"sollten Leerzeichen ersetzen und es dürfen keine Akzente vorkommen."
 
 #: ../inc/taxonomies.php:467
 #, php-format
@@ -1427,13 +1433,13 @@ msgid ""
 "automatically created based on the taxonomy name. Hover over the question "
 "marks for more details."
 msgstr ""
-"Sollten sie mit der Nutzung der Erweiterten Taxonomie Einstellungen nicht "
-"vertraut sein, dann tragen Sie nur Werte in den %sTaxonomie Namen%s und "
-"%sBeschriftungs%s Feldern ein. Für die übrigen Einstellungen werden "
-"Werkseinstellungen verwendet. Im Falle, dass keine Beschriftungen "
-"eingetragen wurden, werden selbige automatisch basierend auf dem Taxonomie "
-"Namen erstellt. Fahren Sie mit dem Mauszeiger über das Fragezeichen für "
-"weiterführende Informationen."
+"Sollten sie mit der Nutzung der erweiterten Taxonomie-Einstellungen nicht "
+"vertraut sein, dann tragen Sie nur Werte in den %sTaxonomie-Namen%s sowie in "
+"das %sBeschriftungs%s Feld ein. Für die übrigen Einstellungen gelten die "
+"Voreinstellungen. Im Falle dessen, dass keine Beschriftungen eingetragen "
+"wurden, werden selbige automatisch, basierend auf dem Taxonomie-Namen "
+"erstellt. Für weitergehende Informationen fahren Sie mit dem Mauszeiger über "
+"die roten Fragezeichen."
 
 #: ../inc/taxonomies.php:468
 #, php-format
@@ -1444,11 +1450,11 @@ msgid ""
 "terms in the database."
 msgstr ""
 "Das Löschen einer benutzerdefinierten Taxonomie führt %sNICHT%s zur "
-"Entfernung von Begriffen die zu diesen Taxonomien hinzugefügt wurde. Sie "
-"können Ihre Taxonomien leicht erneut erstellen und die bereits erstellten "
-"Inhalte sind wieder bearbeitbar. Sollten Sie den Name, nachdem Sie die "
-"Begriffe zu der Taxonomie hinzugefügt haben, werden die Begriffe nicht in "
-"der Datenbank aktualisiert."
+"Entfernung von Begriffen die zu diesen Taxonomien hinzugefügt wurden. Sie "
+"können Ihre Taxonomien leicht erneut erstellen und die bereits eingegebenen "
+"Inhalte sind wieder sicht- und bearbeitbar. Sollten Sie den Namen, nachdem "
+"Sie Begriffe zu der Taxonomie hinzugefügt haben, ändern, werden die Begriffe "
+"nicht in der Datenbank aktualisiert."
 
 #: ../inc/taxonomies.php:556
 msgid "Please provide a taxonomy to delete"
@@ -1461,13 +1467,28 @@ msgstr "Geben Sie bitte einen Taxonomie-Namen an"
 #: ../inc/taxonomies.php:623
 msgid "Please do not use quotes in taxonomy names or rewrite slugs"
 msgstr ""
-"Benutzen Sie bitte keine Anführungszeichen in Taxonomie Namen oder Kurzlinks"
+"Benutzen Sie bitte keine Anführungszeichen in Taxonomie-Namen oder Rewrite-"
+"Kurzlinks"
 
 #: ../inc/taxonomies.php:629
 #, php-format
 msgid "Please choose a different taxonomy name. %s is already used."
 msgstr ""
 "Bitte wählen Sie einen anderen Taxonomie-Namen. %s ist bereits in Verwendung."
+
+#~ msgid "%s version %s by %s - %s %s &middot; %s &middot; %s &middot; %s"
+#~ msgstr "%s Version %s von den %s - %s %s %s &middot; %s &middot; %s"
+
+#~ msgid "\"Use the option below to explicitly set \"supports\" to false."
+#~ msgstr ""
+#~ "Haken Sie die Checkbox \"Keine\" an um alle \"Unterstützt\" Funktionen "
+#~ "explizit zu deaktivieren."
+
+#~ msgid ""
+#~ "How do I filter the \"enter title here\" text in the post editor screen."
+#~ msgstr ""
+#~ "Wie kann ich den \"Titel hier eingeben\" Text im \"Neuen Beitrage "
+#~ "erstellen\"-Fenster ändern?"
 
 #~ msgid "version"
 #~ msgstr "Version"
