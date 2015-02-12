@@ -372,7 +372,7 @@ function cptui_manage_post_types() {
 							 * Has Archive Boolean
 							 */
 							echo $ui->get_tr_start() . $ui->get_th_start() . __( 'Has Archive', 'cpt-plugin' );
-							echo $ui->get_p( __( '"Has Archive" must be "true". If left blank, slug will default to the post type slug.', 'cpt-plugin' ) );
+							echo $ui->get_p( __( 'If left blank, the archive slug will default to the post type slug.', 'cpt-plugin' ) );
 							echo $ui->get_th_end() . $ui->get_td_start();
 
 							$select = array(
