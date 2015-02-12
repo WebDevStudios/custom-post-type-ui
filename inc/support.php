@@ -110,7 +110,7 @@ function cptui_support() {
 						<li>
 							<span class="question"><?php _e( 'How do I add a newly registered taxonomy to a post type that already exists?', 'cpt-plugin' ); ?></span>
 							<div class="answer"><?php printf(
-								__( 'Check out the %s function for documentation and usage examples.'),
+								__( 'Check out the %s function for documentation and usage examples.', 'cpt-plugin' ),
 								'<a href="http://codex.wordpress.org/Function_Reference/register_taxonomy_for_object_type" target="_blank">register_taxonomy_for_object_type()</a>'
 								); ?>
 							</div>
