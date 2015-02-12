@@ -145,6 +145,11 @@ function cptui_register_single_post_type( $post_type = array() ) {
 		}
 	}
 
+	$has_archive = get_disp_boolean( $post_type['has_archive'] );
+	if ( !empty( $post_type['has_archive_string'] ) ) {
+		$has_archive = $post_type['has_archive_string'];
+	}
+
 	$show_in_menu = get_disp_boolean( $post_type['show_in_menu'] );
 	if ( !empty( $post_type['show_in_menu_string'] ) ) {
 		$show_in_menu = $post_type['show_in_menu_string'];
@@ -188,7 +193,7 @@ function cptui_register_single_post_type( $post_type = array() ) {
 		'description'         => $post_type['description'],
 		'public'              => get_disp_boolean( $post_type['public'] ),
 		'show_ui'             => get_disp_boolean( $post_type['show_ui'] ),
-		'has_archive'         => get_disp_boolean( $post_type['has_archive'] ),
+		'has_archive'         => $has_archive,
 		'show_in_menu'        => $show_in_menu,
 		'exclude_from_search' => $exclude_from_search,
 		'capability_type'     => $post_type['capability_type'],
