@@ -3,7 +3,7 @@
 Plugin Name: Custom Post Type UI
 Plugin URI: https://github.com/WebDevStudios/custom-post-type-ui/
 Description: Admin panel for creating custom post types and custom taxonomies in WordPress
-Author: WebDevStudios.com
+Author: WebDevStudios
 Version: 1.0.2
 Author URI: http://webdevstudios.com/
 Text Domain: cpt-plugin
