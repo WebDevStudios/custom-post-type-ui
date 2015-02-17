@@ -84,7 +84,7 @@ class cptui_admin_ui {
 	 * @return string $value Content wrapped in a <p> tag.
 	 */
 	public function get_p( $text = '' ) {
-		return '<p>' . strip_tags( $text ) . '</p>';
+		return '<p>' . $text . '</p>';
 	}
 
 	/**
