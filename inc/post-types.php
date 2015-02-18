@@ -1014,8 +1014,9 @@ function cptui_update_post_type( $data = array() ) {
 		$data['cpt_custom_post_type']['menu_icon'] = null;
 	}
 
-	$data['cpt_custom_post_type']['label'] = stripslashes( $data['cpt_custom_post_type']['label'] );
-	$data['cpt_custom_post_type']['singular_label'] = stripslashes( $data['cpt_custom_post_type']['singular_label'] );
+	#$data['cpt_custom_post_type']['label'] = stripslashes( $data['cpt_custom_post_type']['label'] );
+	$data['cpt_custom_post_type']['label'] = htmlspecialchars( stripslashes( $data['cpt_custom_post_type']['label'] ), ENT_QUOTES );
+	$data['cpt_custom_post_type']['singular_label'] = htmlspecialchars( stripslashes( $data['cpt_custom_post_type']['singular_label'] ), ENT_QUOTES );
 
 	$label = str_replace( "'", "", $data['cpt_custom_post_type']['label'] );
 	$label = stripslashes( str_replace( '"', '', $label ) );
