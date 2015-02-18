@@ -392,7 +392,7 @@ function cptui_manage_post_types() {
 								'selections'    => $select,
 								'wrap'          => false
 							) );
-							
+
 							/*
 							 * Has Archive Input
 							 */
