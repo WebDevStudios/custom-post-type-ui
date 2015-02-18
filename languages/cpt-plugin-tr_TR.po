@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Custom Post Type UI 0.8\n"
-"POT-Creation-Date: 2015-02-12 12:33-0600\n"
-"PO-Revision-Date: 2015-02-12 12:33-0600\n"
+"POT-Creation-Date: 2015-02-17 18:07-0600\n"
+"PO-Revision-Date: 2015-02-17 18:08-0600\n"
 "Last-Translator: Michael Beckwith <michael.d.beckwith@gmail.com>\n"
 "Language-Team: TrStar <trstar@gmail.com>\n"
 "Language: tr_TR\n"
@@ -127,9 +127,10 @@ msgstr "Sınıflandırmaları Yönet"
 msgid "Manage Post Types"
 msgstr "Yazı Türlerini Yönet"
 
-#: ../custom-post-type-ui.php:514 ../inc/post-types.php:197
-msgid "Add New"
-msgstr "Yeni Ekle"
+#: ../custom-post-type-ui.php:516
+#, fuzzy
+msgid "Add New Post Type"
+msgstr "Bu Yazı türü için rewrite işlenmesini tetikler"
 
 #: ../custom-post-type-ui.php:519
 #, fuzzy
@@ -138,68 +139,73 @@ msgstr "Özel Yazı Türleri"
 
 #: ../custom-post-type-ui.php:523
 #, fuzzy
+msgid "Add New Taxonomy"
+msgstr "Sınıflandırma Adı"
+
+#: ../custom-post-type-ui.php:526
+#, fuzzy
 msgid "Edit Taxonomies"
 msgstr "Dahili Sınıflandırmalar"
 
-#: ../custom-post-type-ui.php:527
+#: ../custom-post-type-ui.php:530
 #, fuzzy
 msgid "Post Types"
 msgstr "Özel Yazı Türleri"
 
-#: ../custom-post-type-ui.php:528 ../inc/import_export.php:355
+#: ../custom-post-type-ui.php:531 ../inc/import_export.php:355
 #, fuzzy
 msgid "Taxonomies"
 msgstr "Sınıflandırmaları Yönet"
 
-#: ../custom-post-type-ui.php:529
+#: ../custom-post-type-ui.php:532
 msgid "Get Code"
 msgstr "Kodu Alın"
 
-#: ../custom-post-type-ui.php:613 ../inc/post-types.php:327
+#: ../custom-post-type-ui.php:616 ../inc/post-types.php:327
 #: ../inc/taxonomies.php:319
 msgid "Settings"
 msgstr ""
 
-#: ../custom-post-type-ui.php:613
+#: ../custom-post-type-ui.php:616
 msgid "Help"
 msgstr ""
 
-#: ../custom-post-type-ui.php:641
+#: ../custom-post-type-ui.php:644
 #, php-format
 msgid "%s has been successfully added"
 msgstr ""
 
-#: ../custom-post-type-ui.php:643
+#: ../custom-post-type-ui.php:646
 #, php-format
 msgid "%s has failed to be added"
 msgstr ""
 
-#: ../custom-post-type-ui.php:647
+#: ../custom-post-type-ui.php:650
 #, php-format
 msgid "%s has been successfully updated"
 msgstr ""
 
-#: ../custom-post-type-ui.php:649
+#: ../custom-post-type-ui.php:652
 #, php-format
 msgid "%s has failed to be updated"
 msgstr ""
 
-#: ../custom-post-type-ui.php:653
+#: ../custom-post-type-ui.php:656
 #, php-format
 msgid "%s has been successfully deleted"
 msgstr ""
 
-#: ../custom-post-type-ui.php:655
+#: ../custom-post-type-ui.php:658
 #, php-format
 msgid "%s has failed to be deleted"
 msgstr ""
 
-#: ../custom-post-type-ui.php:659
+#: ../custom-post-type-ui.php:662
 #, php-format
 msgid "%s has been successfully imported"
 msgstr ""
 
-#: ../custom-post-type-ui.php:661
+#: ../custom-post-type-ui.php:664
 #, php-format
 msgid "%s has failed to be imported"
 msgstr ""
@@ -462,6 +468,10 @@ msgstr "Bütün Elemanlar"
 msgid "(e.g. All Movies)"
 msgstr "(örneğin: Filmler)"
 
+#: ../inc/post-types.php:197
+msgid "Add New"
+msgstr "Yeni Ekle"
+
 #: ../inc/post-types.php:202
 msgid "(e.g. Add New)"
 msgstr "(örneğin: Yeni Ekle)"
@@ -518,7 +528,7 @@ msgstr "(örneğin: Film Göster)"
 #: ../inc/post-types.php:281
 #, fuzzy
 msgid "Search Item"
-msgstr "Temel Eleman"
+msgstr "Eleman Ara"
 
 #: ../inc/post-types.php:286
 #, fuzzy

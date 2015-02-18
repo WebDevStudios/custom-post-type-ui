@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Custom Post Type UI 0.9\n"
-"POT-Creation-Date: 2015-02-12 12:33-0600\n"
-"PO-Revision-Date: 2015-02-12 12:33-0600\n"
+"POT-Creation-Date: 2015-02-17 18:07-0600\n"
+"PO-Revision-Date: 2015-02-17 18:07-0600\n"
 "Last-Translator: Michael Beckwith <michael.d.beckwith@gmail.com>\n"
 "Language-Team: WebDevStudios <contact@webdevstudios.com>\n"
 "Language: en\n"
@@ -119,8 +119,8 @@ msgstr ""
 msgid "Manage Post Types"
 msgstr ""
 
-#: ../custom-post-type-ui.php:514 ../inc/post-types.php:197
-msgid "Add New"
+#: ../custom-post-type-ui.php:516
+msgid "Add New Post Type"
 msgstr ""
 
 #: ../custom-post-type-ui.php:519
@@ -128,66 +128,70 @@ msgid "Edit Post Types"
 msgstr ""
 
 #: ../custom-post-type-ui.php:523
+msgid "Add New Taxonomy"
+msgstr ""
+
+#: ../custom-post-type-ui.php:526
 msgid "Edit Taxonomies"
 msgstr ""
 
-#: ../custom-post-type-ui.php:527
+#: ../custom-post-type-ui.php:530
 msgid "Post Types"
 msgstr ""
 
-#: ../custom-post-type-ui.php:528 ../inc/import_export.php:355
+#: ../custom-post-type-ui.php:531 ../inc/import_export.php:355
 msgid "Taxonomies"
 msgstr ""
 
-#: ../custom-post-type-ui.php:529
+#: ../custom-post-type-ui.php:532
 msgid "Get Code"
 msgstr ""
 
-#: ../custom-post-type-ui.php:613 ../inc/post-types.php:327
+#: ../custom-post-type-ui.php:616 ../inc/post-types.php:327
 #: ../inc/taxonomies.php:319
 msgid "Settings"
 msgstr ""
 
-#: ../custom-post-type-ui.php:613
+#: ../custom-post-type-ui.php:616
 msgid "Help"
 msgstr ""
 
-#: ../custom-post-type-ui.php:641
+#: ../custom-post-type-ui.php:644
 #, php-format
 msgid "%s has been successfully added"
 msgstr ""
 
-#: ../custom-post-type-ui.php:643
+#: ../custom-post-type-ui.php:646
 #, php-format
 msgid "%s has failed to be added"
 msgstr ""
 
-#: ../custom-post-type-ui.php:647
+#: ../custom-post-type-ui.php:650
 #, php-format
 msgid "%s has been successfully updated"
 msgstr ""
 
-#: ../custom-post-type-ui.php:649
+#: ../custom-post-type-ui.php:652
 #, php-format
 msgid "%s has failed to be updated"
 msgstr ""
 
-#: ../custom-post-type-ui.php:653
+#: ../custom-post-type-ui.php:656
 #, php-format
 msgid "%s has been successfully deleted"
 msgstr ""
 
-#: ../custom-post-type-ui.php:655
+#: ../custom-post-type-ui.php:658
 #, php-format
 msgid "%s has failed to be deleted"
 msgstr ""
 
-#: ../custom-post-type-ui.php:659
+#: ../custom-post-type-ui.php:662
 #, php-format
 msgid "%s has been successfully imported"
 msgstr ""
 
-#: ../custom-post-type-ui.php:661
+#: ../custom-post-type-ui.php:664
 #, php-format
 msgid "%s has failed to be imported"
 msgstr ""
@@ -422,6 +426,10 @@ msgstr ""
 
 #: ../inc/post-types.php:190
 msgid "(e.g. All Movies)"
+msgstr ""
+
+#: ../inc/post-types.php:197
+msgid "Add New"
 msgstr ""
 
 #: ../inc/post-types.php:202

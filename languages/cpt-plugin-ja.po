@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cus\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-12 12:33-0600\n"
-"PO-Revision-Date: 2015-02-12 12:33-0600\n"
+"POT-Creation-Date: 2015-02-17 18:07-0600\n"
+"PO-Revision-Date: 2015-02-17 18:08-0600\n"
 "Last-Translator: Michael Beckwith <michael.d.beckwith@gmail.com>\n"
 "Language-Team: ja <jotaki@digitalcube.jp>\n"
 "Language: ja_JP\n"
@@ -126,9 +126,10 @@ msgstr "カスタム分類の管理"
 msgid "Manage Post Types"
 msgstr "カスタム投稿タイプの管理"
 
-#: ../custom-post-type-ui.php:514 ../inc/post-types.php:197
-msgid "Add New"
-msgstr "新規追加"
+#: ../custom-post-type-ui.php:516
+#, fuzzy
+msgid "Add New Post Type"
+msgstr "利用する投稿タイプ"
 
 #: ../custom-post-type-ui.php:519
 #, fuzzy
@@ -137,68 +138,73 @@ msgstr "カスタム投稿タイプを編集"
 
 #: ../custom-post-type-ui.php:523
 #, fuzzy
+msgid "Add New Taxonomy"
+msgstr "分類名"
+
+#: ../custom-post-type-ui.php:526
+#, fuzzy
 msgid "Edit Taxonomies"
 msgstr "ビルトイン分類"
 
-#: ../custom-post-type-ui.php:527
+#: ../custom-post-type-ui.php:530
 #, fuzzy
 msgid "Post Types"
 msgstr "投稿タイプ名"
 
-#: ../custom-post-type-ui.php:528 ../inc/import_export.php:355
+#: ../custom-post-type-ui.php:531 ../inc/import_export.php:355
 #, fuzzy
 msgid "Taxonomies"
 msgstr "ビルトイン分類"
 
-#: ../custom-post-type-ui.php:529
+#: ../custom-post-type-ui.php:532
 msgid "Get Code"
 msgstr ""
 
-#: ../custom-post-type-ui.php:613 ../inc/post-types.php:327
+#: ../custom-post-type-ui.php:616 ../inc/post-types.php:327
 #: ../inc/taxonomies.php:319
 msgid "Settings"
 msgstr ""
 
-#: ../custom-post-type-ui.php:613
+#: ../custom-post-type-ui.php:616
 msgid "Help"
 msgstr ""
 
-#: ../custom-post-type-ui.php:641
+#: ../custom-post-type-ui.php:644
 #, php-format
 msgid "%s has been successfully added"
 msgstr ""
 
-#: ../custom-post-type-ui.php:643
+#: ../custom-post-type-ui.php:646
 #, php-format
 msgid "%s has failed to be added"
 msgstr ""
 
-#: ../custom-post-type-ui.php:647
+#: ../custom-post-type-ui.php:650
 #, php-format
 msgid "%s has been successfully updated"
 msgstr ""
 
-#: ../custom-post-type-ui.php:649
+#: ../custom-post-type-ui.php:652
 #, php-format
 msgid "%s has failed to be updated"
 msgstr ""
 
-#: ../custom-post-type-ui.php:653
+#: ../custom-post-type-ui.php:656
 #, php-format
 msgid "%s has been successfully deleted"
 msgstr ""
 
-#: ../custom-post-type-ui.php:655
+#: ../custom-post-type-ui.php:658
 #, php-format
 msgid "%s has failed to be deleted"
 msgstr ""
 
-#: ../custom-post-type-ui.php:659
+#: ../custom-post-type-ui.php:662
 #, php-format
 msgid "%s has been successfully imported"
 msgstr ""
 
-#: ../custom-post-type-ui.php:661
+#: ../custom-post-type-ui.php:664
 #, php-format
 msgid "%s has failed to be imported"
 msgstr ""
@@ -401,7 +407,7 @@ msgstr ""
 #: ../inc/post-types.php:153
 #, fuzzy
 msgid "Edit Post Type"
-msgstr "編集"
+msgstr "利用する投稿タイプ"
 
 #: ../inc/post-types.php:154
 #, fuzzy
@@ -448,6 +454,10 @@ msgstr "すべての項目"
 #: ../inc/post-types.php:190
 msgid "(e.g. All Movies)"
 msgstr ""
+
+#: ../inc/post-types.php:197
+msgid "Add New"
+msgstr "新規追加"
 
 #: ../inc/post-types.php:202
 #, fuzzy
