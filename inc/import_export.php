@@ -303,6 +303,10 @@ function cptui_get_single_post_type_registery( $post_type = array() ) {
 		$taxonomies = 'array( \'' . implode( '\', \'', $post_type['taxonomies'] ) . '\' )';
 	}
 
+	if ( in_array( $post_type['query_var'], array( 'true', 'false', '0', '1' ) ) ) {
+		$post_type['query_var'] = get_disp_boolean( $post_type['query_var'] );
+	}
+
 	$post_type['description'] = addslashes( $post_type['description'] );
 	?>
 	$labels = array(
