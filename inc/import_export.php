@@ -294,6 +294,10 @@ function cptui_get_single_post_type_registery( $post_type = array() ) {
 		$supports = 'array( \'' . implode( '\', \'', $post_type['supports'] ) . '\' )';
 	}
 
+	if ( in_array( 'none', $post_type['supports'] ) ) {
+		$supports = 'false';
+	}
+
 	$taxonomies = '';
 	if ( !empty( $post_type['taxonomies'] ) && is_array( $post_type['taxonomies'] ) ) {
 		$taxonomies = 'array( \'' . implode( '\', \'', $post_type['taxonomies'] ) . '\' )';
