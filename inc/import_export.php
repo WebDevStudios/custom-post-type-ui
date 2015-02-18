@@ -206,9 +206,9 @@ function cptui_get_single_taxonomy_registery( $taxonomy = array() ) {
 		'labels' => $labels,
 		'hierarchical' => <?php echo $taxonomy['hierarchical']; ?>,
 		'label' => '<?php echo $taxonomy['label']; ?>',
-		'show_ui' => <?php echo $taxonomy['show_ui']; ?>,
-		'query_var' => <?php echo $taxonomy['query_var'];?>,
-		'rewrite' => <?php echo $taxonomy['rewrite']; ?>,
+		'show_ui' => <?php echo disp_boolean( $taxonomy['show_ui'] ); ?>,
+		'query_var' => <?php echo disp_boolean( $taxonomy['query_var'] );?>,
+		'rewrite' => <?php echo $rewrite; ?>,
 		'show_admin_column' => <?php echo $taxonomy['show_admin_column']; ?>,
 	);
 <?php # register_taxonomy( $taxonomy, $object_type, $args ); NEED TO DETERMINE THE $object_type ?>
