@@ -170,6 +170,26 @@ function cptui_get_single_taxonomy_registery( $taxonomy = array() ) {
 		$post_types = 'array( \'' . implode( '\', \'', $taxonomy['object_types'] ) . '\' )';
 	}
 
+	$rewrite = get_disp_boolean( $taxonomy['rewrite'] );
+	if ( false !== get_disp_boolean( $taxonomy['rewrite'] ) ) {
+		$rewrite = array();
+		if ( !empty( $taxonomy['rewrite_slug'] ) ) {
+			$rewrite['slug'] = $taxonomy['rewrite_slug'];
+		}
+
+		$withfront = ( !empty( $taxonomy['rewrite_withfront'] ) ) ? disp_boolean( $taxonomy['rewrite_withfront'] ) : '';
+		if ( !empty( $withfront ) ) {
+			$rewrite['with_front'] = $taxonomy['rewrite_withfront'];
+		}
+
+		$hierarchical = ( !empty( $taxonomy['rewrite_hierarchical'] ) ) ? disp_boolean( $taxonomy['rewrite_hierarchical'] ) : '';
+		if ( !empty( $hierarchical ) ) {
+			$rewrite['rewrite_hierarchical'] = $taxonomy['rewrite_hierarchical'];
+		}
+	} else {
+		$rewrite = disp_boolean( $taxonomy['rewrite'] );
+	}
+
 	?>
 
 	$labels = array(
