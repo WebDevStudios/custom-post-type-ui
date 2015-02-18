@@ -510,15 +510,18 @@ function cptui_settings_tab_menu( $page = 'post_types' ) {
 	<?php echo $title;
 
 	# Import/Export area is getting different tabs, so we need to separate out.
-	if ( 'importexport' != $page ) { ?>
-		<a class="<?php echo $tab1; ?>" href="<?php echo admin_url( 'admin.php?page=cptui_manage_' . $page ); ?>"><?php _e( 'Add New', 'cpt-plugin' ); ?></a>
-		<?php
-
+	if ( 'importexport' != $page ) {
 		if ( 'post_types' == $page ) {
+			?>
+			<a class="<?php echo $tab1; ?>" href="<?php echo admin_url( 'admin.php?page=cptui_manage_' . $page ); ?>"><?php _e( 'Add New Post Type', 'cpt-plugin' ); ?></a>
+			<?php
 			if ( $has ) { ?>
 			<a class="<?php echo $tab2; ?>" href="<?php echo add_query_arg( array( 'action' => 'edit' ), admin_url( 'admin.php?page=cptui_manage_' . $page ) ); ?>"><?php _e( 'Edit Post Types', 'cpt-plugin' ); ?></a>
 			<?php }
 		} elseif ( 'taxonomies' == $page ) {
+			?>
+			<a class="<?php echo $tab1; ?>" href="<?php echo admin_url( 'admin.php?page=cptui_manage_' . $page ); ?>"><?php _e( 'Add New Taxonomy', 'cpt-plugin' ); ?></a>
+			<?php
 			if ( $has ) { ?>
 			<a class="<?php echo $tab2; ?>" href="<?php echo add_query_arg( array( 'action' => 'edit' ), admin_url( 'admin.php?page=cptui_manage_' . $page ) ); ?>"><?php _e( 'Edit Taxonomies', 'cpt-plugin' ); ?></a>
 			<?php }
