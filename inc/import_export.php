@@ -73,7 +73,6 @@ function cptui_importexport() {
 				<?php
 					$cptui_post_types = get_option( 'cptui_post_types', array() );
 					if ( !empty( $cptui_post_types ) ) {
-						$cptui_post_types = stripslashes_deep( $cptui_post_types );
 						$content = esc_html( json_encode( $cptui_post_types ) );
 					} else {
 						$content = __( 'No post types registered yet.', 'cpt-plugin' );
