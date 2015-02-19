@@ -1004,8 +1004,9 @@ function cptui_update_post_type( $data = array() ) {
 		if ( empty( $label ) ) {
 			unset( $data['cpt_labels'][ $key ] );
 		}
-		$label = str_replace( "'", "", $label );
-		$label = str_replace( '"', '', $label );
+
+		$label = str_replace( '"', '', htmlspecialchars_decode( $label ) );
+		$label = htmlspecialchars( $label, ENT_QUOTES );
 
 		$data['cpt_labels'][ $key ] = stripslashes_deep( $label );
 	}
@@ -1014,15 +1015,11 @@ function cptui_update_post_type( $data = array() ) {
 		$data['cpt_custom_post_type']['menu_icon'] = null;
 	}
 
-	#$data['cpt_custom_post_type']['label'] = stripslashes( $data['cpt_custom_post_type']['label'] );
-	$data['cpt_custom_post_type']['label'] = htmlspecialchars( stripslashes( $data['cpt_custom_post_type']['label'] ), ENT_QUOTES );
-	$data['cpt_custom_post_type']['singular_label'] = htmlspecialchars( stripslashes( $data['cpt_custom_post_type']['singular_label'] ), ENT_QUOTES );
+	$label = str_replace( '"', '', htmlspecialchars_decode( $data['cpt_custom_post_type']['label'] ) );
+	$label = htmlspecialchars( stripslashes( $label ), ENT_QUOTES );
 
-	$label = str_replace( "'", "", $data['cpt_custom_post_type']['label'] );
-	$label = stripslashes( str_replace( '"', '', $label ) );
-
-	$singular_label = str_replace( "'", "", $data['cpt_custom_post_type']['singular_label'] );
-	$singular_label = stripslashes( str_replace( '"', '', $singular_label ) );
+	$singular_label = str_replace( '"', '', htmlspecialchars_decode( $data['cpt_custom_post_type']['singular_label'] ) );
+	$singular_label = htmlspecialchars( stripslashes( $singular_label ), ENT_QUOTES );
 
 	$description = stripslashes_deep( $data['cpt_custom_post_type']['description'] );
 
