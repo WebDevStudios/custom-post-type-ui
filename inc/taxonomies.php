@@ -637,21 +637,17 @@ function cptui_update_taxonomy( $data = array() ) {
 		if ( empty( $label ) ) {
 			unset( $data['cpt_tax_labels'][ $key ] );
 		}
-
-		$label = str_replace( "'", "", $label );
-		$label = str_replace( '"', '', $label );
+		$label = str_replace( '"', '', htmlspecialchars_decode( $label ) );
+		$label = htmlspecialchars( $label, ENT_QUOTES );
 
 		$data['cpt_tax_labels'][ $key ] = stripslashes_deep( $label );
 	}
 
-	$data['cpt_custom_tax']['label'] = stripslashes( $data['cpt_custom_tax']['label'] );
-	$data['cpt_custom_tax']['singular_label'] = stripslashes( $data['cpt_custom_tax']['singular_label'] );
+	$label = str_replace( '"', '', htmlspecialchars_decode( $data['cpt_custom_tax']['label'] ) );
+	$label = htmlspecialchars( stripslashes( $label ), ENT_QUOTES );
 
-	$label = str_replace( "'", "", $data['cpt_custom_tax']['label'] );
-	$label = stripslashes( str_replace( '"', '', $label ) );
-
-	$singular_label = str_replace( "'", "", $data['cpt_custom_tax']['singular_label'] );
-	$singular_label = stripslashes( str_replace( '"', '', $singular_label ) );
+	$singular_label = str_replace( '"', '', htmlspecialchars_decode( $data['cpt_custom_tax']['singular_label'] ) );
+	$singular_label = htmlspecialchars( stripslashes( $singular_label ) );
 
 	$taxonomies[ $data['cpt_custom_tax']['name'] ] = array(
 		'name'                 => $data['cpt_custom_tax']['name'],
