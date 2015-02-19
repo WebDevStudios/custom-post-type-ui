@@ -166,7 +166,7 @@ function cptui_get_single_taxonomy_registery( $taxonomy = array() ) {
 
 	$post_types = "''";
 	if ( is_array( $taxonomy['object_types'] ) ) {
-		$post_types = 'array( \'' . implode( '\', \'', $taxonomy['object_types'] ) . '\' )';
+		$post_types = 'array( "' . implode( '", "', $taxonomy['object_types'] ) . '" )';
 	}
 
 	$rewrite = get_disp_boolean( $taxonomy['rewrite'] );
@@ -192,26 +192,26 @@ function cptui_get_single_taxonomy_registery( $taxonomy = array() ) {
 	?>
 
 	$labels = array(
-		'name' => '<?php echo $taxonomy['name']; ?>',
-		'label' => '<?php echo $taxonomy['label']; ?>',
+		"name" => "<?php echo $taxonomy['name']; ?>",
+		"label" => "<?php echo $taxonomy['label']; ?>",
 		<?php foreach( $taxonomy['labels'] as $key => $label ) {
 			if ( !empty( $label ) ) {
-			echo "'$key' => '$label',\n\t\t";
+			echo '"' . $key . '" => "' . $label . '",' . "\n\t\t";
 			}
 		} ?>
 	);
 
 	$args = array(
-		'labels' => $labels,
-		'hierarchical' => <?php echo $taxonomy['hierarchical']; ?>,
-		'label' => '<?php echo $taxonomy['label']; ?>',
-		'show_ui' => <?php echo disp_boolean( $taxonomy['show_ui'] ); ?>,
-		'query_var' => <?php echo disp_boolean( $taxonomy['query_var'] );?>,
-		'rewrite' => <?php echo $rewrite; ?>,
-		'show_admin_column' => <?php echo $taxonomy['show_admin_column']; ?>,
+		"labels" => $labels,
+		"hierarchical" => <?php echo $taxonomy['hierarchical']; ?>,
+		"label" => "<?php echo $taxonomy['label']; ?>",
+		"show_ui" => <?php echo disp_boolean( $taxonomy['show_ui'] ); ?>,
+		"query_var" => <?php echo disp_boolean( $taxonomy['query_var'] );?>,
+		"rewrite" => <?php echo $rewrite; ?>,
+		"show_admin_column" => <?php echo $taxonomy['show_admin_column']; ?>,
 	);
 <?php # register_taxonomy( $taxonomy, $object_type, $args ); NEED TO DETERMINE THE $object_type ?>
-	register_taxonomy( '<?php echo $taxonomy['name']; ?>', <?php echo $post_types; ?>, $args );
+	register_taxonomy( "<?php echo $taxonomy['name']; ?>", <?php echo $post_types; ?>, $args );
 <?php
 }
 
@@ -266,14 +266,14 @@ function cptui_get_single_post_type_registery( $post_type = array() ) {
 	if ( false !== $rewrite ) {
 		$rewrite = disp_boolean( $post_type['rewrite'] );
 
-		$rewrite_slug = ' \'slug\' => \'' . $post_type['name'] . '\',';
+		$rewrite_slug = ' "slug" => "' . $post_type['name'] . '",';
 		if ( !empty( $post_type['rewrite_slug'] ) ) {
-			$rewrite_slug = ' \'slug\' => \'' . $post_type['rewrite_slug'] . '\',';
+			$rewrite_slug = ' "slug" => "' . $post_type['rewrite_slug'] . '",';
 		}
 
 		$withfront = disp_boolean( $post_type['rewrite_withfront'] );
 		if ( !empty( $withfront ) ) {
-			$rewrite_withfront = ' \'with_front\' => ' . $withfront . ' ';
+			$rewrite_withfront = ' "with_front" => ' . $withfront . ' ';
 		}
 
 		if ( !empty( $post_type['rewrite_slug'] ) || !empty( $post_type['rewrite_withfront'] ) ) {
@@ -290,7 +290,7 @@ function cptui_get_single_post_type_registery( $post_type = array() ) {
 	$supports = '';
 	# Do a little bit of php work to get these into strings.
 	if ( !empty( $post_type['supports'] ) && is_array( $post_type['supports'] ) ) {
-		$supports = 'array( \'' . implode( '\', \'', $post_type['supports'] ) . '\' )';
+		$supports = 'array( "' . implode( '", "', $post_type['supports'] ) . '" )';
 	}
 
 	if ( in_array( 'none', $post_type['supports'] ) ) {
@@ -299,7 +299,7 @@ function cptui_get_single_post_type_registery( $post_type = array() ) {
 
 	$taxonomies = '';
 	if ( !empty( $post_type['taxonomies'] ) && is_array( $post_type['taxonomies'] ) ) {
-		$taxonomies = 'array( \'' . implode( '\', \'', $post_type['taxonomies'] ) . '\' )';
+		$taxonomies = 'array( "' . implode( '", "', $post_type['taxonomies'] ) . '" )';
 	}
 
 	if ( in_array( $post_type['query_var'], array( 'true', 'false', '0', '1' ) ) ) {
@@ -309,33 +309,33 @@ function cptui_get_single_post_type_registery( $post_type = array() ) {
 	$post_type['description'] = addslashes( $post_type['description'] );
 	?>
 	$labels = array(
-		'name' => '<?php echo $post_type['label']; ?>',
-		'singular_name' => '<?php echo $post_type['singular_label']; ?>',
+		"name" => "<?php echo $post_type['label']; ?>",
+		"singular_name" => "<?php echo $post_type['singular_label']; ?>",
 		<?php foreach( $post_type['labels'] as $key => $label ) {
 			if ( !empty( $label ) ) {
-				echo "'$key' => '$label',\n\t\t";
+				echo '"' . $key . '" => "' . $label . '",' . "\n\t\t";
 			}
 		} ?>);
 
 	$args = array(
-		'labels' => $labels,
-		'description' => '<?php echo $post_type['description']; ?>',
-		'public' => <?php echo disp_boolean( $post_type['public'] ); ?>,
-		'show_ui' => <?php echo disp_boolean( $post_type['show_ui'] ); ?>,
-		'has_archive' => <?php echo disp_boolean( $post_type['has_archive'] ); ?>,
-		'show_in_menu' => <?php echo disp_boolean( $post_type['show_in_menu'] ); ?>,
-		'exclude_from_search' => <?php echo disp_boolean( $post_type['exclude_from_search'] ); ?>,
-		'capability_type' => '<?php echo $post_type['capability_type']; ?>',
-		'map_meta_cap' => <?php echo disp_boolean( $post_type['map_meta_cap'] ); ?>,
-		'hierarchical' => <?php echo disp_boolean( $post_type['hierarchical'] ); ?>,
-		'rewrite' => <?php echo $rewrite; ?>,
-		'query_var' => <?php echo disp_boolean( $post_type['query_var'] ); ?>,
-		<?php if ( !empty( $post_type['menu_position'] ) ) { ?>'menu_position' => <?php echo $post_type['menu_position']; ?>,<?php } ?>
-		<?php if ( !empty( $post_type['menu_icon'] ) ) { ?>'menu_icon' => '<?php echo $post_type['menu_icon']; ?>',<?php } ?>
-		<?php if ( !empty( $supports ) ) { ?>'supports' => <?php echo $supports; ?>,<?php } ?>
-		<?php if ( !empty( $taxonomies ) ) { ?>'taxonomies' => <?php echo $taxonomies; ?><?php } ?>
+		"labels" => $labels,
+		"description" => "<?php echo $post_type['description']; ?>",
+		"public" => <?php echo disp_boolean( $post_type['public'] ); ?>,
+		"show_ui" => <?php echo disp_boolean( $post_type['show_ui'] ); ?>,
+		"has_archive" => <?php echo disp_boolean( $post_type['has_archive'] ); ?>,
+		"show_in_menu" => <?php echo disp_boolean( $post_type['show_in_menu'] ); ?>,
+		"exclude_from_search" => <?php echo disp_boolean( $post_type['exclude_from_search'] ); ?>,
+		"capability_type" => "<?php echo $post_type['capability_type']; ?>",
+		"map_meta_cap" => <?php echo disp_boolean( $post_type['map_meta_cap'] ); ?>,
+		"hierarchical" => <?php echo disp_boolean( $post_type['hierarchical'] ); ?>,
+		"rewrite" => <?php echo $rewrite; ?>,
+		"query_var" => <?php echo disp_boolean( $post_type['query_var'] ); ?>,
+		<?php if ( !empty( $post_type['menu_position'] ) ) { ?>"menu_position" => <?php echo $post_type['menu_position']; ?>,<?php } ?>
+		<?php if ( !empty( $post_type['menu_icon'] ) ) { ?>"menu_icon" => "<?php echo $post_type['menu_icon']; ?>",<?php } ?>
+		<?php if ( !empty( $supports ) ) { ?>"supports" => <?php echo $supports; ?>,<?php } ?>
+		<?php if ( !empty( $taxonomies ) ) { ?>"taxonomies" => <?php echo $taxonomies; ?><?php } ?>
 	);
-	register_post_type( '<?php echo $post_type['name']; ?>', $args );
+	register_post_type( "<?php echo $post_type['name']; ?>", $args );
 <?php
 }
 
