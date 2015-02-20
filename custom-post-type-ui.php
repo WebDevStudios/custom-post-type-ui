@@ -177,7 +177,6 @@ function cptui_register_single_post_type( $post_type = array() ) {
 		$menu_position = (int) $post_type['menu_position'];
 	}
 
-
 	if ( ! empty( $post_type['exclude_from_search'] ) ) {
 		$exclude_from_search = get_disp_boolean( $post_type['exclude_from_search'] );
 	} else {
