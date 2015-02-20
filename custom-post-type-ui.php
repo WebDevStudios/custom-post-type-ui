@@ -260,10 +260,7 @@ function cptui_register_single_taxonomy( $taxonomy = array() ) {
 			$rewrite['slug'] = $taxonomy['rewrite_slug'];
 		}
 
-		$withfront = ( !empty( $taxonomy['rewrite_withfront'] ) ) ? disp_boolean( $taxonomy['rewrite_withfront'] ) : '';
-		if ( !empty( $withfront ) ) {
-			$rewrite['with_front'] = get_disp_boolean( $taxonomy['rewrite_withfront'] );
-		}
+		$rewrite['with_front'] = ( 'false' === disp_boolean( $taxonomy['rewrite_withfront'] ) && ! empty( $taxonomy['rewrite_withfront'] ) ) ? false : true;
 
 		$hierarchical = ( !empty( $taxonomy['rewrite_hierarchical'] ) ) ? disp_boolean( $taxonomy['rewrite_hierarchical'] ) : '';
 		if ( !empty( $hierarchical ) ) {
