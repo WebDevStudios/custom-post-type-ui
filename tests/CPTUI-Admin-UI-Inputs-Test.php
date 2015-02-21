@@ -1,9 +1,10 @@
 <?php
+require_once( 'CPTUI-Base-Tests.php' );
 
 /**
  * An example test case.
  */
-class CPTUI_Admin_UI_Inputs_Test extends WP_UnitTestCase {
+class CPTUI_Admin_UI_Inputs_Test extends CPTUI_Base_Tests {
 
 	public function setUp() {
 		parent::setUp();
