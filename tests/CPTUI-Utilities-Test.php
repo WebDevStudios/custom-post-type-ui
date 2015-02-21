@@ -1,6 +1,7 @@
 <?php
+require_once( 'CPTUI-Base-Tests.php' );
 
-class CPTUI_Utility extends WP_UnitTestCase {
+class CPTUI_Utility extends CPTUI_Base_Tests {
 
 	public $post_type_array = array();
 	public $taxonomy_array = array();
