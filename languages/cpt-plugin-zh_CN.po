@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Custom Post Type UI 简体中文语言包\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-17 18:07-0600\n"
-"PO-Revision-Date: 2015-02-17 18:08-0600\n"
+"POT-Creation-Date: 2015-02-24 10:40-0600\n"
+"PO-Revision-Date: 2015-02-24 10:41-0600\n"
 "Last-Translator: Michael Beckwith <michael.d.beckwith@gmail.com>\n"
 "Language-Team: Dreamcolor <dreamcolor@gmail.com>\n"
 "Language: zh\n"
@@ -24,19 +24,19 @@ msgstr "附属到文章类型"
 msgid "CPT UI"
 msgstr ""
 
-#: ../custom-post-type-ui.php:326 ../custom-post-type-ui.php:416
+#: ../custom-post-type-ui.php:316 ../custom-post-type-ui.php:406
 #, fuzzy
 msgid "Custom Post Type UI"
 msgstr "附属到文章类型"
 
-#: ../custom-post-type-ui.php:329
+#: ../custom-post-type-ui.php:319
 msgid ""
 "Thank you for choosing Custom Post Type UI. We hope that your experience "
 "with our plugin provides efficiency and speed in creating post types and "
 "taxonomies, to better organize your content, without having to touch code."
 msgstr ""
 
-#: ../custom-post-type-ui.php:331
+#: ../custom-post-type-ui.php:321
 #, php-format
 msgid ""
 "To get started with creating some post types, please visit %s and for "
@@ -45,165 +45,165 @@ msgid ""
 "as soon as possible."
 msgstr ""
 
-#: ../custom-post-type-ui.php:332 ../inc/post-types.php:26
+#: ../custom-post-type-ui.php:322 ../inc/post-types.php:26
 #, fuzzy
 msgid "Add/Edit Post Types"
 msgstr "编辑自定义文章类型"
 
-#: ../custom-post-type-ui.php:333 ../inc/taxonomies.php:26
+#: ../custom-post-type-ui.php:323 ../inc/taxonomies.php:26
 #, fuzzy
 msgid "Add/Edit Taxonomies"
 msgstr "内置类别"
 
-#: ../custom-post-type-ui.php:334 ../inc/support.php:23
+#: ../custom-post-type-ui.php:324 ../inc/support.php:23
 #, fuzzy
 msgid "Help/Support"
 msgstr "支持"
 
-#: ../custom-post-type-ui.php:335
+#: ../custom-post-type-ui.php:325
 msgid "CPT UI Support Forum"
 msgstr ""
 
-#: ../custom-post-type-ui.php:351
+#: ../custom-post-type-ui.php:341
 msgid "Help Support This Plugin!"
 msgstr ""
 
-#: ../custom-post-type-ui.php:355
+#: ../custom-post-type-ui.php:345
 msgid "Professional WordPress<br />Third Edition"
 msgstr ""
 
-#: ../custom-post-type-ui.php:360
+#: ../custom-post-type-ui.php:350
 msgid ""
 "The leading book on WordPress design and development! Brand new third "
 "edition!"
 msgstr ""
 
-#: ../custom-post-type-ui.php:363
+#: ../custom-post-type-ui.php:353
 msgid "Professional WordPress<br />Plugin Development"
 msgstr ""
 
-#: ../custom-post-type-ui.php:368
+#: ../custom-post-type-ui.php:358
 msgid "Highest rated WordPress development book on Amazon!"
 msgstr ""
 
-#: ../custom-post-type-ui.php:371
+#: ../custom-post-type-ui.php:361
 msgid "PayPal Donation"
 msgstr ""
 
-#: ../custom-post-type-ui.php:372
+#: ../custom-post-type-ui.php:362
 msgid "Please donate to the development of Custom Post Type UI:"
 msgstr ""
 
-#: ../custom-post-type-ui.php:376
+#: ../custom-post-type-ui.php:366
 msgid "PayPal - The safer, easier way to pay online!"
 msgstr ""
 
-#: ../custom-post-type-ui.php:413
+#: ../custom-post-type-ui.php:403
 #, php-format
 msgid "%s version %s by %s - %s %s %s &middot; %s &middot; %s"
 msgstr ""
 
-#: ../custom-post-type-ui.php:422
+#: ../custom-post-type-ui.php:412
 msgid "Please Report Bugs"
 msgstr ""
 
-#: ../custom-post-type-ui.php:424
+#: ../custom-post-type-ui.php:414
 msgid "Follow on Twitter:"
 msgstr ""
 
-#: ../custom-post-type-ui.php:484 ../inc/import_export.php:15
+#: ../custom-post-type-ui.php:474 ../inc/import_export.php:15
 msgid "Import/Export"
 msgstr ""
 
-#: ../custom-post-type-ui.php:486
+#: ../custom-post-type-ui.php:476
 #, fuzzy
 msgid "Manage Taxonomies"
 msgstr "管理自定义类别"
 
-#: ../custom-post-type-ui.php:490
+#: ../custom-post-type-ui.php:480
 #, fuzzy
 msgid "Manage Post Types"
 msgstr "管理自定义文章类型"
 
-#: ../custom-post-type-ui.php:516
+#: ../custom-post-type-ui.php:506
 #, fuzzy
 msgid "Add New Post Type"
 msgstr "已附属文章类型"
 
-#: ../custom-post-type-ui.php:519
+#: ../custom-post-type-ui.php:509
 #, fuzzy
 msgid "Edit Post Types"
 msgstr "编辑自定义文章类型"
 
-#: ../custom-post-type-ui.php:523
+#: ../custom-post-type-ui.php:513
 #, fuzzy
 msgid "Add New Taxonomy"
 msgstr "类别名称"
 
-#: ../custom-post-type-ui.php:526
+#: ../custom-post-type-ui.php:516
 #, fuzzy
 msgid "Edit Taxonomies"
 msgstr "内置类别"
 
-#: ../custom-post-type-ui.php:530
+#: ../custom-post-type-ui.php:520
 #, fuzzy
 msgid "Post Types"
 msgstr "文章类型名称"
 
-#: ../custom-post-type-ui.php:531 ../inc/import_export.php:355
+#: ../custom-post-type-ui.php:521 ../inc/import_export.php:391
 #, fuzzy
 msgid "Taxonomies"
 msgstr "内置类别"
 
-#: ../custom-post-type-ui.php:532
+#: ../custom-post-type-ui.php:522
 msgid "Get Code"
 msgstr ""
 
-#: ../custom-post-type-ui.php:616 ../inc/post-types.php:327
+#: ../custom-post-type-ui.php:606 ../inc/post-types.php:327
 #: ../inc/taxonomies.php:319
 msgid "Settings"
 msgstr ""
 
-#: ../custom-post-type-ui.php:616
+#: ../custom-post-type-ui.php:606
 msgid "Help"
 msgstr ""
 
-#: ../custom-post-type-ui.php:644
+#: ../custom-post-type-ui.php:634
 #, php-format
 msgid "%s has been successfully added"
 msgstr ""
 
-#: ../custom-post-type-ui.php:646
+#: ../custom-post-type-ui.php:636
 #, php-format
 msgid "%s has failed to be added"
 msgstr ""
 
-#: ../custom-post-type-ui.php:650
+#: ../custom-post-type-ui.php:640
 #, php-format
 msgid "%s has been successfully updated"
 msgstr ""
 
-#: ../custom-post-type-ui.php:652
+#: ../custom-post-type-ui.php:642
 #, php-format
 msgid "%s has failed to be updated"
 msgstr ""
 
-#: ../custom-post-type-ui.php:656
+#: ../custom-post-type-ui.php:646
 #, php-format
 msgid "%s has been successfully deleted"
 msgstr ""
 
-#: ../custom-post-type-ui.php:658
+#: ../custom-post-type-ui.php:648
 #, php-format
 msgid "%s has failed to be deleted"
 msgstr ""
 
-#: ../custom-post-type-ui.php:662
+#: ../custom-post-type-ui.php:652
 #, php-format
 msgid "%s has been successfully imported"
 msgstr ""
 
-#: ../custom-post-type-ui.php:664
+#: ../custom-post-type-ui.php:654
 #, php-format
 msgid "%s has failed to be imported"
 msgstr ""
@@ -229,16 +229,16 @@ msgstr ""
 msgid "Import Post Types"
 msgstr "已附属文章类型"
 
-#: ../inc/import_export.php:65 ../inc/import_export.php:91
+#: ../inc/import_export.php:65 ../inc/import_export.php:90
 #, fuzzy
 msgid "Paste content here."
 msgstr "特色内容"
 
-#: ../inc/import_export.php:66 ../inc/import_export.php:92
+#: ../inc/import_export.php:66 ../inc/import_export.php:91
 msgid "Note:"
 msgstr ""
 
-#: ../inc/import_export.php:66 ../inc/import_export.php:92
+#: ../inc/import_export.php:66 ../inc/import_export.php:91
 msgid "Importing will overwrite previous registered settings."
 msgstr ""
 
@@ -248,7 +248,7 @@ msgid ""
 "content from that site and click the \"Import\" button."
 msgstr ""
 
-#: ../inc/import_export.php:68 ../inc/import_export.php:94
+#: ../inc/import_export.php:68 ../inc/import_export.php:93
 msgid "Import"
 msgstr ""
 
@@ -257,77 +257,77 @@ msgstr ""
 msgid "Export Post Types"
 msgstr "已附属文章类型"
 
-#: ../inc/import_export.php:79
+#: ../inc/import_export.php:78
 msgid "No post types registered yet."
 msgstr ""
 
-#: ../inc/import_export.php:82 ../inc/import_export.php:107
+#: ../inc/import_export.php:81 ../inc/import_export.php:106
 msgid ""
 "To copy the system info, click below then press Ctrl + C (PC) or Cmd + C "
 "(Mac)."
 msgstr ""
 
-#: ../inc/import_export.php:83
+#: ../inc/import_export.php:82
 msgid ""
 "Use the content above to import current post types into a different "
 "WordPress site. You can also use this to simply back up your post type "
 "settings."
 msgstr ""
 
-#: ../inc/import_export.php:89
+#: ../inc/import_export.php:88
 #, fuzzy
 msgid "Import Taxonomies"
 msgstr "内置类别"
 
-#: ../inc/import_export.php:93
+#: ../inc/import_export.php:92
 msgid ""
 "To import taxonomies from a different WordPress site, paste the exported "
 "content from that site and click the \"Import\" button."
 msgstr ""
 
-#: ../inc/import_export.php:98
+#: ../inc/import_export.php:97
 #, fuzzy
 msgid "Export Taxonomies"
 msgstr "内置类别"
 
-#: ../inc/import_export.php:104
+#: ../inc/import_export.php:103
 msgid "No taxonomies registered yet."
 msgstr ""
 
-#: ../inc/import_export.php:108
+#: ../inc/import_export.php:107
 msgid ""
 "Use the content above to import current taxonomies into a different "
 "WordPress site. You can also use this to simply back up your taxonomy "
 "settings."
 msgstr ""
 
-#: ../inc/import_export.php:116
+#: ../inc/import_export.php:115
 msgid "Get Post Type and Taxonomy Code"
 msgstr ""
 
-#: ../inc/import_export.php:118
+#: ../inc/import_export.php:117
 #, fuzzy
 msgid "All CPT UI Post Types"
 msgstr "其它自定义文章类型"
 
-#: ../inc/import_export.php:119 ../inc/import_export.php:123
+#: ../inc/import_export.php:118 ../inc/import_export.php:122
 msgid "Copy/paste the code below into your functions.php file."
 msgstr ""
 
-#: ../inc/import_export.php:122
+#: ../inc/import_export.php:121
 #, fuzzy
 msgid "All CPT UI Taxonomies"
 msgstr "内置类别"
 
-#: ../inc/import_export.php:153
+#: ../inc/import_export.php:152
 msgid "No taxonomies to display at this time"
 msgstr ""
 
-#: ../inc/import_export.php:223
+#: ../inc/import_export.php:251
 msgid "No post types to display at this time"
 msgstr ""
 
-#: ../inc/import_export.php:342
+#: ../inc/import_export.php:378
 #, fuzzy
 msgid "Post types"
 msgstr "文章类型名称"
@@ -407,7 +407,7 @@ msgstr ""
 #: ../inc/post-types.php:153
 #, fuzzy
 msgid "Edit Post Type"
-msgstr "附属到文章类型"
+msgstr "编辑"
 
 #: ../inc/post-types.php:154
 #, fuzzy
@@ -555,10 +555,10 @@ msgstr ""
 #: ../inc/taxonomies.php:342 ../inc/taxonomies.php:359
 #: ../inc/taxonomies.php:384 ../inc/taxonomies.php:410
 #: ../inc/taxonomies.php:427 ../inc/taxonomies.php:444
-#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:88
-#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:120
-#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:153
-#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:185
+#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:105
+#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:147
+#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:190
+#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:232
 msgid "False"
 msgstr ""
 
@@ -570,17 +570,17 @@ msgstr ""
 #: ../inc/taxonomies.php:343 ../inc/taxonomies.php:360
 #: ../inc/taxonomies.php:385 ../inc/taxonomies.php:411
 #: ../inc/taxonomies.php:428 ../inc/taxonomies.php:445
-#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:89
-#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:121
-#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:154
-#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:186
+#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:106
+#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:148
+#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:191
+#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:233
 msgid "True"
 msgstr ""
 
-#: ../inc/post-types.php:345 ../tests/CPTUI-Admin-UI-Inputs-Test.php:97
-#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:129
-#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:162
-#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:194
+#: ../inc/post-types.php:345 ../tests/CPTUI-Admin-UI-Inputs-Test.php:114
+#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:156
+#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:199
+#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:241
 msgid "Public"
 msgstr "公开"
 
@@ -588,17 +588,17 @@ msgstr "公开"
 #: ../inc/post-types.php:474 ../inc/post-types.php:506
 #: ../inc/post-types.php:526 ../inc/post-types.php:565
 #: ../inc/taxonomies.php:352 ../inc/taxonomies.php:369
-#: ../inc/taxonomies.php:394 ../tests/CPTUI-Admin-UI-Inputs-Test.php:98
-#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:130
-#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:163
-#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:195
+#: ../inc/taxonomies.php:394 ../tests/CPTUI-Admin-UI-Inputs-Test.php:115
+#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:157
+#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:200
+#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:242
 msgid "(default: True)"
 msgstr ""
 
-#: ../inc/post-types.php:347 ../tests/CPTUI-Admin-UI-Inputs-Test.php:99
-#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:131
-#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:164
-#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:196
+#: ../inc/post-types.php:347 ../tests/CPTUI-Admin-UI-Inputs-Test.php:116
+#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:158
+#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:201
+#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:243
 msgid "Whether posts of this type should be shown in the admin UI"
 msgstr ""
 
