@@ -1,9 +1,10 @@
 <?php
+require_once( 'CPTUI-Base-Tests.php' );
 
 /**
  * An example test case.
  */
-class CPTUI_Admin_UI_Inputs_Test extends WP_UnitTestCase {
+class CPTUI_Admin_UI_Inputs_Test extends CPTUI_Base_Tests {
 
 	public function setUp() {
 		parent::setUp();
@@ -39,7 +40,15 @@ class CPTUI_Admin_UI_Inputs_Test extends WP_UnitTestCase {
 	public function test_CPTUI_Textarea() {
 		$ui = new cptui_admin_ui();
 
-		$expected = '<tr valign="top"><th scope="row"><label for="name">Description</label><a href="#" title="Helper text." class="cptui-help wp-ui-highlight">?</a></th><td><textarea id="name" name="name_array[name]" rows="4" cols="40">saved value</textarea></td></tr>';
+		$expected = '<tr valign="top">
+			<th scope="row">
+				<label for="name">Description</label>
+				<a href="#" title="Helper text." class="cptui-help wp-ui-highlight">?</a>
+			</th>
+			<td>
+				<textarea id="name" name="name_array[name]" rows="4" cols="40">saved value</textarea>
+			</td>
+		</tr>';
 
 		$args = array(
 			'namearray' => 'name_array',
@@ -51,7 +60,7 @@ class CPTUI_Admin_UI_Inputs_Test extends WP_UnitTestCase {
 			'helptext' => 'Helper text.'
 		);
 
-		$this->assertEquals( $expected, $ui->get_textarea_input( $args ) );
+		$this->assertHTMLstringsAreEqual( $expected, $ui->get_textarea_input( $args ) );
 	}
 
 	/**
@@ -60,7 +69,15 @@ class CPTUI_Admin_UI_Inputs_Test extends WP_UnitTestCase {
 	public function test_CPTUI_Text() {
 		$ui = new cptui_admin_ui();
 
-		$expected = '<tr valign="top"><th scope="row"><label for="name">Description</label><a href="#" title="Helper text." class="cptui-help wp-ui-highlight">?</a></th><td><input type="text" id="name" name="name_array[name]" value="saved value" /><br/></td></tr>';
+		$expected = '<tr valign="top">
+			<th scope="row">
+				<label for="name">Description</label>
+				<a href="#" title="Helper text." class="cptui-help wp-ui-highlight">?</a>
+			</th>
+			<td>
+				<input type="text" id="name" name="name_array[name]" value="saved value" /><br/>
+			</td>
+		</tr>';
 
 		$args = array(
 			'namearray' => 'name_array',
@@ -72,7 +89,7 @@ class CPTUI_Admin_UI_Inputs_Test extends WP_UnitTestCase {
 			'helptext' => 'Helper text.'
 		);
 
-		$this->assertEquals( $expected, $ui->get_text_input( $args ) );
+		$this->assertHTMLstringsAreEqual( $expected, $ui->get_text_input( $args ) );
 	}
 
 	/**
@@ -100,11 +117,21 @@ class CPTUI_Admin_UI_Inputs_Test extends WP_UnitTestCase {
 			'selections'    => $select
 		);
 
-		$expected = '<tr valign="top"><th scope="row"><label for="public">Public</label><a href="#" title="Whether posts of this type should be shown in the admin UI" class="cptui-help wp-ui-highlight">?</a></th><td><select id="public" name="cpt_custom_post_type[public]"><option value="0">False</option><option value="1" selected="selected">True</option></select>(default: True)</td></tr>';
+		$expected = '<tr valign="top">
+			<th scope="row">
+				<label for="public">Public</label>
+				<a href="#" title="Whether posts of this type should be shown in the admin UI" class="cptui-help wp-ui-highlight">?</a>
+			</th>
+			<td>
+				<select id="public" name="cpt_custom_post_type[public]">
+					<option value="0">False</option>
+					<option value="1" selected="selected">True</option>
+				</select>
+				(default: True)
+			</td>
+		</tr>';
 
-		$actual = $ui->get_select_input( $args );
-
-		$this->assertEquals( $expected, $actual );
+		$this->assertHTMLstringsAreEqual( $expected, $ui->get_select_input( $args ) );
 	}
 
 	/**
@@ -133,11 +160,21 @@ class CPTUI_Admin_UI_Inputs_Test extends WP_UnitTestCase {
 			'required'      => true
 		);
 
-		$expected = '<tr valign="top"><th scope="row"><label for="public">Public</label><span class="required">*</span><a href="#" title="Whether posts of this type should be shown in the admin UI" class="cptui-help wp-ui-highlight">?</a></th><td><select id="public" name="cpt_custom_post_type[public]"><option value="0">False</option><option value="1" selected="selected">True</option></select>(default: True)</td></tr>';
+		$expected = '<tr valign="top">
+			<th scope="row">
+				<label for="public">Public</label><span class="required">*</span>
+				<a href="#" title="Whether posts of this type should be shown in the admin UI" class="cptui-help wp-ui-highlight">?</a>
+			</th>
+			<td>
+				<select id="public" name="cpt_custom_post_type[public]">
+					<option value="0">False</option>
+					<option value="1" selected="selected">True</option>
+				</select>
+				(default: True)
+			</td>
+		</tr>';
 
-		$actual = $ui->get_select_input( $args );
-
-		$this->assertEquals( $expected, $actual );
+		$this->assertHTMLstringsAreEqual( $expected, $ui->get_select_input( $args ) );
 	}
 
 	/**
@@ -165,11 +202,21 @@ class CPTUI_Admin_UI_Inputs_Test extends WP_UnitTestCase {
 			'selections'    => $select,
 		);
 
-		$expected = '<tr valign="top"><th scope="row"><label for="public">Public</label><a href="#" title="Whether posts of this type should be shown in the admin UI" class="cptui-help wp-ui-highlight">?</a></th><td><select id="public" name="cpt_custom_post_type[public]"><option value="0">False</option><option value="1" selected="selected">True</option></select>(default: True)</td></tr>';
+		$expected = '<tr valign="top">
+			<th scope="row">
+				<label for="public">Public</label>
+		<a href="#" title="Whether posts of this type should be shown in the admin UI" class="cptui-help wp-ui-highlight">?</a>
+			</th>
+			<td>
+				<select id="public" name="cpt_custom_post_type[public]">
+					<option value="0">False</option>
+					<option value="1" selected="selected">True</option>
+				</select>
+				(default: True)
+			</td>
+		</tr>';
 
-		$actual = $ui->get_select_input( $args );
-
-		$this->assertEquals( $expected, $actual );
+		$this->assertHTMLstringsAreEqual( $expected, $ui->get_select_input( $args ) );
 	}
 
 	/**
@@ -197,11 +244,21 @@ class CPTUI_Admin_UI_Inputs_Test extends WP_UnitTestCase {
 			'selections'    => $select,
 		);
 
-		$expected = '<tr valign="top"><th scope="row"><label for="public">Public</label><a href="#" title="Whether posts of this type should be shown in the admin UI" class="cptui-help wp-ui-highlight">?</a></th><td><select id="public" name="cpt_custom_post_type[public]"><option value="0" selected="selected">False</option><option value="1">True</option></select>(default: True)</td></tr>';
+		$expected = '<tr valign="top">
+			<th scope="row">
+				<label for="public">Public</label>
+				<a href="#" title="Whether posts of this type should be shown in the admin UI" class="cptui-help wp-ui-highlight">?</a>
+			</th>
+			<td>
+				<select id="public" name="cpt_custom_post_type[public]">
+					<option value="0" selected="selected">False</option>
+					<option value="1">True</option>
+				</select>
+				(default: True)
+			</td>
+		</tr>';
 
-		$actual = $ui->get_select_input( $args );
-
-		$this->assertEquals( $expected, $actual );
+		$this->assertHTMLstringsAreEqual( $expected, $ui->get_select_input( $args ) );
 	}
 
 	/**
@@ -225,11 +282,13 @@ class CPTUI_Admin_UI_Inputs_Test extends WP_UnitTestCase {
 			'wrap'          => false
 		);
 
-		$expected = '<select id="post_type" name="cptui_selected_post_type[post_type]"><option value="">--</option><option value="movie">Movies</option><option value="tv_show">TV Show</option></select>';
+		$expected = '<select id="post_type" name="cptui_selected_post_type[post_type]">
+			<option value="">--</option>
+			<option value="movie">Movies</option>
+			<option value="tv_show">TV Show</option>
+		</select>';
 
-		$actual = $ui->get_select_input( $args );
-
-		$this->assertEquals( $expected, $actual );
+		$this->assertHTMLstringsAreEqual( $expected, $ui->get_select_input( $args ) );
 	}
 
 	/**
@@ -253,11 +312,13 @@ class CPTUI_Admin_UI_Inputs_Test extends WP_UnitTestCase {
 			'wrap'          => false
 		);
 
-		$expected = '<select id="post_type" name="cptui_selected_post_type[post_type]"><option value="">--</option><option value="movie" selected="selected">Movies</option><option value="tv_show">TV Show</option></select>';
+		$expected = '<select id="post_type" name="cptui_selected_post_type[post_type]">
+			<option value="">--</option>
+			<option value="movie" selected="selected">Movies</option>
+			<option value="tv_show">TV Show</option>
+		</select>';
 
-		$actual = $ui->get_select_input( $args );
-
-		$this->assertEquals( $expected, $actual );
+		$this->assertHTMLstringsAreEqual( $expected, $ui->get_select_input( $args ) );
 	}
 
 	/**
@@ -281,11 +342,13 @@ class CPTUI_Admin_UI_Inputs_Test extends WP_UnitTestCase {
 			'wrap'          => false
 		);
 
-		$expected = '<select id="post_type" name="cptui_selected_post_type[post_type]"><option value="">--</option><option value="movie">Movies</option><option value="tv_show" selected="selected">TV Show</option></select>';
+		$expected = '<select id="post_type" name="cptui_selected_post_type[post_type]">
+			<option value="">--</option>
+			<option value="movie">Movies</option>
+			<option value="tv_show" selected="selected">TV Show</option>
+		</select>';
 
-		$actual = $ui->get_select_input( $args );
-
-		$this->assertEquals( $expected, $actual );
+		$this->assertHTMLstringsAreEqual( $expected, $ui->get_select_input( $args ) );
 	}
 
 	public function providertest_something()

@@ -153,7 +153,7 @@ function cptui_manage_taxonomies() {
 								'namearray'         => 'cpt_post_types',
 								'textvalue'         => $post_type->name,
 								'labeltext'         => $post_type->label,
-								'helptext'          => sprintf( esc_attr__( 'Adds %s support', 'cpt-plugin' ), $post_type->name ),
+								'helptext'          => sprintf( esc_attr__( 'Adds %s support', 'cpt-plugin' ), $post_type->label ),
 								'wrap'              => false
 							) );
 						}

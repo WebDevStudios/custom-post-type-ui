@@ -171,19 +171,28 @@ function cptui_get_single_taxonomy_registery( $taxonomy = array() ) {
 
 	$rewrite = get_disp_boolean( $taxonomy['rewrite'] );
 	if ( false !== get_disp_boolean( $taxonomy['rewrite'] ) ) {
-		$rewrite = array();
+		$rewrite = disp_boolean( $taxonomy['rewrite'] );
+
+		$rewrite_slug = ' \'slug\' => \'' . $taxonomy['name'] . '\',';
 		if ( !empty( $taxonomy['rewrite_slug'] ) ) {
-			$rewrite['slug'] = $taxonomy['rewrite_slug'];
+			$rewrite_slug = ' \'slug\' => \'' . $taxonomy['rewrite_slug'] . '\',';
 		}
 
-		$withfront = ( !empty( $taxonomy['rewrite_withfront'] ) ) ? disp_boolean( $taxonomy['rewrite_withfront'] ) : '';
+		$withfront = disp_boolean( $taxonomy['rewrite_withfront'] );
 		if ( !empty( $withfront ) ) {
-			$rewrite['with_front'] = $taxonomy['rewrite_withfront'];
+			$rewrite_withfront = ' \'with_front\' => ' . $withfront . ' ';
 		}
 
 		$hierarchical = ( !empty( $taxonomy['rewrite_hierarchical'] ) ) ? disp_boolean( $taxonomy['rewrite_hierarchical'] ) : '';
 		if ( !empty( $hierarchical ) ) {
-			$rewrite['rewrite_hierarchical'] = $taxonomy['rewrite_hierarchical'];
+			$rewrite_hierarchcial = ' \'hierarchical\' => ' . $hierarchical . ' ';
+		}
+
+		if ( !empty( $taxonomy['rewrite_slug'] ) || false !== disp_boolean( $taxonomy['rewrite_withfront'] ) ) {
+			$rewrite_start = 'array(';
+			$rewrite_end   = ')';
+
+			$rewrite = $rewrite_start . $rewrite_slug . $rewrite_withfront . $hierarchical . $rewrite_end;
 		}
 	} else {
 		$rewrite = disp_boolean( $taxonomy['rewrite'] );

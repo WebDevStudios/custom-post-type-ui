@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: custom post types, CPT, CMS, post, types, post type, cck, taxonomy, tax, custom
 Requires at least: 3.8
 Tested up to: 4.1
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 License: GPLv2
 
 Admin UI for creating custom post types and custom taxonomies in WordPress
@@ -36,6 +36,15 @@ Implied credit to:
 9. Help/support screen.
 
 == Changelog ==
+
+= 1.0.3 =
+* Fix logic error regarding string "0" evaluating to false when checked for not empty.
+* Fix for taxonomy with_front boolean value not evaluating correctly.
+* Fix for taxonomy hierarchical boolean value not evaluating correctly.
+* German translation updates. If you speak/read German, myself and the translator would LOVE to have feedback on this.
+* Internationalization string changes after feedback from German translation work.
+* Minor issue with link html being stripped from UI field explanation.
+* Better apostrophe/single quote support in label fields.
 
 = 1.0.2 =
 * Fix issue with checked checkboxes for post type associations for taxonomies.
@@ -201,6 +210,15 @@ Implied credit to:
 * First beta release
 
 == Upgrade Notice ==
+
+= 1.0.3 =
+* Fix logic error regarding string "0" evaluating to false when checked for not empty.
+* Fix for taxonomy with_front boolean value not evaluating correctly.
+* Fix for taxonomy hierarchical boolean value not evaluating correctly.
+* German translation updates. If you speak/read German, myself and the translator would LOVE to have feedback on this.
+* Internationalization string changes after feedback from German translation work.
+* Minor issue with link html being stripped from UI field explanation.
+* Better apostrophe/single quote support in label fields.
 
 = 1.0.2 =
 * PLEASE TEST THIS UPDATE ON A DEV SITE IF YOU CAN, BEFORE UPDATING ON A LIVE SITE.

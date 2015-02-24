@@ -811,7 +811,7 @@ function cptui_manage_post_types() {
 									'namearray'         => 'cpt_addon_taxes',
 									'textvalue'         => $add_tax->name,
 									'labeltext'         => $add_tax->label,
-									'helptext'          => sprintf( esc_attr__( 'Adds %s support', 'cpt-plugin' ), $add_tax->name ),
+									'helptext'          => sprintf( esc_attr__( 'Adds %s support', 'cpt-plugin' ), $add_tax->label ),
 									'wrap'              => false
 								) );
 							}

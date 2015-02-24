@@ -4,7 +4,7 @@ Plugin Name: Custom Post Type UI
 Plugin URI: https://github.com/WebDevStudios/custom-post-type-ui/
 Description: Admin panel for creating custom post types and custom taxonomies in WordPress
 Author: WebDevStudios
-Version: 1.0.2
+Version: 1.0.3
 Author URI: http://webdevstudios.com/
 Text Domain: cpt-plugin
 License: GPLv2
@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'CPT_VERSION', '1.0.2' );
+define( 'CPT_VERSION', '1.0.3' );
 define( 'CPTUI_WP_VERSION', get_bloginfo( 'version' ) );
 
 /**
@@ -163,10 +163,7 @@ function cptui_register_single_post_type( $post_type = array() ) {
 			$rewrite['slug'] = $post_type['rewrite_slug'];
 		}
 
-		$withfront = ( !empty( $post_type['rewrite_withfront'] ) ) ? disp_boolean( $post_type['rewrite_withfront'] ) : '';
-		if ( !empty( $withfront ) ) {
-			$rewrite['with_front'] = get_disp_boolean( $post_type['rewrite_withfront'] );
-		}
+		$rewrite['with_front'] = ( 'false' === disp_boolean( $post_type['rewrite_withfront'] ) && ! empty( $post_type['rewrite_withfront'] ) ) ? false : true;
 	}
 
 	$menu_icon = ( !empty( $post_type['menu_icon'] ) ) ? $post_type['menu_icon'] : null;
@@ -179,7 +176,6 @@ function cptui_register_single_post_type( $post_type = array() ) {
 	if ( !empty( $post_type['menu_position'] ) ) {
 		$menu_position = (int) $post_type['menu_position'];
 	}
-
 
 	if ( ! empty( $post_type['exclude_from_search'] ) ) {
 		$exclude_from_search = get_disp_boolean( $post_type['exclude_from_search'] );
@@ -263,15 +259,9 @@ function cptui_register_single_taxonomy( $taxonomy = array() ) {
 			$rewrite['slug'] = $taxonomy['rewrite_slug'];
 		}
 
-		$withfront = ( !empty( $taxonomy['rewrite_withfront'] ) ) ? disp_boolean( $taxonomy['rewrite_withfront'] ) : '';
-		if ( !empty( $withfront ) ) {
-			$rewrite['with_front'] = $taxonomy['rewrite_withfront'];
-		}
+		$rewrite['with_front'] = ( 'false' === disp_boolean( $taxonomy['rewrite_withfront'] ) && ! empty( $taxonomy['rewrite_withfront'] ) ) ? false : true;
 
-		$hierarchical = ( !empty( $taxonomy['rewrite_hierarchical'] ) ) ? disp_boolean( $taxonomy['rewrite_hierarchical'] ) : '';
-		if ( !empty( $hierarchical ) ) {
-			$rewrite['rewrite_hierarchical'] = $taxonomy['rewrite_hierarchical'];
-		}
+		$rewrite['hierarchical'] = ( 'false' === disp_boolean( $taxonomy['rewrite_hierarchical'] ) && ! empty( $taxonomy['rewrite_hierarchical'] ) ) ? false : true;
 	}
 
 	if ( in_array( $taxonomy['query_var'], array( 'true', 'false', '0', '1' ) ) ) {
