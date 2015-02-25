@@ -688,3 +688,10 @@ function cptui_update_taxonomy( $data = array() ) {
 
 	return cptui_admin_notices( 'update', $data['cpt_custom_tax']['name'], true );
 }
+
+/**
+ * Convert taxonomies.
+ * @param string $original_slug
+ * @param string $new_slug
+ */
+function cptui_convert_taxonomy_terms( $original_slug = '', $new_slug = '' ) {}

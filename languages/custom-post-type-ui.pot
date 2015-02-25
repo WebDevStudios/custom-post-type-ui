@@ -1,8 +1,18 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Custom Post Type UI 0.9\n"
+<<<<<<< HEAD
 "POT-Creation-Date: 2015-02-24 10:40-0600\n"
 "PO-Revision-Date: 2015-02-24 10:40-0600\n"
+=======
+<<<<<<< HEAD
+"POT-Creation-Date: 2015-01-27 21:37-0600\n"
+"PO-Revision-Date: 2015-01-27 21:38-0600\n"
+=======
+"POT-Creation-Date: 2015-01-29 13:04-0600\n"
+"PO-Revision-Date: 2015-01-29 13:04-0600\n"
+>>>>>>> master
+>>>>>>> cffedc9769cad44f9190026afca909aee4719d9f
 "Last-Translator: Michael Beckwith <michael.d.beckwith@gmail.com>\n"
 "Language-Team: WebDevStudios <contact@webdevstudios.com>\n"
 "Language: en\n"
@@ -119,8 +129,17 @@ msgstr ""
 msgid "Manage Post Types"
 msgstr ""
 
+<<<<<<< HEAD
 #: ../custom-post-type-ui.php:506
 msgid "Add New Post Type"
+=======
+<<<<<<< HEAD
+#: ../custom-post-type-ui.php:482 ../inc/post-types.php:194
+=======
+#: ../custom-post-type-ui.php:482 ../inc/post-types.php:197
+>>>>>>> master
+msgid "Add New"
+>>>>>>> cffedc9769cad44f9190026afca909aee4719d9f
 msgstr ""
 
 #: ../custom-post-type-ui.php:509
@@ -139,7 +158,15 @@ msgstr ""
 msgid "Post Types"
 msgstr ""
 
+<<<<<<< HEAD
 #: ../custom-post-type-ui.php:521 ../inc/import_export.php:391
+=======
+<<<<<<< HEAD
+#: ../custom-post-type-ui.php:495
+=======
+#: ../custom-post-type-ui.php:495 ../inc/import_export.php:321
+>>>>>>> master
+>>>>>>> cffedc9769cad44f9190026afca909aee4719d9f
 msgid "Taxonomies"
 msgstr ""
 
@@ -147,7 +174,15 @@ msgstr ""
 msgid "Get Code"
 msgstr ""
 
+<<<<<<< HEAD
 #: ../custom-post-type-ui.php:606 ../inc/post-types.php:327
+=======
+<<<<<<< HEAD
+#: ../custom-post-type-ui.php:575 ../inc/post-types.php:324
+=======
+#: ../custom-post-type-ui.php:575 ../inc/post-types.php:327
+>>>>>>> master
+>>>>>>> cffedc9769cad44f9190026afca909aee4719d9f
 #: ../inc/taxonomies.php:319
 msgid "Settings"
 msgstr ""
@@ -216,6 +251,10 @@ msgstr ""
 msgid "Import Post Types"
 msgstr ""
 
+<<<<<<< HEAD
+#: ../inc/import_export.php:65 ../inc/import_export.php:90
+=======
+<<<<<<< HEAD
 #: ../inc/import_export.php:65 ../inc/import_export.php:90
 msgid "Paste content here."
 msgstr ""
@@ -225,6 +264,22 @@ msgid "Note:"
 msgstr ""
 
 #: ../inc/import_export.php:66 ../inc/import_export.php:91
+=======
+#: ../inc/import_export.php:65 ../inc/import_export.php:91
+>>>>>>> cffedc9769cad44f9190026afca909aee4719d9f
+msgid "Paste content here."
+msgstr ""
+
+#: ../inc/import_export.php:66 ../inc/import_export.php:91
+msgid "Note:"
+msgstr ""
+
+<<<<<<< HEAD
+#: ../inc/import_export.php:66 ../inc/import_export.php:91
+=======
+#: ../inc/import_export.php:66 ../inc/import_export.php:92
+>>>>>>> master
+>>>>>>> cffedc9769cad44f9190026afca909aee4719d9f
 msgid "Importing will overwrite previous registered settings."
 msgstr ""
 
@@ -234,7 +289,15 @@ msgid ""
 "content from that site and click the \"Import\" button."
 msgstr ""
 
+<<<<<<< HEAD
 #: ../inc/import_export.php:68 ../inc/import_export.php:93
+=======
+<<<<<<< HEAD
+#: ../inc/import_export.php:68 ../inc/import_export.php:93
+=======
+#: ../inc/import_export.php:68 ../inc/import_export.php:94
+>>>>>>> master
+>>>>>>> cffedc9769cad44f9190026afca909aee4719d9f
 msgid "Import"
 msgstr ""
 
@@ -242,33 +305,77 @@ msgstr ""
 msgid "Export Post Types"
 msgstr ""
 
+<<<<<<< HEAD
 #: ../inc/import_export.php:78
 msgid "No post types registered yet."
 msgstr ""
 
 #: ../inc/import_export.php:81 ../inc/import_export.php:106
+=======
+<<<<<<< HEAD
+#: ../inc/import_export.php:78
+msgid "No post types registered yet."
+msgstr ""
+
+#: ../inc/import_export.php:81 ../inc/import_export.php:106
+=======
+#: ../inc/import_export.php:79
+msgid "No post types registered yet."
+msgstr ""
+
+#: ../inc/import_export.php:82 ../inc/import_export.php:107
+>>>>>>> master
+>>>>>>> cffedc9769cad44f9190026afca909aee4719d9f
 msgid ""
 "To copy the system info, click below then press Ctrl + C (PC) or Cmd + C "
 "(Mac)."
 msgstr ""
 
+<<<<<<< HEAD
 #: ../inc/import_export.php:82
+=======
+<<<<<<< HEAD
+#: ../inc/import_export.php:82
+=======
+#: ../inc/import_export.php:83
+>>>>>>> master
+>>>>>>> cffedc9769cad44f9190026afca909aee4719d9f
 msgid ""
 "Use the content above to import current post types into a different "
 "WordPress site. You can also use this to simply back up your post type "
 "settings."
 msgstr ""
 
+<<<<<<< HEAD
 #: ../inc/import_export.php:88
 msgid "Import Taxonomies"
 msgstr ""
 
 #: ../inc/import_export.php:92
+=======
+<<<<<<< HEAD
+#: ../inc/import_export.php:88
+msgid "Import Taxonomies"
+msgstr ""
+
+#: ../inc/import_export.php:92
+=======
+#: ../inc/import_export.php:89
+msgid "Import Taxonomies"
+msgstr ""
+
+#: ../inc/import_export.php:93
+>>>>>>> master
+>>>>>>> cffedc9769cad44f9190026afca909aee4719d9f
 msgid ""
 "To import taxonomies from a different WordPress site, paste the exported "
 "content from that site and click the \"Import\" button."
 msgstr ""
 
+<<<<<<< HEAD
+#: ../inc/import_export.php:97
+=======
+<<<<<<< HEAD
 #: ../inc/import_export.php:97
 msgid "Export Taxonomies"
 msgstr ""
@@ -278,13 +385,91 @@ msgid "No taxonomies registered yet."
 msgstr ""
 
 #: ../inc/import_export.php:107
+=======
+#: ../inc/import_export.php:98
+>>>>>>> cffedc9769cad44f9190026afca909aee4719d9f
+msgid "Export Taxonomies"
+msgstr ""
+
+#: ../inc/import_export.php:103
+msgid "No taxonomies registered yet."
+msgstr ""
+
+<<<<<<< HEAD
+#: ../inc/import_export.php:107
+=======
+#: ../inc/import_export.php:108
+>>>>>>> master
+>>>>>>> cffedc9769cad44f9190026afca909aee4719d9f
 msgid ""
 "Use the content above to import current taxonomies into a different "
 "WordPress site. You can also use this to simply back up your taxonomy "
 "settings."
 msgstr ""
 
+<<<<<<< HEAD
 #: ../inc/import_export.php:115
+=======
+<<<<<<< HEAD
+#: ../inc/import_export.php:115
+msgid "Get Post Type and Taxonomy Code"
+msgstr ""
+
+#: ../inc/import_export.php:117
+msgid "All CPT UI Post Types"
+msgstr ""
+
+#: ../inc/import_export.php:118 ../inc/import_export.php:122
+msgid "Copy/paste the code below into your functions.php file."
+msgstr ""
+
+#: ../inc/import_export.php:121
+msgid "All CPT UI Taxonomies"
+msgstr ""
+
+#: ../inc/import_export.php:152
+msgid "No taxonomies to display at this time"
+msgstr ""
+
+#: ../inc/import_export.php:221
+msgid "No post types to display at this time"
+msgstr ""
+
+#: ../inc/post-types.php:16 ../inc/taxonomies.php:16
+msgid "Are you sure you want to delete this?"
+msgstr ""
+
+#: ../inc/post-types.php:78
+msgid ""
+"Select a post type to edit. DO NOT EDIT the post type slug unless necessary. "
+"Changing that value registers a new post type entry for your install."
+msgstr ""
+
+#: ../inc/post-types.php:82 ../inc/taxonomies.php:84
+msgid "Select"
+msgstr ""
+
+#: ../inc/post-types.php:103
+msgid "Post Type Slug"
+msgstr ""
+
+#: ../inc/post-types.php:104
+msgid "(e.g. movie)"
+msgstr ""
+
+#: ../inc/post-types.php:105
+msgid ""
+"The post type name. Used to retrieve custom post type content. Should be "
+"short and unique"
+msgstr ""
+
+#: ../inc/post-types.php:116 ../inc/taxonomies.php:113
+msgid "Plural Label"
+msgstr ""
+
+=======
+#: ../inc/import_export.php:116
+>>>>>>> cffedc9769cad44f9190026afca909aee4719d9f
 msgid "Get Post Type and Taxonomy Code"
 msgstr ""
 
@@ -344,10 +529,20 @@ msgstr ""
 msgid "Plural Label"
 msgstr ""
 
+>>>>>>> master
 #: ../inc/post-types.php:117
 msgid "(e.g. Movies)"
 msgstr ""
 
+<<<<<<< HEAD
+#: ../inc/post-types.php:118 ../inc/post-types.php:183
+#: ../inc/post-types.php:195 ../inc/post-types.php:207
+#: ../inc/post-types.php:219 ../inc/post-types.php:231
+#: ../inc/post-types.php:243 ../inc/post-types.php:255
+#: ../inc/post-types.php:267 ../inc/post-types.php:279
+#: ../inc/post-types.php:291 ../inc/post-types.php:303
+#: ../inc/post-types.php:315
+=======
 #: ../inc/post-types.php:118 ../inc/post-types.php:186
 #: ../inc/post-types.php:198 ../inc/post-types.php:210
 #: ../inc/post-types.php:222 ../inc/post-types.php:234
@@ -355,6 +550,7 @@ msgstr ""
 #: ../inc/post-types.php:270 ../inc/post-types.php:282
 #: ../inc/post-types.php:294 ../inc/post-types.php:306
 #: ../inc/post-types.php:318
+>>>>>>> master
 msgid "Post type label. Used in the admin menu for displaying post types."
 msgstr ""
 
@@ -372,16 +568,44 @@ msgid ""
 "needed."
 msgstr ""
 
+<<<<<<< HEAD
+#: ../inc/post-types.php:142
+msgid "Description"
+msgstr ""
+
+#: ../inc/post-types.php:143
+=======
 #: ../inc/post-types.php:145
 msgid "Description"
 msgstr ""
 
 #: ../inc/post-types.php:146
+>>>>>>> master
 msgid ""
 "Custom Post Type Description. Describe what your custom post type is used "
 "for."
 msgstr ""
 
+<<<<<<< HEAD
+#: ../inc/post-types.php:150
+msgid "Edit Post Type"
+msgstr ""
+
+#: ../inc/post-types.php:151
+msgid "Delete Post Type"
+msgstr ""
+
+#: ../inc/post-types.php:153
+msgid "Add Post Type"
+msgstr ""
+
+#: ../inc/post-types.php:159 ../inc/taxonomies.php:174
+msgid "Click headings to reveal available options."
+msgstr ""
+
+#: ../inc/post-types.php:162 ../inc/post-types.php:324
+#: ../inc/post-types.php:803 ../inc/taxonomies.php:177
+=======
 #: ../inc/post-types.php:153
 msgid "Edit Post Type"
 msgstr ""
@@ -399,11 +623,131 @@ msgid "Click headings to reveal available options."
 msgstr ""
 
 #: ../inc/post-types.php:165 ../inc/post-types.php:327
+<<<<<<< HEAD
 #: ../inc/post-types.php:823 ../inc/taxonomies.php:177
+=======
+#: ../inc/post-types.php:806 ../inc/taxonomies.php:177
+>>>>>>> master
+>>>>>>> cffedc9769cad44f9190026afca909aee4719d9f
 #: ../inc/taxonomies.php:319 ../inc/taxonomies.php:463
 msgid "Click to expand"
 msgstr ""
 
+<<<<<<< HEAD
+#: ../inc/post-types.php:162 ../inc/taxonomies.php:177
+msgid "Labels"
+msgstr ""
+
+#: ../inc/post-types.php:170 ../inc/taxonomies.php:187
+msgid "Menu Name"
+msgstr ""
+
+#: ../inc/post-types.php:171
+msgid "Custom menu name for your custom post type."
+msgstr ""
+
+#: ../inc/post-types.php:175
+msgid "(e.g. My Movies)"
+msgstr ""
+
+#: ../inc/post-types.php:182 ../inc/taxonomies.php:196
+msgid "All Items"
+msgstr ""
+
+#: ../inc/post-types.php:187
+msgid "(e.g. All Movies)"
+msgstr ""
+
+#: ../inc/post-types.php:199
+msgid "(e.g. Add New)"
+msgstr ""
+
+#: ../inc/post-types.php:206 ../inc/taxonomies.php:232
+msgid "Add New Item"
+msgstr ""
+
+#: ../inc/post-types.php:211
+msgid "(e.g. Add New Movie)"
+msgstr ""
+
+#: ../inc/post-types.php:218
+msgid "Edit"
+msgstr ""
+
+#: ../inc/post-types.php:223
+msgid "(e.g. Edit)"
+msgstr ""
+
+#: ../inc/post-types.php:230 ../inc/taxonomies.php:205
+msgid "Edit Item"
+msgstr ""
+
+#: ../inc/post-types.php:235
+msgid "(e.g. Edit Movie)"
+msgstr ""
+
+#: ../inc/post-types.php:242
+msgid "New Item"
+msgstr ""
+
+#: ../inc/post-types.php:247
+msgid "(e.g. New Movie)"
+msgstr ""
+
+#: ../inc/post-types.php:254
+msgid "View"
+msgstr ""
+
+#: ../inc/post-types.php:259
+msgid "(e.g. View)"
+msgstr ""
+
+#: ../inc/post-types.php:266 ../inc/taxonomies.php:214
+msgid "View Item"
+msgstr ""
+
+#: ../inc/post-types.php:271
+msgid "(e.g. View Movie)"
+msgstr ""
+
+#: ../inc/post-types.php:278
+msgid "Search Item"
+msgstr ""
+
+#: ../inc/post-types.php:283
+msgid "(e.g. Search Movie)"
+msgstr ""
+
+#: ../inc/post-types.php:290
+msgid "Not Found"
+msgstr ""
+
+#: ../inc/post-types.php:295
+msgid "(e.g. No Movies found)"
+msgstr ""
+
+#: ../inc/post-types.php:302
+msgid "Not Found in Trash"
+msgstr ""
+
+#: ../inc/post-types.php:307
+msgid "(e.g. No Movies found in Trash)"
+msgstr ""
+
+#: ../inc/post-types.php:314
+msgid "Parent"
+msgstr ""
+
+#: ../inc/post-types.php:319
+msgid "(e.g. Parent Movie)"
+msgstr ""
+
+#: ../inc/post-types.php:333 ../inc/post-types.php:353
+#: ../inc/post-types.php:373 ../inc/post-types.php:393
+#: ../inc/post-types.php:424 ../inc/post-types.php:444
+#: ../inc/post-types.php:476 ../inc/post-types.php:496
+#: ../inc/post-types.php:535 ../inc/taxonomies.php:325
+=======
 #: ../inc/post-types.php:165 ../inc/taxonomies.php:177
 msgid "Labels"
 msgstr ""
@@ -517,10 +861,18 @@ msgid "(e.g. Parent Movie)"
 msgstr ""
 
 #: ../inc/post-types.php:336 ../inc/post-types.php:356
+<<<<<<< HEAD
 #: ../inc/post-types.php:380 ../inc/post-types.php:413
 #: ../inc/post-types.php:444 ../inc/post-types.php:464
 #: ../inc/post-types.php:496 ../inc/post-types.php:516
 #: ../inc/post-types.php:555 ../inc/taxonomies.php:325
+=======
+#: ../inc/post-types.php:376 ../inc/post-types.php:396
+#: ../inc/post-types.php:427 ../inc/post-types.php:447
+#: ../inc/post-types.php:479 ../inc/post-types.php:499
+#: ../inc/post-types.php:538 ../inc/taxonomies.php:325
+>>>>>>> master
+>>>>>>> cffedc9769cad44f9190026afca909aee4719d9f
 #: ../inc/taxonomies.php:342 ../inc/taxonomies.php:359
 #: ../inc/taxonomies.php:384 ../inc/taxonomies.php:410
 #: ../inc/taxonomies.php:427 ../inc/taxonomies.php:444
@@ -531,11 +883,26 @@ msgstr ""
 msgid "False"
 msgstr ""
 
+<<<<<<< HEAD
+#: ../inc/post-types.php:334 ../inc/post-types.php:354
+#: ../inc/post-types.php:374 ../inc/post-types.php:394
+#: ../inc/post-types.php:425 ../inc/post-types.php:445
+#: ../inc/post-types.php:477 ../inc/post-types.php:497
+#: ../inc/post-types.php:536 ../inc/taxonomies.php:326
+=======
 #: ../inc/post-types.php:337 ../inc/post-types.php:357
+<<<<<<< HEAD
 #: ../inc/post-types.php:381 ../inc/post-types.php:414
 #: ../inc/post-types.php:445 ../inc/post-types.php:465
 #: ../inc/post-types.php:497 ../inc/post-types.php:517
 #: ../inc/post-types.php:556 ../inc/taxonomies.php:326
+=======
+#: ../inc/post-types.php:377 ../inc/post-types.php:397
+#: ../inc/post-types.php:428 ../inc/post-types.php:448
+#: ../inc/post-types.php:480 ../inc/post-types.php:500
+#: ../inc/post-types.php:539 ../inc/taxonomies.php:326
+>>>>>>> master
+>>>>>>> cffedc9769cad44f9190026afca909aee4719d9f
 #: ../inc/taxonomies.php:343 ../inc/taxonomies.php:360
 #: ../inc/taxonomies.php:385 ../inc/taxonomies.php:411
 #: ../inc/taxonomies.php:428 ../inc/taxonomies.php:445
@@ -546,16 +913,38 @@ msgstr ""
 msgid "True"
 msgstr ""
 
+<<<<<<< HEAD
 #: ../inc/post-types.php:345 ../tests/CPTUI-Admin-UI-Inputs-Test.php:114
 #: ../tests/CPTUI-Admin-UI-Inputs-Test.php:156
 #: ../tests/CPTUI-Admin-UI-Inputs-Test.php:199
 #: ../tests/CPTUI-Admin-UI-Inputs-Test.php:241
+=======
+<<<<<<< HEAD
+#: ../inc/post-types.php:342 ../tests/CPTUI-Admin-UI-Inputs-Test.php:97
+=======
+#: ../inc/post-types.php:345 ../tests/CPTUI-Admin-UI-Inputs-Test.php:97
+>>>>>>> master
+#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:129
+#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:162
+#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:194
+>>>>>>> cffedc9769cad44f9190026afca909aee4719d9f
 msgid "Public"
 msgstr ""
 
+<<<<<<< HEAD
+#: ../inc/post-types.php:343 ../inc/post-types.php:363
+#: ../inc/post-types.php:454 ../inc/post-types.php:486
+#: ../inc/post-types.php:506 ../inc/post-types.php:545
+=======
 #: ../inc/post-types.php:346 ../inc/post-types.php:366
+<<<<<<< HEAD
 #: ../inc/post-types.php:474 ../inc/post-types.php:506
 #: ../inc/post-types.php:526 ../inc/post-types.php:565
+=======
+#: ../inc/post-types.php:457 ../inc/post-types.php:489
+#: ../inc/post-types.php:509 ../inc/post-types.php:548
+>>>>>>> master
+>>>>>>> cffedc9769cad44f9190026afca909aee4719d9f
 #: ../inc/taxonomies.php:352 ../inc/taxonomies.php:369
 #: ../inc/taxonomies.php:394 ../tests/CPTUI-Admin-UI-Inputs-Test.php:115
 #: ../tests/CPTUI-Admin-UI-Inputs-Test.php:157
@@ -564,13 +953,40 @@ msgstr ""
 msgid "(default: True)"
 msgstr ""
 
+<<<<<<< HEAD
 #: ../inc/post-types.php:347 ../tests/CPTUI-Admin-UI-Inputs-Test.php:116
 #: ../tests/CPTUI-Admin-UI-Inputs-Test.php:158
 #: ../tests/CPTUI-Admin-UI-Inputs-Test.php:201
 #: ../tests/CPTUI-Admin-UI-Inputs-Test.php:243
+=======
+<<<<<<< HEAD
+#: ../inc/post-types.php:344 ../tests/CPTUI-Admin-UI-Inputs-Test.php:99
+=======
+#: ../inc/post-types.php:347 ../tests/CPTUI-Admin-UI-Inputs-Test.php:99
+>>>>>>> master
+#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:131
+#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:164
+#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:196
+>>>>>>> cffedc9769cad44f9190026afca909aee4719d9f
 msgid "Whether posts of this type should be shown in the admin UI"
 msgstr ""
 
+<<<<<<< HEAD
+#: ../inc/post-types.php:362 ../inc/taxonomies.php:351
+msgid "Show UI"
+msgstr ""
+
+#: ../inc/post-types.php:364
+msgid "Whether to generate a default UI for managing this post type"
+msgstr ""
+
+#: ../inc/post-types.php:382
+msgid "Has Archive"
+msgstr ""
+
+#: ../inc/post-types.php:383 ../inc/post-types.php:403
+#: ../inc/post-types.php:434 ../inc/taxonomies.php:335
+=======
 #: ../inc/post-types.php:365 ../inc/taxonomies.php:351
 msgid "Show UI"
 msgstr ""
@@ -583,17 +999,82 @@ msgstr ""
 msgid "Has Archive"
 msgstr ""
 
+<<<<<<< HEAD
 #: ../inc/post-types.php:375
 msgid "If left blank, the archive slug will default to the post type slug."
 msgstr ""
 
 #: ../inc/post-types.php:390 ../inc/post-types.php:423
 #: ../inc/post-types.php:454 ../inc/taxonomies.php:335
+=======
+#: ../inc/post-types.php:386 ../inc/post-types.php:406
+#: ../inc/post-types.php:437 ../inc/taxonomies.php:335
+>>>>>>> master
+>>>>>>> cffedc9769cad44f9190026afca909aee4719d9f
 #: ../inc/taxonomies.php:454
 msgid "(default: False)"
 msgstr ""
 
+<<<<<<< HEAD
 #: ../inc/post-types.php:391
+=======
+<<<<<<< HEAD
+#: ../inc/post-types.php:384
+msgid "Whether the post type will have a post type archive page"
+msgstr ""
+
+#: ../inc/post-types.php:402
+msgid "Exclude From Search"
+msgstr ""
+
+#: ../inc/post-types.php:404
+msgid "Whether the post type will be searchable"
+msgstr ""
+
+#: ../inc/post-types.php:415
+msgid "Capability Type"
+msgstr ""
+
+#: ../inc/post-types.php:416
+msgid "The post type to use for checking read, edit, and delete capabilities"
+msgstr ""
+
+#: ../inc/post-types.php:433 ../inc/taxonomies.php:334
+msgid "Hierarchical"
+msgstr ""
+
+#: ../inc/post-types.php:435
+msgid "Whether the post type can have parent-child relationships"
+msgstr ""
+
+#: ../inc/post-types.php:453 ../inc/taxonomies.php:393
+msgid "Rewrite"
+msgstr ""
+
+#: ../inc/post-types.php:455
+msgid "Triggers the handling of rewrites for this post type"
+msgstr ""
+
+#: ../inc/post-types.php:466 ../inc/taxonomies.php:404
+msgid "Custom Rewrite Slug"
+msgstr ""
+
+#: ../inc/post-types.php:467
+msgid "(default: post type name)"
+msgstr ""
+
+#: ../inc/post-types.php:468
+msgid "Custom slug to use instead of the default."
+msgstr ""
+
+#: ../inc/post-types.php:485
+msgid "With Front"
+msgstr ""
+
+#: ../inc/post-types.php:487 ../inc/post-types.php:507
+=======
+#: ../inc/post-types.php:387
+>>>>>>> cffedc9769cad44f9190026afca909aee4719d9f
 msgid "Whether the post type will have a post type archive page"
 msgstr ""
 
@@ -649,12 +1130,32 @@ msgstr ""
 msgid "With Front"
 msgstr ""
 
+<<<<<<< HEAD
 #: ../inc/post-types.php:507 ../inc/post-types.php:527
+=======
+#: ../inc/post-types.php:490 ../inc/post-types.php:510
+>>>>>>> master
+>>>>>>> cffedc9769cad44f9190026afca909aee4719d9f
 #: ../inc/taxonomies.php:421
 msgid "Should the permastruct be prepended with the front base."
 msgstr ""
 
+<<<<<<< HEAD
 #: ../inc/post-types.php:525 ../inc/taxonomies.php:368
+=======
+<<<<<<< HEAD
+#: ../inc/post-types.php:505 ../inc/taxonomies.php:368
+msgid "Query Var"
+msgstr ""
+
+#: ../inc/post-types.php:511
+msgid "Menu Position"
+msgstr ""
+
+#: ../inc/post-types.php:513
+=======
+#: ../inc/post-types.php:508 ../inc/taxonomies.php:368
+>>>>>>> cffedc9769cad44f9190026afca909aee4719d9f
 msgid "Query Var"
 msgstr ""
 
@@ -662,20 +1163,48 @@ msgstr ""
 msgid "Menu Position"
 msgstr ""
 
+<<<<<<< HEAD
 #: ../inc/post-types.php:533
+=======
+#: ../inc/post-types.php:516
+>>>>>>> master
+>>>>>>> cffedc9769cad44f9190026afca909aee4719d9f
 msgid ""
 "The position in the menu order the post type should appear. show_in_menu "
 "must be true."
 msgstr ""
 
+<<<<<<< HEAD
 #: ../inc/post-types.php:534
+=======
+<<<<<<< HEAD
+#: ../inc/post-types.php:514
+=======
+#: ../inc/post-types.php:517
+>>>>>>> master
+>>>>>>> cffedc9769cad44f9190026afca909aee4719d9f
 msgid ""
 "See <a href=\"http://codex.wordpress.org/Function_Reference/"
 "register_post_type#Parameters\">Available options</a> in the \"menu_position"
 "\" section. Range of 5-100"
 msgstr ""
 
+<<<<<<< HEAD
 #: ../inc/post-types.php:541
+=======
+<<<<<<< HEAD
+#: ../inc/post-types.php:521
+msgid "URL or Dashicon value for image to be used as menu icon."
+msgstr ""
+
+#: ../inc/post-types.php:526
+msgid "Show in Menu"
+msgstr ""
+
+#: ../inc/post-types.php:527
+=======
+#: ../inc/post-types.php:524
+>>>>>>> cffedc9769cad44f9190026afca909aee4719d9f
 msgid "URL or Dashicon value for image to be used as menu icon."
 msgstr ""
 
@@ -683,23 +1212,83 @@ msgstr ""
 msgid "Show in Menu"
 msgstr ""
 
+<<<<<<< HEAD
 #: ../inc/post-types.php:550
+=======
+#: ../inc/post-types.php:530
+>>>>>>> master
+>>>>>>> cffedc9769cad44f9190026afca909aee4719d9f
 msgid ""
 "\"Show UI\" must be \"true\". If an existing top level page such as \"tools."
 "php\" is indicated for second input, post type will be sub menu of that."
 msgstr ""
 
+<<<<<<< HEAD
 #: ../inc/post-types.php:564
 msgid "Show In Menu"
 msgstr ""
 
 #: ../inc/post-types.php:566
+=======
+<<<<<<< HEAD
+#: ../inc/post-types.php:544
+msgid "Show In Menu"
+msgstr ""
+
+#: ../inc/post-types.php:546
+=======
+#: ../inc/post-types.php:547
+msgid "Show In Menu"
+msgstr ""
+
+#: ../inc/post-types.php:549
+>>>>>>> master
+>>>>>>> cffedc9769cad44f9190026afca909aee4719d9f
 msgid ""
 "Whether to show the post type in the admin menu and where to show that menu. "
 "Note that show_ui must be true"
 msgstr ""
 
+<<<<<<< HEAD
 #: ../inc/post-types.php:578
+=======
+<<<<<<< HEAD
+#: ../inc/post-types.php:558
+msgid "URL to image to be used as menu icon."
+msgstr ""
+
+#: ../inc/post-types.php:569
+msgid "Menu Icon"
+msgstr ""
+
+#: ../inc/post-types.php:570
+msgid "(Full URL for icon or Dashicon class)"
+msgstr ""
+
+#: ../inc/post-types.php:571
+msgid "URL to image to be used as menu icon or Dashicon class to use instead."
+msgstr ""
+
+#: ../inc/post-types.php:574
+msgid "Supports"
+msgstr ""
+
+#: ../inc/post-types.php:584
+msgid "Title"
+msgstr ""
+
+#: ../inc/post-types.php:585
+msgid "Adds the title meta box when creating content for this custom post type"
+msgstr ""
+
+#: ../inc/post-types.php:599
+msgid "Editor"
+msgstr ""
+
+#: ../inc/post-types.php:600
+=======
+#: ../inc/post-types.php:561
+>>>>>>> cffedc9769cad44f9190026afca909aee4719d9f
 msgid "URL to image to be used as menu icon."
 msgstr ""
 
@@ -731,88 +1320,252 @@ msgstr ""
 msgid "Editor"
 msgstr ""
 
+<<<<<<< HEAD
 #: ../inc/post-types.php:620
+=======
+#: ../inc/post-types.php:603
+>>>>>>> master
+>>>>>>> cffedc9769cad44f9190026afca909aee4719d9f
 msgid ""
 "Adds the content editor meta box when creating content for this custom post "
 "type"
 msgstr ""
 
+<<<<<<< HEAD
 #: ../inc/post-types.php:634
 msgid "Excerpt"
 msgstr ""
 
 #: ../inc/post-types.php:635
+=======
+<<<<<<< HEAD
+#: ../inc/post-types.php:614
+msgid "Excerpt"
+msgstr ""
+
+#: ../inc/post-types.php:615
+=======
+#: ../inc/post-types.php:617
+msgid "Excerpt"
+msgstr ""
+
+#: ../inc/post-types.php:618
+>>>>>>> master
+>>>>>>> cffedc9769cad44f9190026afca909aee4719d9f
 msgid ""
 "Adds the excerpt meta box when creating content for this custom post type"
 msgstr ""
 
+<<<<<<< HEAD
 #: ../inc/post-types.php:649
 msgid "Trackbacks"
 msgstr ""
 
 #: ../inc/post-types.php:650
+=======
+<<<<<<< HEAD
+#: ../inc/post-types.php:629
+msgid "Trackbacks"
+msgstr ""
+
+#: ../inc/post-types.php:630
+=======
+#: ../inc/post-types.php:632
+msgid "Trackbacks"
+msgstr ""
+
+#: ../inc/post-types.php:633
+>>>>>>> master
+>>>>>>> cffedc9769cad44f9190026afca909aee4719d9f
 msgid ""
 "Adds the trackbacks meta box when creating content for this custom post type"
 msgstr ""
 
+<<<<<<< HEAD
 #: ../inc/post-types.php:664
 msgid "Custom Fields"
 msgstr ""
 
 #: ../inc/post-types.php:665
+=======
+<<<<<<< HEAD
+#: ../inc/post-types.php:644
+msgid "Custom Fields"
+msgstr ""
+
+#: ../inc/post-types.php:645
+=======
+#: ../inc/post-types.php:647
+msgid "Custom Fields"
+msgstr ""
+
+#: ../inc/post-types.php:648
+>>>>>>> master
+>>>>>>> cffedc9769cad44f9190026afca909aee4719d9f
 msgid ""
 "Adds the custom fields meta box when creating content for this custom post "
 "type"
 msgstr ""
 
+<<<<<<< HEAD
 #: ../inc/post-types.php:679
 msgid "Comments"
 msgstr ""
 
 #: ../inc/post-types.php:680
+=======
+<<<<<<< HEAD
+#: ../inc/post-types.php:659
+msgid "Comments"
+msgstr ""
+
+#: ../inc/post-types.php:660
+=======
+#: ../inc/post-types.php:662
+msgid "Comments"
+msgstr ""
+
+#: ../inc/post-types.php:663
+>>>>>>> master
+>>>>>>> cffedc9769cad44f9190026afca909aee4719d9f
 msgid ""
 "Adds the comments meta box when creating content for this custom post type"
 msgstr ""
 
+<<<<<<< HEAD
 #: ../inc/post-types.php:694
 msgid "Revisions"
 msgstr ""
 
 #: ../inc/post-types.php:695
+=======
+<<<<<<< HEAD
+#: ../inc/post-types.php:674
+msgid "Revisions"
+msgstr ""
+
+#: ../inc/post-types.php:675
+=======
+#: ../inc/post-types.php:677
+msgid "Revisions"
+msgstr ""
+
+#: ../inc/post-types.php:678
+>>>>>>> master
+>>>>>>> cffedc9769cad44f9190026afca909aee4719d9f
 msgid ""
 "Adds the revisions meta box when creating content for this custom post type"
 msgstr ""
 
+<<<<<<< HEAD
 #: ../inc/post-types.php:709
 msgid "Featured Image"
 msgstr ""
 
 #: ../inc/post-types.php:710
+=======
+<<<<<<< HEAD
+#: ../inc/post-types.php:689
+msgid "Featured Image"
+msgstr ""
+
+#: ../inc/post-types.php:690
+=======
+#: ../inc/post-types.php:692
+msgid "Featured Image"
+msgstr ""
+
+#: ../inc/post-types.php:693
+>>>>>>> master
+>>>>>>> cffedc9769cad44f9190026afca909aee4719d9f
 msgid ""
 "Adds the featured image meta box when creating content for this custom post "
 "type"
 msgstr ""
 
+<<<<<<< HEAD
 #: ../inc/post-types.php:724
 msgid "Author"
 msgstr ""
 
 #: ../inc/post-types.php:725
+=======
+<<<<<<< HEAD
+#: ../inc/post-types.php:704
+msgid "Author"
+msgstr ""
+
+#: ../inc/post-types.php:705
+=======
+#: ../inc/post-types.php:707
+msgid "Author"
+msgstr ""
+
+#: ../inc/post-types.php:708
+>>>>>>> master
+>>>>>>> cffedc9769cad44f9190026afca909aee4719d9f
 msgid ""
 "Adds the author meta box when creating content for this custom post type"
 msgstr ""
 
+<<<<<<< HEAD
 #: ../inc/post-types.php:739
 msgid "Page Attributes"
 msgstr ""
 
 #: ../inc/post-types.php:740
+=======
+<<<<<<< HEAD
+#: ../inc/post-types.php:719
+msgid "Page Attributes"
+msgstr ""
+
+#: ../inc/post-types.php:720
+=======
+#: ../inc/post-types.php:722
+msgid "Page Attributes"
+msgstr ""
+
+#: ../inc/post-types.php:723
+>>>>>>> master
+>>>>>>> cffedc9769cad44f9190026afca909aee4719d9f
 msgid ""
 "Adds the page attribute meta box when creating content for this custom post "
 "type"
 msgstr ""
 
+<<<<<<< HEAD
 #: ../inc/post-types.php:754
+=======
+<<<<<<< HEAD
+#: ../inc/post-types.php:734
+msgid "Post Formats"
+msgstr ""
+
+#: ../inc/post-types.php:735
+msgid "Adds post format support"
+msgstr ""
+
+#: ../inc/post-types.php:740
+msgid "\"Use the option below to explicitly set \"supports\" to false."
+msgstr ""
+
+#: ../inc/post-types.php:748
+msgid "None"
+msgstr ""
+
+#: ../inc/post-types.php:749
+msgid "Remove all support features"
+msgstr ""
+
+#: ../inc/post-types.php:756
+msgid "Built-in Taxonomies"
+msgstr ""
+
+#: ../inc/post-types.php:794 ../inc/taxonomies.php:156
+=======
+#: ../inc/post-types.php:737
+>>>>>>> cffedc9769cad44f9190026afca909aee4719d9f
 msgid "Post Formats"
 msgstr ""
 
@@ -836,16 +1589,37 @@ msgstr ""
 msgid "Built-in Taxonomies"
 msgstr ""
 
+<<<<<<< HEAD
 #: ../inc/post-types.php:814 ../inc/taxonomies.php:156
+=======
+#: ../inc/post-types.php:797 ../inc/taxonomies.php:156
+>>>>>>> master
+>>>>>>> cffedc9769cad44f9190026afca909aee4719d9f
 #, php-format
 msgid "Adds %s support"
 msgstr ""
 
+<<<<<<< HEAD
 #: ../inc/post-types.php:823 ../inc/taxonomies.php:463
 msgid "Starter Notes"
 msgstr ""
 
 #: ../inc/post-types.php:826
+=======
+<<<<<<< HEAD
+#: ../inc/post-types.php:803 ../inc/taxonomies.php:463
+msgid "Starter Notes"
+msgstr ""
+
+#: ../inc/post-types.php:806
+=======
+#: ../inc/post-types.php:806 ../inc/taxonomies.php:463
+msgid "Starter Notes"
+msgstr ""
+
+#: ../inc/post-types.php:809
+>>>>>>> master
+>>>>>>> cffedc9769cad44f9190026afca909aee4719d9f
 #, php-format
 msgid ""
 "Post Type names should have %smax 20 characters%s, and only contain "
@@ -854,7 +1628,15 @@ msgid ""
 "revision, nav_menu_item."
 msgstr ""
 
+<<<<<<< HEAD
 #: ../inc/post-types.php:827
+=======
+<<<<<<< HEAD
+#: ../inc/post-types.php:807
+=======
+#: ../inc/post-types.php:810
+>>>>>>> master
+>>>>>>> cffedc9769cad44f9190026afca909aee4719d9f
 #, php-format
 msgid ""
 "If you are unfamiliar with the advanced post type settings, just fill in the "
@@ -863,7 +1645,15 @@ msgid ""
 "post type name. Hover over the question mark for more details."
 msgstr ""
 
+<<<<<<< HEAD
 #: ../inc/post-types.php:828
+=======
+<<<<<<< HEAD
+#: ../inc/post-types.php:808
+=======
+#: ../inc/post-types.php:811
+>>>>>>> master
+>>>>>>> cffedc9769cad44f9190026afca909aee4719d9f
 #, php-format
 msgid ""
 "Deleting custom post types will %sNOT%s delete any content into the database "
@@ -871,7 +1661,26 @@ msgid ""
 "the content will still exist."
 msgstr ""
 
+<<<<<<< HEAD
 #: ../inc/post-types.php:907
+=======
+<<<<<<< HEAD
+#: ../inc/post-types.php:887
+msgid "Please provide a post type to delete"
+msgstr ""
+
+#: ../inc/post-types.php:945
+msgid "Please provide a post type name"
+msgstr ""
+
+#: ../inc/post-types.php:963
+msgid "Please do not use quotes in post type names or rewrite slugs"
+msgstr ""
+
+#: ../inc/post-types.php:970
+=======
+#: ../inc/post-types.php:890
+>>>>>>> cffedc9769cad44f9190026afca909aee4719d9f
 msgid "Please provide a post type to delete"
 msgstr ""
 
@@ -883,7 +1692,12 @@ msgstr ""
 msgid "Please do not use quotes in post type names or rewrite slugs"
 msgstr ""
 
+<<<<<<< HEAD
 #: ../inc/post-types.php:992
+=======
+#: ../inc/post-types.php:973
+>>>>>>> master
+>>>>>>> cffedc9769cad44f9190026afca909aee4719d9f
 #, php-format
 msgid "Please choose a different post type name. %s is already registered."
 msgstr ""

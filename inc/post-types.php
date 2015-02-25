@@ -136,15 +136,28 @@ function cptui_manage_post_types() {
 						if ( isset( $current['description'] ) ) {
 							$current['description'] = stripslashes_deep( $current['description'] );
 						}
+
 						echo $ui->get_textarea_input( array(
 							'namearray' => 'cpt_custom_post_type',
 							'name' => 'description',
 							'rows' => '4',
 							'cols' => '40',
-							'textvalue' => ( isset( $current['description'] ) ) ? esc_textarea( $current['description'] ) : '',
+							'textvalue' => ( isset( $current['description'] ) ) ?  esc_textarea( $current['description'] ) : '',
 							'labeltext' => __('Description', 'cpt-plugin'),
 							'helptext' => esc_attr__( 'Custom Post Type Description. Describe what your custom post type is used for.', 'cpt-plugin' )
 							) );
+
+						if ( 'edit' == $tab ) {
+							echo $ui->get_check_input( array(
+								'checkvalue' => 'update_post_types',
+								'checked'    => 'false',
+								'name'       => 'update_post_types',
+								'namearray'  => 'update_post_types',
+								'labeltext'  => __( 'Migrate posts to newly renamed post type?', 'cpt-plugin' ),
+								'helptext'   => esc_attr__( 'Check this to migrate posts if and when renaming your post type.', 'cpt-plugin' ),
+								'default'    => false
+							) );
+						}
 						?>
 					</table>
 				<p class="submit">
@@ -155,6 +168,11 @@ function cptui_manage_post_types() {
 					<?php } else { ?>
 						<input type="submit" class="button-primary" name="cpt_submit" value="<?php echo esc_attr( apply_filters( 'cptui_post_type_submit_add', __( 'Add Post Type', 'cpt-plugin' ) ) ); ?>" />
 					<?php } ?>
+
+					<?php if ( !empty( $current ) ) { ?>
+						<input type="hidden" name="cpt_original" id="cpt_original" value="<?php echo $current['name']; ?>" />
+					<?php } ?>
+
 					<input type="hidden" name="cpt_type_status" id="cpt_type_status" value="<?php echo $tab; ?>" />
 				</p>
 			</td>
@@ -903,7 +921,15 @@ function cptui_get_current_post_type() {
  */
 function cptui_delete_post_type( $data = array() ) {
 
-	if ( empty( $data['cpt_custom_post_type']['name'] ) ) {
+	if ( is_string( $data ) && post_type_exists( $data ) ) {
+		$data = array(
+			'cpt_custom_post_type' => array(
+				'name' => $data
+			)
+		);
+	}
+
+	if ( empty( $data['cpt_custom_post_type']['name'] ) || ! post_type_exists( $data['cpt_custom_post_type']['name'] ) ) {
 		return cptui_admin_notices(	'error', '', false, __( 'Please provide a post type to delete', 'cpt-plugin' ) );
 	}
 
@@ -965,6 +991,12 @@ function cptui_update_post_type( $data = array() ) {
 	# They need to provide a name
 	if ( empty( $data['cpt_custom_post_type']['name'] ) ) {
 		return cptui_admin_notices(	'error', '', false, __( 'Please provide a post type name', 'cpt-plugin' ) );
+	}
+
+	if ( !empty( $data['cpt_original'] ) && $data['cpt_original'] != $data['cpt_custom_post_type']['name'] ) {
+		if ( !empty( $data['update_post_types'] ) ) {
+			cptui_convert_post_type_posts( $data['cpt_original'], $data['cpt_custom_post_type']['name'] );
+		}
 	}
 
 	# clean up $_POST data
@@ -1097,4 +1129,24 @@ function cptui_reserved_post_types() {
 	    'order',
 	    'theme'
 	) );
+}
+
+/**
+ * Converts post type between original and newly renamed.
+ *
+ * @param string $original_slug Original post type slug.
+ * @param string $new_slug      New post type slug.
+ */
+function cptui_convert_post_type_posts( $original_slug = '', $new_slug = '' ) {
+	$args = array(
+		'posts_per_page' => -1,
+		'post_type'      => $original_slug
+	);
+	$convert = new WP_Query( $args );
+
+	if ( $convert->have_posts() ) : while ( $convert->have_posts() ) : $convert->the_post();
+		set_post_type( get_the_ID(), $new_slug );
+	endwhile; endif;
+
+	cptui_delete_post_type( $original_slug );
 }

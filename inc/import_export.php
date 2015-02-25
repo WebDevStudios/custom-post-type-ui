@@ -9,7 +9,11 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 /**
  * Add our settings page to the menu.
  *
+<<<<<<< HEAD
+ * @since 0.9.0
+=======
  * @since 1.0.0
+>>>>>>> master
  */
 function cptui_importexport_admin_menu() {
 	add_submenu_page( 'cptui_main_menu', __( 'Import/Export', 'cpt-plugin' ), __( 'Import/Export', 'cpt-plugin' ), 'manage_options', 'cptui_importexport', 'cptui_importexport' );
@@ -19,7 +23,11 @@ add_action( 'admin_menu', 'cptui_importexport_admin_menu' );
 /**
  * Create our settings page output.
  *
+<<<<<<< HEAD
+ * @since 0.9.0
+=======
  * @since 1.0.0
+>>>>>>> master
  *
  * @return string HTML output for the page.
  */
