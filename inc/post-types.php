@@ -1134,6 +1134,8 @@ function cptui_reserved_post_types() {
 /**
  * Converts post type between original and newly renamed.
  *
+ * @since 1.1.0
+ *
  * @param string $original_slug Original post type slug.
  * @param string $new_slug      New post type slug.
  */
