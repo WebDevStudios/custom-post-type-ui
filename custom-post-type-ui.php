@@ -271,6 +271,8 @@ function cptui_register_single_taxonomy( $taxonomy = array() ) {
 		$taxonomy['query_var'] = $taxonomy['query_var_slug'];
 	}
 
+	$show_admin_column = ( !empty( $taxonomy['show_admin_column'] ) && false !== get_disp_boolean( $taxonomy['show_admin_column'] ) ) ? true : false;
+
 	$args = array(
 		'labels'            => $labels,
 		'label'             => $taxonomy['label'],
@@ -278,7 +280,7 @@ function cptui_register_single_taxonomy( $taxonomy = array() ) {
 		'show_ui'           => get_disp_boolean( $taxonomy['show_ui'] ),
 		'query_var'         => $taxonomy['query_var'],
 		'rewrite'           => $rewrite,
-		'show_admin_column' => get_disp_boolean( $taxonomy['show_admin_column'] )
+		'show_admin_column' => $show_admin_column
 	);
 
 	$object_type = ( !empty( $taxonomy['object_types'] ) ) ? $taxonomy['object_types'] : '';
