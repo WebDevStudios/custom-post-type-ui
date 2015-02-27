@@ -525,7 +525,7 @@ function cptui_get_current_taxonomy() {
 			return sanitize_text_field( $_POST['cpt_custom_tax']['name'] );
 		}
 	} else if ( !empty( $_GET ) && isset( $_GET['cptui_taxonomy'] ) ) {
-		return $_GET['cptui_taxonomy'];
+		return sanitize_text_field( $_GET['cptui_taxonomy'] );
 	} else {
 		$taxonomies = get_option( 'cptui_taxonomies' );
 		if ( !empty( $taxonomies ) ) {
