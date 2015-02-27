@@ -903,6 +903,14 @@ function cptui_get_current_post_type() {
 		if ( isset( $_POST['cpt_custom_post_type']['name'] ) ) {
 			return sanitize_text_field( $_POST['cpt_custom_post_type']['name'] );
 		}
+	} else if ( !empty( $_GET ) && isset( $_GET['cptui_post_type'] ) ) {
+		return $_GET['cptui_post_type'];
+	} else {
+		$post_types = get_option( 'cptui_post_types' );
+		if ( !empty( $post_types ) ) {
+			# Will return the first array key
+			return key( $post_types );
+		}
 	}
 
 	return false;
