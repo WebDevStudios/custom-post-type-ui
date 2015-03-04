@@ -819,6 +819,7 @@ function cptui_manage_post_types() {
 								echo '<li>' . sprintf( __( 'Deleting custom post types will %sNOT%s delete any content into the database or added to those post types. You can easily recreate your post types and the content will still exist.', 'cpt-plugin' ), '<strong class="wp-ui-highlight">', '</strong>' ); ?>
 							</ol></div>
 						<?php } ?>
+				</div>
 				</td>
 			</tr>
 		</table>
