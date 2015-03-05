@@ -39,7 +39,7 @@ Implied credit to:
 
 = 1.0.4 =
 * Fixed incorrect boolean order for hierarchical taxonomies and default value.
-* Fixed missing closing div tag.
+* Fixed missing closing div tags.
 * Default menu position to null instead of empty string.
 * Undefined index notice cleanup.
 * Remove unnecessary hook.
@@ -220,7 +220,7 @@ Implied credit to:
 
 = 1.0.4 =
 * Fixed incorrect boolean order for hierarchical taxonomies and default value.
-* Fixed missing closing div tag.
+* Fixed missing closing div tags.
 * Default menu position to null instead of empty string.
 * Undefined index notice cleanup.
 * Remove unnecessary hook.
