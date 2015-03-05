@@ -42,6 +42,7 @@ Implied credit to:
 * Fixed missing closing div tag.
 * Default menu position to null instead of empty string.
 * Undefined index notice cleanup.
+* Remove unnecessary hook.
 
 = 1.0.3 =
 * Fix logic error regarding string "0" evaluating to false when checked for not empty.
@@ -222,6 +223,7 @@ Implied credit to:
 * Fixed missing closing div tag.
 * Default menu position to null instead of empty string.
 * Undefined index notice cleanup.
+* Remove unnecessary hook.
 
 = 1.0.3 =
 * Fix logic error regarding string "0" evaluating to false when checked for not empty.
