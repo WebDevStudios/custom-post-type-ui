@@ -172,7 +172,7 @@ function cptui_register_single_post_type( $post_type = array() ) {
 		$post_type['query_var'] = get_disp_boolean( $post_type['query_var'] );
 	}
 
-	$menu_position = '';
+	$menu_position = null;
 	if ( !empty( $post_type['menu_position'] ) ) {
 		$menu_position = (int) $post_type['menu_position'];
 	}
