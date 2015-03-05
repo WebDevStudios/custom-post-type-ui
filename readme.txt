@@ -48,6 +48,7 @@ Implied credit to:
 * Fix logic error regarding string "0" evaluating to false when checked for not empty.
 * Fix for taxonomy with_front boolean value not evaluating correctly.
 * Fix for taxonomy hierarchical boolean value not evaluating correctly.
+* Fix for post type has_archive.
 * German translation updates. If you speak/read German, myself and the translator would LOVE to have feedback on this.
 * Internationalization string changes after feedback from German translation work.
 * Minor issue with link html being stripped from UI field explanation.
@@ -229,6 +230,7 @@ Implied credit to:
 * Fix logic error regarding string "0" evaluating to false when checked for not empty.
 * Fix for taxonomy with_front boolean value not evaluating correctly.
 * Fix for taxonomy hierarchical boolean value not evaluating correctly.
+* Fix for post type has_archive.
 * German translation updates. If you speak/read German, myself and the translator would LOVE to have feedback on this.
 * Internationalization string changes after feedback from German translation work.
 * Minor issue with link html being stripped from UI field explanation.
