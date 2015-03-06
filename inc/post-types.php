@@ -784,21 +784,12 @@ function cptui_manage_post_types() {
 							 */
 							$args = apply_filters( 'cptui_attach_taxonomies_to_post_type', array( 'public' => true ) );
 
-							/**
-							 * Filters the arguments for output type for returned results.
-							 *
-							 * @since 1.0.0
-							 *
-							 * @param string $value Default output type.
-							 */
-							$output = apply_filters( 'cptui_attach_taxonomies_to_post_type_output', 'objects' );
-
 							# If they don't return an array, fall back to the original default. Don't need to check for empty, because empty array is default for $args param in get_post_types anyway.
 							if ( !is_array( $args ) ) {
 								$args = array( 'public' => true );
 							}
 
-							$add_taxes = get_taxonomies( $args, $output );
+							$add_taxes = get_taxonomies( $args, 'objects' );
 							unset( $add_taxes['nav_menu'] ); unset( $add_taxes['post_format'] );
 							foreach ( $add_taxes as $add_tax ) {
 								/*
@@ -828,6 +819,7 @@ function cptui_manage_post_types() {
 								echo '<li>' . sprintf( __( 'Deleting custom post types will %sNOT%s delete any content into the database or added to those post types. You can easily recreate your post types and the content will still exist.', 'cpt-plugin' ), '<strong class="wp-ui-highlight">', '</strong>' ); ?>
 							</ol></div>
 						<?php } ?>
+				</div>
 				</td>
 			</tr>
 		</table>

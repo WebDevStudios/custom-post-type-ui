@@ -468,6 +468,7 @@ function cptui_manage_taxonomies() {
 							echo '<li>' . sprintf( __( 'Deleting custom taxonomies do %sNOT%s delete terms added to those taxonomies. You can recreate your taxonomies and the terms will return. Changing the name, after adding terms to the taxonomy, will not update the terms in the database.', 'cpt-plugin' ), '<strong class="wp-ui-highlight">', '</strong>' ); ?>
 						</ol></div>
 						<?php } ?>
+				</div>
 				</td>
 			</tr>
 		</table><!-- End outter table -->

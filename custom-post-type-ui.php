@@ -4,7 +4,7 @@ Plugin Name: Custom Post Type UI
 Plugin URI: https://github.com/WebDevStudios/custom-post-type-ui/
 Description: Admin panel for creating custom post types and custom taxonomies in WordPress
 Author: WebDevStudios
-Version: 1.0.3
+Version: 1.0.4
 Author URI: http://webdevstudios.com/
 Text Domain: cpt-plugin
 License: GPLv2
@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'CPT_VERSION', '1.0.3' );
+define( 'CPT_VERSION', '1.0.4' );
 define( 'CPTUI_WP_VERSION', get_bloginfo( 'version' ) );
 
 /**
@@ -172,7 +172,7 @@ function cptui_register_single_post_type( $post_type = array() ) {
 		$post_type['query_var'] = get_disp_boolean( $post_type['query_var'] );
 	}
 
-	$menu_position = '';
+	$menu_position = null;
 	if ( !empty( $post_type['menu_position'] ) ) {
 		$menu_position = (int) $post_type['menu_position'];
 	}
@@ -261,7 +261,7 @@ function cptui_register_single_taxonomy( $taxonomy = array() ) {
 
 		$rewrite['with_front'] = ( ! empty( $taxonomy['rewrite_withfront'] ) && 'false' === disp_boolean( $taxonomy['rewrite_withfront'] ) ) ? false : true;
 
-		$rewrite['hierarchical'] = ( ! empty( $taxonomy['rewrite_hierarchical'] ) && 'false' === disp_boolean( $taxonomy['rewrite_hierarchical'] ) ) ? false : true;
+		$rewrite['hierarchical'] = ( ! empty( $taxonomy['rewrite_hierarchical'] ) && 'true' === disp_boolean( $taxonomy['rewrite_hierarchical'] ) ) ? true : false;
 	}
 
 	if ( in_array( $taxonomy['query_var'], array( 'true', 'false', '0', '1' ) ) ) {
@@ -271,6 +271,8 @@ function cptui_register_single_taxonomy( $taxonomy = array() ) {
 		$taxonomy['query_var'] = $taxonomy['query_var_slug'];
 	}
 
+	$show_admin_column = ( !empty( $taxonomy['show_admin_column'] ) && false !== get_disp_boolean( $taxonomy['show_admin_column'] ) ) ? true : false;
+
 	$args = array(
 		'labels'            => $labels,
 		'label'             => $taxonomy['label'],
@@ -278,7 +280,7 @@ function cptui_register_single_taxonomy( $taxonomy = array() ) {
 		'show_ui'           => get_disp_boolean( $taxonomy['show_ui'] ),
 		'query_var'         => $taxonomy['query_var'],
 		'rewrite'           => $rewrite,
-		'show_admin_column' => get_disp_boolean( $taxonomy['show_admin_column'] )
+		'show_admin_column' => $show_admin_column
 	);
 
 	$object_type = ( !empty( $taxonomy['object_types'] ) ) ? $taxonomy['object_types'] : '';
