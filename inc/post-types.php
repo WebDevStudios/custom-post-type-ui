@@ -12,6 +12,13 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * @since 1.0.0
  */
 function cptui_post_type_enqueue_scripts() {
+
+	$currentScreen = get_current_screen();
+
+	if ( ! is_object( $currentScreen ) || $currentScreen->id == "edit" || $currentScreen->id == "post" ) {
+		return;
+	}
+
 	wp_enqueue_script( 'cptui', plugins_url( 'js/cptui.js', dirname(__FILE__) ), array( 'jquery', 'jquery-ui-core', 'jquery-ui-accordion' ), CPT_VERSION, true );
 	wp_localize_script(	'cptui', 'confirmdata', array( 'confirm' => __( 'Are you sure you want to delete this?', 'cpt-plugin' ) ) );
 }
