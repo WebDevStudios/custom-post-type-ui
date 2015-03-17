@@ -999,9 +999,46 @@ function cptui_update_post_type( $data = array() ) {
 		$data['cpt_supports'] = array();
 	}
 
+	$preserved_labels = array(
+		'add_new_item',
+		'edit_item',
+		'new_item',
+		'view_item',
+		'all_items',
+		'search_items',
+		'not_found',
+		'not_found_in_trash'
+	);
 	foreach( $data['cpt_labels'] as $key => $label ) {
-		if ( empty( $label ) ) {
+		if ( empty( $label ) && ! in_array( $key, $preserved_labels ) ) {
 			unset( $data['cpt_labels'][ $key ] );
+		} else {
+			switch( $key ) {
+				case 'add_new_item':
+					$label = sprintf( __( 'Add new %s', 'cpt-plugin' ), $data['cpt_custom_post_type']['name'] );
+					break;
+				case 'edit_item':
+					$label = sprintf( __( 'Edit %s', 'cpt-plugin' ), $data['cpt_custom_post_type']['name'] );
+					break;
+				case 'new_item':
+					$label = sprintf( __( 'New %s', 'cpt-plugin' ), $data['cpt_custom_post_type']['name'] );
+					break;
+				case 'view_item':
+					$label = sprintf( __( 'View %s', 'cpt-plugin' ), $data['cpt_custom_post_type']['name'] );
+					break;
+				case 'all_items':
+					$label = sprintf( __( 'All %s', 'cpt-plugin' ), $data['cpt_custom_post_type']['label'] );
+					break;
+				case 'search_items':
+					$label = sprintf( __( 'Search %s', 'cpt-plugin' ), $data['cpt_custom_post_type']['label'] );
+					break;
+				case 'not_found':
+					$label = sprintf( __( 'No %s found.', 'cpt-plugin' ), $data['cpt_custom_post_type']['label'] );
+					break;
+				case 'not_found_in_trash':
+					$label = sprintf( __( 'No %s found in trash.', 'cpt-plugin' ), $data['cpt_custom_post_type']['label'] );
+					break;
+			}
 		}
 
 		$label = str_replace( '"', '', htmlspecialchars_decode( $label ) );
