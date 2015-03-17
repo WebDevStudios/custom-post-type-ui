@@ -159,10 +159,7 @@ function cptui_register_single_post_type( $post_type = array() ) {
 	if ( false !== $rewrite ) {
 		//Core converts to an empty array anyway, so safe to leave this instead of passing in boolean true.
 		$rewrite = array();
-		if ( !empty( $post_type['rewrite_slug'] ) ) {
-			$rewrite['slug'] = $post_type['rewrite_slug'];
-		}
-
+		$rewrite['slug'] = ( !empty( $post_type['rewrite_slug'] ) ) ? $post_type['rewrite_slug'] : $post_type['name'];
 		$rewrite['with_front'] = ( 'false' === disp_boolean( $post_type['rewrite_withfront'] ) && ! empty( $post_type['rewrite_withfront'] ) ) ? false : true;
 	}
 
