@@ -672,3 +672,87 @@ function cptui_admin_notices( $action = '', $object_type = '', $success = true ,
 
 	return false;
 }
+
+/**
+ * Return array of keys needing preserved.
+ *
+ * @since 1.0.5
+ *
+ * @param string $type Type to return. Either 'post_types' or 'taxonomies'.
+ *
+ * @return array Array of keys needing preservered for the requested type.
+ */
+function cptui_get_preserved_keys( $type = '' ) {
+
+	$preserved_labels = array(
+		'post_types' => array(
+			'add_new_item',
+			'edit_item',
+			'new_item',
+			'view_item',
+			'all_items',
+			'search_items',
+			'not_found',
+			'not_found_in_trash'
+		),
+		'taxonomies' => array(
+			'search_items',
+			'popular_items',
+			'all_items',
+			'parent_item',
+			'parent_item_colon',
+			'edit_item',
+			'update_item',
+			'add_new_item',
+			'new_item_name',
+			'separate_items_with_commas',
+			'add_or_remove_items',
+			'choose_from_most_used'
+		)
+	);
+	return ( !empty( $type ) ) ? $preserved_labels[ $type ] : array();
+}
+
+/**
+ * Return label for the requested type and label key.
+ *
+ * @since 1.0.5
+ *
+ * @param string $type Type to return. Either 'post_types' or 'taxonomies'.
+ * @param string $key Requested label key.
+ * @param string $plural Plural verbiage for the requested label and type.
+ * @param string $singular Singular verbiage for the requested label and type.
+ *
+ * @return string Internationalized default label.
+ */
+function cptui_get_preserved_label( $type = '', $key = '', $plural = '', $singular = '' ) {
+
+	$preserved_labels = array(
+		'post_types' => array(
+			'add_new_item'       => sprintf( __( 'Add new %s', 'cpt-plugin' ), $singular ),
+			'edit_item'          => sprintf( __( 'Edit %s', 'cpt-plugin' ), $singular ),
+			'new_item'           => sprintf( __( 'New %s', 'cpt-plugin' ), $singular ),
+			'view_item'          => sprintf( __( 'View %s', 'cpt-plugin' ), $singular ),
+			'all_items'          => sprintf( __( 'All %s', 'cpt-plugin' ), $plural ),
+			'search_items'       => sprintf( __( 'Search %s', 'cpt-plugin' ), $plural ),
+			'not_found'          => sprintf( __( 'No %s found.', 'cpt-plugin' ), $plural ),
+			'not_found_in_trash' => sprintf( __( 'No %s found in trash.', 'cpt-plugin' ), $plural )
+		),
+		'taxonomies' => array(
+			'search_items'               => sprintf( __( 'Search %s', 'cpt-plugin' ), $plural ),
+			'popular_items'              => sprintf( __( 'Popular %s', 'cpt-plugin' ), $plural ),
+			'all_items'                  => sprintf( __( 'All %s', 'cpt-plugin' ), $plural ),
+			'parent_item'                => sprintf( __( 'Parent %s', 'cpt-plugin' ), $singular ),
+			'parent_item_colon'          => sprintf( __( 'Parent %s:', 'cpt-plugin' ), $singular ),
+			'edit_item'                  => sprintf( __( 'Edit %s', 'cpt-plugin' ), $singular ),
+			'update_item'                => sprintf( __( 'Update %s', 'cpt-plugin' ), $singular ),
+			'add_new_item'               => sprintf( __( 'Add new %s', 'cpt-plugin' ), $singular ),
+			'new_item_name'              => sprintf( __( 'New %s name', 'cpt-plugin' ), $singular ),
+			'separate_items_with_commas' => sprintf( __( 'Separate %s with commas', 'cpt-plugin' ), $plural ),
+			'add_or_remove_items'        => sprintf( __( 'Add or remove %s', 'cpt-plugin' ), $plural ),
+			'choose_from_most_used'      => sprintf( __( 'Choose from the most used %s', 'cpt-plugin' ), $plural )
+		)
+	);
+
+	return $preserved_labels[ $type ][ $key ];
+}
