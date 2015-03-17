@@ -139,9 +139,13 @@ function cptui_register_single_post_type( $post_type = array() ) {
 		'singular_name'      => $post_type['singular_label']
 	);
 
+	$preserved = cptui_get_preserved_keys( 'post_types' );
 	foreach( $post_type['labels'] as $key => $label ) {
+
 		if ( !empty( $label ) ) {
 			$labels[ $key ] = $label;
+		} elseif ( empty( $label ) && in_array( $key, $preserved ) ) {
+			$labels[ $key ] = cptui_get_preserved_label( 'post_types', $key, $post_type['label'], $post_type['singular_label'] );
 		}
 	}
 
