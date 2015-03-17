@@ -641,64 +641,9 @@ function cptui_update_taxonomy( $data = array() ) {
 		$data['cpt_post_types'] = '';
 	}
 
-	$preserved_labels = array(
-		'search_items',
-		'popular_items',
-		'all_items',
-		'parent_item',
-		'parent_item_colon',
-		'edit_item',
-		'update_item',
-		'add_new_item',
-		'new_item_name',
-		'separate_items_with_commas',
-		'add_or_remove_items',
-		'choose_from_most_used'
-	);
 	foreach( $data['cpt_tax_labels'] as $key => $label ) {
 		if ( empty( $label ) ) {
-			if ( ! in_array( $key, $preserved_labels ) ) {
-				unset( $data['cpt_tax_labels'][ $key ] );
-			} else {
-				switch ( $key ) {
-					case 'search_items':
-						$label = sprintf( __( 'Search %s', 'cpt-plugin' ), $data['cpt_custom_tax']['label'] );
-						break;
-					case 'popular_items':
-						$label = sprintf( __( 'Popular %s', 'cpt-plugin' ), $data['cpt_custom_tax']['label'] );
-						break;
-					case 'all_items':
-						$label = sprintf( __( 'All %s', 'cpt-plugin' ), $data['cpt_custom_tax']['label'] );
-						break;
-					case 'parent_item':
-						$label = sprintf( __( 'Parent %s', 'cpt-plugin' ), $data['cpt_custom_tax']['name'] );
-						break;
-					case 'parent_item_colon':
-						$label = sprintf( __( 'Parent %s:', 'cpt-plugin' ), $data['cpt_custom_tax']['name'] );
-						break;
-					case 'edit_item':
-						$label = sprintf( __( 'Edit %s', 'cpt-plugin' ), $data['cpt_custom_tax']['name'] );
-						break;
-					case 'update_item':
-						$label = sprintf( __( 'Update %s', 'cpt-plugin' ), $data['cpt_custom_tax']['name'] );
-						break;
-					case 'add_new_item':
-						$label = sprintf( __( 'Add new %s', 'cpt-plugin' ), $data['cpt_custom_tax']['name'] );
-						break;
-					case 'new_item_name':
-						$label = sprintf( __( 'New %s name', 'cpt-plugin' ), $data['cpt_custom_tax']['name'] );
-						break;
-					case 'separate_items_with_commas':
-						$label = sprintf( __( 'Separate %s with commas', 'cpt-plugin' ), $data['cpt_custom_tax']['label'] );
-						break;
-					case 'add_or_remove_items':
-						$label = sprintf( __( 'Add or remove %s', 'cpt-plugin' ), $data['cpt_custom_tax']['label'] );
-						break;
-					case 'choose_from_most_used':
-						$label = sprintf( __( 'Choose from the most used %s', 'cpt-plugin' ), $data['cpt_custom_tax']['label'] );
-						break;
-				}
-			}
+			unset( $data['cpt_tax_labels'][ $key ] );
 		}
 		$label = str_replace( '"', '', htmlspecialchars_decode( $label ) );
 		$label = htmlspecialchars( $label, ENT_QUOTES );
