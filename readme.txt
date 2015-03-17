@@ -40,6 +40,8 @@ Implied credit to:
 = 1.0.5 =
 * Explicitly set the post type and taxonomy rewrite slugs as the registered slug if no custom ones provided.
 * Prevent cptui.js from loading where it is not needed.
+* Fixed undefined index notice for post type rewrite_withfront.
+* Repopulated labels when none provided and post type or taxonomy mentioned in default label.
 
 = 1.0.4 =
 * Fixed incorrect boolean order for hierarchical taxonomies and default value.
@@ -226,6 +228,8 @@ Implied credit to:
 = 1.0.5 =
 * Explicitly set the post type and taxonomy rewrite slugs as the registered slug if no custom ones provided.
 * Prevent cptui.js from loading where it is not needed.
+* Fixed undefined index notice for post type rewrite_withfront.
+* Repopulated labels when none provided and post type or taxonomy mentioned in default label.
 
 = 1.0.4 =
 * Fixed incorrect boolean order for hierarchical taxonomies and default value.
