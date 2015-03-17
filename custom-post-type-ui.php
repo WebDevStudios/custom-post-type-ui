@@ -247,9 +247,13 @@ function cptui_register_single_taxonomy( $taxonomy = array() ) {
 		'singular_name'      => $taxonomy['singular_label']
 	);
 
+	$preserved = cptui_get_preserved_keys( 'taxonomies' );
 	foreach( $taxonomy['labels'] as $key => $label ) {
+
 		if ( !empty( $label ) ) {
 			$labels[ $key ] = $label;
+		} elseif ( empty( $label ) && in_array( $key, $preserved ) ) {
+			$labels[ $key ] = cptui_get_preserved_label( 'taxonomies', $key, $taxonomy['label'], $taxonomy['singular_label'] );
 		}
 	}
 
