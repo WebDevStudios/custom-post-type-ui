@@ -13,7 +13,7 @@ function cptui_support_enqueue_scripts() {
 
 	$currentScreen = get_current_screen();
 
-	if ( ! is_object( $currentScreen ) || $currentScreen->id == "edit" || $currentScreen->id == "post" ) {
+	if ( ! is_object( $currentScreen ) || $currentScreen->base == "post" ) {
 		return;
 	}
 
