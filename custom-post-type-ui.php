@@ -7,6 +7,7 @@ Author: WebDevStudios
 Version: 1.0.5
 Author URI: http://webdevstudios.com/
 Text Domain: cpt-plugin
+Domain Path: /languages
 License: GPLv2
 */
 
