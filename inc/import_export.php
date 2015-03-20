@@ -184,6 +184,7 @@ function cptui_get_single_taxonomy_registery( $taxonomy = array() ) {
 		}
 
 		$hierarchical = ( !empty( $taxonomy['rewrite_hierarchical'] ) ) ? disp_boolean( $taxonomy['rewrite_hierarchical'] ) : '';
+		$rewrite_hierarchcial = '';
 		if ( !empty( $hierarchical ) ) {
 			$rewrite_hierarchcial = ' \'hierarchical\' => ' . $hierarchical . ' ';
 		}
@@ -192,7 +193,7 @@ function cptui_get_single_taxonomy_registery( $taxonomy = array() ) {
 			$rewrite_start = 'array(';
 			$rewrite_end   = ')';
 
-			$rewrite = $rewrite_start . $rewrite_slug . $rewrite_withfront . $hierarchical . $rewrite_end;
+			$rewrite = $rewrite_start . $rewrite_slug . $rewrite_withfront . $rewrite_hierarchcial . $rewrite_end;
 		}
 	} else {
 		$rewrite = disp_boolean( $taxonomy['rewrite'] );
