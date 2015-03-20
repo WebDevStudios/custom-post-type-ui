@@ -42,6 +42,7 @@ Implied credit to:
 * Prevent cptui.js from loading where it is not needed.
 * Fixed undefined index notice for post type rewrite_withfront.
 * Repopulated labels when none provided and post type or taxonomy mentioned in default label.
+* Fix for import/export get code tab and hierarchical taxonomies
 
 = 1.0.4 =
 * Fixed incorrect boolean order for hierarchical taxonomies and default value.
@@ -230,6 +231,7 @@ Implied credit to:
 * Prevent cptui.js from loading where it is not needed.
 * Fixed undefined index notice for post type rewrite_withfront.
 * Repopulated labels when none provided and post type or taxonomy mentioned in default label.
+* Fix for import/export get code tab and hierarchical taxonomies
 
 = 1.0.4 =
 * Fixed incorrect boolean order for hierarchical taxonomies and default value.
