@@ -1,41 +1,41 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Custom Post Type UI 0.8\n"
-"POT-Creation-Date: 2015-03-17 01:04-0600\n"
-"PO-Revision-Date: 2015-03-17 01:04-0600\n"
+"POT-Creation-Date: 2015-03-20 00:28-0600\n"
+"PO-Revision-Date: 2015-03-20 00:28-0600\n"
 "Last-Translator: Michael Beckwith <michael.d.beckwith@gmail.com>\n"
 "Language-Team: TrStar <trstar@gmail.com>\n"
 "Language: tr_TR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.7.4\n"
+"X-Generator: Poedit 1.7.5\n"
 "X-Poedit-KeywordsList: __;_e;esc_attr__;esc_attr_e;esc_attr_x;_n;_x;_ex;_nx;"
 "esc_html__;esc_html_e;esc_html_x\n"
 "X-Poedit-Basepath: .\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../custom-post-type-ui.php:57
+#: ../custom-post-type-ui.php:58
 msgid "Custom Post Types"
 msgstr "Özel Yazı Türleri"
 
-#: ../custom-post-type-ui.php:57
+#: ../custom-post-type-ui.php:58
 msgid "CPT UI"
 msgstr "CPT KA"
 
-#: ../custom-post-type-ui.php:319 ../custom-post-type-ui.php:409
+#: ../custom-post-type-ui.php:320 ../custom-post-type-ui.php:410
 msgid "Custom Post Type UI"
 msgstr "Özel Yazı Türleri KA"
 
-#: ../custom-post-type-ui.php:322
+#: ../custom-post-type-ui.php:323
 msgid ""
 "Thank you for choosing Custom Post Type UI. We hope that your experience "
 "with our plugin provides efficiency and speed in creating post types and "
 "taxonomies, to better organize your content, without having to touch code."
 msgstr ""
 
-#: ../custom-post-type-ui.php:324
+#: ../custom-post-type-ui.php:325
 #, php-format
 msgid ""
 "To get started with creating some post types, please visit %s and for "
@@ -44,35 +44,35 @@ msgid ""
 "as soon as possible."
 msgstr ""
 
-#: ../custom-post-type-ui.php:325 ../inc/post-types.php:33
+#: ../custom-post-type-ui.php:326 ../inc/post-types.php:33
 #, fuzzy
 msgid "Add/Edit Post Types"
 msgstr "Ek Yazı Türleri"
 
-#: ../custom-post-type-ui.php:326 ../inc/taxonomies.php:33
+#: ../custom-post-type-ui.php:327 ../inc/taxonomies.php:33
 #, fuzzy
 msgid "Add/Edit Taxonomies"
 msgstr "Dahili Sınıflandırmalar"
 
-#: ../custom-post-type-ui.php:327 ../inc/support.php:30
+#: ../custom-post-type-ui.php:328 ../inc/support.php:30
 #, fuzzy
 msgid "Help/Support"
 msgstr "Eklentiye Destek, Yardım!"
 
-#: ../custom-post-type-ui.php:328
+#: ../custom-post-type-ui.php:329
 msgid "CPT UI Support Forum"
 msgstr ""
 
-#: ../custom-post-type-ui.php:344
+#: ../custom-post-type-ui.php:345
 msgid "Help Support This Plugin!"
 msgstr "Eklentiye Destek, Yardım!"
 
-#: ../custom-post-type-ui.php:348
+#: ../custom-post-type-ui.php:349
 #, fuzzy
 msgid "Professional WordPress<br />Third Edition"
 msgstr "Profesyonel WordPress<br/>İkinci Baskı"
 
-#: ../custom-post-type-ui.php:353
+#: ../custom-post-type-ui.php:354
 #, fuzzy
 msgid ""
 "The leading book on WordPress design and development! Brand new third "
@@ -81,211 +81,211 @@ msgstr ""
 "WordPress tasarım ve geliştirme öncü kitap! <br/> <Strong>Yepyeni ikinci "
 "sürüm !"
 
-#: ../custom-post-type-ui.php:356
+#: ../custom-post-type-ui.php:357
 msgid "Professional WordPress<br />Plugin Development"
 msgstr "Profesyonel WordPress<br/>Eklenti Geliştirme"
 
-#: ../custom-post-type-ui.php:361
+#: ../custom-post-type-ui.php:362
 msgid "Highest rated WordPress development book on Amazon!"
 msgstr "Amazondaki En Yüksek Puanlı WordPress geliştirici kitabı!"
 
-#: ../custom-post-type-ui.php:364
+#: ../custom-post-type-ui.php:365
 msgid "PayPal Donation"
 msgstr "PayPal Bağış"
 
-#: ../custom-post-type-ui.php:365
+#: ../custom-post-type-ui.php:366
 #, fuzzy
 msgid "Please donate to the development of Custom Post Type UI:"
 msgstr "Özel Yazı Türü KA geliştirme <br/> için bağış yapın:"
 
-#: ../custom-post-type-ui.php:369
+#: ../custom-post-type-ui.php:370
 msgid "PayPal - The safer, easier way to pay online!"
 msgstr ""
 
-#: ../custom-post-type-ui.php:406
+#: ../custom-post-type-ui.php:407
 #, php-format
 msgid "%s version %s by %s - %s %s %s &middot; %s &middot; %s"
 msgstr ""
 
-#: ../custom-post-type-ui.php:415
+#: ../custom-post-type-ui.php:416
 msgid "Please Report Bugs"
 msgstr "Lütfen Hataları Bildirin"
 
-#: ../custom-post-type-ui.php:417
+#: ../custom-post-type-ui.php:418
 msgid "Follow on Twitter:"
 msgstr "Twitterden takip et:"
 
-#: ../custom-post-type-ui.php:477 ../inc/import_export.php:15
+#: ../custom-post-type-ui.php:478 ../inc/import_export.php:15
 msgid "Import/Export"
 msgstr ""
 
-#: ../custom-post-type-ui.php:479
+#: ../custom-post-type-ui.php:480
 msgid "Manage Taxonomies"
 msgstr "Sınıflandırmaları Yönet"
 
-#: ../custom-post-type-ui.php:483
+#: ../custom-post-type-ui.php:484
 msgid "Manage Post Types"
 msgstr "Yazı Türlerini Yönet"
 
-#: ../custom-post-type-ui.php:509
+#: ../custom-post-type-ui.php:510
 #, fuzzy
 msgid "Add New Post Type"
 msgstr "Bu Yazı türü için rewrite işlenmesini tetikler"
 
-#: ../custom-post-type-ui.php:512
+#: ../custom-post-type-ui.php:513
 #, fuzzy
 msgid "Edit Post Types"
 msgstr "Özel Yazı Türleri"
 
-#: ../custom-post-type-ui.php:516
+#: ../custom-post-type-ui.php:517
 #, fuzzy
 msgid "Add New Taxonomy"
 msgstr "Sınıflandırma Adı"
 
-#: ../custom-post-type-ui.php:519
+#: ../custom-post-type-ui.php:520
 #, fuzzy
 msgid "Edit Taxonomies"
 msgstr "Dahili Sınıflandırmalar"
 
-#: ../custom-post-type-ui.php:523
+#: ../custom-post-type-ui.php:524
 #, fuzzy
 msgid "Post Types"
 msgstr "Özel Yazı Türleri"
 
-#: ../custom-post-type-ui.php:524 ../inc/import_export.php:391
+#: ../custom-post-type-ui.php:525 ../inc/import_export.php:392
 #, fuzzy
 msgid "Taxonomies"
 msgstr "Sınıflandırmaları Yönet"
 
-#: ../custom-post-type-ui.php:525
+#: ../custom-post-type-ui.php:526
 msgid "Get Code"
 msgstr "Kodu Alın"
 
-#: ../custom-post-type-ui.php:609 ../inc/post-types.php:334
+#: ../custom-post-type-ui.php:610 ../inc/post-types.php:334
 #: ../inc/taxonomies.php:326
 msgid "Settings"
 msgstr ""
 
-#: ../custom-post-type-ui.php:609
+#: ../custom-post-type-ui.php:610
 msgid "Help"
 msgstr ""
 
-#: ../custom-post-type-ui.php:637
+#: ../custom-post-type-ui.php:638
 #, php-format
 msgid "%s has been successfully added"
 msgstr ""
 
-#: ../custom-post-type-ui.php:639
+#: ../custom-post-type-ui.php:640
 #, php-format
 msgid "%s has failed to be added"
 msgstr ""
 
-#: ../custom-post-type-ui.php:643
+#: ../custom-post-type-ui.php:644
 #, php-format
 msgid "%s has been successfully updated"
 msgstr ""
 
-#: ../custom-post-type-ui.php:645
+#: ../custom-post-type-ui.php:646
 #, php-format
 msgid "%s has failed to be updated"
 msgstr ""
 
-#: ../custom-post-type-ui.php:649
+#: ../custom-post-type-ui.php:650
 #, php-format
 msgid "%s has been successfully deleted"
 msgstr ""
 
-#: ../custom-post-type-ui.php:651
+#: ../custom-post-type-ui.php:652
 #, php-format
 msgid "%s has failed to be deleted"
 msgstr ""
 
-#: ../custom-post-type-ui.php:655
+#: ../custom-post-type-ui.php:656
 #, php-format
 msgid "%s has been successfully imported"
 msgstr ""
 
-#: ../custom-post-type-ui.php:657
+#: ../custom-post-type-ui.php:658
 #, php-format
 msgid "%s has failed to be imported"
 msgstr ""
 
-#: ../custom-post-type-ui.php:740 ../custom-post-type-ui.php:757
+#: ../custom-post-type-ui.php:741 ../custom-post-type-ui.php:758
 #, fuzzy, php-format
 msgid "Add new %s"
 msgstr "Yeni Ekle"
 
-#: ../custom-post-type-ui.php:741 ../custom-post-type-ui.php:755
+#: ../custom-post-type-ui.php:742 ../custom-post-type-ui.php:756
 #, fuzzy, php-format
 msgid "Edit %s"
 msgstr "Düzenle"
 
-#: ../custom-post-type-ui.php:742
+#: ../custom-post-type-ui.php:743
 #, php-format
 msgid "New %s"
 msgstr ""
 
-#: ../custom-post-type-ui.php:743
+#: ../custom-post-type-ui.php:744
 #, fuzzy, php-format
 msgid "View %s"
 msgstr "Göster"
 
-#: ../custom-post-type-ui.php:744 ../custom-post-type-ui.php:752
+#: ../custom-post-type-ui.php:745 ../custom-post-type-ui.php:753
 #, fuzzy, php-format
 msgid "All %s"
 msgstr "Bütün Elemanlar"
 
-#: ../custom-post-type-ui.php:745 ../custom-post-type-ui.php:750
+#: ../custom-post-type-ui.php:746 ../custom-post-type-ui.php:751
 #, fuzzy, php-format
 msgid "Search %s"
 msgstr "Eleman Ara"
 
-#: ../custom-post-type-ui.php:746
+#: ../custom-post-type-ui.php:747
 #, fuzzy, php-format
 msgid "No %s found."
 msgstr "Bulunamadı"
 
-#: ../custom-post-type-ui.php:747
+#: ../custom-post-type-ui.php:748
 #, fuzzy, php-format
 msgid "No %s found in trash."
 msgstr "Çöpte Bulunamadı"
 
-#: ../custom-post-type-ui.php:751
+#: ../custom-post-type-ui.php:752
 #, fuzzy, php-format
 msgid "Popular %s"
 msgstr "Popüler Elemanlar"
 
-#: ../custom-post-type-ui.php:753
+#: ../custom-post-type-ui.php:754
 #, fuzzy, php-format
 msgid "Parent %s"
 msgstr "Temel"
 
-#: ../custom-post-type-ui.php:754
+#: ../custom-post-type-ui.php:755
 #, fuzzy, php-format
 msgid "Parent %s:"
 msgstr "Temel"
 
-#: ../custom-post-type-ui.php:756
+#: ../custom-post-type-ui.php:757
 #, php-format
 msgid "Update %s"
 msgstr ""
 
-#: ../custom-post-type-ui.php:758
+#: ../custom-post-type-ui.php:759
 #, fuzzy, php-format
 msgid "New %s name"
 msgstr "Yeni Eleman Adı"
 
-#: ../custom-post-type-ui.php:759
+#: ../custom-post-type-ui.php:760
 #, fuzzy, php-format
 msgid "Separate %s with commas"
 msgstr "Elemanları virgül ile ayır"
 
-#: ../custom-post-type-ui.php:760
+#: ../custom-post-type-ui.php:761
 #, fuzzy, php-format
 msgid "Add or remove %s"
 msgstr "Elemanları Ekle veya Çıkar "
 
-#: ../custom-post-type-ui.php:761
+#: ../custom-post-type-ui.php:762
 #, fuzzy, php-format
 msgid "Choose from the most used %s"
 msgstr "(örneğin: Çok kullanılan aktörlerden seç)"
@@ -405,11 +405,11 @@ msgstr "Dahili Sınıflandırmalar"
 msgid "No taxonomies to display at this time"
 msgstr ""
 
-#: ../inc/import_export.php:251
+#: ../inc/import_export.php:252
 msgid "No post types to display at this time"
 msgstr ""
 
-#: ../inc/import_export.php:378
+#: ../inc/import_export.php:379
 #, fuzzy
 msgid "Post types"
 msgstr "Özel Yazı Türleri"
@@ -608,7 +608,7 @@ msgstr "(örneğin: Film Göster)"
 #: ../inc/post-types.php:288
 #, fuzzy
 msgid "Search Item"
-msgstr "Eleman Düzenle"
+msgstr "Eleman Ara"
 
 #: ../inc/post-types.php:293
 #, fuzzy

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Custom Post Type UI 简体中文语言包\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-17 01:03-0600\n"
-"PO-Revision-Date: 2015-03-17 01:04-0600\n"
+"POT-Creation-Date: 2015-03-20 00:28-0600\n"
+"PO-Revision-Date: 2015-03-20 00:28-0600\n"
 "Last-Translator: Michael Beckwith <michael.d.beckwith@gmail.com>\n"
 "Language-Team: Dreamcolor <dreamcolor@gmail.com>\n"
 "Language: zh\n"
@@ -13,30 +13,30 @@ msgstr ""
 "X-Poedit-KeywordsList: \n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Poedit-SourceCharset: utf-8\n"
-"X-Generator: Poedit 1.7.4\n"
+"X-Generator: Poedit 1.7.5\n"
 
-#: ../custom-post-type-ui.php:57
+#: ../custom-post-type-ui.php:58
 #, fuzzy
 msgid "Custom Post Types"
 msgstr "附属到文章类型"
 
-#: ../custom-post-type-ui.php:57
+#: ../custom-post-type-ui.php:58
 msgid "CPT UI"
 msgstr ""
 
-#: ../custom-post-type-ui.php:319 ../custom-post-type-ui.php:409
+#: ../custom-post-type-ui.php:320 ../custom-post-type-ui.php:410
 #, fuzzy
 msgid "Custom Post Type UI"
 msgstr "附属到文章类型"
 
-#: ../custom-post-type-ui.php:322
+#: ../custom-post-type-ui.php:323
 msgid ""
 "Thank you for choosing Custom Post Type UI. We hope that your experience "
 "with our plugin provides efficiency and speed in creating post types and "
 "taxonomies, to better organize your content, without having to touch code."
 msgstr ""
 
-#: ../custom-post-type-ui.php:324
+#: ../custom-post-type-ui.php:325
 #, php-format
 msgid ""
 "To get started with creating some post types, please visit %s and for "
@@ -45,245 +45,245 @@ msgid ""
 "as soon as possible."
 msgstr ""
 
-#: ../custom-post-type-ui.php:325 ../inc/post-types.php:33
+#: ../custom-post-type-ui.php:326 ../inc/post-types.php:33
 #, fuzzy
 msgid "Add/Edit Post Types"
 msgstr "编辑自定义文章类型"
 
-#: ../custom-post-type-ui.php:326 ../inc/taxonomies.php:33
+#: ../custom-post-type-ui.php:327 ../inc/taxonomies.php:33
 #, fuzzy
 msgid "Add/Edit Taxonomies"
 msgstr "内置类别"
 
-#: ../custom-post-type-ui.php:327 ../inc/support.php:30
+#: ../custom-post-type-ui.php:328 ../inc/support.php:30
 #, fuzzy
 msgid "Help/Support"
 msgstr "支持"
 
-#: ../custom-post-type-ui.php:328
+#: ../custom-post-type-ui.php:329
 msgid "CPT UI Support Forum"
 msgstr ""
 
-#: ../custom-post-type-ui.php:344
+#: ../custom-post-type-ui.php:345
 msgid "Help Support This Plugin!"
 msgstr ""
 
-#: ../custom-post-type-ui.php:348
+#: ../custom-post-type-ui.php:349
 msgid "Professional WordPress<br />Third Edition"
 msgstr ""
 
-#: ../custom-post-type-ui.php:353
+#: ../custom-post-type-ui.php:354
 msgid ""
 "The leading book on WordPress design and development! Brand new third "
 "edition!"
 msgstr ""
 
-#: ../custom-post-type-ui.php:356
+#: ../custom-post-type-ui.php:357
 msgid "Professional WordPress<br />Plugin Development"
 msgstr ""
 
-#: ../custom-post-type-ui.php:361
+#: ../custom-post-type-ui.php:362
 msgid "Highest rated WordPress development book on Amazon!"
 msgstr ""
 
-#: ../custom-post-type-ui.php:364
+#: ../custom-post-type-ui.php:365
 msgid "PayPal Donation"
 msgstr ""
 
-#: ../custom-post-type-ui.php:365
+#: ../custom-post-type-ui.php:366
 msgid "Please donate to the development of Custom Post Type UI:"
 msgstr ""
 
-#: ../custom-post-type-ui.php:369
+#: ../custom-post-type-ui.php:370
 msgid "PayPal - The safer, easier way to pay online!"
 msgstr ""
 
-#: ../custom-post-type-ui.php:406
+#: ../custom-post-type-ui.php:407
 #, php-format
 msgid "%s version %s by %s - %s %s %s &middot; %s &middot; %s"
 msgstr ""
 
-#: ../custom-post-type-ui.php:415
+#: ../custom-post-type-ui.php:416
 msgid "Please Report Bugs"
 msgstr ""
 
-#: ../custom-post-type-ui.php:417
+#: ../custom-post-type-ui.php:418
 msgid "Follow on Twitter:"
 msgstr ""
 
-#: ../custom-post-type-ui.php:477 ../inc/import_export.php:15
+#: ../custom-post-type-ui.php:478 ../inc/import_export.php:15
 msgid "Import/Export"
 msgstr ""
 
-#: ../custom-post-type-ui.php:479
+#: ../custom-post-type-ui.php:480
 #, fuzzy
 msgid "Manage Taxonomies"
 msgstr "管理自定义类别"
 
-#: ../custom-post-type-ui.php:483
+#: ../custom-post-type-ui.php:484
 #, fuzzy
 msgid "Manage Post Types"
 msgstr "管理自定义文章类型"
 
-#: ../custom-post-type-ui.php:509
+#: ../custom-post-type-ui.php:510
 #, fuzzy
 msgid "Add New Post Type"
 msgstr "已附属文章类型"
 
-#: ../custom-post-type-ui.php:512
+#: ../custom-post-type-ui.php:513
 #, fuzzy
 msgid "Edit Post Types"
 msgstr "编辑自定义文章类型"
 
-#: ../custom-post-type-ui.php:516
+#: ../custom-post-type-ui.php:517
 #, fuzzy
 msgid "Add New Taxonomy"
 msgstr "类别名称"
 
-#: ../custom-post-type-ui.php:519
+#: ../custom-post-type-ui.php:520
 #, fuzzy
 msgid "Edit Taxonomies"
 msgstr "内置类别"
 
-#: ../custom-post-type-ui.php:523
+#: ../custom-post-type-ui.php:524
 #, fuzzy
 msgid "Post Types"
 msgstr "文章类型名称"
 
-#: ../custom-post-type-ui.php:524 ../inc/import_export.php:391
+#: ../custom-post-type-ui.php:525 ../inc/import_export.php:392
 #, fuzzy
 msgid "Taxonomies"
 msgstr "内置类别"
 
-#: ../custom-post-type-ui.php:525
+#: ../custom-post-type-ui.php:526
 msgid "Get Code"
 msgstr ""
 
-#: ../custom-post-type-ui.php:609 ../inc/post-types.php:334
+#: ../custom-post-type-ui.php:610 ../inc/post-types.php:334
 #: ../inc/taxonomies.php:326
 msgid "Settings"
 msgstr ""
 
-#: ../custom-post-type-ui.php:609
+#: ../custom-post-type-ui.php:610
 msgid "Help"
 msgstr ""
 
-#: ../custom-post-type-ui.php:637
+#: ../custom-post-type-ui.php:638
 #, php-format
 msgid "%s has been successfully added"
 msgstr ""
 
-#: ../custom-post-type-ui.php:639
+#: ../custom-post-type-ui.php:640
 #, php-format
 msgid "%s has failed to be added"
 msgstr ""
 
-#: ../custom-post-type-ui.php:643
+#: ../custom-post-type-ui.php:644
 #, php-format
 msgid "%s has been successfully updated"
 msgstr ""
 
-#: ../custom-post-type-ui.php:645
+#: ../custom-post-type-ui.php:646
 #, php-format
 msgid "%s has failed to be updated"
 msgstr ""
 
-#: ../custom-post-type-ui.php:649
+#: ../custom-post-type-ui.php:650
 #, php-format
 msgid "%s has been successfully deleted"
 msgstr ""
 
-#: ../custom-post-type-ui.php:651
+#: ../custom-post-type-ui.php:652
 #, php-format
 msgid "%s has failed to be deleted"
 msgstr ""
 
-#: ../custom-post-type-ui.php:655
+#: ../custom-post-type-ui.php:656
 #, php-format
 msgid "%s has been successfully imported"
 msgstr ""
 
-#: ../custom-post-type-ui.php:657
+#: ../custom-post-type-ui.php:658
 #, php-format
 msgid "%s has failed to be imported"
 msgstr ""
 
-#: ../custom-post-type-ui.php:740 ../custom-post-type-ui.php:757
+#: ../custom-post-type-ui.php:741 ../custom-post-type-ui.php:758
 #, fuzzy, php-format
 msgid "Add new %s"
 msgstr "添加"
 
-#: ../custom-post-type-ui.php:741 ../custom-post-type-ui.php:755
+#: ../custom-post-type-ui.php:742 ../custom-post-type-ui.php:756
 #, fuzzy, php-format
 msgid "Edit %s"
 msgstr "编辑"
 
-#: ../custom-post-type-ui.php:742
+#: ../custom-post-type-ui.php:743
 #, php-format
 msgid "New %s"
 msgstr ""
 
-#: ../custom-post-type-ui.php:743
+#: ../custom-post-type-ui.php:744
 #, fuzzy, php-format
 msgid "View %s"
 msgstr "查看"
 
-#: ../custom-post-type-ui.php:744 ../custom-post-type-ui.php:752
+#: ../custom-post-type-ui.php:745 ../custom-post-type-ui.php:753
 #, fuzzy, php-format
 msgid "All %s"
 msgstr "所有条目"
 
-#: ../custom-post-type-ui.php:745 ../custom-post-type-ui.php:750
+#: ../custom-post-type-ui.php:746 ../custom-post-type-ui.php:751
 #, fuzzy, php-format
 msgid "Search %s"
 msgstr "搜索条目"
 
-#: ../custom-post-type-ui.php:746
+#: ../custom-post-type-ui.php:747
 #, fuzzy, php-format
 msgid "No %s found."
 msgstr "未找到"
 
-#: ../custom-post-type-ui.php:747
+#: ../custom-post-type-ui.php:748
 #, fuzzy, php-format
 msgid "No %s found in trash."
 msgstr "在回收站中没有找到"
 
-#: ../custom-post-type-ui.php:751
+#: ../custom-post-type-ui.php:752
 #, fuzzy, php-format
 msgid "Popular %s"
 msgstr "热门条目"
 
-#: ../custom-post-type-ui.php:753
+#: ../custom-post-type-ui.php:754
 #, fuzzy, php-format
 msgid "Parent %s"
 msgstr "上级"
 
-#: ../custom-post-type-ui.php:754
+#: ../custom-post-type-ui.php:755
 #, fuzzy, php-format
 msgid "Parent %s:"
 msgstr "上级"
 
-#: ../custom-post-type-ui.php:756
+#: ../custom-post-type-ui.php:757
 #, php-format
 msgid "Update %s"
 msgstr ""
 
-#: ../custom-post-type-ui.php:758
+#: ../custom-post-type-ui.php:759
 #, fuzzy, php-format
 msgid "New %s name"
 msgstr "新条目名称"
 
-#: ../custom-post-type-ui.php:759
+#: ../custom-post-type-ui.php:760
 #, fuzzy, php-format
 msgid "Separate %s with commas"
 msgstr "使用英文逗号隔开多个标签条目"
 
-#: ../custom-post-type-ui.php:760
+#: ../custom-post-type-ui.php:761
 #, fuzzy, php-format
 msgid "Add or remove %s"
 msgstr "添加或删除条目"
 
-#: ../custom-post-type-ui.php:761
+#: ../custom-post-type-ui.php:762
 #, fuzzy, php-format
 msgid "Choose from the most used %s"
 msgstr "使用次数最多"
@@ -403,11 +403,11 @@ msgstr "内置类别"
 msgid "No taxonomies to display at this time"
 msgstr ""
 
-#: ../inc/import_export.php:251
+#: ../inc/import_export.php:252
 msgid "No post types to display at this time"
 msgstr ""
 
-#: ../inc/import_export.php:378
+#: ../inc/import_export.php:379
 #, fuzzy
 msgid "Post types"
 msgstr "文章类型名称"
@@ -487,7 +487,7 @@ msgstr ""
 #: ../inc/post-types.php:160
 #, fuzzy
 msgid "Edit Post Type"
-msgstr "附属到文章类型"
+msgstr "编辑"
 
 #: ../inc/post-types.php:161
 #, fuzzy

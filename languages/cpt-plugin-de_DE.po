@@ -1,16 +1,16 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Custom Post Type UI 1.0.5\n"
-"POT-Creation-Date: 2015-03-17 15:57+0100\n"
-"PO-Revision-Date: 2015-03-18 13:59+0100\n"
-"Last-Translator: Ralf Koller <r.koller@gmail.com>\n"
+"POT-Creation-Date: 2015-03-20 00:30-0600\n"
+"PO-Revision-Date: 2015-03-20 00:30-0600\n"
+"Last-Translator: Michael Beckwith <michael.d.beckwith@gmail.com>\n"
 "Language-Team: Pascal Kläres & Ralf Koller <pascal.klaeres@gmail.com & r."
 "koller@gmail.com>\n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.7.4\n"
+"X-Generator: Poedit 1.7.5\n"
 "X-Poedit-KeywordsList: __;_e;esc_attr__;esc_attr_e;esc_attr_x;_n;_x;_ex;_nx;"
 "esc_html__;esc_html_e;esc_html_x\n"
 "X-Poedit-Basepath: .\n"
@@ -153,7 +153,7 @@ msgstr "Taxonomien bearbeiten"
 msgid "Post Types"
 msgstr "Post Types"
 
-#: ../custom-post-type-ui.php:525 ../inc/import_export.php:391
+#: ../custom-post-type-ui.php:525 ../inc/import_export.php:392
 msgid "Taxonomies"
 msgstr "Taxonomien"
 
@@ -419,11 +419,11 @@ msgstr "Alle CPT UI-Taxonomien"
 msgid "No taxonomies to display at this time"
 msgstr "Es gibt keine Taxonomien zum Anzeigen."
 
-#: ../inc/import_export.php:251
+#: ../inc/import_export.php:252
 msgid "No post types to display at this time"
 msgstr "Es gibt keine Post Types zum Anzeigen."
 
-#: ../inc/import_export.php:378
+#: ../inc/import_export.php:379
 msgid "Post types"
 msgstr "Post Types"
 
