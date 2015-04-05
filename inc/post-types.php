@@ -1102,7 +1102,8 @@ function cptui_update_post_type( $data = array() ) {
 		'menu_icon'             => $data['cpt_custom_post_type']['menu_icon'],
 		'supports'              => $data['cpt_supports'],
 		'taxonomies'            => $data['cpt_addon_taxes'],
-		'labels'                => $data['cpt_labels']
+		'labels'                => $data['cpt_labels'],
+		'custom_supports'       => $data['cpt_custom_post_type']['custom_supports']
 	);
 
 	$success = update_option( 'cptui_post_types', $post_types );
