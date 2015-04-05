@@ -804,7 +804,18 @@ function cptui_manage_post_types() {
 								'default'       => false,
 								'wrap'          => false
 							) );
+							echo $ui->get_td_end() . $ui->get_tr_end();
 
+							echo $ui->get_tr_start() . $ui->get_th_start() . __( 'Custom "Supports"', 'cpt-plugin' );
+							echo $ui->get_p( __( 'Use the input below to register custom "supports" values, separated by commas.', 'cpt-plugin' ) );
+							echo $ui->get_th_end() . $ui->get_td_start();
+							echo $ui->get_text_input( array(
+								'namearray'     => 'cpt_custom_post_type',
+								'name'          => 'custom_supports',
+								'textvalue'     => ( isset( $current['custom_supports'] ) ) ? esc_attr( $current['custom_supports'] ) : '',
+								'helptext'      => esc_attr__( 'Provide custom support slugs here.', 'cpt-plugin' ),
+								'wrap'          => false
+							) );
 							echo $ui->get_td_end() . $ui->get_tr_end();
 
 							echo $ui->get_tr_start() . $ui->get_th_start() . __( 'Built-in Taxonomies', 'cpt-plugin' ) . $ui->get_th_end() . $ui->get_td_start();
