@@ -133,7 +133,10 @@ function cptui_register_single_post_type( $post_type = array() ) {
 	}
 
 	if ( ! empty( $post_type['custom_supports'] ) ) {
-		$post_type['supports'][] = $post_type['custom_supports'];
+		$custom = explode( ',', $post_type['custom_supports'] );
+		foreach( $custom as $part ) {
+			$post_type['supports'][] = $part;
+		}
 	}
 
 	if ( in_array( 'none', $post_type['supports'] ) ) {
