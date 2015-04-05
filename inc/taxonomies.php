@@ -12,6 +12,13 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * @since 1.0.0
  */
 function cptui_taxonomies_enqueue_scripts() {
+
+	$currentScreen = get_current_screen();
+
+	if ( ! is_object( $currentScreen ) || $currentScreen->base == "post" ) {
+		return;
+	}
+
 	wp_enqueue_script( 'cptui', plugins_url( 'js/cptui.js' , dirname(__FILE__) ) . '', array( 'jquery', 'jquery-ui-core', 'jquery-ui-accordion' ), CPT_VERSION, true );
 	wp_localize_script(	'cptui', 'confirmdata', array( 'confirm' => __( 'Are you sure you want to delete this?', 'cpt-plugin' ) ) );
 }
@@ -468,6 +475,7 @@ function cptui_manage_taxonomies() {
 							echo '<li>' . sprintf( __( 'Deleting custom taxonomies do %sNOT%s delete terms added to those taxonomies. You can recreate your taxonomies and the terms will return. Changing the name, after adding terms to the taxonomy, will not update the terms in the database.', 'cpt-plugin' ), '<strong class="wp-ui-highlight">', '</strong>' ); ?>
 						</ol></div>
 						<?php } ?>
+				</div>
 				</td>
 			</tr>
 		</table><!-- End outter table -->

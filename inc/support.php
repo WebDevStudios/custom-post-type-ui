@@ -10,6 +10,13 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * @since 1.0.0
  */
 function cptui_support_enqueue_scripts() {
+
+	$currentScreen = get_current_screen();
+
+	if ( ! is_object( $currentScreen ) || $currentScreen->base == "post" ) {
+		return;
+	}
+
 	wp_enqueue_script( 'cptui', plugins_url( 'js/cptui.js' , dirname(__FILE__) ) . '', array( 'jquery' ), '0.9', true );
 }
 add_action( 'admin_enqueue_scripts', 'cptui_support_enqueue_scripts' );
