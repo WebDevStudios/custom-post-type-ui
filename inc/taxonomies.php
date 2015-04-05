@@ -91,7 +91,17 @@ function cptui_manage_taxonomies() {
 			<input type="submit" class="button-secondary" name="cptui_select_taxonomy_submit" value="<?php echo esc_attr( apply_filters( 'cptui_taxonomy_submit_select', __( 'Select', 'cpt-plugin' ) ) ); ?>" />
 		</form>
 	<?php
-	} ?>
+	}
+
+	/**
+	 * Fires below the taxonomy select input.
+	 *
+	 * @since 1.1.0
+	 *
+	 * @param string $value Current taxonomy selected.
+	 */
+	do_action( 'cptui_below_taxonomy_select', $current['name'] );
+	?>
 
 	<form method="post">
 		<table class="form-table cptui-table">
