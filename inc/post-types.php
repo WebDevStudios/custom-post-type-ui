@@ -89,17 +89,16 @@ function cptui_manage_post_types() {
 			<input type="submit" class="button-secondary" name="cptui_select_post_type_submit" value="<?php echo esc_attr( apply_filters( 'cptui_post_type_submit_select', __( 'Select', 'cpt-plugin' ) ) ); ?>" />
 		</form>
 	<?php
-	}
 
-	/**
-	 * Fires below the post type select input.
-	 *
-	 * @since 1.1.0
-	 *
-	 * @param string $value Current post type selected.
-	 */
-	do_action( 'cptui_below_post_type_select', $current['name'] );
-	?>
+        /**
+         * Fires below the post type select input.
+         *
+         * @since 1.1.0
+         *
+         * @param string $value Current post type selected.
+         */
+        do_action( 'cptui_below_post_type_select', $current['name'] );
+	} ?>
 
 	<form method="post">
 		<table class="form-table cptui-table">
