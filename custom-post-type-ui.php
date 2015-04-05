@@ -132,6 +132,10 @@ function cptui_register_single_post_type( $post_type = array() ) {
 		$post_type['supports'] = array_merge( $post_type['supports'], $user_supports_params );
 	}
 
+	if ( ! empty( $post_type['custom_supports'] ) ) {
+		$post_type['supports'][] = $post_type['custom_supports'];
+	}
+
 	if ( in_array( 'none', $post_type['supports'] ) ) {
 		$post_type['supports'] = false;
 	}
