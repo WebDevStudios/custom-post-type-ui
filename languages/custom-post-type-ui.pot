@@ -1,46 +1,26 @@
 msgid ""
 msgstr ""
-<<<<<<< HEAD
 "Project-Id-Version: Custom Post Type UI 1.1.0\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
-=======
-"Project-Id-Version: Custom Post Type UI 0.9\n"
-<<<<<<< HEAD
-<<<<<<< HEAD
 "POT-Creation-Date: 2015-02-24 10:40-0600\n"
 "PO-Revision-Date: 2015-02-24 10:40-0600\n"
-=======
-<<<<<<< HEAD
-"POT-Creation-Date: 2015-01-27 21:37-0600\n"
-"PO-Revision-Date: 2015-01-27 21:38-0600\n"
-=======
 "POT-Creation-Date: 2015-01-29 13:04-0600\n"
 "PO-Revision-Date: 2015-01-29 13:04-0600\n"
->>>>>>> master
->>>>>>> cffedc9769cad44f9190026afca909aee4719d9f
-=======
-"POT-Creation-Date: 2015-03-20 00:28-0600\n"
-"PO-Revision-Date: 2015-03-20 00:28-0600\n"
->>>>>>> 1.0.5
->>>>>>> 1.1
 "Last-Translator: Michael Beckwith <michael.d.beckwith@gmail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=iso-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
-<<<<<<< HEAD
 "Language: en\n"
 "X-Generator: Poedit 1.7.4\n"
-=======
-"X-Generator: Poedit 1.7.5\n"
 "X-Poedit-KeywordsList: __;_e;esc_attr__;esc_attr_e;esc_attr_x;_n;_x;_ex;_nx;"
 "esc_html__;esc_html_e;esc_html_x\n"
 "X-Poedit-Basepath: .\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SearchPath-0: ..\n"
->>>>>>> 1.1
+
 
 #: ../custom-post-type-ui.php:58
 msgid "Custom Post Types"
@@ -54,16 +34,11 @@ msgstr ""
 msgid "Custom Post Type UI"
 msgstr ""
 
-<<<<<<< HEAD
-#: ../custom-post-type-ui.php:319
-msgid "Thank you for choosing Custom Post Type UI. We hope that your experience with our plugin provides efficiency and speed in creating post types and taxonomies, to better organize your content, without having to touch code."
-=======
 #: ../custom-post-type-ui.php:323
 msgid ""
 "Thank you for choosing Custom Post Type UI. We hope that your experience "
 "with our plugin provides efficiency and speed in creating post types and "
 "taxonomies, to better organize your content, without having to touch code."
->>>>>>> 1.1
 msgstr ""
 
 #: ../custom-post-type-ui.php:325
