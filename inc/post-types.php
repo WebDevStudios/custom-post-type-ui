@@ -12,6 +12,13 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * @since 1.0.0
  */
 function cptui_post_type_enqueue_scripts() {
+
+	$currentScreen = get_current_screen();
+
+	if ( ! is_object( $currentScreen ) || $currentScreen->base == "post" ) {
+		return;
+	}
+
 	wp_enqueue_script( 'cptui', plugins_url( 'js/cptui.js', dirname(__FILE__) ), array( 'jquery', 'jquery-ui-core', 'jquery-ui-accordion' ), CPT_VERSION, true );
 	wp_localize_script(	'cptui', 'confirmdata', array( 'confirm' => __( 'Are you sure you want to delete this?', 'cpt-plugin' ) ) );
 }
@@ -163,7 +170,7 @@ function cptui_manage_post_types() {
 				<p class="submit">
 					<?php wp_nonce_field( 'cptui_addedit_post_type_nonce_action', 'cptui_addedit_post_type_nonce_field' );
 					if ( !empty( $_GET ) && !empty( $_GET['action'] ) && 'edit' == $_GET['action'] ) { ?>
-						<input type="submit" class="button-primary" name="cpt_submit" value="<?php echo esc_attr( apply_filters( 'cptui_post_type_submit_edit', __( 'Edit Post Type', 'cpt-plugin' ) ) ); ?>" />
+						<input type="submit" class="button-primary" name="cpt_submit" value="<?php echo esc_attr( apply_filters( 'cptui_post_type_submit_edit', __( 'Save Post Type', 'cpt-plugin' ) ) ); ?>" />
 						<input type="submit" class="button-secondary" name="cpt_delete" id="cpt_submit_delete" value="<?php echo esc_attr( apply_filters( 'cptui_post_type_submit_delete', __( 'Delete Post Type', 'cpt-plugin' ) ) ); ?>" />
 					<?php } else { ?>
 						<input type="submit" class="button-primary" name="cpt_submit" value="<?php echo esc_attr( apply_filters( 'cptui_post_type_submit_add', __( 'Add Post Type', 'cpt-plugin' ) ) ); ?>" />
@@ -802,21 +809,12 @@ function cptui_manage_post_types() {
 							 */
 							$args = apply_filters( 'cptui_attach_taxonomies_to_post_type', array( 'public' => true ) );
 
-							/**
-							 * Filters the arguments for output type for returned results.
-							 *
-							 * @since 1.0.0
-							 *
-							 * @param string $value Default output type.
-							 */
-							$output = apply_filters( 'cptui_attach_taxonomies_to_post_type_output', 'objects' );
-
 							# If they don't return an array, fall back to the original default. Don't need to check for empty, because empty array is default for $args param in get_post_types anyway.
 							if ( !is_array( $args ) ) {
 								$args = array( 'public' => true );
 							}
 
-							$add_taxes = get_taxonomies( $args, $output );
+							$add_taxes = get_taxonomies( $args, 'objects' );
 							unset( $add_taxes['nav_menu'] ); unset( $add_taxes['post_format'] );
 							foreach ( $add_taxes as $add_tax ) {
 								/*
@@ -846,6 +844,7 @@ function cptui_manage_post_types() {
 								echo '<li>' . sprintf( __( 'Deleting custom post types will %sNOT%s delete any content into the database or added to those post types. You can easily recreate your post types and the content will still exist.', 'cpt-plugin' ), '<strong class="wp-ui-highlight">', '</strong>' ); ?>
 							</ol></div>
 						<?php } ?>
+				</div>
 				</td>
 			</tr>
 		</table>
@@ -1139,6 +1138,8 @@ function cptui_reserved_post_types() {
 
 /**
  * Converts post type between original and newly renamed.
+ *
+ * @since 1.1.0
  *
  * @param string $original_slug Original post type slug.
  * @param string $new_slug      New post type slug.
