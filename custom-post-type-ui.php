@@ -6,6 +6,8 @@ Description: Admin panel for creating custom post types and custom taxonomies in
 Author: WebDevStudios
 Version: 1.1.0
 Author URI: http://webdevstudios.com/
+GitHub Plugin URI: https://github.com/WebDevStudios/custom-post-type-ui
+GitHub Branch: 1.1
 Text Domain: cpt-plugin
 Domain Path: /languages
 License: GPLv2
