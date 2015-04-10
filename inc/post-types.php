@@ -549,8 +549,6 @@ function cptui_manage_post_types() {
 								'namearray'     => 'cpt_custom_post_type',
 								'name'          => 'menu_position',
 								'textvalue'     => ( isset( $current['menu_position'] ) ) ? esc_attr( $current['menu_position'] ) : '',
-								'helptext'      => esc_attr__( 'URL or Dashicon value for image to be used as menu icon.', 'cpt-plugin' ),
-								'helptext_after'=> true,
 								'wrap'          => false
 							) );
 							echo $ui->get_td_end() . $ui->get_tr_end();
