@@ -92,7 +92,7 @@ function cptui_create_custom_post_types() {
 	}
 	return;
 }
-add_action( 'init', 'cptui_create_custom_post_types', 11 ); //Priority 11 so that the taxonomies are registered first.
+add_action( 'init', 'cptui_create_custom_post_types', 10 );
 
 /**
  * Helper function to register the actual post_type.
