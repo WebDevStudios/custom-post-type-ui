@@ -20,6 +20,8 @@ function cptui_listings() {
 
 			echo '<h2>' . __( 'Post Types', 'cptui_listings' ) . '</h2>';
 			?>
+			<p><?php printf( __( 'Total count: %d', 'cpt-plugin' ), count( $post_types ) ); ?></p>
+
 			<table class="wp-list-table widefat">
 				<tr>
 					<th><?php _e( 'Post Type', 'cpt-plugin' ); ?></th>
