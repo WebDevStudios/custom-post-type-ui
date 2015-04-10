@@ -6,7 +6,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 function admin_menus() {
 	add_submenu_page( 'cptui_main_menu', __( 'Registered Types and Taxes', 'cpt-plugin' ), __( 'Registered Types/Taxes', 'cpt-plugin' ), 'manage_options', 'cptui_listings', 'cptui_listings' );
 }
-add_action( 'admin_menu', 'admin_menus', 11 );
+add_action( 'admin_menu', 'admin_menus' );
 
 function cptui_listings() {
 		?>
