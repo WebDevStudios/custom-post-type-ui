@@ -11,6 +11,8 @@ add_action( 'admin_menu', 'admin_menus' );
 function cptui_listings() {
 		?>
 		<div class="wrap">
+
+			<h1><?php _e( 'Custom Post Type UI Registered Types and Taxonomies.', 'cpt-plugin' ); ?></h1>
 			<?php
 			$post_types = get_option( 'cptui_post_types' );
 
