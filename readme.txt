@@ -37,6 +37,10 @@ Implied credit to:
 
 == Changelog ==
 
+= 1.0.6 =
+* Change priority of post type registration function that was causing rewrite issues for many.
+* Fix issues with help text spots not showing up for some post type fields. Props pedro-mendonca.
+
 = 1.0.5 =
 * Explicitly set the post type and taxonomy rewrite slugs as the registered slug if no custom ones provided.
 * Prevent cptui.js from loading where it is not needed.
@@ -225,6 +229,10 @@ Implied credit to:
 * First beta release
 
 == Upgrade Notice ==
+
+= 1.0.6 =
+* Change priority of post type registration function that was causing rewrite issues for many.
+* Fix issues with help text spots not showing up for some post type fields. Props pedro-mendonca.
 
 = 1.0.5 =
 * Explicitly set the post type and taxonomy rewrite slugs as the registered slug if no custom ones provided.
