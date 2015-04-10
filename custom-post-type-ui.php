@@ -366,18 +366,23 @@ function cptui_footer( $original = '' ) {
 	}
 
 	return sprintf(
-		__( '%s version %s by %s - %s %s %s &middot; %s &middot; %s', 'cpt-plugin' ),
+		__( '%s version %s by %s', 'cpt-plugin' ),
 		sprintf(
 			'<a target="_blank" href="http://wordpress.org/support/plugin/custom-post-type-ui">%s</a>',
 			__( 'Custom Post Type UI', 'cpt-plugin' )
 		),
 		CPT_VERSION,
-		'<a href="http://webdevstudios.com" target="_blank">WebDevStudios</a>',
-		sprintf(
-			'<a href="https://github.com/WebDevStudios/custom-post-type-ui/issues" target="_blank">%s</a>',
-			__( 'Please Report Bugs', 'cpt-plugin' )
-		),
-		__( 'Follow on Twitter:', 'cpt-plugin' ),
+		'<a href="http://webdevstudios.com" target="_blank">WebDevStudios</a>'
+	).
+	' - '.
+	sprintf(
+		'<a href="https://github.com/WebDevStudios/custom-post-type-ui/issues" target="_blank">%s</a>',
+		__( 'Please Report Bugs', 'cpt-plugin' )
+	).
+	' '.
+	__( 'Follow on Twitter:', 'cpt-plugin' ).
+	sprintf(
+		' %s &middot; %s &middot; %s',
 		'<a href="http://twitter.com/tw2113" target="_blank">Michael</a>',
 		'<a href="http://twitter.com/williamsba" target="_blank">Brad</a>',
 		'<a href="http://twitter.com/webdevstudios" target="_blank">WebDevStudios</a>'

@@ -163,6 +163,9 @@ function cptui_manage_post_types() {
 							'helptext' => esc_attr__( 'Custom Post Type Description. Describe what your custom post type is used for.', 'cpt-plugin' )
 							) );
 
+						/*
+						 * Migrate posts
+						 */
 						if ( 'edit' == $tab ) {
 							echo $ui->get_check_input( array(
 								'checkvalue' => 'update_post_types',
