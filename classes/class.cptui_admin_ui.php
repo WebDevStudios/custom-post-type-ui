@@ -240,7 +240,9 @@ class cptui_admin_ui {
 			$value .= $this->get_th_start();
 			$value .= $this->get_label( $args['name'], $args['labeltext'] );
 			if ( $args['required'] ) { $value .= $this->get_required(); }
-			$value .= $this->get_help( $args['helptext'] );
+			if ( !$args['helptext_after'] ) {
+				$value .= $this->get_help( $args['helptext'] );
+			}
 			$value .= $this->get_th_end();
 			$value .= $this->get_td_start();
 		}
@@ -255,7 +257,12 @@ class cptui_admin_ui {
 			$value .= ' ' . $this->get_onblur( $args['onblur'] );
 		}
 
-		$value .= ' /><br/>';
+		$value .= ' />';
+
+		if ( $args['helptext_after'] ) {
+			$value .= $this->get_help( $args['helptext'] );
+		}
+		$value .= '<br/>';
 
 		if ( !empty( $args['aftertext'] ) )
 			$value .= $args['aftertext'];
@@ -377,6 +384,7 @@ class cptui_admin_ui {
 				'labeltext'     => '',
 				'aftertext'     => '',
 				'helptext'      => '',
+				'helptext_after'=> false,
 				'required'      => false,
 				'wrap'          => true
 			),
