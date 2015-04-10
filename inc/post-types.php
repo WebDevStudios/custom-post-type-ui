@@ -378,7 +378,7 @@ function cptui_manage_post_types() {
 								'name'          => 'public',
 								'labeltext'     => __( 'Public', 'cpt-plugin' ),
 								'aftertext'     => __( '(default: True)', 'cpt-plugin' ),
-								'helptext'      => esc_attr__( 'Whether posts of this type should be shown in the admin UI', 'cpt-plugin' ),
+								'helptext'      => esc_attr__( 'Whether posts of this type should be shown in the admin UI.', 'cpt-plugin' ),
 								'selections'    => $select
 							) );
 
@@ -398,14 +398,16 @@ function cptui_manage_post_types() {
 								'name'          => 'show_ui',
 								'labeltext'     => __( 'Show UI', 'cpt-plugin' ),
 								'aftertext'     => __( '(default: True)', 'cpt-plugin' ),
-								'helptext'      => esc_attr__( 'Whether to generate a default UI for managing this post type', 'cpt-plugin' ),
+								'helptext'      => esc_attr__( 'Whether to generate a default UI for managing this post type.', 'cpt-plugin' ),
 								'selections'    => $select
 							) );
 
 							/*
 							 * Has Archive Boolean
 							 */
-							echo $ui->get_tr_start() . $ui->get_th_start() . __( 'Has Archive', 'cpt-plugin' );
+							echo $ui->get_tr_start() . $ui->get_th_start();
+							echo $ui->get_label( 'has_archive', __( 'Has Archive', 'cpt-plugin' ) );
+							echo $ui->get_help( esc_attr__( 'Whether the post type will have a post type archive page.', 'cpt-plugin' ) );
 							echo $ui->get_p( __( 'If left blank, the archive slug will default to the post type slug.', 'cpt-plugin' ) );
 							echo $ui->get_th_end() . $ui->get_td_start();
 
@@ -420,9 +422,7 @@ function cptui_manage_post_types() {
 							echo $ui->get_select_input( array(
 								'namearray'     => 'cpt_custom_post_type',
 								'name'          => 'has_archive',
-								'labeltext'     => __( 'Has Archive', 'cpt-plugin' ),
 								'aftertext'     => __( '(default: False)', 'cpt-plugin' ),
-								'helptext'      => esc_attr__( 'Whether the post type will have a post type archive page', 'cpt-plugin' ),
 								'selections'    => $select,
 								'wrap'          => false
 							) );
@@ -435,6 +435,7 @@ function cptui_manage_post_types() {
 								'name'          => 'has_archive_string',
 								'textvalue'     => ( isset( $current['has_archive_string'] ) ) ? esc_attr( $current['has_archive_string'] ) : '',
 								'helptext'      => esc_attr__( 'Slug to be used for archive page.', 'cpt-plugin' ),
+								'helptext_after'=> true,
 								'wrap'          => false
 							) );
 							echo $ui->get_td_end() . $ui->get_tr_end();
@@ -562,8 +563,11 @@ function cptui_manage_post_types() {
 								'selections'    => $select
 							) );
 
-							echo $ui->get_tr_start() . $ui->get_th_start() . __( 'Menu Position', 'cpt-plugin' );
-
+							/*
+							 * Menu Position Boolean
+							 */
+							echo $ui->get_tr_start() . $ui->get_th_start();
+							echo $ui->get_label( 'menu_position', __( 'Menu Position', 'cpt-plugin' ) );
 							echo $ui->get_help( esc_attr__( 'The position in the menu order the post type should appear. show_in_menu must be true.', 'cpt-plugin' ) );
 							echo $ui->get_p( __( 'See <a href="http://codex.wordpress.org/Function_Reference/register_post_type#Parameters">Available options</a> in the "menu_position" section. Range of 5-100', 'cpt-plugin' ) );
 
@@ -573,6 +577,7 @@ function cptui_manage_post_types() {
 								'name'          => 'menu_position',
 								'textvalue'     => ( isset( $current['menu_position'] ) ) ? esc_attr( $current['menu_position'] ) : '',
 								'helptext'      => esc_attr__( 'URL or Dashicon value for image to be used as menu icon.', 'cpt-plugin' ),
+								'helptext_after'=> true,
 								'wrap'          => false
 							) );
 							echo $ui->get_td_end() . $ui->get_tr_end();
@@ -580,7 +585,9 @@ function cptui_manage_post_types() {
 							/*
 							 * Show In Menu Boolean
 							 */
-							echo $ui->get_tr_start() . $ui->get_th_start() . __( 'Show in Menu', 'cpt-plugin' );
+							echo $ui->get_tr_start() . $ui->get_th_start();
+							echo $ui->get_label( 'show_in_menu', __( 'Show in Menu', 'cpt-plugin' ) );
+							echo $ui->get_help( esc_attr__( 'Whether to show the post type in the admin menu and where to show that menu. Note that show_ui must be true.', 'cpt-plugin' ) );
 							echo $ui->get_p( __( '"Show UI" must be "true". If an existing top level page such as "tools.php" is indicated for second input, post type will be sub menu of that.', 'cpt-plugin' ) );
 							echo $ui->get_th_end() . $ui->get_td_start();
 
@@ -595,9 +602,7 @@ function cptui_manage_post_types() {
 							echo $ui->get_select_input( array(
 								'namearray'     => 'cpt_custom_post_type',
 								'name'          => 'show_in_menu',
-								'labeltext'     => __( 'Show In Menu', 'cpt-plugin' ),
 								'aftertext'     => __( '(default: True)', 'cpt-plugin' ),
-								'helptext'      => esc_attr__( 'Whether to show the post type in the admin menu and where to show that menu. Note that show_ui must be true', 'cpt-plugin' ),
 								'selections'    => $select,
 								'wrap'          => false
 							) );
@@ -610,6 +615,7 @@ function cptui_manage_post_types() {
 								'name'          => 'show_in_menu_string',
 								'textvalue'     => ( isset( $current['show_in_menu_string'] ) ) ? esc_attr( $current['show_in_menu_string'] ) : '',
 								'helptext'      => esc_attr__( 'URL to image to be used as menu icon.', 'cpt-plugin' ),
+								'helptext_after'=> true,
 								'wrap'          => false
 							) );
 							echo $ui->get_td_end() . $ui->get_tr_end();
