@@ -198,7 +198,7 @@ function cptui_manage_post_types() {
 			<td>
 				<p> <?php _e( 'Click headings to reveal available options.', 'cpt-plugin' ); ?></p>
 
-				<div id="cptui_accordion">
+				<div>
 					<h3 title="<?php esc_attr_e( 'Click to expand', 'cpt-plugin' ); ?>"><?php _e( 'Labels', 'cpt-plugin' ); ?></h3>
 						<div>
 							<table>
