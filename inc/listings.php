@@ -132,6 +132,8 @@ function cptui_listings() {
 
 			echo '<h2>' . __( 'Taxonomies', 'cptui_listings' ) . '</h2>';
 			?>
+			<p><?php printf( __( 'Total count: %d', 'cpt-plugin' ), count( $taxonomies ) ); ?></p>
+
 			<table class="wp-list-table widefat">
 				<tr>
 					<th><?php _e( 'Taxonomy', 'cpt-plugin' ); ?></th>
