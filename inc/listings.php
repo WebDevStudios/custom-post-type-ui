@@ -22,6 +22,15 @@ function cptui_listings() {
 			?>
 			<p><?php printf( __( 'Total count: %d', 'cpt-plugin' ), count( $post_types ) ); ?></p>
 
+			<?php
+
+			/**
+			 * Fires before the listing of registered post type data.
+			 *
+			 * @since 1.1.0
+			 */
+			do_action( 'cptui_before_post_type_listing' );
+			?>
 			<table class="wp-list-table widefat">
 				<tr>
 					<th><?php _e( 'Post Type', 'cpt-plugin' ); ?></th>
