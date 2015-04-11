@@ -179,7 +179,9 @@ function cptui_listings() {
 					}
 					?>
 						<tr class="<?php echo $rowclass; ?>">
-							<td><a href="<?php echo admin_url( 'admin.php?page=cptui_manage_taxonomies&action=edit&cptui_taxonomy=' . $taxonomy ); ?>"><?php echo $taxonomy; ?></a></td>
+							<td><a href="<?php echo admin_url( 'admin.php?page=cptui_manage_taxonomies&action=edit&cptui_taxonomy=' . $taxonomy ); ?>"><?php echo $taxonomy; ?></a><br/><hr/>
+								<a href="<?php echo admin_url( 'admin.php?page=cptui_manage_taxonomies&action=edit&cptui_taxonomy=' . $taxonomy ); ?>"><?php _e( 'Edit', 'cpt-plugin' ); ?></a>
+							</td>
 							<td>
 								<?php foreach ( $strings as $key => $value ) {
 									printf( '<strong>%s:</strong> ', $key );
