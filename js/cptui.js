@@ -1,4 +1,13 @@
 (function($) {
+
+	$( '#post_type' ).on( 'change', function(){
+		$('#cptui_select_post_type').submit();
+	});
+
+	$( '#taxonomy' ).on( 'change', function(){
+		$( '#cptui_select_taxonomy' ).submit();
+	});
+
 	//confirm our deletions
 	$( '#cpt_submit_delete' ).on( 'click', function() {
 		if( confirm( confirmdata.confirm ) ) {
