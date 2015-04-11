@@ -134,6 +134,15 @@ function cptui_listings() {
 			?>
 			<p><?php printf( __( 'Total count: %d', 'cpt-plugin' ), count( $taxonomies ) ); ?></p>
 
+			<?php
+
+			/**
+			 * Fires before the listing of registered taxonomy data.
+			 *
+			 * @since 1.1.0
+			 */
+			do_action( 'cptui_before_taxonomy_listing' );
+			?>
 			<table class="wp-list-table widefat">
 				<tr>
 					<th><?php _e( 'Taxonomy', 'cpt-plugin' ); ?></th>
