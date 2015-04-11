@@ -72,7 +72,10 @@ function cptui_listings() {
 					}
 					?>
 						<tr class="<?php echo $rowclass; ?>">
-							<td><a href="<?php echo admin_url( 'admin.php?page=cptui_manage_post_types&action=edit&cptui_post_type=' . $post_type ); ?>"><?php echo $post_type; ?></a></td>
+							<td><a href="<?php echo admin_url( 'admin.php?page=cptui_manage_post_types&action=edit&cptui_post_type=' . $post_type ); ?>"><?php echo $post_type; ?></a><br/><hr/>
+								<a href="<?php echo admin_url( 'admin.php?page=cptui_manage_post_types&action=edit&cptui_post_type=' . $post_type ); ?>"><?php _e( 'Edit', 'cpt-plugin' ); ?></a> |
+								<a href="<?php echo get_post_type_archive_link( $post_type ); ?>"><?php _e( 'View on front', 'cpt-plugin' ); ?></a>
+							</td>
 							<td>
 								<?php foreach ( $strings as $key => $value ) {
 									printf( '<strong>%s:</strong> ', $key );
