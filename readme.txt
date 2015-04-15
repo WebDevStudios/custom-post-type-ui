@@ -40,6 +40,7 @@ Implied credit to:
 = 1.0.6 =
 * Change priority of post type registration function that was causing rewrite issues for many.
 * Fix issues with help text spots not showing up for some post type fields. Props pedro-mendonca.
+* Fix logic issue with PHP's empty() function and CPTUI 0.9.x saved settings.
 
 = 1.0.5 =
 * Explicitly set the post type and taxonomy rewrite slugs as the registered slug if no custom ones provided.
@@ -233,6 +234,7 @@ Implied credit to:
 = 1.0.6 =
 * Change priority of post type registration function that was causing rewrite issues for many.
 * Fix issues with help text spots not showing up for some post type fields. Props pedro-mendonca.
+* Fix logic issue with PHP's empty() function and CPTUI 0.9.x saved settings.
 
 = 1.0.5 =
 * Explicitly set the post type and taxonomy rewrite slugs as the registered slug if no custom ones provided.
