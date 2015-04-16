@@ -41,6 +41,7 @@ Implied credit to:
 * Simplified UI with regards to clicking amount.
 * Auto selecting post type or taxonomy in Edit tab.
 * Switch to post type or taxonomy upon selection in Edit tab.
+* Return of a list of CPTUI-registered post types and taxonomies.
 * Post type slug update capability.
 * Added function reference 3rd party link to support area.
 * New hooks in edit screen for custom content display on screen.
@@ -245,6 +246,7 @@ Implied credit to:
 * Simplified UI with regards to clicking amount.
 * Auto selecting post type or taxonomy in Edit tab.
 * Switch to post type or taxonomy upon selection in Edit tab.
+* Return of a list of CPTUI-registered post types and taxonomies.
 * Post type slug update capability.
 * Added function reference 3rd party link to support area.
 * New hooks in edit screen for custom content display on screen.
