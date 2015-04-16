@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Custom Post Type UI 1.0.5\n"
-"POT-Creation-Date: 2015-03-20 00:30-0600\n"
-"PO-Revision-Date: 2015-03-20 00:30-0600\n"
+"Project-Id-Version: Custom Post Type UI 1.0.6\n"
+"POT-Creation-Date: 2015-04-10 11:48-0600\n"
+"PO-Revision-Date: 2015-04-10 11:48-0600\n"
 "Last-Translator: Michael Beckwith <michael.d.beckwith@gmail.com>\n"
 "Language-Team: Pascal Kläres & Ralf Koller <pascal.klaeres@gmail.com & r."
 "koller@gmail.com>\n"
@@ -527,7 +527,7 @@ msgstr ""
 "anzuzeigen."
 
 #: ../inc/post-types.php:172 ../inc/post-types.php:334
-#: ../inc/post-types.php:821 ../inc/taxonomies.php:184
+#: ../inc/post-types.php:827 ../inc/taxonomies.php:184
 #: ../inc/taxonomies.php:326 ../inc/taxonomies.php:470
 msgid "Click to expand"
 msgstr "Zum Aufklappen anklicken"
@@ -645,10 +645,10 @@ msgid "(e.g. Parent Movie)"
 msgstr "(z. B. Parent Film)"
 
 #: ../inc/post-types.php:343 ../inc/post-types.php:363
-#: ../inc/post-types.php:387 ../inc/post-types.php:420
-#: ../inc/post-types.php:451 ../inc/post-types.php:471
-#: ../inc/post-types.php:503 ../inc/post-types.php:523
-#: ../inc/post-types.php:562 ../inc/taxonomies.php:332
+#: ../inc/post-types.php:389 ../inc/post-types.php:421
+#: ../inc/post-types.php:452 ../inc/post-types.php:472
+#: ../inc/post-types.php:504 ../inc/post-types.php:524
+#: ../inc/post-types.php:569 ../inc/taxonomies.php:332
 #: ../inc/taxonomies.php:349 ../inc/taxonomies.php:366
 #: ../inc/taxonomies.php:391 ../inc/taxonomies.php:417
 #: ../inc/taxonomies.php:434 ../inc/taxonomies.php:451
@@ -660,10 +660,10 @@ msgid "False"
 msgstr "deaktiviert"
 
 #: ../inc/post-types.php:344 ../inc/post-types.php:364
-#: ../inc/post-types.php:388 ../inc/post-types.php:421
-#: ../inc/post-types.php:452 ../inc/post-types.php:472
-#: ../inc/post-types.php:504 ../inc/post-types.php:524
-#: ../inc/post-types.php:563 ../inc/taxonomies.php:333
+#: ../inc/post-types.php:390 ../inc/post-types.php:422
+#: ../inc/post-types.php:453 ../inc/post-types.php:473
+#: ../inc/post-types.php:505 ../inc/post-types.php:525
+#: ../inc/post-types.php:570 ../inc/taxonomies.php:333
 #: ../inc/taxonomies.php:350 ../inc/taxonomies.php:367
 #: ../inc/taxonomies.php:392 ../inc/taxonomies.php:418
 #: ../inc/taxonomies.php:435 ../inc/taxonomies.php:452
@@ -682,8 +682,8 @@ msgid "Public"
 msgstr "Öffentlich"
 
 #: ../inc/post-types.php:353 ../inc/post-types.php:373
-#: ../inc/post-types.php:481 ../inc/post-types.php:513
-#: ../inc/post-types.php:533 ../inc/post-types.php:572
+#: ../inc/post-types.php:482 ../inc/post-types.php:514
+#: ../inc/post-types.php:534 ../inc/post-types.php:578
 #: ../inc/taxonomies.php:359 ../inc/taxonomies.php:376
 #: ../inc/taxonomies.php:401 ../tests/CPTUI-Admin-UI-Inputs-Test.php:115
 #: ../tests/CPTUI-Admin-UI-Inputs-Test.php:157
@@ -692,113 +692,110 @@ msgstr "Öffentlich"
 msgid "(default: True)"
 msgstr "(Voreinstellung: aktiviert)"
 
-#: ../inc/post-types.php:354 ../tests/CPTUI-Admin-UI-Inputs-Test.php:116
-#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:158
-#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:201
-#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:243
-msgid "Whether posts of this type should be shown in the admin UI"
-msgstr "Sollen Beiträge dieses Post Types im Admin Interface angezeigt werden"
+#: ../inc/post-types.php:354
+msgid "Whether posts of this type should be shown in the admin UI."
+msgstr "Sollen Beiträge dieses Typs im Admin-Interface angezeigt werden."
 
 #: ../inc/post-types.php:372 ../inc/taxonomies.php:358
 msgid "Show UI"
 msgstr "Benutzeroberfläche anzeigen"
 
 #: ../inc/post-types.php:374
-msgid "Whether to generate a default UI for managing this post type"
+msgid "Whether to generate a default UI for managing this post type."
 msgstr ""
-"Soll eine Standard-Benutzeroberfläche für die Verwaltung des Post Types "
-"erstellt werden"
+"Soll für die Verwaltung dieses Post Types eine Standard-Benutzeroberfläche "
+"erstellt werden."
 
-#: ../inc/post-types.php:381 ../inc/post-types.php:396
+#: ../inc/post-types.php:382
 msgid "Has Archive"
 msgstr "Hat einen Archiv-Index"
 
-#: ../inc/post-types.php:382
+#: ../inc/post-types.php:383
+msgid "Whether the post type will have a post type archive page."
+msgstr "Soll der Post Type eine Archiv-Seite besitzen."
+
+#: ../inc/post-types.php:384
 msgid "If left blank, the archive slug will default to the post type slug."
 msgstr ""
 "Wird das Feld leer gelassen übernimmt der Archiv-Kurzlink den Inhalt des "
 "Post Type-Kurzlinks."
 
-#: ../inc/post-types.php:397 ../inc/post-types.php:430
-#: ../inc/post-types.php:461 ../inc/taxonomies.php:342
+#: ../inc/post-types.php:398 ../inc/post-types.php:431
+#: ../inc/post-types.php:462 ../inc/taxonomies.php:342
 #: ../inc/taxonomies.php:461
 msgid "(default: False)"
 msgstr "(Voreinstellung: deaktiviert)"
-
-#: ../inc/post-types.php:398
-msgid "Whether the post type will have a post type archive page"
-msgstr "Soll es für den Post Type einen Archiv-Index geben"
 
 #: ../inc/post-types.php:410
 msgid "Slug to be used for archive page."
 msgstr "Kurzlink der für die Archiv-Seite verwendet wird."
 
-#: ../inc/post-types.php:429
+#: ../inc/post-types.php:430
 msgid "Exclude From Search"
 msgstr "Von der Suche ausschließen"
 
-#: ../inc/post-types.php:431
+#: ../inc/post-types.php:432
 msgid "Whether the post type will be searchable"
 msgstr "Soll der Post Type durchsuchbar sein"
 
-#: ../inc/post-types.php:442
+#: ../inc/post-types.php:443
 msgid "Capability Type"
 msgstr "Capability-Typ"
 
-#: ../inc/post-types.php:443
+#: ../inc/post-types.php:444
 msgid "The post type to use for checking read, edit, and delete capabilities"
 msgstr ""
 "Der Post Type der herangezogen wird um die Befähigung  zum Lesen, Bearbeiten "
 "und Lösche zu überprüfen"
 
-#: ../inc/post-types.php:460 ../inc/taxonomies.php:341
+#: ../inc/post-types.php:461 ../inc/taxonomies.php:341
 msgid "Hierarchical"
 msgstr "Hierarchisch"
 
-#: ../inc/post-types.php:462
+#: ../inc/post-types.php:463
 msgid "Whether the post type can have parent-child relationships"
 msgstr "Darf der Post Type Parent-Child-Beziehungen haben"
 
-#: ../inc/post-types.php:480 ../inc/taxonomies.php:400
+#: ../inc/post-types.php:481 ../inc/taxonomies.php:400
 msgid "Rewrite"
 msgstr "Rewrite"
 
-#: ../inc/post-types.php:482
+#: ../inc/post-types.php:483
 msgid "Triggers the handling of rewrites for this post type"
 msgstr "Veranlasst die Durchführung von Rewrites für diesen Post Type"
 
-#: ../inc/post-types.php:493 ../inc/taxonomies.php:411
+#: ../inc/post-types.php:494 ../inc/taxonomies.php:411
 msgid "Custom Rewrite Slug"
 msgstr "Benutzerdefinierter Rewrite-Kurzlink"
 
-#: ../inc/post-types.php:494
+#: ../inc/post-types.php:495
 msgid "(default: post type name)"
 msgstr "(Voreinstellung: Post Type-Name)"
 
-#: ../inc/post-types.php:495
+#: ../inc/post-types.php:496
 msgid "Custom slug to use instead of the default."
 msgstr ""
 "Benutzerdefinierter Kurzlink der anstelle der Voreinstellung benutzt werden "
 "soll."
 
-#: ../inc/post-types.php:512
+#: ../inc/post-types.php:513
 msgid "With Front"
 msgstr "With Front"
 
-#: ../inc/post-types.php:514 ../inc/post-types.php:534
+#: ../inc/post-types.php:515 ../inc/post-types.php:535
 #: ../inc/taxonomies.php:428
 msgid "Should the permastruct be prepended with the front base."
 msgstr "Soll die front base der Permalink Struktur vorangestellt werden."
 
-#: ../inc/post-types.php:532 ../inc/taxonomies.php:375
+#: ../inc/post-types.php:533 ../inc/taxonomies.php:375
 msgid "Query Var"
 msgstr "Query Var"
 
-#: ../inc/post-types.php:538
+#: ../inc/post-types.php:543
 msgid "Menu Position"
 msgstr "Menü Position"
 
-#: ../inc/post-types.php:540
+#: ../inc/post-types.php:544
 msgid ""
 "The position in the menu order the post type should appear. show_in_menu "
 "must be true."
@@ -806,7 +803,7 @@ msgstr ""
 "An welcher Position im Menü soll der Post Type angezeigt werden. \"Im Menü "
 "anzeigen\" muss dafür aktiviert sein."
 
-#: ../inc/post-types.php:541
+#: ../inc/post-types.php:545
 msgid ""
 "See <a href=\"http://codex.wordpress.org/Function_Reference/"
 "register_post_type#Parameters\">Available options</a> in the \"menu_position"
@@ -817,16 +814,24 @@ msgstr ""
 "Einstellungsmöglichkeiten für die \"menu_position\" Funktion. Die möglichen "
 "Werte reichen von 5 bis 100."
 
-#: ../inc/post-types.php:548
+#: ../inc/post-types.php:552
 msgid "URL or Dashicon value for image to be used as menu icon."
 msgstr ""
 "URL oder Dashicon-Wert für das Bild das als Menü Icon benutzt werden soll."
 
-#: ../inc/post-types.php:556
+#: ../inc/post-types.php:562
 msgid "Show in Menu"
 msgstr "Im Menü anzeigen"
 
-#: ../inc/post-types.php:557
+#: ../inc/post-types.php:563
+msgid ""
+"Whether to show the post type in the admin menu and where to show that menu. "
+"Note that show_ui must be true."
+msgstr ""
+"Soll der Post Type im Admin-Menü angezeigt werden und wenn ja wo. Merke "
+"show_ui muss dazu aktiviert sein."
+
+#: ../inc/post-types.php:564
 msgid ""
 "\"Show UI\" must be \"true\". If an existing top level page such as \"tools."
 "php\" is indicated for second input, post type will be sub menu of that."
@@ -835,56 +840,43 @@ msgstr ""
 "Level-Parent-Seite wie z. B. \"tools.php\" im dazugehörigen Feld angegeben "
 "sein wird der Post Type als Untermenü davon angezeigt."
 
-#: ../inc/post-types.php:571
-msgid "Show In Menu"
-msgstr "Im Menü anzeigen"
-
-#: ../inc/post-types.php:573
-msgid ""
-"Whether to show the post type in the admin menu and where to show that menu. "
-"Note that show_ui must be true"
-msgstr ""
-"Soll der Post Type im Admin-Menü angezeigt werden und an welcher Position in "
-"diesem Menü soll er sich befinden. Beachte dass \"Benutzeroberfläche anzeigen"
-"\" dafür aktiviert sein muss"
-
-#: ../inc/post-types.php:585
+#: ../inc/post-types.php:590
 msgid "URL to image to be used as menu icon."
 msgstr "URL zum Bild das als Menü-Icon benutzt werden soll."
 
-#: ../inc/post-types.php:596
+#: ../inc/post-types.php:602
 msgid "Menu Icon"
 msgstr "Menü-Icon"
 
-#: ../inc/post-types.php:597
+#: ../inc/post-types.php:603
 msgid "(Full URL for icon or Dashicon class)"
 msgstr "(Komplette URL für das Icon oder die Dashicon-Klasse)"
 
-#: ../inc/post-types.php:598
+#: ../inc/post-types.php:604
 msgid "URL to image to be used as menu icon or Dashicon class to use instead."
 msgstr ""
 "URL zum Bild das als Menü-Icon verwendet wird; oder zur Dashicon-Klasse "
 "anstelle dessen."
 
-#: ../inc/post-types.php:601
+#: ../inc/post-types.php:607
 msgid "Supports"
 msgstr "Unterstützt"
 
-#: ../inc/post-types.php:611
+#: ../inc/post-types.php:617
 msgid "Title"
 msgstr "Titel"
 
-#: ../inc/post-types.php:612
+#: ../inc/post-types.php:618
 msgid "Adds the title meta box when creating content for this custom post type"
 msgstr ""
 "Fügt die Titel-Meta Box hinzu sobald Inhalte für diesen Custom Post Type "
 "erstellt werden"
 
-#: ../inc/post-types.php:626
+#: ../inc/post-types.php:632
 msgid "Editor"
 msgstr "Text-Editor"
 
-#: ../inc/post-types.php:627
+#: ../inc/post-types.php:633
 msgid ""
 "Adds the content editor meta box when creating content for this custom post "
 "type"
@@ -892,33 +884,33 @@ msgstr ""
 "Fügt eine Text-Editor Meta Box hinzu sobald Inhalte für diesen Custom Post "
 "Type erstellt werden"
 
-#: ../inc/post-types.php:641
+#: ../inc/post-types.php:647
 msgid "Excerpt"
 msgstr "Auszug"
 
-#: ../inc/post-types.php:642
+#: ../inc/post-types.php:648
 msgid ""
 "Adds the excerpt meta box when creating content for this custom post type"
 msgstr ""
 "Fügt eine Auszugs-Meta Box hinzu sobald Inhalte für diesen Custom Post Type "
 "erstellt werden"
 
-#: ../inc/post-types.php:656
+#: ../inc/post-types.php:662
 msgid "Trackbacks"
 msgstr "Trackbacks"
 
-#: ../inc/post-types.php:657
+#: ../inc/post-types.php:663
 msgid ""
 "Adds the trackbacks meta box when creating content for this custom post type"
 msgstr ""
 "Fügt eine Trackback-Meta Box hinzu sobald Inhalte für diesen Custom Post "
 "Type erstellt werden"
 
-#: ../inc/post-types.php:671
+#: ../inc/post-types.php:677
 msgid "Custom Fields"
 msgstr "Eigene Felder"
 
-#: ../inc/post-types.php:672
+#: ../inc/post-types.php:678
 msgid ""
 "Adds the custom fields meta box when creating content for this custom post "
 "type"
@@ -926,33 +918,33 @@ msgstr ""
 "Fügt eine Eigene Felder-Meta Box hinzu sobald Inhalte für diesen Custom Post "
 "Type erstellt werden"
 
-#: ../inc/post-types.php:686
+#: ../inc/post-types.php:692
 msgid "Comments"
 msgstr "Kommentare"
 
-#: ../inc/post-types.php:687
+#: ../inc/post-types.php:693
 msgid ""
 "Adds the comments meta box when creating content for this custom post type"
 msgstr ""
 "Fügt eine Kommentare-Meta Box hinzu sobald Inhalte für diesen Custom Post "
 "Type erstellt werden"
 
-#: ../inc/post-types.php:701
+#: ../inc/post-types.php:707
 msgid "Revisions"
 msgstr "Revisionen"
 
-#: ../inc/post-types.php:702
+#: ../inc/post-types.php:708
 msgid ""
 "Adds the revisions meta box when creating content for this custom post type"
 msgstr ""
 "Fügt eine Revisions-Meta Box hinzu sobald Inhalte für diesen Custom Post "
 "Type erstellt werden"
 
-#: ../inc/post-types.php:716
+#: ../inc/post-types.php:722
 msgid "Featured Image"
 msgstr "Beitragsbild"
 
-#: ../inc/post-types.php:717
+#: ../inc/post-types.php:723
 msgid ""
 "Adds the featured image meta box when creating content for this custom post "
 "type"
@@ -960,22 +952,22 @@ msgstr ""
 "Fügt eine Beitragsbild-Meta Box hinzu sobald Inhalte für diesen Custom Post "
 "Type erstellt werden"
 
-#: ../inc/post-types.php:731
+#: ../inc/post-types.php:737
 msgid "Author"
 msgstr "Autor"
 
-#: ../inc/post-types.php:732
+#: ../inc/post-types.php:738
 msgid ""
 "Adds the author meta box when creating content for this custom post type"
 msgstr ""
 "Fügt eine Autoren-Meta Box hinzu sobald Inhalte für diesen Custom Post Type "
 "erstellt werden"
 
-#: ../inc/post-types.php:746
+#: ../inc/post-types.php:752
 msgid "Page Attributes"
 msgstr "Seiten Attribute"
 
-#: ../inc/post-types.php:747
+#: ../inc/post-types.php:753
 msgid ""
 "Adds the page attribute meta box when creating content for this custom post "
 "type"
@@ -983,42 +975,42 @@ msgstr ""
 "Fügt eine Seitenattribut-Meta Box hinzu sobald Inhalte für diesen Custom "
 "Post Type erstellt werden"
 
-#: ../inc/post-types.php:761
+#: ../inc/post-types.php:767
 msgid "Post Formats"
 msgstr "Format"
 
-#: ../inc/post-types.php:762
+#: ../inc/post-types.php:768
 msgid "Adds post format support"
 msgstr "Fügt die Unterstützung für Formate in Beiträgen hinzu"
 
-#: ../inc/post-types.php:767
+#: ../inc/post-types.php:773
 msgid "Use the option below to explicitly set \"supports\" to false."
 msgstr ""
 "Hake die Checkbox \"Keine\" an um alle \"Unterstützt\"-Funktionen explizit "
 "zu deaktivieren."
 
-#: ../inc/post-types.php:775
+#: ../inc/post-types.php:781
 msgid "None"
 msgstr "Keine"
 
-#: ../inc/post-types.php:776
+#: ../inc/post-types.php:782
 msgid "Remove all support features"
 msgstr "Entferne alle Support Features"
 
-#: ../inc/post-types.php:783
+#: ../inc/post-types.php:789
 msgid "Built-in Taxonomies"
 msgstr "Vorhandene Taxonomien"
 
-#: ../inc/post-types.php:812 ../inc/taxonomies.php:163
+#: ../inc/post-types.php:818 ../inc/taxonomies.php:163
 #, php-format
 msgid "Adds %s support"
 msgstr "Fügt %s Unterstützung hinzu"
 
-#: ../inc/post-types.php:821 ../inc/taxonomies.php:470
+#: ../inc/post-types.php:827 ../inc/taxonomies.php:470
 msgid "Starter Notes"
 msgstr "Tips für Einsteiger"
 
-#: ../inc/post-types.php:824
+#: ../inc/post-types.php:830
 #, php-format
 msgid ""
 "Post Type names should have %smax 20 characters%s, and only contain "
@@ -1032,7 +1024,7 @@ msgstr ""
 "Reservierte und schon vergebene Post Type-Namen sind post, page, attachment, "
 "revision, nav_menu_item."
 
-#: ../inc/post-types.php:825
+#: ../inc/post-types.php:831
 #, php-format
 msgid ""
 "If you are unfamiliar with the advanced post type settings, just fill in the "
@@ -1048,7 +1040,7 @@ msgstr ""
 "erstellt. Für weitergehende Informationen fahre mit dem Mauszeiger über die "
 "roten Fragezeichen."
 
-#: ../inc/post-types.php:826
+#: ../inc/post-types.php:832
 #, php-format
 msgid ""
 "Deleting custom post types will %sNOT%s delete any content into the database "
@@ -1059,21 +1051,21 @@ msgstr ""
 "der Datenbank. Du kannst Deine Post Types leicht erneut erstellen und die "
 "bereits eingegebenen Inhalte sind wieder sicht- und bearbeitbar."
 
-#: ../inc/post-types.php:906
+#: ../inc/post-types.php:912
 msgid "Please provide a post type to delete"
 msgstr "Bitte gib einen Post Type zum Löschen an"
 
-#: ../inc/post-types.php:966
+#: ../inc/post-types.php:972
 msgid "Please provide a post type name"
 msgstr "Bitte gib einen Namen für den Post Type an"
 
-#: ../inc/post-types.php:984
+#: ../inc/post-types.php:990
 msgid "Please do not use quotes in post type names or rewrite slugs"
 msgstr ""
 "Bitte verwende keine Anführungszeichen in Post Type-Namen oder Rewrite-"
 "Kurzlinks"
 
-#: ../inc/post-types.php:991
+#: ../inc/post-types.php:997
 #, php-format
 msgid "Please choose a different post type name. %s is already registered."
 msgstr ""
@@ -1571,6 +1563,40 @@ msgstr ""
 msgid "Please choose a different taxonomy name. %s is already used."
 msgstr ""
 "Bitte wähle einen anderen Taxonomie-Namen. %s ist bereits in Verwendung."
+
+#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:116
+#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:158
+#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:201
+#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:243
+msgid "Whether posts of this type should be shown in the admin UI"
+msgstr "Sollen Beiträge dieses Post Types im Admin Interface angezeigt werden"
+
+#, fuzzy
+#~ msgid "Post Type"
+#~ msgstr "Post Type hinzufügen"
+
+#, fuzzy
+#~ msgid "Taxonomy"
+#~ msgstr "Neue Taxonomie hinzufügen"
+
+#~ msgid "Whether to generate a default UI for managing this post type"
+#~ msgstr ""
+#~ "Soll eine Standard-Benutzeroberfläche für die Verwaltung des Post Types "
+#~ "erstellt werden"
+
+#~ msgid "Whether the post type will have a post type archive page"
+#~ msgstr "Soll es für den Post Type einen Archiv-Index geben"
+
+#~ msgid "Show In Menu"
+#~ msgstr "Im Menü anzeigen"
+
+#~ msgid ""
+#~ "Whether to show the post type in the admin menu and where to show that "
+#~ "menu. Note that show_ui must be true"
+#~ msgstr ""
+#~ "Soll der Post Type im Admin-Menü angezeigt werden und an welcher Position "
+#~ "in diesem Menü soll er sich befinden. Beachte dass \"Benutzeroberfläche "
+#~ "anzeigen\" dafür aktiviert sein muss"
 
 #~ msgid "%s version %s by %s - %s %s &middot; %s &middot; %s &middot; %s"
 #~ msgstr "%s Version %s von den %s - %s %s %s &middot; %s &middot; %s"

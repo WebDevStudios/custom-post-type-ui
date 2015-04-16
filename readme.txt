@@ -41,6 +41,7 @@ Implied credit to:
 * Simplified UI with regards to clicking amount.
 * Auto selecting post type or taxonomy in Edit tab.
 * Switch to post type or taxonomy upon selection in Edit tab.
+* Return of a list of CPTUI-registered post types and taxonomies.
 * Post type slug update capability.
 * Added function reference 3rd party link to support area.
 * New hooks in edit screen for custom content display on screen.
@@ -50,6 +51,7 @@ Implied credit to:
 = 1.0.6 =
 * Change priority of post type registration function that was causing rewrite issues for many.
 * Fix issues with help text spots not showing up for some post type fields. Props pedro-mendonca.
+* Fix logic issue with PHP's empty() function and CPTUI 0.9.x saved settings.
 
 = 1.0.5 =
 * Explicitly set the post type and taxonomy rewrite slugs as the registered slug if no custom ones provided.
@@ -244,6 +246,7 @@ Implied credit to:
 * Simplified UI with regards to clicking amount.
 * Auto selecting post type or taxonomy in Edit tab.
 * Switch to post type or taxonomy upon selection in Edit tab.
+* Return of a list of CPTUI-registered post types and taxonomies.
 * Post type slug update capability.
 * Added function reference 3rd party link to support area.
 * New hooks in edit screen for custom content display on screen.
@@ -253,6 +256,7 @@ Implied credit to:
 = 1.0.6 =
 * Change priority of post type registration function that was causing rewrite issues for many.
 * Fix issues with help text spots not showing up for some post type fields. Props pedro-mendonca.
+* Fix logic issue with PHP's empty() function and CPTUI 0.9.x saved settings.
 
 = 1.0.5 =
 * Explicitly set the post type and taxonomy rewrite slugs as the registered slug if no custom ones provided.

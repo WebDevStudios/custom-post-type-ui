@@ -812,7 +812,18 @@ function cptui_manage_post_types() {
 								'default'       => false,
 								'wrap'          => false
 							) );
+							echo $ui->get_td_end() . $ui->get_tr_end();
 
+							echo $ui->get_tr_start() . $ui->get_th_start() . __( 'Custom "Supports"', 'cpt-plugin' );
+							echo $ui->get_p( __( 'Use this input to register custom "supports" values, separated by commas.', 'cpt-plugin' ) );
+							echo $ui->get_th_end() . $ui->get_td_start();
+							echo $ui->get_text_input( array(
+								'namearray'     => 'cpt_custom_post_type',
+								'name'          => 'custom_supports',
+								'textvalue'     => ( isset( $current['custom_supports'] ) ) ? esc_attr( $current['custom_supports'] ) : '',
+								'helptext'      => esc_attr__( 'Provide custom support slugs here.', 'cpt-plugin' ),
+								'wrap'          => false
+							) );
 							echo $ui->get_td_end() . $ui->get_tr_end();
 
 							echo $ui->get_tr_start() . $ui->get_th_start() . __( 'Built-in Taxonomies', 'cpt-plugin' ) . $ui->get_th_end() . $ui->get_td_start();
@@ -1061,7 +1072,7 @@ function cptui_update_post_type( $data = array() ) {
 
 		$label = str_replace( '"', '', htmlspecialchars_decode( $label ) );
 		$label = htmlspecialchars( $label, ENT_QUOTES );
-
+		$label = trim( $label );
 		$data['cpt_labels'][ $key ] = stripslashes_deep( $label );
 	}
 
@@ -1075,31 +1086,40 @@ function cptui_update_post_type( $data = array() ) {
 	$singular_label = str_replace( '"', '', htmlspecialchars_decode( $data['cpt_custom_post_type']['singular_label'] ) );
 	$singular_label = htmlspecialchars( stripslashes( $singular_label ), ENT_QUOTES );
 
+	$name = trim( $data['cpt_custom_post_type']['name'] );
 	$description = stripslashes_deep( $data['cpt_custom_post_type']['description'] );
+	$has_archive_string = trim( $data['cpt_custom_post_type']['has_archive_string'] );
+	$capability_type = trim( $data['cpt_custom_post_type']['capability_type'] );
+	$rewrite_slug = trim( $data['cpt_custom_post_type']['rewrite_slug'] );
+	$menu_position = trim( $data['cpt_custom_post_type']['menu_position'] );
+	$show_in_menu_string = trim( $data['cpt_custom_post_type']['show_in_menu_string'] );
+	$menu_icon = trim( $data['cpt_custom_post_type']['menu_icon'] );
+	$custom_supports = trim( $data['cpt_custom_post_type']['custom_supports'] );
 
 	$post_types[ $data['cpt_custom_post_type']['name'] ] = array(
-		'name'                  => $data['cpt_custom_post_type']['name'],
+		'name'                  => $name,
 		'label'                 => $label,
 		'singular_label'        => $singular_label,
 		'description'           => $description,
 		'public'                => disp_boolean( $data['cpt_custom_post_type']['public'] ),
 		'show_ui'               => disp_boolean( $data['cpt_custom_post_type']['show_ui'] ),
 		'has_archive'           => disp_boolean( $data['cpt_custom_post_type']['has_archive'] ),
-		'has_archive_string'    => $data['cpt_custom_post_type']['has_archive_string'],
+		'has_archive_string'    => $has_archive_string,
 		'exclude_from_search'   => disp_boolean( $data['cpt_custom_post_type']['exclude_from_search'] ),
-		'capability_type'       => $data['cpt_custom_post_type']['capability_type'],
+		'capability_type'       => $capability_type,
 		'hierarchical'          => disp_boolean( $data['cpt_custom_post_type']['hierarchical'] ),
 		'rewrite'               => disp_boolean( $data['cpt_custom_post_type']['rewrite'] ),
-		'rewrite_slug'          => $data['cpt_custom_post_type']['rewrite_slug'],
+		'rewrite_slug'          => $rewrite_slug,
 		'rewrite_withfront'     => disp_boolean( $data['cpt_custom_post_type']['rewrite_withfront'] ),
 		'query_var'             => disp_boolean( $data['cpt_custom_post_type']['query_var'] ),
-		'menu_position'         => $data['cpt_custom_post_type']['menu_position'],
+		'menu_position'         => $menu_position,
 		'show_in_menu'          => disp_boolean( $data['cpt_custom_post_type']['show_in_menu'] ),
-		'show_in_menu_string'   => $data['cpt_custom_post_type']['show_in_menu_string'],
-		'menu_icon'             => $data['cpt_custom_post_type']['menu_icon'],
+		'show_in_menu_string'   => $show_in_menu_string,
+		'menu_icon'             => $menu_icon,
 		'supports'              => $data['cpt_supports'],
 		'taxonomies'            => $data['cpt_addon_taxes'],
-		'labels'                => $data['cpt_labels']
+		'labels'                => $data['cpt_labels'],
+		'custom_supports'       => $custom_supports
 	);
 
 	$success = update_option( 'cptui_post_types', $post_types );

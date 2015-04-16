@@ -154,3 +154,7 @@
 .cptui-about-text {
     margin-bottom: 1em !important;
 }
+.cptui-table th p {
+    font-weight: 400;
+    font-size: 12px;
+}

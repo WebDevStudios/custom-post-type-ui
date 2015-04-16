@@ -661,26 +661,29 @@ function cptui_update_taxonomy( $data = array() ) {
 		}
 		$label = str_replace( '"', '', htmlspecialchars_decode( $label ) );
 		$label = htmlspecialchars( $label, ENT_QUOTES );
-
+		$label = trim( $label );
 		$data['cpt_tax_labels'][ $key ] = stripslashes_deep( $label );
 	}
 
 	$label = str_replace( '"', '', htmlspecialchars_decode( $data['cpt_custom_tax']['label'] ) );
 	$label = htmlspecialchars( stripslashes( $label ), ENT_QUOTES );
 
+	$name = trim( $data['cpt_custom_tax']['name'] );
 	$singular_label = str_replace( '"', '', htmlspecialchars_decode( $data['cpt_custom_tax']['singular_label'] ) );
 	$singular_label = htmlspecialchars( stripslashes( $singular_label ) );
+	$query_var_slug = trim( $data['cpt_custom_tax']['query_var_slug'] );
+	$rewrite_slug = trim( $data['cpt_custom_tax']['rewrite_slug'] );
 
 	$taxonomies[ $data['cpt_custom_tax']['name'] ] = array(
-		'name'                 => $data['cpt_custom_tax']['name'],
+		'name'                 => $name,
 		'label'                => $label,
 		'singular_label'       => $singular_label,
 		'hierarchical'         => disp_boolean( $data['cpt_custom_tax']['hierarchical'] ),
 		'show_ui'              => disp_boolean( $data['cpt_custom_tax']['show_ui'] ),
 		'query_var'            => disp_boolean( $data['cpt_custom_tax']['query_var'] ),
-		'query_var_slug'       => $data['cpt_custom_tax']['query_var_slug'],
+		'query_var_slug'       => $query_var_slug,
 		'rewrite'              => disp_boolean( $data['cpt_custom_tax']['rewrite'] ),
-		'rewrite_slug'         => $data['cpt_custom_tax']['rewrite_slug'],
+		'rewrite_slug'         => $rewrite_slug,
 		'rewrite_withfront'    => $data['cpt_custom_tax']['rewrite_withfront'],
 		'rewrite_hierarchical' => $data['cpt_custom_tax']['rewrite_hierarchical'],
 		'show_admin_column'    => disp_boolean( $data['cpt_custom_tax']['show_admin_column'] ),
