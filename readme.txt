@@ -37,6 +37,16 @@ Implied credit to:
 
 == Changelog ==
 
+= 1.1.0 =
+* Simplified UI with regards to clicking amount.
+* Auto selecting post type or taxonomy in Edit tab.
+* Switch to post type or taxonomy upon selection in Edit tab.
+* Post type slug update capability.
+* Added function reference 3rd party link to support area.
+* New hooks in edit screen for custom content display on screen.
+* String updates.
+* UI field option for custom "Supports" parameters from other plugins. Example: Yet Another Related Posts Plugin.
+
 = 1.0.6 =
 * Change priority of post type registration function that was causing rewrite issues for many.
 * Fix issues with help text spots not showing up for some post type fields. Props pedro-mendonca.
@@ -230,6 +240,16 @@ Implied credit to:
 * First beta release
 
 == Upgrade Notice ==
+
+= 1.1.0 =
+* Simplified UI with regards to clicking amount.
+* Auto selecting post type or taxonomy in Edit tab.
+* Switch to post type or taxonomy upon selection in Edit tab.
+* Post type slug update capability.
+* Added function reference 3rd party link to support area.
+* New hooks in edit screen for custom content display on screen.
+* String updates.
+* UI field option for custom "Supports" parameters from other plugins. Example: Yet Another Related Posts Plugin.
 
 = 1.0.6 =
 * Change priority of post type registration function that was causing rewrite issues for many.
