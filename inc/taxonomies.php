@@ -186,8 +186,6 @@ function cptui_manage_taxonomies() {
 				</p>
 			</td>
 			<td>
-				<p><?php _e( 'Click headings to reveal available options.', 'cpt-plugin' ); ?></p>
-
 				<div>
 					<h3 title="<?php esc_attr_e( 'Click to expand', 'cpt-plugin' ); ?>"><?php _e( 'Labels', 'cpt-plugin' ); ?></h3>
 						<div>
