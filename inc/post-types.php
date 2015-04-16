@@ -816,7 +816,7 @@ function cptui_manage_post_types() {
 							echo $ui->get_td_end() . $ui->get_tr_end();
 
 							echo $ui->get_tr_start() . $ui->get_th_start() . __( 'Custom "Supports"', 'cpt-plugin' );
-							echo $ui->get_p( __( 'Use the input below to register custom "supports" values, separated by commas.', 'cpt-plugin' ) );
+							echo $ui->get_p( __( 'Use this input to register custom "supports" values, separated by commas.', 'cpt-plugin' ) );
 							echo $ui->get_th_end() . $ui->get_td_start();
 							echo $ui->get_text_input( array(
 								'namearray'     => 'cpt_custom_post_type',
