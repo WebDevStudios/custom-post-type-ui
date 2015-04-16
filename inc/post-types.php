@@ -102,7 +102,7 @@ function cptui_manage_post_types() {
 	<form method="post">
 		<table class="form-table cptui-table">
 			<tr>
-				<td><!--LEFT SIDE-->
+				<td>
 					<table>
 						<?php
 
