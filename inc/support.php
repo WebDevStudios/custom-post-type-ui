@@ -133,6 +133,11 @@ function cptui_support() {
 							); ?></div>
 						</li>
 						<li>
+							<span class="question"><?php _e( 'Is there any function reference list?', 'cpt-plugin' ); ?></span>
+							<div class="answer"><?php printf( __( '%s has compiled a nice list of functions used by our plugin. Note not all will be useful as they are attached to hooks.', 'cpt-plugin' ),
+							'<a href="http://hookr.io/plugins/custom-post-type-ui/1.0.5/all/#index=c" target="_blank">Hookr.io</a>' ); ?></div>
+						</li>
+						<li>
 							<span class="question"><?php _e( 'How do I filter the "enter title here" text in the post editor screen?', 'cpt-plugin' ); ?></span>
 							<div class="answer"><p><?php _e( 'Change text inside the post/page editor title field. Should be able to adapt as necessary.', 'cpt-plugin' ); ?></p>
 <pre><code>function my_custom_title_text( $title ){
