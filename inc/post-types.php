@@ -207,7 +207,7 @@ function cptui_manage_post_types() {
 			</td>
 			<td>
 				<div>
-					<h3 title="<?php esc_attr_e( 'Click to expand', 'cpt-plugin' ); ?>"><?php _e( 'Labels', 'cpt-plugin' ); ?></h3>
+					<h3><?php _e( 'Labels', 'cpt-plugin' ); ?></h3>
 						<div>
 							<table>
 							<?php
