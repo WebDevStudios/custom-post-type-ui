@@ -336,18 +336,18 @@ function cptui_settings() { ?>
 			<div class="cptui-feature feature-section col three-col">
 				<div>
 					IMG GOES HERE
-					<h4><?php _e( 'headline', 'cpt-plugin' ); ?></h4>
-					<p><?php _e( 'about' ); ?></p>
+					<h4><?php _e( 'Post type migration', 'cpt-plugin' ); ?></h4>
+					<p><?php _e( 'In the past, if you changed your post type slug, you would lose immediate access to the posts in the post type and need to recover another way. We have now added support for migrating all posts within the old post type to the new post type you renamed it to.' ); ?></p>
 				</div>
 				<div>
 					IMG GOES HERE
-					<h4><?php _e( 'headline', 'cpt-plugin' ); ?></h4>
-					<p><?php _e( 'about' ); ?></p>
+					<h4><?php _e( 'UI Refinement', 'cpt-plugin' ); ?></h4>
+					<p><?php _e( 'After receiving feedback regarding the 1.0.x changes, we have further simplified the UI to reduce the amount of clicking necessary to manage your post types and taxonomies.', 'cpt-plugin' ); ?></p>
 				</div>
 				<div class="last-feature">
 					IMG GOES HERE
-					<h4><?php _e( 'headline', 'cpt-plugin' ); ?></h4>
-					<p><?php _e( 'about' ); ?></p>
+					<h4><?php _e( 'Registered Post Type and Taxonomy Listings', 'cpt-plugin' ); ?></h4>
+					<p><?php _e( 'We are bringing back the listing of all CPTUI-registered post types and taxonomies for easier quick view of what you have going.' ); ?></p>
 				</div>
 			</div>
 		</div>
