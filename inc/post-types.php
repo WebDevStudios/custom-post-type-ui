@@ -196,7 +196,7 @@ function cptui_manage_post_types() {
 				</p>
 
 				<?php if ( 'new' == $tab ) { ?>
-					<h3 title="<?php esc_attr_e( 'Click to expand', 'cpt-plugin' ); ?>"><?php _e( 'Starter Notes', 'cpt-plugin' ); ?></h3>
+					<h3><?php _e( 'Starter Notes', 'cpt-plugin' ); ?></h3>
 					<div><ol>
 						<?php
 						echo '<li>' . sprintf( __( 'Post Type names should have %smax 20 characters%s, and only contain alphanumeric, lowercase characters, underscores in place of spaces and letters that do not have accents. Reserved names: post, page, attachment, revision, nav_menu_item.', 'cpt-plugin' ), '<strong class="wp-ui-highlight">', '</strong>' );
