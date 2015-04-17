@@ -198,7 +198,7 @@ function cptui_manage_taxonomies() {
 			</td>
 			<td>
 				<div>
-					<h3 title="<?php esc_attr_e( 'Click to expand', 'cpt-plugin' ); ?>"><?php _e( 'Labels', 'cpt-plugin' ); ?></h3>
+					<h3><?php _e( 'Labels', 'cpt-plugin' ); ?></h3>
 						<div>
 							<table>
 							<?php
@@ -340,7 +340,7 @@ function cptui_manage_taxonomies() {
 							?>
 						</table>
 					</div>
-					<h3 title="<?php esc_attr_e( 'Click to expand', 'cpt-plugin' ); ?>"><?php _e( 'Settings', 'cpt-plugin' ); ?></h3>
+					<h3><?php _e( 'Settings', 'cpt-plugin' ); ?></h3>
 					<div>
 						<table>
 							<?php
