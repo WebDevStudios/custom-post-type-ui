@@ -351,6 +351,38 @@ function cptui_settings() { ?>
 				</div>
 			</div>
 		</div>
+
+		<h2><?php _e( 'Help Support This Plugin!', 'cpt-plugin' ); ?></h2>
+		<table border="0">
+			<tr>
+				<td class="one-third valign">
+					<h3><?php _e( 'Professional WordPress<br />Third Edition', 'cpt-plugin' ); ?></h3>
+					<a href="http://bit.ly/prowp3" target="_blank">
+						<img src="<?php echo plugins_url( '/images/professional-wordpress-thirdedition.jpg', __FILE__ ); ?>" width="200">
+					</a>
+					<br />
+					<p><?php _e( 'The leading book on WordPress design and development! Brand new third edition!', 'cpt-plugin' ); ?></p>
+				</td>
+				<td class="one-third valign">
+					<h3><?php _e( 'Professional WordPress<br />Plugin Development', 'cpt-plugin' ); ?></h3>
+					<a href="http://amzn.to/plugindevbook" target="_blank">
+						<img src="<?php echo plugins_url( '/images/professional-wordpress-plugin-development.png', __FILE__ ); ?>" width="200">
+					</a>
+					<br />
+					<p><?php _e( 'Highest rated WordPress development book on Amazon!', 'cpt-plugin' ); ?></p>
+				</td>
+				<td class="one-third valign">
+					<h3><?php _e( 'PayPal Donation', 'cpt-plugin' ); ?></h3>
+					<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+					<input type="hidden" name="cmd" value="_s-xclick">
+					<input type="hidden" name="hosted_button_id" value="YJEDXPHE49Q3U">
+					<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donateCC_LG.gif" name="submit" alt="<?php esc_attr_e( 'PayPal - The safer, easier way to pay online!', 'cpt-plugin' ); ?>">
+					<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+					</form>
+					<p><?php _e( 'Please donate to the development of Custom Post Type UI:', 'cpt-plugin' ); ?></p>
+				</td>
+			</tr>
+		</table>
 	</div>
 	<?php
 }
