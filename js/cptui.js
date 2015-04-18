@@ -10,6 +10,7 @@
 		return false;
 	});
 
+	//Toggles help/support accordions.
 	$('#support .question').each(function() {
 		var tis = $(this), state = false, answer = tis.next('div').slideUp();
 		tis.click(function() {
