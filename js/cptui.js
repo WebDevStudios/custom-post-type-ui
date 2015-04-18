@@ -30,7 +30,8 @@
 		}
 	);
 
-	if ( 'cpt-ui_page_cptui_manage_post_types' === window.adminpage ) {
+	//Handles message display for slug changes.
+	/*if ( 'cpt-ui_page_cptui_manage_post_types' === window.adminpage ) {
 		$('#name').after(cptui_type_data.post_change_name);
 	} else if ( 'cpt-ui_page_cptui_manage_taxonomies' === window.adminpage ) {
 		$('#name').after(cptui_tax_data.tax_change_name);
@@ -53,6 +54,7 @@
 		} else {
 			$input.addClass('cptui-hidden');
 		}
-	});
+	});*/
+
 
 })(jQuery);
