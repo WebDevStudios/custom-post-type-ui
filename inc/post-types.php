@@ -25,16 +25,6 @@ function cptui_post_type_enqueue_scripts() {
 add_action( 'admin_enqueue_scripts', 'cptui_post_type_enqueue_scripts' );
 
 /**
- * Add our settings page to the menu.
- *
- * @since 1.0.0
- */
-function cptui_post_types_admin_menu() {
-	add_submenu_page( 'cptui_main_menu', __( 'Add/Edit Post Types', 'cpt-plugin' ), __( 'Add/Edit Post Types', 'cpt-plugin' ), 'manage_options', 'cptui_manage_post_types', 'cptui_manage_post_types' );
-}
-add_action( 'admin_menu', 'cptui_post_types_admin_menu' );
-
-/**
  * Create our settings page output.
  *
  * @since 1.0.0

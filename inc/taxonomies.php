@@ -25,16 +25,6 @@ function cptui_taxonomies_enqueue_scripts() {
 add_action( 'admin_enqueue_scripts', 'cptui_taxonomies_enqueue_scripts' );
 
 /**
- * Add our settings page to the menu.
- *
- * @since 1.0.0
- */
-function cptui_taxonomies_admin_menu() {
-	add_submenu_page( 'cptui_main_menu', __( 'Add/Edit Taxonomies', 'cpt-plugin' ), __( 'Add/Edit Taxonomies', 'cpt-plugin' ), 'manage_options', 'cptui_manage_taxonomies', 'cptui_manage_taxonomies' );
-}
-add_action( 'admin_menu', 'cptui_taxonomies_admin_menu' );
-
-/**
  * Create our settings page output.
  *
  * @since 1.0.0

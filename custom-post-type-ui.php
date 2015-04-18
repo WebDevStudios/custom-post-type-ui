@@ -52,10 +52,21 @@ add_action( 'init', 'cptui_load_textdomain' );
 /**
  * Load our main menu.
  *
+ * Submenu items added in version 1.1.0
+ *
  * @since 0.1.0
  */
 function cptui_plugin_menu() {
 	add_menu_page( __( 'Custom Post Types', 'cpt-plugin' ), __( 'CPT UI', 'cpt-plugin' ), 'manage_options', 'cptui_main_menu', 'cptui_settings' );
+	add_submenu_page( 'cptui_main_menu', __( 'Add/Edit Post Types', 'cpt-plugin' ), __( 'Add/Edit Post Types', 'cpt-plugin' ), 'manage_options', 'cptui_manage_post_types', 'cptui_manage_post_types' );
+	add_submenu_page( 'cptui_main_menu', __( 'Add/Edit Taxonomies', 'cpt-plugin' ), __( 'Add/Edit Taxonomies', 'cpt-plugin' ), 'manage_options', 'cptui_manage_taxonomies', 'cptui_manage_taxonomies' );
+	add_submenu_page( 'cptui_main_menu', __( 'Registered Types and Taxes', 'cpt-plugin' ), __( 'Registered Types/Taxes', 'cpt-plugin' ), 'manage_options', 'cptui_listings', 'cptui_listings' );
+	add_submenu_page( 'cptui_main_menu', __( 'Import/Export', 'cpt-plugin' ), __( 'Import/Export', 'cpt-plugin' ), 'manage_options', 'cptui_importexport', 'cptui_importexport' );
+	add_submenu_page( 'cptui_main_menu', __( 'Help/Support', 'cpt-plugin' ), __( 'Help/Support', 'cpt-plugin' ), 'manage_options', 'cptui_support', 'cptui_support' );
+
+	# Remove the default one so we can add our customized version.
+	remove_submenu_page('cptui_main_menu', 'cptui_main_menu');
+	add_submenu_page( 'cptui_main_menu', __( 'About CPT UI', 'cpt-plugin' ), __( 'About CPT UI', 'cpt-plugin' ), 'manage_options', 'cptui_main_menu', 'cptui_settings' );
 }
 add_action( 'admin_menu', 'cptui_plugin_menu' );
 
@@ -336,21 +347,53 @@ function cptui_settings() { ?>
 			<div class="cptui-feature feature-section col three-col">
 				<div>
 					IMG GOES HERE
-					<h4><?php _e( 'headline', 'cpt-plugin' ); ?></h4>
-					<p><?php _e( 'about' ); ?></p>
+					<h4><?php _e( 'Post type migration', 'cpt-plugin' ); ?></h4>
+					<p><?php _e( 'In the past, if you changed your post type slug, you would lose immediate access to the posts in the post type and need to recover another way. We have now added support for migrating all posts within the old post type to the new post type you renamed it to.' ); ?></p>
 				</div>
 				<div>
 					IMG GOES HERE
-					<h4><?php _e( 'headline', 'cpt-plugin' ); ?></h4>
-					<p><?php _e( 'about' ); ?></p>
+					<h4><?php _e( 'UI Refinement', 'cpt-plugin' ); ?></h4>
+					<p><?php _e( 'After receiving feedback regarding the 1.0.x changes, we have further simplified the UI to reduce the amount of clicking necessary to manage your post types and taxonomies.', 'cpt-plugin' ); ?></p>
 				</div>
 				<div class="last-feature">
 					IMG GOES HERE
-					<h4><?php _e( 'headline', 'cpt-plugin' ); ?></h4>
-					<p><?php _e( 'about' ); ?></p>
+					<h4><?php _e( 'Registered Post Type and Taxonomy Listings', 'cpt-plugin' ); ?></h4>
+					<p><?php _e( 'We are bringing back the listing of all CPTUI-registered post types and taxonomies for easier quick view of what you have going.' ); ?></p>
 				</div>
 			</div>
 		</div>
+
+		<h2><?php _e( 'Help Support This Plugin!', 'cpt-plugin' ); ?></h2>
+		<table border="0">
+			<tr>
+				<td class="one-third valign">
+					<h3><?php _e( 'Professional WordPress<br />Third Edition', 'cpt-plugin' ); ?></h3>
+					<a href="http://bit.ly/prowp3" target="_blank">
+						<img src="<?php echo plugins_url( '/images/professional-wordpress-thirdedition.jpg', __FILE__ ); ?>" width="200">
+					</a>
+					<br />
+					<p><?php _e( 'The leading book on WordPress design and development! Brand new third edition!', 'cpt-plugin' ); ?></p>
+				</td>
+				<td class="one-third valign">
+					<h3><?php _e( 'Professional WordPress<br />Plugin Development', 'cpt-plugin' ); ?></h3>
+					<a href="http://amzn.to/plugindevbook" target="_blank">
+						<img src="<?php echo plugins_url( '/images/professional-wordpress-plugin-development.png', __FILE__ ); ?>" width="200">
+					</a>
+					<br />
+					<p><?php _e( 'Highest rated WordPress development book on Amazon!', 'cpt-plugin' ); ?></p>
+				</td>
+				<td class="one-third valign">
+					<h3><?php _e( 'PayPal Donation', 'cpt-plugin' ); ?></h3>
+					<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+					<input type="hidden" name="cmd" value="_s-xclick">
+					<input type="hidden" name="hosted_button_id" value="YJEDXPHE49Q3U">
+					<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donateCC_LG.gif" name="submit" alt="<?php esc_attr_e( 'PayPal - The safer, easier way to pay online!', 'cpt-plugin' ); ?>">
+					<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+					</form>
+					<p><?php _e( 'Please donate to the development of Custom Post Type UI:', 'cpt-plugin' ); ?></p>
+				</td>
+			</tr>
+		</table>
 	</div>
 	<?php
 }
