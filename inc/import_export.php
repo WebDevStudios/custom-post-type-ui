@@ -198,8 +198,7 @@ function cptui_get_single_taxonomy_registery( $taxonomy = array() ) {
 			if ( !empty( $label ) ) {
 			echo '"' . $key . '" => "' . $label . '",' . "\n\t\t";
 			}
-		} ?>
-	);
+		} ?>);
 
 	$args = array(
 		"labels" => $labels,
@@ -330,10 +329,9 @@ function cptui_get_single_post_type_registery( $post_type = array() ) {
 		"hierarchical" => <?php echo disp_boolean( $post_type['hierarchical'] ); ?>,
 		"rewrite" => <?php echo $rewrite; ?>,
 		"query_var" => <?php echo disp_boolean( $post_type['query_var'] ); ?>,
-		<?php if ( !empty( $post_type['menu_position'] ) ) { ?>"menu_position" => <?php echo $post_type['menu_position']; ?>,<?php } ?>
-		<?php if ( !empty( $post_type['menu_icon'] ) ) { ?>"menu_icon" => "<?php echo $post_type['menu_icon']; ?>",<?php } ?>
-		<?php if ( !empty( $supports ) ) { ?>"supports" => <?php echo $supports; ?>,<?php } ?>
-		<?php if ( !empty( $taxonomies ) ) { ?>"taxonomies" => <?php echo $taxonomies; ?><?php } ?>
+		<?php if ( !empty( $post_type['menu_position'] ) ) { ?>"menu_position" => <?php echo $post_type['menu_position']; ?>,<?php } ?><?php if ( !empty( $post_type['menu_icon'] ) ) { ?>"menu_icon" => "<?php echo $post_type['menu_icon']; ?>",<?php } ?>
+		<?php if ( !empty( $supports ) ) { echo "\n\t\t" ?>"supports" => <?php echo $supports; ?>,<?php } ?>
+		<?php if ( !empty( $taxonomies ) ) {  echo "\n\t\t" ?>"taxonomies" => <?php echo $taxonomies; ?><?php } echo "\n"?>
 	);
 	register_post_type( "<?php echo $post_type['name']; ?>", $args );
 <?php
