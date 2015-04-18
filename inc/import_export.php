@@ -7,16 +7,6 @@
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 /**
- * Add our settings page to the menu.
- *
- * @since 1.0.0
- */
-function cptui_importexport_admin_menu() {
-	add_submenu_page( 'cptui_main_menu', __( 'Import/Export', 'cpt-plugin' ), __( 'Import/Export', 'cpt-plugin' ), 'manage_options', 'cptui_importexport', 'cptui_importexport' );
-}
-add_action( 'admin_menu', 'cptui_importexport_admin_menu' );
-
-/**
  * Create our settings page output.
  *
  * @since 1.0.0
