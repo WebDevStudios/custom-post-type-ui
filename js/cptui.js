@@ -55,6 +55,4 @@
 			$input.addClass('cptui-hidden');
 		}
 	});*/
-
-
 })(jQuery);
