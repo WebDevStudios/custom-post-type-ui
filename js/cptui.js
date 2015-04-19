@@ -10,7 +10,7 @@
 
 	//confirm our deletions
 	$( '#cpt_submit_delete' ).on( 'click', function() {
-		if( confirm( confirmdata.confirm ) ) {
+		if( confirm( cptui_type_data.confirm ) ) {
 			return true;
 		}
 		return false;
