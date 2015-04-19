@@ -26,16 +26,6 @@
 		});
 	});
 
-	var orig, highlight;
-	$('#cptui_accordion h3').hover(function(){
-			orig = $(this).css('color');
-			highlight = $('.wp-ui-highlight').css('background-color');
-			$(this).css({'color':highlight});
-		}, function() {
-			$(this).css({'color':orig });
-		}
-	);
-
 	//Handles message display for slug changes.
 	/*if ( 'cpt-ui_page_cptui_manage_post_types' === window.adminpage ) {
 		$('#name').after(cptui_type_data.post_change_name);
