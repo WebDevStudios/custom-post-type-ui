@@ -40,13 +40,16 @@ Implied credit to:
 = 1.1.0 =
 * Simplified UI with regards to clicking amount.
 * Auto selecting post type or taxonomy in Edit tab.
-* Switch to post type or taxonomy upon selection in Edit tab.
+* Switch to post type or taxonomy upon selection within Edit tab.
 * Return of a list of CPTUI-registered post types and taxonomies.
 * Post type slug update capability.
 * Added function reference 3rd party link to support area.
 * New hooks in edit screen for custom content display on screen.
 * String updates.
 * UI field option for custom "Supports" parameters from other plugins. Example: Yet Another Related Posts Plugin.
+* Updated help/support section with another reference tool.
+* Trim extra spaces potentially left behind in text inputs.
+* Rearranged menu listing slightly to remove duplicate naming.
 
 = 1.0.6 =
 * Change priority of post type registration function that was causing rewrite issues for many.
@@ -245,13 +248,16 @@ Implied credit to:
 = 1.1.0 =
 * Simplified UI with regards to clicking amount.
 * Auto selecting post type or taxonomy in Edit tab.
-* Switch to post type or taxonomy upon selection in Edit tab.
+* Switch to post type or taxonomy upon selection within Edit tab.
 * Return of a list of CPTUI-registered post types and taxonomies.
 * Post type slug update capability.
 * Added function reference 3rd party link to support area.
 * New hooks in edit screen for custom content display on screen.
 * String updates.
 * UI field option for custom "Supports" parameters from other plugins. Example: Yet Another Related Posts Plugin.
+* Updated help/support section with another reference tool.
+* Trim extra spaces potentially left behind in text inputs.
+* Rearranged menu listing slightly to remove duplicate naming.
 
 = 1.0.6 =
 * Change priority of post type registration function that was causing rewrite issues for many.
