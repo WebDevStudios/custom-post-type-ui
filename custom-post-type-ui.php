@@ -343,20 +343,16 @@ function cptui_settings() { ?>
 		</div>
 
 		<div class="changelog about-integrations">
-			<h3><?php _e( 'About Custom Post Type UI', 'reactor' ); ?></h3>
 			<div class="cptui-feature feature-section col three-col">
 				<div>
-					IMG GOES HERE
 					<h4><?php _e( 'Post type migration', 'cpt-plugin' ); ?></h4>
 					<p><?php _e( 'In the past, if you changed your post type slug, you would lose immediate access to the posts in the post type and need to recover another way. We have now added support for migrating all posts within the old post type to the new post type you renamed it to.' ); ?></p>
 				</div>
 				<div>
-					IMG GOES HERE
 					<h4><?php _e( 'UI Refinement', 'cpt-plugin' ); ?></h4>
 					<p><?php _e( 'After receiving feedback regarding the 1.0.x changes, we have further simplified the UI to reduce the amount of clicking necessary to manage your post types and taxonomies.', 'cpt-plugin' ); ?></p>
 				</div>
 				<div class="last-feature">
-					IMG GOES HERE
 					<h4><?php _e( 'Registered Post Type and Taxonomy Listings', 'cpt-plugin' ); ?></h4>
 					<p><?php _e( 'We are bringing back the listing of all CPTUI-registered post types and taxonomies for easier quick view of what you have going.' ); ?></p>
 				</div>
@@ -527,20 +523,20 @@ function cptui_settings_tab_menu( $page = 'post_types' ) {
 			<a class="<?php echo $tab1; ?>" href="<?php echo admin_url( 'admin.php?page=cptui_manage_' . $page ); ?>"><?php _e( 'Add New Post Type', 'cpt-plugin' ); ?></a>
 			<?php
 			if ( $has ) { ?>
-			<a class="<?php echo $tab2; ?>" href="<?php echo add_query_arg( array( 'action' => 'edit' ), admin_url( 'admin.php?page=cptui_manage_' . $page ) ); ?>"><?php _e( 'Edit Post Types', 'cpt-plugin' ); ?></a>
+			<a class="<?php echo $tab2; ?>" href="<?php echo esc_url( add_query_arg( array( 'action' => 'edit' ), admin_url( 'admin.php?page=cptui_manage_' . $page ) ) ); ?>"><?php _e( 'Edit Post Types', 'cpt-plugin' ); ?></a>
 			<?php }
 		} elseif ( 'taxonomies' == $page ) {
 			?>
 			<a class="<?php echo $tab1; ?>" href="<?php echo admin_url( 'admin.php?page=cptui_manage_' . $page ); ?>"><?php _e( 'Add New Taxonomy', 'cpt-plugin' ); ?></a>
 			<?php
 			if ( $has ) { ?>
-			<a class="<?php echo $tab2; ?>" href="<?php echo add_query_arg( array( 'action' => 'edit' ), admin_url( 'admin.php?page=cptui_manage_' . $page ) ); ?>"><?php _e( 'Edit Taxonomies', 'cpt-plugin' ); ?></a>
+			<a class="<?php echo $tab2; ?>" href="<?php echo esc_url( add_query_arg( array( 'action' => 'edit' ), admin_url( 'admin.php?page=cptui_manage_' . $page ) ) ); ?>"><?php _e( 'Edit Taxonomies', 'cpt-plugin' ); ?></a>
 			<?php }
 		}
 	} else { ?>
 		<a class="<?php echo $tab1; ?>" href="<?php echo admin_url( 'admin.php?page=cptui_' . $page ); ?>"><?php _e( 'Post Types', 'cpt-plugin' ); ?></a>
-		<a class="<?php echo $tab2; ?>" href="<?php echo add_query_arg( array( 'action' => 'taxonomies' ), admin_url( 'admin.php?page=cptui_' . $page ) ); ?>"><?php _e( 'Taxonomies', 'cpt-plugin' ); ?></a>
-		<a class="<?php echo $tab3; ?>" href="<?php echo add_query_arg( array( 'action' => 'get_code' ), admin_url( 'admin.php?page=cptui_' . $page ) ); ?>"><?php _e( 'Get Code', 'cpt-plugin' ); ?></a>
+		<a class="<?php echo $tab2; ?>" href="<?php echo esc_url( add_query_arg( array( 'action' => 'taxonomies' ), admin_url( 'admin.php?page=cptui_' . $page ) ) ); ?>"><?php _e( 'Taxonomies', 'cpt-plugin' ); ?></a>
+		<a class="<?php echo $tab3; ?>" href="<?php echo esc_url( add_query_arg( array( 'action' => 'get_code' ), admin_url( 'admin.php?page=cptui_' . $page ) ) ); ?>"><?php _e( 'Get Code', 'cpt-plugin' ); ?></a>
 	<?php
 	}
 
