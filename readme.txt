@@ -51,6 +51,9 @@ Implied credit to:
 * Trim extra spaces potentially left behind in text inputs.
 * Rearranged menu listing slightly to remove duplicate naming.
 
+= 1.0.8 =
+* Register taxonomies at a higher priority than post types.
+
 = 1.0.7 =
 * Preventive measures for potential XSS security issues with add_query_arg()
 
@@ -261,6 +264,9 @@ Implied credit to:
 * Updated help/support section with another reference tool.
 * Trim extra spaces potentially left behind in text inputs.
 * Rearranged menu listing slightly to remove duplicate naming.
+
+= 1.0.8 =
+* Register taxonomies at a higher priority than post types.
 
 = 1.0.7 =
 * Preventive measures for potential XSS security issues with add_query_arg()

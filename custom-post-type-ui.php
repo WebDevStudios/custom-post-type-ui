@@ -16,6 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+
 define( 'CPT_VERSION', '1.1.0' );
 define( 'CPTUI_WP_VERSION', get_bloginfo( 'version' ) );
 
@@ -251,7 +252,7 @@ function cptui_create_custom_taxonomies() {
 		}
 	}
 }
-add_action( 'init', 'cptui_create_custom_taxonomies' );
+add_action( 'init', 'cptui_create_custom_taxonomies', 9 );
 
 /**
  * Helper function to register the actual taxonomy.
