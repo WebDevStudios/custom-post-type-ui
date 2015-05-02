@@ -46,7 +46,7 @@ function cptui_support() {
 
 		<table id="support" class="form-table cptui-table">
 			<tr>
-				<td>
+				<td class="outter">
 					<h2><?php _e( 'General', 'cpt-plugin' ); ?></h2>
 					<ol id="questions_general">
 						<li>
@@ -65,7 +65,7 @@ function cptui_support() {
 						</li>
 					</ol>
 				</td>
-				<td>
+				<td class="outter">
 					<h2><?php _e( 'Front-end Display', 'cpt-plugin' ); ?></h2>
 					<ol id="questions_front">
 						<li>
@@ -93,7 +93,7 @@ function cptui_support() {
 				</td>
 			</tr>
 			<tr>
-				<td>
+				<td class="outter">
 					<h2><?php _e( 'Advanced', 'cpt-plugin' ); ?></h2>
 					<ol id="questions_advanced">
 						<li>
@@ -141,7 +141,7 @@ add_filter( 'enter_title_here', 'my_custom_title_text' );
 						</li>
 					</ol>
 				</td>
-				<td>
+				<td class="outter">
 					&nbsp;
 					<?php
 
