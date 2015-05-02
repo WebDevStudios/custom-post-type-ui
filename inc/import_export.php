@@ -49,7 +49,7 @@ function cptui_importexport() {
 	<table class="form-table cptui-table">
 		<?php if ( !empty( $_GET ) && empty( $_GET['action'] ) ) { ?>
 		<tr>
-			<td>
+			<td class="outter">
 				<h3><?php _e( 'Import Post Types', 'cpt-plugin' ); ?></h3>
 				<form method="post">
 					<textarea class="cptui_post_import" placeholder="<?php esc_attr_e( 'Paste content here.', 'cpt-plugin' ); ?>" name="cptui_post_import"></textarea>
@@ -58,7 +58,7 @@ function cptui_importexport() {
 					<p><input class="button button-primary" type="submit" value="<?php esc_attr_e( 'Import', 'cpt-plugin' ); ?>"/></p>
 				</form>
 			</td>
-			<td>
+			<td class="outter">
 				<h3><?php _e( 'Export Post Types', 'cpt-plugin' ); ?></h3>
 				<?php
 					$cptui_post_types = get_option( 'cptui_post_types', array() );
@@ -74,7 +74,7 @@ function cptui_importexport() {
 		</tr>
 		<?php } elseif ( !empty( $_GET ) && 'taxonomies' == $_GET['action'] ) { ?>
 		<tr>
-			<td>
+			<td class="outter">
 				<h3><?php _e( 'Import Taxonomies', 'cpt-plugin' ); ?></h3>
 				<form method="post">
 					<textarea class="cptui_tax_import" placeholder="<?php esc_attr_e( 'Paste content here.', 'cpt-plugin' ); ?>" name="cptui_tax_import"></textarea>
@@ -83,7 +83,7 @@ function cptui_importexport() {
 					<p><input class="button button-primary" type="submit" value="<?php esc_attr_e( 'Import', 'cpt-plugin' ); ?>"/></p>
 				</form>
 			</td>
-			<td>
+			<td class="outter">
 				<h3><?php _e( 'Export Taxonomies', 'cpt-plugin' ); ?></h3>
 				<?php
 					$cptui_taxonomies = get_option( 'cptui_taxonomies', array() );
