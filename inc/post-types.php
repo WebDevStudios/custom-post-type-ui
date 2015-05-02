@@ -104,7 +104,7 @@ function cptui_manage_post_types() {
 	<form method="post">
 		<table class="form-table cptui-table">
 			<tr>
-				<td>
+				<td class="outter">
 					<table>
 						<?php
 
@@ -206,7 +206,7 @@ function cptui_manage_post_types() {
 					</ol></div>
 				<?php } ?>
 			</td>
-			<td>
+			<td class="outter">
 				<div>
 					<h3><?php _e( 'Labels', 'cpt-plugin' ); ?></h3>
 						<div>
