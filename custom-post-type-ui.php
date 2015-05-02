@@ -232,7 +232,7 @@ function cptui_create_custom_taxonomies() {
 		}
 	}
 }
-add_action( 'init', 'cptui_create_custom_taxonomies' );
+add_action( 'init', 'cptui_create_custom_taxonomies', 9 );
 
 /**
  * Helper function to register the actual taxonomy.
