@@ -50,6 +50,7 @@ Implied credit to:
 * Updated help/support section with another reference tool.
 * Trim extra spaces potentially left behind in text inputs.
 * Rearranged menu listing slightly to remove duplicate naming.
+* GitHub repo has GitHub Updater (https://github.com/afragen/github-updater) compatible copy of CPTUI version that is available on WordPress.org
 
 = 1.0.8 =
 * Register taxonomies at a higher priority than post types.
@@ -264,6 +265,7 @@ Implied credit to:
 * Updated help/support section with another reference tool.
 * Trim extra spaces potentially left behind in text inputs.
 * Rearranged menu listing slightly to remove duplicate naming.
+* GitHub repo has GitHub Updater (https://github.com/afragen/github-updater) compatible copy of CPTUI version that is available on WordPress.org
 
 = 1.0.8 =
 * Register taxonomies at a higher priority than post types.
