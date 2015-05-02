@@ -369,7 +369,7 @@ function cptui_manage_taxonomies() {
 									'name'          => 'show_ui',
 									'labeltext'     => __( 'Show UI', 'cpt-plugin' ),
 									'aftertext'     => __( '(default: True)', 'cpt-plugin' ),
-									'helptext'      => esc_attr__( 'Whether to generate a default UI for managing this custom taxonomy', 'cpt-plugin' ),
+									'helptext'      => esc_attr__( 'Whether to generate a default UI for managing this custom taxonomy.', 'cpt-plugin' ),
 									'selections'    => $select
 								) );
 
@@ -386,6 +386,7 @@ function cptui_manage_taxonomies() {
 									'name'          => 'query_var',
 									'labeltext'     => __( 'Query Var', 'cpt-plugin' ),
 									'aftertext'     => __( '(default: True)', 'cpt-plugin' ),
+									'helptext'      => esc_attr__( 'Sets the query_var key for this taxonomy.', 'cpt-plugin' ),
 									'selections'    => $select
 								) );
 
@@ -395,7 +396,7 @@ function cptui_manage_taxonomies() {
 									'textvalue'     => ( isset( $current['query_var_slug'] ) ) ? esc_attr( $current['query_var_slug'] ) : '',
 									'aftertext'     => __( '(default: none). Query Var needs to be true to use.', 'cpt-plugin' ),
 									'labeltext'     => __( 'Custom Query Var String', 'cpt-plugin' ),
-									'helptext'      => esc_attr__( 'Custom Query Var Slug', 'cpt-plugin'),
+									'helptext'      => esc_attr__( 'Sets a custom query_var slug for this taxonomy.', 'cpt-plugin'),
 									) );
 
 								$select = array(
@@ -411,7 +412,7 @@ function cptui_manage_taxonomies() {
 									'name'          => 'rewrite',
 									'labeltext'     => __( 'Rewrite', 'cpt-plugin' ),
 									'aftertext'     => __( '(default: True)', 'cpt-plugin' ),
-									'helptext'      => esc_attr__( 'Triggers the handling of rewrites for this taxonomy', 'cpt-plugin' ),
+									'helptext'      => esc_attr__( 'Whether or not WordPress should use rewrites for this taxonomy.', 'cpt-plugin' ),
 									'selections'    => $select
 								) );
 
@@ -421,7 +422,7 @@ function cptui_manage_taxonomies() {
 									'textvalue'     => ( isset( $current['rewrite_slug'] ) ) ? esc_attr( $current['rewrite_slug'] ) : '',
 									'aftertext'     => __( '(default: taxonomy name)', 'cpt-plugin' ),
 									'labeltext'     => __( 'Custom Rewrite Slug', 'cpt-plugin' ),
-									'helptext'      => esc_attr__( 'Custom Taxonomy Rewrite Slug', 'cpt-plugin'),
+									'helptext'      => esc_attr__( 'Custom taxonomy rewrite slug.', 'cpt-plugin'),
 									) );
 
 								$select = array(
