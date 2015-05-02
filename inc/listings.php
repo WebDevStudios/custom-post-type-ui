@@ -7,7 +7,7 @@ function cptui_listings() {
 		?>
 		<div class="wrap">
 
-			<h1><?php _e( 'Custom Post Type UI Registered Types and Taxonomies.', 'cpt-plugin' ); ?></h1>
+			<h1><?php _e( 'Post Types and Taxonomies registered by Custom Post Type UI.', 'cpt-plugin' ); ?></h1>
 			<?php
 			$post_types = get_option( 'cptui_post_types' );
 
