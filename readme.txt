@@ -4,15 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: custom post types, CPT, CMS, post, types, post type, cck, taxonomy, tax, custom
 Requires at least: 3.8
 Tested up to: 4.2
-<<<<<<< HEAD
 Stable tag: 1.1
-=======
-<<<<<<< HEAD
-Stable tag: 1.1
-=======
-Stable tag: 1.0.8
->>>>>>> master
->>>>>>> 1.1
 License: GPLv2
 
 Admin UI for creating custom post types and custom taxonomies in WordPress
@@ -45,13 +37,9 @@ Implied credit to:
 
 == Changelog ==
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 1.1
 = 1.1.0 =
 * Simplified UI with regards to clicking amount.
-* Auto selecting post type or taxonomy in Edit tab.
+* Auto selecting of first available post type or taxonomy in Edit tab.
 * Switch to post type or taxonomy upon selection within Edit tab.
 * Return of a list of CPTUI-registered post types and taxonomies.
 * Post type slug update capability.
@@ -63,16 +51,9 @@ Implied credit to:
 * Trim extra spaces potentially left behind in text inputs.
 * Rearranged menu listing slightly to remove duplicate naming.
 * GitHub repo has GitHub Updater (https://github.com/afragen/github-updater) compatible copy of CPTUI version that is available on WordPress.org
-<<<<<<< HEAD
 
 = 1.0.8 =
 * Register taxonomies at a higher priority than post types.
-=======
-=======
-= 1.0.8 =
-* Register taxonomies at a higher priority than post types.
->>>>>>> master
->>>>>>> 1.1
 
 = 1.0.7 =
 * Preventive measures for potential XSS security issues with add_query_arg()
@@ -271,13 +252,9 @@ Implied credit to:
 
 == Upgrade Notice ==
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 1.1
 = 1.1.0 =
 * Simplified UI with regards to clicking amount.
-* Auto selecting post type or taxonomy in Edit tab.
+* Auto selecting of first available post type or taxonomy in Edit tab.
 * Switch to post type or taxonomy upon selection within Edit tab.
 * Return of a list of CPTUI-registered post types and taxonomies.
 * Post type slug update capability.
@@ -289,16 +266,9 @@ Implied credit to:
 * Trim extra spaces potentially left behind in text inputs.
 * Rearranged menu listing slightly to remove duplicate naming.
 * GitHub repo has GitHub Updater (https://github.com/afragen/github-updater) compatible copy of CPTUI version that is available on WordPress.org
-<<<<<<< HEAD
 
 = 1.0.8 =
 * Register taxonomies at a higher priority than post types.
-=======
-=======
-= 1.0.8 =
-* Register taxonomies at a higher priority than post types.
->>>>>>> master
->>>>>>> 1.1
 
 = 1.0.7 =
 * Preventive measures for potential XSS security issues with add_query_arg()
