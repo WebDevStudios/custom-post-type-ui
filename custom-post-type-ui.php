@@ -16,7 +16,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-
 define( 'CPT_VERSION', '1.1.0' );
 define( 'CPTUI_WP_VERSION', get_bloginfo( 'version' ) );
 
