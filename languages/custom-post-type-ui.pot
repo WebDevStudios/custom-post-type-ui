@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Custom Post Type UI\n"
-"POT-Creation-Date: 2015-05-19 18:23-0600\n"
-"PO-Revision-Date: 2015-05-19 18:23-0600\n"
+"POT-Creation-Date: 2015-05-19 18:37-0600\n"
+"PO-Revision-Date: 2015-05-19 18:37-0600\n"
 "Last-Translator: Michael Beckwith <michael.d.beckwith@gmail.com>\n"
 "Language-Team: Michael Beckwith <michael.d.beckwith@gmail.com>\n"
 "Language: en_US\n"
@@ -460,7 +460,7 @@ msgid "Edit"
 msgstr ""
 
 #: inc/listings.php:75
-msgid "View on front"
+msgid "View frontend archive"
 msgstr ""
 
 #: inc/listings.php:108 inc/listings.php:211
