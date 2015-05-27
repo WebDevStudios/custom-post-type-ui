@@ -13,7 +13,7 @@ function cptui_listings() {
 
 			if ( !empty( $post_types ) ) {
 
-			echo '<h2>' . __( 'Post Types', 'cptui_listings' ) . '</h2>';
+			echo '<h2>' . __( 'Post Types', 'cpt-plugin' ) . '</h2>';
 			?>
 			<p><?php printf( __( 'Total count: %d', 'cpt-plugin' ), count( $post_types ) ); ?></p>
 
@@ -129,7 +129,7 @@ function cptui_listings() {
 		$taxonomies = get_option( 'cptui_taxonomies' );
 		if ( !empty( $taxonomies ) ) {
 
-			echo '<h2>' . __( 'Taxonomies', 'cptui_listings' ) . '</h2>';
+			echo '<h2>' . __( 'Taxonomies', 'cpt-plugin' ) . '</h2>';
 			?>
 			<p><?php printf( __( 'Total count: %d', 'cpt-plugin' ), count( $taxonomies ) ); ?></p>
 
