@@ -4,7 +4,7 @@ Plugin Name: Custom Post Type UI
 Plugin URI: https://github.com/WebDevStudios/custom-post-type-ui/
 Description: Admin panel for creating custom post types and custom taxonomies in WordPress
 Author: WebDevStudios
-Version: 1.0.8
+Version: 1.1.0
 Author URI: http://webdevstudios.com/
 Text Domain: cpt-plugin
 Domain Path: /languages
@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'CPT_VERSION', '1.0.8' );
+define( 'CPT_VERSION', '1.1.0' );
 define( 'CPTUI_WP_VERSION', get_bloginfo( 'version' ) );
 
 /**
@@ -52,10 +52,21 @@ add_action( 'init', 'cptui_load_textdomain' );
 /**
  * Load our main menu.
  *
+ * Submenu items added in version 1.1.0
+ *
  * @since 0.1.0
  */
 function cptui_plugin_menu() {
 	add_menu_page( __( 'Custom Post Types', 'cpt-plugin' ), __( 'CPT UI', 'cpt-plugin' ), 'manage_options', 'cptui_main_menu', 'cptui_settings' );
+	add_submenu_page( 'cptui_main_menu', __( 'Add/Edit Post Types', 'cpt-plugin' ), __( 'Add/Edit Post Types', 'cpt-plugin' ), 'manage_options', 'cptui_manage_post_types', 'cptui_manage_post_types' );
+	add_submenu_page( 'cptui_main_menu', __( 'Add/Edit Taxonomies', 'cpt-plugin' ), __( 'Add/Edit Taxonomies', 'cpt-plugin' ), 'manage_options', 'cptui_manage_taxonomies', 'cptui_manage_taxonomies' );
+	add_submenu_page( 'cptui_main_menu', __( 'Registered Types and Taxes', 'cpt-plugin' ), __( 'Registered Types/Taxes', 'cpt-plugin' ), 'manage_options', 'cptui_listings', 'cptui_listings' );
+	add_submenu_page( 'cptui_main_menu', __( 'Import/Export', 'cpt-plugin' ), __( 'Import/Export', 'cpt-plugin' ), 'manage_options', 'cptui_importexport', 'cptui_importexport' );
+	add_submenu_page( 'cptui_main_menu', __( 'Help/Support', 'cpt-plugin' ), __( 'Help/Support', 'cpt-plugin' ), 'manage_options', 'cptui_support', 'cptui_support' );
+
+	# Remove the default one so we can add our customized version.
+	remove_submenu_page('cptui_main_menu', 'cptui_main_menu');
+	add_submenu_page( 'cptui_main_menu', __( 'About CPT UI', 'cpt-plugin' ), __( 'About CPT UI', 'cpt-plugin' ), 'manage_options', 'cptui_main_menu', 'cptui_settings' );
 }
 add_action( 'admin_menu', 'cptui_plugin_menu' );
 
@@ -67,6 +78,7 @@ add_action( 'admin_menu', 'cptui_plugin_menu' );
 function cptui_create_submenus() {
 	require_once( plugin_dir_path( __FILE__ ) . 'inc/post-types.php' );
 	require_once( plugin_dir_path( __FILE__ ) . 'inc/taxonomies.php' );
+	require_once( plugin_dir_path( __FILE__ ) . 'inc/listings.php' );
 	require_once( plugin_dir_path( __FILE__ ) . 'inc/import_export.php' );
 	require_once( plugin_dir_path( __FILE__ ) . 'inc/support.php' );
 }
@@ -129,6 +141,13 @@ function cptui_register_single_post_type( $post_type = array() ) {
 
 	if ( is_array( $user_supports_params ) ) {
 		$post_type['supports'] = array_merge( $post_type['supports'], $user_supports_params );
+	}
+
+	if ( ! empty( $post_type['custom_supports'] ) ) {
+		$custom = explode( ',', $post_type['custom_supports'] );
+		foreach( $custom as $part ) {
+			$post_type['supports'][] = $part;
+		}
 	}
 
 	if ( in_array( 'none', $post_type['supports'] ) ) {
@@ -308,7 +327,7 @@ function cptui_register_single_taxonomy( $taxonomy = array() ) {
  * @return string $value HTML markup for the page.
  */
 function cptui_settings() { ?>
-	<div class="wrap">
+	<div class="wrap about-wrap">
 		<?php
 
 		/**
@@ -317,33 +336,31 @@ function cptui_settings() { ?>
 		 * @since 1.0.0
 		 */
 		do_action( 'cptui_main_page_start' ); ?>
-		<h2><?php _e( 'Custom Post Type UI', 'cpt-plugin' ); ?> <?php echo CPT_VERSION; ?></h2>
+		<h1><?php _e( 'Custom Post Type UI', 'cpt-plugin' ); ?> <?php echo CPT_VERSION; ?></h1>
 
-		<div class="alignleft">
-			<p><?php _e( 'Thank you for choosing Custom Post Type UI. We hope that your experience with our plugin provides efficiency and speed in creating post types and taxonomies, to better organize your content, without having to touch code.', 'cpt-plugin' ); ?></p>
-
-			<p><?php echo sprintf( __( 'To get started with creating some post types, please visit %s and for taxonomies, visit %s. If you need some help, check the %s page. If nothing there fits your issue, visit our %s and we will try to get to your question as soon as possible.', 'cpt-plugin' ),
-					sprintf( '<a href="' . admin_url( 'admin.php?page=cptui_manage_post_types' ) . '">%s</a>', __( 'Add/Edit Post Types', 'cpt-plugin' ) ),
-					sprintf( '<a href="' . admin_url( 'admin.php?page=cptui_manage_taxonomies' ) . '">%s</a>', __( 'Add/Edit Taxonomies', 'cpt-plugin' ) ),
-					sprintf( '<a href="' . admin_url( 'admin.php?page=cptui_support' ) . '">%s</a>', __( 'Help/Support', 'cpt-plugin' ) ),
-					sprintf( '<a href="http://wordpress.org/support/plugin/custom-post-type-ui">%s</a>', __( 'CPT UI Support Forum', 'cpt-plugin' ) )
-				);
-			?>
-			</p>
+		<div class="about-text cptui-about-text">
+			<?php _e( 'Thank you for choosing Custom Post Type UI. We hope that your experience with our plugin provides efficiency and speed in creating post types and taxonomies, to better organize your content, without having to touch code.', 'cpt-plugin' ); ?>
 		</div>
 
-		<?php
+		<div class="changelog about-integrations">
+			<div class="cptui-feature feature-section col three-col">
+				<div>
+					<h4><?php _e( 'Post type migration', 'cpt-plugin' ); ?></h4>
+					<p><?php _e( 'In the past, if you changed your post type slug, you would lose immediate access to the posts in the post type and need to recover another way. We have now added support for migrating all posts within the old post type to the new post type you renamed it to.', 'cpt-plugin' ); ?></p>
+				</div>
+				<div>
+					<h4><?php _e( 'UI Refinement', 'cpt-plugin' ); ?></h4>
+					<p><?php _e( 'After receiving feedback regarding the 1.0.x changes, we have further simplified the UI to reduce the amount of clicking necessary to manage your post types and taxonomies.', 'cpt-plugin' ); ?></p>
+				</div>
+				<div class="last-feature">
+					<h4><?php _e( 'Registered Post Type and Taxonomy Listings', 'cpt-plugin' ); ?></h4>
+					<p><?php _e( 'We are bringing back the listing of all CPTUI-registered post types and taxonomies for easier quick view of what you have going.', 'cpt-plugin' ); ?></p>
+				</div>
+			</div>
+		</div>
 
-		/**
-		 * Fires right above the table displaying the promoted books.
-		 *
-		 * @since 1.0.0
-		 */
-		do_action( 'cptui_main_page_before_books' ); ?>
+		<h2><?php _e( 'Help Support This Plugin!', 'cpt-plugin' ); ?></h2>
 		<table border="0">
-			<tr>
-				<td colspan="3"><h2><?php _e( 'Help Support This Plugin!', 'cpt-plugin' ); ?></h2></td>
-			</tr>
 			<tr>
 				<td class="one-third valign">
 					<h3><?php _e( 'Professional WordPress<br />Third Edition', 'cpt-plugin' ); ?></h3>
@@ -351,7 +368,7 @@ function cptui_settings() { ?>
 						<img src="<?php echo plugins_url( '/images/professional-wordpress-thirdedition.jpg', __FILE__ ); ?>" width="200">
 					</a>
 					<br />
-					<?php _e( 'The leading book on WordPress design and development! Brand new third edition!', 'cpt-plugin' ); ?>
+					<p><?php _e( 'The leading book on WordPress design and development! Brand new third edition!', 'cpt-plugin' ); ?></p>
 				</td>
 				<td class="one-third valign">
 					<h3><?php _e( 'Professional WordPress<br />Plugin Development', 'cpt-plugin' ); ?></h3>
@@ -359,29 +376,20 @@ function cptui_settings() { ?>
 						<img src="<?php echo plugins_url( '/images/professional-wordpress-plugin-development.png', __FILE__ ); ?>" width="200">
 					</a>
 					<br />
-					<?php _e( 'Highest rated WordPress development book on Amazon!', 'cpt-plugin' ); ?>
+					<p><?php _e( 'Highest rated WordPress development book on Amazon!', 'cpt-plugin' ); ?></p>
 				</td>
 				<td class="one-third valign">
 					<h3><?php _e( 'PayPal Donation', 'cpt-plugin' ); ?></h3>
-					<p><?php _e( 'Please donate to the development of Custom Post Type UI:', 'cpt-plugin' ); ?></p>
 					<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
 					<input type="hidden" name="cmd" value="_s-xclick">
 					<input type="hidden" name="hosted_button_id" value="YJEDXPHE49Q3U">
 					<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donateCC_LG.gif" name="submit" alt="<?php esc_attr_e( 'PayPal - The safer, easier way to pay online!', 'cpt-plugin' ); ?>">
 					<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
 					</form>
+					<p><?php _e( 'Please donate to the development of Custom Post Type UI:', 'cpt-plugin' ); ?></p>
 				</td>
 			</tr>
 		</table>
-
-		<?php
-		/**
-		 * Fires right after the table displaying the promoted books.
-		 *
-		 * @since 1.0.0
-		 */
-		do_action( 'cptui_main_page_after_books' ); ?>
-
 	</div>
 	<?php
 }
@@ -404,18 +412,23 @@ function cptui_footer( $original = '' ) {
 	}
 
 	return sprintf(
-		__( '%s version %s by %s - %s %s %s &middot; %s &middot; %s', 'cpt-plugin' ),
+		__( '%s version %s by %s', 'cpt-plugin' ),
 		sprintf(
 			'<a target="_blank" href="http://wordpress.org/support/plugin/custom-post-type-ui">%s</a>',
 			__( 'Custom Post Type UI', 'cpt-plugin' )
 		),
 		CPT_VERSION,
-		'<a href="http://webdevstudios.com" target="_blank">WebDevStudios</a>',
-		sprintf(
-			'<a href="https://github.com/WebDevStudios/custom-post-type-ui/issues" target="_blank">%s</a>',
-			__( 'Please Report Bugs', 'cpt-plugin' )
-		),
-		__( 'Follow on Twitter:', 'cpt-plugin' ),
+		'<a href="http://webdevstudios.com" target="_blank">WebDevStudios</a>'
+	).
+	' - '.
+	sprintf(
+		'<a href="https://github.com/WebDevStudios/custom-post-type-ui/issues" target="_blank">%s</a>',
+		__( 'Please Report Bugs', 'cpt-plugin' )
+	).
+	' '.
+	__( 'Follow on Twitter:', 'cpt-plugin' ).
+	sprintf(
+		' %s &middot; %s &middot; %s',
 		'<a href="http://twitter.com/tw2113" target="_blank">Michael</a>',
 		'<a href="http://twitter.com/williamsba" target="_blank">Brad</a>',
 		'<a href="http://twitter.com/webdevstudios" target="_blank">WebDevStudios</a>'
@@ -535,7 +548,6 @@ function cptui_settings_tab_menu( $page = 'post_types' ) {
 	do_action( 'cptui_settings_tabs_after' );
 	?>
 	</h2>
-
 <?php
 }
 

@@ -22,16 +22,6 @@ function cptui_support_enqueue_scripts() {
 add_action( 'admin_enqueue_scripts', 'cptui_support_enqueue_scripts' );
 
 /**
- * Add our settings page to the menu.
- *
- * @since 1.0.0
- */
-function cptui_support_admin_menu() {
-	add_submenu_page( 'cptui_main_menu', __( 'Help/Support', 'cpt-plugin' ), __( 'Help/Support', 'cpt-plugin' ), 'manage_options', 'cptui_support', 'cptui_support' );
-}
-add_action( 'admin_menu', 'cptui_support_admin_menu' );
-
-/**
  * Create our settings page output.
  *
  * @since 1.0.0
@@ -56,7 +46,7 @@ function cptui_support() {
 
 		<table id="support" class="form-table cptui-table">
 			<tr>
-				<td>
+				<td class="outter">
 					<h2><?php _e( 'General', 'cpt-plugin' ); ?></h2>
 					<ol id="questions_general">
 						<li>
@@ -75,7 +65,7 @@ function cptui_support() {
 						</li>
 					</ol>
 				</td>
-				<td>
+				<td class="outter">
 					<h2><?php _e( 'Front-end Display', 'cpt-plugin' ); ?></h2>
 					<ol id="questions_front">
 						<li>
@@ -103,7 +93,7 @@ function cptui_support() {
 				</td>
 			</tr>
 			<tr>
-				<td>
+				<td class="outter">
 					<h2><?php _e( 'Advanced', 'cpt-plugin' ); ?></h2>
 					<ol id="questions_advanced">
 						<li>
@@ -133,6 +123,11 @@ function cptui_support() {
 							); ?></div>
 						</li>
 						<li>
+							<span class="question"><?php _e( 'Is there any function reference list?', 'cpt-plugin' ); ?></span>
+							<div class="answer"><?php printf( __( '%s has compiled a nice list of functions used by our plugin. Note not all will be useful as they are attached to hooks.', 'cpt-plugin' ),
+							'<a href="http://hookr.io/plugins/custom-post-type-ui/1.0.5/all/#index=c" target="_blank">Hookr.io</a>' ); ?></div>
+						</li>
+						<li>
 							<span class="question"><?php _e( 'How do I filter the "enter title here" text in the post editor screen?', 'cpt-plugin' ); ?></span>
 							<div class="answer"><p><?php _e( 'Change text inside the post/page editor title field. Should be able to adapt as necessary.', 'cpt-plugin' ); ?></p>
 <pre><code>function my_custom_title_text( $title ){
@@ -146,7 +141,7 @@ add_filter( 'enter_title_here', 'my_custom_title_text' );
 						</li>
 					</ol>
 				</td>
-				<td>
+				<td class="outter">
 					&nbsp;
 					<?php
 
