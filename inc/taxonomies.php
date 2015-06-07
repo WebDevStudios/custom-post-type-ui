@@ -106,7 +106,7 @@ function cptui_manage_taxonomies() {
 							'maxlength'     => '32',
 							'onblur'        => 'this.value=this.value.toLowerCase()',
 							'labeltext'     => __( 'Taxonomy Slug', 'cpt-plugin' ),
-							'aftertext'     => __( '(e.g. actors)', 'cpt-plugin' ),
+							'aftertext'     => __( '(e.g. actor)', 'cpt-plugin' ),
 							'helptext'      => esc_attr__( 'The taxonomy name. Used to retrieve custom taxonomy content. Should be short and unique', 'cpt-plugin'),
 							'required'      => true,
 						) );
