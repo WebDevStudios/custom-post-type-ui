@@ -20,19 +20,14 @@ function cptui_taxonomies_enqueue_scripts() {
 	}
 
 	wp_enqueue_script( 'cptui', plugins_url( 'js/cptui.js' , dirname(__FILE__) ) . '', array( 'jquery', 'jquery-ui-core', 'jquery-ui-accordion' ), CPT_VERSION, true );
-	wp_localize_script(	'cptui', 'confirmdata', array( 'confirm' => __( 'Are you sure you want to delete this?', 'cpt-plugin' ) ) );
+	wp_localize_script(	'cptui', 'cptui_tax_data',
+		array(
+			'confirm' => __( 'Are you sure you want to delete this?', 'cpt-plugin' ),
+			#'tax_change_name' => '<div class="typetax-rename">' . __( 'Changing this will rename the taxonomy.', 'cpt-plugin' ) . '</div>'
+		)
+	);
 }
 add_action( 'admin_enqueue_scripts', 'cptui_taxonomies_enqueue_scripts' );
-
-/**
- * Add our settings page to the menu.
- *
- * @since 1.0.0
- */
-function cptui_taxonomies_admin_menu() {
-	add_submenu_page( 'cptui_main_menu', __( 'Add/Edit Taxonomies', 'cpt-plugin' ), __( 'Add/Edit Taxonomies', 'cpt-plugin' ), 'manage_options', 'cptui_manage_taxonomies', 'cptui_manage_taxonomies' );
-}
-add_action( 'admin_menu', 'cptui_taxonomies_admin_menu' );
 
 /**
  * Create our settings page output.
@@ -84,19 +79,28 @@ function cptui_manage_taxonomies() {
 	# Will only be set if we're already on the edit screen
 	if ( !empty( $taxonomies ) ) { ?>
 		<form id="cptui_select_taxonomy" method="post">
-			<p><?php _e( 'Select a taxonomy to edit. DO NOT EDIT the taxonomy slug unless necessary. Changing that value registers a new taxonomy entry for your install.', 'cpt-plugin' ); ?></p>
+			<p><?php _e( 'DO NOT EDIT the taxonomy slug unless necessary. Changing that value registers a new taxonomy entry for your install.', 'cpt-plugin' ); ?></p>
 			<?php
+			 _e( 'Select: ', 'cpt-plugin' );
 			cptui_taxonomies_dropdown( $taxonomies );
 			?>
-			<input type="submit" class="button-secondary" name="cptui_select_taxonomy_submit" value="<?php echo esc_attr( apply_filters( 'cptui_taxonomy_submit_select', __( 'Select', 'cpt-plugin' ) ) ); ?>" />
 		</form>
 	<?php
+
+        /**
+         * Fires below the taxonomy select input.
+         *
+         * @since 1.1.0
+         *
+         * @param string $value Current taxonomy selected.
+         */
+        do_action( 'cptui_below_taxonomy_select', $current['name'] );
 	} ?>
 
 	<form method="post">
 		<table class="form-table cptui-table">
 			<tr>
-				<td><!--LEFT SIDE-->
+				<td class="outter">
 					<table>
 						<?php
 
@@ -107,7 +111,7 @@ function cptui_manage_taxonomies() {
 							'maxlength'     => '32',
 							'onblur'        => 'this.value=this.value.toLowerCase()',
 							'labeltext'     => __( 'Taxonomy Slug', 'cpt-plugin' ),
-							'aftertext'     => __( '(e.g. actors)', 'cpt-plugin' ),
+							'aftertext'     => __( '(e.g. actor)', 'cpt-plugin' ),
 							'helptext'      => esc_attr__( 'The taxonomy name. Used to retrieve custom taxonomy content. Should be short and unique', 'cpt-plugin'),
 							'required'      => true,
 						) );
@@ -169,19 +173,27 @@ function cptui_manage_taxonomies() {
 				<p class="submit">
 					<?php wp_nonce_field( 'cptui_addedit_taxonomy_nonce_action', 'cptui_addedit_taxonomy_nonce_field' );
 					if ( !empty( $_GET ) && !empty( $_GET['action'] ) && 'edit' == $_GET['action'] ) { ?>
-						<input type="submit" class="button-primary" name="cpt_submit" value="<?php echo esc_attr( apply_filters( 'cptui_taxonomy_submit_edit', __( 'Edit Taxonomy', 'cpt-plugin' ) ) ); ?>" />
+						<input type="submit" class="button-primary" name="cpt_submit" value="<?php echo esc_attr( apply_filters( 'cptui_taxonomy_submit_edit', __( 'Save Taxonomy', 'cpt-plugin' ) ) ); ?>" />
 						<input type="submit" class="button-secondary" name="cpt_delete" id="cpt_submit_delete" value="<?php echo apply_filters( 'cptui_taxonomy_submit_delete', __( 'Delete Taxonomy', 'cpt-plugin' ) ); ?>" />
 					<?php } else { ?>
 						<input type="submit" class="button-primary" name="cpt_submit" value="<?php echo esc_attr( apply_filters( 'cptui_taxonomy_submit_add', __( 'Add Taxonomy', 'cpt-plugin' ) ) ); ?>" />
 					<?php } ?>
 					<input type="hidden" name="cpt_tax_status" id="cpt_tax_status" value="<?php echo $tab; ?>" />
 				</p>
-			</td>
-			<td>
-				<p><?php _e( 'Click headings to reveal available options.', 'cpt-plugin' ); ?></p>
 
-				<div id="cptui_accordion">
-					<h3 title="<?php esc_attr_e( 'Click to expand', 'cpt-plugin' ); ?>"><?php _e( 'Labels', 'cpt-plugin' ); ?></h3>
+				<?php if ( 'new' == $tab ) { ?>
+					<h3><?php _e( 'Starter Notes', 'cpt-plugin' ); ?></h3>
+						<div><ol>
+						<?php
+							echo '<li>' . sprintf( __( 'Taxonomy names should have %smax 32 characters%s, and only contain alphanumeric, lowercase, characters, underscores in place of spaces, and letters that do not have accents.', 'cpt-plugin' ), '<strong class="wp-ui-highlight">', '</strong>' );
+							echo '<li>' . sprintf( __( 'If you are unfamiliar with the advanced taxonomy settings, just fill in the %sTaxonomy Name%s and choose an %sAttach to Post Type%s option. Remaining settings will use default values. Labels, if left blank, will be automatically created based on the taxonomy name. Hover over the question marks for more details.', 'cpt-plugin' ), '<strong class="wp-ui-highlight">', '</strong>', '<strong class="wp-ui-highlight">', '</strong>' ) ;
+							echo '<li>' . sprintf( __( 'Deleting custom taxonomies do %sNOT%s delete terms added to those taxonomies. You can recreate your taxonomies and the terms will return. Changing the name, after adding terms to the taxonomy, will not update the terms in the database.', 'cpt-plugin' ), '<strong class="wp-ui-highlight">', '</strong>' ); ?>
+						</ol></div>
+						<?php } ?>
+			</td>
+			<td class="outter">
+				<div>
+					<h3><?php _e( 'Labels', 'cpt-plugin' ); ?></h3>
 						<div>
 							<table>
 							<?php
@@ -323,7 +335,7 @@ function cptui_manage_taxonomies() {
 							?>
 						</table>
 					</div>
-					<h3 title="<?php esc_attr_e( 'Click to expand', 'cpt-plugin' ); ?>"><?php _e( 'Settings', 'cpt-plugin' ); ?></h3>
+					<h3><?php _e( 'Settings', 'cpt-plugin' ); ?></h3>
 					<div>
 						<table>
 							<?php
@@ -357,7 +369,7 @@ function cptui_manage_taxonomies() {
 									'name'          => 'show_ui',
 									'labeltext'     => __( 'Show UI', 'cpt-plugin' ),
 									'aftertext'     => __( '(default: True)', 'cpt-plugin' ),
-									'helptext'      => esc_attr__( 'Whether to generate a default UI for managing this custom taxonomy', 'cpt-plugin' ),
+									'helptext'      => esc_attr__( 'Whether to generate a default UI for managing this custom taxonomy.', 'cpt-plugin' ),
 									'selections'    => $select
 								) );
 
@@ -374,6 +386,7 @@ function cptui_manage_taxonomies() {
 									'name'          => 'query_var',
 									'labeltext'     => __( 'Query Var', 'cpt-plugin' ),
 									'aftertext'     => __( '(default: True)', 'cpt-plugin' ),
+									'helptext'      => esc_attr__( 'Sets the query_var key for this taxonomy.', 'cpt-plugin' ),
 									'selections'    => $select
 								) );
 
@@ -383,7 +396,7 @@ function cptui_manage_taxonomies() {
 									'textvalue'     => ( isset( $current['query_var_slug'] ) ) ? esc_attr( $current['query_var_slug'] ) : '',
 									'aftertext'     => __( '(default: none). Query Var needs to be true to use.', 'cpt-plugin' ),
 									'labeltext'     => __( 'Custom Query Var String', 'cpt-plugin' ),
-									'helptext'      => esc_attr__( 'Custom Query Var Slug', 'cpt-plugin'),
+									'helptext'      => esc_attr__( 'Sets a custom query_var slug for this taxonomy.', 'cpt-plugin'),
 									) );
 
 								$select = array(
@@ -399,7 +412,7 @@ function cptui_manage_taxonomies() {
 									'name'          => 'rewrite',
 									'labeltext'     => __( 'Rewrite', 'cpt-plugin' ),
 									'aftertext'     => __( '(default: True)', 'cpt-plugin' ),
-									'helptext'      => esc_attr__( 'Triggers the handling of rewrites for this taxonomy', 'cpt-plugin' ),
+									'helptext'      => esc_attr__( 'Whether or not WordPress should use rewrites for this taxonomy.', 'cpt-plugin' ),
 									'selections'    => $select
 								) );
 
@@ -409,7 +422,7 @@ function cptui_manage_taxonomies() {
 									'textvalue'     => ( isset( $current['rewrite_slug'] ) ) ? esc_attr( $current['rewrite_slug'] ) : '',
 									'aftertext'     => __( '(default: taxonomy name)', 'cpt-plugin' ),
 									'labeltext'     => __( 'Custom Rewrite Slug', 'cpt-plugin' ),
-									'helptext'      => esc_attr__( 'Custom Taxonomy Rewrite Slug', 'cpt-plugin'),
+									'helptext'      => esc_attr__( 'Custom taxonomy rewrite slug.', 'cpt-plugin'),
 									) );
 
 								$select = array(
@@ -465,16 +478,6 @@ function cptui_manage_taxonomies() {
 								?>
 						</table>
 					</div>
-
-					<?php if ( 'new' == $tab ) { ?>
-					<h3 title="<?php esc_attr_e( 'Click to expand', 'cpt-plugin' ); ?>"><?php _e( 'Starter Notes', 'cpt-plugin' ); ?></h3>
-						<div><ol>
-						<?php
-							echo '<li>' . sprintf( __( 'Taxonomy names should have %smax 32 characters%s, and only contain alphanumeric, lowercase, characters, underscores in place of spaces, and letters that do not have accents.', 'cpt-plugin' ), '<strong class="wp-ui-highlight">', '</strong>' );
-							echo '<li>' . sprintf( __( 'If you are unfamiliar with the advanced taxonomy settings, just fill in the %sTaxonomy Name%s and choose an %sAttach to Post Type%s option. Remaining settings will use default values. Labels, if left blank, will be automatically created based on the taxonomy name. Hover over the question marks for more details.', 'cpt-plugin' ), '<strong class="wp-ui-highlight">', '</strong>', '<strong class="wp-ui-highlight">', '</strong>' ) ;
-							echo '<li>' . sprintf( __( 'Deleting custom taxonomies do %sNOT%s delete terms added to those taxonomies. You can recreate your taxonomies and the terms will return. Changing the name, after adding terms to the taxonomy, will not update the terms in the database.', 'cpt-plugin' ), '<strong class="wp-ui-highlight">', '</strong>' ); ?>
-						</ol></div>
-						<?php } ?>
 				</div>
 				</td>
 			</tr>
@@ -500,8 +503,6 @@ function cptui_taxonomies_dropdown( $taxonomies = array() ) {
 	if ( !empty( $taxonomies ) ) {
 		$select = array();
 		$select['options'] = array();
-
-		$select['options'][] = array( 'attr' => '', 'text' => '--' );
 
 		foreach( $taxonomies as $tax ) {
 			$select['options'][] = array( 'attr' => $tax['name'], 'text' => $tax['label'] );
@@ -533,6 +534,14 @@ function cptui_get_current_taxonomy() {
 
 		if ( isset( $_POST['cpt_custom_tax']['name'] ) ) {
 			return sanitize_text_field( $_POST['cpt_custom_tax']['name'] );
+		}
+	} else if ( !empty( $_GET ) && isset( $_GET['cptui_taxonomy'] ) ) {
+		return sanitize_text_field( $_GET['cptui_taxonomy'] );
+	} else {
+		$taxonomies = get_option( 'cptui_taxonomies' );
+		if ( !empty( $taxonomies ) ) {
+			# Will return the first array key
+			return key( $taxonomies );
 		}
 	}
 
@@ -647,26 +656,29 @@ function cptui_update_taxonomy( $data = array() ) {
 		}
 		$label = str_replace( '"', '', htmlspecialchars_decode( $label ) );
 		$label = htmlspecialchars( $label, ENT_QUOTES );
-
+		$label = trim( $label );
 		$data['cpt_tax_labels'][ $key ] = stripslashes_deep( $label );
 	}
 
 	$label = str_replace( '"', '', htmlspecialchars_decode( $data['cpt_custom_tax']['label'] ) );
 	$label = htmlspecialchars( stripslashes( $label ), ENT_QUOTES );
 
+	$name = trim( $data['cpt_custom_tax']['name'] );
 	$singular_label = str_replace( '"', '', htmlspecialchars_decode( $data['cpt_custom_tax']['singular_label'] ) );
 	$singular_label = htmlspecialchars( stripslashes( $singular_label ) );
+	$query_var_slug = trim( $data['cpt_custom_tax']['query_var_slug'] );
+	$rewrite_slug = trim( $data['cpt_custom_tax']['rewrite_slug'] );
 
 	$taxonomies[ $data['cpt_custom_tax']['name'] ] = array(
-		'name'                 => $data['cpt_custom_tax']['name'],
+		'name'                 => $name,
 		'label'                => $label,
 		'singular_label'       => $singular_label,
 		'hierarchical'         => disp_boolean( $data['cpt_custom_tax']['hierarchical'] ),
 		'show_ui'              => disp_boolean( $data['cpt_custom_tax']['show_ui'] ),
 		'query_var'            => disp_boolean( $data['cpt_custom_tax']['query_var'] ),
-		'query_var_slug'       => $data['cpt_custom_tax']['query_var_slug'],
+		'query_var_slug'       => $query_var_slug,
 		'rewrite'              => disp_boolean( $data['cpt_custom_tax']['rewrite'] ),
-		'rewrite_slug'         => $data['cpt_custom_tax']['rewrite_slug'],
+		'rewrite_slug'         => $rewrite_slug,
 		'rewrite_withfront'    => $data['cpt_custom_tax']['rewrite_withfront'],
 		'rewrite_hierarchical' => $data['cpt_custom_tax']['rewrite_hierarchical'],
 		'show_admin_column'    => disp_boolean( $data['cpt_custom_tax']['show_admin_column'] ),
@@ -696,3 +708,10 @@ function cptui_update_taxonomy( $data = array() ) {
 
 	return cptui_admin_notices( 'update', $data['cpt_custom_tax']['name'], true );
 }
+
+/**
+ * Convert taxonomies.
+ * @param string $original_slug
+ * @param string $new_slug
+ */
+function cptui_convert_taxonomy_terms( $original_slug = '', $new_slug = '' ) {}
