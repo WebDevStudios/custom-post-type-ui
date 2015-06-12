@@ -1,7 +1,8 @@
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Custom Post Type UI\n"
-"POT-Creation-Date: 2015-05-19 18:37-0600\n"
+"POT-Creation-Date: 2015-06-11 17:09+0100\n"
 "PO-Revision-Date: 2015-05-19 18:37-0600\n"
 "Last-Translator: Michael Beckwith <michael.d.beckwith@gmail.com>\n"
 "Language-Team: Michael Beckwith <michael.d.beckwith@gmail.com>\n"
@@ -9,18 +10,17 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.7.6\n"
-"X-Poedit-Basepath: ..\n"
+"X-Generator: Poedit 1.8.1\n"
+"X-Poedit-Basepath: ../\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
 "esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
 "_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-WPHeader: custom-post-type-ui.php\n"
+"X-Poedit-SearchPathExcluded-3: tests\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
-"X-Poedit-SearchPathExcluded-1: /tests/*\n"
-"X-Poedit-SearchPathExcluded-2: tests/*\n"
-"X-Poedit-SearchPathExcluded-3: tests\n"
 
 #: custom-post-type-ui.php:60
 msgid "Custom Post Types"
@@ -58,6 +58,7 @@ msgstr ""
 msgid "About CPT UI"
 msgstr ""
 
+#. Plugin Name of the plugin/theme
 #: custom-post-type-ui.php:339 custom-post-type-ui.php:418
 msgid "Custom Post Type UI"
 msgstr ""
@@ -704,7 +705,10 @@ msgstr ""
 #: inc/post-types.php:543 inc/post-types.php:563 inc/post-types.php:606
 #: inc/taxonomies.php:344 inc/taxonomies.php:361 inc/taxonomies.php:378
 #: inc/taxonomies.php:404 inc/taxonomies.php:430 inc/taxonomies.php:447
-#: inc/taxonomies.php:464
+#: inc/taxonomies.php:464 tests/CPTUI-Admin-UI-Inputs-Test.php:105
+#: tests/CPTUI-Admin-UI-Inputs-Test.php:147
+#: tests/CPTUI-Admin-UI-Inputs-Test.php:190
+#: tests/CPTUI-Admin-UI-Inputs-Test.php:232
 msgid "False"
 msgstr ""
 
@@ -713,17 +717,27 @@ msgstr ""
 #: inc/post-types.php:544 inc/post-types.php:564 inc/post-types.php:607
 #: inc/taxonomies.php:345 inc/taxonomies.php:362 inc/taxonomies.php:379
 #: inc/taxonomies.php:405 inc/taxonomies.php:431 inc/taxonomies.php:448
-#: inc/taxonomies.php:465
+#: inc/taxonomies.php:465 tests/CPTUI-Admin-UI-Inputs-Test.php:106
+#: tests/CPTUI-Admin-UI-Inputs-Test.php:148
+#: tests/CPTUI-Admin-UI-Inputs-Test.php:191
+#: tests/CPTUI-Admin-UI-Inputs-Test.php:233
 msgid "True"
 msgstr ""
 
-#: inc/post-types.php:391
+#: inc/post-types.php:391 tests/CPTUI-Admin-UI-Inputs-Test.php:114
+#: tests/CPTUI-Admin-UI-Inputs-Test.php:156
+#: tests/CPTUI-Admin-UI-Inputs-Test.php:199
+#: tests/CPTUI-Admin-UI-Inputs-Test.php:241
 msgid "Public"
 msgstr ""
 
 #: inc/post-types.php:392 inc/post-types.php:412 inc/post-types.php:521
 #: inc/post-types.php:553 inc/post-types.php:573 inc/post-types.php:615
 #: inc/taxonomies.php:371 inc/taxonomies.php:388 inc/taxonomies.php:414
+#: tests/CPTUI-Admin-UI-Inputs-Test.php:115
+#: tests/CPTUI-Admin-UI-Inputs-Test.php:157
+#: tests/CPTUI-Admin-UI-Inputs-Test.php:200
+#: tests/CPTUI-Admin-UI-Inputs-Test.php:242
 msgid "(default: True)"
 msgstr ""
 
@@ -1190,7 +1204,7 @@ msgid "Taxonomy Slug"
 msgstr ""
 
 #: inc/taxonomies.php:114
-msgid "(e.g. actors)"
+msgid "(e.g. actor)"
 msgstr ""
 
 #: inc/taxonomies.php:115
@@ -1445,4 +1459,28 @@ msgstr ""
 #: inc/taxonomies.php:646
 #, php-format
 msgid "Please choose a different taxonomy name. %s is already used."
+msgstr ""
+
+#: tests/CPTUI-Admin-UI-Inputs-Test.php:116
+#: tests/CPTUI-Admin-UI-Inputs-Test.php:158
+#: tests/CPTUI-Admin-UI-Inputs-Test.php:201
+#: tests/CPTUI-Admin-UI-Inputs-Test.php:243
+msgid "Whether posts of this type should be shown in the admin UI"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "https://github.com/WebDevStudios/custom-post-type-ui/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"Admin panel for creating custom post types and custom taxonomies in WordPress"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "WebDevStudios"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://webdevstudios.com/"
 msgstr ""
