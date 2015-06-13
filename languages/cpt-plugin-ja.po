@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cus\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-09 23:51-0600\n"
-"PO-Revision-Date: 2015-04-09 23:51-0600\n"
+"POT-Creation-Date: 2015-06-12 21:16-0600\n"
+"PO-Revision-Date: 2015-06-12 21:16-0600\n"
 "Last-Translator: Michael Beckwith <michael.d.beckwith@gmail.com>\n"
 "Language-Team: ja <jotaki@digitalcube.jp>\n"
 "Language: ja_JP\n"
@@ -13,282 +13,315 @@ msgstr ""
 "X-Poedit-KeywordsList: _;gettext;gettext_noop;_e;__\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Generator: Poedit 1.7.5\n"
+"X-Generator: Poedit 1.8.1\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../custom-post-type-ui.php:58
+#: ../custom-post-type-ui.php:60
 #, fuzzy
 msgid "Custom Post Types"
 msgstr "利用する投稿タイプ"
 
-#: ../custom-post-type-ui.php:58
+#: ../custom-post-type-ui.php:60
 msgid "CPT UI"
 msgstr ""
 
-#: ../custom-post-type-ui.php:320 ../custom-post-type-ui.php:410
+#: ../custom-post-type-ui.php:61
+#, fuzzy
+msgid "Add/Edit Post Types"
+msgstr "カスタム投稿タイプを編集"
+
+#: ../custom-post-type-ui.php:62
+#, fuzzy
+msgid "Add/Edit Taxonomies"
+msgstr "ビルトイン分類"
+
+#: ../custom-post-type-ui.php:63
+msgid "Registered Types and Taxes"
+msgstr ""
+
+#: ../custom-post-type-ui.php:63
+msgid "Registered Types/Taxes"
+msgstr ""
+
+#: ../custom-post-type-ui.php:64 ../custom-post-type-ui.php:491
+msgid "Import/Export"
+msgstr ""
+
+#: ../custom-post-type-ui.php:65
+#, fuzzy
+msgid "Help/Support"
+msgstr "サポート"
+
+#: ../custom-post-type-ui.php:69
+msgid "About CPT UI"
+msgstr ""
+
+#: ../custom-post-type-ui.php:339 ../custom-post-type-ui.php:418
 #, fuzzy
 msgid "Custom Post Type UI"
 msgstr "利用する投稿タイプ"
 
-#: ../custom-post-type-ui.php:323
+#: ../custom-post-type-ui.php:342
 msgid ""
 "Thank you for choosing Custom Post Type UI. We hope that your experience "
 "with our plugin provides efficiency and speed in creating post types and "
 "taxonomies, to better organize your content, without having to touch code."
 msgstr ""
 
-#: ../custom-post-type-ui.php:325
-#, php-format
+#: ../custom-post-type-ui.php:348
+#, fuzzy
+msgid "Post type migration"
+msgstr "投稿タイプ名"
+
+#: ../custom-post-type-ui.php:349
 msgid ""
-"To get started with creating some post types, please visit %s and for "
-"taxonomies, visit %s. If you need some help, check the %s page. If nothing "
-"there fits your issue, visit our %s and we will try to get to your question "
-"as soon as possible."
+"In the past, if you changed your post type slug, you would lose immediate "
+"access to the posts in the post type and need to recover another way. We "
+"have now added support for migrating all posts within the old post type to "
+"the new post type you renamed it to."
 msgstr ""
 
-#: ../custom-post-type-ui.php:326 ../inc/post-types.php:33
-#, fuzzy
-msgid "Add/Edit Post Types"
-msgstr "カスタム投稿タイプを編集"
-
-#: ../custom-post-type-ui.php:327 ../inc/taxonomies.php:33
-#, fuzzy
-msgid "Add/Edit Taxonomies"
-msgstr "ビルトイン分類"
-
-#: ../custom-post-type-ui.php:328 ../inc/support.php:30
-#, fuzzy
-msgid "Help/Support"
-msgstr "サポート"
-
-#: ../custom-post-type-ui.php:329
-msgid "CPT UI Support Forum"
+#: ../custom-post-type-ui.php:352
+msgid "UI Refinement"
 msgstr ""
 
-#: ../custom-post-type-ui.php:345
+#: ../custom-post-type-ui.php:353
+msgid ""
+"After receiving feedback regarding the 1.0.x changes, we have further "
+"simplified the UI to reduce the amount of clicking necessary to manage your "
+"post types and taxonomies."
+msgstr ""
+
+#: ../custom-post-type-ui.php:356
+msgid "Registered Post Type and Taxonomy Listings"
+msgstr ""
+
+#: ../custom-post-type-ui.php:357
+msgid ""
+"We are bringing back the listing of all CPTUI-registered post types and "
+"taxonomies for easier quick view of what you have going."
+msgstr ""
+
+#: ../custom-post-type-ui.php:362
 msgid "Help Support This Plugin!"
 msgstr ""
 
-#: ../custom-post-type-ui.php:349
+#: ../custom-post-type-ui.php:366
 msgid "Professional WordPress<br />Third Edition"
 msgstr ""
 
-#: ../custom-post-type-ui.php:354
+#: ../custom-post-type-ui.php:371
 msgid ""
 "The leading book on WordPress design and development! Brand new third "
 "edition!"
 msgstr ""
 
-#: ../custom-post-type-ui.php:357
+#: ../custom-post-type-ui.php:374
 msgid "Professional WordPress<br />Plugin Development"
 msgstr ""
 
-#: ../custom-post-type-ui.php:362
+#: ../custom-post-type-ui.php:379
 msgid "Highest rated WordPress development book on Amazon!"
 msgstr ""
 
-#: ../custom-post-type-ui.php:365
+#: ../custom-post-type-ui.php:382
 msgid "PayPal Donation"
 msgstr ""
 
-#: ../custom-post-type-ui.php:366
+#: ../custom-post-type-ui.php:389
 msgid "Please donate to the development of Custom Post Type UI:"
 msgstr ""
 
-#: ../custom-post-type-ui.php:407
+#: ../custom-post-type-ui.php:415
 #, php-format
-msgid "%s version %s by %s - %s %s %s &middot; %s &middot; %s"
+msgid "%s version %s by %s"
 msgstr ""
 
-#: ../custom-post-type-ui.php:416
+#: ../custom-post-type-ui.php:426
 msgid "Please Report Bugs"
 msgstr ""
 
-#: ../custom-post-type-ui.php:418
+#: ../custom-post-type-ui.php:429
 msgid "Follow on Twitter:"
 msgstr ""
 
-#: ../custom-post-type-ui.php:478 ../inc/import_export.php:15
-msgid "Import/Export"
-msgstr ""
-
-#: ../custom-post-type-ui.php:480
+#: ../custom-post-type-ui.php:493
 #, fuzzy
 msgid "Manage Taxonomies"
 msgstr "カスタム分類の管理"
 
-#: ../custom-post-type-ui.php:484
+#: ../custom-post-type-ui.php:497
 #, fuzzy
 msgid "Manage Post Types"
 msgstr "カスタム投稿タイプの管理"
 
-#: ../custom-post-type-ui.php:510
+#: ../custom-post-type-ui.php:523
 #, fuzzy
 msgid "Add New Post Type"
 msgstr "利用する投稿タイプ"
 
-#: ../custom-post-type-ui.php:513
+#: ../custom-post-type-ui.php:526
 #, fuzzy
 msgid "Edit Post Types"
 msgstr "カスタム投稿タイプを編集"
 
-#: ../custom-post-type-ui.php:517
+#: ../custom-post-type-ui.php:530
 #, fuzzy
 msgid "Add New Taxonomy"
 msgstr "分類名"
 
-#: ../custom-post-type-ui.php:520
+#: ../custom-post-type-ui.php:533
 #, fuzzy
 msgid "Edit Taxonomies"
 msgstr "ビルトイン分類"
 
-#: ../custom-post-type-ui.php:524 ../inc/listings.php:19
-#: ../inc/listings.php:123 ../inc/listings.php:196
+#: ../custom-post-type-ui.php:537 ../inc/listings.php:16
+#: ../inc/listings.php:149 ../inc/listings.php:224
 #, fuzzy
 msgid "Post Types"
 msgstr "投稿タイプ名"
 
-#: ../custom-post-type-ui.php:525 ../inc/import_export.php:392
-#: ../inc/listings.php:26 ../inc/listings.php:107 ../inc/listings.php:117
+#: ../custom-post-type-ui.php:538 ../inc/import_export.php:380
+#: ../inc/listings.php:34 ../inc/listings.php:122 ../inc/listings.php:132
 #, fuzzy
 msgid "Taxonomies"
 msgstr "ビルトイン分類"
 
-#: ../custom-post-type-ui.php:526
+#: ../custom-post-type-ui.php:539
 msgid "Get Code"
 msgstr ""
 
-#: ../custom-post-type-ui.php:610 ../inc/listings.php:24
-#: ../inc/listings.php:105 ../inc/listings.php:122 ../inc/listings.php:195
-#: ../inc/post-types.php:334 ../inc/taxonomies.php:326
+#: ../custom-post-type-ui.php:622 ../inc/listings.php:32
+#: ../inc/listings.php:120 ../inc/listings.php:148 ../inc/listings.php:223
+#: ../inc/post-types.php:373 ../inc/taxonomies.php:338
 msgid "Settings"
 msgstr ""
 
-#: ../custom-post-type-ui.php:610
+#: ../custom-post-type-ui.php:622
 msgid "Help"
-msgstr ""
-
-#: ../custom-post-type-ui.php:638
-#, php-format
-msgid "%s has been successfully added"
-msgstr ""
-
-#: ../custom-post-type-ui.php:640
-#, php-format
-msgid "%s has failed to be added"
-msgstr ""
-
-#: ../custom-post-type-ui.php:644
-#, php-format
-msgid "%s has been successfully updated"
-msgstr ""
-
-#: ../custom-post-type-ui.php:646
-#, php-format
-msgid "%s has failed to be updated"
 msgstr ""
 
 #: ../custom-post-type-ui.php:650
 #, php-format
-msgid "%s has been successfully deleted"
+msgid "%s has been successfully added"
 msgstr ""
 
 #: ../custom-post-type-ui.php:652
 #, php-format
-msgid "%s has failed to be deleted"
+msgid "%s has failed to be added"
 msgstr ""
 
 #: ../custom-post-type-ui.php:656
 #, php-format
-msgid "%s has been successfully imported"
+msgid "%s has been successfully updated"
 msgstr ""
 
 #: ../custom-post-type-ui.php:658
 #, php-format
+msgid "%s has failed to be updated"
+msgstr ""
+
+#: ../custom-post-type-ui.php:662
+#, php-format
+msgid "%s has been successfully deleted"
+msgstr ""
+
+#: ../custom-post-type-ui.php:664
+#, php-format
+msgid "%s has failed to be deleted"
+msgstr ""
+
+#: ../custom-post-type-ui.php:668
+#, php-format
+msgid "%s has been successfully imported"
+msgstr ""
+
+#: ../custom-post-type-ui.php:670
+#, php-format
 msgid "%s has failed to be imported"
 msgstr ""
 
-#: ../custom-post-type-ui.php:741 ../custom-post-type-ui.php:758
+#: ../custom-post-type-ui.php:753 ../custom-post-type-ui.php:770
 #, fuzzy, php-format
 msgid "Add new %s"
 msgstr "新規追加"
 
-#: ../custom-post-type-ui.php:742 ../custom-post-type-ui.php:756
+#: ../custom-post-type-ui.php:754 ../custom-post-type-ui.php:768
 #, fuzzy, php-format
 msgid "Edit %s"
 msgstr "編集"
 
-#: ../custom-post-type-ui.php:743
+#: ../custom-post-type-ui.php:755
 #, php-format
 msgid "New %s"
 msgstr ""
 
-#: ../custom-post-type-ui.php:744
+#: ../custom-post-type-ui.php:756
 #, fuzzy, php-format
 msgid "View %s"
 msgstr "表示"
 
-#: ../custom-post-type-ui.php:745 ../custom-post-type-ui.php:753
+#: ../custom-post-type-ui.php:757 ../custom-post-type-ui.php:765
 #, fuzzy, php-format
 msgid "All %s"
 msgstr "すべての項目"
 
-#: ../custom-post-type-ui.php:746 ../custom-post-type-ui.php:751
+#: ../custom-post-type-ui.php:758 ../custom-post-type-ui.php:763
 #, fuzzy, php-format
 msgid "Search %s"
 msgstr "項目検索"
 
-#: ../custom-post-type-ui.php:747
+#: ../custom-post-type-ui.php:759
 #, fuzzy, php-format
 msgid "No %s found."
 msgstr "見つかりません"
 
-#: ../custom-post-type-ui.php:748
+#: ../custom-post-type-ui.php:760
 #, fuzzy, php-format
 msgid "No %s found in trash."
 msgstr "ゴミ箱にはありません。"
 
-#: ../custom-post-type-ui.php:752
+#: ../custom-post-type-ui.php:764
 #, fuzzy, php-format
 msgid "Popular %s"
 msgstr "よく利用されている項目"
 
-#: ../custom-post-type-ui.php:754
+#: ../custom-post-type-ui.php:766
 #, fuzzy, php-format
 msgid "Parent %s"
 msgstr "親"
 
-#: ../custom-post-type-ui.php:755
+#: ../custom-post-type-ui.php:767
 #, fuzzy, php-format
 msgid "Parent %s:"
 msgstr "親"
 
-#: ../custom-post-type-ui.php:757
+#: ../custom-post-type-ui.php:769
 #, php-format
 msgid "Update %s"
 msgstr ""
 
-#: ../custom-post-type-ui.php:759
+#: ../custom-post-type-ui.php:771
 #, fuzzy, php-format
 msgid "New %s name"
 msgstr "新規項目名"
 
-#: ../custom-post-type-ui.php:760
+#: ../custom-post-type-ui.php:772
 #, fuzzy, php-format
 msgid "Separate %s with commas"
 msgstr "項目が複数ある場合はコンマで区切ってください。"
 
-#: ../custom-post-type-ui.php:761
+#: ../custom-post-type-ui.php:773
 #, fuzzy, php-format
 msgid "Add or remove %s"
 msgstr "項目の追加もしくは削除"
 
-#: ../custom-post-type-ui.php:762
+#: ../custom-post-type-ui.php:774
 #, fuzzy, php-format
 msgid "Choose from the most used %s"
 msgstr "最もよく使われているものから選択"
 
-#: ../inc/import_export.php:52
+#: ../inc/import_export.php:42
 msgid ""
 "If you are wanting to migrate registered post types or taxonomies from this "
 "site to another, that will also use Custom Post Type UI, use the import and "
@@ -296,502 +329,222 @@ msgid ""
 "the information in the \"Get Code\" tab."
 msgstr ""
 
-#: ../inc/import_export.php:55
+#: ../inc/import_export.php:45
 msgid "NOTE"
 msgstr ""
 
-#: ../inc/import_export.php:56
+#: ../inc/import_export.php:46
 msgid "This will not export the associated posts, just the settings."
 msgstr ""
 
-#: ../inc/import_export.php:63
+#: ../inc/import_export.php:53
 #, fuzzy
 msgid "Import Post Types"
 msgstr "利用する投稿タイプ"
 
-#: ../inc/import_export.php:66 ../inc/import_export.php:91
+#: ../inc/import_export.php:56 ../inc/import_export.php:81
 msgid "Note:"
 msgstr ""
 
-#: ../inc/import_export.php:66 ../inc/import_export.php:91
+#: ../inc/import_export.php:56 ../inc/import_export.php:81
 msgid "Importing will overwrite previous registered settings."
 msgstr ""
 
-#: ../inc/import_export.php:67
+#: ../inc/import_export.php:57
 msgid ""
 "To import post types from a different WordPress site, paste the exported "
 "content from that site and click the \"Import\" button."
 msgstr ""
 
-#: ../inc/import_export.php:72
+#: ../inc/import_export.php:62
 #, fuzzy
 msgid "Export Post Types"
 msgstr "利用する投稿タイプ"
 
-#: ../inc/import_export.php:78
+#: ../inc/import_export.php:68
 msgid "No post types registered yet."
 msgstr ""
 
-#: ../inc/import_export.php:82
+#: ../inc/import_export.php:72
 msgid ""
 "Use the content above to import current post types into a different "
 "WordPress site. You can also use this to simply back up your post type "
 "settings."
 msgstr ""
 
-#: ../inc/import_export.php:88
+#: ../inc/import_export.php:78
 #, fuzzy
 msgid "Import Taxonomies"
 msgstr "ビルトイン分類"
 
-#: ../inc/import_export.php:92
+#: ../inc/import_export.php:82
 msgid ""
 "To import taxonomies from a different WordPress site, paste the exported "
 "content from that site and click the \"Import\" button."
 msgstr ""
 
-#: ../inc/import_export.php:97
+#: ../inc/import_export.php:87
 #, fuzzy
 msgid "Export Taxonomies"
 msgstr "ビルトイン分類"
 
-#: ../inc/import_export.php:103
+#: ../inc/import_export.php:93
 msgid "No taxonomies registered yet."
 msgstr ""
 
-#: ../inc/import_export.php:107
+#: ../inc/import_export.php:97
 msgid ""
 "Use the content above to import current taxonomies into a different "
 "WordPress site. You can also use this to simply back up your taxonomy "
 "settings."
 msgstr ""
 
-#: ../inc/import_export.php:115
+#: ../inc/import_export.php:105
 msgid "Get Post Type and Taxonomy Code"
 msgstr ""
 
-#: ../inc/import_export.php:117
+#: ../inc/import_export.php:107
 #, fuzzy
 msgid "All CPT UI Post Types"
 msgstr "追加されているカスタム投稿タイプ"
 
-#: ../inc/import_export.php:118 ../inc/import_export.php:122
+#: ../inc/import_export.php:108 ../inc/import_export.php:112
 msgid "Copy/paste the code below into your functions.php file."
 msgstr ""
 
-#: ../inc/import_export.php:121
+#: ../inc/import_export.php:111
 #, fuzzy
 msgid "All CPT UI Taxonomies"
 msgstr "ビルトイン分類"
 
-#: ../inc/import_export.php:152
+#: ../inc/import_export.php:142
 msgid "No taxonomies to display at this time"
 msgstr ""
 
-#: ../inc/import_export.php:252
+#: ../inc/import_export.php:241
 msgid "No post types to display at this time"
 msgstr ""
 
-#: ../inc/import_export.php:379
+#: ../inc/import_export.php:367
 #, fuzzy
 msgid "Post types"
 msgstr "投稿タイプ名"
 
-#: ../inc/listings.php:7
-msgid "Registered Types and Taxes"
+#: ../inc/listings.php:10
+msgid "Post Types and Taxonomies registered by Custom Post Type UI."
 msgstr ""
 
-#: ../inc/listings.php:7
-msgid "Registered Types/Taxes"
+#: ../inc/listings.php:18 ../inc/listings.php:134
+#, php-format
+msgid "Total count: %d"
 msgstr ""
 
-#: ../inc/listings.php:23 ../inc/listings.php:104
+#: ../inc/listings.php:31 ../inc/listings.php:119
 #, fuzzy
 msgid "Post Type"
 msgstr "利用する投稿タイプ"
 
-#: ../inc/listings.php:25 ../inc/listings.php:106 ../inc/post-types.php:605
+#: ../inc/listings.php:33 ../inc/listings.php:121 ../inc/post-types.php:644
 msgid "Supports"
 msgstr "サポート"
 
-#: ../inc/listings.php:27 ../inc/listings.php:108 ../inc/listings.php:124
-#: ../inc/listings.php:197 ../inc/post-types.php:172 ../inc/taxonomies.php:184
+#: ../inc/listings.php:35 ../inc/listings.php:123 ../inc/listings.php:150
+#: ../inc/listings.php:225 ../inc/post-types.php:211 ../inc/taxonomies.php:196
 #, fuzzy
 msgid "Labels"
 msgstr "ラベル"
 
-#: ../inc/listings.php:93 ../inc/listings.php:183
+#: ../inc/listings.php:72 ../inc/listings.php:182 ../inc/post-types.php:267
+msgid "Edit"
+msgstr "編集"
+
+#: ../inc/listings.php:75
+msgid "View frontend archive"
+msgstr ""
+
+#: ../inc/listings.php:108 ../inc/listings.php:211
 msgid "No custom labels to display"
 msgstr ""
 
-#: ../inc/listings.php:121 ../inc/listings.php:194
+#: ../inc/listings.php:147 ../inc/listings.php:222
 #, fuzzy
 msgid "Taxonomy"
 msgstr "分類名"
 
-#: ../inc/post-types.php:23 ../inc/taxonomies.php:23
+#: ../inc/post-types.php:30 ../inc/taxonomies.php:25
 msgid "Are you sure you want to delete this?"
 msgstr ""
 
-#: ../inc/post-types.php:85
+#: ../inc/post-types.php:86
 msgid ""
-"Select a post type to edit. DO NOT EDIT the post type slug unless necessary. "
-"Changing that value registers a new post type entry for your install."
+"DO NOT EDIT the post type slug unless necessary. Changing that value "
+"registers a new post type entry for your install."
 msgstr ""
 
-#: ../inc/post-types.php:89 ../inc/taxonomies.php:91
-msgid "Select"
+#: ../inc/post-types.php:87
+msgid ""
+"Use appropriate checkbox above save/delete buttons if you wish to change "
+"slugs and update post types for existing posts."
 msgstr ""
 
-#: ../inc/post-types.php:110
+#: ../inc/post-types.php:88 ../inc/taxonomies.php:84
+msgid "Select: "
+msgstr ""
+
+#: ../inc/post-types.php:120
 #, fuzzy
 msgid "Post Type Slug"
 msgstr "投稿タイプ名"
 
-#: ../inc/post-types.php:111
+#: ../inc/post-types.php:121
 msgid "(e.g. movie)"
 msgstr ""
 
-#: ../inc/post-types.php:123 ../inc/taxonomies.php:120
+#: ../inc/post-types.php:133 ../inc/taxonomies.php:124
 #, fuzzy
 msgid "Plural Label"
 msgstr "単数形のラベル"
 
-#: ../inc/post-types.php:124
+#: ../inc/post-types.php:134
 msgid "(e.g. Movies)"
 msgstr ""
 
-#: ../inc/post-types.php:135 ../inc/taxonomies.php:129
+#: ../inc/post-types.php:145 ../inc/taxonomies.php:133
 msgid "Singular Label"
 msgstr "単数形のラベル"
 
-#: ../inc/post-types.php:136
+#: ../inc/post-types.php:146
 msgid "(e.g. Movie)"
 msgstr ""
 
-#: ../inc/post-types.php:152
+#: ../inc/post-types.php:163
 msgid "Description"
 msgstr "説明"
 
-#: ../inc/post-types.php:160
+#: ../inc/post-types.php:176
+msgid "Migrate posts to newly renamed post type?"
+msgstr ""
+
+#: ../inc/post-types.php:186
 #, fuzzy
-msgid "Edit Post Type"
+msgid "Save Post Type"
 msgstr "利用する投稿タイプ"
 
-#: ../inc/post-types.php:161
+#: ../inc/post-types.php:187
 #, fuzzy
 msgid "Delete Post Type"
 msgstr "利用する投稿タイプ"
 
-#: ../inc/post-types.php:163
+#: ../inc/post-types.php:189
 #, fuzzy
 msgid "Add Post Type"
 msgstr "利用する投稿タイプ"
 
-#: ../inc/post-types.php:169 ../inc/taxonomies.php:181
-msgid "Click headings to reveal available options."
-msgstr ""
-
-#: ../inc/post-types.php:180 ../inc/taxonomies.php:194
-#, fuzzy
-msgid "Menu Name"
-msgstr "名前"
-
-#: ../inc/post-types.php:185
-msgid "(e.g. My Movies)"
-msgstr ""
-
-#: ../inc/post-types.php:192 ../inc/taxonomies.php:203
-msgid "All Items"
-msgstr "すべての項目"
-
-#: ../inc/post-types.php:197
-msgid "(e.g. All Movies)"
-msgstr ""
-
-#: ../inc/post-types.php:204
-msgid "Add New"
-msgstr "新規追加"
-
-#: ../inc/post-types.php:209
-#, fuzzy
-msgid "(e.g. Add New)"
-msgstr "新規追加"
-
-#: ../inc/post-types.php:216 ../inc/taxonomies.php:239
-msgid "Add New Item"
-msgstr "新規項目追加"
-
-#: ../inc/post-types.php:221
-msgid "(e.g. Add New Movie)"
-msgstr ""
-
-#: ../inc/post-types.php:228
-msgid "Edit"
-msgstr "編集"
-
-#: ../inc/post-types.php:233
-msgid "(e.g. Edit)"
-msgstr ""
-
-#: ../inc/post-types.php:240 ../inc/taxonomies.php:212
-msgid "Edit Item"
-msgstr "項目を編集"
-
-#: ../inc/post-types.php:245
-msgid "(e.g. Edit Movie)"
-msgstr ""
-
-#: ../inc/post-types.php:252
-msgid "New Item"
-msgstr "新規項目"
-
-#: ../inc/post-types.php:257
-#, fuzzy
-msgid "(e.g. New Movie)"
-msgstr "新規項目追加"
-
-#: ../inc/post-types.php:264
-msgid "View"
-msgstr "表示"
-
-#: ../inc/post-types.php:269
-msgid "(e.g. View)"
-msgstr ""
-
-#: ../inc/post-types.php:276 ../inc/taxonomies.php:221
-msgid "View Item"
-msgstr "項目を表示"
-
-#: ../inc/post-types.php:281
-msgid "(e.g. View Movie)"
-msgstr ""
-
-#: ../inc/post-types.php:288
-#, fuzzy
-msgid "Search Item"
-msgstr "項目検索"
-
-#: ../inc/post-types.php:293
-msgid "(e.g. Search Movie)"
-msgstr ""
-
-#: ../inc/post-types.php:300
-msgid "Not Found"
-msgstr "見つかりません"
-
-#: ../inc/post-types.php:305
-msgid "(e.g. No Movies found)"
-msgstr ""
-
-#: ../inc/post-types.php:312
-msgid "Not Found in Trash"
-msgstr "ゴミ箱にはありません。"
-
-#: ../inc/post-types.php:317
-#, fuzzy
-msgid "(e.g. No Movies found in Trash)"
-msgstr "ゴミ箱にはありません。"
-
-#: ../inc/post-types.php:324
-msgid "Parent"
-msgstr "親"
-
-#: ../inc/post-types.php:329
-msgid "(e.g. Parent Movie)"
-msgstr ""
-
-#: ../inc/post-types.php:343 ../inc/post-types.php:363
-#: ../inc/post-types.php:389 ../inc/post-types.php:421
-#: ../inc/post-types.php:452 ../inc/post-types.php:472
-#: ../inc/post-types.php:504 ../inc/post-types.php:524
-#: ../inc/post-types.php:567 ../inc/taxonomies.php:332
-#: ../inc/taxonomies.php:349 ../inc/taxonomies.php:366
-#: ../inc/taxonomies.php:391 ../inc/taxonomies.php:417
-#: ../inc/taxonomies.php:434 ../inc/taxonomies.php:451
-#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:105
-#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:147
-#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:190
-#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:232
-msgid "False"
-msgstr ""
-
-#: ../inc/post-types.php:344 ../inc/post-types.php:364
-#: ../inc/post-types.php:390 ../inc/post-types.php:422
-#: ../inc/post-types.php:453 ../inc/post-types.php:473
-#: ../inc/post-types.php:505 ../inc/post-types.php:525
-#: ../inc/post-types.php:568 ../inc/taxonomies.php:333
-#: ../inc/taxonomies.php:350 ../inc/taxonomies.php:367
-#: ../inc/taxonomies.php:392 ../inc/taxonomies.php:418
-#: ../inc/taxonomies.php:435 ../inc/taxonomies.php:452
-#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:106
-#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:148
-#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:191
-#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:233
-msgid "True"
-msgstr ""
-
-#: ../inc/post-types.php:352 ../tests/CPTUI-Admin-UI-Inputs-Test.php:114
-#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:156
-#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:199
-#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:241
-msgid "Public"
-msgstr "一般公開"
-
-#: ../inc/post-types.php:353 ../inc/post-types.php:373
-#: ../inc/post-types.php:482 ../inc/post-types.php:514
-#: ../inc/post-types.php:534 ../inc/post-types.php:576
-#: ../inc/taxonomies.php:359 ../inc/taxonomies.php:376
-#: ../inc/taxonomies.php:401 ../tests/CPTUI-Admin-UI-Inputs-Test.php:115
-#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:157
-#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:200
-#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:242
-msgid "(default: True)"
-msgstr ""
-
-#: ../inc/post-types.php:372 ../inc/taxonomies.php:358
-msgid "Show UI"
-msgstr "UI を表示"
-
-#: ../inc/post-types.php:382
-msgid "Has Archive"
-msgstr ""
-
-#: ../inc/post-types.php:384
-msgid "If left blank, the archive slug will default to the post type slug."
-msgstr ""
-
-#: ../inc/post-types.php:398 ../inc/post-types.php:431
-#: ../inc/post-types.php:462 ../inc/taxonomies.php:342
-#: ../inc/taxonomies.php:461
-msgid "(default: False)"
-msgstr ""
-
-#: ../inc/post-types.php:430
-msgid "Exclude From Search"
-msgstr ""
-
-#: ../inc/post-types.php:443
-msgid "Capability Type"
-msgstr "利用タイプ"
-
-#: ../inc/post-types.php:461 ../inc/taxonomies.php:341
-msgid "Hierarchical"
-msgstr "階層"
-
-#: ../inc/post-types.php:481 ../inc/taxonomies.php:400
-msgid "Rewrite"
-msgstr "リライト"
-
-#: ../inc/post-types.php:494 ../inc/taxonomies.php:411
-msgid "Custom Rewrite Slug"
-msgstr "カスタムリライトスラッグ"
-
-#: ../inc/post-types.php:495
-msgid "(default: post type name)"
-msgstr ""
-
-#: ../inc/post-types.php:513
-msgid "With Front"
-msgstr ""
-
-#: ../inc/post-types.php:533 ../inc/taxonomies.php:375
-msgid "Query Var"
-msgstr "クエリーバージョン"
-
-#: ../inc/post-types.php:543
-msgid "Menu Position"
-msgstr "メニューの位置"
-
-#: ../inc/post-types.php:545
-msgid ""
-"See <a href=\"http://codex.wordpress.org/Function_Reference/"
-"register_post_type#Parameters\">Available options</a> in the \"menu_position"
-"\" section. Range of 5-100"
-msgstr ""
-
-#: ../inc/post-types.php:560
-msgid "Show in Menu"
-msgstr ""
-
-#: ../inc/post-types.php:562
-msgid ""
-"\"Show UI\" must be \"true\". If an existing top level page such as \"tools."
-"php\" is indicated for second input, post type will be sub menu of that."
-msgstr ""
-
-#: ../inc/post-types.php:600
-#, fuzzy
-msgid "Menu Icon"
-msgstr "メニューの位置"
-
-#: ../inc/post-types.php:601
-msgid "(Full URL for icon or Dashicon class)"
-msgstr ""
-
-#: ../inc/post-types.php:615
-msgid "Title"
-msgstr ""
-
-#: ../inc/post-types.php:630
-#, fuzzy
-msgid "Editor"
-msgstr "編集"
-
-#: ../inc/post-types.php:645
-msgid "Excerpt"
-msgstr ""
-
-#: ../inc/post-types.php:660
-msgid "Trackbacks"
-msgstr ""
-
-#: ../inc/post-types.php:675
-#, fuzzy
-msgid "Custom Fields"
-msgstr "カスタムリライトスラッグ"
-
-#: ../inc/post-types.php:690
-msgid "Comments"
-msgstr ""
-
-#: ../inc/post-types.php:705
-msgid "Revisions"
-msgstr ""
-
-#: ../inc/post-types.php:720
-msgid "Featured Image"
-msgstr ""
-
-#: ../inc/post-types.php:735
-msgid "Author"
-msgstr ""
-
-#: ../inc/post-types.php:750
-msgid "Page Attributes"
-msgstr ""
-
-#: ../inc/post-types.php:765
-msgid "Post Formats"
-msgstr ""
-
-#: ../inc/post-types.php:771
-msgid "Use the option below to explicitly set \"supports\" to false."
-msgstr ""
-
-#: ../inc/post-types.php:779
-msgid "None"
-msgstr ""
-
-#: ../inc/post-types.php:787
-msgid "Built-in Taxonomies"
-msgstr "ビルトイン分類"
-
-#: ../inc/post-types.php:825 ../inc/taxonomies.php:470
+#: ../inc/post-types.php:200 ../inc/taxonomies.php:185
 msgid "Starter Notes"
 msgstr ""
 
-#: ../inc/post-types.php:828
+#: ../inc/post-types.php:203
 #, php-format
 msgid ""
 "Post Type names should have %smax 20 characters%s, and only contain "
@@ -800,7 +553,7 @@ msgid ""
 "revision, nav_menu_item."
 msgstr ""
 
-#: ../inc/post-types.php:829
+#: ../inc/post-types.php:204
 #, php-format
 msgid ""
 "If you are unfamiliar with the advanced post type settings, just fill in the "
@@ -809,7 +562,7 @@ msgid ""
 "post type name. Hover over the question mark for more details."
 msgstr ""
 
-#: ../inc/post-types.php:830
+#: ../inc/post-types.php:205
 #, fuzzy, php-format
 msgid ""
 "Deleting custom post types will %sNOT%s delete any content into the database "
@@ -820,29 +573,330 @@ msgstr ""
 "ツは削除されません</strong>。投稿タイプの再作成は簡単で、コンテンツもなくなり"
 "ません。"
 
-#: ../inc/post-types.php:910
+#: ../inc/post-types.php:219 ../inc/taxonomies.php:206
+#, fuzzy
+msgid "Menu Name"
+msgstr "名前"
+
+#: ../inc/post-types.php:224
+msgid "(e.g. My Movies)"
+msgstr ""
+
+#: ../inc/post-types.php:231 ../inc/taxonomies.php:215
+msgid "All Items"
+msgstr "すべての項目"
+
+#: ../inc/post-types.php:236
+msgid "(e.g. All Movies)"
+msgstr ""
+
+#: ../inc/post-types.php:243
+msgid "Add New"
+msgstr "新規追加"
+
+#: ../inc/post-types.php:248
+#, fuzzy
+msgid "(e.g. Add New)"
+msgstr "新規追加"
+
+#: ../inc/post-types.php:255 ../inc/taxonomies.php:251
+msgid "Add New Item"
+msgstr "新規項目追加"
+
+#: ../inc/post-types.php:260
+msgid "(e.g. Add New Movie)"
+msgstr ""
+
+#: ../inc/post-types.php:272
+msgid "(e.g. Edit)"
+msgstr ""
+
+#: ../inc/post-types.php:279 ../inc/taxonomies.php:224
+msgid "Edit Item"
+msgstr "項目を編集"
+
+#: ../inc/post-types.php:284
+msgid "(e.g. Edit Movie)"
+msgstr ""
+
+#: ../inc/post-types.php:291
+msgid "New Item"
+msgstr "新規項目"
+
+#: ../inc/post-types.php:296
+#, fuzzy
+msgid "(e.g. New Movie)"
+msgstr "新規項目追加"
+
+#: ../inc/post-types.php:303
+msgid "View"
+msgstr "表示"
+
+#: ../inc/post-types.php:308
+msgid "(e.g. View)"
+msgstr ""
+
+#: ../inc/post-types.php:315 ../inc/taxonomies.php:233
+msgid "View Item"
+msgstr "項目を表示"
+
+#: ../inc/post-types.php:320
+msgid "(e.g. View Movie)"
+msgstr ""
+
+#: ../inc/post-types.php:327
+#, fuzzy
+msgid "Search Item"
+msgstr "項目検索"
+
+#: ../inc/post-types.php:332
+msgid "(e.g. Search Movie)"
+msgstr ""
+
+#: ../inc/post-types.php:339
+msgid "Not Found"
+msgstr "見つかりません"
+
+#: ../inc/post-types.php:344
+msgid "(e.g. No Movies found)"
+msgstr ""
+
+#: ../inc/post-types.php:351
+msgid "Not Found in Trash"
+msgstr "ゴミ箱にはありません。"
+
+#: ../inc/post-types.php:356
+#, fuzzy
+msgid "(e.g. No Movies found in Trash)"
+msgstr "ゴミ箱にはありません。"
+
+#: ../inc/post-types.php:363
+msgid "Parent"
+msgstr "親"
+
+#: ../inc/post-types.php:368
+msgid "(e.g. Parent Movie)"
+msgstr ""
+
+#: ../inc/post-types.php:382 ../inc/post-types.php:402
+#: ../inc/post-types.php:428 ../inc/post-types.php:460
+#: ../inc/post-types.php:491 ../inc/post-types.php:511
+#: ../inc/post-types.php:543 ../inc/post-types.php:563
+#: ../inc/post-types.php:606 ../inc/taxonomies.php:344
+#: ../inc/taxonomies.php:361 ../inc/taxonomies.php:378
+#: ../inc/taxonomies.php:404 ../inc/taxonomies.php:430
+#: ../inc/taxonomies.php:447 ../inc/taxonomies.php:464
+#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:105
+#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:147
+#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:190
+#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:232
+msgid "False"
+msgstr ""
+
+#: ../inc/post-types.php:383 ../inc/post-types.php:403
+#: ../inc/post-types.php:429 ../inc/post-types.php:461
+#: ../inc/post-types.php:492 ../inc/post-types.php:512
+#: ../inc/post-types.php:544 ../inc/post-types.php:564
+#: ../inc/post-types.php:607 ../inc/taxonomies.php:345
+#: ../inc/taxonomies.php:362 ../inc/taxonomies.php:379
+#: ../inc/taxonomies.php:405 ../inc/taxonomies.php:431
+#: ../inc/taxonomies.php:448 ../inc/taxonomies.php:465
+#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:106
+#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:148
+#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:191
+#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:233
+msgid "True"
+msgstr ""
+
+#: ../inc/post-types.php:391 ../tests/CPTUI-Admin-UI-Inputs-Test.php:114
+#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:156
+#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:199
+#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:241
+msgid "Public"
+msgstr "一般公開"
+
+#: ../inc/post-types.php:392 ../inc/post-types.php:412
+#: ../inc/post-types.php:521 ../inc/post-types.php:553
+#: ../inc/post-types.php:573 ../inc/post-types.php:615
+#: ../inc/taxonomies.php:371 ../inc/taxonomies.php:388
+#: ../inc/taxonomies.php:414 ../tests/CPTUI-Admin-UI-Inputs-Test.php:115
+#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:157
+#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:200
+#: ../tests/CPTUI-Admin-UI-Inputs-Test.php:242
+msgid "(default: True)"
+msgstr ""
+
+#: ../inc/post-types.php:411 ../inc/taxonomies.php:370
+msgid "Show UI"
+msgstr "UI を表示"
+
+#: ../inc/post-types.php:421
+msgid "Has Archive"
+msgstr ""
+
+#: ../inc/post-types.php:423
+msgid "If left blank, the archive slug will default to the post type slug."
+msgstr ""
+
+#: ../inc/post-types.php:437 ../inc/post-types.php:470
+#: ../inc/post-types.php:501 ../inc/taxonomies.php:354
+#: ../inc/taxonomies.php:474
+msgid "(default: False)"
+msgstr ""
+
+#: ../inc/post-types.php:469
+msgid "Exclude From Search"
+msgstr ""
+
+#: ../inc/post-types.php:482
+msgid "Capability Type"
+msgstr "利用タイプ"
+
+#: ../inc/post-types.php:500 ../inc/taxonomies.php:353
+msgid "Hierarchical"
+msgstr "階層"
+
+#: ../inc/post-types.php:520 ../inc/taxonomies.php:413
+msgid "Rewrite"
+msgstr "リライト"
+
+#: ../inc/post-types.php:533 ../inc/taxonomies.php:424
+msgid "Custom Rewrite Slug"
+msgstr "カスタムリライトスラッグ"
+
+#: ../inc/post-types.php:534
+msgid "(default: post type slug)"
+msgstr ""
+
+#: ../inc/post-types.php:552
+msgid "With Front"
+msgstr ""
+
+#: ../inc/post-types.php:572 ../inc/taxonomies.php:387
+msgid "Query Var"
+msgstr "クエリーバージョン"
+
+#: ../inc/post-types.php:582
+msgid "Menu Position"
+msgstr "メニューの位置"
+
+#: ../inc/post-types.php:584
+msgid ""
+"See <a href=\"http://codex.wordpress.org/Function_Reference/"
+"register_post_type#Parameters\">Available options</a> in the \"menu_position"
+"\" section. Range of 5-100"
+msgstr ""
+
+#: ../inc/post-types.php:599
+msgid "Show in Menu"
+msgstr ""
+
+#: ../inc/post-types.php:601
+msgid ""
+"\"Show UI\" must be \"true\". If an existing top level page such as \"tools."
+"php\" is indicated for second input, post type will be sub menu of that."
+msgstr ""
+
+#: ../inc/post-types.php:639
+#, fuzzy
+msgid "Menu Icon"
+msgstr "メニューの位置"
+
+#: ../inc/post-types.php:640
+msgid "(Full URL for icon or Dashicon class)"
+msgstr ""
+
+#: ../inc/post-types.php:654
+msgid "Title"
+msgstr ""
+
+#: ../inc/post-types.php:669
+#, fuzzy
+msgid "Editor"
+msgstr "編集"
+
+#: ../inc/post-types.php:684
+msgid "Excerpt"
+msgstr ""
+
+#: ../inc/post-types.php:699
+msgid "Trackbacks"
+msgstr ""
+
+#: ../inc/post-types.php:714
+#, fuzzy
+msgid "Custom Fields"
+msgstr "カスタムリライトスラッグ"
+
+#: ../inc/post-types.php:729
+msgid "Comments"
+msgstr ""
+
+#: ../inc/post-types.php:744
+msgid "Revisions"
+msgstr ""
+
+#: ../inc/post-types.php:759
+msgid "Featured Image"
+msgstr ""
+
+#: ../inc/post-types.php:774
+msgid "Author"
+msgstr ""
+
+#: ../inc/post-types.php:789
+msgid "Page Attributes"
+msgstr ""
+
+#: ../inc/post-types.php:804
+msgid "Post Formats"
+msgstr ""
+
+#: ../inc/post-types.php:810
+msgid "Use the option below to explicitly set \"supports\" to false."
+msgstr ""
+
+#: ../inc/post-types.php:818
+msgid "None"
+msgstr ""
+
+#: ../inc/post-types.php:825
+#, fuzzy
+msgid "Custom \"Supports\""
+msgstr "サポート"
+
+#: ../inc/post-types.php:826
+msgid ""
+"Use this input to register custom \"supports\" values, separated by commas."
+msgstr ""
+
+#: ../inc/post-types.php:838
+msgid "Built-in Taxonomies"
+msgstr "ビルトイン分類"
+
+#: ../inc/post-types.php:966
 msgid "Please provide a post type to delete"
 msgstr ""
 
-#: ../inc/post-types.php:970
+#: ../inc/post-types.php:1026
 msgid "Please provide a post type name"
 msgstr ""
 
-#: ../inc/post-types.php:988
+#: ../inc/post-types.php:1050
 msgid "Please do not use quotes in post type names or rewrite slugs"
 msgstr ""
 
-#: ../inc/post-types.php:995
+#: ../inc/post-types.php:1057
 #, php-format
 msgid "Please choose a different post type name. %s is already registered."
 msgstr ""
 
-#: ../inc/support.php:51
+#: ../inc/support.php:41
 #, fuzzy
 msgid "Custom Post Type UI Support"
 msgstr "Custom Post Types UI"
 
-#: ../inc/support.php:53
+#: ../inc/support.php:43
 #, php-format
 msgid ""
 "Please note that this plugin will NOT handle display of registered post "
@@ -850,34 +904,34 @@ msgid ""
 "you. If all else fails, visit us on the %s"
 msgstr ""
 
-#: ../inc/support.php:54
+#: ../inc/support.php:44
 #, fuzzy
 msgid "Support Forums"
 msgstr "サポート"
 
-#: ../inc/support.php:60
+#: ../inc/support.php:50
 msgid "General"
 msgstr ""
 
-#: ../inc/support.php:63
+#: ../inc/support.php:53
 msgid ""
 "I changed my custom post type name and now I can not get to my posts. How do "
 "I get them back?"
 msgstr ""
 
-#: ../inc/support.php:64
+#: ../inc/support.php:54
 msgid ""
 "You can either change the custom post type name back to the original name or "
 "try the Post Type Switcher plugin"
 msgstr ""
 
-#: ../inc/support.php:69
+#: ../inc/support.php:59
 msgid ""
 "I changed my custom post type or taxonomy slug and now I have duplicates "
 "shown. How do I remove the duplicate?"
 msgstr ""
 
-#: ../inc/support.php:70
+#: ../inc/support.php:60
 msgid ""
 "Renaming the slug for a post type or taxonomy creates a new entry in our "
 "saved option which gets registered as its own post type or taxonomy. Since "
@@ -885,37 +939,37 @@ msgid ""
 "delete the previous version's entry."
 msgstr ""
 
-#: ../inc/support.php:73
+#: ../inc/support.php:63
 msgid ""
 "I have added post thumbnail and/or post format support to my post type, but "
 "those do not appear when adding a post type post."
 msgstr ""
 
-#: ../inc/support.php:74
+#: ../inc/support.php:64
 msgid ""
 "Make sure your theme has post \"post-thumbnails\" theme support enabled."
 msgstr ""
 
-#: ../inc/support.php:79
+#: ../inc/support.php:69
 msgid "Front-end Display"
 msgstr ""
 
-#: ../inc/support.php:82
+#: ../inc/support.php:72
 msgid "What template files should I edit to alter my post type display?"
 msgstr ""
 
-#: ../inc/support.php:83
+#: ../inc/support.php:73
 #, php-format
 msgid ""
 "Please visit the %sTemplate Hierarchy%s page on the WordPress codex for "
 "details about available templates."
 msgstr ""
 
-#: ../inc/support.php:90
+#: ../inc/support.php:80
 msgid "How do I display my custom post type on my site?"
 msgstr ""
 
-#: ../inc/support.php:91
+#: ../inc/support.php:81
 #, php-format
 msgid ""
 "You will need to utilize the %sWP_Query%s class to handle display in custom "
@@ -923,13 +977,13 @@ msgid ""
 "should be something like \"http://www.mysite.com/post-type-slug\""
 msgstr ""
 
-#: ../inc/support.php:97
+#: ../inc/support.php:87
 msgid ""
 "I have added categories and tags to my custom post type, but they do not "
 "appear in the archives."
 msgstr ""
 
-#: ../inc/support.php:98
+#: ../inc/support.php:88
 #, php-format
 msgid ""
 "You will need to add your newly created post type to the types that the "
@@ -937,232 +991,109 @@ msgid ""
 "that at %s"
 msgstr ""
 
-#: ../inc/support.php:107
+#: ../inc/support.php:97
 msgid "Advanced"
 msgstr ""
 
-#: ../inc/support.php:110
+#: ../inc/support.php:100
 msgid "How do I add custom metaboxes to my post type?"
 msgstr ""
 
-#: ../inc/support.php:112
+#: ../inc/support.php:102
 #, php-format
 msgid ""
 "We recommend checking out %s, the latest iteration of \"Custom Metaboxes and "
 "Fields for WordPress\". Both are maintained by WebDevStudios."
 msgstr ""
 
-#: ../inc/support.php:118
+#: ../inc/support.php:108
 msgid ""
 "How do I add a newly registered taxonomy to a post type that already exists?"
 msgstr ""
 
-#: ../inc/support.php:120
+#: ../inc/support.php:110
 #, php-format
 msgid "Check out the %s function for documentation and usage examples."
 msgstr ""
 
-#: ../inc/support.php:126
+#: ../inc/support.php:116
 #, fuzzy
 msgid "Post relationships?"
 msgstr "利用する投稿タイプ"
 
-#: ../inc/support.php:127
+#: ../inc/support.php:117
 #, php-format
 msgid ""
 "%s has an excellent %spost%s introducing users to the %sPosts 2 Posts%s "
 "plugin that should be a good start."
 msgstr ""
 
-#: ../inc/support.php:136
+#: ../inc/support.php:126
+msgid "Is there any function reference list?"
+msgstr ""
+
+#: ../inc/support.php:127
+#, php-format
+msgid ""
+"%s has compiled a nice list of functions used by our plugin. Note not all "
+"will be useful as they are attached to hooks."
+msgstr ""
+
+#: ../inc/support.php:131
 msgid ""
 "How do I filter the \"enter title here\" text in the post editor screen?"
 msgstr ""
 
-#: ../inc/support.php:137
+#: ../inc/support.php:132
 msgid ""
 "Change text inside the post/page editor title field. Should be able to adapt "
 "as necessary."
 msgstr ""
 
-#: ../inc/taxonomies.php:87
+#: ../inc/taxonomies.php:82
 msgid ""
-"Select a taxonomy to edit. DO NOT EDIT the taxonomy slug unless necessary. "
-"Changing that value registers a new taxonomy entry for your install."
+"DO NOT EDIT the taxonomy slug unless necessary. Changing that value "
+"registers a new taxonomy entry for your install."
 msgstr ""
 
-#: ../inc/taxonomies.php:109
+#: ../inc/taxonomies.php:113
 #, fuzzy
 msgid "Taxonomy Slug"
 msgstr "分類名"
 
-#: ../inc/taxonomies.php:110
-msgid "(e.g. actors)"
-msgstr ""
+#: ../inc/taxonomies.php:114
+#, fuzzy
+msgid "(e.g. actor)"
+msgstr "項目の追加もしくは削除"
 
-#: ../inc/taxonomies.php:119 ../inc/taxonomies.php:193
+#: ../inc/taxonomies.php:123 ../inc/taxonomies.php:205
 msgid "(e.g. Actors)"
 msgstr ""
 
-#: ../inc/taxonomies.php:128
+#: ../inc/taxonomies.php:132
 msgid "(e.g. Actor)"
 msgstr ""
 
-#: ../inc/taxonomies.php:133
+#: ../inc/taxonomies.php:137
 msgid "Attach to Post Type"
 msgstr "利用する投稿タイプ"
 
-#: ../inc/taxonomies.php:172
+#: ../inc/taxonomies.php:176
 #, fuzzy
-msgid "Edit Taxonomy"
-msgstr "カスタム分類の編集"
+msgid "Save Taxonomy"
+msgstr "分類名"
 
-#: ../inc/taxonomies.php:173
+#: ../inc/taxonomies.php:177
 #, fuzzy
 msgid "Delete Taxonomy"
 msgstr "カスタム分類作成"
 
-#: ../inc/taxonomies.php:175
+#: ../inc/taxonomies.php:179
 #, fuzzy
 msgid "Add Taxonomy"
 msgstr "分類名"
 
-#: ../inc/taxonomies.php:202
-msgid "(e.g. All Actors)"
-msgstr ""
-
-#: ../inc/taxonomies.php:211
-msgid "(e.g. Edit Actor)"
-msgstr ""
-
-#: ../inc/taxonomies.php:220
-msgid "(e.g. View Actor)"
-msgstr ""
-
-#: ../inc/taxonomies.php:229
-msgid "(e.g. Update Actor Name)"
-msgstr ""
-
-#: ../inc/taxonomies.php:230
-#, fuzzy
-msgid "Update Item Name"
-msgstr "項目をアップデート"
-
-#: ../inc/taxonomies.php:238
-msgid "(e.g. Add New Actor)"
-msgstr ""
-
-#: ../inc/taxonomies.php:247
-msgid "(e.g. New Actor Name)"
-msgstr ""
-
-#: ../inc/taxonomies.php:248
-msgid "New Item Name"
-msgstr "新規項目名"
-
-#: ../inc/taxonomies.php:256
-msgid "(e.g. Parent Actor)"
-msgstr ""
-
-#: ../inc/taxonomies.php:257
-msgid "Parent Item"
-msgstr "親項目"
-
-#: ../inc/taxonomies.php:265
-msgid "(e.g. Parent Actor:)"
-msgstr ""
-
-#: ../inc/taxonomies.php:266
-msgid "Parent Item Colon"
-msgstr "親項目コロン"
-
-#: ../inc/taxonomies.php:274
-msgid "(e.g. Search Actors)"
-msgstr ""
-
-#: ../inc/taxonomies.php:275
-msgid "Search Items"
-msgstr "項目検索"
-
-#: ../inc/taxonomies.php:283
-msgid "(e.g. Popular Actors)"
-msgstr ""
-
-#: ../inc/taxonomies.php:284
-msgid "Popular Items"
-msgstr "よく利用されている項目"
-
-#: ../inc/taxonomies.php:292
-#, fuzzy
-msgid "(e.g. Separate actors with commas)"
-msgstr "項目が複数ある場合はコンマで区切ってください。"
-
-#: ../inc/taxonomies.php:293
-msgid "Separate Items with Commas"
-msgstr "項目が複数ある場合はコンマで区切ってください。"
-
-#: ../inc/taxonomies.php:301
-#, fuzzy
-msgid "(e.g. Add or remove actors)"
-msgstr "項目の追加もしくは削除"
-
-#: ../inc/taxonomies.php:302
-msgid "Add or Remove Items"
-msgstr "項目の追加もしくは削除"
-
-#: ../inc/taxonomies.php:310
-#, fuzzy
-msgid "(e.g. Choose from the most used actors)"
-msgstr "最もよく使われているものから選択"
-
-#: ../inc/taxonomies.php:311
-msgid "Choose From Most Used"
-msgstr "最もよく使われているものから選択"
-
-#: ../inc/taxonomies.php:319
-msgid "(e.g. No actors found)"
-msgstr ""
-
-#: ../inc/taxonomies.php:320
-#, fuzzy
-msgid "Not found"
-msgstr "見つかりません"
-
-#: ../inc/taxonomies.php:384
-msgid "(default: none). Query Var needs to be true to use."
-msgstr ""
-
-#: ../inc/taxonomies.php:385
-msgid "Custom Query Var String"
-msgstr ""
-
-#: ../inc/taxonomies.php:410
-#, fuzzy
-msgid "(default: taxonomy name)"
-msgstr "新規項目名"
-
-#: ../inc/taxonomies.php:426
-msgid "Rewrite With Front"
-msgstr ""
-
-#: ../inc/taxonomies.php:427
-msgid "(default: true)"
-msgstr ""
-
-#: ../inc/taxonomies.php:443
-#, fuzzy
-msgid "Rewrite Hierarchical"
-msgstr "階層"
-
-#: ../inc/taxonomies.php:444
-msgid "(default: false)"
-msgstr ""
-
-#: ../inc/taxonomies.php:460
-msgid "Show Admin Column"
-msgstr ""
-
-#: ../inc/taxonomies.php:473
+#: ../inc/taxonomies.php:188
 #, php-format
 msgid ""
 "Taxonomy names should have %smax 32 characters%s, and only contain "
@@ -1170,7 +1101,7 @@ msgid ""
 "letters that do not have accents."
 msgstr ""
 
-#: ../inc/taxonomies.php:474
+#: ../inc/taxonomies.php:189
 #, php-format
 msgid ""
 "If you are unfamiliar with the advanced taxonomy settings, just fill in the "
@@ -1180,7 +1111,7 @@ msgid ""
 "marks for more details."
 msgstr ""
 
-#: ../inc/taxonomies.php:475
+#: ../inc/taxonomies.php:190
 #, fuzzy, php-format
 msgid ""
 "Deleting custom taxonomies do %sNOT%s delete terms added to those "
@@ -1191,22 +1122,165 @@ msgstr ""
 "カスタム分類を削除してもその分類に追加されている<strong>コンテンツは削除され"
 "ません</strong>。カスタム分類の再作成は簡単で、コンテンツもなくなりません。"
 
-#: ../inc/taxonomies.php:564
+#: ../inc/taxonomies.php:214
+msgid "(e.g. All Actors)"
+msgstr ""
+
+#: ../inc/taxonomies.php:223
+msgid "(e.g. Edit Actor)"
+msgstr ""
+
+#: ../inc/taxonomies.php:232
+msgid "(e.g. View Actor)"
+msgstr ""
+
+#: ../inc/taxonomies.php:241
+msgid "(e.g. Update Actor Name)"
+msgstr ""
+
+#: ../inc/taxonomies.php:242
+#, fuzzy
+msgid "Update Item Name"
+msgstr "項目をアップデート"
+
+#: ../inc/taxonomies.php:250
+msgid "(e.g. Add New Actor)"
+msgstr ""
+
+#: ../inc/taxonomies.php:259
+msgid "(e.g. New Actor Name)"
+msgstr ""
+
+#: ../inc/taxonomies.php:260
+msgid "New Item Name"
+msgstr "新規項目名"
+
+#: ../inc/taxonomies.php:268
+msgid "(e.g. Parent Actor)"
+msgstr ""
+
+#: ../inc/taxonomies.php:269
+msgid "Parent Item"
+msgstr "親項目"
+
+#: ../inc/taxonomies.php:277
+msgid "(e.g. Parent Actor:)"
+msgstr ""
+
+#: ../inc/taxonomies.php:278
+msgid "Parent Item Colon"
+msgstr "親項目コロン"
+
+#: ../inc/taxonomies.php:286
+msgid "(e.g. Search Actors)"
+msgstr ""
+
+#: ../inc/taxonomies.php:287
+msgid "Search Items"
+msgstr "項目検索"
+
+#: ../inc/taxonomies.php:295
+msgid "(e.g. Popular Actors)"
+msgstr ""
+
+#: ../inc/taxonomies.php:296
+msgid "Popular Items"
+msgstr "よく利用されている項目"
+
+#: ../inc/taxonomies.php:304
+#, fuzzy
+msgid "(e.g. Separate actors with commas)"
+msgstr "項目が複数ある場合はコンマで区切ってください。"
+
+#: ../inc/taxonomies.php:305
+msgid "Separate Items with Commas"
+msgstr "項目が複数ある場合はコンマで区切ってください。"
+
+#: ../inc/taxonomies.php:313
+#, fuzzy
+msgid "(e.g. Add or remove actors)"
+msgstr "項目の追加もしくは削除"
+
+#: ../inc/taxonomies.php:314
+msgid "Add or Remove Items"
+msgstr "項目の追加もしくは削除"
+
+#: ../inc/taxonomies.php:322
+#, fuzzy
+msgid "(e.g. Choose from the most used actors)"
+msgstr "最もよく使われているものから選択"
+
+#: ../inc/taxonomies.php:323
+msgid "Choose From Most Used"
+msgstr "最もよく使われているものから選択"
+
+#: ../inc/taxonomies.php:331
+msgid "(e.g. No actors found)"
+msgstr ""
+
+#: ../inc/taxonomies.php:332
+#, fuzzy
+msgid "Not found"
+msgstr "見つかりません"
+
+#: ../inc/taxonomies.php:397
+msgid "(default: none). Query Var needs to be true to use."
+msgstr ""
+
+#: ../inc/taxonomies.php:398
+msgid "Custom Query Var String"
+msgstr ""
+
+#: ../inc/taxonomies.php:423
+#, fuzzy
+msgid "(default: taxonomy name)"
+msgstr "新規項目名"
+
+#: ../inc/taxonomies.php:439
+msgid "Rewrite With Front"
+msgstr ""
+
+#: ../inc/taxonomies.php:440
+msgid "(default: true)"
+msgstr ""
+
+#: ../inc/taxonomies.php:456
+#, fuzzy
+msgid "Rewrite Hierarchical"
+msgstr "階層"
+
+#: ../inc/taxonomies.php:457
+msgid "(default: false)"
+msgstr ""
+
+#: ../inc/taxonomies.php:473
+msgid "Show Admin Column"
+msgstr ""
+
+#: ../inc/taxonomies.php:573
 msgid "Please provide a taxonomy to delete"
 msgstr ""
 
-#: ../inc/taxonomies.php:615
+#: ../inc/taxonomies.php:624
 msgid "Please provide a taxonomy name"
 msgstr ""
 
-#: ../inc/taxonomies.php:631
+#: ../inc/taxonomies.php:640
 msgid "Please do not use quotes in taxonomy names or rewrite slugs"
 msgstr ""
 
-#: ../inc/taxonomies.php:637
+#: ../inc/taxonomies.php:646
 #, php-format
 msgid "Please choose a different taxonomy name. %s is already used."
 msgstr ""
+
+#, fuzzy
+#~ msgid "Edit Post Type"
+#~ msgstr "利用する投稿タイプ"
+
+#, fuzzy
+#~ msgid "Edit Taxonomy"
+#~ msgstr "カスタム分類の編集"
 
 #, fuzzy
 #~ msgid "Show In Menu"
