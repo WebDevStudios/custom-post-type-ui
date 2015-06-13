@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Custom Post Type UI\n"
-"POT-Creation-Date: 2015-06-11 17:09+0100\n"
+"POT-Creation-Date: 2015-06-12 21:13-0600\n"
 "PO-Revision-Date: 2015-05-19 18:37-0600\n"
 "Last-Translator: Michael Beckwith <michael.d.beckwith@gmail.com>\n"
 "Language-Team: Michael Beckwith <michael.d.beckwith@gmail.com>\n"

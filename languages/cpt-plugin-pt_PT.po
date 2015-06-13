@@ -1,16 +1,18 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Custom Post Type UI\n"
-"POT-Creation-Date: 2015-05-20 13:19-0000\n"
-"PO-Revision-Date: 2015-05-29 14:43-0000\n"
-"Last-Translator: Pedro Mendonça <ped.gaspar@gmail.com>\n"
+"POT-Creation-Date: 2015-06-12 21:16-0600\n"
+"PO-Revision-Date: 2015-06-12 21:16-0600\n"
+"Last-Translator: Michael Beckwith <michael.d.beckwith@gmail.com>\n"
 "Language-Team: WebDevStudios <contact@webdevstudios.com>\n"
 "Language: pt_PT\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.8.1\n"
-"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;_ex:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
+"_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;_ex:1,2c;"
+"esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
 "X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -61,32 +63,58 @@ msgid "Custom Post Type UI"
 msgstr "Custom Post Type UI"
 
 #: custom-post-type-ui.php:342
-msgid "Thank you for choosing Custom Post Type UI. We hope that your experience with our plugin provides efficiency and speed in creating post types and taxonomies, to better organize your content, without having to touch code."
-msgstr "Obrigado por escolher o Custom Post Type UI. Esperamos que a sua experiência com o nosso plugin proporcione eficiência e rapidez na criação de tipos de artigo e de taxonomias, para melhor organizar os seus conteúdos sem ter que mexer em código."
+msgid ""
+"Thank you for choosing Custom Post Type UI. We hope that your experience "
+"with our plugin provides efficiency and speed in creating post types and "
+"taxonomies, to better organize your content, without having to touch code."
+msgstr ""
+"Obrigado por escolher o Custom Post Type UI. Esperamos que a sua experiência "
+"com o nosso plugin proporcione eficiência e rapidez na criação de tipos de "
+"artigo e de taxonomias, para melhor organizar os seus conteúdos sem ter que "
+"mexer em código."
 
 #: custom-post-type-ui.php:348
 msgid "Post type migration"
 msgstr "Migração de tipo de artigo"
 
 #: custom-post-type-ui.php:349
-msgid "In the past, if you changed your post type slug, you would lose immediate access to the posts in the post type and need to recover another way. We have now added support for migrating all posts within the old post type to the new post type you renamed it to."
-msgstr "No passado, se alterasse o URL do seu tipo de artigo, perderia de imediato o acesso aos artigos desse tipo e precisaria de os recuperar de outro modo. Actualmente adicionámos suporte para migrar todos os artigos do tipo de artigo anterior para o recém nomeado tipo de artigo."
+msgid ""
+"In the past, if you changed your post type slug, you would lose immediate "
+"access to the posts in the post type and need to recover another way. We "
+"have now added support for migrating all posts within the old post type to "
+"the new post type you renamed it to."
+msgstr ""
+"No passado, se alterasse o URL do seu tipo de artigo, perderia de imediato o "
+"acesso aos artigos desse tipo e precisaria de os recuperar de outro modo. "
+"Actualmente adicionámos suporte para migrar todos os artigos do tipo de "
+"artigo anterior para o recém nomeado tipo de artigo."
 
 #: custom-post-type-ui.php:352
 msgid "UI Refinement"
 msgstr "Refinamento do interface do utilizador"
 
 #: custom-post-type-ui.php:353
-msgid "After receiving feedback regarding the 1.0.x changes, we have further simplified the UI to reduce the amount of clicking necessary to manage your post types and taxonomies."
-msgstr "Depois de recebermos retorno sobre alterações nas versões 1.0.x, simplificámos o interface do utilizador para reduzir a quantidade de cliques necessários para gerir os tipos de artigos e taxonomias."
+msgid ""
+"After receiving feedback regarding the 1.0.x changes, we have further "
+"simplified the UI to reduce the amount of clicking necessary to manage your "
+"post types and taxonomies."
+msgstr ""
+"Depois de recebermos retorno sobre alterações nas versões 1.0.x, "
+"simplificámos o interface do utilizador para reduzir a quantidade de cliques "
+"necessários para gerir os tipos de artigos e taxonomias."
 
 #: custom-post-type-ui.php:356
 msgid "Registered Post Type and Taxonomy Listings"
 msgstr "Listas de tipos de artigos e taxonomias registados"
 
 #: custom-post-type-ui.php:357
-msgid "We are bringing back the listing of all CPTUI-registered post types and taxonomies for easier quick view of what you have going."
-msgstr "Trouxémos de volta as listas de todos os tipos de artigos e taxonomias registados pelo CPTUI para uma visualização facilitada do que tem em funcionamento."
+msgid ""
+"We are bringing back the listing of all CPTUI-registered post types and "
+"taxonomies for easier quick view of what you have going."
+msgstr ""
+"Trouxémos de volta as listas de todos os tipos de artigos e taxonomias "
+"registados pelo CPTUI para uma visualização facilitada do que tem em "
+"funcionamento."
 
 #: custom-post-type-ui.php:362
 msgid "Help Support This Plugin!"
@@ -97,8 +125,11 @@ msgid "Professional WordPress<br />Third Edition"
 msgstr "Professional WordPress<br />Terceira edição"
 
 #: custom-post-type-ui.php:371
-msgid "The leading book on WordPress design and development! Brand new third edition!"
-msgstr "O principal livro sobre design e desenvolvimento em WordPress! Nova edição!"
+msgid ""
+"The leading book on WordPress design and development! Brand new third "
+"edition!"
+msgstr ""
+"O principal livro sobre design e desenvolvimento em WordPress! Nova edição!"
 
 #: custom-post-type-ui.php:374
 msgid "Professional WordPress<br />Plugin Development"
@@ -118,7 +149,8 @@ msgstr "Paypal - o modo mais fácil e seguro de fazer pagamentos online!"
 
 #: custom-post-type-ui.php:389
 msgid "Please donate to the development of Custom Post Type UI:"
-msgstr "Por favor faça um donativo para o desenvolvimento do Custom Port Type UI:"
+msgstr ""
+"Por favor faça um donativo para o desenvolvimento do Custom Port Type UI:"
 
 #: custom-post-type-ui.php:415
 #, php-format
@@ -302,8 +334,16 @@ msgid "Choose from the most used %s"
 msgstr "Escolher entre os(as) %s mais utilizados(as)"
 
 #: inc/import_export.php:42
-msgid "If you are wanting to migrate registered post types or taxonomies from this site to another, that will also use Custom Post Type UI, use the import and export functionality. If you are moving away from Custom Post Type UI, use the information in the \"Get Code\" tab."
-msgstr "Se pretende migrar tipos de artigos ou taxonomias registados para outro site que também tem o Custom Post Type UI, utilize as funcionalidades de importar e exportar. Se está a abandonar o Custom Post Type UI, utilize a informação do separador \"Obter código\"."
+msgid ""
+"If you are wanting to migrate registered post types or taxonomies from this "
+"site to another, that will also use Custom Post Type UI, use the import and "
+"export functionality. If you are moving away from Custom Post Type UI, use "
+"the information in the \"Get Code\" tab."
+msgstr ""
+"Se pretende migrar tipos de artigos ou taxonomias registados para outro site "
+"que também tem o Custom Post Type UI, utilize as funcionalidades de importar "
+"e exportar. Se está a abandonar o Custom Post Type UI, utilize a informação "
+"do separador \"Obter código\"."
 
 #: inc/import_export.php:45
 msgid "NOTE"
@@ -330,8 +370,12 @@ msgid "Importing will overwrite previous registered settings."
 msgstr "Ao importar irá sobrepor as definições registadas anteriormente."
 
 #: inc/import_export.php:57
-msgid "To import post types from a different WordPress site, paste the exported content from that site and click the \"Import\" button."
-msgstr "Para importar tipos de artigo de outro site WordPress, cole o conteúdo exportado desse site e clique no botão \"Importar\"."
+msgid ""
+"To import post types from a different WordPress site, paste the exported "
+"content from that site and click the \"Import\" button."
+msgstr ""
+"Para importar tipos de artigo de outro site WordPress, cole o conteúdo "
+"exportado desse site e clique no botão \"Importar\"."
 
 #: inc/import_export.php:58 inc/import_export.php:83
 msgid "Import"
@@ -346,20 +390,34 @@ msgid "No post types registered yet."
 msgstr "Nenhum tipo de artigo registado ainda."
 
 #: inc/import_export.php:71 inc/import_export.php:96
-msgid "To copy the system info, click below then press Ctrl + C (PC) or Cmd + C (Mac)."
-msgstr "Para copiar a informação do sistema, clique abaixo e prima Ctrl + C (PC) ou Cmd + C (Mac)."
+msgid ""
+"To copy the system info, click below then press Ctrl + C (PC) or Cmd + C "
+"(Mac)."
+msgstr ""
+"Para copiar a informação do sistema, clique abaixo e prima Ctrl + C (PC) ou "
+"Cmd + C (Mac)."
 
 #: inc/import_export.php:72
-msgid "Use the content above to import current post types into a different WordPress site. You can also use this to simply back up your post type settings."
-msgstr "Utilize o conteúdo acima para importar os actuais tipos de artigo personalizados para outro site WordPress. Também pode utilizar isto simplesmente para fazer um backup das definições dos seus tipos de artigo."
+msgid ""
+"Use the content above to import current post types into a different "
+"WordPress site. You can also use this to simply back up your post type "
+"settings."
+msgstr ""
+"Utilize o conteúdo acima para importar os actuais tipos de artigo "
+"personalizados para outro site WordPress. Também pode utilizar isto "
+"simplesmente para fazer um backup das definições dos seus tipos de artigo."
 
 #: inc/import_export.php:78
 msgid "Import Taxonomies"
 msgstr "Importar taxonomias"
 
 #: inc/import_export.php:82
-msgid "To import taxonomies from a different WordPress site, paste the exported content from that site and click the \"Import\" button."
-msgstr "Para importar taxonomias de outro site WordPress, cole o conteúdo exportado desse site e clique no botão \"Importar\"."
+msgid ""
+"To import taxonomies from a different WordPress site, paste the exported "
+"content from that site and click the \"Import\" button."
+msgstr ""
+"Para importar taxonomias de outro site WordPress, cole o conteúdo exportado "
+"desse site e clique no botão \"Importar\"."
 
 #: inc/import_export.php:87
 msgid "Export Taxonomies"
@@ -370,8 +428,14 @@ msgid "No taxonomies registered yet."
 msgstr "Nenhuma taxonomia registada ainda."
 
 #: inc/import_export.php:97
-msgid "Use the content above to import current taxonomies into a different WordPress site. You can also use this to simply back up your taxonomy settings."
-msgstr "Utilize o conteúdo acima para importar as actuais taxonomias para outro site WordPress. Também pode utilizar isto simplesmente para fazer um backup das definições das suas taxonomias."
+msgid ""
+"Use the content above to import current taxonomies into a different "
+"WordPress site. You can also use this to simply back up your taxonomy "
+"settings."
+msgstr ""
+"Utilize o conteúdo acima para importar as actuais taxonomias para outro site "
+"WordPress. Também pode utilizar isto simplesmente para fazer um backup das "
+"definições das suas taxonomias."
 
 #: inc/import_export.php:105
 msgid "Get Post Type and Taxonomy Code"
@@ -444,12 +508,20 @@ msgid "Are you sure you want to delete this?"
 msgstr "Tem a certeza que quer apagar isto?"
 
 #: inc/post-types.php:86
-msgid "DO NOT EDIT the post type slug unless necessary. Changing that value registers a new post type entry for your install."
-msgstr "NÃO EDITE o URL do tipo de artigo a não ser que estritamente necessário. Alterar este valor regista um novo tipo de artigo na sua instalação."
+msgid ""
+"DO NOT EDIT the post type slug unless necessary. Changing that value "
+"registers a new post type entry for your install."
+msgstr ""
+"NÃO EDITE o URL do tipo de artigo a não ser que estritamente necessário. "
+"Alterar este valor regista um novo tipo de artigo na sua instalação."
 
 #: inc/post-types.php:87
-msgid "Use appropriate checkbox above save/delete buttons if you wish to change slugs and update post types for existing posts."
-msgstr "Utilize a caixa de selecção apropriada acima dos botões guardar/apagar se quiser alterar o URL e actualizar os tipos de artigo existentes."
+msgid ""
+"Use appropriate checkbox above save/delete buttons if you wish to change "
+"slugs and update post types for existing posts."
+msgstr ""
+"Utilize a caixa de selecção apropriada acima dos botões guardar/apagar se "
+"quiser alterar o URL e actualizar os tipos de artigo existentes."
 
 #: inc/post-types.php:88 inc/taxonomies.php:84
 msgid "Select: "
@@ -464,8 +536,12 @@ msgid "(e.g. movie)"
 msgstr "(p. ex. filme)"
 
 #: inc/post-types.php:122
-msgid "The post type name. Used to retrieve custom post type content. Should be short and unique"
-msgstr "O nome do tipo de artigo. Utilizado para obter o conteúdo do tipo de artigo personalizado. Deverá ser curto e único."
+msgid ""
+"The post type name. Used to retrieve custom post type content. Should be "
+"short and unique"
+msgstr ""
+"O nome do tipo de artigo. Utilizado para obter o conteúdo do tipo de artigo "
+"personalizado. Deverá ser curto e único."
 
 #: inc/post-types.php:133 inc/taxonomies.php:124
 msgid "Plural Label"
@@ -481,7 +557,9 @@ msgstr "(p. ex. Filmes)"
 #: inc/post-types.php:328 inc/post-types.php:340 inc/post-types.php:352
 #: inc/post-types.php:364
 msgid "Post type label. Used in the admin menu for displaying post types."
-msgstr "Legenda do tipo de artigo. Utilizada no menu de administração para mostrar tipos de artigo."
+msgstr ""
+"Legenda do tipo de artigo. Utilizada no menu de administração para mostrar "
+"tipos de artigo."
 
 #: inc/post-types.php:145 inc/taxonomies.php:133
 msgid "Singular Label"
@@ -492,16 +570,24 @@ msgid "(e.g. Movie)"
 msgstr "(p. ex. Filme)"
 
 #: inc/post-types.php:147
-msgid "Custom Post Type Singular label. Used in WordPress when a singular label is needed."
-msgstr "Legenda no singular do tipo de artigo personalizado. Utilizada no WordPress quando é necessária uma legenda no singular."
+msgid ""
+"Custom Post Type Singular label. Used in WordPress when a singular label is "
+"needed."
+msgstr ""
+"Legenda no singular do tipo de artigo personalizado. Utilizada no WordPress "
+"quando é necessária uma legenda no singular."
 
 #: inc/post-types.php:163
 msgid "Description"
 msgstr "Descrição"
 
 #: inc/post-types.php:164
-msgid "Custom Post Type Description. Describe what your custom post type is used for."
-msgstr "Descrição do tipo de artigo personalizado. Descreva para que serve o seu tipo de artigo personalizado."
+msgid ""
+"Custom Post Type Description. Describe what your custom post type is used "
+"for."
+msgstr ""
+"Descrição do tipo de artigo personalizado. Descreva para que serve o seu "
+"tipo de artigo personalizado."
 
 #: inc/post-types.php:176
 msgid "Migrate posts to newly renamed post type?"
@@ -529,18 +615,40 @@ msgstr "Notas para principiantes"
 
 #: inc/post-types.php:203
 #, php-format
-msgid "Post Type names should have %smax 20 characters%s, and only contain alphanumeric, lowercase characters, underscores in place of spaces and letters that do not have accents. Reserved names: post, page, attachment, revision, nav_menu_item."
-msgstr "Os nomes dos tipos de artigo deverão ter %sno máximo 20 caracteres%s, alfanuméricos, minúsculos, undserscores em vez de espaços e letras sem acentos. Nomes reservados: post, page, attachment, revision, nav_menu_item."
+msgid ""
+"Post Type names should have %smax 20 characters%s, and only contain "
+"alphanumeric, lowercase characters, underscores in place of spaces and "
+"letters that do not have accents. Reserved names: post, page, attachment, "
+"revision, nav_menu_item."
+msgstr ""
+"Os nomes dos tipos de artigo deverão ter %sno máximo 20 caracteres%s, "
+"alfanuméricos, minúsculos, undserscores em vez de espaços e letras sem "
+"acentos. Nomes reservados: post, page, attachment, revision, nav_menu_item."
 
 #: inc/post-types.php:204
 #, php-format
-msgid "If you are unfamiliar with the advanced post type settings, just fill in the %sPost Type Name%s and %sLabel%s fields. Remaining settings will use default values. Labels, if left blank, will be automatically created based on the post type name. Hover over the question mark for more details."
-msgstr "Se não estiver familiarizado com as definições avançadas dos artigos, preencha apenas os campos %sNome do tipo de artigo%s e %sLegenda%s. Para as restantes definições serão atribuídas as opções padrão. Se deixadas em branco, as legendas serão automaticamente criadas com base no nome do tipo de artigo. Ver o ponto de interrogação para mais detalhes."
+msgid ""
+"If you are unfamiliar with the advanced post type settings, just fill in the "
+"%sPost Type Name%s and %sLabel%s fields. Remaining settings will use default "
+"values. Labels, if left blank, will be automatically created based on the "
+"post type name. Hover over the question mark for more details."
+msgstr ""
+"Se não estiver familiarizado com as definições avançadas dos artigos, "
+"preencha apenas os campos %sNome do tipo de artigo%s e %sLegenda%s. Para as "
+"restantes definições serão atribuídas as opções padrão. Se deixadas em "
+"branco, as legendas serão automaticamente criadas com base no nome do tipo "
+"de artigo. Ver o ponto de interrogação para mais detalhes."
 
 #: inc/post-types.php:205
 #, php-format
-msgid "Deleting custom post types will %sNOT%s delete any content into the database or added to those post types. You can easily recreate your post types and the content will still exist."
-msgstr "Apagar tipos de artigo personalizados %sNÃO%s apagará quaisquer conteúdos da base de dados ou adicionados a esses tipos de artigo. Pode facilmente recriar os seus tipos de artigo e o conteúdo continuará a existir."
+msgid ""
+"Deleting custom post types will %sNOT%s delete any content into the database "
+"or added to those post types. You can easily recreate your post types and "
+"the content will still exist."
+msgstr ""
+"Apagar tipos de artigo personalizados %sNÃO%s apagará quaisquer conteúdos da "
+"base de dados ou adicionados a esses tipos de artigo. Pode facilmente "
+"recriar os seus tipos de artigo e o conteúdo continuará a existir."
 
 #: inc/post-types.php:219 inc/taxonomies.php:206
 msgid "Menu Name"
@@ -675,8 +783,12 @@ msgid "(default: True)"
 msgstr "(padrão: Verdadeiro)"
 
 #: inc/post-types.php:393
-msgid "Whether posts of this type should be shown in the admin UI and is publicly queryable."
-msgstr "Se artigos deste tipo deverão ser mostrados no interface do utilizador da administração e pesquisáveis publicamente."
+msgid ""
+"Whether posts of this type should be shown in the admin UI and is publicly "
+"queryable."
+msgstr ""
+"Se artigos deste tipo deverão ser mostrados no interface do utilizador da "
+"administração e pesquisáveis publicamente."
 
 #: inc/post-types.php:411 inc/taxonomies.php:370
 msgid "Show UI"
@@ -684,7 +796,8 @@ msgstr "Mostrar interface do utilizador"
 
 #: inc/post-types.php:413
 msgid "Whether to generate a default UI for managing this post type."
-msgstr "Se cria um interface de utilizador padrão para gerir este tipo de artigo."
+msgstr ""
+"Se cria um interface de utilizador padrão para gerir este tipo de artigo."
 
 #: inc/post-types.php:421
 msgid "Has Archive"
@@ -696,7 +809,9 @@ msgstr "Se o tipo de artigo terá um URL para o arquivo deste tipo de artigo."
 
 #: inc/post-types.php:423
 msgid "If left blank, the archive slug will default to the post type slug."
-msgstr "Se deixar em branco, o URL do arquivo será o mesmo que o URL do tipo de artigo."
+msgstr ""
+"Se deixar em branco, o URL do arquivo será o mesmo que o URL do tipo de "
+"artigo."
 
 #: inc/post-types.php:437 inc/post-types.php:470 inc/post-types.php:501
 #: inc/taxonomies.php:354 inc/taxonomies.php:474
@@ -712,8 +827,10 @@ msgid "Exclude From Search"
 msgstr "Excluir da pesquisa"
 
 #: inc/post-types.php:471
-msgid "Whether to exclude posts with this post type from front end search results."
-msgstr "Se exclui artigos deste tipo dos resultados de pesquisa na frente do site."
+msgid ""
+"Whether to exclude posts with this post type from front end search results."
+msgstr ""
+"Se exclui artigos deste tipo dos resultados de pesquisa na frente do site."
 
 #: inc/post-types.php:482
 msgid "Capability Type"
@@ -721,7 +838,9 @@ msgstr "Tipo de capacidade"
 
 #: inc/post-types.php:483
 msgid "The post type to use for checking read, edit, and delete capabilities"
-msgstr "O tipo de artigo a utilizar para verificar as capacidades de leitura, edição e exclusão"
+msgstr ""
+"O tipo de artigo a utilizar para verificar as capacidades de leitura, edição "
+"e exclusão"
 
 #: inc/post-types.php:500 inc/taxonomies.php:353
 msgid "Hierarchical"
@@ -737,7 +856,8 @@ msgstr "Reescrever URL"
 
 #: inc/post-types.php:522
 msgid "Whether or not WordPress should use rewrites for this post type"
-msgstr "Se o WordPress deverão usar ou não a reescrita para este tipo de artigo"
+msgstr ""
+"Se o WordPress deverão usar ou não a reescrita para este tipo de artigo"
 
 #: inc/post-types.php:533 inc/taxonomies.php:424
 msgid "Custom Rewrite Slug"
@@ -772,28 +892,46 @@ msgid "Menu Position"
 msgstr "Posição do menu"
 
 #: inc/post-types.php:583
-msgid "The position in the menu order the post type should appear. show_in_menu must be true."
-msgstr "A posição em que o tipo de artigo deverá aparecer no menu. \"Mostrar no menu\" tem que ser \"Verdadeiro\"."
+msgid ""
+"The position in the menu order the post type should appear. show_in_menu "
+"must be true."
+msgstr ""
+"A posição em que o tipo de artigo deverá aparecer no menu. \"Mostrar no menu"
+"\" tem que ser \"Verdadeiro\"."
 
 #: inc/post-types.php:584
-msgid "See <a href=\"http://codex.wordpress.org/Function_Reference/register_post_type#Parameters\">Available options</a> in the \"menu_position\" section. Range of 5-100"
-msgstr "Veja as <a href=\"http://codex.wordpress.org/Function_Reference/register_post_type#Parameters\">opções disponíveis</a> na secção \"menu_position\". Ordem de 5-100"
+msgid ""
+"See <a href=\"http://codex.wordpress.org/Function_Reference/"
+"register_post_type#Parameters\">Available options</a> in the \"menu_position"
+"\" section. Range of 5-100"
+msgstr ""
+"Veja as <a href=\"http://codex.wordpress.org/Function_Reference/"
+"register_post_type#Parameters\">opções disponíveis</a> na secção "
+"\"menu_position\". Ordem de 5-100"
 
 #: inc/post-types.php:599
 msgid "Show in Menu"
 msgstr "Mostrar no menu"
 
 #: inc/post-types.php:600
-msgid "Whether to show the post type in the admin menu and where to show that menu."
-msgstr "Se mostra o tipo de artigo no menu de administração e onde mostra esse menu."
+msgid ""
+"Whether to show the post type in the admin menu and where to show that menu."
+msgstr ""
+"Se mostra o tipo de artigo no menu de administração e onde mostra esse menu."
 
 #: inc/post-types.php:601
-msgid "\"Show UI\" must be \"true\". If an existing top level page such as \"tools.php\" is indicated for second input, post type will be sub menu of that."
-msgstr "\"Mostrar interface do utilizador\" tem que ser \"Verdadeiro\". Se uma página de nível de topo como a \"tools.php\" for indicada no segundo campo, o tipo de artigo será seu submenu."
+msgid ""
+"\"Show UI\" must be \"true\". If an existing top level page such as \"tools."
+"php\" is indicated for second input, post type will be sub menu of that."
+msgstr ""
+"\"Mostrar interface do utilizador\" tem que ser \"Verdadeiro\". Se uma "
+"página de nível de topo como a \"tools.php\" for indicada no segundo campo, "
+"o tipo de artigo será seu submenu."
 
 #: inc/post-types.php:627
 msgid "Top-level page file name to make post type a sub-menu of."
-msgstr "Nome da página de nível de topo para tornar o tipo de artigo seu submenu."
+msgstr ""
+"Nome da página de nível de topo para tornar o tipo de artigo seu submenu."
 
 #: inc/post-types.php:639
 msgid "Menu Icon"
@@ -813,79 +951,112 @@ msgstr "Título"
 
 #: inc/post-types.php:655
 msgid "Adds the title meta box when creating content for this custom post type"
-msgstr "Adiciona a caixa de título ao criar conteúdo para este tipo de artigo personalizado"
+msgstr ""
+"Adiciona a caixa de título ao criar conteúdo para este tipo de artigo "
+"personalizado"
 
 #: inc/post-types.php:669
 msgid "Editor"
 msgstr "Editor"
 
 #: inc/post-types.php:670
-msgid "Adds the content editor meta box when creating content for this custom post type"
-msgstr "Adiciona a caixa de editor de conteúdo ao criar conteúdo para este tipo de artigo personalizado"
+msgid ""
+"Adds the content editor meta box when creating content for this custom post "
+"type"
+msgstr ""
+"Adiciona a caixa de editor de conteúdo ao criar conteúdo para este tipo de "
+"artigo personalizado"
 
 #: inc/post-types.php:684
 msgid "Excerpt"
 msgstr "Excerto"
 
 #: inc/post-types.php:685
-msgid "Adds the excerpt meta box when creating content for this custom post type"
-msgstr "Adiciona a caixa de excerto ao criar conteúdo para este tipo de artigo personalizado"
+msgid ""
+"Adds the excerpt meta box when creating content for this custom post type"
+msgstr ""
+"Adiciona a caixa de excerto ao criar conteúdo para este tipo de artigo "
+"personalizado"
 
 #: inc/post-types.php:699
 msgid "Trackbacks"
 msgstr "Trackbacks"
 
 #: inc/post-types.php:700
-msgid "Adds the trackbacks meta box when creating content for this custom post type"
-msgstr "Adiciona a caixa de trackbacks ao criar conteúdo para este tipo de artigo personalizado"
+msgid ""
+"Adds the trackbacks meta box when creating content for this custom post type"
+msgstr ""
+"Adiciona a caixa de trackbacks ao criar conteúdo para este tipo de artigo "
+"personalizado"
 
 #: inc/post-types.php:714
 msgid "Custom Fields"
 msgstr "Campos personalizados"
 
 #: inc/post-types.php:715
-msgid "Adds the custom fields meta box when creating content for this custom post type"
-msgstr "Adiciona a caixa de campos personalizados ao criar conteúdo para este tipo de artigo personalizado"
+msgid ""
+"Adds the custom fields meta box when creating content for this custom post "
+"type"
+msgstr ""
+"Adiciona a caixa de campos personalizados ao criar conteúdo para este tipo "
+"de artigo personalizado"
 
 #: inc/post-types.php:729
 msgid "Comments"
 msgstr "Comentários"
 
 #: inc/post-types.php:730
-msgid "Adds the comments meta box when creating content for this custom post type"
-msgstr "Adiciona a caixa de comentários ao criar conteúdo para este tipo de artigo personalizado"
+msgid ""
+"Adds the comments meta box when creating content for this custom post type"
+msgstr ""
+"Adiciona a caixa de comentários ao criar conteúdo para este tipo de artigo "
+"personalizado"
 
 #: inc/post-types.php:744
 msgid "Revisions"
 msgstr "Revisões"
 
 #: inc/post-types.php:745
-msgid "Adds the revisions meta box when creating content for this custom post type"
-msgstr "Adiciona a caixa de revisões ao criar conteúdo para este tipo de artigo personalizado"
+msgid ""
+"Adds the revisions meta box when creating content for this custom post type"
+msgstr ""
+"Adiciona a caixa de revisões ao criar conteúdo para este tipo de artigo "
+"personalizado"
 
 #: inc/post-types.php:759
 msgid "Featured Image"
 msgstr "Imagem de destaque"
 
 #: inc/post-types.php:760
-msgid "Adds the featured image meta box when creating content for this custom post type"
-msgstr "Adiciona a caixa de imagem de destaque ao criar conteúdo para este tipo de artigo personalizado"
+msgid ""
+"Adds the featured image meta box when creating content for this custom post "
+"type"
+msgstr ""
+"Adiciona a caixa de imagem de destaque ao criar conteúdo para este tipo de "
+"artigo personalizado"
 
 #: inc/post-types.php:774
 msgid "Author"
 msgstr "Autor"
 
 #: inc/post-types.php:775
-msgid "Adds the author meta box when creating content for this custom post type"
-msgstr "Adiciona a caixa de autor ao criar conteúdo para este tipo de artigo personalizado"
+msgid ""
+"Adds the author meta box when creating content for this custom post type"
+msgstr ""
+"Adiciona a caixa de autor ao criar conteúdo para este tipo de artigo "
+"personalizado"
 
 #: inc/post-types.php:789
 msgid "Page Attributes"
 msgstr "Atributos da página"
 
 #: inc/post-types.php:790
-msgid "Adds the page attribute meta box when creating content for this custom post type"
-msgstr "Adiciona a caixa de atributos da página ao criar conteúdo para este tipo de artigo personalizado"
+msgid ""
+"Adds the page attribute meta box when creating content for this custom post "
+"type"
+msgstr ""
+"Adiciona a caixa de atributos da página ao criar conteúdo para este tipo de "
+"artigo personalizado"
 
 #: inc/post-types.php:804
 msgid "Post Formats"
@@ -897,7 +1068,8 @@ msgstr "Adiciona suporte para formato de artigo"
 
 #: inc/post-types.php:810
 msgid "Use the option below to explicitly set \"supports\" to false."
-msgstr "Utilize a opção abaixo para definir explicitamente o \"suporte\" como falso."
+msgstr ""
+"Utilize a opção abaixo para definir explicitamente o \"suporte\" como falso."
 
 #: inc/post-types.php:818
 msgid "None"
@@ -912,8 +1084,11 @@ msgid "Custom \"Supports\""
 msgstr "\"Suporte\" personalizado"
 
 #: inc/post-types.php:826
-msgid "Use this input to register custom \"supports\" values, separated by commas."
-msgstr "Utilize este campo para registar \"suporte\" de valores personalizados, separados por vírgulas."
+msgid ""
+"Use this input to register custom \"supports\" values, separated by commas."
+msgstr ""
+"Utilize este campo para registar \"suporte\" de valores personalizados, "
+"separados por vírgulas."
 
 #: inc/post-types.php:832
 msgid "Provide custom support slugs here."
@@ -938,12 +1113,15 @@ msgstr "Por favor introduza um nome de tipo de artigo"
 
 #: inc/post-types.php:1050
 msgid "Please do not use quotes in post type names or rewrite slugs"
-msgstr "Por favor não utilize aspas nos nomes dos tipos de artigo ou nos URL reescritos"
+msgstr ""
+"Por favor não utilize aspas nos nomes dos tipos de artigo ou nos URL "
+"reescritos"
 
 #: inc/post-types.php:1057
 #, php-format
 msgid "Please choose a different post type name. %s is already registered."
-msgstr "Por favor escolha um nome de tipo de artigo diferente. %s já está registado."
+msgstr ""
+"Por favor escolha um nome de tipo de artigo diferente. %s já está registado."
 
 #: inc/support.php:41
 msgid "Custom Post Type UI Support"
@@ -951,8 +1129,14 @@ msgstr "Suporte do Custom Post Type UI"
 
 #: inc/support.php:43
 #, php-format
-msgid "Please note that this plugin will NOT handle display of registered post types or taxonomies in your current theme. It will simply register them for you. If all else fails, visit us on the %s"
-msgstr "Por favor note que este plugin NÃO controlará a exibição de tipos de artigo ou taxonomias registadas no seu tema actual. Simplesmente fará por si o respectivo registo. Se tudo o resto falhar, visite-nos no %s"
+msgid ""
+"Please note that this plugin will NOT handle display of registered post "
+"types or taxonomies in your current theme. It will simply register them for "
+"you. If all else fails, visit us on the %s"
+msgstr ""
+"Por favor note que este plugin NÃO controlará a exibição de tipos de artigo "
+"ou taxonomias registadas no seu tema actual. Simplesmente fará por si o "
+"respectivo registo. Se tudo o resto falhar, visite-nos no %s"
 
 #: inc/support.php:44
 msgid "Support Forums"
@@ -963,28 +1147,54 @@ msgid "General"
 msgstr "Geral"
 
 #: inc/support.php:53
-msgid "I changed my custom post type name and now I can not get to my posts. How do I get them back?"
-msgstr "Modifiquei o nome do meu tipo de artigo personalizado e agora não consigo encontrar os meus artigos. Como faço para os recuperar?"
+msgid ""
+"I changed my custom post type name and now I can not get to my posts. How do "
+"I get them back?"
+msgstr ""
+"Modifiquei o nome do meu tipo de artigo personalizado e agora não consigo "
+"encontrar os meus artigos. Como faço para os recuperar?"
 
 #: inc/support.php:54
-msgid "You can either change the custom post type name back to the original name or try the Post Type Switcher plugin"
-msgstr "Poderá voltar a alterar para o original o nome do tipo de artigo personalizado ou experimentar o plugin Post Type Switcher"
+msgid ""
+"You can either change the custom post type name back to the original name or "
+"try the Post Type Switcher plugin"
+msgstr ""
+"Poderá voltar a alterar para o original o nome do tipo de artigo "
+"personalizado ou experimentar o plugin Post Type Switcher"
 
 #: inc/support.php:59
-msgid "I changed my custom post type or taxonomy slug and now I have duplicates shown. How do I remove the duplicate?"
-msgstr "Modifiquei o meu tipo de artigo personalizado ou o URL da taxonomia e agora são mostrados em duplicado. Como removo os duplicados?"
+msgid ""
+"I changed my custom post type or taxonomy slug and now I have duplicates "
+"shown. How do I remove the duplicate?"
+msgstr ""
+"Modifiquei o meu tipo de artigo personalizado ou o URL da taxonomia e agora "
+"são mostrados em duplicado. Como removo os duplicados?"
 
 #: inc/support.php:60
-msgid "Renaming the slug for a post type or taxonomy creates a new entry in our saved option which gets registered as its own post type or taxonomy. Since the settings will be mirrored from the previous slug, you will just need to delete the previous version's entry."
-msgstr "Renomear o URL de um tipo de artigo ou taxonomia cria uma nova entrada nas opções guardadas que será registada como um tipo de artigo ou taxonomia independente. Como as opções serão copiadas do URL anterior, apenas tem que apagar a entrada com a versão anterior."
+msgid ""
+"Renaming the slug for a post type or taxonomy creates a new entry in our "
+"saved option which gets registered as its own post type or taxonomy. Since "
+"the settings will be mirrored from the previous slug, you will just need to "
+"delete the previous version's entry."
+msgstr ""
+"Renomear o URL de um tipo de artigo ou taxonomia cria uma nova entrada nas "
+"opções guardadas que será registada como um tipo de artigo ou taxonomia "
+"independente. Como as opções serão copiadas do URL anterior, apenas tem que "
+"apagar a entrada com a versão anterior."
 
 #: inc/support.php:63
-msgid "I have added post thumbnail and/or post format support to my post type, but those do not appear when adding a post type post."
-msgstr "Eu adicionei suporte para imagem de destaque e/ou formato de artigo ao meu tipo de artigo, mas estes não aparecem quando adiciono um novo artigo."
+msgid ""
+"I have added post thumbnail and/or post format support to my post type, but "
+"those do not appear when adding a post type post."
+msgstr ""
+"Eu adicionei suporte para imagem de destaque e/ou formato de artigo ao meu "
+"tipo de artigo, mas estes não aparecem quando adiciono um novo artigo."
 
 #: inc/support.php:64
-msgid "Make sure your theme has post \"post-thumbnails\" theme support enabled."
-msgstr "Verifique se o seu tema tem o suporte para \"Imagens de destaque\" activado."
+msgid ""
+"Make sure your theme has post \"post-thumbnails\" theme support enabled."
+msgstr ""
+"Verifique se o seu tema tem o suporte para \"Imagens de destaque\" activado."
 
 #: inc/support.php:69
 msgid "Front-end Display"
@@ -992,12 +1202,18 @@ msgstr "Frente do site"
 
 #: inc/support.php:72
 msgid "What template files should I edit to alter my post type display?"
-msgstr "Que ficheiros de modelo deverei editar para alterar a exibição do meu tipo de artigo?"
+msgstr ""
+"Que ficheiros de modelo deverei editar para alterar a exibição do meu tipo "
+"de artigo?"
 
 #: inc/support.php:73
 #, php-format
-msgid "Please visit the %sTemplate Hierarchy%s page on the WordPress codex for details about available templates."
-msgstr "Por favor visite a página %sHierarquia de modelos WordPress%s do WordPress Codex para detalhes sobre os modelos disponíveis."
+msgid ""
+"Please visit the %sTemplate Hierarchy%s page on the WordPress codex for "
+"details about available templates."
+msgstr ""
+"Por favor visite a página %sHierarquia de modelos WordPress%s do WordPress "
+"Codex para detalhes sobre os modelos disponíveis."
 
 #: inc/support.php:80
 msgid "How do I display my custom post type on my site?"
@@ -1005,17 +1221,33 @@ msgstr "Como posso mostrar o meu tipo de artigo personalizado no meu site?"
 
 #: inc/support.php:81
 #, php-format
-msgid "You will need to utilize the %sWP_Query%s class to handle display in custom locations. If you have set the post type to have archives, the archive url should be something like \"http://www.mysite.com/post-type-slug\""
-msgstr "Terá que utilizar a classe %sWP_Query%s para controlar a exibição em locais personalizados. Se definiu que o tipo de artigo terá arquivos, o URL do arquivo deverá ser algo como \"http://www.meusite.com/slug-tipo-de-artigo\""
+msgid ""
+"You will need to utilize the %sWP_Query%s class to handle display in custom "
+"locations. If you have set the post type to have archives, the archive url "
+"should be something like \"http://www.mysite.com/post-type-slug\""
+msgstr ""
+"Terá que utilizar a classe %sWP_Query%s para controlar a exibição em locais "
+"personalizados. Se definiu que o tipo de artigo terá arquivos, o URL do "
+"arquivo deverá ser algo como \"http://www.meusite.com/slug-tipo-de-artigo\""
 
 #: inc/support.php:87
-msgid "I have added categories and tags to my custom post type, but they do not appear in the archives."
-msgstr "Adicionei categorias e etiquetas ao meu tipo de artigo personalizado, mas não aparecem nos arquivos."
+msgid ""
+"I have added categories and tags to my custom post type, but they do not "
+"appear in the archives."
+msgstr ""
+"Adicionei categorias e etiquetas ao meu tipo de artigo personalizado, mas "
+"não aparecem nos arquivos."
 
 #: inc/support.php:88
 #, php-format
-msgid "You will need to add your newly created post type to the types that the category and tag archives query for. You can see a tutorial on how to do that at %s"
-msgstr "Terá que adicionar o seu tipo de artigo recém criado aos tipos incluídos na pesquisa dos arquivos de categorias e etiquetas. Pode ver um tutorial sobre como fazer isto em %s"
+msgid ""
+"You will need to add your newly created post type to the types that the "
+"category and tag archives query for. You can see a tutorial on how to do "
+"that at %s"
+msgstr ""
+"Terá que adicionar o seu tipo de artigo recém criado aos tipos incluídos na "
+"pesquisa dos arquivos de categorias e etiquetas. Pode ver um tutorial sobre "
+"como fazer isto em %s"
 
 #: inc/support.php:97
 msgid "Advanced"
@@ -1023,16 +1255,24 @@ msgstr "Avançado"
 
 #: inc/support.php:100
 msgid "How do I add custom metaboxes to my post type?"
-msgstr "Como posso adicionar caixas personalizadas de metadados ao meu tipo de artigo?"
+msgstr ""
+"Como posso adicionar caixas personalizadas de metadados ao meu tipo de "
+"artigo?"
 
 #: inc/support.php:102
 #, php-format
-msgid "We recommend checking out %s, the latest iteration of \"Custom Metaboxes and Fields for WordPress\". Both are maintained by WebDevStudios."
-msgstr "Recomendamos que conheça %s, a última iteração de \"Custom Metaboxes and Fields for WordPress\". Ambos são mantidos por WebDevStudios."
+msgid ""
+"We recommend checking out %s, the latest iteration of \"Custom Metaboxes and "
+"Fields for WordPress\". Both are maintained by WebDevStudios."
+msgstr ""
+"Recomendamos que conheça %s, a última iteração de \"Custom Metaboxes and "
+"Fields for WordPress\". Ambos são mantidos por WebDevStudios."
 
 #: inc/support.php:108
-msgid "How do I add a newly registered taxonomy to a post type that already exists?"
-msgstr "Como posso adicionar uma nova taxonomia a um tipo de artigo já existente?"
+msgid ""
+"How do I add a newly registered taxonomy to a post type that already exists?"
+msgstr ""
+"Como posso adicionar uma nova taxonomia a um tipo de artigo já existente?"
 
 #: inc/support.php:110
 #, php-format
@@ -1045,8 +1285,12 @@ msgstr "Relações de artigos?"
 
 #: inc/support.php:117
 #, php-format
-msgid "%s has an excellent %spost%s introducing users to the %sPosts 2 Posts%s plugin that should be a good start."
-msgstr "%s tem um excelente %sartigo%s para introduzir utilizadores ao plugin %sPosts 2 Posts%s que deve ser um bom começo."
+msgid ""
+"%s has an excellent %spost%s introducing users to the %sPosts 2 Posts%s "
+"plugin that should be a good start."
+msgstr ""
+"%s tem um excelente %sartigo%s para introduzir utilizadores ao plugin "
+"%sPosts 2 Posts%s que deve ser um bom começo."
 
 #: inc/support.php:126
 msgid "Is there any function reference list?"
@@ -1054,32 +1298,51 @@ msgstr "Existe alguma lista de referência das funções?"
 
 #: inc/support.php:127
 #, php-format
-msgid "%s has compiled a nice list of functions used by our plugin. Note not all will be useful as they are attached to hooks."
-msgstr "O %s compilou uma boa lista de funções utilizadas pelo nosso plugin. Note que nem todas serão úteis, uma vez que estão anexadas a hooks."
+msgid ""
+"%s has compiled a nice list of functions used by our plugin. Note not all "
+"will be useful as they are attached to hooks."
+msgstr ""
+"O %s compilou uma boa lista de funções utilizadas pelo nosso plugin. Note "
+"que nem todas serão úteis, uma vez que estão anexadas a hooks."
 
 #: inc/support.php:131
-msgid "How do I filter the \"enter title here\" text in the post editor screen?"
-msgstr "Como posso filtrar o texto \"Introduza o título aqui\" no ecrã de edição?"
+msgid ""
+"How do I filter the \"enter title here\" text in the post editor screen?"
+msgstr ""
+"Como posso filtrar o texto \"Introduza o título aqui\" no ecrã de edição?"
 
 #: inc/support.php:132
-msgid "Change text inside the post/page editor title field. Should be able to adapt as necessary."
-msgstr "Modifique o texto dentro do campo do título no editor de artigo/página. Deverá adaptar-se conforme necessário."
+msgid ""
+"Change text inside the post/page editor title field. Should be able to adapt "
+"as necessary."
+msgstr ""
+"Modifique o texto dentro do campo do título no editor de artigo/página. "
+"Deverá adaptar-se conforme necessário."
 
 #: inc/taxonomies.php:82
-msgid "DO NOT EDIT the taxonomy slug unless necessary. Changing that value registers a new taxonomy entry for your install."
-msgstr "NÃO EDITE o URL da taxonomia a não ser que estritamente necessário. Alterar este valor regista uma nova taxonomia na sua instalação."
+msgid ""
+"DO NOT EDIT the taxonomy slug unless necessary. Changing that value "
+"registers a new taxonomy entry for your install."
+msgstr ""
+"NÃO EDITE o URL da taxonomia a não ser que estritamente necessário. Alterar "
+"este valor regista uma nova taxonomia na sua instalação."
 
 #: inc/taxonomies.php:113
 msgid "Taxonomy Slug"
 msgstr "URL da taxonomia"
 
 #: inc/taxonomies.php:114
-msgid "(e.g. actors)"
+#, fuzzy
+msgid "(e.g. actor)"
 msgstr "(p. ex. actores)"
 
 #: inc/taxonomies.php:115
-msgid "The taxonomy name. Used to retrieve custom taxonomy content. Should be short and unique"
-msgstr "O nome da taxonomia. Utilizado para obter o conteúdo da taxonomia personalizada. Deverá ser curto e único."
+msgid ""
+"The taxonomy name. Used to retrieve custom taxonomy content. Should be short "
+"and unique"
+msgstr ""
+"O nome da taxonomia. Utilizado para obter o conteúdo da taxonomia "
+"personalizada. Deverá ser curto e único."
 
 #: inc/taxonomies.php:123 inc/taxonomies.php:205
 msgid "(e.g. Actors)"
@@ -1087,15 +1350,20 @@ msgstr "(p. ex. Actores)"
 
 #: inc/taxonomies.php:125
 msgid "Taxonomy label. Used in the admin menu for displaying custom taxonomy."
-msgstr "Legenda para a taxonomia. Utilizado no menu de administração para mostrar a taxonomia personalizada."
+msgstr ""
+"Legenda para a taxonomia. Utilizado no menu de administração para mostrar a "
+"taxonomia personalizada."
 
 #: inc/taxonomies.php:132
 msgid "(e.g. Actor)"
 msgstr "(p. ex. Actor)"
 
 #: inc/taxonomies.php:134
-msgid "Taxonomy Singular label.  Used in WordPress when a singular label is needed."
-msgstr "Legenda no singular da taxonomia personalizada. Utilizada no WordPress quando é necessária uma legenda no singular."
+msgid ""
+"Taxonomy Singular label.  Used in WordPress when a singular label is needed."
+msgstr ""
+"Legenda no singular da taxonomia personalizada. Utilizada no WordPress "
+"quando é necessária uma legenda no singular."
 
 #: inc/taxonomies.php:137
 msgid "Attach to Post Type"
@@ -1115,26 +1383,53 @@ msgstr "Adicionar taxonomia"
 
 #: inc/taxonomies.php:188
 #, php-format
-msgid "Taxonomy names should have %smax 32 characters%s, and only contain alphanumeric, lowercase, characters, underscores in place of spaces, and letters that do not have accents."
-msgstr "Nomes de taxonomias podem ter no %smáximo 32 caracteres%s, apenas pode conter caracteres alfanuméricos minúsculos, underscores em vez de espaços e letras sem acentos."
+msgid ""
+"Taxonomy names should have %smax 32 characters%s, and only contain "
+"alphanumeric, lowercase, characters, underscores in place of spaces, and "
+"letters that do not have accents."
+msgstr ""
+"Nomes de taxonomias podem ter no %smáximo 32 caracteres%s, apenas pode "
+"conter caracteres alfanuméricos minúsculos, underscores em vez de espaços e "
+"letras sem acentos."
 
 #: inc/taxonomies.php:189
 #, php-format
-msgid "If you are unfamiliar with the advanced taxonomy settings, just fill in the %sTaxonomy Name%s and choose an %sAttach to Post Type%s option. Remaining settings will use default values. Labels, if left blank, will be automatically created based on the taxonomy name. Hover over the question marks for more details."
-msgstr "Se não estiver familiarizado com as definições avançadas das taxonomias, preencha apenas os campos %sNome da taxonomia%s e %sAnexar ao tipo de artigo%s. Para as restantes definições serão atribuídas as opções padrão. Se deixadas em branco, as legendas serão automaticamente criadas com base no nome da taxonomia. Ver o ponto de interrogação para mais detalhes."
+msgid ""
+"If you are unfamiliar with the advanced taxonomy settings, just fill in the "
+"%sTaxonomy Name%s and choose an %sAttach to Post Type%s option. Remaining "
+"settings will use default values. Labels, if left blank, will be "
+"automatically created based on the taxonomy name. Hover over the question "
+"marks for more details."
+msgstr ""
+"Se não estiver familiarizado com as definições avançadas das taxonomias, "
+"preencha apenas os campos %sNome da taxonomia%s e %sAnexar ao tipo de artigo"
+"%s. Para as restantes definições serão atribuídas as opções padrão. Se "
+"deixadas em branco, as legendas serão automaticamente criadas com base no "
+"nome da taxonomia. Ver o ponto de interrogação para mais detalhes."
 
 #: inc/taxonomies.php:190
 #, php-format
-msgid "Deleting custom taxonomies do %sNOT%s delete terms added to those taxonomies. You can recreate your taxonomies and the terms will return. Changing the name, after adding terms to the taxonomy, will not update the terms in the database."
-msgstr "Apagar taxonomias personalizadas %sNÃO%s apagará quaisquer termos adicionados a essas taxonomias. Pode recriar as suas taxonomias e os termos voltarão a existir. Mudar o nome depois de adicionar termos à taxonomia não actualizará os termos na base de dados."
+msgid ""
+"Deleting custom taxonomies do %sNOT%s delete terms added to those "
+"taxonomies. You can recreate your taxonomies and the terms will return. "
+"Changing the name, after adding terms to the taxonomy, will not update the "
+"terms in the database."
+msgstr ""
+"Apagar taxonomias personalizadas %sNÃO%s apagará quaisquer termos "
+"adicionados a essas taxonomias. Pode recriar as suas taxonomias e os termos "
+"voltarão a existir. Mudar o nome depois de adicionar termos à taxonomia não "
+"actualizará os termos na base de dados."
 
 #: inc/taxonomies.php:207 inc/taxonomies.php:216 inc/taxonomies.php:225
 #: inc/taxonomies.php:234 inc/taxonomies.php:243 inc/taxonomies.php:252
 #: inc/taxonomies.php:261 inc/taxonomies.php:270 inc/taxonomies.php:279
 #: inc/taxonomies.php:288 inc/taxonomies.php:297 inc/taxonomies.php:306
 #: inc/taxonomies.php:315 inc/taxonomies.php:324 inc/taxonomies.php:333
-msgid "Custom taxonomy label. Used in the admin menu for displaying taxonomies."
-msgstr "Legenda personalizada da taxonomia. Utilizada no menu de administração para mostrar taxonomias."
+msgid ""
+"Custom taxonomy label. Used in the admin menu for displaying taxonomies."
+msgstr ""
+"Legenda personalizada da taxonomia. Utilizada no menu de administração para "
+"mostrar taxonomias."
 
 #: inc/taxonomies.php:214
 msgid "(e.g. All Actors)"
@@ -1238,7 +1533,9 @@ msgstr "Se a taxonomia pode ter relações superior/dependente"
 
 #: inc/taxonomies.php:372
 msgid "Whether to generate a default UI for managing this custom taxonomy."
-msgstr "Se cria um interface de utilizador padrão para gerir esta taxonomia personalizada."
+msgstr ""
+"Se cria um interface de utilizador padrão para gerir esta taxonomia "
+"personalizada."
 
 #: inc/taxonomies.php:389
 msgid "Sets the query_var key for this taxonomy."
@@ -1246,7 +1543,9 @@ msgstr "Define a chave query_var para esta taxonomia."
 
 #: inc/taxonomies.php:397
 msgid "(default: none). Query Var needs to be true to use."
-msgstr "(padrão: nenhum). Na opção Query var tem que estar verdadeiro para ser utilizada."
+msgstr ""
+"(padrão: nenhum). Na opção Query var tem que estar verdadeiro para ser "
+"utilizada."
 
 #: inc/taxonomies.php:398
 msgid "Custom Query Var String"
@@ -1293,8 +1592,12 @@ msgid "Show Admin Column"
 msgstr "Mostrar coluna de administração"
 
 #: inc/taxonomies.php:475
-msgid "Whether to allow automatic creation of taxonomy columns on associated post-types."
-msgstr "Se permite a criação automática de colunas de taxonomias em tipos de artigos associados."
+msgid ""
+"Whether to allow automatic creation of taxonomy columns on associated post-"
+"types."
+msgstr ""
+"Se permite a criação automática de colunas de taxonomias em tipos de artigos "
+"associados."
 
 #: inc/taxonomies.php:573
 msgid "Please provide a taxonomy to delete"
@@ -1306,7 +1609,8 @@ msgstr "Por favor introduza um nome de taxonomia"
 
 #: inc/taxonomies.php:640
 msgid "Please do not use quotes in taxonomy names or rewrite slugs"
-msgstr "Por favor não utilize aspas nos nomes das taxonomias ou nos URL reescritos"
+msgstr ""
+"Por favor não utilize aspas nos nomes das taxonomias ou nos URL reescritos"
 
 #: inc/taxonomies.php:646
 #, php-format
@@ -1319,8 +1623,14 @@ msgstr "Por favor escolha um nome de taxonomia diferente. %s já é utilizado."
 #~ msgid "View on front"
 #~ msgstr "Ver na frente do site"
 
-#~ msgid "Select a post type to edit. DO NOT EDIT the post type slug unless necessary. Changing that value registers a new post type entry for your install."
-#~ msgstr "Seleccione um tipo de artifo para editar. NÃO EDITE o URL do tipo de artigo a não ser que seja mesmo necessário. Alterar este valor regista um novo tipo de artigo na sua instalação."
+#~ msgid ""
+#~ "Select a post type to edit. DO NOT EDIT the post type slug unless "
+#~ "necessary. Changing that value registers a new post type entry for your "
+#~ "install."
+#~ msgstr ""
+#~ "Seleccione um tipo de artifo para editar. NÃO EDITE o URL do tipo de "
+#~ "artigo a não ser que seja mesmo necessário. Alterar este valor regista um "
+#~ "novo tipo de artigo na sua instalação."
 
 #~ msgid "Select"
 #~ msgstr "Seleccionar"
@@ -1332,10 +1642,13 @@ msgstr "Por favor escolha um nome de taxonomia diferente. %s já é utilizado."
 #~ msgstr "Clique para expandir"
 
 #~ msgid "Whether posts of this type should be shown in the admin UI."
-#~ msgstr "Se artigos deste tipo deverão ser mostrados no interface do utilizador da administração."
+#~ msgstr ""
+#~ "Se artigos deste tipo deverão ser mostrados no interface do utilizador da "
+#~ "administração."
 
 #~ msgid "Whether the post type will have a post type archive page."
-#~ msgstr "Se o tipo de artigo terá uma página de arquivo para o tipo de artigo."
+#~ msgstr ""
+#~ "Se o tipo de artigo terá uma página de arquivo para o tipo de artigo."
 
 #~ msgid "Slug to be used for archive page."
 #~ msgstr "URL utilizado para a página de arquivo."
@@ -1356,7 +1669,9 @@ msgstr "Por favor escolha um nome de taxonomia diferente. %s já é utilizado."
 #~ msgstr "URL da imagem a ser utilizada como ícone do menu."
 
 #~ msgid "Whether to generate a default UI for managing this custom taxonomy"
-#~ msgstr "Se cria um interface de utilizador padrão para gerir esta taxonomia personalizada"
+#~ msgstr ""
+#~ "Se cria um interface de utilizador padrão para gerir esta taxonomia "
+#~ "personalizada"
 
 #~ msgid "Triggers the handling of rewrites for this taxonomy"
 #~ msgstr "Acciona o controlo de reescrita do URL para esta taxonomia"
@@ -1366,10 +1681,19 @@ msgstr "Por favor escolha um nome de taxonomia diferente. %s já é utilizado."
 #~ msgstr "Reescrever URL personalizado"
 
 #~ msgid "Whether posts of this type should be shown in the admin UI"
-#~ msgstr "Se os artigos deste tipo deverão ser mostrados no painel de administração"
+#~ msgstr ""
+#~ "Se os artigos deste tipo deverão ser mostrados no painel de administração"
 
-#~ msgid "To get started with creating some post types, please visit %s and for taxonomies, visit %s. If you need some help, check the %s page. If nothing there fits your issue, visit our %s and we will try to get to your question as soon as possible."
-#~ msgstr "Para começar a criar alguns tipos de artigo, por favor visite %s e para as taxonomias visite %s. Se precisar de ajuda, veja a página de %s. Se nada se ajuste à sua situação, visite o nosso %s e tentaremos responder à sua questão o mais rápido possível."
+#~ msgid ""
+#~ "To get started with creating some post types, please visit %s and for "
+#~ "taxonomies, visit %s. If you need some help, check the %s page. If "
+#~ "nothing there fits your issue, visit our %s and we will try to get to "
+#~ "your question as soon as possible."
+#~ msgstr ""
+#~ "Para começar a criar alguns tipos de artigo, por favor visite %s e para "
+#~ "as taxonomias visite %s. Se precisar de ajuda, veja a página de %s. Se "
+#~ "nada se ajuste à sua situação, visite o nosso %s e tentaremos responder à "
+#~ "sua questão o mais rápido possível."
 
 #~ msgid "CPT UI Support Forum"
 #~ msgstr "Fórum de suporte de CPT UI"
@@ -1387,7 +1711,8 @@ msgstr "Por favor escolha um nome de taxonomia diferente. %s já é utilizado."
 #~ msgstr "Sobre o Custom Post Type UI"
 
 #~ msgid "Whether to generate a default UI for managing this post type"
-#~ msgstr "Se cria um interface de utilizador padrão para gerir este tipo de artigo"
+#~ msgstr ""
+#~ "Se cria um interface de utilizador padrão para gerir este tipo de artigo"
 
 #~ msgid "Whether the post type will have a post type archive page"
 #~ msgstr "Se o tipo de artigo terá uma página de arquivo do tipo de artigo"
@@ -1395,8 +1720,12 @@ msgstr "Por favor escolha um nome de taxonomia diferente. %s já é utilizado."
 #~ msgid "Show In Menu"
 #~ msgstr "Mostrar no Menu"
 
-#~ msgid "Whether to show the post type in the admin menu and where to show that menu. Note that show_ui must be true"
-#~ msgstr "Se mostra o tipo de artigo no menu de administração e onde deverá ficar esse menu. Note que \"Mostrar UI\" tem que ser \"Verdadeiro\""
+#~ msgid ""
+#~ "Whether to show the post type in the admin menu and where to show that "
+#~ "menu. Note that show_ui must be true"
+#~ msgstr ""
+#~ "Se mostra o tipo de artigo no menu de administração e onde deverá ficar "
+#~ "esse menu. Note que \"Mostrar UI\" tem que ser \"Verdadeiro\""
 
 #~ msgid "version"
 #~ msgstr "versão"
@@ -1404,14 +1733,25 @@ msgstr "Por favor escolha um nome de taxonomia diferente. %s já é utilizado."
 #~ msgid "Frequently Asked Questions"
 #~ msgstr "Perguntas frequentes"
 
-#~ msgid "Please note that this plugin will NOT handle display of registered post types or taxonomies in your current theme. It will simply register them for you."
-#~ msgstr "Note que este plugin NÃO controla que tipos de artigos registados ou taxonomias registadas serão mostrados no seu tema. Apenas efectuará o seu registo por si."
+#~ msgid ""
+#~ "Please note that this plugin will NOT handle display of registered post "
+#~ "types or taxonomies in your current theme. It will simply register them "
+#~ "for you."
+#~ msgstr ""
+#~ "Note que este plugin NÃO controla que tipos de artigos registados ou "
+#~ "taxonomias registadas serão mostrados no seu tema. Apenas efectuará o seu "
+#~ "registo por si."
 
-#~ msgid "Q: <strong>How can I display content from a custom post type on my website?</strong>"
-#~ msgstr "P: <strong>Como posso mostrar o conteúdo de um tipo de artigo personalizado no meu site?</strong>"
+#~ msgid ""
+#~ "Q: <strong>How can I display content from a custom post type on my "
+#~ "website?</strong>"
+#~ msgstr ""
+#~ "P: <strong>Como posso mostrar o conteúdo de um tipo de artigo "
+#~ "personalizado no meu site?</strong>"
 
 #~ msgid "A: Justin Tadlock has written some great posts on the topic:"
-#~ msgstr "R: Justin Tadlock escreveu alguns óptimos artigos sobre este tópico:"
+#~ msgstr ""
+#~ "R: Justin Tadlock escreveu alguns óptimos artigos sobre este tópico:"
 
 #~ msgid "Showing Custom Post Types on your Home Page"
 #~ msgstr "Showing Custom Post Types on your Home Page"
@@ -1419,17 +1759,26 @@ msgstr "Por favor escolha um nome de taxonomia diferente. %s já é utilizado."
 #~ msgid "Custom Post Types in WordPress"
 #~ msgstr "Custom Post Types in WordPress"
 
-#~ msgid "A: You can either change the custom post type name back to the original name or try the Post Type Switcher plugin: "
-#~ msgstr "R: Pode mudar novamente o nome do tipo de artigo personalizado para o original ou tentar o plugin Post Type Switcher:"
+#~ msgid ""
+#~ "A: You can either change the custom post type name back to the original "
+#~ "name or try the Post Type Switcher plugin: "
+#~ msgstr ""
+#~ "R: Pode mudar novamente o nome do tipo de artigo personalizado para o "
+#~ "original ou tentar o plugin Post Type Switcher:"
 
 #~ msgid "Professional WordPress<br />Second Edition"
 #~ msgstr "Professional WordPress<br />Segunda edição"
 
 #~ msgid "Please donate to the development<br />of Custom Post Type UI:"
-#~ msgstr "Faça um donativo para o desenvolvimento <br />do Custom Post Type UI:"
+#~ msgstr ""
+#~ "Faça um donativo para o desenvolvimento <br />do Custom Post Type UI:"
 
-#~ msgid "The leading book on WordPress design and development!<br /><strong>Brand new second edition!"
-#~ msgstr "O principal livro de design e desenvolvimento em WordPress!<br /><strong>Segunda edição!"
+#~ msgid ""
+#~ "The leading book on WordPress design and development!<br /><strong>Brand "
+#~ "new second edition!"
+#~ msgstr ""
+#~ "O principal livro de design e desenvolvimento em WordPress!<br /"
+#~ "><strong>Segunda edição!"
 
 #~ msgid "WebDevStudios.com Recent News"
 #~ msgstr "Notícias recentes  de WebDevStudios.com"
@@ -1443,8 +1792,15 @@ msgstr "Por favor escolha um nome de taxonomia diferente. %s já é utilizado."
 #~ msgid "Manage Custom Post Types"
 #~ msgstr "Gerir tipos de artigo personalizados"
 
-#~ msgid "Deleting custom post types will <strong>NOT</strong> delete any content into the database or added to those post types.  You can easily recreate your post types and the content will still exist."
-#~ msgstr "Apagar tipos de artigo personalizados <strong>NÃO</strong> apagará quaisquer conteúdos da base de dados ou adicionados a esses tipos de artigo. Pode facilmente recriar os seus tipos de artigo e o conteúdo continuará a existir."
+#~ msgid ""
+#~ "Deleting custom post types will <strong>NOT</strong> delete any content "
+#~ "into the database or added to those post types.  You can easily recreate "
+#~ "your post types and the content will still exist."
+#~ msgstr ""
+#~ "Apagar tipos de artigo personalizados <strong>NÃO</strong> apagará "
+#~ "quaisquer conteúdos da base de dados ou adicionados a esses tipos de "
+#~ "artigo. Pode facilmente recriar os seus tipos de artigo e o conteúdo "
+#~ "continuará a existir."
 
 #~ msgid "Action"
 #~ msgstr "Acção"
@@ -1469,11 +1825,19 @@ msgstr "Por favor escolha um nome de taxonomia diferente. %s já é utilizado."
 #~ msgid "Delete"
 #~ msgstr "Apagar"
 
-#~ msgid "Place the below code in your themes functions.php file to manually create this custom post type."
-#~ msgstr "Insira o código abaixo no ficheiro functions.php dos seus temas para criar manualmente este tipo de artigo personalizado."
+#~ msgid ""
+#~ "Place the below code in your themes functions.php file to manually create "
+#~ "this custom post type."
+#~ msgstr ""
+#~ "Insira o código abaixo no ficheiro functions.php dos seus temas para "
+#~ "criar manualmente este tipo de artigo personalizado."
 
-#~ msgid "This is a <strong>BETA</strong> feature. Please <a href=\"https://github.com/WebDevStudios/custom-post-type-ui\">report bugs</a>."
-#~ msgstr "Isto é um recurso <strong>BETA</strong>. Por favor <a href=\"https://github.com/WebDevStudios/custom-post-type-ui\">reporte erros</a>."
+#~ msgid ""
+#~ "This is a <strong>BETA</strong> feature. Please <a href=\"https://github."
+#~ "com/WebDevStudios/custom-post-type-ui\">report bugs</a>."
+#~ msgstr ""
+#~ "Isto é um recurso <strong>BETA</strong>. Por favor <a href=\"https://"
+#~ "github.com/WebDevStudios/custom-post-type-ui\">reporte erros</a>."
 
 #~ msgid "Additional Custom Post Types"
 #~ msgstr "Tipos de artigo personalizados adicionais"
@@ -1487,17 +1851,31 @@ msgstr "Por favor escolha um nome de taxonomia diferente. %s já é utilizado."
 #~ msgid "Manage Custom Taxonomies"
 #~ msgstr "Gerir taxonomias personalizadas"
 
-#~ msgid "Deleting custom taxonomies does <strong>NOT</strong> delete any content added to those taxonomies.  You can easily recreate your taxonomies and the content will still exist."
-#~ msgstr "Apagar taxonomias personalizadas <strong>NÃO</strong> apagará quaisquer conteúdos adicionados a essas taxonomias. Pode facilmente recriar as suas taxonomias e o conteúdo continuará a existir."
+#~ msgid ""
+#~ "Deleting custom taxonomies does <strong>NOT</strong> delete any content "
+#~ "added to those taxonomies.  You can easily recreate your taxonomies and "
+#~ "the content will still exist."
+#~ msgstr ""
+#~ "Apagar taxonomias personalizadas <strong>NÃO</strong> apagará quaisquer "
+#~ "conteúdos adicionados a essas taxonomias. Pode facilmente recriar as suas "
+#~ "taxonomias e o conteúdo continuará a existir."
 
 #~ msgid "Attached Post Types"
 #~ msgstr "Tipos de artigos anexados"
 
-#~ msgid "Place the below code in your themes functions.php file to manually create this custom taxonomy"
-#~ msgstr "Insira o código abaixo no ficheiro functions.php dos seus temas para criar manualmente esta taxonomia personalizada."
+#~ msgid ""
+#~ "Place the below code in your themes functions.php file to manually create "
+#~ "this custom taxonomy"
+#~ msgstr ""
+#~ "Insira o código abaixo no ficheiro functions.php dos seus temas para "
+#~ "criar manualmente esta taxonomia personalizada."
 
-#~ msgid "This is a <strong>BETA</strong> feature. Please <a href=\"http://webdevstudios.com/support/forum/custom-post-type-ui/\">report bugs</a>."
-#~ msgstr "Isto é um recurso <strong>BETA</strong>. Por favor <a href=\"http://webdevstudios.com/support/forum/custom-post-type-ui/\">reporte erros</a>."
+#~ msgid ""
+#~ "This is a <strong>BETA</strong> feature. Please <a href=\"http://"
+#~ "webdevstudios.com/support/forum/custom-post-type-ui/\">report bugs</a>."
+#~ msgstr ""
+#~ "Isto é um recurso <strong>BETA</strong>. Por favor <a href=\"http://"
+#~ "webdevstudios.com/support/forum/custom-post-type-ui/\">reporte erros</a>."
 
 #~ msgid "Save Custom Post Type"
 #~ msgstr "Guardar tipo de artigo personalizado"
@@ -1524,7 +1902,9 @@ msgstr "Por favor escolha um nome de taxonomia diferente. %s já é utilizado."
 #~ msgstr "Nome da taxonomia é um campo obrigatório."
 
 #~ msgid "You must assign your custom taxonomy to at least one post type."
-#~ msgstr "Tem que atribuir a sua taxonomia personalizada a pelo menos um tipo de artigo."
+#~ msgstr ""
+#~ "Tem que atribuir a sua taxonomia personalizada a pelo menos um tipo de "
+#~ "artigo."
 
 #, fuzzy
 #~ msgid "Please doe not use quotes in your taxonomy slug or rewrite slug."
@@ -1539,17 +1919,33 @@ msgstr "Por favor escolha um nome de taxonomia diferente. %s já é utilizado."
 #~ msgid "Create New Custom Post Type or Taxonomy"
 #~ msgstr "Criar novo tipo de artigo personalizado ou taxonomia"
 
-#~ msgid "If you are unfamiliar with the options below only fill out the <strong>Post Type Name</strong> and <strong>Label</strong> fields and check which meta boxes to support.  The other settings are set to the most common defaults for custom post types. Hover over the question mark for more details."
-#~ msgstr "Se não estiver familiarizado com as opções abaixo, preencha apenas os campos <strong>Nome do tipo de artigo</strong> e <strong>Texto a mostrar</strong> e seleccione as opções a suportar. Para as restantes definições serão atribuídas as opções padrão para tipos de artigo personalizados. Veja o ponto de interrogação para mais detalhes."
+#~ msgid ""
+#~ "If you are unfamiliar with the options below only fill out the "
+#~ "<strong>Post Type Name</strong> and <strong>Label</strong> fields and "
+#~ "check which meta boxes to support.  The other settings are set to the "
+#~ "most common defaults for custom post types. Hover over the question mark "
+#~ "for more details."
+#~ msgstr ""
+#~ "Se não estiver familiarizado com as opções abaixo, preencha apenas os "
+#~ "campos <strong>Nome do tipo de artigo</strong> e <strong>Texto a mostrar</"
+#~ "strong> e seleccione as opções a suportar. Para as restantes definições "
+#~ "serão atribuídas as opções padrão para tipos de artigo personalizados. "
+#~ "Veja o ponto de interrogação para mais detalhes."
 
 #~ msgid "Post Type Name"
 #~ msgstr "Nome do tipo de artigo"
 
-#~ msgid "Max 20 characters, can not contain capital letters or spaces. Reserved post types: post, page, attachment, revision, nav_menu_item."
-#~ msgstr "Máximo 20 caracteres, não pode conter maiúsculas ou espaços. Tipos de artigos reservados: post, page, attachment, revision, nav_menu_item."
+#~ msgid ""
+#~ "Max 20 characters, can not contain capital letters or spaces. Reserved "
+#~ "post types: post, page, attachment, revision, nav_menu_item."
+#~ msgstr ""
+#~ "Máximo 20 caracteres, não pode conter maiúsculas ou espaços. Tipos de "
+#~ "artigos reservados: post, page, attachment, revision, nav_menu_item."
 
 #~ msgid "Post type label.  Used in the admin menu for displaying post types."
-#~ msgstr "Texto a mostrar para o tipo de artigo. Utilizado no menu de administração para mostrar os tipos de artigo."
+#~ msgstr ""
+#~ "Texto a mostrar para o tipo de artigo. Utilizado no menu de administração "
+#~ "para mostrar os tipos de artigo."
 
 #~ msgid "Advanced Label Options"
 #~ msgstr "Opções avançadas do texto a mostrar"
@@ -1563,20 +1959,40 @@ msgstr "Por favor escolha um nome de taxonomia diferente. %s já é utilizado."
 #~ msgid "(e.g. No Movies Found)"
 #~ msgstr "(p. ex. Nenhum fime encontrado)"
 
-#~ msgid "If you are unfamiliar with the options below only fill out the <strong>Taxonomy Name</strong> and <strong>Post Type Name</strong> fields.  The other settings are set to the most common defaults for custom taxonomies. Hover over the question mark for more details."
-#~ msgstr "Se não estiver familiarizado com as opções abaixo, preencha apenas os campos <strong>Nome da taxonomia</strong> e <strong>Nome do tipo de artigo</strong>. Para as restantes definições serão atribuídas as opções padrão para taxonomias personalizadas. Veja o ponto de interrogação para mais detalhes."
+#~ msgid ""
+#~ "If you are unfamiliar with the options below only fill out the "
+#~ "<strong>Taxonomy Name</strong> and <strong>Post Type Name</strong> "
+#~ "fields.  The other settings are set to the most common defaults for "
+#~ "custom taxonomies. Hover over the question mark for more details."
+#~ msgstr ""
+#~ "Se não estiver familiarizado com as opções abaixo, preencha apenas os "
+#~ "campos <strong>Nome da taxonomia</strong> e <strong>Nome do tipo de "
+#~ "artigo</strong>. Para as restantes definições serão atribuídas as opções "
+#~ "padrão para taxonomias personalizadas. Veja o ponto de interrogação para "
+#~ "mais detalhes."
 
 #~ msgid "Taxonomy Name"
 #~ msgstr "Nome da taxonomia"
 
-#~ msgid "Note: Changing the name, after adding terms to the taxonomy, will not update the terms in the database."
-#~ msgstr "Nota: alterar o nome depois de adicionar termos à taxonomia, não actualizará os termos na base de dados."
+#~ msgid ""
+#~ "Note: Changing the name, after adding terms to the taxonomy, will not "
+#~ "update the terms in the database."
+#~ msgstr ""
+#~ "Nota: alterar o nome depois de adicionar termos à taxonomia, não "
+#~ "actualizará os termos na base de dados."
 
-#~ msgid "Max 32 characters, should only contain alphanumeric lowercase characters and underscores in place of spaces."
-#~ msgstr "Máximo 32 caracteres, apenas pode conter caracteres alfanuméricos minúsculos e underscores em vez de espaços."
+#~ msgid ""
+#~ "Max 32 characters, should only contain alphanumeric lowercase characters "
+#~ "and underscores in place of spaces."
+#~ msgstr ""
+#~ "Máximo 32 caracteres, apenas pode conter caracteres alfanuméricos "
+#~ "minúsculos e underscores em vez de espaços."
 
-#~ msgid "Taxonomy label.  Used in the admin menu for displaying custom taxonomy."
-#~ msgstr "Texto a mostrar para a taxonomia. Utilizado no menu de administração para mostrar a taxonomia personalizada."
+#~ msgid ""
+#~ "Taxonomy label.  Used in the admin menu for displaying custom taxonomy."
+#~ msgstr ""
+#~ "Texto a mostrar para a taxonomia. Utilizado no menu de administração para "
+#~ "mostrar a taxonomia personalizada."
 
 #~ msgid "(e.g. movies)"
 #~ msgstr "(p. ex. filmes)"
@@ -1588,4 +2004,6 @@ msgstr "Por favor escolha um nome de taxonomia diferente. %s já é utilizado."
 #~ msgstr "(p. ex. Actualizar actor)"
 
 #~ msgid "\"Use the option below to explicitly set \"supports\" to false."
-#~ msgstr "\"Utilize a opção abaixo para explicitamente definir \"suporte\" como falso."
+#~ msgstr ""
+#~ "\"Utilize a opção abaixo para explicitamente definir \"suporte\" como "
+#~ "falso."
