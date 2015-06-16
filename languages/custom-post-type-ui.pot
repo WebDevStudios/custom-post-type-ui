@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Custom Post Type UI\n"
-"POT-Creation-Date: 2015-06-15 22:30-0600\n"
+"POT-Creation-Date: 2015-06-16 08:52+0100\n"
 "PO-Revision-Date: 2015-05-19 18:37-0600\n"
 "Last-Translator: Michael Beckwith <michael.d.beckwith@gmail.com>\n"
 "Language-Team: Michael Beckwith <michael.d.beckwith@gmail.com>\n"
@@ -18,9 +18,9 @@ msgstr ""
 "_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-WPHeader: custom-post-type-ui.php\n"
-"X-Poedit-SearchPathExcluded-3: tests\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
+"X-Poedit-SearchPathExcluded-1: tests\n"
 
 #: custom-post-type-ui.php:60
 msgid "Custom Post Types"
@@ -709,10 +709,7 @@ msgstr ""
 #: inc/post-types.php:544 inc/post-types.php:564 inc/post-types.php:607
 #: inc/taxonomies.php:346 inc/taxonomies.php:363 inc/taxonomies.php:380
 #: inc/taxonomies.php:406 inc/taxonomies.php:432 inc/taxonomies.php:449
-#: inc/taxonomies.php:466 tests/CPTUI-Admin-UI-Inputs-Test.php:105
-#: tests/CPTUI-Admin-UI-Inputs-Test.php:147
-#: tests/CPTUI-Admin-UI-Inputs-Test.php:190
-#: tests/CPTUI-Admin-UI-Inputs-Test.php:232
+#: inc/taxonomies.php:466
 msgid "False"
 msgstr ""
 
@@ -721,27 +718,17 @@ msgstr ""
 #: inc/post-types.php:545 inc/post-types.php:565 inc/post-types.php:608
 #: inc/taxonomies.php:347 inc/taxonomies.php:364 inc/taxonomies.php:381
 #: inc/taxonomies.php:407 inc/taxonomies.php:433 inc/taxonomies.php:450
-#: inc/taxonomies.php:467 tests/CPTUI-Admin-UI-Inputs-Test.php:106
-#: tests/CPTUI-Admin-UI-Inputs-Test.php:148
-#: tests/CPTUI-Admin-UI-Inputs-Test.php:191
-#: tests/CPTUI-Admin-UI-Inputs-Test.php:233
+#: inc/taxonomies.php:467
 msgid "True"
 msgstr ""
 
-#: inc/post-types.php:392 tests/CPTUI-Admin-UI-Inputs-Test.php:114
-#: tests/CPTUI-Admin-UI-Inputs-Test.php:156
-#: tests/CPTUI-Admin-UI-Inputs-Test.php:199
-#: tests/CPTUI-Admin-UI-Inputs-Test.php:241
+#: inc/post-types.php:392
 msgid "Public"
 msgstr ""
 
 #: inc/post-types.php:393 inc/post-types.php:413 inc/post-types.php:522
 #: inc/post-types.php:554 inc/post-types.php:574 inc/post-types.php:616
 #: inc/taxonomies.php:373 inc/taxonomies.php:390 inc/taxonomies.php:416
-#: tests/CPTUI-Admin-UI-Inputs-Test.php:115
-#: tests/CPTUI-Admin-UI-Inputs-Test.php:157
-#: tests/CPTUI-Admin-UI-Inputs-Test.php:200
-#: tests/CPTUI-Admin-UI-Inputs-Test.php:242
 msgid "(default: True)"
 msgstr ""
 
@@ -1463,13 +1450,6 @@ msgstr ""
 #: inc/taxonomies.php:648
 #, php-format
 msgid "Please choose a different taxonomy name. %s is already used."
-msgstr ""
-
-#: tests/CPTUI-Admin-UI-Inputs-Test.php:116
-#: tests/CPTUI-Admin-UI-Inputs-Test.php:158
-#: tests/CPTUI-Admin-UI-Inputs-Test.php:201
-#: tests/CPTUI-Admin-UI-Inputs-Test.php:243
-msgid "Whether posts of this type should be shown in the admin UI"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
