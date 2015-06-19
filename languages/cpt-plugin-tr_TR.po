@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Custom Post Type UI 0.8\n"
-"POT-Creation-Date: 2015-06-12 21:16-0600\n"
-"PO-Revision-Date: 2015-06-12 21:16-0600\n"
+"POT-Creation-Date: 2015-06-15 22:31-0600\n"
+"PO-Revision-Date: 2015-06-15 22:31-0600\n"
 "Last-Translator: Michael Beckwith <michael.d.beckwith@gmail.com>\n"
 "Language-Team: TrStar <trstar@gmail.com>\n"
 "Language: tr_TR\n"
@@ -200,7 +200,7 @@ msgstr "Kodu Alın"
 
 #: ../custom-post-type-ui.php:622 ../inc/listings.php:32
 #: ../inc/listings.php:120 ../inc/listings.php:148 ../inc/listings.php:223
-#: ../inc/post-types.php:373 ../inc/taxonomies.php:338
+#: ../inc/post-types.php:374 ../inc/taxonomies.php:340
 msgid "Settings"
 msgstr ""
 
@@ -466,17 +466,17 @@ msgstr ""
 msgid "Post Type"
 msgstr "Yazı türünün arşivlenebilir tür olup olmadığı"
 
-#: ../inc/listings.php:33 ../inc/listings.php:121 ../inc/post-types.php:644
+#: ../inc/listings.php:33 ../inc/listings.php:121 ../inc/post-types.php:645
 msgid "Supports"
 msgstr "Destekler"
 
 #: ../inc/listings.php:35 ../inc/listings.php:123 ../inc/listings.php:150
-#: ../inc/listings.php:225 ../inc/post-types.php:211 ../inc/taxonomies.php:196
+#: ../inc/listings.php:225 ../inc/post-types.php:212 ../inc/taxonomies.php:198
 #, fuzzy
 msgid "Labels"
 msgstr "Etiket"
 
-#: ../inc/listings.php:72 ../inc/listings.php:182 ../inc/post-types.php:267
+#: ../inc/listings.php:72 ../inc/listings.php:182 ../inc/post-types.php:268
 msgid "Edit"
 msgstr "Düzenle"
 
@@ -514,16 +514,20 @@ msgstr ""
 msgid "Select: "
 msgstr ""
 
-#: ../inc/post-types.php:120
+#: ../inc/post-types.php:91 ../inc/taxonomies.php:88
+msgid "Select"
+msgstr ""
+
+#: ../inc/post-types.php:121
 #, fuzzy
 msgid "Post Type Slug"
 msgstr "Bu Yazı türü için rewrite işlenmesini tetikler"
 
-#: ../inc/post-types.php:121
+#: ../inc/post-types.php:122
 msgid "(e.g. movie)"
 msgstr "(örnek: film)"
 
-#: ../inc/post-types.php:122
+#: ../inc/post-types.php:123
 #, fuzzy
 msgid ""
 "The post type name. Used to retrieve custom post type content. Should be "
@@ -532,37 +536,37 @@ msgstr ""
 "Kısa ve şirin bir ad belirleyin, bu daha sonra bu alanı çağırmak için "
 "kullanılacaktır."
 
-#: ../inc/post-types.php:133 ../inc/taxonomies.php:124
+#: ../inc/post-types.php:134 ../inc/taxonomies.php:126
 #, fuzzy
 msgid "Plural Label"
 msgstr "Tekil Etiket"
 
-#: ../inc/post-types.php:134
+#: ../inc/post-types.php:135
 msgid "(e.g. Movies)"
 msgstr "(örneğin: Filmler)"
 
-#: ../inc/post-types.php:135 ../inc/post-types.php:232
-#: ../inc/post-types.php:244 ../inc/post-types.php:256
-#: ../inc/post-types.php:268 ../inc/post-types.php:280
-#: ../inc/post-types.php:292 ../inc/post-types.php:304
-#: ../inc/post-types.php:316 ../inc/post-types.php:328
-#: ../inc/post-types.php:340 ../inc/post-types.php:352
-#: ../inc/post-types.php:364
+#: ../inc/post-types.php:136 ../inc/post-types.php:233
+#: ../inc/post-types.php:245 ../inc/post-types.php:257
+#: ../inc/post-types.php:269 ../inc/post-types.php:281
+#: ../inc/post-types.php:293 ../inc/post-types.php:305
+#: ../inc/post-types.php:317 ../inc/post-types.php:329
+#: ../inc/post-types.php:341 ../inc/post-types.php:353
+#: ../inc/post-types.php:365
 #, fuzzy
 msgid "Post type label. Used in the admin menu for displaying post types."
 msgstr ""
 "Yazı türü etiketi. Admin menüsünde yazı türlerini göstermek için "
 "kullanılacak."
 
-#: ../inc/post-types.php:145 ../inc/taxonomies.php:133
+#: ../inc/post-types.php:146 ../inc/taxonomies.php:135
 msgid "Singular Label"
 msgstr "Tekil Etiket"
 
-#: ../inc/post-types.php:146
+#: ../inc/post-types.php:147
 msgid "(e.g. Movie)"
 msgstr "(örneğin: Film)"
 
-#: ../inc/post-types.php:147
+#: ../inc/post-types.php:148
 #, fuzzy
 msgid ""
 "Custom Post Type Singular label. Used in WordPress when a singular label is "
@@ -571,11 +575,11 @@ msgstr ""
 "Özel Yazı Türü tekil etiketi. Wordpress ihtiyaç duyarsa tekil etiketi "
 "kullanacak."
 
-#: ../inc/post-types.php:163
+#: ../inc/post-types.php:164
 msgid "Description"
 msgstr "Açıklama"
 
-#: ../inc/post-types.php:164
+#: ../inc/post-types.php:165
 #, fuzzy
 msgid ""
 "Custom Post Type Description. Describe what your custom post type is used "
@@ -583,34 +587,34 @@ msgid ""
 msgstr ""
 "Özel Yazı Türü Açıklaması. Bu açıklama türü kullanacak kişiye gösterilecek."
 
-#: ../inc/post-types.php:176
+#: ../inc/post-types.php:177
 msgid "Migrate posts to newly renamed post type?"
 msgstr ""
 
-#: ../inc/post-types.php:177
+#: ../inc/post-types.php:178
 msgid "Check this to migrate posts if and when renaming your post type."
 msgstr ""
 
-#: ../inc/post-types.php:186
+#: ../inc/post-types.php:187
 #, fuzzy
 msgid "Save Post Type"
 msgstr "Özel Yazı Türü Kaydet"
 
-#: ../inc/post-types.php:187
+#: ../inc/post-types.php:188
 #, fuzzy
 msgid "Delete Post Type"
 msgstr "Ek Yazı Türleri"
 
-#: ../inc/post-types.php:189
+#: ../inc/post-types.php:190
 #, fuzzy
 msgid "Add Post Type"
 msgstr "Bu Yazı türü için rewrite işlenmesini tetikler"
 
-#: ../inc/post-types.php:200 ../inc/taxonomies.php:185
+#: ../inc/post-types.php:201 ../inc/taxonomies.php:187
 msgid "Starter Notes"
 msgstr ""
 
-#: ../inc/post-types.php:203
+#: ../inc/post-types.php:204
 #, fuzzy, php-format
 msgid ""
 "Post Type names should have %smax 20 characters%s, and only contain "
@@ -621,7 +625,7 @@ msgstr ""
 "Maksimum 20 karakter, harf veya boşluk içeremez.  Ayrılmış sonrası tipleri: "
 "post, sayfa, ek, revizyon, nav_menu_item."
 
-#: ../inc/post-types.php:204
+#: ../inc/post-types.php:205
 #, fuzzy, php-format
 msgid ""
 "If you are unfamiliar with the advanced post type settings, just fill in the "
@@ -633,7 +637,7 @@ msgstr ""
 "doldurabilirsiniz. Diğer ayarlar özel yazı türleri için en yaygın varsayılan "
 "olarak ayarlanır. Daha fazla bilgi için soru işareti üzerinde gezinin."
 
-#: ../inc/post-types.php:205
+#: ../inc/post-types.php:206
 #, fuzzy, php-format
 msgid ""
 "Deleting custom post types will %sNOT%s delete any content into the database "
@@ -644,123 +648,123 @@ msgstr ""
 "yazı türlerini değiştirmeyecektir. Yazılan tipleri yeniden ve içeriği hala "
 "veritabanında olacaktır."
 
-#: ../inc/post-types.php:219 ../inc/taxonomies.php:206
+#: ../inc/post-types.php:220 ../inc/taxonomies.php:208
 msgid "Menu Name"
 msgstr "Menü Adı"
 
-#: ../inc/post-types.php:220
+#: ../inc/post-types.php:221
 msgid "Custom menu name for your custom post type."
 msgstr "Özel yazı türü için özel menü adı."
 
-#: ../inc/post-types.php:224
+#: ../inc/post-types.php:225
 msgid "(e.g. My Movies)"
 msgstr "(örneğin: Benim Filmlerim)"
 
-#: ../inc/post-types.php:231 ../inc/taxonomies.php:215
+#: ../inc/post-types.php:232 ../inc/taxonomies.php:217
 msgid "All Items"
 msgstr "Bütün Elemanlar"
 
-#: ../inc/post-types.php:236
+#: ../inc/post-types.php:237
 #, fuzzy
 msgid "(e.g. All Movies)"
 msgstr "(örneğin: Filmler)"
 
-#: ../inc/post-types.php:243
+#: ../inc/post-types.php:244
 msgid "Add New"
 msgstr "Yeni Ekle"
 
-#: ../inc/post-types.php:248
+#: ../inc/post-types.php:249
 msgid "(e.g. Add New)"
 msgstr "(örneğin: Yeni Ekle)"
 
-#: ../inc/post-types.php:255 ../inc/taxonomies.php:251
+#: ../inc/post-types.php:256 ../inc/taxonomies.php:253
 msgid "Add New Item"
 msgstr "Yeni Eleman Ekle"
 
-#: ../inc/post-types.php:260
+#: ../inc/post-types.php:261
 msgid "(e.g. Add New Movie)"
 msgstr "(örneğin: Yeni Film ekle)"
 
-#: ../inc/post-types.php:272
+#: ../inc/post-types.php:273
 msgid "(e.g. Edit)"
 msgstr "(örneğin: Düzenle)"
 
-#: ../inc/post-types.php:279 ../inc/taxonomies.php:224
+#: ../inc/post-types.php:280 ../inc/taxonomies.php:226
 msgid "Edit Item"
 msgstr "Eleman Düzenle"
 
-#: ../inc/post-types.php:284
+#: ../inc/post-types.php:285
 msgid "(e.g. Edit Movie)"
 msgstr "(örneğin: Film Düzenle)"
 
-#: ../inc/post-types.php:291
+#: ../inc/post-types.php:292
 msgid "New Item"
 msgstr "Yeni Eleman"
 
-#: ../inc/post-types.php:296
+#: ../inc/post-types.php:297
 msgid "(e.g. New Movie)"
 msgstr "(örneğin: Yeni Film)"
 
-#: ../inc/post-types.php:303
+#: ../inc/post-types.php:304
 msgid "View"
 msgstr "Göster"
 
-#: ../inc/post-types.php:308
+#: ../inc/post-types.php:309
 #, fuzzy
 msgid "(e.g. View)"
 msgstr "(örneğin: Film Göster)"
 
-#: ../inc/post-types.php:315 ../inc/taxonomies.php:233
+#: ../inc/post-types.php:316 ../inc/taxonomies.php:235
 msgid "View Item"
 msgstr "Elemanı Göster"
 
-#: ../inc/post-types.php:320
+#: ../inc/post-types.php:321
 msgid "(e.g. View Movie)"
 msgstr "(örneğin: Film Göster)"
 
-#: ../inc/post-types.php:327
+#: ../inc/post-types.php:328
 #, fuzzy
 msgid "Search Item"
 msgstr "Eleman Düzenle"
 
-#: ../inc/post-types.php:332
+#: ../inc/post-types.php:333
 #, fuzzy
 msgid "(e.g. Search Movie)"
 msgstr "(örneğin: Filmleri Ara)"
 
-#: ../inc/post-types.php:339
+#: ../inc/post-types.php:340
 msgid "Not Found"
 msgstr "Bulunamadı"
 
-#: ../inc/post-types.php:344
+#: ../inc/post-types.php:345
 #, fuzzy
 msgid "(e.g. No Movies found)"
 msgstr "(örneğin: Çöpte Filmler bulunamadı)"
 
-#: ../inc/post-types.php:351
+#: ../inc/post-types.php:352
 msgid "Not Found in Trash"
 msgstr "Çöpte Bulunamadı"
 
-#: ../inc/post-types.php:356
+#: ../inc/post-types.php:357
 msgid "(e.g. No Movies found in Trash)"
 msgstr "(örneğin: Çöpte Filmler bulunamadı)"
 
-#: ../inc/post-types.php:363
+#: ../inc/post-types.php:364
 msgid "Parent"
 msgstr "Temel"
 
-#: ../inc/post-types.php:368
+#: ../inc/post-types.php:369
 msgid "(e.g. Parent Movie)"
 msgstr "(örneğin: Temel Film)"
 
-#: ../inc/post-types.php:382 ../inc/post-types.php:402
-#: ../inc/post-types.php:428 ../inc/post-types.php:460
-#: ../inc/post-types.php:491 ../inc/post-types.php:511
-#: ../inc/post-types.php:543 ../inc/post-types.php:563
-#: ../inc/post-types.php:606 ../inc/taxonomies.php:344
-#: ../inc/taxonomies.php:361 ../inc/taxonomies.php:378
-#: ../inc/taxonomies.php:404 ../inc/taxonomies.php:430
-#: ../inc/taxonomies.php:447 ../inc/taxonomies.php:464
+#: ../inc/post-types.php:383 ../inc/post-types.php:403
+#: ../inc/post-types.php:429 ../inc/post-types.php:461
+#: ../inc/post-types.php:492 ../inc/post-types.php:512
+#: ../inc/post-types.php:544 ../inc/post-types.php:564
+#: ../inc/post-types.php:607 ../inc/taxonomies.php:346
+#: ../inc/taxonomies.php:363 ../inc/taxonomies.php:380
+#: ../inc/taxonomies.php:406 ../inc/taxonomies.php:432
+#: ../inc/taxonomies.php:449 ../inc/taxonomies.php:466
 #: ../tests/CPTUI-Admin-UI-Inputs-Test.php:105
 #: ../tests/CPTUI-Admin-UI-Inputs-Test.php:147
 #: ../tests/CPTUI-Admin-UI-Inputs-Test.php:190
@@ -768,14 +772,14 @@ msgstr "(örneğin: Temel Film)"
 msgid "False"
 msgstr "False"
 
-#: ../inc/post-types.php:383 ../inc/post-types.php:403
-#: ../inc/post-types.php:429 ../inc/post-types.php:461
-#: ../inc/post-types.php:492 ../inc/post-types.php:512
-#: ../inc/post-types.php:544 ../inc/post-types.php:564
-#: ../inc/post-types.php:607 ../inc/taxonomies.php:345
-#: ../inc/taxonomies.php:362 ../inc/taxonomies.php:379
-#: ../inc/taxonomies.php:405 ../inc/taxonomies.php:431
-#: ../inc/taxonomies.php:448 ../inc/taxonomies.php:465
+#: ../inc/post-types.php:384 ../inc/post-types.php:404
+#: ../inc/post-types.php:430 ../inc/post-types.php:462
+#: ../inc/post-types.php:493 ../inc/post-types.php:513
+#: ../inc/post-types.php:545 ../inc/post-types.php:565
+#: ../inc/post-types.php:608 ../inc/taxonomies.php:347
+#: ../inc/taxonomies.php:364 ../inc/taxonomies.php:381
+#: ../inc/taxonomies.php:407 ../inc/taxonomies.php:433
+#: ../inc/taxonomies.php:450 ../inc/taxonomies.php:467
 #: ../tests/CPTUI-Admin-UI-Inputs-Test.php:106
 #: ../tests/CPTUI-Admin-UI-Inputs-Test.php:148
 #: ../tests/CPTUI-Admin-UI-Inputs-Test.php:191
@@ -783,25 +787,25 @@ msgstr "False"
 msgid "True"
 msgstr "True"
 
-#: ../inc/post-types.php:391 ../tests/CPTUI-Admin-UI-Inputs-Test.php:114
+#: ../inc/post-types.php:392 ../tests/CPTUI-Admin-UI-Inputs-Test.php:114
 #: ../tests/CPTUI-Admin-UI-Inputs-Test.php:156
 #: ../tests/CPTUI-Admin-UI-Inputs-Test.php:199
 #: ../tests/CPTUI-Admin-UI-Inputs-Test.php:241
 msgid "Public"
 msgstr "Genel"
 
-#: ../inc/post-types.php:392 ../inc/post-types.php:412
-#: ../inc/post-types.php:521 ../inc/post-types.php:553
-#: ../inc/post-types.php:573 ../inc/post-types.php:615
-#: ../inc/taxonomies.php:371 ../inc/taxonomies.php:388
-#: ../inc/taxonomies.php:414 ../tests/CPTUI-Admin-UI-Inputs-Test.php:115
+#: ../inc/post-types.php:393 ../inc/post-types.php:413
+#: ../inc/post-types.php:522 ../inc/post-types.php:554
+#: ../inc/post-types.php:574 ../inc/post-types.php:616
+#: ../inc/taxonomies.php:373 ../inc/taxonomies.php:390
+#: ../inc/taxonomies.php:416 ../tests/CPTUI-Admin-UI-Inputs-Test.php:115
 #: ../tests/CPTUI-Admin-UI-Inputs-Test.php:157
 #: ../tests/CPTUI-Admin-UI-Inputs-Test.php:200
 #: ../tests/CPTUI-Admin-UI-Inputs-Test.php:242
 msgid "(default: True)"
 msgstr "(varsayılan: Doğru)"
 
-#: ../inc/post-types.php:393
+#: ../inc/post-types.php:394
 #, fuzzy
 msgid ""
 "Whether posts of this type should be shown in the admin UI and is publicly "
@@ -809,109 +813,109 @@ msgid ""
 msgstr ""
 "Bu tip mesajların gerekip gerekmediğini yönetici arabiriminde gösterilir "
 
-#: ../inc/post-types.php:411 ../inc/taxonomies.php:370
+#: ../inc/post-types.php:412 ../inc/taxonomies.php:372
 msgid "Show UI"
 msgstr "KA Göster"
 
-#: ../inc/post-types.php:413
+#: ../inc/post-types.php:414
 #, fuzzy
 msgid "Whether to generate a default UI for managing this post type."
 msgstr ""
 "Bu yazı türünün varsayılan kullanıcı arayüzünden yönetililp yönetilmeyeceği "
 
-#: ../inc/post-types.php:421
+#: ../inc/post-types.php:422
 msgid "Has Archive"
 msgstr "Arşivlenebilir mi?"
 
-#: ../inc/post-types.php:422
+#: ../inc/post-types.php:423
 #, fuzzy
 msgid "Whether the post type will have a post type archive URL."
 msgstr "Yazı türünün arşivlenebilir tür olup olmadığı"
 
-#: ../inc/post-types.php:423
+#: ../inc/post-types.php:424
 msgid "If left blank, the archive slug will default to the post type slug."
 msgstr ""
 
-#: ../inc/post-types.php:437 ../inc/post-types.php:470
-#: ../inc/post-types.php:501 ../inc/taxonomies.php:354
-#: ../inc/taxonomies.php:474
+#: ../inc/post-types.php:438 ../inc/post-types.php:471
+#: ../inc/post-types.php:502 ../inc/taxonomies.php:356
+#: ../inc/taxonomies.php:476
 msgid "(default: False)"
 msgstr "(varsayılan:Yanlış)"
 
-#: ../inc/post-types.php:449
+#: ../inc/post-types.php:450
 msgid "Slug to be used for archive URL."
 msgstr ""
 
-#: ../inc/post-types.php:469
+#: ../inc/post-types.php:470
 msgid "Exclude From Search"
 msgstr "Arama Dışında Bırak"
 
-#: ../inc/post-types.php:471
+#: ../inc/post-types.php:472
 msgid ""
 "Whether to exclude posts with this post type from front end search results."
 msgstr ""
 
-#: ../inc/post-types.php:482
+#: ../inc/post-types.php:483
 msgid "Capability Type"
 msgstr "Yetenek Türü"
 
-#: ../inc/post-types.php:483
+#: ../inc/post-types.php:484
 msgid "The post type to use for checking read, edit, and delete capabilities"
 msgstr "Bu yazı türü okunabilir, düzenlenebilir ve silinebilir yetenekleri"
 
-#: ../inc/post-types.php:500 ../inc/taxonomies.php:353
+#: ../inc/post-types.php:501 ../inc/taxonomies.php:355
 msgid "Hierarchical"
 msgstr "Hiyerarşik"
 
-#: ../inc/post-types.php:502
+#: ../inc/post-types.php:503
 msgid "Whether the post type can have parent-child relationships"
 msgstr "Yazı türünün üst sayfa, alt sayfa ilişkisinin olup olmadığı"
 
-#: ../inc/post-types.php:520 ../inc/taxonomies.php:413
+#: ../inc/post-types.php:521 ../inc/taxonomies.php:415
 msgid "Rewrite"
 msgstr "Rewrite"
 
-#: ../inc/post-types.php:522
+#: ../inc/post-types.php:523
 #, fuzzy
 msgid "Whether or not WordPress should use rewrites for this post type"
 msgstr "Bu Yazı türü için rewrite işlenmesini tetikler"
 
-#: ../inc/post-types.php:533 ../inc/taxonomies.php:424
+#: ../inc/post-types.php:534 ../inc/taxonomies.php:426
 msgid "Custom Rewrite Slug"
 msgstr "Özel Rewrite Slug"
 
-#: ../inc/post-types.php:534
+#: ../inc/post-types.php:535
 #, fuzzy
 msgid "(default: post type slug)"
 msgstr "(varsayılan: yazı türü adı)"
 
-#: ../inc/post-types.php:535
+#: ../inc/post-types.php:536
 #, fuzzy
 msgid "Custom post type slug to use instead of the default."
 msgstr "Özel slug yerine varsayılan kullanmak için."
 
-#: ../inc/post-types.php:552
+#: ../inc/post-types.php:553
 msgid "With Front"
 msgstr "Cephesinden"
 
-#: ../inc/post-types.php:554 ../inc/taxonomies.php:441
+#: ../inc/post-types.php:555 ../inc/taxonomies.php:443
 msgid "Should the permastruct be prepended with the front base."
 msgstr "Perma yapı ön tabanı ile önüne alınmalıdır."
 
-#: ../inc/post-types.php:572 ../inc/taxonomies.php:387
+#: ../inc/post-types.php:573 ../inc/taxonomies.php:389
 msgid "Query Var"
 msgstr "Sorgu Tanımı"
 
-#: ../inc/post-types.php:574
+#: ../inc/post-types.php:575
 #, fuzzy
 msgid "Sets the query_var key for this post type."
 msgstr "Bu Yazı türü için rewrite işlenmesini tetikler"
 
-#: ../inc/post-types.php:582
+#: ../inc/post-types.php:583
 msgid "Menu Position"
 msgstr "Menü Pozisyonu"
 
-#: ../inc/post-types.php:583
+#: ../inc/post-types.php:584
 msgid ""
 "The position in the menu order the post type should appear. show_in_menu "
 "must be true."
@@ -919,7 +923,7 @@ msgstr ""
 "Menüsündeki pozisyon sonrası tipi görünmelidir. show_in_menu doğru olması "
 "gerekir."
 
-#: ../inc/post-types.php:584
+#: ../inc/post-types.php:585
 msgid ""
 "See <a href=\"http://codex.wordpress.org/Function_Reference/"
 "register_post_type#Parameters\">Available options</a> in the \"menu_position"
@@ -929,17 +933,17 @@ msgstr ""
 "register_post_type#Parameters\">Kullanılabilir ayarlar</a> \"menu_pozisyonu "
 "bölümü\". Aralık 5 ile 100"
 
-#: ../inc/post-types.php:599
+#: ../inc/post-types.php:600
 msgid "Show in Menu"
 msgstr "Menüde Göster"
 
-#: ../inc/post-types.php:600
+#: ../inc/post-types.php:601
 #, fuzzy
 msgid ""
 "Whether to show the post type in the admin menu and where to show that menu."
 msgstr "Admin menüsünde yazı türünün görünüp görünmeyeceği"
 
-#: ../inc/post-types.php:601
+#: ../inc/post-types.php:602
 msgid ""
 "\"Show UI\" must be \"true\". If an existing top level page such as \"tools."
 "php\" is indicated for second input, post type will be sub menu of that."
@@ -948,95 +952,95 @@ msgstr ""
 "belirtilen varolan üst düzey sayfasında ise, sonrası türü bu alt menü "
 "olacaktır."
 
-#: ../inc/post-types.php:627
+#: ../inc/post-types.php:628
 msgid "Top-level page file name to make post type a sub-menu of."
 msgstr ""
 
-#: ../inc/post-types.php:639
+#: ../inc/post-types.php:640
 msgid "Menu Icon"
 msgstr "Menü Simgesi"
 
-#: ../inc/post-types.php:640
+#: ../inc/post-types.php:641
 msgid "(Full URL for icon or Dashicon class)"
 msgstr ""
 
-#: ../inc/post-types.php:641
+#: ../inc/post-types.php:642
 #, fuzzy
 msgid "URL to image to be used as menu icon or Dashicon class to use instead."
 msgstr "Görüntünün URL menü simgesi olarak kullanılacak."
 
-#: ../inc/post-types.php:654
+#: ../inc/post-types.php:655
 msgid "Title"
 msgstr "Başlık"
 
-#: ../inc/post-types.php:655
+#: ../inc/post-types.php:656
 msgid "Adds the title meta box when creating content for this custom post type"
 msgstr "Bu özel yazı türü için içerik oluştururken başlık meta kutusu ekler"
 
-#: ../inc/post-types.php:669
+#: ../inc/post-types.php:670
 msgid "Editor"
 msgstr "Editör"
 
-#: ../inc/post-types.php:670
+#: ../inc/post-types.php:671
 msgid ""
 "Adds the content editor meta box when creating content for this custom post "
 "type"
 msgstr ""
 "Bu özel yazı türü için içerik oluştururken içerik editörü meta kutusu ekler"
 
-#: ../inc/post-types.php:684
+#: ../inc/post-types.php:685
 msgid "Excerpt"
 msgstr "Alıntı"
 
-#: ../inc/post-types.php:685
+#: ../inc/post-types.php:686
 msgid ""
 "Adds the excerpt meta box when creating content for this custom post type"
 msgstr "Bu özel yazı türü için içerik oluştururken alıntı meta kutusu ekler"
 
-#: ../inc/post-types.php:699
+#: ../inc/post-types.php:700
 msgid "Trackbacks"
 msgstr "Parçagönderimi"
 
-#: ../inc/post-types.php:700
+#: ../inc/post-types.php:701
 msgid ""
 "Adds the trackbacks meta box when creating content for this custom post type"
 msgstr ""
 "Bu özel yazı türü için içerik oluştururken parçagönderimi meta kutusu ekler"
 
-#: ../inc/post-types.php:714
+#: ../inc/post-types.php:715
 msgid "Custom Fields"
 msgstr "Özel Alanlar"
 
-#: ../inc/post-types.php:715
+#: ../inc/post-types.php:716
 msgid ""
 "Adds the custom fields meta box when creating content for this custom post "
 "type"
 msgstr "Bu özel yazı türü için içerik oluştururken özel alan meta kutusu ekler"
 
-#: ../inc/post-types.php:729
+#: ../inc/post-types.php:730
 msgid "Comments"
 msgstr "Yorumlar"
 
-#: ../inc/post-types.php:730
+#: ../inc/post-types.php:731
 msgid ""
 "Adds the comments meta box when creating content for this custom post type"
 msgstr "Bu özel yazı türü için içerik oluştururken Yorumlar meta kutusu ekler"
 
-#: ../inc/post-types.php:744
+#: ../inc/post-types.php:745
 msgid "Revisions"
 msgstr "Düzenlemeler"
 
-#: ../inc/post-types.php:745
+#: ../inc/post-types.php:746
 msgid ""
 "Adds the revisions meta box when creating content for this custom post type"
 msgstr ""
 "Bu özel yazı türü için içerik oluştururken revizyonlar meta kutusu ekler"
 
-#: ../inc/post-types.php:759
+#: ../inc/post-types.php:760
 msgid "Featured Image"
 msgstr "Öne Çıkan Görüntü"
 
-#: ../inc/post-types.php:760
+#: ../inc/post-types.php:761
 msgid ""
 "Adds the featured image meta box when creating content for this custom post "
 "type"
@@ -1044,20 +1048,20 @@ msgstr ""
 "Bu özel yazı türü için içerik oluştururken öne  çıkan görüntü meta kutusu "
 "ekler"
 
-#: ../inc/post-types.php:774
+#: ../inc/post-types.php:775
 msgid "Author"
 msgstr "Yazar"
 
-#: ../inc/post-types.php:775
+#: ../inc/post-types.php:776
 msgid ""
 "Adds the author meta box when creating content for this custom post type"
 msgstr "Bu özel yazı türü için içerik oluştururken yazar meta kutusu ekler"
 
-#: ../inc/post-types.php:789
+#: ../inc/post-types.php:790
 msgid "Page Attributes"
 msgstr "Sayfa Öznitelikleri"
 
-#: ../inc/post-types.php:790
+#: ../inc/post-types.php:791
 msgid ""
 "Adds the page attribute meta box when creating content for this custom post "
 "type"
@@ -1065,65 +1069,65 @@ msgstr ""
 "Bu özel yazı türü için içerik oluştururken sayfa öznitelikleri meta kutusunu "
 "ekler "
 
-#: ../inc/post-types.php:804
+#: ../inc/post-types.php:805
 msgid "Post Formats"
 msgstr "Yazı Formatları"
 
-#: ../inc/post-types.php:805
+#: ../inc/post-types.php:806
 msgid "Adds post format support"
 msgstr "Bu Yazı format desteği ekler"
 
-#: ../inc/post-types.php:810
+#: ../inc/post-types.php:811
 msgid "Use the option below to explicitly set \"supports\" to false."
 msgstr ""
 
-#: ../inc/post-types.php:818
+#: ../inc/post-types.php:819
 msgid "None"
 msgstr ""
 
-#: ../inc/post-types.php:819
+#: ../inc/post-types.php:820
 msgid "Remove all support features"
 msgstr ""
 
-#: ../inc/post-types.php:825
+#: ../inc/post-types.php:826
 #, fuzzy
 msgid "Custom \"Supports\""
 msgstr "Destekler"
 
-#: ../inc/post-types.php:826
+#: ../inc/post-types.php:827
 msgid ""
 "Use this input to register custom \"supports\" values, separated by commas."
 msgstr ""
 
-#: ../inc/post-types.php:832
+#: ../inc/post-types.php:833
 msgid "Provide custom support slugs here."
 msgstr ""
 
-#: ../inc/post-types.php:838
+#: ../inc/post-types.php:839
 msgid "Built-in Taxonomies"
 msgstr "Dahili Sınıflandırmalar"
 
-#: ../inc/post-types.php:867 ../inc/taxonomies.php:167
+#: ../inc/post-types.php:868 ../inc/taxonomies.php:169
 #, fuzzy, php-format
 msgid "Adds %s support"
 msgstr "Bu Yazı format desteği ekler"
 
-#: ../inc/post-types.php:966
+#: ../inc/post-types.php:967
 msgid "Please provide a post type to delete"
 msgstr ""
 
-#: ../inc/post-types.php:1026
+#: ../inc/post-types.php:1027
 #, fuzzy
 msgid "Please provide a post type name"
 msgstr "(varsayılan: yazı türü adı)"
 
-#: ../inc/post-types.php:1050
+#: ../inc/post-types.php:1051
 #, fuzzy
 msgid "Please do not use quotes in post type names or rewrite slugs"
 msgstr ""
 "Lütfen özel yazı türü slug oluştururken  tırnak işaretlerini kullanmayınız."
 
-#: ../inc/post-types.php:1057
+#: ../inc/post-types.php:1058
 #, php-format
 msgid "Please choose a different post type name. %s is already registered."
 msgstr ""
@@ -1307,17 +1311,17 @@ msgid ""
 "registers a new taxonomy entry for your install."
 msgstr ""
 
-#: ../inc/taxonomies.php:113
+#: ../inc/taxonomies.php:115
 #, fuzzy
 msgid "Taxonomy Slug"
 msgstr "Sınıflandırma Adı"
 
-#: ../inc/taxonomies.php:114
+#: ../inc/taxonomies.php:116
 #, fuzzy
 msgid "(e.g. actor)"
 msgstr "(örneğin: Aktör)"
 
-#: ../inc/taxonomies.php:115
+#: ../inc/taxonomies.php:117
 #, fuzzy
 msgid ""
 "The taxonomy name. Used to retrieve custom taxonomy content. Should be short "
@@ -1326,48 +1330,48 @@ msgstr ""
 "Sınıflandırma adı. Özel sınıflandırma içeriği almak için kullanılır. Kısa ve "
 "tatlı olmalıdır"
 
-#: ../inc/taxonomies.php:123 ../inc/taxonomies.php:205
+#: ../inc/taxonomies.php:125 ../inc/taxonomies.php:207
 msgid "(e.g. Actors)"
 msgstr "(örneğin: Aktörler)"
 
-#: ../inc/taxonomies.php:125
+#: ../inc/taxonomies.php:127
 #, fuzzy
 msgid "Taxonomy label. Used in the admin menu for displaying custom taxonomy."
 msgstr ""
 "Sınıflandırma etiketi. Özel sınıflandırma görüntülemek için yönetici "
 "menüsünde kullanılan."
 
-#: ../inc/taxonomies.php:132
+#: ../inc/taxonomies.php:134
 msgid "(e.g. Actor)"
 msgstr "(örneğin: Aktör)"
 
-#: ../inc/taxonomies.php:134
+#: ../inc/taxonomies.php:136
 msgid ""
 "Taxonomy Singular label.  Used in WordPress when a singular label is needed."
 msgstr ""
 "Sınıflandırma Tekil etiketi. WordPress bir tekil etiket gerektiğinde "
 "kullanır."
 
-#: ../inc/taxonomies.php:137
+#: ../inc/taxonomies.php:139
 msgid "Attach to Post Type"
 msgstr "Yazı Türüne ekle"
 
-#: ../inc/taxonomies.php:176
+#: ../inc/taxonomies.php:178
 #, fuzzy
 msgid "Save Taxonomy"
 msgstr "Özel Sınıflandırma Kaydet"
 
-#: ../inc/taxonomies.php:177
+#: ../inc/taxonomies.php:179
 #, fuzzy
 msgid "Delete Taxonomy"
 msgstr "Özel Sınıflandırma Oluştur"
 
-#: ../inc/taxonomies.php:179
+#: ../inc/taxonomies.php:181
 #, fuzzy
 msgid "Add Taxonomy"
 msgstr "Bu sınıflandırma için rewrite işlenmesini tetikler"
 
-#: ../inc/taxonomies.php:188
+#: ../inc/taxonomies.php:190
 #, fuzzy, php-format
 msgid ""
 "Taxonomy names should have %smax 32 characters%s, and only contain "
@@ -1377,7 +1381,7 @@ msgstr ""
 "Maksimum 32 karakter, sadece alfanümerik küçük harf karakterleri içeren ve "
 "boşluk yerine alt çizgi olmalıdır."
 
-#: ../inc/taxonomies.php:189
+#: ../inc/taxonomies.php:191
 #, fuzzy, php-format
 msgid ""
 "If you are unfamiliar with the advanced taxonomy settings, just fill in the "
@@ -1389,7 +1393,7 @@ msgstr ""
 "Diğer ayarlar özel sınıflandırmalar için en yaygın varsayılan olarak "
 "ayarlanır. Daha fazla bilgi için soru işareti üzerinde gezinin."
 
-#: ../inc/taxonomies.php:190
+#: ../inc/taxonomies.php:192
 #, fuzzy, php-format
 msgid ""
 "Deleting custom taxonomies do %sNOT%s delete terms added to those "
@@ -1400,14 +1404,14 @@ msgstr ""
 "Özel sınıflandırmaları silmek işlemi sonrasında veritabanında sınıflandırma "
 "içerikleri kalacaktır."
 
-#: ../inc/taxonomies.php:207 ../inc/taxonomies.php:216
-#: ../inc/taxonomies.php:225 ../inc/taxonomies.php:234
-#: ../inc/taxonomies.php:243 ../inc/taxonomies.php:252
-#: ../inc/taxonomies.php:261 ../inc/taxonomies.php:270
-#: ../inc/taxonomies.php:279 ../inc/taxonomies.php:288
-#: ../inc/taxonomies.php:297 ../inc/taxonomies.php:306
-#: ../inc/taxonomies.php:315 ../inc/taxonomies.php:324
-#: ../inc/taxonomies.php:333
+#: ../inc/taxonomies.php:209 ../inc/taxonomies.php:218
+#: ../inc/taxonomies.php:227 ../inc/taxonomies.php:236
+#: ../inc/taxonomies.php:245 ../inc/taxonomies.php:254
+#: ../inc/taxonomies.php:263 ../inc/taxonomies.php:272
+#: ../inc/taxonomies.php:281 ../inc/taxonomies.php:290
+#: ../inc/taxonomies.php:299 ../inc/taxonomies.php:308
+#: ../inc/taxonomies.php:317 ../inc/taxonomies.php:326
+#: ../inc/taxonomies.php:335
 #, fuzzy
 msgid ""
 "Custom taxonomy label. Used in the admin menu for displaying taxonomies."
@@ -1415,200 +1419,200 @@ msgstr ""
 "Özel sınıflandırma etiketi. Sınıflandırmaları görüntülemek için yönetici "
 "menüsünde kullanılan."
 
-#: ../inc/taxonomies.php:214
+#: ../inc/taxonomies.php:216
 msgid "(e.g. All Actors)"
 msgstr "(örneğin: Bütün Aktörler)"
 
-#: ../inc/taxonomies.php:223
+#: ../inc/taxonomies.php:225
 msgid "(e.g. Edit Actor)"
 msgstr "(örneğin: Aktör Düzenle)"
 
-#: ../inc/taxonomies.php:232
+#: ../inc/taxonomies.php:234
 #, fuzzy
 msgid "(e.g. View Actor)"
 msgstr "(örneğin: Aktör)"
 
-#: ../inc/taxonomies.php:241
+#: ../inc/taxonomies.php:243
 #, fuzzy
 msgid "(e.g. Update Actor Name)"
 msgstr "(örneğin: Aktörü Güncelle)"
 
-#: ../inc/taxonomies.php:242
+#: ../inc/taxonomies.php:244
 #, fuzzy
 msgid "Update Item Name"
 msgstr "Eleman Güncelle"
 
-#: ../inc/taxonomies.php:250
+#: ../inc/taxonomies.php:252
 msgid "(e.g. Add New Actor)"
 msgstr "(örneğin: Yeni Aktör Ekle)"
 
-#: ../inc/taxonomies.php:259
+#: ../inc/taxonomies.php:261
 msgid "(e.g. New Actor Name)"
 msgstr "(örneğin: Yeni Aktör Adı)"
 
-#: ../inc/taxonomies.php:260
+#: ../inc/taxonomies.php:262
 msgid "New Item Name"
 msgstr "Yeni Eleman Adı"
 
-#: ../inc/taxonomies.php:268
+#: ../inc/taxonomies.php:270
 msgid "(e.g. Parent Actor)"
 msgstr "(örneğin: Temel Aktör)"
 
-#: ../inc/taxonomies.php:269
+#: ../inc/taxonomies.php:271
 msgid "Parent Item"
 msgstr "Temel Eleman"
 
-#: ../inc/taxonomies.php:277
+#: ../inc/taxonomies.php:279
 msgid "(e.g. Parent Actor:)"
 msgstr "(örneğin: Temel Aktör:)"
 
-#: ../inc/taxonomies.php:278
+#: ../inc/taxonomies.php:280
 msgid "Parent Item Colon"
 msgstr "Temel Eleman Kolon"
 
-#: ../inc/taxonomies.php:286
+#: ../inc/taxonomies.php:288
 msgid "(e.g. Search Actors)"
 msgstr "(örneğin: Aktörleri Ara)"
 
-#: ../inc/taxonomies.php:287
+#: ../inc/taxonomies.php:289
 msgid "Search Items"
 msgstr "Eleman Ara"
 
-#: ../inc/taxonomies.php:295
+#: ../inc/taxonomies.php:297
 msgid "(e.g. Popular Actors)"
 msgstr "(örneğin: Popüler Aktörler)"
 
-#: ../inc/taxonomies.php:296
+#: ../inc/taxonomies.php:298
 msgid "Popular Items"
 msgstr "Popüler Elemanlar"
 
-#: ../inc/taxonomies.php:304
+#: ../inc/taxonomies.php:306
 msgid "(e.g. Separate actors with commas)"
 msgstr "(örneğin: Aktörleri virgülle ayırınız)"
 
-#: ../inc/taxonomies.php:305
+#: ../inc/taxonomies.php:307
 msgid "Separate Items with Commas"
 msgstr "Elemanları virgül ile ayır"
 
-#: ../inc/taxonomies.php:313
+#: ../inc/taxonomies.php:315
 msgid "(e.g. Add or remove actors)"
 msgstr "(örneğin: Aktörleri ekle veya çıkar)"
 
-#: ../inc/taxonomies.php:314
+#: ../inc/taxonomies.php:316
 msgid "Add or Remove Items"
 msgstr "Elemanları Ekle veya Çıkar "
 
-#: ../inc/taxonomies.php:322
+#: ../inc/taxonomies.php:324
 msgid "(e.g. Choose from the most used actors)"
 msgstr "(örneğin: Çok kullanılan aktörlerden seç)"
 
-#: ../inc/taxonomies.php:323
+#: ../inc/taxonomies.php:325
 msgid "Choose From Most Used"
 msgstr "Çok Kullanılandan Seç"
 
-#: ../inc/taxonomies.php:331
+#: ../inc/taxonomies.php:333
 #, fuzzy
 msgid "(e.g. No actors found)"
 msgstr "(örneğin: Filmler bulunamadı)"
 
-#: ../inc/taxonomies.php:332
+#: ../inc/taxonomies.php:334
 #, fuzzy
 msgid "Not found"
 msgstr "Bulunamadı"
 
-#: ../inc/taxonomies.php:355
+#: ../inc/taxonomies.php:357
 msgid "Whether the taxonomy can have parent-child relationships"
 msgstr "Sınıflandırma alt-üst sayfa ilişkisine sahip mi?"
 
-#: ../inc/taxonomies.php:372
+#: ../inc/taxonomies.php:374
 #, fuzzy
 msgid "Whether to generate a default UI for managing this custom taxonomy."
 msgstr "Varsayılan arayüzden bu özel sınıflandırma oluşturulabilir mi"
 
-#: ../inc/taxonomies.php:389
+#: ../inc/taxonomies.php:391
 #, fuzzy
 msgid "Sets the query_var key for this taxonomy."
 msgstr "Bu sınıflandırma için rewrite işlenmesini tetikler"
 
-#: ../inc/taxonomies.php:397
+#: ../inc/taxonomies.php:399
 msgid "(default: none). Query Var needs to be true to use."
 msgstr ""
 
-#: ../inc/taxonomies.php:398
+#: ../inc/taxonomies.php:400
 msgid "Custom Query Var String"
 msgstr ""
 
-#: ../inc/taxonomies.php:399
+#: ../inc/taxonomies.php:401
 msgid "Sets a custom query_var slug for this taxonomy."
 msgstr ""
 
-#: ../inc/taxonomies.php:415
+#: ../inc/taxonomies.php:417
 #, fuzzy
 msgid "Whether or not WordPress should use rewrites for this taxonomy."
 msgstr "Bu sınıflandırma için rewrite işlenmesini tetikler"
 
-#: ../inc/taxonomies.php:423
+#: ../inc/taxonomies.php:425
 msgid "(default: taxonomy name)"
 msgstr "(varsayılan: sınıflandırma adı)"
 
-#: ../inc/taxonomies.php:425
+#: ../inc/taxonomies.php:427
 #, fuzzy
 msgid "Custom taxonomy rewrite slug."
 msgstr "Özel Sınıflandırma Rewrite Slug"
 
-#: ../inc/taxonomies.php:439
+#: ../inc/taxonomies.php:441
 #, fuzzy
 msgid "Rewrite With Front"
 msgstr "Cephesinden"
 
-#: ../inc/taxonomies.php:440
+#: ../inc/taxonomies.php:442
 #, fuzzy
 msgid "(default: true)"
 msgstr "(varsayılan: Doğru)"
 
-#: ../inc/taxonomies.php:456
+#: ../inc/taxonomies.php:458
 #, fuzzy
 msgid "Rewrite Hierarchical"
 msgstr "Hiyerarşik"
 
-#: ../inc/taxonomies.php:457
+#: ../inc/taxonomies.php:459
 #, fuzzy
 msgid "(default: false)"
 msgstr "(varsayılan:Yanlış)"
 
-#: ../inc/taxonomies.php:458
+#: ../inc/taxonomies.php:460
 #, fuzzy
 msgid "Should the permastruct allow hierarchical urls."
 msgstr "Perma yapı ön tabanı ile önüne alınmalıdır."
 
-#: ../inc/taxonomies.php:473
+#: ../inc/taxonomies.php:475
 msgid "Show Admin Column"
 msgstr "Yönetici Sütunu Göster"
 
-#: ../inc/taxonomies.php:475
+#: ../inc/taxonomies.php:477
 msgid ""
 "Whether to allow automatic creation of taxonomy columns on associated post-"
 "types."
 msgstr ""
 "Sınıflandırma sütunu otomatik olarak oluşturulmasını izin verilip verilmediği"
 
-#: ../inc/taxonomies.php:573
+#: ../inc/taxonomies.php:575
 msgid "Please provide a taxonomy to delete"
 msgstr ""
 
-#: ../inc/taxonomies.php:624
+#: ../inc/taxonomies.php:626
 #, fuzzy
 msgid "Please provide a taxonomy name"
 msgstr "(varsayılan: sınıflandırma adı)"
 
-#: ../inc/taxonomies.php:640
+#: ../inc/taxonomies.php:642
 #, fuzzy
 msgid "Please do not use quotes in taxonomy names or rewrite slugs"
 msgstr ""
 "Lütfen özel sınıflandırma slug oluştururken  tırnak işaretlerini "
 "kullanmayınız."
 
-#: ../inc/taxonomies.php:646
+#: ../inc/taxonomies.php:648
 #, php-format
 msgid "Please choose a different taxonomy name. %s is already used."
 msgstr ""

@@ -104,3 +104,7 @@
     font-weight: 400;
     font-size: 12px;
 }
+.js #cptui_select_post_type input[type='submit'],
+.js #cptui_select_taxonomy input[type='submit'] {
+	display: none;
+}
