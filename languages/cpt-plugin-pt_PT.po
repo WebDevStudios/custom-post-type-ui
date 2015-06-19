@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Custom Post Type UI\n"
 "POT-Creation-Date: 2015-06-16 08:54+0100\n"
-"PO-Revision-Date: 2015-06-16 08:54+0100\n"
-"Last-Translator: Ralf Koller <r.koller@gmail.com>\n"
+"PO-Revision-Date: 2015-06-19 13:42-0000\n"
+"Last-Translator: Pedro Mendonça <ped.gaspar@gmail.com>\n"
 "Language-Team: WebDevStudios <contact@webdevstudios.com>\n"
 "Language: pt_PT\n"
 "MIME-Version: 1.0\n"
@@ -1336,7 +1336,6 @@ msgid "Taxonomy Slug"
 msgstr "URL da taxonomia"
 
 #: inc/taxonomies.php:116
-#, fuzzy
 msgid "(e.g. actor)"
 msgstr "(p. ex. Actor)"
 
@@ -1623,20 +1622,22 @@ msgstr "Por favor escolha um nome de taxonomia diferente. %s já é utilizado."
 
 #. Plugin URI of the plugin/theme
 msgid "https://github.com/WebDevStudios/custom-post-type-ui/"
-msgstr ""
+msgstr "https://github.com/WebDevStudios/custom-post-type-ui/"
 
 #. Description of the plugin/theme
 msgid ""
 "Admin panel for creating custom post types and custom taxonomies in WordPress"
 msgstr ""
+"Painel de administração para criar tipos de artigo personalizados e "
+"taxonomias personalizadas no WordPress"
 
 #. Author of the plugin/theme
 msgid "WebDevStudios"
-msgstr ""
+msgstr "WebDevStudios"
 
 #. Author URI of the plugin/theme
 msgid "http://webdevstudios.com/"
-msgstr ""
+msgstr "http://webdevstudios.com/"
 
 #~ msgid "Custom Post Type UI Registered Types and Taxonomies."
 #~ msgstr "Tipos e taxonomias registados pelo Custom Post Type UI"
