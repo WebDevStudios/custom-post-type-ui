@@ -529,12 +529,19 @@ function cptui_taxonomies_dropdown( $taxonomies = array() ) {
  *
  * @since 1.0.0
  *
+ * @param bool $taxonomy_deleted Whether or not a taxonomy was recently deleted.
+ *
  * @return bool|string False on no result, sanitized taxonomy if set.
  */
-function cptui_get_current_taxonomy() {
+function cptui_get_current_taxonomy( $taxonomy_deleted = false ) {
 	if ( !empty( $_POST ) ) {
 		if ( isset( $_POST['cptui_selected_taxonomy']['taxonomy'] ) ) {
 			return sanitize_text_field( $_POST['cptui_selected_taxonomy']['taxonomy'] );
+		}
+
+		if ( $taxonomy_deleted ) {
+			$taxonomies = get_option( 'cptui_taxonomies' );
+			return key( $taxonomies );
 		}
 
 		if ( isset( $_POST['cpt_custom_tax']['name'] ) ) {
