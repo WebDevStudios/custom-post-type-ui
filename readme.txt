@@ -38,6 +38,7 @@ Implied credit to:
 == Changelog ==
 
 = 1.1.2 =
+* Change export value to plural label for taxonomies
 
 = 1.1.1 =
 * Re-add post type and taxonomy select buttons and only display for non-js users.
@@ -258,6 +259,7 @@ Implied credit to:
 == Upgrade Notice ==
 
 = 1.1.2 =
+* Change export value to plural label for taxonomies
 
 = 1.1.1 =
 * Re-add post type and taxonomy select buttons and only display for non-js users.
