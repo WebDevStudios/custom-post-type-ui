@@ -44,6 +44,8 @@ add_action( 'admin_enqueue_scripts', 'cptui_post_type_enqueue_scripts' );
  */
 function cptui_manage_post_types() {
 
+	$post_type_deleted = false;
+
 	if ( !empty( $_POST ) ) {
 		if ( isset( $_POST['cpt_submit'] ) ) {
 			check_admin_referer( 'cptui_addedit_post_type_nonce_action', 'cptui_addedit_post_type_nonce_field' );
@@ -51,6 +53,7 @@ function cptui_manage_post_types() {
 		} elseif ( isset( $_POST['cpt_delete'] ) ) {
 			check_admin_referer( 'cptui_addedit_post_type_nonce_action', 'cptui_addedit_post_type_nonce_field' );
 			$notice = cptui_delete_post_type( $_POST );
+			$post_type_deleted = true;
 		}
 	}
 
@@ -69,7 +72,7 @@ function cptui_manage_post_types() {
 
 		$post_types = get_option( 'cptui_post_types' );
 
-		$selected_post_type = cptui_get_current_post_type();
+		$selected_post_type = cptui_get_current_post_type( $post_type_deleted );
 
 		if ( $selected_post_type ) {
 			if ( array_key_exists( $selected_post_type, $post_types ) ) {
