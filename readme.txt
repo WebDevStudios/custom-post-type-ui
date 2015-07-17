@@ -39,6 +39,7 @@ Implied credit to:
 = 1.1.2 =
 * Change export value to plural label for taxonomies.
 * Properly select a post type or taxonomy after deleting an existing value.
+* Updated screenshots
 
 = 1.1.1 =
 * Re-add post type and taxonomy select buttons and only display for non-js users.
@@ -261,6 +262,7 @@ Implied credit to:
 = 1.1.2 =
 * Change export value to plural label for taxonomies.
 * Properly select a post type or taxonomy after deleting an existing value.
+* Updated screenshots
 
 = 1.1.1 =
 * Re-add post type and taxonomy select buttons and only display for non-js users.
