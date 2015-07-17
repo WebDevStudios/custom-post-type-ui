@@ -25,15 +25,14 @@ Implied credit to:
 
 == Screenshots ==
 
-1. Landing page screen.
-2. Add new post type screen and tab.
-3. Edit post type screen and tab.
-4. Add new taxonomy screen and tab.
-5. Edit taxonomy screen and tab.
-6. Export post types screen and tab.
-7. Export taxonomies screen and tab.
-8. Get code screen and tab.
-9. Help/support screen.
+1. Add new post type screen and tab.
+2. Edit post type screen and tab.
+3. Add new taxonomy screen and tab.
+4. Edit taxonomy screen and tab.
+5. Registered post types and taxonomies from CPTUI
+6. Import/Export screen.
+7. Help/support screen.
+8. Update Information/Donate screen.
 
 == Changelog ==
 
