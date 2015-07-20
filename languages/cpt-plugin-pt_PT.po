@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Custom Post Type UI\n"
-"POT-Creation-Date: 2015-06-15 22:31-0600\n"
-"PO-Revision-Date: 2015-06-15 22:31-0600\n"
-"Last-Translator: Michael Beckwith <michael.d.beckwith@gmail.com>\n"
+"POT-Creation-Date: 2015-07-20 15:44+0100\n"
+"PO-Revision-Date: 2015-07-20 15:44+0100\n"
+"Last-Translator: Pedro Mendonça <ped.gaspar@gmail.com>\n"
 "Language-Team: WebDevStudios <contact@webdevstudios.com>\n"
 "Language: pt_PT\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.1\n"
+"X-Generator: Poedit 1.8.2\n"
 "X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
 "_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;_ex:1,2c;"
 "esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
@@ -58,6 +58,7 @@ msgstr "Ajuda/suporte"
 msgid "About CPT UI"
 msgstr "Sobre o CPT UI"
 
+#. Plugin Name of the plugin/theme
 #: custom-post-type-ui.php:339 custom-post-type-ui.php:418
 msgid "Custom Post Type UI"
 msgstr "Custom Post Type UI"
@@ -439,7 +440,7 @@ msgstr ""
 
 #: inc/import_export.php:105
 msgid "Get Post Type and Taxonomy Code"
-msgstr "Obter código do tipo de artigo e da taxonimia"
+msgstr "Obter código do tipo de artigo e da taxonomia"
 
 #: inc/import_export.php:107
 msgid "All CPT UI Post Types"
@@ -763,7 +764,10 @@ msgstr "(p. ex. Filme superior)"
 #: inc/post-types.php:544 inc/post-types.php:564 inc/post-types.php:607
 #: inc/taxonomies.php:346 inc/taxonomies.php:363 inc/taxonomies.php:380
 #: inc/taxonomies.php:406 inc/taxonomies.php:432 inc/taxonomies.php:449
-#: inc/taxonomies.php:466
+#: inc/taxonomies.php:466 tests/CPTUI-Admin-UI-Inputs-Test.php:105
+#: tests/CPTUI-Admin-UI-Inputs-Test.php:147
+#: tests/CPTUI-Admin-UI-Inputs-Test.php:190
+#: tests/CPTUI-Admin-UI-Inputs-Test.php:232
 msgid "False"
 msgstr "Falso"
 
@@ -772,17 +776,27 @@ msgstr "Falso"
 #: inc/post-types.php:545 inc/post-types.php:565 inc/post-types.php:608
 #: inc/taxonomies.php:347 inc/taxonomies.php:364 inc/taxonomies.php:381
 #: inc/taxonomies.php:407 inc/taxonomies.php:433 inc/taxonomies.php:450
-#: inc/taxonomies.php:467
+#: inc/taxonomies.php:467 tests/CPTUI-Admin-UI-Inputs-Test.php:106
+#: tests/CPTUI-Admin-UI-Inputs-Test.php:148
+#: tests/CPTUI-Admin-UI-Inputs-Test.php:191
+#: tests/CPTUI-Admin-UI-Inputs-Test.php:233
 msgid "True"
 msgstr "Verdadeiro"
 
-#: inc/post-types.php:392
+#: inc/post-types.php:392 tests/CPTUI-Admin-UI-Inputs-Test.php:114
+#: tests/CPTUI-Admin-UI-Inputs-Test.php:156
+#: tests/CPTUI-Admin-UI-Inputs-Test.php:199
+#: tests/CPTUI-Admin-UI-Inputs-Test.php:241
 msgid "Public"
 msgstr "Público"
 
 #: inc/post-types.php:393 inc/post-types.php:413 inc/post-types.php:522
 #: inc/post-types.php:554 inc/post-types.php:574 inc/post-types.php:616
 #: inc/taxonomies.php:373 inc/taxonomies.php:390 inc/taxonomies.php:416
+#: tests/CPTUI-Admin-UI-Inputs-Test.php:115
+#: tests/CPTUI-Admin-UI-Inputs-Test.php:157
+#: tests/CPTUI-Admin-UI-Inputs-Test.php:200
+#: tests/CPTUI-Admin-UI-Inputs-Test.php:242
 msgid "(default: True)"
 msgstr "(padrão: Verdadeiro)"
 
@@ -1621,6 +1635,31 @@ msgstr ""
 msgid "Please choose a different taxonomy name. %s is already used."
 msgstr "Por favor escolha um nome de taxonomia diferente. %s já é utilizado."
 
+#: tests/CPTUI-Admin-UI-Inputs-Test.php:116
+#: tests/CPTUI-Admin-UI-Inputs-Test.php:158
+#: tests/CPTUI-Admin-UI-Inputs-Test.php:201
+#: tests/CPTUI-Admin-UI-Inputs-Test.php:243
+msgid "Whether posts of this type should be shown in the admin UI"
+msgstr ""
+"Se os artigos deste tipo deverão ser mostrados no painel de administração"
+
+#. Plugin URI of the plugin/theme
+msgid "https://github.com/WebDevStudios/custom-post-type-ui/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"Admin panel for creating custom post types and custom taxonomies in WordPress"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "WebDevStudios"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://webdevstudios.com/"
+msgstr ""
+
 #~ msgid "Custom Post Type UI Registered Types and Taxonomies."
 #~ msgstr "Tipos e taxonomias registados pelo Custom Post Type UI"
 
@@ -1680,10 +1719,6 @@ msgstr "Por favor escolha um nome de taxonomia diferente. %s já é utilizado."
 #, fuzzy
 #~ msgid "Custom Taxonomy Rewrite Slug"
 #~ msgstr "Reescrever URL personalizado"
-
-#~ msgid "Whether posts of this type should be shown in the admin UI"
-#~ msgstr ""
-#~ "Se os artigos deste tipo deverão ser mostrados no painel de administração"
 
 #~ msgid ""
 #~ "To get started with creating some post types, please visit %s and for "
