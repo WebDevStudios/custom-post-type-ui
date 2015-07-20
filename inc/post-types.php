@@ -122,7 +122,7 @@ function cptui_manage_post_types() {
 							'maxlength'     => '20',
 							'onblur'        => 'this.value=this.value.toLowerCase()',
 							'labeltext'     => __( 'Post Type Slug', 'cpt-plugin' ),
-							'aftertext'     => __( '(e.g. Movie)', 'cpt-plugin' ),
+							'aftertext'     => __( '(e.g. movie)', 'cpt-plugin' ),
 							'helptext'      => esc_attr__( 'The post type name. Used to retrieve custom post type content. Should be short and unique', 'cpt-plugin'),
 							'required'      => true
 							) );
