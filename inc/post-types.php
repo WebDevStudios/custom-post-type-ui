@@ -582,7 +582,7 @@ function cptui_manage_post_types() {
 							echo $ui->get_tr_start() . $ui->get_th_start();
 							echo $ui->get_label( 'menu_position', __( 'Menu Position', 'cpt-plugin' ) );
 							echo $ui->get_help( esc_attr__( 'The position in the menu order the post type should appear. show_in_menu must be true.', 'cpt-plugin' ) );
-							echo $ui->get_p( __( 'See <a href="http://codex.wordpress.org/Function_Reference/register_post_type#Parameters">Available options</a> in the "menu_position" section. Range of 5-100', 'cpt-plugin' ) );
+							echo $ui->get_p( __( 'See <a href="http://codex.wordpress.org/Function_Reference/register_post_type#Parameters" target="_blank">Available options</a> in the "menu_position" section. Range of 5-100', 'cpt-plugin' ) );
 
 							echo $ui->get_th_end() . $ui->get_td_start();
 							echo $ui->get_text_input( array(
