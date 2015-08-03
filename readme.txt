@@ -40,6 +40,7 @@ Implied credit to:
 * Change export value to plural label for taxonomies.
 * Properly select a post type or taxonomy after deleting an existing value.
 * Updated screenshots
+* Added target="_blank" attribute to one of the inline help links for Menu position. Thanks @JulieKuehl
 
 = 1.1.1 =
 * Re-add post type and taxonomy select buttons and only display for non-js users.
@@ -263,6 +264,7 @@ Implied credit to:
 * Change export value to plural label for taxonomies.
 * Properly select a post type or taxonomy after deleting an existing value.
 * Updated screenshots
+* Added target="_blank" attribute to one of the inline help links for Menu position. Thanks @JulieKuehl
 
 = 1.1.1 =
 * Re-add post type and taxonomy select buttons and only display for non-js users.
