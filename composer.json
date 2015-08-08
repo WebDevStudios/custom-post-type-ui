@@ -4,7 +4,7 @@
 	"homepage": "https://github.com/WebDevStudios/custom-post-type-ui",
 	"type": "wordpress-plugin",
 	"keywords": ["custom post types", "CPT", "CMS", "post", "types", "post type", "taxonomy", "tax", "custom"],
-	"license": "GPLv2",
+	"license": "GPL-2.0",
 	"authors": [
 		{
 			"name": "WebDevStudios",
