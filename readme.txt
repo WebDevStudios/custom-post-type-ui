@@ -3,7 +3,7 @@ Contributors: williamsba1, tw2113, webdevstudios
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3084056
 Tags: custom post types, CPT, CMS, post, types, post type, cck, taxonomy, tax, custom
 Requires at least: 3.8
-Tested up to: 4.2
+Tested up to: 4.3
 Stable tag: 1.1.2
 License: GPLv2
 
@@ -41,6 +41,7 @@ Implied credit to:
 * Properly select a post type or taxonomy after deleting an existing value.
 * Updated screenshots
 * Added target="_blank" attribute to one of the inline help links for Menu position. Thanks @JulieKuehl
+* Fixed potential XSS issue.
 
 = 1.1.1 =
 * Re-add post type and taxonomy select buttons and only display for non-js users.
@@ -265,6 +266,7 @@ Implied credit to:
 * Properly select a post type or taxonomy after deleting an existing value.
 * Updated screenshots
 * Added target="_blank" attribute to one of the inline help links for Menu position. Thanks @JulieKuehl
+* Fixed potential XSS issue.
 
 = 1.1.1 =
 * Re-add post type and taxonomy select buttons and only display for non-js users.
