@@ -639,6 +639,7 @@ add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'cptui_edit_pl
 function cptui_admin_notices( $action = '', $object_type = '', $success = true , $custom = '' ) {
 
 	$class = ( $success ) ? 'updated' : 'error';
+	$object_type = esc_attr( $object_type );
 
 	$messagewrapstart = '<div id="message" class="' . $class . '"><p>';
 	$message = '';
