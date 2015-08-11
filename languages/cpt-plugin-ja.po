@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Custom Post Type UI 1.1.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/plugins/custom-post-type-ui\n"
-"POT-Creation-Date: 2015-07-25 02:38+0200\n"
-"PO-Revision-Date: 2015-07-25 02:41+0200\n"
-"Last-Translator: Ralf Koller <r.koller@gmail.com>\n"
+"POT-Creation-Date: 2015-08-11 11:36-0500\n"
+"PO-Revision-Date: 2015-08-11 11:36-0500\n"
+"Last-Translator: Michael Beckwith <michael.d.beckwith@gmail.com>\n"
 "Language-Team: ja <jotaki@digitalcube.jp>\n"
 "Language: ja_JP\n"
 "MIME-Version: 1.0\n"
@@ -212,122 +212,122 @@ msgstr ""
 msgid "Help"
 msgstr ""
 
-#: custom-post-type-ui.php:650
+#: custom-post-type-ui.php:651
 #, php-format
 msgid "%s has been successfully added"
 msgstr ""
 
-#: custom-post-type-ui.php:652
+#: custom-post-type-ui.php:653
 #, php-format
 msgid "%s has failed to be added"
 msgstr ""
 
-#: custom-post-type-ui.php:656
+#: custom-post-type-ui.php:657
 #, php-format
 msgid "%s has been successfully updated"
 msgstr ""
 
-#: custom-post-type-ui.php:658
+#: custom-post-type-ui.php:659
 #, php-format
 msgid "%s has failed to be updated"
 msgstr ""
 
-#: custom-post-type-ui.php:662
+#: custom-post-type-ui.php:663
 #, php-format
 msgid "%s has been successfully deleted"
 msgstr ""
 
-#: custom-post-type-ui.php:664
+#: custom-post-type-ui.php:665
 #, php-format
 msgid "%s has failed to be deleted"
 msgstr ""
 
-#: custom-post-type-ui.php:668
+#: custom-post-type-ui.php:669
 #, php-format
 msgid "%s has been successfully imported"
 msgstr ""
 
-#: custom-post-type-ui.php:670
+#: custom-post-type-ui.php:671
 #, php-format
 msgid "%s has failed to be imported"
 msgstr ""
 
-#: custom-post-type-ui.php:753 custom-post-type-ui.php:770
+#: custom-post-type-ui.php:754 custom-post-type-ui.php:771
 #, fuzzy, php-format
 msgid "Add new %s"
 msgstr "新規追加"
 
-#: custom-post-type-ui.php:754 custom-post-type-ui.php:768
+#: custom-post-type-ui.php:755 custom-post-type-ui.php:769
 #, fuzzy, php-format
 msgid "Edit %s"
 msgstr "編集"
 
-#: custom-post-type-ui.php:755
+#: custom-post-type-ui.php:756
 #, php-format
 msgid "New %s"
 msgstr ""
 
-#: custom-post-type-ui.php:756
+#: custom-post-type-ui.php:757
 #, fuzzy, php-format
 msgid "View %s"
 msgstr "表示"
 
-#: custom-post-type-ui.php:757 custom-post-type-ui.php:765
+#: custom-post-type-ui.php:758 custom-post-type-ui.php:766
 #, fuzzy, php-format
 msgid "All %s"
 msgstr "すべての項目"
 
-#: custom-post-type-ui.php:758 custom-post-type-ui.php:763
+#: custom-post-type-ui.php:759 custom-post-type-ui.php:764
 #, fuzzy, php-format
 msgid "Search %s"
 msgstr "項目検索"
 
-#: custom-post-type-ui.php:759
+#: custom-post-type-ui.php:760
 #, fuzzy, php-format
 msgid "No %s found."
 msgstr "見つかりません"
 
-#: custom-post-type-ui.php:760
+#: custom-post-type-ui.php:761
 #, fuzzy, php-format
 msgid "No %s found in trash."
 msgstr "ゴミ箱にはありません。"
 
-#: custom-post-type-ui.php:764
+#: custom-post-type-ui.php:765
 #, fuzzy, php-format
 msgid "Popular %s"
 msgstr "よく利用されている項目"
 
-#: custom-post-type-ui.php:766
+#: custom-post-type-ui.php:767
 #, fuzzy, php-format
 msgid "Parent %s"
 msgstr "親"
 
-#: custom-post-type-ui.php:767
+#: custom-post-type-ui.php:768
 #, fuzzy, php-format
 msgid "Parent %s:"
 msgstr "親"
 
-#: custom-post-type-ui.php:769
+#: custom-post-type-ui.php:770
 #, php-format
 msgid "Update %s"
 msgstr ""
 
-#: custom-post-type-ui.php:771
+#: custom-post-type-ui.php:772
 #, fuzzy, php-format
 msgid "New %s name"
 msgstr "新規項目名"
 
-#: custom-post-type-ui.php:772
+#: custom-post-type-ui.php:773
 #, fuzzy, php-format
 msgid "Separate %s with commas"
 msgstr "項目が複数ある場合はコンマで区切ってください。"
 
-#: custom-post-type-ui.php:773
+#: custom-post-type-ui.php:774
 #, fuzzy, php-format
 msgid "Add or remove %s"
 msgstr "項目の追加もしくは削除"
 
-#: custom-post-type-ui.php:774
+#: custom-post-type-ui.php:775
 #, fuzzy, php-format
 msgid "Choose from the most used %s"
 msgstr "最もよく使われているものから選択"
@@ -878,8 +878,8 @@ msgstr ""
 #: inc/post-types.php:588
 msgid ""
 "See <a href=\"http://codex.wordpress.org/Function_Reference/"
-"register_post_type#Parameters\">Available options</a> in the \"menu_position"
-"\" section. Range of 5-100"
+"register_post_type#Parameters\" target=\"_blank\">Available options</a> in "
+"the \"menu_position\" section. Range of 5-100"
 msgstr ""
 
 #: inc/post-types.php:603
