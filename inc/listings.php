@@ -10,10 +10,8 @@ function cptui_listings() {
 			<h1><?php _e( 'Post Types and Taxonomies registered by Custom Post Type UI.', 'cpt-plugin' ); ?></h1>
 			<?php
 			$post_types = get_option( 'cptui_post_types' );
-
-			if ( !empty( $post_types ) ) {
-
 			echo '<h2>' . __( 'Post Types', 'cpt-plugin' ) . '</h2>';
+			if ( !empty( $post_types ) ) {
 			?>
 			<p><?php printf( __( 'Total count: %d', 'cpt-plugin' ), count( $post_types ) ); ?></p>
 
@@ -123,111 +121,124 @@ function cptui_listings() {
 					<th><?php _e( 'Labels', 'cpt-plugin' ); ?></th>
 				</tr>
 			</table>
-		<?php
+			<?php
+			} else {
+				echo '<p>' . sprintf( __( 'No post types registered for display. Visit %s to get started.', 'cpt-plugin' ),
+					sprintf( '<a href="%s">%s</a>',
+						admin_url( 'admin.php?page=cptui_manage_post_types' ),
+						__( 'Add/Edit Post Types', 'cpt-plugin' )
+					)
+				) . '</p>';
 			}
 
-		$taxonomies = get_option( 'cptui_taxonomies' );
-		if ( !empty( $taxonomies ) ) {
-
+			$taxonomies = get_option( 'cptui_taxonomies' );
 			echo '<h2>' . __( 'Taxonomies', 'cpt-plugin' ) . '</h2>';
-			?>
-			<p><?php printf( __( 'Total count: %d', 'cpt-plugin' ), count( $taxonomies ) ); ?></p>
+			if ( !empty( $taxonomies ) ) {
+				?>
+				<p><?php printf( __( 'Total count: %d', 'cpt-plugin' ), count( $taxonomies ) ); ?></p>
 
-			<?php
-
-			/**
-			 * Fires before the listing of registered taxonomy data.
-			 *
-			 * @since 1.1.0
-			 */
-			do_action( 'cptui_before_taxonomy_listing' );
-			?>
-			<table class="wp-list-table widefat">
-				<tr>
-					<th><?php _e( 'Taxonomy', 'cpt-plugin' ); ?></th>
-					<th><?php _e( 'Settings', 'cpt-plugin' ); ?></th>
-					<th><?php _e( 'Post Types', 'cpt-plugin' ); ?></th>
-					<th><?php _e( 'Labels', 'cpt-plugin' ); ?></th>
-				</tr>
 				<?php
-				$counter = 1;
-				foreach ( $taxonomies as $taxonomy => $taxonomy_settings ) {
 
-					$rowclass = ( $counter % 2 == 0 ) ? '' : 'alternate';
+				/**
+				 * Fires before the listing of registered taxonomy data.
+				 *
+				 * @since 1.1.0
+				 */
+				do_action( 'cptui_before_taxonomy_listing' );
+				?>
+				<table class="wp-list-table widefat">
+					<tr>
+						<th><?php _e( 'Taxonomy', 'cpt-plugin' ); ?></th>
+						<th><?php _e( 'Settings', 'cpt-plugin' ); ?></th>
+						<th><?php _e( 'Post Types', 'cpt-plugin' ); ?></th>
+						<th><?php _e( 'Labels', 'cpt-plugin' ); ?></th>
+					</tr>
+					<?php
+					$counter = 1;
+					foreach ( $taxonomies as $taxonomy => $taxonomy_settings ) {
 
-					$strings = array();
-					$object_types = array();
-					foreach( $taxonomy_settings as $settings_key => $settings_value ) {
-						if ( 'labels' == $settings_key ) {
-							continue;
-						}
+						$rowclass = ( $counter % 2 == 0 ) ? '' : 'alternate';
 
-						if ( is_string( $settings_value ) ) {
-							$strings[ $settings_key ] = $settings_value;
-						} else {
-							if ( 'object_types' === $settings_key ) {
-								$object_types[ $settings_key ] = $settings_value;
+						$strings = array();
+						$object_types = array();
+						foreach( $taxonomy_settings as $settings_key => $settings_value ) {
+							if ( 'labels' == $settings_key ) {
+								continue;
+							}
 
-								# In case they are not associated from the post type settings
-								if ( empty( $object_types['taxonomies'] ) ) {
-									$types = get_taxonomy( $taxonomy );
-									$object_types['types'] = $types->object_type;
+							if ( is_string( $settings_value ) ) {
+								$strings[ $settings_key ] = $settings_value;
+							} else {
+								if ( 'object_types' === $settings_key ) {
+									$object_types[ $settings_key ] = $settings_value;
+
+									# In case they are not associated from the post type settings
+									if ( empty( $object_types['taxonomies'] ) ) {
+										$types = get_taxonomy( $taxonomy );
+										$object_types['types'] = $types->object_type;
+									}
 								}
 							}
 						}
+						?>
+							<tr class="<?php echo $rowclass; ?>">
+								<td><a href="<?php echo admin_url( 'admin.php?page=cptui_manage_taxonomies&action=edit&cptui_taxonomy=' . $taxonomy ); ?>"><?php echo $taxonomy; ?></a><br/><hr/>
+									<a href="<?php echo admin_url( 'admin.php?page=cptui_manage_taxonomies&action=edit&cptui_taxonomy=' . $taxonomy ); ?>"><?php _e( 'Edit', 'cpt-plugin' ); ?></a>
+								</td>
+								<td>
+									<?php foreach ( $strings as $key => $value ) {
+										printf( '<strong>%s:</strong> ', $key );
+										if ( in_array( $value, array( '1', '0' ) ) ) {
+											echo disp_boolean( $value );
+										} else {
+											echo $value;
+										}
+										echo '<br/>';
+									} ?>
+								</td>
+								<td>
+									<?php
+									if ( !empty( $object_types['types'] ) ) {
+										foreach ( $object_types['types'] as $type ) {
+											echo $type . '<br/>';
+										}
+									} ?>
+								</td>
+								<td>
+									<?php
+									$maybe_empty = array_filter( $taxonomy_settings['labels'] );
+									if ( !empty( $maybe_empty ) ) {
+										foreach ( $taxonomy_settings['labels'] as $key => $value ) {
+											echo $key . ': ' . $value . '<br/>';
+										}
+									} else {
+										_e( 'No custom labels to display', 'cpt-plugin' );
+									}
+									?>
+								</td>
+							</tr>
+
+						<?php
+					$counter++;
 					}
 					?>
-						<tr class="<?php echo $rowclass; ?>">
-							<td><a href="<?php echo admin_url( 'admin.php?page=cptui_manage_taxonomies&action=edit&cptui_taxonomy=' . $taxonomy ); ?>"><?php echo $taxonomy; ?></a><br/><hr/>
-								<a href="<?php echo admin_url( 'admin.php?page=cptui_manage_taxonomies&action=edit&cptui_taxonomy=' . $taxonomy ); ?>"><?php _e( 'Edit', 'cpt-plugin' ); ?></a>
-							</td>
-							<td>
-								<?php foreach ( $strings as $key => $value ) {
-									printf( '<strong>%s:</strong> ', $key );
-									if ( in_array( $value, array( '1', '0' ) ) ) {
-										echo disp_boolean( $value );
-									} else {
-										echo $value;
-									}
-									echo '<br/>';
-								} ?>
-							</td>
-							<td>
-								<?php
-								if ( !empty( $object_types['types'] ) ) {
-									foreach ( $object_types['types'] as $type ) {
-										echo $type . '<br/>';
-									}
-								} ?>
-							</td>
-							<td>
-								<?php
-								$maybe_empty = array_filter( $taxonomy_settings['labels'] );
-								if ( !empty( $maybe_empty ) ) {
-									foreach ( $taxonomy_settings['labels'] as $key => $value ) {
-										echo $key . ': ' . $value . '<br/>';
-									}
-								} else {
-									_e( 'No custom labels to display', 'cpt-plugin' );
-								}
-								?>
-							</td>
-						</tr>
-
-					<?php
-				$counter++;
+					<tr>
+						<th><?php _e( 'Taxonomy', 'cpt-plugin' ); ?></th>
+						<th><?php _e( 'Settings', 'cpt-plugin' ); ?></th>
+						<th><?php _e( 'Post Types', 'cpt-plugin' ); ?></th>
+						<th><?php _e( 'Labels', 'cpt-plugin' ); ?></th>
+					</tr>
+				</table>
+			<?php
+				} else {
+					echo '<p>' . sprintf( __( 'No taxonomies registered for display. Visit %s to get started.', 'cpt-plugin' ),
+							sprintf( '<a href="%s">%s</a>',
+								admin_url( 'admin.php?page=cptui_manage_taxonomies' ),
+								__( 'Add/Edit Taxonomies', 'cpt-plugin' )
+							)
+						) . '</p>';
 				}
-				?>
-				<tr>
-					<th><?php _e( 'Taxonomy', 'cpt-plugin' ); ?></th>
-					<th><?php _e( 'Settings', 'cpt-plugin' ); ?></th>
-					<th><?php _e( 'Post Types', 'cpt-plugin' ); ?></th>
-					<th><?php _e( 'Labels', 'cpt-plugin' ); ?></th>
-				</tr>
-			</table>
-		<?php
-			}
-		?>
+			?>
 
 		</div>
 	<?php
