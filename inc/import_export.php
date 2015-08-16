@@ -192,7 +192,7 @@ function cptui_get_single_taxonomy_registery( $taxonomy = array() ) {
 	?>
 
 	$labels = array(
-		"name" => "<?php echo $taxonomy['name']; ?>",
+		"name" => "<?php echo $taxonomy['label']; ?>",
 		"label" => "<?php echo $taxonomy['label']; ?>",
 		<?php foreach( $taxonomy['labels'] as $key => $label ) {
 			if ( !empty( $label ) ) {

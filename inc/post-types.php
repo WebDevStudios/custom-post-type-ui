@@ -44,6 +44,8 @@ add_action( 'admin_enqueue_scripts', 'cptui_post_type_enqueue_scripts' );
  */
 function cptui_manage_post_types() {
 
+	$post_type_deleted = false;
+
 	if ( !empty( $_POST ) ) {
 		if ( isset( $_POST['cpt_submit'] ) ) {
 			check_admin_referer( 'cptui_addedit_post_type_nonce_action', 'cptui_addedit_post_type_nonce_field' );
@@ -51,6 +53,7 @@ function cptui_manage_post_types() {
 		} elseif ( isset( $_POST['cpt_delete'] ) ) {
 			check_admin_referer( 'cptui_addedit_post_type_nonce_action', 'cptui_addedit_post_type_nonce_field' );
 			$notice = cptui_delete_post_type( $_POST );
+			$post_type_deleted = true;
 		}
 	}
 
@@ -69,7 +72,7 @@ function cptui_manage_post_types() {
 
 		$post_types = get_option( 'cptui_post_types' );
 
-		$selected_post_type = cptui_get_current_post_type();
+		$selected_post_type = cptui_get_current_post_type( $post_type_deleted );
 
 		if ( $selected_post_type ) {
 			if ( array_key_exists( $selected_post_type, $post_types ) ) {
@@ -582,7 +585,7 @@ function cptui_manage_post_types() {
 							echo $ui->get_tr_start() . $ui->get_th_start();
 							echo $ui->get_label( 'menu_position', __( 'Menu Position', 'cpt-plugin' ) );
 							echo $ui->get_help( esc_attr__( 'The position in the menu order the post type should appear. show_in_menu must be true.', 'cpt-plugin' ) );
-							echo $ui->get_p( __( 'See <a href="http://codex.wordpress.org/Function_Reference/register_post_type#Parameters">Available options</a> in the "menu_position" section. Range of 5-100', 'cpt-plugin' ) );
+							echo $ui->get_p( __( 'See <a href="http://codex.wordpress.org/Function_Reference/register_post_type#Parameters" target="_blank">Available options</a> in the "menu_position" section. Range of 5-100', 'cpt-plugin' ) );
 
 							echo $ui->get_th_end() . $ui->get_td_start();
 							echo $ui->get_text_input( array(
@@ -920,12 +923,19 @@ function cptui_post_types_dropdown( $post_types = array() ) {
  *
  * @since 1.0.0
  *
+ * @param bool $post_type_deleted Whether or not a post type was recently deleted.
+ *
  * @return bool|string $value False on no result, sanitized post type if set.
  */
-function cptui_get_current_post_type() {
+function cptui_get_current_post_type( $post_type_deleted = false ) {
 	if ( ! empty( $_POST ) ) {
 		if ( isset( $_POST['cptui_selected_post_type']['post_type'] ) ) {
 			return sanitize_text_field( $_POST['cptui_selected_post_type']['post_type'] );
+		}
+
+		if ( $post_type_deleted ) {
+			$post_types = get_option( 'cptui_post_types' );
+			return key( $post_types );
 		}
 
 		if ( isset( $_POST['cpt_custom_post_type']['name'] ) ) {

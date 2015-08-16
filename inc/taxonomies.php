@@ -38,6 +38,8 @@ add_action( 'admin_enqueue_scripts', 'cptui_taxonomies_enqueue_scripts' );
  */
 function cptui_manage_taxonomies() {
 
+	$taxonomy_deleted = false;
+
 	if ( !empty( $_POST ) ) {
 		if ( isset( $_POST['cpt_submit'] ) ) {
 			check_admin_referer( 'cptui_addedit_taxonomy_nonce_action', 'cptui_addedit_taxonomy_nonce_field' );
@@ -45,6 +47,7 @@ function cptui_manage_taxonomies() {
 		} elseif ( isset( $_POST['cpt_delete'] ) ) {
 			check_admin_referer( 'cptui_addedit_taxonomy_nonce_action', 'cptui_addedit_taxonomy_nonce_field' );
 			$notice = cptui_delete_taxonomy( $_POST );
+			$taxonomy_deleted = true;
 		}
 	}
 
@@ -65,7 +68,7 @@ function cptui_manage_taxonomies() {
 
 		$taxonomies = get_option( 'cptui_taxonomies' );
 
-		$selected_taxonomy = cptui_get_current_taxonomy();
+		$selected_taxonomy = cptui_get_current_taxonomy( $taxonomy_deleted );
 
 		if ( $selected_taxonomy ) {
 			if ( array_key_exists( $selected_taxonomy, $taxonomies ) ) {
@@ -526,12 +529,19 @@ function cptui_taxonomies_dropdown( $taxonomies = array() ) {
  *
  * @since 1.0.0
  *
+ * @param bool $taxonomy_deleted Whether or not a taxonomy was recently deleted.
+ *
  * @return bool|string False on no result, sanitized taxonomy if set.
  */
-function cptui_get_current_taxonomy() {
+function cptui_get_current_taxonomy( $taxonomy_deleted = false ) {
 	if ( !empty( $_POST ) ) {
 		if ( isset( $_POST['cptui_selected_taxonomy']['taxonomy'] ) ) {
 			return sanitize_text_field( $_POST['cptui_selected_taxonomy']['taxonomy'] );
+		}
+
+		if ( $taxonomy_deleted ) {
+			$taxonomies = get_option( 'cptui_taxonomies' );
+			return key( $taxonomies );
 		}
 
 		if ( isset( $_POST['cpt_custom_tax']['name'] ) ) {
