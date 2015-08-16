@@ -120,8 +120,19 @@ function cptui_importexport() {
 		} ?>
 
 		<h3><?php _e( 'All CPT UI Taxonomies', 'cpt-plugin' ); ?></h3>
+
+		<?php $cptui_taxonomies = get_option( 'cptui_taxonomies' ); ?>
 		<label for="cptui_tax_get_code"><?php _e( 'Copy/paste the code below into your functions.php file.', 'cpt-plugin' ); ?></label>
-		<textarea name="cptui_tax_get_code" id="cptui_tax_get_code" class="cptui_tax_get_code" onclick="this.focus();this.select()" readonly="readonly"><?php cptui_get_taxonomy_code(); ?></textarea>
+		<textarea name="cptui_tax_get_code" id="cptui_tax_get_code" class="cptui_tax_get_code" onclick="this.focus();this.select()" readonly="readonly"><?php cptui_get_taxonomy_code( $cptui_taxonomies ); ?></textarea>
+
+		<?php
+		if ( ! empty( $cptui_taxonomies ) ) {
+			foreach ( $cptui_taxonomies as $taxonomy ) { ?>
+				<h3><?php printf( __( '%s Taxonomy', 'cpt-plugin' ), $taxonomy['label'] ); ?></h3>
+				<label for="cptui_tax_get_code_<?php echo $taxonomy['name']; ?>"><?php _e( 'Copy/paste the code below into your functions.php file.', 'cpt-plugin' ); ?></label>
+				<textarea name="cptui_tax_get_code_<?php echo $taxonomy['name']; ?>" id="cptui_tax_get_code_<?php echo $taxonomy['name']; ?>" class="cptui_tax_get_code" onclick="this.focus();this.select()" readonly="readonly"><?php cptui_get_taxonomy_code( array( $taxonomy ), true ); ?></textarea>
+			<?php }
+		} ?>
 	<?php
 	}
 
@@ -132,21 +143,29 @@ function cptui_importexport() {
  * Display our copy-able code for registered taxonomies.
  *
  * @since 1.0.0
+ * @since 1.2.0 Added $cptui_taxonomies parameter.
+ * @since 1.2.0 Added $single parameter.
+ *
+ * @param array $cptui_taxonomies Array of taxonomies to render.
+ * @param bool  $single           Whether or not we are rendering a single taxonomy.
  *
  * @return string Taxonomy registration text for use elsewhere.
  */
-function cptui_get_taxonomy_code() {
-
-	$cptui_taxonomies = get_option( 'cptui_taxonomies' );
+function cptui_get_taxonomy_code( $cptui_taxonomies = array(), $single = false ) {
 	if ( !empty( $cptui_taxonomies ) ) {
+		$callback = 'cptui_register_my_taxes';
+		if ( $single ) {
+			$key      = key( $cptui_taxonomies );
+			$callback = 'cptui_register_my_taxes_' . str_replace('-', '_', $cptui_taxonomies[ $key ]['name'] );
+		}
 	?>
-add_action( 'init', 'cptui_register_my_taxes' );
-function cptui_register_my_taxes() {
+add_action( 'init', '<?php echo $callback; ?>' );
+function <?php echo $callback; ?>() {
 <?php
 	foreach( $cptui_taxonomies as $tax ) {
 		echo cptui_get_single_taxonomy_registery( $tax ) . "\n";
 	} ?>
-// End cptui_register_my_taxes
+// End <?php echo $callback; ?>()
 }
 <?php
 	} else {
