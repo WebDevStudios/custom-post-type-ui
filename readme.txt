@@ -37,7 +37,10 @@ Implied credit to:
 == Changelog ==
 
 = 1.2.0 =
-* Updated Heading tags to match accessibility changes in WordPress 4.3
+* Updated Heading tags to match accessibility changes in WordPress 4.3.
+* Added message to listings page if no post types or taxonomies are available.
+* Added not regarding 'public' parameter not being true by default for WordPress but is for CPTUI.
+* Added individual post type and taxonomy output for "Get Code" area.
 
 = 1.1.2 =
 * Change export value to plural label for taxonomies.
@@ -265,7 +268,10 @@ Implied credit to:
 == Upgrade Notice ==
 
 = 1.2.0 =
-* Updated Heading tags to match accessibility changes in WordPress 4.3
+* Updated Heading tags to match accessibility changes in WordPress 4.3.
+* Added message to listings page if no post types or taxonomies are available.
+* Added not regarding 'public' parameter not being true by default for WordPress but is for CPTUI.
+* Added individual post type and taxonomy output for "Get Code" area.
 
 = 1.1.2 =
 * Change export value to plural label for taxonomies.
