@@ -105,8 +105,19 @@ function cptui_importexport() {
 		<h1><?php _e( 'Get Post Type and Taxonomy Code', 'cpt-plugin' ); ?></h1>
 
 		<h3><?php _e( 'All CPT UI Post Types', 'cpt-plugin' ); ?></h3>
+
+		<?php $cptui_post_types = get_option( 'cptui_post_types' ); ?>
 		<label for="cptui_post_type_get_code"><?php _e( 'Copy/paste the code below into your functions.php file.', 'cpt-plugin' ); ?></label>
-		<textarea name="cptui_post_type_get_code" id="cptui_post_type_get_code" class="cptui_post_type_get_code" onclick="this.focus();this.select()" readonly="readonly"><?php cptui_get_post_type_code(); ?></textarea>
+		<textarea name="cptui_post_type_get_code" id="cptui_post_type_get_code" class="cptui_post_type_get_code" onclick="this.focus();this.select()" readonly="readonly"><?php cptui_get_post_type_code( $cptui_post_types ); ?></textarea>
+
+		<?php
+		if ( !empty( $cptui_post_types ) ) {
+			foreach ( $cptui_post_types as $post_type ) { ?>
+				<h3><?php printf( __( '%s Post Type', 'cpt-plugin' ), $post_type['label'] ); ?></h3>
+				<label for="cptui_post_type_get_code_<?php echo $post_type['name']; ?>"><?php _e( 'Copy/paste the code below into your functions.php file.', 'cpt-plugin' ); ?></label>
+				<textarea name="cptui_post_type_get_code_<?php echo $post_type['name']; ?>" id="cptui_post_type_get_code_<?php echo $post_type['name']; ?>" class="cptui_post_type_get_code" onclick="this.focus();this.select()" readonly="readonly"><?php cptui_get_post_type_code( array( $post_type ), true ); ?></textarea>
+			<?php }
+		} ?>
 
 		<h3><?php _e( 'All CPT UI Taxonomies', 'cpt-plugin' ); ?></h3>
 		<label for="cptui_tax_get_code"><?php _e( 'Copy/paste the code below into your functions.php file.', 'cpt-plugin' ); ?></label>
@@ -218,23 +229,30 @@ function cptui_get_single_taxonomy_registery( $taxonomy = array() ) {
  * Display our copy-able code for registered post types.
  *
  * @since 1.0.0
+ * @since 1.2.0 Added $cptui_post_types parameter.
+ * @since 1.2.0 Added $single parameter.
+ *
+ * @param array $cptui_post_types Array of post types to render.
+ * @param bool  $single           Whether or not we are rendering a single post type.
  *
  * @return string Post type registration text for use elsewhere.
  */
-function cptui_get_post_type_code() {
-
-	$cptui_post_types = get_option( 'cptui_post_types' );
-
+function cptui_get_post_type_code( $cptui_post_types = array(), $single = false ) {
 	# Whitespace very much matters here, thus why it's all flush against the left side
 	if ( !empty( $cptui_post_types ) ) {
+		$callback = 'cptui_register_my_cpts';
+		if ( $single ) {
+			$key = key( $cptui_post_types );
+			$callback = 'cptui_register_my_cpts_' . str_replace( '-', '_', $cptui_post_types[ $key ]['name'] );
+		}
 	?>
-add_action( 'init', 'cptui_register_my_cpts' );
-function cptui_register_my_cpts() {
+add_action( 'init', '<?php echo $callback; ?>' );
+function <?php echo $callback; ?>() {
 <?php #space before this line reflects in textarea
 	foreach( $cptui_post_types as $type ) {
 	echo cptui_get_single_post_type_registery( $type ) . "\n";
 	} ?>
-// End of cptui_register_my_cpts()
+// End of <?php echo $callback; ?>()
 }
 <?php
 	} else {
