@@ -359,7 +359,7 @@ function cptui_settings() { ?>
 			</div>
 		</div>
 
-		<h2><?php _e( 'Help Support This Plugin!', 'cpt-plugin' ); ?></h2>
+		<h1><?php _e( 'Help Support This Plugin!', 'cpt-plugin' ); ?></h1>
 		<table border="0">
 			<tr>
 				<td class="one-third valign">
