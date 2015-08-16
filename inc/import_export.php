@@ -102,7 +102,7 @@ function cptui_importexport() {
 
 	<?php
 	} else { ?>
-		<h2><?php _e( 'Get Post Type and Taxonomy Code', 'cpt-plugin' ); ?></h2>
+		<h1><?php _e( 'Get Post Type and Taxonomy Code', 'cpt-plugin' ); ?></h1>
 
 		<h3><?php _e( 'All CPT UI Post Types', 'cpt-plugin' ); ?></h3>
 		<label for="cptui_post_type_get_code"><?php _e( 'Copy/paste the code below into your functions.php file.', 'cpt-plugin' ); ?></label>
