@@ -36,6 +36,9 @@ Implied credit to:
 
 == Changelog ==
 
+= 1.2.0 =
+* Updated Heading tags to match accessibility changes in WordPress 4.3
+
 = 1.1.2 =
 * Change export value to plural label for taxonomies.
 * Properly select a post type or taxonomy after deleting an existing value.
@@ -260,6 +263,9 @@ Implied credit to:
 * First beta release
 
 == Upgrade Notice ==
+
+= 1.2.0 =
+* Updated Heading tags to match accessibility changes in WordPress 4.3
 
 = 1.1.2 =
 * Change export value to plural label for taxonomies.
