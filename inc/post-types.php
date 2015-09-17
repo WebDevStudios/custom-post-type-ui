@@ -417,6 +417,26 @@ function cptui_manage_post_types() {
 								'helptext'      => esc_attr__( 'Whether to generate a default UI for managing this post type.', 'cpt-plugin' ),
 								'selections'    => $select
 							) );
+							
+							/*
+							 * show_in_rest Boolean
+							 */
+							$select = array(
+								'options' => array(
+									array( 'attr' => '0', 'text' => __( 'False', 'cpt-plugin' ), 'default' => 'false' ),
+									array( 'attr' => '1', 'text' => __( 'True', 'cpt-plugin' ) )
+								)
+							);
+							$selected = ( isset( $current ) ) ? disp_boolean( $current['show_in_rest'] ) : '';
+							$select['selected'] = ( !empty( $selected ) ) ? $current['show_in_rest'] : '';
+							echo $ui->get_select_input( array(
+								'namearray'     => 'cpt_custom_post_type',
+								'name'          => 'show_in_rest',
+								'labeltext'     => __( 'Show in REST API', 'cpt-plugin' ),
+								'aftertext'     => __( '(default: False)', 'cpt-plugin' ),
+								'helptext'      => esc_attr__( 'Whether to show this post type data in the WP REST API.', 'cpt-plugin' ),
+								'selections'    => $select
+							) );
 
 							/*
 							 * Has Archive Boolean
