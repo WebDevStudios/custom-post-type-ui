@@ -212,6 +212,7 @@ function cptui_register_single_post_type( $post_type = array() ) {
 		'show_ui'             => get_disp_boolean( $post_type['show_ui'] ),
 		'has_archive'         => $has_archive,
 		'show_in_menu'        => $show_in_menu,
+		'show_in_rest'        => get_disp_boolean( $post_type['show_in_rest'] ),
 		'exclude_from_search' => $exclude_from_search,
 		'capability_type'     => $post_type['capability_type'],
 		'map_meta_cap'        => $post_type['map_meta_cap'],
