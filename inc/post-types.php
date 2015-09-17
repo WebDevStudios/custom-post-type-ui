@@ -1134,6 +1134,7 @@ function cptui_update_post_type( $data = array() ) {
 		'description'           => $description,
 		'public'                => disp_boolean( $data['cpt_custom_post_type']['public'] ),
 		'show_ui'               => disp_boolean( $data['cpt_custom_post_type']['show_ui'] ),
+		'show_in_rest'          => disp_boolean( $data['cpt_custom_post_type']['show_in_rest'] ),
 		'has_archive'           => disp_boolean( $data['cpt_custom_post_type']['has_archive'] ),
 		'has_archive_string'    => $has_archive_string,
 		'exclude_from_search'   => disp_boolean( $data['cpt_custom_post_type']['exclude_from_search'] ),
