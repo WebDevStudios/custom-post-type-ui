@@ -95,14 +95,14 @@ function cptui_manage_post_types() {
 		</form>
 	<?php
 
-        /**
-         * Fires below the post type select input.
-         *
-         * @since 1.1.0
-         *
-         * @param string $value Current post type selected.
-         */
-        do_action( 'cptui_below_post_type_select', $current['name'] );
+		/**
+		 * Fires below the post type select input.
+		 *
+		 * @since 1.1.0
+		 *
+		 * @param string $value Current post type selected.
+		 */
+		do_action( 'cptui_below_post_type_select', $current['name'] );
 	} ?>
 
 	<form method="post">
@@ -1174,13 +1174,13 @@ function cptui_reserved_post_types() {
 	 */
 	return apply_filters( 'cptui_reserved_post_types', array(
 		'post',
-	    'page',
-	    'attachment',
-	    'revision',
-	    'nav_menu_item',
+		'page',
+		'attachment',
+		'revision',
+		'nav_menu_item',
 		'action',
-	    'order',
-	    'theme'
+		'order',
+		'theme'
 	) );
 }
 
