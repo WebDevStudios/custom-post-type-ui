@@ -90,6 +90,14 @@ function cptui_manage_post_types() {
 			<p><?php _e( 'Use appropriate checkbox above save/delete buttons if you wish to change slugs and update post types for existing posts.', 'cpt-plugin' ); ?></p>
 			<?php _e( 'Select: ', 'cpt-plugin' );
 			cptui_post_types_dropdown( $post_types );
+
+			/**
+			 * Filters the text value to use on the select post type button.
+			 *
+			 * @since 1.0.0
+			 *
+			 * @param string $value Text to use for the button.
+			 */
 			?>
 			<input type="submit" class="button-secondary" name="cptui_select_post_type_submit" value="<?php echo esc_attr( apply_filters( 'cptui_post_type_submit_select', __( 'Select', 'cpt-plugin' ) ) ); ?>" />
 		</form>
@@ -187,9 +195,39 @@ function cptui_manage_post_types() {
 				<p class="submit">
 					<?php wp_nonce_field( 'cptui_addedit_post_type_nonce_action', 'cptui_addedit_post_type_nonce_field' );
 					if ( !empty( $_GET ) && !empty( $_GET['action'] ) && 'edit' == $_GET['action'] ) { ?>
+						<?php
+
+						/**
+						 * Filters the text value to use on the button when editing.
+						 *
+						 * @since 1.0.0
+						 *
+						 * @param string $value Text to use for the button.
+						 */
+						?>
 						<input type="submit" class="button-primary" name="cpt_submit" value="<?php echo esc_attr( apply_filters( 'cptui_post_type_submit_edit', __( 'Save Post Type', 'cpt-plugin' ) ) ); ?>" />
+						<?php
+
+						/**
+						 * Filters the text value to use on the button when deleting.
+						 *
+						 * @since 1.0.0
+						 *
+						 * @param string $value Text to use for the button.
+						 */
+						?>
 						<input type="submit" class="button-secondary" name="cpt_delete" id="cpt_submit_delete" value="<?php echo esc_attr( apply_filters( 'cptui_post_type_submit_delete', __( 'Delete Post Type', 'cpt-plugin' ) ) ); ?>" />
 					<?php } else { ?>
+						<?php
+
+						/**
+						 * Filters the text value to use on the button when adding.
+						 *
+						 * @since 1.0.0
+						 *
+						 * @param string $value Text to use for the button.
+						 */
+						?>
 						<input type="submit" class="button-primary" name="cpt_submit" value="<?php echo esc_attr( apply_filters( 'cptui_post_type_submit_add', __( 'Add Post Type', 'cpt-plugin' ) ) ); ?>" />
 					<?php } ?>
 
@@ -417,7 +455,7 @@ function cptui_manage_post_types() {
 								'helptext'      => esc_attr__( 'Whether to generate a default UI for managing this post type.', 'cpt-plugin' ),
 								'selections'    => $select
 							) );
-							
+
 							/*
 							 * show_in_rest Boolean
 							 */
