@@ -86,8 +86,15 @@ function cptui_manage_taxonomies() {
 			<?php
 			 _e( 'Select: ', 'cpt-plugin' );
 			cptui_taxonomies_dropdown( $taxonomies );
-			?>
 
+			/**
+			 * Filters the text value to use on the select taxonomy button.
+			 *
+			 * @since 1.0.0
+			 *
+			 * @param string $value Text to use for the button.
+			 */
+			?>
 			<input type="submit" class="button-secondary" name="cptui_select_taxonomy_submit" value="<?php echo esc_attr( apply_filters( 'cptui_taxonomy_submit_select', __( 'Select', 'cpt-plugin' ) ) ); ?>" />
 		</form>
 	<?php
@@ -178,9 +185,39 @@ function cptui_manage_taxonomies() {
 				<p class="submit">
 					<?php wp_nonce_field( 'cptui_addedit_taxonomy_nonce_action', 'cptui_addedit_taxonomy_nonce_field' );
 					if ( !empty( $_GET ) && !empty( $_GET['action'] ) && 'edit' == $_GET['action'] ) { ?>
+						<?php
+
+						/**
+						 * Filters the text value to use on the button when editing.
+						 *
+						 * @since 1.0.0
+						 *
+						 * @param string $value Text to use for the button.
+						 */
+						?>
 						<input type="submit" class="button-primary" name="cpt_submit" value="<?php echo esc_attr( apply_filters( 'cptui_taxonomy_submit_edit', __( 'Save Taxonomy', 'cpt-plugin' ) ) ); ?>" />
+						<?php
+
+						/**
+						 * Filters the text value to use on the button when deleting.
+						 *
+						 * @since 1.0.0
+						 *
+						 * @param string $value Text to use for the button.
+						 */
+						?>
 						<input type="submit" class="button-secondary" name="cpt_delete" id="cpt_submit_delete" value="<?php echo apply_filters( 'cptui_taxonomy_submit_delete', __( 'Delete Taxonomy', 'cpt-plugin' ) ); ?>" />
 					<?php } else { ?>
+						<?php
+
+						/**
+						 * Filters the text value to use on the button when adding.
+						 *
+						 * @since 1.0.0
+						 *
+						 * @param string $value Text to use for the button.
+						 */
+						?>
 						<input type="submit" class="button-primary" name="cpt_submit" value="<?php echo esc_attr( apply_filters( 'cptui_taxonomy_submit_add', __( 'Add Taxonomy', 'cpt-plugin' ) ) ); ?>" />
 					<?php } ?>
 					<input type="hidden" name="cpt_tax_status" id="cpt_tax_status" value="<?php echo $tab; ?>" />
