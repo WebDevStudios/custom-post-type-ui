@@ -113,7 +113,9 @@ function cptui_importexport() {
 		<?php
 		if ( !empty( $cptui_post_types ) ) {
 			foreach ( $cptui_post_types as $post_type ) { ?>
-				<h3><?php printf( __( '%s Post Type', 'cpt-plugin' ), $post_type['label'] ); ?></h3>
+				<h3><?php
+					$type = ( !empty( $post_type['label'] ) ) ? $post_type['label'] : $post_type['name'];
+					printf( __( '%s Post Type', 'cpt-plugin' ), $type ); ?></h3>
 				<label for="cptui_post_type_get_code_<?php echo $post_type['name']; ?>"><?php _e( 'Copy/paste the code below into your functions.php file.', 'cpt-plugin' ); ?></label>
 				<textarea name="cptui_post_type_get_code_<?php echo $post_type['name']; ?>" id="cptui_post_type_get_code_<?php echo $post_type['name']; ?>" class="cptui_post_type_get_code" onclick="this.focus();this.select()" readonly="readonly"><?php cptui_get_post_type_code( array( $post_type ), true ); ?></textarea>
 			<?php }
@@ -128,7 +130,9 @@ function cptui_importexport() {
 		<?php
 		if ( ! empty( $cptui_taxonomies ) ) {
 			foreach ( $cptui_taxonomies as $taxonomy ) { ?>
-				<h3><?php printf( __( '%s Taxonomy', 'cpt-plugin' ), $taxonomy['label'] ); ?></h3>
+				<h3><?php
+					$tax = ( ! empty( $taxonomy['label'] ) ) ? $taxonomy['label'] : $taxonomy['name'];
+					printf( __( '%s Taxonomy', 'cpt-plugin' ), $tax ); ?></h3>
 				<label for="cptui_tax_get_code_<?php echo $taxonomy['name']; ?>"><?php _e( 'Copy/paste the code below into your functions.php file.', 'cpt-plugin' ); ?></label>
 				<textarea name="cptui_tax_get_code_<?php echo $taxonomy['name']; ?>" id="cptui_tax_get_code_<?php echo $taxonomy['name']; ?>" class="cptui_tax_get_code" onclick="this.focus();this.select()" readonly="readonly"><?php cptui_get_taxonomy_code( array( $taxonomy ), true ); ?></textarea>
 			<?php }
