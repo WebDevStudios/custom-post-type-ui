@@ -398,6 +398,36 @@ function cptui_import_types_taxes_settings( $postdata = array() ) {
 
 	$success = false;
 
+	/**
+	 * Filters the post type data to import.
+	 *
+	 * Allows third parties to provide their own data dump and import instead of going through our UI.
+	 *
+	 * @since 1.2.0
+	 *
+	 * @param bool $value Default to no data.
+	 */
+	$third_party_post_type_data = apply_filters( 'cptui_third_party_post_type_import', false );
+
+	/**
+	 * Filters the taxonomy data to import.
+	 *
+	 * Allows third parties to provide their own data dump and import instead of going through our UI.
+	 *
+	 * @since 1.2.0
+	 *
+	 * @param bool $value Default to no data.
+	 */
+	$third_party_taxonomy_data  = apply_filters( 'cptui_third_party_taxonomy_import', false );
+
+	if ( false !== $third_party_post_type_data ) {
+		$postdata['cptui_post_import'] = $third_party_post_type_data;
+	}
+
+	if ( false !== $third_party_taxonomy_data ) {
+		$postdata['cptui_tax_import'] = $third_party_taxonomy_data;
+	}
+
 	if ( !empty( $postdata['cptui_post_import'] ) ) {
 		$data = stripslashes_deep( trim( $postdata['cptui_post_import'] ) );
 		$settings = json_decode( $data, true );
