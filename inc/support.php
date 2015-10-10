@@ -69,6 +69,13 @@ function cptui_support() {
 								<a href="https://velocitypage.com" target="_blank">https://velocitypage.com</a>
 							</div>
 						</li>
+						<li>
+							<span class="question"><?php _e( 'Is there any way to get CPTUI-registered post types working with Visual Composer Media Grid?', 'custom-post-type-ui' ); ?></span>
+
+							<div class="answer"><?php _e( 'Please see the solution from the following forum support thread.', 'custom-post-type-ui' ); ?>
+								<a href="https://wordpress.org/support/topic/custom-post-type-and-visual-composer-grid-block?replies=11#post-7111458" target="_blank">https://wordpress.org/support/topic/custom-post-type-and-visual-composer-grid-block?replies=11#post-7111458</a>
+							</div>
+						</li>
 					</ol>
 				</td>
 				<td class="outter">
