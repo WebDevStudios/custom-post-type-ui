@@ -192,6 +192,9 @@ function cptui_register_single_post_type( $post_type = array() ) {
 	if ( in_array( $post_type['query_var'], array( 'true', 'false', '0', '1' ) ) ) {
 		$post_type['query_var'] = get_disp_boolean( $post_type['query_var'] );
 	}
+	if ( ! empty( $post_type['query_var_slug'] ) ) {
+		$post_type['query_var'] = $post_type['query_var_slug'];
+	}
 
 	$menu_position = null;
 	if ( !empty( $post_type['menu_position'] ) ) {

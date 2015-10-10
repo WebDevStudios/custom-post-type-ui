@@ -436,7 +436,7 @@ function cptui_manage_taxonomies() {
 									'namearray'     => 'cpt_custom_tax',
 									'name'          => 'query_var_slug',
 									'textvalue'     => ( isset( $current['query_var_slug'] ) ) ? esc_attr( $current['query_var_slug'] ) : '',
-									'aftertext'     => __( '(default: none). Query Var needs to be true to use.', 'custom-post-type-ui' ),
+									'aftertext'     => __( '(default: taxonomy slug). Query var needs to be true to use.', 'custom-post-type-ui' ),
 									'labeltext'     => __( 'Custom Query Var String', 'custom-post-type-ui' ),
 									'helptext'      => esc_attr__( 'Sets a custom query_var slug for this taxonomy.', 'custom-post-type-ui'),
 									) );

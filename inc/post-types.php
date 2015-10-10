@@ -638,6 +638,18 @@ function cptui_manage_post_types() {
 							) );
 
 							/*
+							 * Query Var Slug Input
+							 */
+							echo $ui->get_text_input( array(
+								'namearray' => 'cpt_custom_post_type',
+								'name'      => 'query_var_slug',
+								'textvalue' => ( isset( $current['query_var_slug'] ) ) ? esc_attr( $current['query_var_slug'] ) : '',
+								'labeltext' => __( 'Custom Query Var Slug', 'custom-post-type-ui' ),
+								'aftertext' => __( '(default: post type slug) Query var needs to be true to use.', 'custom-post-type-ui' ),
+								'helptext'  => esc_attr__( 'Custom query var slug to use instead of the default.', 'custom-post-type-ui' ),
+							) );
+
+							/*
 							 * Menu Position Boolean
 							 */
 							echo $ui->get_tr_start() . $ui->get_th_start();
@@ -1161,6 +1173,7 @@ function cptui_update_post_type( $data = array() ) {
 	$has_archive_string = trim( $data['cpt_custom_post_type']['has_archive_string'] );
 	$capability_type = trim( $data['cpt_custom_post_type']['capability_type'] );
 	$rewrite_slug = trim( $data['cpt_custom_post_type']['rewrite_slug'] );
+	$query_var_slug = trim( $data['cpt_custom_post_type']['query_var_slug'] );
 	$menu_position = trim( $data['cpt_custom_post_type']['menu_position'] );
 	$show_in_menu_string = trim( $data['cpt_custom_post_type']['show_in_menu_string'] );
 	$menu_icon = trim( $data['cpt_custom_post_type']['menu_icon'] );
@@ -1183,6 +1196,7 @@ function cptui_update_post_type( $data = array() ) {
 		'rewrite_slug'          => $rewrite_slug,
 		'rewrite_withfront'     => disp_boolean( $data['cpt_custom_post_type']['rewrite_withfront'] ),
 		'query_var'             => disp_boolean( $data['cpt_custom_post_type']['query_var'] ),
+		'query_var_slug'        => $query_var_slug,
 		'menu_position'         => $menu_position,
 		'show_in_menu'          => disp_boolean( $data['cpt_custom_post_type']['show_in_menu'] ),
 		'show_in_menu_string'   => $show_in_menu_string,

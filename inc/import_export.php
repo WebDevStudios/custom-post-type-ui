@@ -344,7 +344,10 @@ function cptui_get_single_post_type_registery( $post_type = array() ) {
 	}
 
 	if ( in_array( $post_type['query_var'], array( 'true', 'false', '0', '1' ) ) ) {
-		$post_type['query_var'] = get_disp_boolean( $post_type['query_var'] );
+		$post_type['query_var'] = disp_boolean( $post_type['query_var'] );
+	}
+	if ( !empty( $post_type['query_var_slug'] ) ) {
+		$post_type['query_var'] = '"' . $post_type['query_var_slug'] . '"';
 	}
 
 	$post_type['description'] = addslashes( $post_type['description'] );
@@ -370,7 +373,7 @@ function cptui_get_single_post_type_registery( $post_type = array() ) {
 		"map_meta_cap" => <?php echo disp_boolean( $post_type['map_meta_cap'] ); ?>,
 		"hierarchical" => <?php echo disp_boolean( $post_type['hierarchical'] ); ?>,
 		"rewrite" => <?php echo $rewrite; ?>,
-		"query_var" => <?php echo disp_boolean( $post_type['query_var'] ); ?>,
+		"query_var" => <?php echo $post_type['query_var']; ?>,
 		<?php if ( !empty( $post_type['menu_position'] ) ) { ?>"menu_position" => <?php echo $post_type['menu_position']; ?>,<?php } ?><?php if ( !empty( $post_type['menu_icon'] ) ) { ?>"menu_icon" => "<?php echo $post_type['menu_icon']; ?>",<?php } ?>
 		<?php if ( !empty( $supports ) ) { echo "\n\t\t" ?>"supports" => <?php echo $supports; ?>,<?php } ?>
 		<?php if ( !empty( $taxonomies ) ) {  echo "\n\t\t" ?>"taxonomies" => <?php echo $taxonomies; ?><?php } echo "\n"?>
@@ -394,6 +397,36 @@ function cptui_import_types_taxes_settings( $postdata = array() ) {
 	}
 
 	$success = false;
+
+	/**
+	 * Filters the post type data to import.
+	 *
+	 * Allows third parties to provide their own data dump and import instead of going through our UI.
+	 *
+	 * @since 1.2.0
+	 *
+	 * @param bool $value Default to no data.
+	 */
+	$third_party_post_type_data = apply_filters( 'cptui_third_party_post_type_import', false );
+
+	/**
+	 * Filters the taxonomy data to import.
+	 *
+	 * Allows third parties to provide their own data dump and import instead of going through our UI.
+	 *
+	 * @since 1.2.0
+	 *
+	 * @param bool $value Default to no data.
+	 */
+	$third_party_taxonomy_data  = apply_filters( 'cptui_third_party_taxonomy_import', false );
+
+	if ( false !== $third_party_post_type_data ) {
+		$postdata['cptui_post_import'] = $third_party_post_type_data;
+	}
+
+	if ( false !== $third_party_taxonomy_data ) {
+		$postdata['cptui_tax_import'] = $third_party_taxonomy_data;
+	}
 
 	if ( !empty( $postdata['cptui_post_import'] ) ) {
 		$data = stripslashes_deep( trim( $postdata['cptui_post_import'] ) );
