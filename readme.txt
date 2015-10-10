@@ -42,6 +42,7 @@ Implied credit to:
 * Added not regarding 'public' parameter not being true by default for WordPress but is for CPTUI.
 * Added individual post type and taxonomy output for "Get Code" area.
 * Added fallback values for post type/taxonomy select input and get code area if no plural label provided.
+* Updated textdomain to match WordPress.org repo slug.
 
 = 1.1.2 =
 * Change export value to plural label for taxonomies.
@@ -274,6 +275,7 @@ Implied credit to:
 * Added not regarding 'public' parameter not being true by default for WordPress but is for CPTUI.
 * Added individual post type and taxonomy output for "Get Code" area.
 * Added fallback values for post type/taxonomy select input and get code area if no plural label provided.
+* Updated textdomain to match WordPress.org repo slug.
 
 = 1.1.2 =
 * Change export value to plural label for taxonomies.
