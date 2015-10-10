@@ -6,7 +6,7 @@ Description: Admin panel for creating custom post types and custom taxonomies in
 Author: WebDevStudios
 Version: 1.2.0
 Author URI: http://webdevstudios.com/
-Text Domain: cpt-plugin
+Text Domain: custom-post-type-ui
 Domain Path: /languages
 License: GPLv2
 */
@@ -45,7 +45,7 @@ register_deactivation_hook( __FILE__, 'cptui_deactivation' );
  * @since 0.8.0
  */
 function cptui_load_textdomain() {
-	load_plugin_textdomain( 'cpt-plugin', false, basename( dirname( __FILE__ ) ) . '/languages' );
+	load_plugin_textdomain( 'custom-post-type-ui', false, basename( dirname( __FILE__ ) ) . '/languages' );
 }
 add_action( 'init', 'cptui_load_textdomain' );
 
@@ -57,16 +57,16 @@ add_action( 'init', 'cptui_load_textdomain' );
  * @since 0.1.0
  */
 function cptui_plugin_menu() {
-	add_menu_page( __( 'Custom Post Types', 'cpt-plugin' ), __( 'CPT UI', 'cpt-plugin' ), 'manage_options', 'cptui_main_menu', 'cptui_settings' );
-	add_submenu_page( 'cptui_main_menu', __( 'Add/Edit Post Types', 'cpt-plugin' ), __( 'Add/Edit Post Types', 'cpt-plugin' ), 'manage_options', 'cptui_manage_post_types', 'cptui_manage_post_types' );
-	add_submenu_page( 'cptui_main_menu', __( 'Add/Edit Taxonomies', 'cpt-plugin' ), __( 'Add/Edit Taxonomies', 'cpt-plugin' ), 'manage_options', 'cptui_manage_taxonomies', 'cptui_manage_taxonomies' );
-	add_submenu_page( 'cptui_main_menu', __( 'Registered Types and Taxes', 'cpt-plugin' ), __( 'Registered Types/Taxes', 'cpt-plugin' ), 'manage_options', 'cptui_listings', 'cptui_listings' );
-	add_submenu_page( 'cptui_main_menu', __( 'Import/Export', 'cpt-plugin' ), __( 'Import/Export', 'cpt-plugin' ), 'manage_options', 'cptui_importexport', 'cptui_importexport' );
-	add_submenu_page( 'cptui_main_menu', __( 'Help/Support', 'cpt-plugin' ), __( 'Help/Support', 'cpt-plugin' ), 'manage_options', 'cptui_support', 'cptui_support' );
+	add_menu_page( __( 'Custom Post Types', 'custom-post-type-ui' ), __( 'CPT UI', 'custom-post-type-ui' ), 'manage_options', 'cptui_main_menu', 'cptui_settings' );
+	add_submenu_page( 'cptui_main_menu', __( 'Add/Edit Post Types', 'custom-post-type-ui' ), __( 'Add/Edit Post Types', 'custom-post-type-ui' ), 'manage_options', 'cptui_manage_post_types', 'cptui_manage_post_types' );
+	add_submenu_page( 'cptui_main_menu', __( 'Add/Edit Taxonomies', 'custom-post-type-ui' ), __( 'Add/Edit Taxonomies', 'custom-post-type-ui' ), 'manage_options', 'cptui_manage_taxonomies', 'cptui_manage_taxonomies' );
+	add_submenu_page( 'cptui_main_menu', __( 'Registered Types and Taxes', 'custom-post-type-ui' ), __( 'Registered Types/Taxes', 'custom-post-type-ui' ), 'manage_options', 'cptui_listings', 'cptui_listings' );
+	add_submenu_page( 'cptui_main_menu', __( 'Import/Export', 'custom-post-type-ui' ), __( 'Import/Export', 'custom-post-type-ui' ), 'manage_options', 'cptui_importexport', 'cptui_importexport' );
+	add_submenu_page( 'cptui_main_menu', __( 'Help/Support', 'custom-post-type-ui' ), __( 'Help/Support', 'custom-post-type-ui' ), 'manage_options', 'cptui_support', 'cptui_support' );
 
 	# Remove the default one so we can add our customized version.
 	remove_submenu_page('cptui_main_menu', 'cptui_main_menu');
-	add_submenu_page( 'cptui_main_menu', __( 'About CPT UI', 'cpt-plugin' ), __( 'About CPT UI', 'cpt-plugin' ), 'manage_options', 'cptui_main_menu', 'cptui_settings' );
+	add_submenu_page( 'cptui_main_menu', __( 'About CPT UI', 'custom-post-type-ui' ), __( 'About CPT UI', 'custom-post-type-ui' ), 'manage_options', 'cptui_main_menu', 'cptui_settings' );
 }
 add_action( 'admin_menu', 'cptui_plugin_menu' );
 
@@ -212,6 +212,7 @@ function cptui_register_single_post_type( $post_type = array() ) {
 		'show_ui'             => get_disp_boolean( $post_type['show_ui'] ),
 		'has_archive'         => $has_archive,
 		'show_in_menu'        => $show_in_menu,
+		'show_in_rest'        => get_disp_boolean( $post_type['show_in_rest'] ),
 		'exclude_from_search' => $exclude_from_search,
 		'capability_type'     => $post_type['capability_type'],
 		'map_meta_cap'        => $post_type['map_meta_cap'],
@@ -336,57 +337,57 @@ function cptui_settings() { ?>
 		 * @since 1.0.0
 		 */
 		do_action( 'cptui_main_page_start' ); ?>
-		<h1><?php _e( 'Custom Post Type UI', 'cpt-plugin' ); ?> <?php echo CPT_VERSION; ?></h1>
+		<h1><?php _e( 'Custom Post Type UI', 'custom-post-type-ui' ); ?> <?php echo CPT_VERSION; ?></h1>
 
 		<div class="about-text cptui-about-text">
-			<?php _e( 'Thank you for choosing Custom Post Type UI. We hope that your experience with our plugin provides efficiency and speed in creating post types and taxonomies, to better organize your content, without having to touch code.', 'cpt-plugin' ); ?>
+			<?php _e( 'Thank you for choosing Custom Post Type UI. We hope that your experience with our plugin provides efficiency and speed in creating post types and taxonomies, to better organize your content, without having to touch code.', 'custom-post-type-ui' ); ?>
 		</div>
 
 		<div class="changelog about-integrations">
 			<div class="cptui-feature feature-section col three-col">
 				<div>
-					<h4><?php _e( 'Post type migration', 'cpt-plugin' ); ?></h4>
-					<p><?php _e( 'In the past, if you changed your post type slug, you would lose immediate access to the posts in the post type and need to recover another way. We have now added support for migrating all posts within the old post type to the new post type you renamed it to.', 'cpt-plugin' ); ?></p>
+					<h4><?php _e( 'Post type migration', 'custom-post-type-ui' ); ?></h4>
+					<p><?php _e( 'In the past, if you changed your post type slug, you would lose immediate access to the posts in the post type and need to recover another way. We have now added support for migrating all posts within the old post type to the new post type you renamed it to.', 'custom-post-type-ui' ); ?></p>
 				</div>
 				<div>
-					<h4><?php _e( 'UI Refinement', 'cpt-plugin' ); ?></h4>
-					<p><?php _e( 'After receiving feedback regarding the 1.0.x changes, we have further simplified the UI to reduce the amount of clicking necessary to manage your post types and taxonomies.', 'cpt-plugin' ); ?></p>
+					<h4><?php _e( 'UI Refinement', 'custom-post-type-ui' ); ?></h4>
+					<p><?php _e( 'After receiving feedback regarding the 1.0.x changes, we have further simplified the UI to reduce the amount of clicking necessary to manage your post types and taxonomies.', 'custom-post-type-ui' ); ?></p>
 				</div>
 				<div class="last-feature">
-					<h4><?php _e( 'Registered Post Type and Taxonomy Listings', 'cpt-plugin' ); ?></h4>
-					<p><?php _e( 'We are bringing back the listing of all CPTUI-registered post types and taxonomies for easier quick view of what you have going.', 'cpt-plugin' ); ?></p>
+					<h4><?php _e( 'Registered Post Type and Taxonomy Listings', 'custom-post-type-ui' ); ?></h4>
+					<p><?php _e( 'We are bringing back the listing of all CPTUI-registered post types and taxonomies for easier quick view of what you have going.', 'custom-post-type-ui' ); ?></p>
 				</div>
 			</div>
 		</div>
 
-		<h1><?php _e( 'Help Support This Plugin!', 'cpt-plugin' ); ?></h1>
+		<h1><?php _e( 'Help Support This Plugin!', 'custom-post-type-ui' ); ?></h1>
 		<table border="0">
 			<tr>
 				<td class="one-third valign">
-					<h3><?php _e( 'Professional WordPress<br />Third Edition', 'cpt-plugin' ); ?></h3>
+					<h3><?php _e( 'Professional WordPress<br />Third Edition', 'custom-post-type-ui' ); ?></h3>
 					<a href="http://bit.ly/prowp3" target="_blank">
 						<img src="<?php echo plugins_url( '/images/professional-wordpress-thirdedition.jpg', __FILE__ ); ?>" width="200">
 					</a>
 					<br />
-					<p><?php _e( 'The leading book on WordPress design and development! Brand new third edition!', 'cpt-plugin' ); ?></p>
+					<p><?php _e( 'The leading book on WordPress design and development! Brand new third edition!', 'custom-post-type-ui' ); ?></p>
 				</td>
 				<td class="one-third valign">
-					<h3><?php _e( 'Professional WordPress<br />Plugin Development', 'cpt-plugin' ); ?></h3>
+					<h3><?php _e( 'Professional WordPress<br />Plugin Development', 'custom-post-type-ui' ); ?></h3>
 					<a href="http://amzn.to/plugindevbook" target="_blank">
 						<img src="<?php echo plugins_url( '/images/professional-wordpress-plugin-development.png', __FILE__ ); ?>" width="200">
 					</a>
 					<br />
-					<p><?php _e( 'Highest rated WordPress development book on Amazon!', 'cpt-plugin' ); ?></p>
+					<p><?php _e( 'Highest rated WordPress development book on Amazon!', 'custom-post-type-ui' ); ?></p>
 				</td>
 				<td class="one-third valign">
-					<h3><?php _e( 'PayPal Donation', 'cpt-plugin' ); ?></h3>
+					<h3><?php _e( 'PayPal Donation', 'custom-post-type-ui' ); ?></h3>
 					<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
 					<input type="hidden" name="cmd" value="_s-xclick">
 					<input type="hidden" name="hosted_button_id" value="YJEDXPHE49Q3U">
-					<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donateCC_LG.gif" name="submit" alt="<?php esc_attr_e( 'PayPal - The safer, easier way to pay online!', 'cpt-plugin' ); ?>">
+					<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donateCC_LG.gif" name="submit" alt="<?php esc_attr_e( 'PayPal - The safer, easier way to pay online!', 'custom-post-type-ui' ); ?>">
 					<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
 					</form>
-					<p><?php _e( 'Please donate to the development of Custom Post Type UI:', 'cpt-plugin' ); ?></p>
+					<p><?php _e( 'Please donate to the development of Custom Post Type UI:', 'custom-post-type-ui' ); ?></p>
 				</td>
 			</tr>
 		</table>
@@ -412,10 +413,10 @@ function cptui_footer( $original = '' ) {
 	}
 
 	return sprintf(
-		__( '%s version %s by %s', 'cpt-plugin' ),
+		__( '%s version %s by %s', 'custom-post-type-ui' ),
 		sprintf(
 			'<a target="_blank" href="http://wordpress.org/support/plugin/custom-post-type-ui">%s</a>',
-			__( 'Custom Post Type UI', 'cpt-plugin' )
+			__( 'Custom Post Type UI', 'custom-post-type-ui' )
 		),
 		CPT_VERSION,
 		'<a href="http://webdevstudios.com" target="_blank">WebDevStudios</a>'
@@ -423,10 +424,10 @@ function cptui_footer( $original = '' ) {
 	' - '.
 	sprintf(
 		'<a href="https://github.com/WebDevStudios/custom-post-type-ui/issues" target="_blank">%s</a>',
-		__( 'Please Report Bugs', 'cpt-plugin' )
+		__( 'Please Report Bugs', 'custom-post-type-ui' )
 	).
 	' '.
-	__( 'Follow on Twitter:', 'cpt-plugin' ).
+	__( 'Follow on Twitter:', 'custom-post-type-ui' ).
 	sprintf(
 		' %s &middot; %s &middot; %s',
 		'<a href="http://twitter.com/tw2113" target="_blank">Michael</a>',
@@ -488,13 +489,13 @@ function cptui_settings_tab_menu( $page = 'post_types' ) {
 	$has = false;
 
 	if ( 'importexport' == $page ) :
-		$title = __( 'Import/Export', 'cpt-plugin' );
+		$title = __( 'Import/Export', 'custom-post-type-ui' );
 	elseif ( 'taxonomies' == $page ) :
-		$title = __( 'Manage Taxonomies', 'cpt-plugin' );
+		$title = __( 'Manage Taxonomies', 'custom-post-type-ui' );
 		$taxes = get_option( 'cptui_taxonomies' );
 		$has = ( !empty( $taxes ) ) ? true : false;
 	else :
-		$title = __( 'Manage Post Types', 'cpt-plugin' );
+		$title = __( 'Manage Post Types', 'custom-post-type-ui' );
 		$types = get_option( 'cptui_post_types' );
 		$has = ( !empty( $types ) ) ? true : false;
 	endif;
@@ -520,23 +521,23 @@ function cptui_settings_tab_menu( $page = 'post_types' ) {
 	if ( 'importexport' != $page ) {
 		if ( 'post_types' == $page ) {
 			?>
-			<a class="<?php echo $tab1; ?>" href="<?php echo admin_url( 'admin.php?page=cptui_manage_' . $page ); ?>"><?php _e( 'Add New Post Type', 'cpt-plugin' ); ?></a>
+			<a class="<?php echo $tab1; ?>" href="<?php echo admin_url( 'admin.php?page=cptui_manage_' . $page ); ?>"><?php _e( 'Add New Post Type', 'custom-post-type-ui' ); ?></a>
 			<?php
 			if ( $has ) { ?>
-			<a class="<?php echo $tab2; ?>" href="<?php echo esc_url( add_query_arg( array( 'action' => 'edit' ), admin_url( 'admin.php?page=cptui_manage_' . $page ) ) ); ?>"><?php _e( 'Edit Post Types', 'cpt-plugin' ); ?></a>
+			<a class="<?php echo $tab2; ?>" href="<?php echo esc_url( add_query_arg( array( 'action' => 'edit' ), admin_url( 'admin.php?page=cptui_manage_' . $page ) ) ); ?>"><?php _e( 'Edit Post Types', 'custom-post-type-ui' ); ?></a>
 			<?php }
 		} elseif ( 'taxonomies' == $page ) {
 			?>
-			<a class="<?php echo $tab1; ?>" href="<?php echo admin_url( 'admin.php?page=cptui_manage_' . $page ); ?>"><?php _e( 'Add New Taxonomy', 'cpt-plugin' ); ?></a>
+			<a class="<?php echo $tab1; ?>" href="<?php echo admin_url( 'admin.php?page=cptui_manage_' . $page ); ?>"><?php _e( 'Add New Taxonomy', 'custom-post-type-ui' ); ?></a>
 			<?php
 			if ( $has ) { ?>
-			<a class="<?php echo $tab2; ?>" href="<?php echo esc_url( add_query_arg( array( 'action' => 'edit' ), admin_url( 'admin.php?page=cptui_manage_' . $page ) ) ); ?>"><?php _e( 'Edit Taxonomies', 'cpt-plugin' ); ?></a>
+			<a class="<?php echo $tab2; ?>" href="<?php echo esc_url( add_query_arg( array( 'action' => 'edit' ), admin_url( 'admin.php?page=cptui_manage_' . $page ) ) ); ?>"><?php _e( 'Edit Taxonomies', 'custom-post-type-ui' ); ?></a>
 			<?php }
 		}
 	} else { ?>
-		<a class="<?php echo $tab1; ?>" href="<?php echo admin_url( 'admin.php?page=cptui_' . $page ); ?>"><?php _e( 'Post Types', 'cpt-plugin' ); ?></a>
-		<a class="<?php echo $tab2; ?>" href="<?php echo esc_url( add_query_arg( array( 'action' => 'taxonomies' ), admin_url( 'admin.php?page=cptui_' . $page ) ) ); ?>"><?php _e( 'Taxonomies', 'cpt-plugin' ); ?></a>
-		<a class="<?php echo $tab3; ?>" href="<?php echo esc_url( add_query_arg( array( 'action' => 'get_code' ), admin_url( 'admin.php?page=cptui_' . $page ) ) ); ?>"><?php _e( 'Get Code', 'cpt-plugin' ); ?></a>
+		<a class="<?php echo $tab1; ?>" href="<?php echo admin_url( 'admin.php?page=cptui_' . $page ); ?>"><?php _e( 'Post Types', 'custom-post-type-ui' ); ?></a>
+		<a class="<?php echo $tab2; ?>" href="<?php echo esc_url( add_query_arg( array( 'action' => 'taxonomies' ), admin_url( 'admin.php?page=cptui_' . $page ) ) ); ?>"><?php _e( 'Taxonomies', 'custom-post-type-ui' ); ?></a>
+		<a class="<?php echo $tab3; ?>" href="<?php echo esc_url( add_query_arg( array( 'action' => 'get_code' ), admin_url( 'admin.php?page=cptui_' . $page ) ) ); ?>"><?php _e( 'Get Code', 'custom-post-type-ui' ); ?></a>
 	<?php
 	}
 
@@ -619,7 +620,7 @@ function cptui_edit_plugin_list_links( $links ) {
 
 	# Add our custom links to the returned array value.
 	return array_merge( array(
-		'<a href="' . admin_url( 'admin.php?page=cptui_main_menu' ) . '">' . __( 'Settings', 'cpt-plugin' ) . '</a>', '<a href="' . admin_url( 'admin.php?page=cptui_support' ) . '">' . __( 'Help', 'cpt-plugin' ) . '</a>'
+		'<a href="' . admin_url( 'admin.php?page=cptui_main_menu' ) . '">' . __( 'Settings', 'custom-post-type-ui' ) . '</a>', '<a href="' . admin_url( 'admin.php?page=cptui_support' ) . '">' . __( 'Help', 'custom-post-type-ui' ) . '</a>'
 	), $links );
 }
 add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'cptui_edit_plugin_list_links' );
@@ -648,27 +649,27 @@ function cptui_admin_notices( $action = '', $object_type = '', $success = true ,
 
 	if ( 'add' == $action ) {
 		if ( $success ) {
-			$message .= sprintf( __( '%s has been successfully added', 'cpt-plugin' ), $object_type );
+			$message .= sprintf( __( '%s has been successfully added', 'custom-post-type-ui' ), $object_type );
 		} else {
-			$message .= sprintf( __( '%s has failed to be added', 'cpt-plugin' ), $object_type );
+			$message .= sprintf( __( '%s has failed to be added', 'custom-post-type-ui' ), $object_type );
 		}
 	} elseif ( 'update' == $action ) {
 		if ( $success ) {
-			$message .= sprintf( __( '%s has been successfully updated', 'cpt-plugin' ), $object_type );
+			$message .= sprintf( __( '%s has been successfully updated', 'custom-post-type-ui' ), $object_type );
 		} else {
-			$message .= sprintf( __( '%s has failed to be updated', 'cpt-plugin' ), $object_type );
+			$message .= sprintf( __( '%s has failed to be updated', 'custom-post-type-ui' ), $object_type );
 		}
 	} elseif ( 'delete' == $action ) {
 		if ( $success ) {
-			$message .= sprintf( __( '%s has been successfully deleted', 'cpt-plugin' ), $object_type );
+			$message .= sprintf( __( '%s has been successfully deleted', 'custom-post-type-ui' ), $object_type );
 		} else {
-			$message .= sprintf( __( '%s has failed to be deleted', 'cpt-plugin' ), $object_type );
+			$message .= sprintf( __( '%s has failed to be deleted', 'custom-post-type-ui' ), $object_type );
 		}
 	} elseif ( 'import' == $action ) {
 		if ( $success ) {
-			$message .= sprintf( __( '%s has been successfully imported', 'cpt-plugin' ), $object_type );
+			$message .= sprintf( __( '%s has been successfully imported', 'custom-post-type-ui' ), $object_type );
 		} else {
-			$message .= sprintf( __( '%s has failed to be imported', 'cpt-plugin' ), $object_type );
+			$message .= sprintf( __( '%s has failed to be imported', 'custom-post-type-ui' ), $object_type );
 		}
 	} elseif ( 'error' == $action ) {
 		if ( !empty( $custom ) ) {
@@ -751,28 +752,28 @@ function cptui_get_preserved_label( $type = '', $key = '', $plural = '', $singul
 
 	$preserved_labels = array(
 		'post_types' => array(
-			'add_new_item'       => sprintf( __( 'Add new %s', 'cpt-plugin' ), $singular ),
-			'edit_item'          => sprintf( __( 'Edit %s', 'cpt-plugin' ), $singular ),
-			'new_item'           => sprintf( __( 'New %s', 'cpt-plugin' ), $singular ),
-			'view_item'          => sprintf( __( 'View %s', 'cpt-plugin' ), $singular ),
-			'all_items'          => sprintf( __( 'All %s', 'cpt-plugin' ), $plural ),
-			'search_items'       => sprintf( __( 'Search %s', 'cpt-plugin' ), $plural ),
-			'not_found'          => sprintf( __( 'No %s found.', 'cpt-plugin' ), $plural ),
-			'not_found_in_trash' => sprintf( __( 'No %s found in trash.', 'cpt-plugin' ), $plural )
+			'add_new_item'       => sprintf( __( 'Add new %s', 'custom-post-type-ui' ), $singular ),
+			'edit_item'          => sprintf( __( 'Edit %s', 'custom-post-type-ui' ), $singular ),
+			'new_item'           => sprintf( __( 'New %s', 'custom-post-type-ui' ), $singular ),
+			'view_item'          => sprintf( __( 'View %s', 'custom-post-type-ui' ), $singular ),
+			'all_items'          => sprintf( __( 'All %s', 'custom-post-type-ui' ), $plural ),
+			'search_items'       => sprintf( __( 'Search %s', 'custom-post-type-ui' ), $plural ),
+			'not_found'          => sprintf( __( 'No %s found.', 'custom-post-type-ui' ), $plural ),
+			'not_found_in_trash' => sprintf( __( 'No %s found in trash.', 'custom-post-type-ui' ), $plural )
 		),
 		'taxonomies' => array(
-			'search_items'               => sprintf( __( 'Search %s', 'cpt-plugin' ), $plural ),
-			'popular_items'              => sprintf( __( 'Popular %s', 'cpt-plugin' ), $plural ),
-			'all_items'                  => sprintf( __( 'All %s', 'cpt-plugin' ), $plural ),
-			'parent_item'                => sprintf( __( 'Parent %s', 'cpt-plugin' ), $singular ),
-			'parent_item_colon'          => sprintf( __( 'Parent %s:', 'cpt-plugin' ), $singular ),
-			'edit_item'                  => sprintf( __( 'Edit %s', 'cpt-plugin' ), $singular ),
-			'update_item'                => sprintf( __( 'Update %s', 'cpt-plugin' ), $singular ),
-			'add_new_item'               => sprintf( __( 'Add new %s', 'cpt-plugin' ), $singular ),
-			'new_item_name'              => sprintf( __( 'New %s name', 'cpt-plugin' ), $singular ),
-			'separate_items_with_commas' => sprintf( __( 'Separate %s with commas', 'cpt-plugin' ), $plural ),
-			'add_or_remove_items'        => sprintf( __( 'Add or remove %s', 'cpt-plugin' ), $plural ),
-			'choose_from_most_used'      => sprintf( __( 'Choose from the most used %s', 'cpt-plugin' ), $plural )
+			'search_items'               => sprintf( __( 'Search %s', 'custom-post-type-ui' ), $plural ),
+			'popular_items'              => sprintf( __( 'Popular %s', 'custom-post-type-ui' ), $plural ),
+			'all_items'                  => sprintf( __( 'All %s', 'custom-post-type-ui' ), $plural ),
+			'parent_item'                => sprintf( __( 'Parent %s', 'custom-post-type-ui' ), $singular ),
+			'parent_item_colon'          => sprintf( __( 'Parent %s:', 'custom-post-type-ui' ), $singular ),
+			'edit_item'                  => sprintf( __( 'Edit %s', 'custom-post-type-ui' ), $singular ),
+			'update_item'                => sprintf( __( 'Update %s', 'custom-post-type-ui' ), $singular ),
+			'add_new_item'               => sprintf( __( 'Add new %s', 'custom-post-type-ui' ), $singular ),
+			'new_item_name'              => sprintf( __( 'New %s name', 'custom-post-type-ui' ), $singular ),
+			'separate_items_with_commas' => sprintf( __( 'Separate %s with commas', 'custom-post-type-ui' ), $plural ),
+			'add_or_remove_items'        => sprintf( __( 'Add or remove %s', 'custom-post-type-ui' ), $plural ),
+			'choose_from_most_used'      => sprintf( __( 'Choose from the most used %s', 'custom-post-type-ui' ), $plural )
 		)
 	);
 
