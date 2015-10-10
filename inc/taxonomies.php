@@ -547,7 +547,8 @@ function cptui_taxonomies_dropdown( $taxonomies = array() ) {
 		$select['options'] = array();
 
 		foreach( $taxonomies as $tax ) {
-			$select['options'][] = array( 'attr' => $tax['name'], 'text' => $tax['label'] );
+			$text = ( ! empty( $tax['label'] ) ) ? $tax['label'] : $tax['name'];
+			$select['options'][] = array( 'attr' => $tax['name'], 'text' => $text );
 		}
 
 		$current = cptui_get_current_taxonomy();
