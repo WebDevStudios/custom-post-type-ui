@@ -43,6 +43,8 @@ Implied credit to:
 * Added individual post type and taxonomy output for "Get Code" area.
 * Added fallback values for post type/taxonomy select input and get code area if no plural label provided.
 * Updated textdomain to match WordPress.org repo slug.
+* Updated Support section with some Visual Composer questions/answers.
+* Added support for custom query_var strings for post types.
 
 = 1.1.2 =
 * Change export value to plural label for taxonomies.
@@ -276,6 +278,8 @@ Implied credit to:
 * Added individual post type and taxonomy output for "Get Code" area.
 * Added fallback values for post type/taxonomy select input and get code area if no plural label provided.
 * Updated textdomain to match WordPress.org repo slug.
+* Updated Support section with some Visual Composer questions/answers.
+* Added support for custom query_var strings for post types.
 
 = 1.1.2 =
 * Change export value to plural label for taxonomies.
