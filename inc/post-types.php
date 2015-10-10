@@ -961,7 +961,8 @@ function cptui_post_types_dropdown( $post_types = array() ) {
 		$select['options'] = array();
 
 		foreach( $post_types as $type ) {
-			$select['options'][] = array( 'attr' => $type['name'], 'text' => $type['label'] );
+			$text = ( !empty( $type['label'] ) ) ? $type['label'] : $type['name'];
+			$select['options'][] = array( 'attr' => $type['name'], 'text' => $text );
 		}
 
 		$current = cptui_get_current_post_type();
