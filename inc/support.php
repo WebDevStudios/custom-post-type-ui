@@ -63,6 +63,12 @@ function cptui_support() {
 							<span class="question"><?php _e( 'I have added post thumbnail and/or post format support to my post type, but those do not appear when adding a post type post.', 'custom-post-type-ui' ); ?></span>
 							<div class="answer"><?php _e( 'Make sure your theme has post "post-thumbnails" theme support enabled.', 'custom-post-type-ui' ); ?> <a href="http://codex.wordpress.org/Function_Reference/add_theme_support" target="_blank">http://codex.wordpress.org/Function_Reference/add_theme_support</a></div>
 						</li>
+						<li>
+							<span class="question"><?php _e( 'Do you have any recommendations for an alternative to Visual Composer.', 'custom-post-type-ui' ); ?></span>
+							<div class="answer"><?php _e( 'We recommend using VelocityPage.', 'custom-post-type-ui' ); ?>
+								<a href="https://velocitypage.com" target="_blank">https://velocitypage.com</a>
+							</div>
+						</li>
 					</ol>
 				</td>
 				<td class="outter">
