@@ -638,6 +638,18 @@ function cptui_manage_post_types() {
 							) );
 
 							/*
+							 * Query Var Slug Input
+							 */
+							echo $ui->get_text_input( array(
+								'namearray' => 'cpt_custom_post_type',
+								'name'      => 'query_var_slug',
+								'textvalue' => ( isset( $current['query_var_slug'] ) ) ? esc_attr( $current['query_var_slug'] ) : '',
+								'labeltext' => __( 'Custom Query Var Slug', 'custom-post-type-ui' ),
+								'aftertext' => __( '(default: post type slug) Query var needs to be true to use.', 'custom-post-type-ui' ),
+								'helptext'  => esc_attr__( 'Custom query var slug to use instead of the default.', 'custom-post-type-ui' ),
+							) );
+
+							/*
 							 * Menu Position Boolean
 							 */
 							echo $ui->get_tr_start() . $ui->get_th_start();
