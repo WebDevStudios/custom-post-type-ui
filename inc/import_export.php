@@ -350,6 +350,10 @@ function cptui_get_single_post_type_registery( $post_type = array() ) {
 		$post_type['query_var'] = '"' . $post_type['query_var_slug'] . '"';
 	}
 
+	if ( empty( $post_type['show_in_rest'] ) ) {
+		$post_type['show_in_rest'] = 'false';
+	}
+
 	$post_type['description'] = addslashes( $post_type['description'] );
 	?>
 	$labels = array(
@@ -366,6 +370,7 @@ function cptui_get_single_post_type_registery( $post_type = array() ) {
 		"description" => "<?php echo $post_type['description']; ?>",
 		"public" => <?php echo disp_boolean( $post_type['public'] ); ?>,
 		"show_ui" => <?php echo disp_boolean( $post_type['show_ui'] ); ?>,
+		"show_in_rest" => <?php echo disp_boolean( $post_type['show_in_rest'] ); ?>,
 		"has_archive" => <?php echo disp_boolean( $post_type['has_archive'] ); ?>,
 		"show_in_menu" => <?php echo disp_boolean( $post_type['show_in_menu'] ); ?>,
 		"exclude_from_search" => <?php echo disp_boolean( $post_type['exclude_from_search'] ); ?>,
