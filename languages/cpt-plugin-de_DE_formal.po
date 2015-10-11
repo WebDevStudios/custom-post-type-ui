@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Custom Post Type UI 1.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/custom-post-type-"
 "ui\n"
-"POT-Creation-Date: 2015-10-12 00:55+0200\n"
+"POT-Creation-Date: 2015-10-12 00:13+0200\n"
 "PO-Revision-Date: 2015-10-12 01:13+0200\n"
 "Last-Translator: Ralf Koller <r.koller@gmail.com>\n"
 "Language-Team: Pascal Kläres & Ralf Koller <pascal.klaeres@gmail.com & r."
@@ -71,9 +71,9 @@ msgid ""
 "with our plugin provides efficiency and speed in creating post types and "
 "taxonomies, to better organize your content, without having to touch code."
 msgstr ""
-"Danke dass Du Dich für Custom Post Type UI entschieden hast. Wir hoffen, "
-"dass Du mit Hilfe unseres Plugins auf eine einfache und schnelle Weise neue "
-"Post Types und Taxonomien erstellen kannst sowie Deine Inhalte besser "
+"Danke dass Sie sich für Custom Post Type UI entschieden haben. Wir hoffen, "
+"dass Sie mit Hilfe unseres Plugins auf eine einfache und schnelle Weise neue "
+"Post Types und Taxonomien erstellen können sowie Ihre Inhalte besser "
 "organisieren, ohne dabei eine Zeile Code schreiben zu müssen."
 
 #: custom-post-type-ui.php:352
@@ -87,8 +87,8 @@ msgid ""
 "have now added support for migrating all posts within the old post type to "
 "the new post type you renamed it to."
 msgstr ""
-"Bisher war es so, sobald Du den Kurzlink eines Post Types verändert hast, "
-"verlorst Du den direkten Zugriff auf alle seine Beiträge und musstest diese "
+"Bisher war es so, sobald Sie den Kurzlink eines Post Types verändert haben, "
+"verloren Sie den direkten Zugriff auf alle seine Beiträge und musstest diese "
 "anderweitig wiederherstellen. Wir haben jetzt die Unterstützung für die "
 "Migration von Beiträgen aus dem alten Post Type in den neu umbenannten "
 "hinzugefügt."
@@ -105,7 +105,7 @@ msgid ""
 msgstr ""
 "Nach dem Feedback zu den Änderungen in 1.0.x, haben wir die "
 "Benutzeroberfläche weiter vereinfacht um die Anzahl der notwendigen "
-"Mausklicks zur Verwaltung Deiner Post Types und Taxonomien weiter zu "
+"Mausklicks zur Verwaltung Ihrer Post Types und Taxonomien weiter zu "
 "minimieren."
 
 #: custom-post-type-ui.php:360
@@ -118,11 +118,11 @@ msgid ""
 "taxonomies for easier quick view of what you have going."
 msgstr ""
 "Wir bringen die Listendarstellung aller durch CPT UI registrierten Post "
-"Types und Taxonomien zurück, damit Du leichter den Überblick behältst."
+"Types und Taxonomien zurück, damit Sie leichter den Überblick behalten."
 
 #: custom-post-type-ui.php:366
 msgid "Help Support This Plugin!"
-msgstr "Unterstütze die Entwicklung dieses Plugins!"
+msgstr "Unterstützen Sie die Entwicklung dieses Plugins!"
 
 #: custom-post-type-ui.php:370
 msgid "Professional WordPress<br />Third Edition"
@@ -156,7 +156,7 @@ msgstr "PayPal - Der sichere und einfache Weg online zu bezahlen!"
 
 #: custom-post-type-ui.php:393
 msgid "Please donate to the development of Custom Post Type UI:"
-msgstr "Bitte unterstütze die Entwicklung <br />von Custom Post Type UI:"
+msgstr "Bitte unterstützen Sie die Entwicklung <br />von Custom Post Type UI:"
 
 #: custom-post-type-ui.php:419
 #, php-format
@@ -346,11 +346,11 @@ msgid ""
 "export functionality. If you are moving away from Custom Post Type UI, use "
 "the information in the \"Get Code\" tab."
 msgstr ""
-"Für den Fall dass Du Post Types oder Taxonomien von dieser Webseite auf eine "
-"andere, die ebenso Custom Post Type UI nutzt, übertragen willst, benutze "
-"bitte die Import und Export Funktion. Solltest Du Custom Post Type UI den "
-"Rücken zukehren wollen dann folge bitte den Informationen im \"Code "
-"erhalten“-Reiter."
+"Für den Fall dass Sie Post Types oder Taxonomien von dieser Webseite auf "
+"eine andere, die ebenso Custom Post Type UI nutzt, übertragen wollen, "
+"benutzen Sie bitte die Import und Export Funktion. Sollten Sie Custom Post "
+"Type UI den Rücken zukehren wollen dann folgen Sie bitte den Informationen "
+"im \"Code erhalten“-Reiter."
 
 #: inc/import_export.php:45
 msgid "NOTE"
@@ -382,8 +382,8 @@ msgid ""
 "To import post types from a different WordPress site, paste the exported "
 "content from that site and click the \"Import\" button."
 msgstr ""
-"Um die Post Types einer anderen WordPress-Seite zu importieren, füge deren "
-"exportierte Inhalte ein und klicke den \"Importieren“-Button."
+"Um die Post Types einer anderen WordPress-Seite zu importieren, fügen Sie "
+"deren exportierte Inhalte ein und klicke den \"Importieren“-Button."
 
 #: inc/import_export.php:58 inc/import_export.php:83
 msgid "Import"
@@ -402,8 +402,8 @@ msgid ""
 "To copy the system info, click below then press Ctrl + C (PC) or Cmd + C "
 "(Mac)."
 msgstr ""
-"Um die System-Informationen zu kopieren, klicke unten und drücken dann Ctrl "
-"+ C am PC oder Cmd + C  am Mac."
+"Um die System-Informationen zu kopieren, klicken Sie unten und drücken dann "
+"Ctrl + C am PC oder Cmd + C  am Mac."
 
 #: inc/import_export.php:72
 msgid ""
@@ -411,9 +411,10 @@ msgid ""
 "WordPress site. You can also use this to simply back up your post type "
 "settings."
 msgstr ""
-"Benutze die Inhalte des \"Post Types exportieren\"-Feldes um die aktuellen "
-"Post Types in eine andere WordPress Webseite zu importieren. Du kannst dies "
-"ebenso einfach dazu benutzen um Deine Post Type-Einstellungen zu sichern."
+"Benutzen Sie die Inhalte des \"Post Types exportieren\"-Feldes um die "
+"aktuellen Post Types in eine andere WordPress Webseite zu importieren. Sie "
+"können dies ebenso einfach dazu benutzen um Ihre Post Type-Einstellungen zu "
+"sichern."
 
 #: inc/import_export.php:78
 msgid "Import Taxonomies"
@@ -424,9 +425,9 @@ msgid ""
 "To import taxonomies from a different WordPress site, paste the exported "
 "content from that site and click the \"Import\" button."
 msgstr ""
-"Um Taxonomien von einer anderen WordPress Seite zu importieren, füge über "
-"die Zwischenablage die exportierten Inhalte dieser Seite ein und klicke den "
-"\"Importieren“-Button."
+"Um Taxonomien von einer anderen WordPress Seite zu importieren, fügen Sie "
+"über die Zwischenablage die exportierten Inhalte dieser Seite ein und klicke "
+"den \"Importieren“-Button."
 
 #: inc/import_export.php:87
 msgid "Export Taxonomies"
@@ -442,13 +443,14 @@ msgid ""
 "WordPress site. You can also use this to simply back up your taxonomy "
 "settings."
 msgstr ""
-"Benutze die Inhalte des \"Taxonomie exportieren\"-Feldes um die aktuellen "
-"Taxonomien in eine andere WordPress Webseite zu importieren. Du kannst dies "
-"ebenso einfach dazu benutzen um Deine Taxonomie-Einstellungen zu sichern."
+"Benutzen Sie die Inhalte des \"Taxonomie exportieren\"-Feldes um die "
+"aktuellen Taxonomien in eine andere WordPress Webseite zu importieren. Sie "
+"können dies ebenso einfach dazu benutzen um Ihre Taxonomie-Einstellungen zu "
+"sichern."
 
 #: inc/import_export.php:105
 msgid "Get Post Type and Taxonomy Code"
-msgstr "Erhalte Post Type- und Taxonomie-Code"
+msgstr "Erhalten Sie Post Type- und Taxonomie-Code"
 
 #: inc/import_export.php:107
 msgid "All CPT UI Post Types"
@@ -458,7 +460,7 @@ msgstr "Alle CPT UI-Post Types"
 #: inc/import_export.php:127 inc/import_export.php:136
 msgid "Copy/paste the code below into your functions.php file."
 msgstr ""
-"Kopiere den Code in die Zwischenablage und füge ihn im Anschluss in Deine "
+"Kopiere den Code in die Zwischenablage und füge ihn im Anschluss in Ihre "
 "functions.php-Datei ein."
 
 #: inc/import_export.php:118
@@ -525,8 +527,8 @@ msgstr "Keine benutzerdefinierten Beschriftungen zum Anzeigen"
 #, php-format
 msgid "No post types registered for display. Visit %s to get started."
 msgstr ""
-"Es wurden noch keine Post Types für die Darstellung erstellt. Besuche %s um "
-"jetzt damit zu beginnen."
+"Es wurden noch keine Post Types für die Darstellung erstellt. Besuchen Sie "
+"%s um jetzt damit zu beginnen."
 
 #: inc/listings.php:151 inc/listings.php:226
 msgid "Taxonomy"
@@ -536,30 +538,30 @@ msgstr "Taxonomie"
 #, php-format
 msgid "No taxonomies registered for display. Visit %s to get started."
 msgstr ""
-"Es wurden noch keine Taxonomien für die Darstellung erstellt. Besuche %s um "
-"jetzt damit zu beginnen."
+"Es wurden noch keine Taxonomien für die Darstellung erstellt. Besuchen Sie "
+"%s um jetzt damit zu beginnen."
 
 #: inc/post-types.php:30 inc/taxonomies.php:25
 msgid "Are you sure you want to delete this?"
-msgstr "Bist Du sicher, dass Du dies löschen möchtest?"
+msgstr "Sind Sie sicher, dass Sie dies löschen möchten?"
 
 #: inc/post-types.php:89
 msgid ""
 "DO NOT EDIT the post type slug unless necessary. Changing that value "
 "registers a new post type entry for your install."
 msgstr ""
-"BEARBEITE NICHT den Post Type-Kurzlink solange dies nicht unbedingt "
+"BEARBEITEN SIE NICHT den Post Type-Kurzlink solange dies nicht unbedingt "
 "notwendig ist. Die Änderung des Namens registriert einen neue Post Type "
-"Eintrag für Deine Installation."
+"Eintrag für Ihre Installation."
 
 #: inc/post-types.php:90
 msgid ""
 "Use appropriate checkbox above save/delete buttons if you wish to change "
 "slugs and update post types for existing posts."
 msgstr ""
-"Benutze die Checkbox über den Speichern- und Löschen-Buttons falls Du den "
-"Kurzlink ändern willst und den Post Type für bereits existierende Beiträge "
-"anpassen willst."
+"Benutzen Sie die Checkbox über den Speichern- und Löschen-Buttons falls Sie "
+"den Kurzlink ändern wollen und den Post Type für bereits existierende "
+"Beiträge anpassen."
 
 #: inc/post-types.php:91 inc/taxonomies.php:87
 msgid "Select: "
@@ -639,8 +641,8 @@ msgstr ""
 #: inc/post-types.php:189
 msgid "Check this to migrate posts if and when renaming your post type."
 msgstr ""
-"Hake dies an um Beiträge zu übertragen im Falle dessen dass Du Deinen Post "
-"Type umbenennen willst."
+"Haken Sie dies an um Beiträge zu übertragen im Falle dessen dass Sie Ihren "
+"Post Type umbenennen wollen."
 
 #: inc/post-types.php:208
 msgid "Save Post Type"
@@ -680,13 +682,13 @@ msgid ""
 "values. Labels, if left blank, will be automatically created based on the "
 "post type name. Hover over the question mark for more details."
 msgstr ""
-"Solltest Du mit der Nutzung der erweiterten Post Type-Einstellungen nicht "
-"vertraut sein, dann trage nur Werte in das %sPost Type-Namen%s- sowie das "
-"%sBeschriftungs%s Feld ein. Für die übrigen Einstellungen gelten die "
+"Sollten Sie mit der Nutzung der erweiterten Post Type-Einstellungen nicht "
+"vertraut sein, dann tragen Sie nur Werte in das %sPost Type-Namen%s- sowie "
+"das %sBeschriftungs%s Feld ein. Für die übrigen Einstellungen gelten die "
 "Voreinstellungen. Im Falle dessen, dass keine Beschriftungen eingetragen "
 "wurden, werden selbige automatisch, basierend auf dem Post Type-Namen, "
-"erstellt. Für weitergehende Informationen fahre mit dem Mauszeiger über die "
-"roten Fragezeichen."
+"erstellt. Für weitergehende Informationen fahren Sie mit dem Mauszeiger über "
+"die roten Fragezeichen."
 
 #: inc/post-types.php:247
 #, php-format
@@ -696,7 +698,7 @@ msgid ""
 "the content will still exist."
 msgstr ""
 "Das Löschen eines Post Types führt %sNICHT%s zur Entfernung von Inhalten aus "
-"der Datenbank. Du kannst Deine Post Types leicht erneut erstellen und die "
+"der Datenbank. Sie können Ihre Post Types leicht erneut erstellen und die "
 "bereits eingegebenen Inhalte sind wieder sicht- und bearbeitbar."
 
 #: inc/post-types.php:261 inc/taxonomies.php:248
@@ -705,7 +707,7 @@ msgstr "Menü-Name"
 
 #: inc/post-types.php:262
 msgid "Custom menu name for your custom post type."
-msgstr "Benutzerdefinierter Menü-Name für Deinen Custom Post Type."
+msgstr "Benutzerdefinierter Menü-Name für Ihren Custom Post Type."
 
 #: inc/post-types.php:266
 msgid "(e.g. My Movies)"
@@ -968,8 +970,8 @@ msgstr ""
 #: inc/post-types.php:649
 msgid "Custom query var slug to use instead of the default."
 msgstr ""
-"Verwende einen benutzerdefinierten Abfrage-Variable-Kurzlink anstelle des "
-"standardmäßigen."
+"Verwenden Sie einen benutzerdefinierten Abfrage-Variable-Kurzlink anstelle "
+"des standardmäßigen."
 
 #: inc/post-types.php:656
 msgid "Menu Position"
@@ -989,10 +991,10 @@ msgid ""
 "register_post_type#Parameters\" target=\"_blank\">Available options</a> in "
 "the \"menu_position\" section. Range of 5-100"
 msgstr ""
-"Lies mehr zu den <a href=„http://codex.wordpress.org/Function_Reference/"
-"register_post_type#Parameters“ target=\"_blank\">verfügbaren "
-"Einstellungsmöglichkeiten</a> für die „Menü Position“ Funktion. Die "
-"möglichen Werte reichen von 5 bis 100."
+"<a href=„http://codex.wordpress.org/Function_Reference/"
+"register_post_type#Parameters“>Lesen Sie mehr </a> zu den verfügbaren "
+"Einstellungsmöglichkeiten für die „Menü Position“ Funktion. Die möglichen "
+"Werte reichen von 5 bis 100."
 
 #: inc/post-types.php:673
 msgid "Show in Menu"
@@ -1155,8 +1157,8 @@ msgstr "Fügt die Unterstützung für Formate in Beiträgen hinzu"
 #: inc/post-types.php:884
 msgid "Use the option below to explicitly set \"supports\" to false."
 msgstr ""
-"Hake die Checkbox \"Keine\" an um alle \"Unterstützt\"-Funktionen explizit "
-"zu deaktivieren."
+"Haken Sie die Checkbox \"Keine\" an um alle \"Unterstützt\"-Funktionen "
+"explizit zu deaktivieren."
 
 #: inc/post-types.php:892
 msgid "None"
@@ -1174,12 +1176,13 @@ msgstr "Benutzerdefinierte „Unterstützt“"
 msgid ""
 "Use this input to register custom \"supports\" values, separated by commas."
 msgstr ""
-"Benutze diesen Eintrag um benutzerdefinierte „Unterstützt“-Werte zu "
+"Benutzen Sie diesen Eintrag um benutzerdefinierte „Unterstützt“-Werte zu "
 "definieren welche durch Kommas getrennt sind."
 
 #: inc/post-types.php:906
 msgid "Provide custom support slugs here."
-msgstr "Stelle hier benutzerdefinierte „Unterstützt“-Kurzlinks zur Verfügung."
+msgstr ""
+"Stellen Sie hier benutzerdefinierte „Unterstützt“-Kurzlinks zur Verfügung."
 
 #: inc/post-types.php:912
 msgid "Built-in Taxonomies"
@@ -1192,23 +1195,23 @@ msgstr "Fügt %s Unterstützung hinzu"
 
 #: inc/post-types.php:1048
 msgid "Please provide a post type to delete"
-msgstr "Bitte gib einen Post Type zum Löschen an"
+msgstr "Bitte geben Sie einen Post Type zum Löschen an"
 
 #: inc/post-types.php:1108
 msgid "Please provide a post type name"
-msgstr "Bitte gib einen Namen für den Post Type an"
+msgstr "Bitte geben Sie einen Namen für den Post Type an"
 
 #: inc/post-types.php:1132
 msgid "Please do not use quotes in post type names or rewrite slugs"
 msgstr ""
-"Bitte verwende keine Anführungszeichen im Post Type-Namen oder den Rewrite-"
-"Kurzlinks"
+"Bitte verwenden Sie keine Anführungszeichen im Post Type-Namen oder den "
+"Rewrite-Kurzlinks"
 
 #: inc/post-types.php:1139
 #, php-format
 msgid "Please choose a different post type name. %s is already registered."
 msgstr ""
-"Bitte wähle einen anderen Post Type-Namen. %s ist bereits in Verwendung."
+"Bitte wählen Sie einen anderen Post Type-Namen. %s ist bereits in Verwendung."
 
 #: inc/support.php:41
 msgid "Custom Post Type UI Support"
@@ -1221,10 +1224,10 @@ msgid ""
 "types or taxonomies in your current theme. It will simply register them for "
 "you. If all else fails, visit us on the %s"
 msgstr ""
-"Beachte bitte, dass dieses Plugin NICHT die Anzeige der erstellten Post "
-"Types oder Taxonomien in Deinem aktiven Theme übernimmt. Es wird sie "
-"lediglich für Dich registrieren. Bei allen weiteren Problemen besuche bitte "
-"unsere %s"
+"Beachten Sie bitte, dass dieses Plugin NICHT die Anzeige der erstellten Post "
+"Types oder Taxonomien in Ihrem aktiven Theme übernimmt. Es wird diese "
+"lediglich für Sie registrieren. Bei allen weiteren Problemen besuchen Sie "
+"bitte unsere %s"
 
 #: inc/support.php:44
 msgid "Support Forums"
@@ -1239,24 +1242,24 @@ msgid ""
 "I changed my custom post type name and now I can not get to my posts. How do "
 "I get them back?"
 msgstr ""
-"Ich habe den Namen meines Custom Post Types verändert und jetzt habe ich "
-"keinen Zugriff mehr auf meine Beiträge. Wie bekomme ich diese wieder zurück?"
+"Sie haben den Namen Ihres Custom Post Types verändert und jetzt haben Sie "
+"keinen Zugriff mehr auf Ihre Beiträge. Wie bekommen Sie diese wieder zurück?"
 
 #: inc/support.php:54
 msgid ""
 "You can either change the custom post type name back to the original name or "
 "try the Post Type Switcher plugin"
 msgstr ""
-"Du kannst entweder den Namen des Custom Post Types auf den ursprünglichen "
-"zurücksetzen oder aber Du verwendest das Post Type Switcher-Plugin"
+"Sie können entweder den Namen des Custom Post Types auf den ursprünglichen "
+"zurücksetzen oder aber Sie verwenden das Post Type Switcher-Plugin"
 
 #: inc/support.php:59
 msgid ""
 "I changed my custom post type or taxonomy slug and now I have duplicates "
 "shown. How do I remove the duplicate?"
 msgstr ""
-"Ich habe meinen Custom Post Type oder den Taxonomie-Kurzlink verändert und "
-"jetzt werden Duplikate angezeigt. Wie kann ich diese wieder entfernen?"
+"Sie haben Ihren Custom Post Type oder den Taxonomie-Kurzlink verändert und "
+"jetzt werden Duplikate angezeigt. Wie können Sie diese wieder entfernen?"
 
 #: inc/support.php:60
 msgid ""
@@ -1267,7 +1270,7 @@ msgid ""
 msgstr ""
 "Die Umbenennung des Kurzlinks eines Post Types oder einer Taxonomie erstellt "
 "einen neuen, eigenen Post Type oder Taxonomie. Nachdem die Einstellung aus "
-"dem vorherigen Kurzlink übernommen worden sind musst Du einfach den "
+"dem vorherigen Kurzlink übernommen worden sind müssen Sie einfach den "
 "ursprünglichen Eintrag löschen."
 
 #: inc/support.php:63
@@ -1275,20 +1278,20 @@ msgid ""
 "I have added post thumbnail and/or post format support to my post type, but "
 "those do not appear when adding a post type post."
 msgstr ""
-"Ich habe ein Beitrags-Thumbnail und/oder einen Format-Support zu meinem Post "
-"Type hinzugefügt. Diese werden aber nicht angezeigt wenn ich einen Beitrag "
-"mit diesem Post Type hinzufüge."
+"Sie haben ein Beitrags-Thumbnail und/oder einen Format-Support zu Ihrem Post "
+"Type hinzugefügt. Diese werden aber nicht angezeigt wenn Sie einen Beitrag "
+"mit diesem Post Type hinzufügen."
 
 #: inc/support.php:64
 msgid ""
 "Make sure your theme has post \"post-thumbnails\" theme support enabled."
 msgstr ""
-"Stell sicher, dass Dein Theme für Beiträge den Support von \"Beitrags-"
+"Stellen Sie sicher, dass Ihr Theme für Beiträge den Support von \"Beitrags-"
 "Thumbnails\" aktiviert hat"
 
 #: inc/support.php:67
 msgid "Do you have any recommendations for an alternative to Visual Composer."
-msgstr "Habt Ihr eine Empfehlung für eine Alternative zu Visual Composer."
+msgstr "Haben Sie eine Empfehlung für eine Alternative zu Visual Composer."
 
 #: inc/support.php:68
 msgid "We recommend using VelocityPage."
@@ -1304,7 +1307,7 @@ msgstr ""
 
 #: inc/support.php:75
 msgid "Please see the solution from the following forum support thread."
-msgstr "Gehe bitte zur Lösung in folgendem Foren-Support-Thread."
+msgstr "Gehen Sie bitte zur Lösung in folgendem Foren-Support-Thread."
 
 #: inc/support.php:82
 msgid "Front-end Display"
@@ -1313,7 +1316,7 @@ msgstr "Front-End Anzeige"
 #: inc/support.php:85
 msgid "What template files should I edit to alter my post type display?"
 msgstr ""
-"Welche Template-Dateien sollte ich bearbeiten um die Anzeige meiner Post "
+"Welche Template-Dateien sollten Sie bearbeiten um die Anzeige Ihrer Post "
 "Types zu verändern?"
 
 #: inc/support.php:86
@@ -1322,13 +1325,13 @@ msgid ""
 "Please visit the %sTemplate Hierarchy%s page on the WordPress codex for "
 "details about available templates."
 msgstr ""
-"Besuche bitte die %sTemplate Hierarchie%s-Seite im WordPress-Codex um mehr "
-"über die verfügbaren verschiedenen Arten von Templates zu erfahren."
+"Besuchen Sie bitte die %sTemplate Hierarchie%s-Seite im WordPress-Codex um "
+"mehr über die verfügbaren verschiedenen Arten von Templates zu erfahren."
 
 #: inc/support.php:93
 msgid "How do I display my custom post type on my site?"
 msgstr ""
-"Wie kann ich meine Custom Post Types auf meiner Webseite anzeigen lassen?"
+"Wie können Sie Ihre Custom Post Types auf Ihrer Webseite anzeigen lassen?"
 
 #: inc/support.php:94
 #, php-format
@@ -1337,8 +1340,8 @@ msgid ""
 "locations. If you have set the post type to have archives, the archive url "
 "should be something like \"http://www.mysite.com/post-type-slug\""
 msgstr ""
-"Du wirst %sWP_Query%s nutzen müssen um den Ort der Darstellung frei wählen "
-"zu können. Solltest Du für den Post Type eingestellt haben, dass er ein "
+"Sie werden %sWP_Query%s nutzen müssen um den Ort der Darstellung frei wählen "
+"zu können. Sollten Sie für den Post Type eingestellt haben, dass er ein "
 "Archiv hat, sollte die Archiv-URL z.B. \"http://www.mysite.com/post-type-slug"
 "\" lauten."
 
@@ -1347,7 +1350,7 @@ msgid ""
 "I have added categories and tags to my custom post type, but they do not "
 "appear in the archives."
 msgstr ""
-"Ich habe Kategorien und Tags zu meinem Custom Post Type hinzugefügt, aber "
+"Sie haben Kategorien und Tags zu Ihrem Custom Post Type hinzugefügt, aber "
 "sie werden nicht in den Archiven angezeigt."
 
 #: inc/support.php:101
@@ -1357,8 +1360,8 @@ msgid ""
 "category and tag archives query for. You can see a tutorial on how to do "
 "that at %s"
 msgstr ""
-"Du musst Deinen neu erstellten Post Type zu der Gruppe hinzufügen nach der "
-"die Kategorie- und Ettiketten-Archive durchsucht werden. Du findest ein "
+"Sie müssen Ihren neu erstellten Post Type zu der Gruppe hinzufügen nach der "
+"die Kategorie- und Ettiketten-Archive durchsucht werden. Sie finden ein "
 "Tutorial dazu unter %s"
 
 #: inc/support.php:110
@@ -1367,7 +1370,7 @@ msgstr "Erweitert"
 
 #: inc/support.php:113
 msgid "How do I add custom metaboxes to my post type?"
-msgstr "Wie füge ich benutzerdefinierte Metaboxen zu meinem Post Type hinzu?"
+msgstr "Wie fügen Sie benutzerdefinierte Metaboxen zu Ihrem Post Type hinzu?"
 
 #: inc/support.php:115
 #, php-format
@@ -1382,14 +1385,14 @@ msgstr ""
 msgid ""
 "How do I add a newly registered taxonomy to a post type that already exists?"
 msgstr ""
-"Wie füge ich eine neu erstellte Taxonomie zu einem Post Type hinzu der "
+"Wie fügen Sie eine neu erstellte Taxonomie zu einem Post Type hinzu der "
 "bereits existiert?"
 
 #: inc/support.php:123
 #, php-format
 msgid "Check out the %s function for documentation and usage examples."
 msgstr ""
-"Wirf einen Blick auf die %s-Funktion hinsichtlich Dokumentation und "
+"Werfen Sie einen Blick auf die %s-Funktion hinsichtlich Dokumentation und "
 "Nutzungsbeispielen."
 
 #: inc/support.php:129
@@ -1423,7 +1426,7 @@ msgstr ""
 msgid ""
 "How do I filter the \"enter title here\" text in the post editor screen?"
 msgstr ""
-"Wie kann ich den \"Titel hier eingeben\" Text im \"Neuen Beitrage erstellen"
+"Wie können Sie den \"Titel hier eingeben\" Text im \"Neuen Beitrage erstellen"
 "\"-Fenster ändern?"
 
 #: inc/support.php:145
@@ -1431,17 +1434,17 @@ msgid ""
 "Change text inside the post/page editor title field. Should be able to adapt "
 "as necessary."
 msgstr ""
-"Ändere den Text innerhalb des Beitrag/Seiten-Editor Titel-Feldes. Es sollte "
-"möglich sein dies anzupassen falls notwendig."
+"Ändern Sie den Text innerhalb des Beitrag/Seiten-Editor Titel-Feldes. Es "
+"sollte möglich sein dies anzupassen falls notwendig."
 
 #: inc/taxonomies.php:85
 msgid ""
 "DO NOT EDIT the taxonomy slug unless necessary. Changing that value "
 "registers a new taxonomy entry for your install."
 msgstr ""
-"BEARBEITE NICHT den Taxonomie Kurzlink solange dies nicht unbedingt "
+"BEARBEITEN SIE NICHT den Taxonomie Kurzlink solange dies nicht unbedingt "
 "notwendig ist. Die Änderung des Namens registriert einen neuen Taxonomie "
-"Eintrag für Deine Installation."
+"Eintrag für Ihre Installation."
 
 #: inc/taxonomies.php:125
 msgid "Taxonomy Slug"
@@ -1516,13 +1519,13 @@ msgid ""
 "automatically created based on the taxonomy name. Hover over the question "
 "marks for more details."
 msgstr ""
-"Solltest Du mit der Nutzung der erweiterten Taxonomie-Einstellungen nicht "
-"vertraut sein, dann trage nur Werte in das %sTaxonomie-Namen%s sowie das "
-"%sBeschriftungs%s Feld ein. Für die übrigen Einstellungen gelten die "
+"Sollten Sie mit der Nutzung der erweiterten Taxonomie-Einstellungen nicht "
+"vertraut sein, dann tragen Sie nur Werte in das %sTaxonomie-Namen%s sowie "
+"das %sBeschriftungs%s Feld ein. Für die übrigen Einstellungen gelten die "
 "Voreinstellungen. Im Falle dessen, dass keine Beschriftungen eingetragen "
 "wurden, werden selbige automatisch, basierend auf dem Taxonomie-Namen "
-"erstellt. Für weitergehende Informationen fahre mit dem Mauszeiger über die "
-"roten Fragezeichen."
+"erstellt. Für weitergehende Informationen fahren Sie mit dem Mauszeiger über "
+"die roten Fragezeichen."
 
 #: inc/taxonomies.php:232
 #, php-format
@@ -1533,8 +1536,8 @@ msgid ""
 "terms in the database."
 msgstr ""
 "Das Löschen einer benutzerdefinierten Taxonomie führt %sNICHT%s zur "
-"Entfernung von Begriffen die zu diesen Taxonomien hinzugefügt wurden. Du "
-"kannst Deine Taxonomien leicht erneut erstellen und die bereits eingegebenen "
+"Entfernung von Begriffen die zu diesen Taxonomien hinzugefügt wurden. Sie "
+"können Ihre Taxonomien leicht erneut erstellen und die bereits eingegebenen "
 "Inhalte sind wieder sicht- und bearbeitbar. Sollte der Namen, nachdem die "
 "Begriffe zu der Taxonomie hinzugefügt wurden, geändert werden, werden die "
 "Begriffe nicht in der Datenbank aktualisiert."
@@ -1658,7 +1661,7 @@ msgstr ""
 
 #: inc/taxonomies.php:431
 msgid "Sets the query_var key for this taxonomy."
-msgstr "Lege den Abfrage Variablen-Schlüssel für diese Taxonomie fest."
+msgstr "Legen Sie den Abfrage Variablen-Schlüssel für diese Taxonomie fest."
 
 #: inc/taxonomies.php:439
 msgid "(default: taxonomy slug). Query var needs to be true to use."
@@ -1673,8 +1676,8 @@ msgstr "Benutzerdefinierte Abfrage Variablen-Zeile"
 #: inc/taxonomies.php:441
 msgid "Sets a custom query_var slug for this taxonomy."
 msgstr ""
-"Definiere einen benutzerdefinierten Abfrage-Variablen-Kurzlink für diese "
-"Taxonomie."
+"Definieren Sie einen benutzerdefinierten Abfrage-Variablen-Kurzlink für "
+"diese Taxonomie."
 
 #: inc/taxonomies.php:457
 msgid "Whether or not WordPress should use rewrites for this taxonomy."
@@ -1722,23 +1725,23 @@ msgstr ""
 
 #: inc/taxonomies.php:623
 msgid "Please provide a taxonomy to delete"
-msgstr "Gib bitte eine Taxonomie zum Löschen an"
+msgstr "Geben Sie bitte eine Taxonomie zum Löschen an"
 
 #: inc/taxonomies.php:674
 msgid "Please provide a taxonomy name"
-msgstr "Gib bitte einen Taxonomie-Namen an"
+msgstr "Geben Sie bitte einen Taxonomie-Namen an"
 
 #: inc/taxonomies.php:690
 msgid "Please do not use quotes in taxonomy names or rewrite slugs"
 msgstr ""
-"Benutze bitte keine Anführungszeichen in Taxonomie-Namen oder Rewrite-"
+"Benutzen Sie bitte keine Anführungszeichen in Taxonomie-Namen oder Rewrite-"
 "Kurzlinks"
 
 #: inc/taxonomies.php:696
 #, php-format
 msgid "Please choose a different taxonomy name. %s is already used."
 msgstr ""
-"Bitte wähle einen anderen Taxonomie-Namen. %s ist bereits in Verwendung."
+"Bitte wählen Sie einen anderen Taxonomie-Namen. %s ist bereits in Verwendung."
 
 #. Plugin URI of the plugin/theme
 msgid "https://github.com/WebDevStudios/custom-post-type-ui/"
@@ -1758,6 +1761,13 @@ msgstr "WebDevStudios"
 #. Author URI of the plugin/theme
 msgid "http://webdevstudios.com/"
 msgstr "http://webdevstudios.com/"
+
+#~ msgid ""
+#~ "Whether posts of this type should be shown in the admin UI and is "
+#~ "publicly queryable."
+#~ msgstr ""
+#~ "Ob Beiträge dieses Typs im Admin Interface angezeigt werden sollen und "
+#~ "öffentlich durchsuchbar sind."
 
 #~ msgid "(default: none). Query Var needs to be true to use."
 #~ msgstr ""
