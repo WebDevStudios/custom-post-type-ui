@@ -114,6 +114,26 @@ function cptui_listings() {
 								}
 								?>
 							</td>
+							<td>
+								<p><strong><?php _e( 'Archives file name examples.', 'custom-post-type-ui' ); ?></strong><br/>
+								archive-<?php echo $post_type; ?>.php<br/>
+								archive.php<br/>
+								index.php
+								</p>
+
+								<p><strong><?php _e( 'Single Posts file name examples.', 'custom-post-type-ui' ); ?></strong><br/>
+								single-<?php echo $post_type; ?>.php<br/>
+								single.php<br/>
+								singular.php(WP 4.3+)<br/>
+								index.php
+								</p>
+
+								<p><?php printf(
+										'<a href="https://developer.wordpress.org/themes/basics/template-hierarchy/">%s</a>',
+										__( 'Template hierarchy Theme Handbook' )
+									); ?>
+								</p>
+							</td>
 						</tr>
 
 					<?php
@@ -227,6 +247,23 @@ function cptui_listings() {
 										_e( 'No custom labels to display', 'custom-post-type-ui' );
 									}
 									?>
+								</td>
+								<td>
+									<p><strong><?php _e( 'Archives', 'custom-post-type-ui' ); ?></strong><br />
+										taxonomy-<?php echo $taxonomy; ?>-term_slug.php *<br />
+										taxonomy-<?php echo $taxonomy; ?>.php<br />
+										taxonomy.php<br />
+										archive.php<br />
+										index.php
+									</p>
+
+									<p>
+										<?php _e( '*Replace "term_slug" with the slug of the actual taxonomy term.', 'custom-post-type-ui' ); ?>
+									</p>
+									<p><?php printf(
+											'<a href="https://developer.wordpress.org/themes/basics/template-hierarchy/">%s</a>',
+											__( 'Template hierarchy Theme Handbook' )
+										); ?></p>
 								</td>
 							</tr>
 
