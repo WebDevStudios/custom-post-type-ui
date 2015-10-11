@@ -35,11 +35,9 @@ function cptui_listings() {
 			?>
 			<table class="wp-list-table widefat">
 				<tr>
-					<th><?php _e( 'Post Type', 'custom-post-type-ui' ); ?></th>
-					<th><?php _e( 'Settings', 'custom-post-type-ui' ); ?></th>
-					<th><?php _e( 'Supports', 'custom-post-type-ui' ); ?></th>
-					<th><?php _e( 'Taxonomies', 'custom-post-type-ui' ); ?></th>
-					<th><?php _e( 'Labels', 'custom-post-type-ui' ); ?></th>
+					<?php foreach( $post_type_table_heads as $head ) {
+						echo '<th>' . $head . '</th>';
+					} ?>
 				</tr>
 				<?php
 				$counter = 1;
@@ -123,11 +121,9 @@ function cptui_listings() {
 				}
 				?>
 				<tr>
-					<th><?php _e( 'Post Type', 'custom-post-type-ui' ); ?></th>
-					<th><?php _e( 'Settings', 'custom-post-type-ui' ); ?></th>
-					<th><?php _e( 'Supports', 'custom-post-type-ui' ); ?></th>
-					<th><?php _e( 'Taxonomies', 'custom-post-type-ui' ); ?></th>
-					<th><?php _e( 'Labels', 'custom-post-type-ui' ); ?></th>
+					<?php foreach ( $post_type_table_heads as $head ) {
+						echo '<th>' . $head . '</th>';
+					} ?>
 				</tr>
 			</table>
 			<?php
@@ -165,10 +161,9 @@ function cptui_listings() {
 				?>
 				<table class="wp-list-table widefat">
 					<tr>
-						<th><?php _e( 'Taxonomy', 'custom-post-type-ui' ); ?></th>
-						<th><?php _e( 'Settings', 'custom-post-type-ui' ); ?></th>
-						<th><?php _e( 'Post Types', 'custom-post-type-ui' ); ?></th>
-						<th><?php _e( 'Labels', 'custom-post-type-ui' ); ?></th>
+						<?php foreach ( $taxonomy_table_heads as $head ) {
+							echo '<th>' . $head . '</th>';
+						} ?>
 					</tr>
 					<?php
 					$counter = 1;
@@ -240,10 +235,9 @@ function cptui_listings() {
 					}
 					?>
 					<tr>
-						<th><?php _e( 'Taxonomy', 'custom-post-type-ui' ); ?></th>
-						<th><?php _e( 'Settings', 'custom-post-type-ui' ); ?></th>
-						<th><?php _e( 'Post Types', 'custom-post-type-ui' ); ?></th>
-						<th><?php _e( 'Labels', 'custom-post-type-ui' ); ?></th>
+						<?php foreach ( $taxonomy_table_heads as $head ) {
+							echo '<th>' . $head . '</th>';
+						} ?>
 					</tr>
 				</table>
 			<?php
