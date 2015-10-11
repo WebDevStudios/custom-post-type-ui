@@ -46,6 +46,7 @@ Implied credit to:
 * Updated Support section with some Visual Composer questions/answers.
 * Added support for custom query_var strings for post types.
 * Added support for show_in_rest and the upcoming WordPress REST API.
+* Fixed support for YARPP plugin
 
 = 1.1.2 =
 * Change export value to plural label for taxonomies.
@@ -282,6 +283,7 @@ Implied credit to:
 * Updated Support section with some Visual Composer questions/answers.
 * Added support for custom query_var strings for post types.
 * Added support for show_in_rest and the upcoming WordPress REST API.
+* Fixed support for YARPP plugin
 
 = 1.1.2 =
 * Change export value to plural label for taxonomies.
