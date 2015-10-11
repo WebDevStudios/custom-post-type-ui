@@ -148,6 +148,14 @@ function cptui_listings() {
 
 				<?php
 
+				$taxonomy_table_heads = array(
+					__( 'Taxonomy', 'custom-post-type-ui' ),
+					__( 'Settings', 'custom-post-type-ui' ),
+					__( 'Post Types', 'custom-post-type-ui' ),
+					__( 'Labels', 'custom-post-type-ui' ),
+					__( 'Template Hierarchy', 'custom-post-type-ui' )
+				);
+
 				/**
 				 * Fires before the listing of registered taxonomy data.
 				 *
