@@ -17,6 +17,15 @@ function cptui_listings() {
 
 			<?php
 
+			$post_type_table_heads = array(
+				__( 'Post Type', 'custom-post-type-ui' ),
+				__( 'Settings', 'custom-post-type-ui' ),
+				__( 'Supports', 'custom-post-type-ui' ),
+				__( 'Taxonomies', 'custom-post-type-ui' ),
+				__( 'Labels', 'custom-post-type-ui' ),
+				__( 'Template Hierarchy', 'custom-post-type-ui' )
+			);
+
 			/**
 			 * Fires before the listing of registered post type data.
 			 *
