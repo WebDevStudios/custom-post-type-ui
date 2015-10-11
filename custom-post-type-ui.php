@@ -143,9 +143,15 @@ function cptui_register_single_post_type( $post_type = array() ) {
 		$post_type['supports'] = array_merge( $post_type['supports'], $user_supports_params );
 	}
 
+	$yarpp = false; # Prevent notices.
 	if ( ! empty( $post_type['custom_supports'] ) ) {
 		$custom = explode( ',', $post_type['custom_supports'] );
 		foreach( $custom as $part ) {
+			# We'll handle YARPP separately.
+			if ( in_array( $part, array( 'YARPP', 'yarpp' ) ) ) {
+				$yarpp = true;
+				continue;
+			}
 			$post_type['supports'][] = $part;
 		}
 	}
@@ -231,6 +237,10 @@ function cptui_register_single_post_type( $post_type = array() ) {
 		'supports'            => $post_type['supports'],
 		'taxonomies'          => $post_type['taxonomies']
 	);
+
+	if ( true === $yarpp ) {
+		$args['yarpp_support'] = $yarpp;
+	}
 
 	/**
 	 * Filters the arguments used for a post type right before registering.
