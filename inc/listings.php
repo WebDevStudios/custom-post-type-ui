@@ -17,6 +17,15 @@ function cptui_listings() {
 
 			<?php
 
+			$post_type_table_heads = array(
+				__( 'Post Type', 'custom-post-type-ui' ),
+				__( 'Settings', 'custom-post-type-ui' ),
+				__( 'Supports', 'custom-post-type-ui' ),
+				__( 'Taxonomies', 'custom-post-type-ui' ),
+				__( 'Labels', 'custom-post-type-ui' ),
+				__( 'Template Hierarchy', 'custom-post-type-ui' )
+			);
+
 			/**
 			 * Fires before the listing of registered post type data.
 			 *
@@ -26,11 +35,9 @@ function cptui_listings() {
 			?>
 			<table class="wp-list-table widefat">
 				<tr>
-					<th><?php _e( 'Post Type', 'custom-post-type-ui' ); ?></th>
-					<th><?php _e( 'Settings', 'custom-post-type-ui' ); ?></th>
-					<th><?php _e( 'Supports', 'custom-post-type-ui' ); ?></th>
-					<th><?php _e( 'Taxonomies', 'custom-post-type-ui' ); ?></th>
-					<th><?php _e( 'Labels', 'custom-post-type-ui' ); ?></th>
+					<?php foreach( $post_type_table_heads as $head ) {
+						echo '<th>' . $head . '</th>';
+					} ?>
 				</tr>
 				<?php
 				$counter = 1;
@@ -107,6 +114,26 @@ function cptui_listings() {
 								}
 								?>
 							</td>
+							<td>
+								<p><strong><?php _e( 'Archives file name examples.', 'custom-post-type-ui' ); ?></strong><br/>
+								archive-<?php echo $post_type; ?>.php<br/>
+								archive.php<br/>
+								index.php
+								</p>
+
+								<p><strong><?php _e( 'Single Posts file name examples.', 'custom-post-type-ui' ); ?></strong><br/>
+								single-<?php echo $post_type; ?>.php<br/>
+								single.php<br/>
+								singular.php(WP 4.3+)<br/>
+								index.php
+								</p>
+
+								<p><?php printf(
+										'<a href="https://developer.wordpress.org/themes/basics/template-hierarchy/">%s</a>',
+										__( 'Template hierarchy Theme Handbook' )
+									); ?>
+								</p>
+							</td>
 						</tr>
 
 					<?php
@@ -114,11 +141,9 @@ function cptui_listings() {
 				}
 				?>
 				<tr>
-					<th><?php _e( 'Post Type', 'custom-post-type-ui' ); ?></th>
-					<th><?php _e( 'Settings', 'custom-post-type-ui' ); ?></th>
-					<th><?php _e( 'Supports', 'custom-post-type-ui' ); ?></th>
-					<th><?php _e( 'Taxonomies', 'custom-post-type-ui' ); ?></th>
-					<th><?php _e( 'Labels', 'custom-post-type-ui' ); ?></th>
+					<?php foreach ( $post_type_table_heads as $head ) {
+						echo '<th>' . $head . '</th>';
+					} ?>
 				</tr>
 			</table>
 			<?php
@@ -139,6 +164,14 @@ function cptui_listings() {
 
 				<?php
 
+				$taxonomy_table_heads = array(
+					__( 'Taxonomy', 'custom-post-type-ui' ),
+					__( 'Settings', 'custom-post-type-ui' ),
+					__( 'Post Types', 'custom-post-type-ui' ),
+					__( 'Labels', 'custom-post-type-ui' ),
+					__( 'Template Hierarchy', 'custom-post-type-ui' )
+				);
+
 				/**
 				 * Fires before the listing of registered taxonomy data.
 				 *
@@ -148,10 +181,9 @@ function cptui_listings() {
 				?>
 				<table class="wp-list-table widefat">
 					<tr>
-						<th><?php _e( 'Taxonomy', 'custom-post-type-ui' ); ?></th>
-						<th><?php _e( 'Settings', 'custom-post-type-ui' ); ?></th>
-						<th><?php _e( 'Post Types', 'custom-post-type-ui' ); ?></th>
-						<th><?php _e( 'Labels', 'custom-post-type-ui' ); ?></th>
+						<?php foreach ( $taxonomy_table_heads as $head ) {
+							echo '<th>' . $head . '</th>';
+						} ?>
 					</tr>
 					<?php
 					$counter = 1;
@@ -216,6 +248,23 @@ function cptui_listings() {
 									}
 									?>
 								</td>
+								<td>
+									<p><strong><?php _e( 'Archives', 'custom-post-type-ui' ); ?></strong><br />
+										taxonomy-<?php echo $taxonomy; ?>-term_slug.php *<br />
+										taxonomy-<?php echo $taxonomy; ?>.php<br />
+										taxonomy.php<br />
+										archive.php<br />
+										index.php
+									</p>
+
+									<p>
+										<?php _e( '*Replace "term_slug" with the slug of the actual taxonomy term.', 'custom-post-type-ui' ); ?>
+									</p>
+									<p><?php printf(
+											'<a href="https://developer.wordpress.org/themes/basics/template-hierarchy/">%s</a>',
+											__( 'Template hierarchy Theme Handbook' )
+										); ?></p>
+								</td>
 							</tr>
 
 						<?php
@@ -223,10 +272,9 @@ function cptui_listings() {
 					}
 					?>
 					<tr>
-						<th><?php _e( 'Taxonomy', 'custom-post-type-ui' ); ?></th>
-						<th><?php _e( 'Settings', 'custom-post-type-ui' ); ?></th>
-						<th><?php _e( 'Post Types', 'custom-post-type-ui' ); ?></th>
-						<th><?php _e( 'Labels', 'custom-post-type-ui' ); ?></th>
+						<?php foreach ( $taxonomy_table_heads as $head ) {
+							echo '<th>' . $head . '</th>';
+						} ?>
 					</tr>
 				</table>
 			<?php

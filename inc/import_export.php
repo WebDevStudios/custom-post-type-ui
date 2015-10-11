@@ -303,6 +303,19 @@ function cptui_get_single_post_type_registery( $post_type = array() ) {
 		$post_type['supports'] = array_merge( $post_type['supports'], $user_supports_params );
 	}
 
+	$yarpp = false; # Prevent notices.
+	if ( ! empty( $post_type['custom_supports'] ) ) {
+		$custom = explode( ',', $post_type['custom_supports'] );
+		foreach ( $custom as $part ) {
+			# We'll handle YARPP separately.
+			if ( in_array( $part, array( 'YARPP', 'yarpp' ) ) ) {
+				$yarpp = true;
+				continue;
+			}
+			$post_type['supports'][] = $part;
+		}
+	}
+
 	$rewrite = get_disp_boolean( $post_type['rewrite' ] );
 	if ( false !== $rewrite ) {
 		$rewrite = disp_boolean( $post_type['rewrite'] );
@@ -350,6 +363,10 @@ function cptui_get_single_post_type_registery( $post_type = array() ) {
 		$post_type['query_var'] = '"' . $post_type['query_var_slug'] . '"';
 	}
 
+	if ( empty( $post_type['show_in_rest'] ) ) {
+		$post_type['show_in_rest'] = 'false';
+	}
+
 	$post_type['description'] = addslashes( $post_type['description'] );
 	?>
 	$labels = array(
@@ -366,6 +383,7 @@ function cptui_get_single_post_type_registery( $post_type = array() ) {
 		"description" => "<?php echo $post_type['description']; ?>",
 		"public" => <?php echo disp_boolean( $post_type['public'] ); ?>,
 		"show_ui" => <?php echo disp_boolean( $post_type['show_ui'] ); ?>,
+		"show_in_rest" => <?php echo disp_boolean( $post_type['show_in_rest'] ); ?>,
 		"has_archive" => <?php echo disp_boolean( $post_type['has_archive'] ); ?>,
 		"show_in_menu" => <?php echo disp_boolean( $post_type['show_in_menu'] ); ?>,
 		"exclude_from_search" => <?php echo disp_boolean( $post_type['exclude_from_search'] ); ?>,
@@ -376,7 +394,8 @@ function cptui_get_single_post_type_registery( $post_type = array() ) {
 		"query_var" => <?php echo $post_type['query_var']; ?>,
 		<?php if ( !empty( $post_type['menu_position'] ) ) { ?>"menu_position" => <?php echo $post_type['menu_position']; ?>,<?php } ?><?php if ( !empty( $post_type['menu_icon'] ) ) { ?>"menu_icon" => "<?php echo $post_type['menu_icon']; ?>",<?php } ?>
 		<?php if ( !empty( $supports ) ) { echo "\n\t\t" ?>"supports" => <?php echo $supports; ?>,<?php } ?>
-		<?php if ( !empty( $taxonomies ) ) {  echo "\n\t\t" ?>"taxonomies" => <?php echo $taxonomies; ?><?php } echo "\n"?>
+		<?php if ( !empty( $taxonomies ) ) {  echo "\n\t\t" ?>"taxonomies" => <?php echo $taxonomies; ?>,<?php } ?>
+		<?php if ( true === $yarpp ) { echo "\n\t\t" ?>"yarpp_support" => <?php echo disp_boolean( $yarpp ); ?><?php } echo "\n";?>
 	);
 	register_post_type( "<?php echo $post_type['name']; ?>", $args );
 <?php
