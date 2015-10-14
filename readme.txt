@@ -1,5 +1,5 @@
 === Custom Post Type UI ===
-Contributors: williamsba1, tw2113, webdevstudios
+Contributors: tw2113, williamsba1, webdevstudios
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3084056
 Tags: custom post types, CPT, CMS, post, types, post type, cck, taxonomy, tax, custom
 Requires at least: 3.8
