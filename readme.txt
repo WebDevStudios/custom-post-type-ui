@@ -348,9 +348,16 @@ Full list:
 
 == Installation ==
 
+=== Manual ===
 1. Upload the Custom Post Type UI folder to the plugins directory in your WordPress installation
-2. Activate the plugin
-3. Navigate to the Custom Post Type UI Menu
+2. Activate the plugin.
+3. Navigate to the "CPTUI" Menu.
+
+=== Admin Installer ===
+1. Visit the Add New plugin screen and search for "custom post type ui"
+2. Click the "Install Now" button.
+3. Activate the plugin.
+4. Navigate to the "CPTUI" Menu.
 
 That's it! Now you can easily start creating custom post types and taxonomies in WordPress
 
