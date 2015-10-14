@@ -17,12 +17,6 @@ Please note that this plugin will NOT handle display of registered post types or
 
 All official development on this plugin is on GitHub. Version bumps will still be published here on WordPress.org. You can find the repo at [https://github.com/WebDevStudios/custom-post-type-ui](https://github.com/WebDevStudios/custom-post-type-ui). Please file confirmed issues, bugs, and enhancement ideas there, when possible.
 
-Import/Export functionality amended from original contribution by [Ben Allfree](http://wordpress.org/support/profile/benallfree).
-
-Implied credit to:
-
-* [exeQutor](https://github.com/exeQutor) For proper supports fix.
-
 == Screenshots ==
 
 1. Add new post type screen and tab.
@@ -499,6 +493,8 @@ That's it! Now you can easily start creating custom post types and taxonomies in
 Please see the Help/Support section for FAQs and start a new thread on the support forums for Custom Post Type UI if none of those answer your question.
 
 == Other Notes ==
+
+Import/Export functionality amended from original contribution by [Ben Allfree](http://wordpress.org/support/profile/benallfree).
 
 = Outside contributors that we wish to thank =
 [brandondove](https://github.com/brandondove)
