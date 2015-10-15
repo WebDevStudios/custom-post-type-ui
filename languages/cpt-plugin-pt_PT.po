@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: Custom Post Type UI\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/plugins/custom-post-type-ui\n"
 "POT-Creation-Date: 2015-10-10 01:51-0500\n"
-"PO-Revision-Date: 2015-10-10 01:51-0500\n"
-"Last-Translator: Michael Beckwith <michael.d.beckwith@gmail.com>\n"
+"PO-Revision-Date: 2015-10-15 11:30+0100\n"
+"Last-Translator: Pedro Mendonça <ped.gaspar@gmail.com>\n"
 "Language-Team: WebDevStudios <contact@webdevstudios.com>\n"
 "Language: pt_PT\n"
 "MIME-Version: 1.0\n"
@@ -452,18 +452,18 @@ msgid "Copy/paste the code below into your functions.php file."
 msgstr "Copie/cole o código abaixo no seu ficheiro functions.php."
 
 #: inc/import_export.php:118
-#, fuzzy, php-format
+#, php-format
 msgid "%s Post Type"
-msgstr "Tipo de artigo"
+msgstr "Tipo de artigo %s"
 
 #: inc/import_export.php:124
 msgid "All CPT UI Taxonomies"
 msgstr "Todas as taxonomias do CPT UI"
 
 #: inc/import_export.php:135
-#, fuzzy, php-format
+#, php-format
 msgid "%s Taxonomy"
-msgstr "Taxionomia"
+msgstr "Taxonomia %s"
 
 #: inc/import_export.php:176
 msgid "No taxonomies to display at this time"
@@ -512,18 +512,18 @@ msgid "No custom labels to display"
 msgstr "Nenhuma legenda personalizada para mostrar"
 
 #: inc/listings.php:126
-#, fuzzy, php-format
+#, php-format
 msgid "No post types registered for display. Visit %s to get started."
-msgstr "Nenhum tipo de artigo registado ainda."
+msgstr "Nenhum tipo de artigo registado para mostrar. Visite %s para começar."
 
 #: inc/listings.php:151 inc/listings.php:226
 msgid "Taxonomy"
 msgstr "Taxionomia"
 
 #: inc/listings.php:234
-#, fuzzy, php-format
+#, php-format
 msgid "No taxonomies registered for display. Visit %s to get started."
-msgstr "Nenhuma taxonomia registada ainda."
+msgstr "Nenhuma taxonomia registada para mostrar. Visite %s para começar."
 
 #: inc/post-types.php:30 inc/taxonomies.php:25
 msgid "Are you sure you want to delete this?"
@@ -803,19 +803,19 @@ msgid "Public"
 msgstr "Público"
 
 #: inc/post-types.php:434
-#, fuzzy
 msgid "(CPTUI default: True.)"
-msgstr "(padrão: Verdadeiro)"
+msgstr "(padrão do CPTUI: Verdadeiro.)"
 
 #: inc/post-types.php:435
-#, fuzzy
 msgid ""
 "WordPress core defaults to false. CPTUI defaults to true for user sake. "
 "Whether posts of this type should be shown in the admin UI and is publicly "
 "queryable."
 msgstr ""
-"Se artigos deste tipo deverão ser mostrados no interface do utilizador da "
-"administração e pesquisáveis publicamente."
+"Por omissão é falso no core do WordPress. O CPTUI torna verdadeiro por "
+"omissão para benefício do utilizador. Se os artigos deste tipo deverão ser "
+"mostrados no interface do utilizador da administração e pesquisáveis "
+"publicamente."
 
 #: inc/post-types.php:453 inc/taxonomies.php:412
 msgid "Show UI"
@@ -834,7 +834,7 @@ msgstr ""
 
 #: inc/post-types.php:473
 msgid "Show in REST API"
-msgstr ""
+msgstr "Mostrar na REST API"
 
 #: inc/post-types.php:474 inc/post-types.php:499 inc/post-types.php:532
 #: inc/post-types.php:563 inc/taxonomies.php:396 inc/taxonomies.php:516
@@ -842,10 +842,8 @@ msgid "(default: False)"
 msgstr "(padrão: Falso)"
 
 #: inc/post-types.php:475
-#, fuzzy
 msgid "Whether to show this post type data in the WP REST API."
-msgstr ""
-"Se mostra o tipo de artigo no menu de administração e onde mostra esse menu."
+msgstr "Se mostra os dados deste tipo de artigo na REST API."
 
 #: inc/post-types.php:483
 msgid "Has Archive"
