@@ -39,9 +39,10 @@ All official development on this plugin is on GitHub. Version bumps will still b
 * Updated: Textdomain now matches WordPress.org repo slug.
 * Updated: Added Visual Composer questions/answers to support section.
 * Added: Support for custom query_var strings for post types.
-* Added: Support for show_in_rest and the upcoming WordPress REST API.
+* Added: Support for show_in_rest and rest_base for post types and taxonomies for the upcoming WordPress REST API.
 * Fixed: Support for YARPP plugin.
 * Added: Template hierarchy files to listings tables for user reference.
+* Updated: Minimum version required. Now WordPress 4.2
 
 = 1.1.2 =
 * Change export value to plural label for taxonomies.
