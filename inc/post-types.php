@@ -1218,6 +1218,7 @@ function cptui_update_post_type( $data = array() ) {
 		'description'           => $description,
 		'public'                => disp_boolean( $data['cpt_custom_post_type']['public'] ),
 		'show_ui'               => disp_boolean( $data['cpt_custom_post_type']['show_ui'] ),
+		'show_in_nav_menus'     => disp_boolean( $data['cpt_custom_post_type']['show_in_nav_menus'] ),
 		'show_in_rest'          => disp_boolean( $data['cpt_custom_post_type']['show_in_rest'] ),
 		'rest_base'             => $rest_base,
 		'has_archive'           => disp_boolean( $data['cpt_custom_post_type']['has_archive'] ),
