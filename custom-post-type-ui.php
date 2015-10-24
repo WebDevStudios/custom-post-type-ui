@@ -318,6 +318,11 @@ function cptui_register_single_taxonomy( $taxonomy = array() ) {
 
 	$show_admin_column = ( !empty( $taxonomy['show_admin_column'] ) && false !== get_disp_boolean( $taxonomy['show_admin_column'] ) ) ? true : false;
 
+	$rest_base = null;
+	if ( ! empty( $taxonomy['rest_base'] ) ) {
+		$rest_base = $taxonomy['rest_base'];
+	}
+
 	$args = array(
 		'labels'            => $labels,
 		'label'             => $taxonomy['label'],
@@ -325,7 +330,9 @@ function cptui_register_single_taxonomy( $taxonomy = array() ) {
 		'show_ui'           => get_disp_boolean( $taxonomy['show_ui'] ),
 		'query_var'         => $taxonomy['query_var'],
 		'rewrite'           => $rewrite,
-		'show_admin_column' => $show_admin_column
+		'show_admin_column' => $show_admin_column,
+		'show_in_rest'      => get_disp_boolean( $taxonomy['show_in_rest'] ),
+		'rest_base'         => $rest_base,
 	);
 
 	$object_type = ( !empty( $taxonomy['object_types'] ) ) ? $taxonomy['object_types'] : '';
