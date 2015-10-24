@@ -477,6 +477,17 @@ function cptui_manage_post_types() {
 							) );
 
 							/*
+							 * rest_base slug.
+							 */
+							echo $ui->get_text_input( array(
+								'labeltext' => __( 'REST API base slug', 'custom-post-type-ui' ),
+								'helptext'  => esc_attr__( 'Slug to use in REST API URLs.', 'custom-post-type-ui' ),
+								'namearray' => 'cpt_custom_post_type',
+								'name'      => 'rest_base',
+								'textvalue' => ( isset( $current['rest_base'] ) ) ? esc_attr( $current['rest_base'] ) : '',
+							) );
+
+							/*
 							 * Has Archive Boolean
 							 */
 							echo $ui->get_tr_start() . $ui->get_th_start();
@@ -1170,6 +1181,7 @@ function cptui_update_post_type( $data = array() ) {
 
 	$name = trim( $data['cpt_custom_post_type']['name'] );
 	$description = stripslashes_deep( $data['cpt_custom_post_type']['description'] );
+	$rest_base = trim( $data['cpt_custom_post_type']['rest_base'] );
 	$has_archive_string = trim( $data['cpt_custom_post_type']['has_archive_string'] );
 	$capability_type = trim( $data['cpt_custom_post_type']['capability_type'] );
 	$rewrite_slug = trim( $data['cpt_custom_post_type']['rewrite_slug'] );
@@ -1187,6 +1199,7 @@ function cptui_update_post_type( $data = array() ) {
 		'public'                => disp_boolean( $data['cpt_custom_post_type']['public'] ),
 		'show_ui'               => disp_boolean( $data['cpt_custom_post_type']['show_ui'] ),
 		'show_in_rest'          => disp_boolean( $data['cpt_custom_post_type']['show_in_rest'] ),
+		'rest_base'             => $rest_base,
 		'has_archive'           => disp_boolean( $data['cpt_custom_post_type']['has_archive'] ),
 		'has_archive_string'    => $has_archive_string,
 		'exclude_from_search'   => disp_boolean( $data['cpt_custom_post_type']['exclude_from_search'] ),
