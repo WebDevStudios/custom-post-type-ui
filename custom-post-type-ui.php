@@ -218,6 +218,11 @@ function cptui_register_single_post_type( $post_type = array() ) {
 		$post_type['show_in_rest'] = false;
 	}
 
+	$rest_base = null;
+	if ( ! empty( $post_type['rest_base'] ) ) {
+		$rest_base = $post_type['rest_base'];
+	}
+
 	$args = array(
 		'labels'              => $labels,
 		'description'         => $post_type['description'],
@@ -226,6 +231,7 @@ function cptui_register_single_post_type( $post_type = array() ) {
 		'has_archive'         => $has_archive,
 		'show_in_menu'        => $show_in_menu,
 		'show_in_rest'        => get_disp_boolean( $post_type['show_in_rest'] ),
+		'rest_base'           => $rest_base,
 		'exclude_from_search' => $exclude_from_search,
 		'capability_type'     => $post_type['capability_type'],
 		'map_meta_cap'        => $post_type['map_meta_cap'],
