@@ -459,7 +459,7 @@ function cptui_manage_post_types() {
 							/*
 							 * Show in Nav Menus
 							 */
-							$select             = array(
+							$select = array(
 								'options' => array(
 									array( 'attr' => '0', 'text' => __( 'False', 'custom-post-type-ui' ) ),
 									array( 'attr' => '1', 'text' => __( 'True', 'custom-post-type-ui' ), 'default' => 'true' )
