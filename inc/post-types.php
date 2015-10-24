@@ -457,6 +457,26 @@ function cptui_manage_post_types() {
 							) );
 
 							/*
+							 * Show in Nav Menus
+							 */
+							$select             = array(
+								'options' => array(
+									array( 'attr' => '0', 'text' => __( 'False', 'custom-post-type-ui' ) ),
+									array( 'attr' => '1', 'text' => __( 'True', 'custom-post-type-ui' ), 'default' => 'true' )
+								)
+							);
+							$selected           = ( isset( $current ) ) ? disp_boolean( $current['show_in_nav_menus'] ) : '';
+							$select['selected'] = ( ! empty( $selected ) ) ? $current['show_in_nav_menus'] : '';
+							echo $ui->get_select_input( array(
+								'namearray'  => 'cpt_custom_post_type',
+								'name'       => 'show_in_nav_menus',
+								'labeltext'  => __( 'Show in Nav Menus', 'custom-post-type-ui' ),
+								'aftertext'  => __( '(CPTUI default: true)', 'custom-post-type-ui' ),
+								'helptext'   => esc_attr__( 'Whether post type is available for selection in navigation menus.', 'custom-post-type-ui' ),
+								'selections' => $select
+							) );
+
+							/*
 							 * show_in_rest Boolean
 							 */
 							$select = array(
