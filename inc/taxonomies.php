@@ -517,6 +517,37 @@ function cptui_manage_taxonomies() {
 									'helptext'      => esc_attr__( 'Whether to allow automatic creation of taxonomy columns on associated post-types.', 'custom-post-type-ui' ),
 									'selections'    => $select
 								) );
+
+								/*
+								 * show_in_rest Boolean
+								 */
+								$select = array(
+									'options' => array(
+										array( 'attr'    => '0', 'text'    => __( 'False', 'custom-post-type-ui' ), 'default' => 'false' ),
+										array( 'attr' => '1', 'text' => __( 'True', 'custom-post-type-ui' ) )
+									)
+								);
+								$selected           = ( isset( $current ) ) ? disp_boolean( $current['show_in_rest'] ) : '';
+								$select['selected'] = ( ! empty( $selected ) ) ? $current['show_in_rest'] : '';
+								echo $ui->get_select_input( array(
+									'namearray'  => 'cpt_custom_tax',
+									'name'       => 'show_in_rest',
+									'labeltext'  => __( 'Show in REST API', 'custom-post-type-ui' ),
+									'aftertext'  => __( '(default: False)', 'custom-post-type-ui' ),
+									'helptext'   => esc_attr__( 'Whether to show this taxonomy data in the WP REST API.', 'custom-post-type-ui' ),
+									'selections' => $select
+								) );
+
+								/*
+								 * rest_base slug.
+								 */
+								echo $ui->get_text_input( array(
+									'labeltext' => __( 'REST API base slug', 'custom-post-type-ui' ),
+									'helptext'  => esc_attr__( 'Slug to use in REST API URLs.', 'custom-post-type-ui' ),
+									'namearray' => 'cpt_custom_tax',
+									'name'      => 'rest_base',
+									'textvalue' => ( isset( $current['rest_base'] ) ) ? esc_attr( $current['rest_base'] ) : '',
+								) );
 								?>
 						</table>
 					</div>
@@ -718,6 +749,7 @@ function cptui_update_taxonomy( $data = array() ) {
 	$singular_label = htmlspecialchars( stripslashes( $singular_label ) );
 	$query_var_slug = trim( $data['cpt_custom_tax']['query_var_slug'] );
 	$rewrite_slug = trim( $data['cpt_custom_tax']['rewrite_slug'] );
+	$rest_base = trim( $data['cpt_custom_tax']['rest_base'] );
 
 	$taxonomies[ $data['cpt_custom_tax']['name'] ] = array(
 		'name'                 => $name,
@@ -732,6 +764,8 @@ function cptui_update_taxonomy( $data = array() ) {
 		'rewrite_withfront'    => $data['cpt_custom_tax']['rewrite_withfront'],
 		'rewrite_hierarchical' => $data['cpt_custom_tax']['rewrite_hierarchical'],
 		'show_admin_column'    => disp_boolean( $data['cpt_custom_tax']['show_admin_column'] ),
+		'show_in_rest'         => disp_boolean( $data['cpt_custom_tax']['show_in_rest'] ),
+		'rest_base'            => $rest_base,
 		'labels'               => $data['cpt_tax_labels']
 	);
 
