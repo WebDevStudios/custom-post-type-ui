@@ -44,6 +44,7 @@ All official development on this plugin is on GitHub. Version bumps will still b
 * Updated: Heading tags match accessibility changes in WordPress 4.3.
 * Updated: Textdomain now matches WordPress.org repo slug.
 * Updated: Added Visual Composer questions/answers to support section.
+* Updated: Changed help icons to a Dashicon help icon.
 * Fixed: Support for YARPP plugin.
 
 = 1.1.2 =
@@ -215,6 +216,7 @@ All official development on this plugin is on GitHub. Version bumps will still b
 * Updated: Heading tags match accessibility changes in WordPress 4.3.
 * Updated: Textdomain now matches WordPress.org repo slug.
 * Updated: Added Visual Composer questions/answers to support section.
+* Updated: Changed help icons to a Dashicon help icon.
 * Fixed: Support for YARPP plugin.
 
 = 1.1.2 =
