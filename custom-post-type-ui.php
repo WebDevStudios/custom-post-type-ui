@@ -57,7 +57,7 @@ add_action( 'init', 'cptui_load_textdomain' );
  * @since 0.1.0
  */
 function cptui_plugin_menu() {
-	add_menu_page( __( 'Custom Post Types', 'custom-post-type-ui' ), __( 'CPT UI', 'custom-post-type-ui' ), 'manage_options', 'cptui_main_menu', 'cptui_settings' );
+	add_menu_page( __( 'Custom Post Types', 'custom-post-type-ui' ), __( 'CPT UI', 'custom-post-type-ui' ), 'manage_options', 'cptui_main_menu', 'cptui_settings', cptui_menu_icon() );
 	add_submenu_page( 'cptui_main_menu', __( 'Add/Edit Post Types', 'custom-post-type-ui' ), __( 'Add/Edit Post Types', 'custom-post-type-ui' ), 'manage_options', 'cptui_manage_post_types', 'cptui_manage_post_types' );
 	add_submenu_page( 'cptui_main_menu', __( 'Add/Edit Taxonomies', 'custom-post-type-ui' ), __( 'Add/Edit Taxonomies', 'custom-post-type-ui' ), 'manage_options', 'cptui_manage_taxonomies', 'cptui_manage_taxonomies' );
 	add_submenu_page( 'cptui_main_menu', __( 'Registered Types and Taxes', 'custom-post-type-ui' ), __( 'Registered Types/Taxes', 'custom-post-type-ui' ), 'manage_options', 'cptui_listings', 'cptui_listings' );
