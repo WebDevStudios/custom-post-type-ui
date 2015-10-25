@@ -327,6 +327,7 @@ function cptui_register_single_taxonomy( $taxonomy = array() ) {
 	$args = array(
 		'labels'            => $labels,
 		'label'             => $taxonomy['label'],
+		'description'       => $taxonomy['description'],
 		'hierarchical'      => get_disp_boolean( $taxonomy['hierarchical'] ),
 		'show_ui'           => get_disp_boolean( $taxonomy['show_ui'] ),
 		'query_var'         => $taxonomy['query_var'],

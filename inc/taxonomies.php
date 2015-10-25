@@ -146,6 +146,23 @@ function cptui_manage_taxonomies() {
 							'helptext'      => esc_attr__( 'Taxonomy Singular label.  Used in WordPress when a singular label is needed.', 'custom-post-type-ui'),
 						) );
 
+						/*
+						 * Post Description
+						 */
+						if ( isset( $current['description'] ) ) {
+							$current['description'] = stripslashes_deep( $current['description'] );
+						}
+
+						echo $ui->get_textarea_input( array(
+							'namearray' => 'cpt_custom_tax',
+							'name'      => 'description',
+							'rows'      => '4',
+							'cols'      => '40',
+							'textvalue' => ( isset( $current['description'] ) ) ? esc_textarea( $current['description'] ) : '',
+							'labeltext' => __( 'Description', 'custom-post-type-ui' ),
+							'helptext'  => esc_attr__( 'Taxonomy Description. Describe what your taxonomy is used for.', 'custom-post-type-ui' )
+						) );
+
 						echo $ui->get_tr_start() . $ui->get_th_start() . __( 'Attach to Post Type', 'custom-post-type-ui' ) . $ui->get_required();
 						echo $ui->get_th_end() . $ui->get_td_start();
 
@@ -180,6 +197,7 @@ function cptui_manage_taxonomies() {
 								'wrap'              => false
 							) );
 						}
+
 						echo $ui->get_td_end() . $ui->get_tr_end(); ?>
 					</table>
 				<p class="submit">
@@ -747,6 +765,7 @@ function cptui_update_taxonomy( $data = array() ) {
 	$name = trim( $data['cpt_custom_tax']['name'] );
 	$singular_label = str_replace( '"', '', htmlspecialchars_decode( $data['cpt_custom_tax']['singular_label'] ) );
 	$singular_label = htmlspecialchars( stripslashes( $singular_label ) );
+	$description = stripslashes_deep( $data['cpt_custom_tax']['description'] );
 	$query_var_slug = trim( $data['cpt_custom_tax']['query_var_slug'] );
 	$rewrite_slug = trim( $data['cpt_custom_tax']['rewrite_slug'] );
 	$rest_base = trim( $data['cpt_custom_tax']['rest_base'] );
@@ -755,6 +774,7 @@ function cptui_update_taxonomy( $data = array() ) {
 		'name'                 => $name,
 		'label'                => $label,
 		'singular_label'       => $singular_label,
+		'description'          => $description,
 		'hierarchical'         => disp_boolean( $data['cpt_custom_tax']['hierarchical'] ),
 		'show_ui'              => disp_boolean( $data['cpt_custom_tax']['show_ui'] ),
 		'query_var'            => disp_boolean( $data['cpt_custom_tax']['query_var'] ),
