@@ -31,18 +31,20 @@ All official development on this plugin is on GitHub. Version bumps will still b
 == Changelog ==
 
 = 1.2.0 =
-* Updated: Heading tags match accessibility changes in WordPress 4.3.
+* Added: Support for show_in_nav_menus parameter for post types.
+* Added: Support for taxonomy descriptions.
 * Added: Message on listings page if no post types or taxonomies are available.
 * Added: Note regarding 'public' parameter not being true by default for WordPress but is for CPTUI.
 * Added: Individual post type and taxonomy output for "Get Code" area.
 * Added: Fallback values for post type/taxonomy select input and get code area if no plural label provided.
-* Updated: Textdomain now matches WordPress.org repo slug.
-* Updated: Added Visual Composer questions/answers to support section.
 * Added: Support for custom query_var strings for post types.
 * Added: Support for show_in_rest and rest_base for post types and taxonomies for the upcoming WordPress REST API.
-* Fixed: Support for YARPP plugin.
 * Added: Template hierarchy files to listings tables for user reference.
-* Updated: Minimum version required. Now WordPress 4.2
+* Updated: Minimum version required. Now WordPress 4.2.
+* Updated: Heading tags match accessibility changes in WordPress 4.3.
+* Updated: Textdomain now matches WordPress.org repo slug.
+* Updated: Added Visual Composer questions/answers to support section.
+* Fixed: Support for YARPP plugin.
 
 = 1.1.2 =
 * Change export value to plural label for taxonomies.
@@ -200,17 +202,20 @@ All official development on this plugin is on GitHub. Version bumps will still b
 == Upgrade Notice ==
 
 = 1.2.0 =
-* Updated: Heading tags match accessibility changes in WordPress 4.3.
+* Added: Support for show_in_nav_menus parameter for post types.
+* Added: Support for taxonomy descriptions.
 * Added: Message on listings page if no post types or taxonomies are available.
 * Added: Note regarding 'public' parameter not being true by default for WordPress but is for CPTUI.
 * Added: Individual post type and taxonomy output for "Get Code" area.
 * Added: Fallback values for post type/taxonomy select input and get code area if no plural label provided.
+* Added: Support for custom query_var strings for post types.
+* Added: Support for show_in_rest and rest_base for post types and taxonomies for the upcoming WordPress REST API.
+* Added: Template hierarchy files to listings tables for user reference.
+* Updated: Minimum version required. Now WordPress 4.2.
+* Updated: Heading tags match accessibility changes in WordPress 4.3.
 * Updated: Textdomain now matches WordPress.org repo slug.
 * Updated: Added Visual Composer questions/answers to support section.
-* Added: Support for custom query_var strings for post types.
-* Added: Support for show_in_rest and the upcoming WordPress REST API.
 * Fixed: Support for YARPP plugin.
-* Added: Template hierarchy files to listings tables for user reference.
 
 = 1.1.2 =
 * Change export value to plural label for taxonomies.
