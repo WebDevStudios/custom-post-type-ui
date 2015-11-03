@@ -448,8 +448,16 @@ function cptui_import_types_taxes_settings( $postdata = array() ) {
 	}
 
 	if ( !empty( $postdata['cptui_post_import'] ) ) {
-		$data = stripslashes_deep( trim( $postdata['cptui_post_import'] ) );
-		$settings = json_decode( $data, true );
+		$cpt_data = stripslashes_deep( trim( $postdata['cptui_post_import'] ) );
+		$settings = json_decode( $cpt_data, true );
+
+		# Add support to delete settings outright, without accessing database.
+		# Doing double check to protect.
+		if ( is_null( $settings ) && '{""}' === $cpt_data ) {
+			delete_option( 'cptui_post_types' );
+			# We're technically successful in a sense. Importing nothing.
+			$success = true;
+		}
 
 		if ( $settings ) {
 			if ( false !== get_option( 'cptui_post_types' ) ) {
@@ -461,8 +469,16 @@ function cptui_import_types_taxes_settings( $postdata = array() ) {
 		return cptui_admin_notices( 'import', __( 'Post types', 'custom-post-type-ui' ), $success );
 
   	} elseif ( !empty( $postdata['cptui_tax_import'] ) ) {
-  		$data = stripslashes_deep( trim( $postdata['cptui_tax_import'] ) );
-		$settings = json_decode( $data, true );
+		$tax_data = stripslashes_deep( trim( $postdata['cptui_tax_import'] ) );
+		$settings = json_decode( $tax_data, true );
+
+		# Add support to delete settings outright, without accessing database.
+		# Doing double check to protect.
+		if ( is_null( $settings ) && '{""}' === $tax_data ) {
+			delete_option( 'cptui_taxonomies' );
+			# We're technically successful in a sense. Importing nothing.
+			$success = true;
+		}
 
 		if ( $settings ) {
 			if ( false !== get_option( 'cptui_taxonomies' ) ) {
