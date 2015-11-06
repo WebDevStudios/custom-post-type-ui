@@ -43,7 +43,7 @@ function cptui_importexport() {
 
 	<p><?php printf( '<strong>%s</strong>: %s',
 			__( 'NOTE', 'custom-post-type-ui' ),
-			__( 'This will not export the associated posts, just the settings.', 'custom-post-type-ui' )
+			__( 'This will not export the associated posts or taxonomy terms, just the settings.', 'custom-post-type-ui' )
 		); ?>
 	</p>
 	<table class="form-table cptui-table">
