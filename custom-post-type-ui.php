@@ -378,15 +378,15 @@ function cptui_settings() { ?>
 		<div class="changelog about-integrations">
 			<div class="cptui-feature feature-section col three-col">
 				<div>
-					<h4><?php _e( 'Post type migration', 'custom-post-type-ui' ); ?></h4>
+					<h2><?php _e( 'Post type migration', 'custom-post-type-ui' ); ?></h2>
 					<p><?php _e( 'In the past, if you changed your post type slug, you would lose immediate access to the posts in the post type and need to recover another way. We have now added support for migrating all posts within the old post type to the new post type you renamed it to.', 'custom-post-type-ui' ); ?></p>
 				</div>
 				<div>
-					<h4><?php _e( 'UI Refinement', 'custom-post-type-ui' ); ?></h4>
+					<h2><?php _e( 'UI Refinement', 'custom-post-type-ui' ); ?></h2>
 					<p><?php _e( 'After receiving feedback regarding the 1.0.x changes, we have further simplified the UI to reduce the amount of clicking necessary to manage your post types and taxonomies.', 'custom-post-type-ui' ); ?></p>
 				</div>
 				<div class="last-feature">
-					<h4><?php _e( 'Registered Post Type and Taxonomy Listings', 'custom-post-type-ui' ); ?></h4>
+					<h2><?php _e( 'Registered Post Type and Taxonomy Listings', 'custom-post-type-ui' ); ?></h2>
 					<p><?php _e( 'We are bringing back the listing of all CPTUI-registered post types and taxonomies for easier quick view of what you have going.', 'custom-post-type-ui' ); ?></p>
 				</div>
 			</div>
@@ -396,7 +396,7 @@ function cptui_settings() { ?>
 		<table border="0">
 			<tr>
 				<td class="one-third valign">
-					<h3><?php _e( 'Professional WordPress<br />Third Edition', 'custom-post-type-ui' ); ?></h3>
+					<h2><?php _e( 'Professional WordPress<br />Third Edition', 'custom-post-type-ui' ); ?></h2>
 					<a href="http://bit.ly/prowp3" target="_blank">
 						<img src="<?php echo plugins_url( '/images/professional-wordpress-thirdedition.jpg', __FILE__ ); ?>" width="200">
 					</a>
@@ -404,7 +404,7 @@ function cptui_settings() { ?>
 					<p><?php _e( 'The leading book on WordPress design and development! Brand new third edition!', 'custom-post-type-ui' ); ?></p>
 				</td>
 				<td class="one-third valign">
-					<h3><?php _e( 'Professional WordPress<br />Plugin Development', 'custom-post-type-ui' ); ?></h3>
+					<h2><?php _e( 'Professional WordPress<br />Plugin Development', 'custom-post-type-ui' ); ?></h2>
 					<a href="http://amzn.to/plugindevbook" target="_blank">
 						<img src="<?php echo plugins_url( '/images/professional-wordpress-plugin-development.png', __FILE__ ); ?>" width="200">
 					</a>
@@ -412,7 +412,7 @@ function cptui_settings() { ?>
 					<p><?php _e( 'Highest rated WordPress development book on Amazon!', 'custom-post-type-ui' ); ?></p>
 				</td>
 				<td class="one-third valign">
-					<h3><?php _e( 'PayPal Donation', 'custom-post-type-ui' ); ?></h3>
+					<h2><?php _e( 'PayPal Donation', 'custom-post-type-ui' ); ?></h2>
 					<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
 					<input type="hidden" name="cmd" value="_s-xclick">
 					<input type="hidden" name="hosted_button_id" value="YJEDXPHE49Q3U">
