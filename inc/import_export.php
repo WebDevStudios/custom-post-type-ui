@@ -202,6 +202,7 @@ function cptui_get_single_taxonomy_registery( $taxonomy = array() ) {
 			$rewrite_slug = ' \'slug\' => \'' . $taxonomy['rewrite_slug'] . '\',';
 		}
 
+		$rewrite_withfront = '';
 		$withfront = disp_boolean( $taxonomy['rewrite_withfront'] );
 		if ( !empty( $withfront ) ) {
 			$rewrite_withfront = ' \'with_front\' => ' . $withfront . ' ';
@@ -316,6 +317,7 @@ function cptui_get_single_post_type_registery( $post_type = array() ) {
 		}
 	}
 
+	$rewrite_withfront = '';
 	$rewrite = get_disp_boolean( $post_type['rewrite' ] );
 	if ( false !== $rewrite ) {
 		$rewrite = disp_boolean( $post_type['rewrite'] );

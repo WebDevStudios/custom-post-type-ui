@@ -48,6 +48,7 @@ function cptui_listings() {
 					$strings = array();
 					$supports = array();
 					$taxonomies = array();
+					$archive = '';
 					foreach( $post_type_settings as $settings_key => $settings_value ) {
 						if ( 'labels' == $settings_key ) {
 							continue;
