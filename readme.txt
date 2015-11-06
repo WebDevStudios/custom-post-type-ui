@@ -40,6 +40,8 @@ All official development on this plugin is on GitHub. Version bumps will still b
 * Added: Support for custom query_var strings for post types.
 * Added: Support for show_in_rest and rest_base for post types and taxonomies for the upcoming WordPress REST API.
 * Added: Template hierarchy files to listings tables for user reference.
+* Added: Form labels in more areas to help with accessibility and usability.
+* Added: Fieldset method to Admin UI class for easily adding fieldset output.
 * Updated: Minimum version required. Now WordPress 4.2.
 * Updated: Heading tags match accessibility changes in WordPress 4.3.
 * Updated: Textdomain now matches WordPress.org repo slug.
@@ -212,6 +214,8 @@ All official development on this plugin is on GitHub. Version bumps will still b
 * Added: Support for custom query_var strings for post types.
 * Added: Support for show_in_rest and rest_base for post types and taxonomies for the upcoming WordPress REST API.
 * Added: Template hierarchy files to listings tables for user reference.
+* Added: Form labels in more areas to help with accessibility and usability.
+* Added: Fieldset method to Admin UI class for easily adding fieldset output.
 * Updated: Minimum version required. Now WordPress 4.2.
 * Updated: Heading tags match accessibility changes in WordPress 4.3.
 * Updated: Textdomain now matches WordPress.org repo slug.
