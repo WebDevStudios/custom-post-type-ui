@@ -11,7 +11,7 @@ class cptui_admin_ui {
 	/**
 	 * Return an opening <tr> tag.
 	 *
-	 * @since 1.0
+	 * @since 1.0.0
 	 *
 	 * @return string $value Opening <tr> tag with attributes.
 	 */
@@ -22,7 +22,7 @@ class cptui_admin_ui {
 	/**
 	 * Return a closing </tr> tag.
 	 *
-	 * @since 1.0
+	 * @since 1.0.0
 	 *
 	 * @return string $value Closing </tr> tag.
 	 */
@@ -33,7 +33,7 @@ class cptui_admin_ui {
 	/**
 	 * Return an opening <th> tag.
 	 *
-	 * @since 1.0
+	 * @since 1.0.0
 	 *
 	 * @return string $value Opening <th> tag with attributes.
 	 */
@@ -44,7 +44,7 @@ class cptui_admin_ui {
 	/**
 	 * Return a closing </th> tag.
 	 *
-	 * @since 1.0
+	 * @since 1.0.0
 	 *
 	 * @return string $value Closing </th> tag.
 	 */
@@ -55,7 +55,7 @@ class cptui_admin_ui {
 	/**
 	 * Return an opening <td> tag.
 	 *
-	 * @since 1.0
+	 * @since 1.0.0
 	 *
 	 * @return string $value Opening <td> tag.
 	 */
@@ -66,7 +66,7 @@ class cptui_admin_ui {
 	/**
 	 * Return a closing </td> tag.
 	 *
-	 * @since 1.0
+	 * @since 1.0.0
 	 *
 	 * @return string $value Closing </td> tag.
 	 */
@@ -77,10 +77,9 @@ class cptui_admin_ui {
 	/**
 	 * Return string wrapped in a <p> tag.
 	 *
-	 * @since 1.0
+	 * @since 1.0.0
 	 *
 	 * @param string $text Content to wrap in a <p> tag.
-	 *
 	 * @return string $value Content wrapped in a <p> tag.
 	 */
 	public function get_p( $text = '' ) {
@@ -90,11 +89,10 @@ class cptui_admin_ui {
 	/**
 	 * Return a form <label> with for attribute.
 	 *
-	 * @since 1.0
+	 * @since 1.0.0
 	 *
 	 * @param string $label_for  Form input to associate <label> with.
 	 * @param string $label_text Text to display in the <label> tag.
-	 *
 	 * @return string $value <label> tag with filled out parts.
 	 */
 	public function get_label( $label_for = '', $label_text = '' ) {
@@ -104,7 +102,7 @@ class cptui_admin_ui {
 	/**
 	 * Return a <span> to indicate required status, with class attribute.
 	 *
-	 * @since 1.0
+	 * @since 1.0.0
 	 *
 	 * @return string span tag.
 	 */
@@ -115,10 +113,9 @@ class cptui_admin_ui {
 	/**
 	 * Return an <a> tag with title attribute holding help text.
 	 *
-	 * @since 1.0
+	 * @since 1.0.0
 	 *
 	 * @param string $help_text Text to use in the title attribute.
-	 *
 	 * @return string <a> tag with filled out parts.
 	 */
 	public function get_help( $help_text = '' ) {
@@ -128,8 +125,9 @@ class cptui_admin_ui {
 	/**
 	 * Return a maxlength HTML attribute with a specified length.
 	 *
-	 * @param string $length How many characters the max length should be set to.
+	 * @since 1.0.0
 	 *
+	 * @param string $length How many characters the max length should be set to.
 	 * @return string $value Maxlength HTML attribute.
 	 */
 	public function get_maxlength( $length = '' ) {
@@ -139,8 +137,9 @@ class cptui_admin_ui {
 	/**
 	 * Return a onblur HTML attribute for a specified value.
 	 *
-	 * @param string $text Text to place in the onblur attribute.
+	 * @since 1.0.0
 	 *
+	 * @param string $text Text to place in the onblur attribute.
 	 * @return string $value Onblur HTML attribute.
 	 */
 	public function get_onblur( $text = '' ) {
@@ -150,10 +149,9 @@ class cptui_admin_ui {
 	/**
 	 * Return a populated <select> input.
 	 *
-	 * @since 1.0
+	 * @since 1.0.0
 	 *
 	 * @param array $args Arguments to use with the <select> input.
-	 *
 	 * @return string $value Complete <select> input with options and selected attribute.
 	 */
 	public function get_select_input( $args = array() ) {
@@ -219,10 +217,9 @@ class cptui_admin_ui {
 	/**
 	 * Return a text input.
 	 *
-	 * @since 1.0
+	 * @since 1.0.0
 	 *
 	 * @param array $args Arguments to use with the text input.
-	 *
 	 * @return string Complete text <input> with proper attributes.
 	 */
 	public function get_text_input( $args = array() ) {
@@ -278,10 +275,9 @@ class cptui_admin_ui {
 	/**
 	 * Return a <textarea> input.
 	 *
-	 * @since 1.0
+	 * @since 1.0.0
 	 *
 	 * @param array $args Arguments to use with the textarea input.
-	 *
 	 * @return string $value Complete <textarea> input with proper attributes.
 	 */
 	public function get_textarea_input( $args = array() ) {
@@ -321,10 +317,9 @@ class cptui_admin_ui {
 	/**
 	 * Return a checkbox <input>.
 	 *
-	 * @since 1.0
+	 * @since 1.0.0
 	 *
 	 * @param array $args Arguments to use with the checkbox input.
-	 *
 	 * @return string $value Complete checkbox <input> with proper attributes.
 	 */
 	public function get_check_input( $args = array() ) {
@@ -369,10 +364,9 @@ class cptui_admin_ui {
 	/**
 	 * Return some array_merged default arguments for all input types.
 	 *
-	 * @since 1.0
+	 * @since 1.0.0
 	 *
 	 * @param array $additions Arguments array to merge with our defaults.
-	 *
 	 * @return array $value Merged arrays for our default parameters.
 	 */
 	public function get_default_input_parameters( $additions = array() ) {
