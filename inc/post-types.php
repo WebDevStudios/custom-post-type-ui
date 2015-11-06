@@ -239,7 +239,7 @@ function cptui_manage_post_types() {
 				</p>
 
 				<?php if ( 'new' == $tab ) { ?>
-					<h3><?php _e( 'Starter Notes', 'custom-post-type-ui' ); ?></h3>
+					<h2><?php _e( 'Starter Notes', 'custom-post-type-ui' ); ?></h2>
 					<div><ol>
 						<?php
 						echo '<li>' . sprintf( __( 'Post Type names should have %smax 20 characters%s, and only contain alphanumeric, lowercase characters, underscores in place of spaces and letters that do not have accents. Reserved names: post, page, attachment, revision, nav_menu_item.', 'custom-post-type-ui' ), '<strong class="wp-ui-highlight">', '</strong>' );
@@ -250,7 +250,7 @@ function cptui_manage_post_types() {
 			</td>
 			<td class="outter">
 				<div>
-					<h3><?php _e( 'Labels', 'custom-post-type-ui' ); ?></h3>
+					<h2><?php _e( 'Labels', 'custom-post-type-ui' ); ?></h2>
 						<div>
 							<table>
 							<?php
@@ -412,7 +412,7 @@ function cptui_manage_post_types() {
 							?>
 							</table>
 						</div>
-					<h3><?php _e( 'Settings', 'custom-post-type-ui' ); ?></h3>
+					<h2><?php _e( 'Settings', 'custom-post-type-ui' ); ?></h2>
 						<div>
 							<table>
 							<?php
