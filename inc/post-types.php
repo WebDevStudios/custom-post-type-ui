@@ -746,7 +746,7 @@ function cptui_manage_post_types() {
 								'helptext'      => esc_attr__( 'URL to image to be used as menu icon or Dashicon class to use instead.', 'custom-post-type-ui' ),
 							) );
 
-							echo $ui->get_tr_start() . $ui->get_th_start() . __( 'Supports', 'custom-post-type-ui' ) . $ui->get_th_end() . $ui->get_td_start();
+							echo $ui->get_tr_start() . $ui->get_th_start() . __( 'Supports', 'custom-post-type-ui' ) . $ui->get_th_end() . $ui->get_td_start() . $ui->get_fieldset_start();
 							/*
 							 * Supports Title Checkbox
 							 */
@@ -925,7 +925,8 @@ function cptui_manage_post_types() {
 								'default'       => false,
 								'wrap'          => false
 							) );
-							echo $ui->get_td_end() . $ui->get_tr_end();
+
+							echo $ui->get_fieldset_end() . $ui->get_td_end() . $ui->get_tr_end();
 
 							echo $ui->get_tr_start() . $ui->get_th_start() . __( 'Custom "Supports"', 'custom-post-type-ui' );
 							echo $ui->get_p( __( 'Use this input to register custom "supports" values, separated by commas.', 'custom-post-type-ui' ) );
@@ -940,7 +941,7 @@ function cptui_manage_post_types() {
 							) );
 							echo $ui->get_td_end() . $ui->get_tr_end();
 
-							echo $ui->get_tr_start() . $ui->get_th_start() . __( 'Built-in Taxonomies', 'custom-post-type-ui' ) . $ui->get_th_end() . $ui->get_td_start();
+							echo $ui->get_tr_start() . $ui->get_th_start() . __( 'Built-in Taxonomies', 'custom-post-type-ui' ) . $ui->get_th_end() . $ui->get_td_start() . $ui->get_fieldset_start();
 
 							/**
 							 * Filters the arguments for taxonomies to list for post type association.
@@ -974,7 +975,7 @@ function cptui_manage_post_types() {
 								) );
 							}
 
-							echo $ui->get_td_end() . $ui->get_tr_end(); ?>
+							echo $ui->get_fieldset_end() . $ui->get_td_end() . $ui->get_tr_end(); ?>
 							</table>
 						</div>
 				</div>
