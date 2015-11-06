@@ -164,7 +164,7 @@ function cptui_manage_taxonomies() {
 						) );
 
 						echo $ui->get_tr_start() . $ui->get_th_start() . __( 'Attach to Post Type', 'custom-post-type-ui' ) . $ui->get_required();
-						echo $ui->get_th_end() . $ui->get_td_start();
+						echo $ui->get_th_end() . $ui->get_td_start() . $ui->get_fieldset_start();
 
 						/**
 						 * Filters the arguments for post types to list for taxonomy association.
@@ -198,7 +198,7 @@ function cptui_manage_taxonomies() {
 							) );
 						}
 
-						echo $ui->get_td_end() . $ui->get_tr_end(); ?>
+						echo $ui->get_fieldset_end() . $ui->get_td_end() . $ui->get_tr_end(); ?>
 					</table>
 				<p class="submit">
 					<?php wp_nonce_field( 'cptui_addedit_taxonomy_nonce_action', 'cptui_addedit_taxonomy_nonce_field' );
@@ -242,7 +242,7 @@ function cptui_manage_taxonomies() {
 				</p>
 
 				<?php if ( 'new' == $tab ) { ?>
-					<h3><?php _e( 'Starter Notes', 'custom-post-type-ui' ); ?></h3>
+					<h2><?php _e( 'Starter Notes', 'custom-post-type-ui' ); ?></h2>
 						<div><ol>
 						<?php
 							echo '<li>' . sprintf( __( 'Taxonomy names should have %smax 32 characters%s, and only contain alphanumeric, lowercase, characters, underscores in place of spaces, and letters that do not have accents.', 'custom-post-type-ui' ), '<strong class="wp-ui-highlight">', '</strong>' );
@@ -253,7 +253,7 @@ function cptui_manage_taxonomies() {
 			</td>
 			<td class="outter">
 				<div>
-					<h3><?php _e( 'Labels', 'custom-post-type-ui' ); ?></h3>
+					<h2><?php _e( 'Labels', 'custom-post-type-ui' ); ?></h2>
 						<div>
 							<table>
 							<?php
@@ -395,7 +395,7 @@ function cptui_manage_taxonomies() {
 							?>
 						</table>
 					</div>
-					<h3><?php _e( 'Settings', 'custom-post-type-ui' ); ?></h3>
+					<h2><?php _e( 'Settings', 'custom-post-type-ui' ); ?></h2>
 					<div>
 						<table>
 							<?php
