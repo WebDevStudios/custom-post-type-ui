@@ -101,10 +101,14 @@
 }
 .cptui-help {
 	color: #424242;
+	margin-left: 4px;
 	opacity: 0.5;
 	text-decoration: none;
 	width: 16px;
-	margin-left: 4px;
+}
+fieldset .cptui-help {
+	position: relative;
+	top: 4px;
 }
 .cptui-help:hover {
 	color: #0074a2;
