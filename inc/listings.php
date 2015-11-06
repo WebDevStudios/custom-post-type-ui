@@ -74,8 +74,9 @@ function cptui_listings() {
 					}
 					?>
 						<tr class="<?php echo $rowclass; ?>">
-							<td><a href="<?php echo admin_url( 'admin.php?page=cptui_manage_post_types&action=edit&cptui_post_type=' . $post_type ); ?>"><?php echo $post_type; ?></a><br/><hr/>
-								<a href="<?php echo admin_url( 'admin.php?page=cptui_manage_post_types&action=edit&cptui_post_type=' . $post_type ); ?>"><?php printf( __( 'Edit %s', 'custom-post-type-ui' ), $post_type ); ?></a>
+							<?php $post_type_link_url = admin_url( 'admin.php?page=cptui_manage_post_types&action=edit&cptui_post_type=' . $post_type ); ?>"><?php echo $post_type; ?>
+							<td><a href="<?php echo $post_type_link_url; ?></a><br/><hr/>
+								<a href="<?php echo $post_type_link_url; ?>"><?php printf( __( 'Edit %s', 'custom-post-type-ui' ), $post_type ); ?></a>
 								<?php if ( $archive ) { ?>
 								|
 								<a href="<?php echo get_post_type_archive_link( $post_type ); ?>"><?php _e( 'View frontend archive', 'custom-post-type-ui' ); ?></a>
@@ -215,8 +216,9 @@ function cptui_listings() {
 						}
 						?>
 							<tr class="<?php echo $rowclass; ?>">
-								<td><a href="<?php echo admin_url( 'admin.php?page=cptui_manage_taxonomies&action=edit&cptui_taxonomy=' . $taxonomy ); ?>"><?php echo $taxonomy; ?></a><br/><hr/>
-									<a href="<?php echo admin_url( 'admin.php?page=cptui_manage_taxonomies&action=edit&cptui_taxonomy=' . $taxonomy ); ?>"><?php printf( __( 'Edit %s', 'custom-post-type-ui' ), $taxonomy ); ?></a>
+								<?php $taxonomy_link_url = admin_url( 'admin.php?page=cptui_manage_taxonomies&action=edit&cptui_taxonomy=' . $taxonomy ); ?>
+								<td><a href="<?php echo $taxonomy_link_url; ?>"><?php echo $taxonomy; ?></a><br/><hr/>
+									<a href="<?php echo $taxonomy_link_url; ?>"><?php printf( __( 'Edit %s', 'custom-post-type-ui' ), $taxonomy ); ?></a>
 								</td>
 								<td>
 									<?php foreach ( $strings as $key => $value ) {
