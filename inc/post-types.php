@@ -88,7 +88,8 @@ function cptui_manage_post_types() {
 		<form id="cptui_select_post_type" method="post">
 			<p><?php _e( 'DO NOT EDIT the post type slug unless necessary. Changing that value registers a new post type entry for your install.', 'custom-post-type-ui' ); ?></p>
 			<p><?php _e( 'Use appropriate checkbox above save/delete buttons if you wish to change slugs and update post types for existing posts.', 'custom-post-type-ui' ); ?></p>
-			<?php _e( 'Select: ', 'custom-post-type-ui' );
+			<label for="post_type"><?php _e( 'Select: ', 'custom-post-type-ui' ); ?></label>
+			<?php
 			cptui_post_types_dropdown( $post_types );
 
 			/**

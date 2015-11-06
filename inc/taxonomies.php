@@ -83,8 +83,8 @@ function cptui_manage_taxonomies() {
 	if ( !empty( $taxonomies ) ) { ?>
 		<form id="cptui_select_taxonomy" method="post">
 			<p><?php _e( 'DO NOT EDIT the taxonomy slug unless necessary. Changing that value registers a new taxonomy entry for your install.', 'custom-post-type-ui' ); ?></p>
+			<label for="taxonomy"><?php _e( 'Select: ', 'custom-post-type-ui' ); ?></label>
 			<?php
-			 _e( 'Select: ', 'custom-post-type-ui' );
 			cptui_taxonomies_dropdown( $taxonomies );
 
 			/**
