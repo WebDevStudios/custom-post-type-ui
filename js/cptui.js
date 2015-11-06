@@ -19,7 +19,7 @@
 	//Toggles help/support accordions.
 	$('#support .question').each(function() {
 		var tis = $(this), state = false, answer = tis.next('div').slideUp();
-		tis.click(function() {
+		tis.on('click',function() {
 			state = !state;
 			answer.slideToggle(state);
 			tis.toggleClass('active',state);
