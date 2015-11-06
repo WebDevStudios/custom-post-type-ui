@@ -75,6 +75,28 @@ class cptui_admin_ui {
 	}
 
 	/**
+	 * Return an opening <fieldset> tag.
+	 *
+	 * @since 1.2.0
+	 *
+	 * @return string $value Opening <fieldset> tag.
+	 */
+	public function get_fieldset_start() {
+		return '<fieldset>';
+	}
+
+	/**
+	 * Return an closing <fieldset> tag.
+	 *
+	 * @since 1.2.0
+	 *
+	 * @return string $value Closing <fieldset> tag.
+	 */
+	public function get_fieldset_end() {
+		return '</fieldset>';
+	}
+
+	/**
 	 * Return string wrapped in a <p> tag.
 	 *
 	 * @since 1.0.0
