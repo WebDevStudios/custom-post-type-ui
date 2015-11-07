@@ -15,6 +15,8 @@ class CPTUI_Utility extends CPTUI_Base_Tests {
 	}
 
 	/**
+	 * Register our post type and taxonomy defaults.
+	 *
 	 * @before
 	 */
 	public function setupPostTypeTax() {
@@ -23,6 +25,8 @@ class CPTUI_Utility extends CPTUI_Base_Tests {
 	}
 
 	/**
+	 * Unregister our post type and taxonomies.
+	 *
 	 * @after
 	 */
 	public function removePostTypeTax() {
@@ -39,7 +43,7 @@ class CPTUI_Utility extends CPTUI_Base_Tests {
 	}
 
 	/**
-	 * Tests that we have our needed post type functions
+	 * Tests that we have our needed post type functions.
 	 */
 	public function test_CPTUI_post_type_registration_function_exists() {
 		$this->assertTrue( function_exists( 'cptui_register_single_post_type' ) );
@@ -123,6 +127,9 @@ class CPTUI_Utility extends CPTUI_Base_Tests {
 
 	}
 
+	/**
+	 * Tests our return values for the get_disp_boolean helper.
+	 */
 	public function test_get_disp_boolean() {
 
 		$this->assertFalse( get_disp_boolean( 0 ) );
@@ -140,6 +147,9 @@ class CPTUI_Utility extends CPTUI_Base_Tests {
 		$this->assertTrue( get_disp_boolean( 1235 ) );
 	}
 
+	/**
+	 * Tests our return values for the string disp_boolean helper.
+	 */
 	public function test_disp_boolean() {
 
 		$this->assertEquals( 'false', disp_boolean( 0 ) );
@@ -182,10 +192,16 @@ class CPTUI_Utility extends CPTUI_Base_Tests {
 		return get_option( 'cptui_taxonomies' );
 	}
 
+	/**
+	 * Handle registering our plugin's post type registration function.
+	 */
 	public function register_post_type() {
 		cptui_register_single_post_type( $this->post_type_array['movie'] );
 	}
 
+	/**
+	 * Handle registering our plugin's taxonomy registration function.
+	 */
 	public function register_taxonomy() {
 		cptui_register_single_taxonomy( $this->taxonomy_array['actors'] );
 	}
