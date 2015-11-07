@@ -1273,6 +1273,17 @@ function cptui_update_post_type( $data = array() ) {
  */
 function cptui_reserved_post_types() {
 
+	$reserved = array(
+		'post',
+		'page',
+		'attachment',
+		'revision',
+		'nav_menu_item',
+		'action',
+		'order',
+		'theme'
+	);
+
 	/**
 	 * Filters the list of reserved post types to check against.
 	 *
@@ -1282,16 +1293,17 @@ function cptui_reserved_post_types() {
 	 *
 	 * @param array $value Array of post type slugs to forbid.
 	 */
-	return apply_filters( 'cptui_reserved_post_types', array(
-		'post',
-		'page',
-		'attachment',
-		'revision',
-		'nav_menu_item',
-		'action',
-		'order',
-		'theme'
-	) );
+	$custom_reserved = apply_filters( 'cptui_reserved_post_types', array() );
+
+	if ( is_string( $custom_reserved ) && ! empty( $custom_reserved ) ) {
+		$reserved[] = $custom_reserved;
+	} else if ( is_array( $custom_reserved ) && ! empty( $custom_reserved ) ) {
+		foreach ( $custom_reserved as $slug ) {
+			$reserved[] = $slug;
+		}
+	}
+
+	return $reserved;
 }
 
 /**
