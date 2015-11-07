@@ -125,6 +125,24 @@ class CPTUI_Utility extends CPTUI_Base_Tests {
 		$this->assertTrue( is_object( $actor->labels ) );
 		$this->assertNotEmpty( $actor->labels, 'No labels available' );
 
+		$this->assertEquals( 'Actors', $actor->labels->name );
+		$this->assertEquals( 'Actor', $actor->labels->singular_name );
+		$this->assertEquals( 'Actors', $actor->labels->menu_name );
+		$this->assertEquals( 'All Actors', $actor->labels->all_items );
+		$this->assertEquals( 'Edit Actor', $actor->labels->edit_item );
+		$this->assertEquals( 'View Actor', $actor->labels->view_item );
+		$this->assertEquals( 'Update Actor Name', $actor->labels->update_item );
+		$this->assertEquals( 'Add New Actor', $actor->labels->add_new_item );
+		$this->assertEquals( 'New Actor Name', $actor->labels->new_item_name );
+		$this->assertEquals( 'Parent Actor', $actor->labels->parent_item );
+		$this->assertEquals( 'Parent Actor:', $actor->labels->parent_item_colon );
+		$this->assertEquals( 'Search Actors', $actor->labels->search_items );
+		$this->assertEquals( 'Popular Actors', $actor->labels->popular_items );
+		$this->assertEquals( 'Separate Actors with commas', $actor->labels->separate_items_with_commas );
+		$this->assertEquals( 'Add or remove Actors', $actor->labels->add_or_remove_items );
+		$this->assertEquals( 'Choose from the most used Actors', $actor->labels->choose_from_most_used );
+		$this->assertEquals( 'No Actors found', $actor->labels->not_found );
+
 	}
 
 	/**
