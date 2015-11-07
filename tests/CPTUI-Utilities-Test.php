@@ -187,6 +187,62 @@ class CPTUI_Utility extends CPTUI_Base_Tests {
 	}
 
 	/**
+	 * Tests our reserved post type utility function.
+	 */
+	public function test_cptui_reserved_post_types() {
+
+		// Test without filters
+		$reserved = cptui_reserved_post_types();
+		$defaults = array(
+			'post',
+			'page',
+			'attachment',
+			'revision',
+			'nav_menu_item',
+			'action',
+			'order',
+			'theme'
+		);
+
+		$this->assertNotEmpty( $reserved );
+		foreach( $defaults as $default ) {
+			$this->assertContains( $default, $reserved );
+		}
+
+		// Pre filters
+		$this->assertNotContains( 'reserved_slug', $reserved );
+		$this->assertNotContains( 'reserved_string_slug', $reserved );
+
+		// Add filter to get custom slugs array
+		add_filter( 'cptui_reserved_post_types', array( $this, 'add_reserved_post_types_array' ) );
+		// Fetch new value with the custom slugs added.
+		$reserved = cptui_reserved_post_types();
+		remove_filter( 'cptui_reserved_post_types', array( $this, 'add_reserved_post_types_array' ) );
+
+		// Need to re-test these to make sure they persist.
+		$this->assertNotEmpty( $reserved );
+		foreach ( $defaults as $default ) {
+			$this->assertContains( $default, $reserved );
+		}
+
+		$this->assertContains( 'reserved_slug', $reserved );
+
+		// Add filters to get custom slugs string
+		add_filter( 'cptui_reserved_post_types', array( $this, 'add_reserved_post_types_string' ) );
+		// Fetch new value with the custom slugs added.
+		$reserved = cptui_reserved_post_types();
+		remove_filter( 'cptui_reserved_post_types', array( $this, 'add_reserved_post_types_string' ) );
+
+		// Need to re-test these to make sure they persist.
+		$this->assertNotEmpty( $reserved );
+		foreach ( $defaults as $default ) {
+			$this->assertContains( $default, $reserved );
+		}
+
+		$this->assertContains( 'reserved_string_slug', $reserved );
+	}
+
+	/**
 	 * Create our base post type to test.
 	 * @return mixed|void
 	 */
@@ -222,6 +278,26 @@ class CPTUI_Utility extends CPTUI_Base_Tests {
 	 */
 	public function register_taxonomy() {
 		cptui_register_single_taxonomy( $this->taxonomy_array['actors'] );
+	}
+
+	/**
+	 * Callback for testing cptui_reserved_post_types filter.
+	 *
+	 * @param array $slugs Default empty array from filter.
+	 * @return array Array of custom slugs to add
+	 */
+	public function add_reserved_post_types_array( $slugs = array() ) {
+		return array( 'reserved_slug' );
+	}
+
+	/**
+	 * Callback for testing cptui_reserved_post_types filter.
+	 *
+	 * @param array $slugs Default empty array from filter.
+	 * @return string Slug to add to array.
+	 */
+	public function add_reserved_post_types_string( $slugs = array() ) {
+		return 'reserved_string_slug';
 	}
 
 }
