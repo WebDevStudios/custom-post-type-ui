@@ -361,7 +361,7 @@ function cptui_manage_taxonomies() {
 								'namearray'     => 'cpt_tax_labels',
 								'name'          => 'separate_items_with_commas',
 								'textvalue'     => ( isset( $current['labels']['separate_items_with_commas'] ) ) ? esc_attr( $current['labels']['separate_items_with_commas'] ) : null,
-								'aftertext'     => __( '(e.g. Separate actors with commas)', 'custom-post-type-ui' ),
+								'aftertext'     => __( '(e.g. Separate Actors with commas)', 'custom-post-type-ui' ),
 								'labeltext'     => __( 'Separate Items with Commas', 'custom-post-type-ui' ),
 								'helptext'      => esc_attr__( 'Custom taxonomy label. Used in the admin menu for displaying taxonomies.', 'custom-post-type-ui'),
 								) );
@@ -370,7 +370,7 @@ function cptui_manage_taxonomies() {
 								'namearray'     => 'cpt_tax_labels',
 								'name'          => 'add_or_remove_items',
 								'textvalue'     => ( isset( $current['labels']['add_or_remove_items'] ) ) ? esc_attr( $current['labels']['add_or_remove_items'] ) : null,
-								'aftertext'     => __( '(e.g. Add or remove actors)', 'custom-post-type-ui' ),
+								'aftertext'     => __( '(e.g. Add or remove Actors)', 'custom-post-type-ui' ),
 								'labeltext'     => __( 'Add or Remove Items', 'custom-post-type-ui' ),
 								'helptext'      => esc_attr__( 'Custom taxonomy label. Used in the admin menu for displaying taxonomies.', 'custom-post-type-ui'),
 								) );
@@ -379,7 +379,7 @@ function cptui_manage_taxonomies() {
 								'namearray'     => 'cpt_tax_labels',
 								'name'          => 'choose_from_most_used',
 								'textvalue'     => ( isset( $current['labels']['choose_from_most_used'] ) ) ? esc_attr( $current['labels']['choose_from_most_used'] ) : null,
-								'aftertext'     => __( '(e.g. Choose from the most used actors)', 'custom-post-type-ui' ),
+								'aftertext'     => __( '(e.g. Choose from the most used Actors)', 'custom-post-type-ui' ),
 								'labeltext'     => __( 'Choose From Most Used', 'custom-post-type-ui' ),
 								'helptext'      => esc_attr__( 'Custom taxonomy label. Used in the admin menu for displaying taxonomies.', 'custom-post-type-ui'),
 								) );
@@ -388,7 +388,7 @@ function cptui_manage_taxonomies() {
 								'namearray'     => 'cpt_tax_labels',
 								'name'          => 'not_found',
 								'textvalue'     => ( isset( $current['labels']['not_found'] ) ) ? esc_attr( $current['labels']['not_found'] ) : null,
-								'aftertext'     => __( '(e.g. No actors found)', 'custom-post-type-ui' ),
+								'aftertext'     => __( '(e.g. No Actors found)', 'custom-post-type-ui' ),
 								'labeltext'     => __( 'Not found', 'custom-post-type-ui' ),
 								'helptext'      => esc_attr__( 'Custom taxonomy label. Used in the admin menu for displaying taxonomies.', 'custom-post-type-ui'),
 								) );
