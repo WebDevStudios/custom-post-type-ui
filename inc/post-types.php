@@ -1138,7 +1138,7 @@ function cptui_update_post_type( $data = array() ) {
 
 	# They need to provide a name
 	if ( empty( $data['cpt_custom_post_type']['name'] ) ) {
-		return cptui_admin_notices(	'error', '', false, __( 'Please provide a post type name', 'custom-post-type-ui' ) );
+		return cptui_admin_notices( 'error', '', false, __( 'Please provide a post type name', 'custom-post-type-ui' ) );
 	}
 
 	if ( !empty( $data['cpt_original'] ) && $data['cpt_original'] != $data['cpt_custom_post_type']['name'] ) {
