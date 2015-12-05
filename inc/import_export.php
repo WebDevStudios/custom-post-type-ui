@@ -20,6 +20,8 @@ function cptui_importexport() {
 			$tab = 'taxonomies';
 		} elseif ( !empty( $_GET['action'] ) && 'get_code' == $_GET['action'] ) {
 			$tab = 'get_code';
+		} elseif ( !empty( $_GET['action'] ) && 'debuginfo' == $_GET['action'] ) {
+			$tab = 'debuginfo';
 		} else {
 			$tab = 'post_types';
 		}
