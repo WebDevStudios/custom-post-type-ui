@@ -5,12 +5,10 @@ class CPTUI_Debug_Info {
 	public function tab_site_info() {
 		?>
 		<p><?php _e( 'FILL ME IN', 'custom-post-type-ui' ); ?></p>
-			<form action="<?php echo esc_url( admin_url() ); ?>" method="post" dir="ltr">
 				<label for="cptui_audit_textarea">
 				 <textarea readonly="readonly" id="cptui-audit-textarea" name="cptui_audit_textarea" rows="20" cols="100">
 					 <?php echo $this->system_status(); ?>
 				 </textarea></label>
-			</form>
 		<?php
 	}
 
