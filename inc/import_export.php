@@ -537,7 +537,7 @@ function cptui_render_getcode_section() {
 function cptui_render_debuginfo_section() {
 	$debuginfo = new CPTUI_Debug_Info();
 
-	echo '<form id="cptui_select_post_type" method="post">';
+	echo '<form id="cptui_debug_info" method="post">';
 	$debuginfo->tab_site_info();
 
 	if ( ! empty( $_POST ) && isset( $_POST['cptui_debug_info_email'] ) ) {
@@ -546,7 +546,7 @@ function cptui_render_debuginfo_section() {
 		$debuginfo->send_email( $email_args );
 	}
 
-	echo '<label for="cptui_debug_info_email">' . __( 'Please provide an email address to send debug information to: ', 'custom_post_type_ui' ) . '</label><input type="email" id="cptui_debug_info_email" name="cptui_debug_info_email" value="" />';
+	echo '<p><label for="cptui_debug_info_email">' . __( 'Please provide an email address to send debug information to: ', 'custom_post_type_ui' ) . '</label><input type="email" id="cptui_debug_info_email" name="cptui_debug_info_email" value="" /></p>';
 
 	echo '<p><input type="submit" class="button-primary" name="cptui_send_debug_email" value="' . esc_attr( apply_filters( 'cptui_post_type_debug_email', __( 'Send debug info', 'custom-post-type-ui' ) ) ) . '" /></p>';
 	echo '</form>';
