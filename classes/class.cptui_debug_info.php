@@ -42,7 +42,6 @@ class CPTUI_Debug_Info {
 		Active Theme:             <?php echo $theme . "\n"; ?>
 
 		Registered Post Types:    <?php echo implode( ', ', get_post_types( '', 'names' ) ) . "\n"; ?>
-		Registered Post Stati:    <?php echo implode( ', ', get_post_stati() ) . "\n\n"; ?>
 
 		PHP Version:              <?php echo PHP_VERSION . "\n"; ?>
 		MySQL Version:            <?php echo $wpdb->db_version() . "\n"; ?>
@@ -126,8 +125,18 @@ class CPTUI_Debug_Info {
 			}
 
 		endif;
-		# $cptui_taxonomies = get_option( 'cptui_taxonomies', array() );
-		# $cptui_post_types = get_option( 'cptui_post_types', array() );
+
+		echo "\n";
+		$cptui_post_types = get_option( 'cptui_post_types', array() );
+		echo 'Post Types: ' . "\n";
+		echo esc_html( json_encode( $cptui_post_types ) ) . "\n";
+
+		echo "\n\n";
+
+		$cptui_taxonomies = get_option( 'cptui_taxonomies', array() );
+		echo 'Taxonomies: ' . "\n";
+		echo esc_html( json_encode( $cptui_taxonomies ) ) . "\n";
+		echo "\n";
 		?>
 		### End Debug Info ###
 		<?php
