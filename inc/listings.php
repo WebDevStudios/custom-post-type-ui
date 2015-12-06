@@ -74,9 +74,8 @@ function cptui_listings() {
 					}
 					?>
 						<tr class="<?php echo $rowclass; ?>">
-							<?php $post_type_link_url = admin_url( 'admin.php?page=cptui_manage_post_types&action=edit&cptui_post_type=' . $post_type ); ?>"><?php echo $post_type; ?>
-							<td><a href="<?php echo $post_type_link_url; ?></a><br/><hr/>
-								<a href="<?php echo $post_type_link_url; ?>"><?php printf( __( 'Edit %s', 'custom-post-type-ui' ), $post_type ); ?></a>
+							<?php $post_type_link_url = admin_url( 'admin.php?page=cptui_manage_post_types&action=edit&cptui_post_type=' . $post_type ); ?>
+							<td><a href="<?php echo $post_type_link_url; ?>"><?php printf( __( 'Edit %s', 'custom-post-type-ui' ), $post_type ); ?></a>
 								<?php if ( $archive ) { ?>
 								|
 								<a href="<?php echo get_post_type_archive_link( $post_type ); ?>"><?php _e( 'View frontend archive', 'custom-post-type-ui' ); ?></a>
