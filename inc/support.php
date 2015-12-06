@@ -50,6 +50,11 @@ function cptui_support() {
 					<h2><?php _e( 'General', 'custom-post-type-ui' ); ?></h2>
 					<ol id="questions_general">
 						<li>
+							<span class="question"><?php _e( 'I have post types with spaces in their slug and can not successfully delete them. How can I fix that?', 'custom-post-type-ui' ); ?></span>
+							<div class="answer"><?php _e( 'Visit the Import/Export page and copy the export code into the import side on the left. Replace the space with an underscore and then click "Import". You should be able to delete the individual post types afterwards.', 'custom-post-type-ui' ); ?>
+							</div>
+						</li>
+						<li>
 							<span class="question"><?php _e( 'I changed my custom post type name and now I can not get to my posts. How do I get them back?', 'custom-post-type-ui' ); ?></span>
 							<div class="answer"><?php _e( 'You can either change the custom post type name back to the original name or try the Post Type Switcher plugin', 'custom-post-type-ui' ); ?>
 								<a href="http://wordpress.org/plugins/post-type-switcher/" target="_blank">http://wordpress.org/extend/plugins/post-type-switcher/</a>
