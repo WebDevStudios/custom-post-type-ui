@@ -44,6 +44,7 @@ All official development on this plugin is on GitHub. Version bumps will still b
 * Added: Fieldset method to Admin UI class for easily adding fieldset output.
 * Updated: Minimum version required. Now WordPress 4.2.
 * Updated: Heading tags match accessibility changes in WordPress 4.3.
+* Updated: Moved page title for some pages above tabs.
 * Updated: Textdomain now matches WordPress.org repo slug.
 * Updated: Added Visual Composer questions/answers to support section.
 * Updated: Changed help icons to a Dashicon help icon.
@@ -218,6 +219,7 @@ All official development on this plugin is on GitHub. Version bumps will still b
 * Added: Fieldset method to Admin UI class for easily adding fieldset output.
 * Updated: Minimum version required. Now WordPress 4.2.
 * Updated: Heading tags match accessibility changes in WordPress 4.3.
+* Updated: Moved page title for some pages above tabs.
 * Updated: Textdomain now matches WordPress.org repo slug.
 * Updated: Added Visual Composer questions/answers to support section.
 * Updated: Changed help icons to a Dashicon help icon.
