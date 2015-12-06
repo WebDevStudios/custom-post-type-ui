@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Custom Post Type UI 简体中文语言包\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/plugins/custom-post-type-ui\n"
-"POT-Creation-Date: 2015-11-06 00:57-0600\n"
-"PO-Revision-Date: 2015-11-06 00:57-0600\n"
+"POT-Creation-Date: 2015-12-05 22:55-0600\n"
+"PO-Revision-Date: 2015-12-05 22:55-0600\n"
 "Last-Translator: Michael Beckwith <michael.d.beckwith@gmail.com>\n"
 "Language-Team: Dreamcolor <dreamcolor@gmail.com>\n"
 "Language: zh_CN\n"
@@ -31,12 +31,12 @@ msgstr "附属到文章类型"
 msgid "CPT UI"
 msgstr ""
 
-#: custom-post-type-ui.php:61 inc/listings.php:156
+#: custom-post-type-ui.php:61 inc/listings.php:155
 #, fuzzy
 msgid "Add/Edit Post Types"
 msgstr "编辑自定义文章类型"
 
-#: custom-post-type-ui.php:62 inc/listings.php:288
+#: custom-post-type-ui.php:62 inc/listings.php:287
 #, fuzzy
 msgid "Add/Edit Taxonomies"
 msgstr "内置类别"
@@ -49,7 +49,7 @@ msgstr ""
 msgid "Registered Types/Taxes"
 msgstr ""
 
-#: custom-post-type-ui.php:64 custom-post-type-ui.php:524
+#: custom-post-type-ui.php:64 custom-post-type-ui.php:533
 msgid "Import/Export"
 msgstr ""
 
@@ -63,24 +63,24 @@ msgid "About CPT UI"
 msgstr ""
 
 #. Plugin Name of the plugin/theme
-#: custom-post-type-ui.php:372 custom-post-type-ui.php:451
+#: custom-post-type-ui.php:381 custom-post-type-ui.php:460
 #, fuzzy
 msgid "Custom Post Type UI"
 msgstr "附属到文章类型"
 
-#: custom-post-type-ui.php:375
+#: custom-post-type-ui.php:384
 msgid ""
 "Thank you for choosing Custom Post Type UI. We hope that your experience "
 "with our plugin provides efficiency and speed in creating post types and "
 "taxonomies, to better organize your content, without having to touch code."
 msgstr ""
 
-#: custom-post-type-ui.php:381
+#: custom-post-type-ui.php:390
 #, fuzzy
 msgid "Post type migration"
 msgstr "文章类型名称"
 
-#: custom-post-type-ui.php:382
+#: custom-post-type-ui.php:391
 msgid ""
 "In the past, if you changed your post type slug, you would lose immediate "
 "access to the posts in the post type and need to recover another way. We "
@@ -88,253 +88,253 @@ msgid ""
 "the new post type you renamed it to."
 msgstr ""
 
-#: custom-post-type-ui.php:385
+#: custom-post-type-ui.php:394
 msgid "UI Refinement"
 msgstr ""
 
-#: custom-post-type-ui.php:386
+#: custom-post-type-ui.php:395
 msgid ""
 "After receiving feedback regarding the 1.0.x changes, we have further "
 "simplified the UI to reduce the amount of clicking necessary to manage your "
 "post types and taxonomies."
 msgstr ""
 
-#: custom-post-type-ui.php:389
+#: custom-post-type-ui.php:398
 msgid "Registered Post Type and Taxonomy Listings"
 msgstr ""
 
-#: custom-post-type-ui.php:390
+#: custom-post-type-ui.php:399
 msgid ""
 "We are bringing back the listing of all CPTUI-registered post types and "
 "taxonomies for easier quick view of what you have going."
 msgstr ""
 
-#: custom-post-type-ui.php:395
+#: custom-post-type-ui.php:404
 msgid "Help Support This Plugin!"
 msgstr ""
 
-#: custom-post-type-ui.php:399
+#: custom-post-type-ui.php:408
 msgid "Professional WordPress<br />Third Edition"
 msgstr ""
 
-#: custom-post-type-ui.php:401
+#: custom-post-type-ui.php:410
 msgid "Professional WordPress Design and Development book cover."
 msgstr ""
 
-#: custom-post-type-ui.php:404
+#: custom-post-type-ui.php:413
 msgid ""
 "The leading book on WordPress design and development! Brand new third "
 "edition!"
 msgstr ""
 
-#: custom-post-type-ui.php:407
+#: custom-post-type-ui.php:416
 msgid "Professional WordPress<br />Plugin Development"
 msgstr ""
 
-#: custom-post-type-ui.php:409
+#: custom-post-type-ui.php:418
 msgid "Professional WordPress Pluing Development book cover."
 msgstr ""
 
-#: custom-post-type-ui.php:412
+#: custom-post-type-ui.php:421
 msgid "Highest rated WordPress development book on Amazon!"
 msgstr ""
 
-#: custom-post-type-ui.php:415
+#: custom-post-type-ui.php:424
 msgid "PayPal Donation"
 msgstr ""
 
-#: custom-post-type-ui.php:419
+#: custom-post-type-ui.php:428
 msgid "PayPal - The safer, easier way to pay online!"
 msgstr ""
 
-#: custom-post-type-ui.php:422
+#: custom-post-type-ui.php:431
 msgid "Please donate to the development of Custom Post Type UI:"
 msgstr ""
 
-#: custom-post-type-ui.php:448
+#: custom-post-type-ui.php:457
 #, php-format
 msgid "%s version %s by %s"
 msgstr ""
 
-#: custom-post-type-ui.php:459
+#: custom-post-type-ui.php:468
 msgid "Please Report Bugs"
 msgstr ""
 
-#: custom-post-type-ui.php:462
+#: custom-post-type-ui.php:471
 msgid "Follow on Twitter:"
 msgstr ""
 
-#: custom-post-type-ui.php:526
+#: custom-post-type-ui.php:535
 #, fuzzy
 msgid "Manage Taxonomies"
 msgstr "管理自定义类别"
 
-#: custom-post-type-ui.php:530
+#: custom-post-type-ui.php:539
 #, fuzzy
 msgid "Manage Post Types"
 msgstr "管理自定义文章类型"
 
-#: custom-post-type-ui.php:556
+#: custom-post-type-ui.php:565
 #, fuzzy
 msgid "Add New Post Type"
 msgstr "已附属文章类型"
 
-#: custom-post-type-ui.php:559
+#: custom-post-type-ui.php:568
 #, fuzzy
 msgid "Edit Post Types"
 msgstr "编辑自定义文章类型"
 
-#: custom-post-type-ui.php:563
+#: custom-post-type-ui.php:572
 #, fuzzy
 msgid "Add New Taxonomy"
 msgstr "类别名称"
 
-#: custom-post-type-ui.php:566
+#: custom-post-type-ui.php:575
 #, fuzzy
 msgid "Edit Taxonomies"
 msgstr "内置类别"
 
-#: custom-post-type-ui.php:570 inc/listings.php:13 inc/listings.php:172
+#: custom-post-type-ui.php:579 inc/listings.php:13 inc/listings.php:171
 #, fuzzy
 msgid "Post Types"
 msgstr "文章类型名称"
 
-#: custom-post-type-ui.php:571 inc/import_export.php:492 inc/listings.php:24
-#: inc/listings.php:162
+#: custom-post-type-ui.php:580 inc/import_export.php:492 inc/listings.php:24
+#: inc/listings.php:161
 #, fuzzy
 msgid "Taxonomies"
 msgstr "内置类别"
 
-#: custom-post-type-ui.php:572
+#: custom-post-type-ui.php:581
 msgid "Get Code"
 msgstr ""
 
-#: custom-post-type-ui.php:655 inc/listings.php:22 inc/listings.php:171
-#: inc/post-types.php:416 inc/taxonomies.php:398
+#: custom-post-type-ui.php:664 inc/listings.php:22 inc/listings.php:170
+#: inc/post-types.php:420 inc/taxonomies.php:402
 msgid "Settings"
 msgstr ""
 
-#: custom-post-type-ui.php:655
+#: custom-post-type-ui.php:664
 msgid "Help"
 msgstr ""
 
-#: custom-post-type-ui.php:684
+#: custom-post-type-ui.php:693
 #, php-format
 msgid "%s has been successfully added"
 msgstr ""
 
-#: custom-post-type-ui.php:686
+#: custom-post-type-ui.php:695
 #, php-format
 msgid "%s has failed to be added"
 msgstr ""
 
-#: custom-post-type-ui.php:690
+#: custom-post-type-ui.php:699
 #, php-format
 msgid "%s has been successfully updated"
 msgstr ""
 
-#: custom-post-type-ui.php:692
+#: custom-post-type-ui.php:701
 #, php-format
 msgid "%s has failed to be updated"
 msgstr ""
 
-#: custom-post-type-ui.php:696
+#: custom-post-type-ui.php:705
 #, php-format
 msgid "%s has been successfully deleted"
 msgstr ""
 
-#: custom-post-type-ui.php:698
+#: custom-post-type-ui.php:707
 #, php-format
 msgid "%s has failed to be deleted"
 msgstr ""
 
-#: custom-post-type-ui.php:702
+#: custom-post-type-ui.php:711
 #, php-format
 msgid "%s has been successfully imported"
 msgstr ""
 
-#: custom-post-type-ui.php:704
+#: custom-post-type-ui.php:713
 #, php-format
 msgid "%s has failed to be imported"
 msgstr ""
 
-#: custom-post-type-ui.php:787 custom-post-type-ui.php:804
+#: custom-post-type-ui.php:796 custom-post-type-ui.php:813
 #, fuzzy, php-format
 msgid "Add new %s"
 msgstr "添加"
 
-#: custom-post-type-ui.php:788 custom-post-type-ui.php:802 inc/listings.php:79
-#: inc/listings.php:221
+#: custom-post-type-ui.php:797 custom-post-type-ui.php:811 inc/listings.php:78
+#: inc/listings.php:220
 #, fuzzy, php-format
 msgid "Edit %s"
 msgstr "编辑"
 
-#: custom-post-type-ui.php:789
+#: custom-post-type-ui.php:798
 #, php-format
 msgid "New %s"
 msgstr ""
 
-#: custom-post-type-ui.php:790
+#: custom-post-type-ui.php:799
 #, fuzzy, php-format
 msgid "View %s"
 msgstr "查看"
 
-#: custom-post-type-ui.php:791 custom-post-type-ui.php:799
+#: custom-post-type-ui.php:800 custom-post-type-ui.php:808
 #, fuzzy, php-format
 msgid "All %s"
 msgstr "所有条目"
 
-#: custom-post-type-ui.php:792 custom-post-type-ui.php:797
+#: custom-post-type-ui.php:801 custom-post-type-ui.php:806
 #, fuzzy, php-format
 msgid "Search %s"
 msgstr "搜索条目"
 
-#: custom-post-type-ui.php:793
+#: custom-post-type-ui.php:802
 #, fuzzy, php-format
 msgid "No %s found."
 msgstr "未找到"
 
-#: custom-post-type-ui.php:794
+#: custom-post-type-ui.php:803
 #, fuzzy, php-format
 msgid "No %s found in trash."
 msgstr "在回收站中没有找到"
 
-#: custom-post-type-ui.php:798
+#: custom-post-type-ui.php:807
 #, fuzzy, php-format
 msgid "Popular %s"
 msgstr "热门条目"
 
-#: custom-post-type-ui.php:800
+#: custom-post-type-ui.php:809
 #, fuzzy, php-format
 msgid "Parent %s"
 msgstr "上级"
 
-#: custom-post-type-ui.php:801
+#: custom-post-type-ui.php:810
 #, fuzzy, php-format
 msgid "Parent %s:"
 msgstr "上级"
 
-#: custom-post-type-ui.php:803
+#: custom-post-type-ui.php:812
 #, php-format
 msgid "Update %s"
 msgstr ""
 
-#: custom-post-type-ui.php:805
+#: custom-post-type-ui.php:814
 #, fuzzy, php-format
 msgid "New %s name"
 msgstr "新条目名称"
 
-#: custom-post-type-ui.php:806
+#: custom-post-type-ui.php:815
 #, fuzzy, php-format
 msgid "Separate %s with commas"
 msgstr "使用英文逗号隔开多个标签条目"
 
-#: custom-post-type-ui.php:807
+#: custom-post-type-ui.php:816
 #, fuzzy, php-format
 msgid "Add or remove %s"
 msgstr "添加或删除条目"
 
-#: custom-post-type-ui.php:808
+#: custom-post-type-ui.php:817
 #, fuzzy, php-format
 msgid "Choose from the most used %s"
 msgstr "使用次数最多"
@@ -480,7 +480,7 @@ msgstr "文章类型名称"
 msgid "Post Types and Taxonomies registered by Custom Post Type UI."
 msgstr ""
 
-#: inc/listings.php:16 inc/listings.php:165
+#: inc/listings.php:16 inc/listings.php:164
 #, php-format
 msgid "Total count: %d"
 msgstr ""
@@ -490,172 +490,172 @@ msgstr ""
 msgid "Post Type"
 msgstr "附属到文章类型"
 
-#: inc/listings.php:23 inc/post-types.php:750
+#: inc/listings.php:23 inc/post-types.php:754
 msgid "Supports"
 msgstr "支持"
 
-#: inc/listings.php:25 inc/listings.php:173 inc/post-types.php:254
-#: inc/taxonomies.php:256
+#: inc/listings.php:25 inc/listings.php:172 inc/post-types.php:258
+#: inc/taxonomies.php:260
 #, fuzzy
 msgid "Labels"
 msgstr "标签"
 
-#: inc/listings.php:26 inc/listings.php:174
+#: inc/listings.php:26 inc/listings.php:173
 #, fuzzy
 msgid "Template Hierarchy"
 msgstr "层级"
 
-#: inc/listings.php:82
+#: inc/listings.php:81
 msgid "View frontend archive"
 msgstr ""
 
-#: inc/listings.php:115 inc/listings.php:250
+#: inc/listings.php:114 inc/listings.php:249
 msgid "No custom labels to display"
 msgstr ""
 
-#: inc/listings.php:120
+#: inc/listings.php:119
 msgid "Archives file name examples."
 msgstr ""
 
-#: inc/listings.php:126
+#: inc/listings.php:125
 msgid "Single Posts file name examples."
 msgstr ""
 
-#: inc/listings.php:135 inc/listings.php:268
+#: inc/listings.php:134 inc/listings.php:267
 msgid "Template hierarchy Theme Handbook"
 msgstr ""
 
-#: inc/listings.php:153
+#: inc/listings.php:152
 #, php-format
 msgid "No post types registered for display. Visit %s to get started."
 msgstr ""
 
-#: inc/listings.php:170
+#: inc/listings.php:169
 #, fuzzy
 msgid "Taxonomy"
 msgstr "类别名称"
 
-#: inc/listings.php:255
+#: inc/listings.php:254
 msgid "Archives"
 msgstr ""
 
-#: inc/listings.php:264
+#: inc/listings.php:263
 msgid "*Replace \"term_slug\" with the slug of the actual taxonomy term."
 msgstr ""
 
-#: inc/listings.php:285
+#: inc/listings.php:284
 #, php-format
 msgid "No taxonomies registered for display. Visit %s to get started."
 msgstr ""
 
-#: inc/post-types.php:30 inc/taxonomies.php:25
+#: inc/post-types.php:34 inc/taxonomies.php:29
 msgid "Are you sure you want to delete this?"
 msgstr ""
 
-#: inc/post-types.php:89
+#: inc/post-types.php:93
 msgid ""
 "DO NOT EDIT the post type slug unless necessary. Changing that value "
 "registers a new post type entry for your install."
 msgstr ""
 
-#: inc/post-types.php:90
+#: inc/post-types.php:94
 msgid ""
 "Use appropriate checkbox above save/delete buttons if you wish to change "
 "slugs and update post types for existing posts."
 msgstr ""
 
-#: inc/post-types.php:91 inc/taxonomies.php:86
+#: inc/post-types.php:95 inc/taxonomies.php:90
 msgid "Select: "
 msgstr ""
 
-#: inc/post-types.php:103 inc/taxonomies.php:98
+#: inc/post-types.php:107 inc/taxonomies.php:102
 msgid "Select"
 msgstr ""
 
-#: inc/post-types.php:133
+#: inc/post-types.php:137
 #, fuzzy
 msgid "Post Type Slug"
 msgstr "文章类型名称"
 
-#: inc/post-types.php:134
+#: inc/post-types.php:138
 msgid "(e.g. movie)"
 msgstr ""
 
-#: inc/post-types.php:135
+#: inc/post-types.php:139
 msgid ""
 "The post type name. Used to retrieve custom post type content. Should be "
 "short and unique"
 msgstr ""
 
-#: inc/post-types.php:146 inc/taxonomies.php:136
+#: inc/post-types.php:150 inc/taxonomies.php:140
 #, fuzzy
 msgid "Plural Label"
 msgstr "单数标签"
 
-#: inc/post-types.php:147
+#: inc/post-types.php:151
 msgid "(e.g. Movies)"
 msgstr ""
 
-#: inc/post-types.php:148 inc/post-types.php:275 inc/post-types.php:287
-#: inc/post-types.php:299 inc/post-types.php:311 inc/post-types.php:323
-#: inc/post-types.php:335 inc/post-types.php:347 inc/post-types.php:359
-#: inc/post-types.php:371 inc/post-types.php:383 inc/post-types.php:395
-#: inc/post-types.php:407
+#: inc/post-types.php:152 inc/post-types.php:279 inc/post-types.php:291
+#: inc/post-types.php:303 inc/post-types.php:315 inc/post-types.php:327
+#: inc/post-types.php:339 inc/post-types.php:351 inc/post-types.php:363
+#: inc/post-types.php:375 inc/post-types.php:387 inc/post-types.php:399
+#: inc/post-types.php:411
 msgid "Post type label. Used in the admin menu for displaying post types."
 msgstr ""
 
-#: inc/post-types.php:158 inc/taxonomies.php:145
+#: inc/post-types.php:162 inc/taxonomies.php:149
 msgid "Singular Label"
 msgstr "单数标签"
 
-#: inc/post-types.php:159
+#: inc/post-types.php:163
 msgid "(e.g. Movie)"
 msgstr ""
 
-#: inc/post-types.php:160
+#: inc/post-types.php:164
 msgid ""
 "Custom Post Type Singular label. Used in WordPress when a singular label is "
 "needed."
 msgstr ""
 
-#: inc/post-types.php:176 inc/taxonomies.php:162
+#: inc/post-types.php:180 inc/taxonomies.php:166
 msgid "Description"
 msgstr "描述"
 
-#: inc/post-types.php:177
+#: inc/post-types.php:181
 msgid ""
 "Custom Post Type Description. Describe what your custom post type is used "
 "for."
 msgstr ""
 
-#: inc/post-types.php:189
+#: inc/post-types.php:193
 msgid "Migrate posts to newly renamed post type?"
 msgstr ""
 
-#: inc/post-types.php:190
+#: inc/post-types.php:194
 msgid "Check this to migrate posts if and when renaming your post type."
 msgstr ""
 
-#: inc/post-types.php:209
+#: inc/post-types.php:213
 #, fuzzy
 msgid "Save Post Type"
 msgstr "附属到文章类型"
 
-#: inc/post-types.php:220
+#: inc/post-types.php:224
 #, fuzzy
 msgid "Delete Post Type"
 msgstr "已附属文章类型"
 
-#: inc/post-types.php:232
+#: inc/post-types.php:236
 #, fuzzy
 msgid "Add Post Type"
 msgstr "已附属文章类型"
 
-#: inc/post-types.php:243 inc/taxonomies.php:245
+#: inc/post-types.php:247 inc/taxonomies.php:249
 msgid "Starter Notes"
 msgstr ""
 
-#: inc/post-types.php:246
+#: inc/post-types.php:250
 #, php-format
 msgid ""
 "Post Type names should have %smax 20 characters%s, and only contain "
@@ -664,7 +664,7 @@ msgid ""
 "revision, nav_menu_item."
 msgstr ""
 
-#: inc/post-types.php:247
+#: inc/post-types.php:251
 #, php-format
 msgid ""
 "If you are unfamiliar with the advanced post type settings, just fill in the "
@@ -673,7 +673,7 @@ msgid ""
 "post type name. Hover over the question mark for more details."
 msgstr ""
 
-#: inc/post-types.php:248
+#: inc/post-types.php:252
 #, fuzzy, php-format
 msgid ""
 "Deleting custom post types will %sNOT%s delete any content into the database "
@@ -683,505 +683,505 @@ msgstr ""
 "删除自定义文章类型<strong>不会</strong>删除被添加到该文章类型中的任何内容。您"
 "可以简单的重新创建您的文章类型，并且这些内容依旧存在。"
 
-#: inc/post-types.php:262 inc/taxonomies.php:266
+#: inc/post-types.php:266 inc/taxonomies.php:270
 #, fuzzy
 msgid "Menu Name"
 msgstr "名称"
 
-#: inc/post-types.php:263
+#: inc/post-types.php:267
 msgid "Custom menu name for your custom post type."
 msgstr ""
 
-#: inc/post-types.php:267
+#: inc/post-types.php:271
 msgid "(e.g. My Movies)"
 msgstr ""
 
-#: inc/post-types.php:274 inc/taxonomies.php:275
+#: inc/post-types.php:278 inc/taxonomies.php:279
 msgid "All Items"
 msgstr "所有条目"
 
-#: inc/post-types.php:279
+#: inc/post-types.php:283
 msgid "(e.g. All Movies)"
 msgstr ""
 
-#: inc/post-types.php:286
+#: inc/post-types.php:290
 msgid "Add New"
 msgstr "添加"
 
-#: inc/post-types.php:291
+#: inc/post-types.php:295
 #, fuzzy
 msgid "(e.g. Add New)"
 msgstr "添加"
 
-#: inc/post-types.php:298 inc/taxonomies.php:311
+#: inc/post-types.php:302 inc/taxonomies.php:315
 msgid "Add New Item"
 msgstr "添加新条目"
 
-#: inc/post-types.php:303
+#: inc/post-types.php:307
 msgid "(e.g. Add New Movie)"
 msgstr ""
 
-#: inc/post-types.php:310
+#: inc/post-types.php:314
 msgid "Edit"
 msgstr "编辑"
 
-#: inc/post-types.php:315
+#: inc/post-types.php:319
 msgid "(e.g. Edit)"
 msgstr ""
 
-#: inc/post-types.php:322 inc/taxonomies.php:284
+#: inc/post-types.php:326 inc/taxonomies.php:288
 msgid "Edit Item"
 msgstr "编辑条目"
 
-#: inc/post-types.php:327
+#: inc/post-types.php:331
 msgid "(e.g. Edit Movie)"
 msgstr ""
 
-#: inc/post-types.php:334
+#: inc/post-types.php:338
 msgid "New Item"
 msgstr "新条目"
 
-#: inc/post-types.php:339
+#: inc/post-types.php:343
 #, fuzzy
 msgid "(e.g. New Movie)"
 msgstr "添加新条目"
 
-#: inc/post-types.php:346
+#: inc/post-types.php:350
 msgid "View"
 msgstr "查看"
 
-#: inc/post-types.php:351
+#: inc/post-types.php:355
 msgid "(e.g. View)"
 msgstr ""
 
-#: inc/post-types.php:358 inc/taxonomies.php:293
+#: inc/post-types.php:362 inc/taxonomies.php:297
 msgid "View Item"
 msgstr "查看条目"
 
-#: inc/post-types.php:363
+#: inc/post-types.php:367
 msgid "(e.g. View Movie)"
 msgstr ""
 
-#: inc/post-types.php:370
+#: inc/post-types.php:374
 #, fuzzy
 msgid "Search Item"
 msgstr "搜索条目"
 
-#: inc/post-types.php:375
+#: inc/post-types.php:379
 msgid "(e.g. Search Movie)"
 msgstr ""
 
-#: inc/post-types.php:382
+#: inc/post-types.php:386
 msgid "Not Found"
 msgstr "未找到"
 
-#: inc/post-types.php:387
+#: inc/post-types.php:391
 msgid "(e.g. No Movies found)"
 msgstr ""
 
-#: inc/post-types.php:394
+#: inc/post-types.php:398
 msgid "Not Found in Trash"
 msgstr "在回收站中没有找到"
 
-#: inc/post-types.php:399
+#: inc/post-types.php:403
 #, fuzzy
 msgid "(e.g. No Movies found in Trash)"
 msgstr "在回收站中没有找到"
 
-#: inc/post-types.php:406
+#: inc/post-types.php:410
 msgid "Parent"
 msgstr "上级"
 
-#: inc/post-types.php:411
+#: inc/post-types.php:415
 msgid "(e.g. Parent Movie)"
 msgstr ""
 
-#: inc/post-types.php:425 inc/post-types.php:445 inc/post-types.php:465
-#: inc/post-types.php:485 inc/post-types.php:522 inc/post-types.php:554
-#: inc/post-types.php:585 inc/post-types.php:605 inc/post-types.php:637
-#: inc/post-types.php:657 inc/post-types.php:712 inc/taxonomies.php:404
-#: inc/taxonomies.php:421 inc/taxonomies.php:438 inc/taxonomies.php:464
-#: inc/taxonomies.php:490 inc/taxonomies.php:507 inc/taxonomies.php:524
-#: inc/taxonomies.php:544
+#: inc/post-types.php:429 inc/post-types.php:449 inc/post-types.php:469
+#: inc/post-types.php:489 inc/post-types.php:526 inc/post-types.php:558
+#: inc/post-types.php:589 inc/post-types.php:609 inc/post-types.php:641
+#: inc/post-types.php:661 inc/post-types.php:716 inc/taxonomies.php:408
+#: inc/taxonomies.php:425 inc/taxonomies.php:442 inc/taxonomies.php:468
+#: inc/taxonomies.php:494 inc/taxonomies.php:511 inc/taxonomies.php:528
+#: inc/taxonomies.php:548
 msgid "False"
 msgstr ""
 
-#: inc/post-types.php:426 inc/post-types.php:446 inc/post-types.php:466
-#: inc/post-types.php:486 inc/post-types.php:523 inc/post-types.php:555
-#: inc/post-types.php:586 inc/post-types.php:606 inc/post-types.php:638
-#: inc/post-types.php:658 inc/post-types.php:713 inc/taxonomies.php:405
-#: inc/taxonomies.php:422 inc/taxonomies.php:439 inc/taxonomies.php:465
-#: inc/taxonomies.php:491 inc/taxonomies.php:508 inc/taxonomies.php:525
-#: inc/taxonomies.php:545
+#: inc/post-types.php:430 inc/post-types.php:450 inc/post-types.php:470
+#: inc/post-types.php:490 inc/post-types.php:527 inc/post-types.php:559
+#: inc/post-types.php:590 inc/post-types.php:610 inc/post-types.php:642
+#: inc/post-types.php:662 inc/post-types.php:717 inc/taxonomies.php:409
+#: inc/taxonomies.php:426 inc/taxonomies.php:443 inc/taxonomies.php:469
+#: inc/taxonomies.php:495 inc/taxonomies.php:512 inc/taxonomies.php:529
+#: inc/taxonomies.php:549
 msgid "True"
 msgstr ""
 
-#: inc/post-types.php:434
+#: inc/post-types.php:438
 msgid "Public"
 msgstr "公开"
 
-#: inc/post-types.php:435
+#: inc/post-types.php:439
 msgid "(CPTUI default: True.)"
 msgstr ""
 
-#: inc/post-types.php:436
+#: inc/post-types.php:440
 msgid ""
 "WordPress core defaults to false. CPTUI defaults to true for user sake. "
 "Whether posts of this type should be shown in the admin UI and is publicly "
 "queryable."
 msgstr ""
 
-#: inc/post-types.php:454 inc/taxonomies.php:430
+#: inc/post-types.php:458 inc/taxonomies.php:434
 msgid "Show UI"
 msgstr "显示用户界面"
 
-#: inc/post-types.php:455 inc/post-types.php:615 inc/post-types.php:647
-#: inc/post-types.php:667 inc/post-types.php:721 inc/taxonomies.php:431
-#: inc/taxonomies.php:448 inc/taxonomies.php:474
+#: inc/post-types.php:459 inc/post-types.php:619 inc/post-types.php:651
+#: inc/post-types.php:671 inc/post-types.php:725 inc/taxonomies.php:435
+#: inc/taxonomies.php:452 inc/taxonomies.php:478
 msgid "(default: True)"
 msgstr ""
 
-#: inc/post-types.php:456
+#: inc/post-types.php:460
 msgid "Whether to generate a default UI for managing this post type."
 msgstr ""
 
-#: inc/post-types.php:474
+#: inc/post-types.php:478
 #, fuzzy
 msgid "Show in Nav Menus"
 msgstr "显示用户界面"
 
-#: inc/post-types.php:475
+#: inc/post-types.php:479
 msgid "(CPTUI default: true)"
 msgstr ""
 
-#: inc/post-types.php:476
+#: inc/post-types.php:480
 msgid "Whether post type is available for selection in navigation menus."
 msgstr ""
 
-#: inc/post-types.php:494 inc/taxonomies.php:553
+#: inc/post-types.php:498 inc/taxonomies.php:557
 msgid "Show in REST API"
 msgstr ""
 
-#: inc/post-types.php:495 inc/post-types.php:531 inc/post-types.php:564
-#: inc/post-types.php:595 inc/taxonomies.php:414 inc/taxonomies.php:534
-#: inc/taxonomies.php:554
+#: inc/post-types.php:499 inc/post-types.php:535 inc/post-types.php:568
+#: inc/post-types.php:599 inc/taxonomies.php:418 inc/taxonomies.php:538
+#: inc/taxonomies.php:558
 msgid "(default: False)"
 msgstr ""
 
-#: inc/post-types.php:496
+#: inc/post-types.php:500
 msgid "Whether to show this post type data in the WP REST API."
 msgstr ""
 
-#: inc/post-types.php:504 inc/taxonomies.php:563
+#: inc/post-types.php:508 inc/taxonomies.php:567
 msgid "REST API base slug"
 msgstr ""
 
-#: inc/post-types.php:505 inc/taxonomies.php:564
+#: inc/post-types.php:509 inc/taxonomies.php:568
 msgid "Slug to use in REST API URLs."
 msgstr ""
 
-#: inc/post-types.php:515
+#: inc/post-types.php:519
 msgid "Has Archive"
 msgstr ""
 
-#: inc/post-types.php:516
+#: inc/post-types.php:520
 msgid "Whether the post type will have a post type archive URL."
 msgstr ""
 
-#: inc/post-types.php:517
+#: inc/post-types.php:521
 msgid "If left blank, the archive slug will default to the post type slug."
 msgstr ""
 
-#: inc/post-types.php:543
+#: inc/post-types.php:547
 msgid "Slug to be used for archive URL."
 msgstr ""
 
-#: inc/post-types.php:563
+#: inc/post-types.php:567
 msgid "Exclude From Search"
 msgstr ""
 
-#: inc/post-types.php:565
+#: inc/post-types.php:569
 msgid ""
 "Whether to exclude posts with this post type from front end search results."
 msgstr ""
 
-#: inc/post-types.php:576
+#: inc/post-types.php:580
 msgid "Capability Type"
 msgstr "权限类型"
 
-#: inc/post-types.php:577
+#: inc/post-types.php:581
 msgid "The post type to use for checking read, edit, and delete capabilities"
 msgstr ""
 
-#: inc/post-types.php:594 inc/taxonomies.php:413
+#: inc/post-types.php:598 inc/taxonomies.php:417
 msgid "Hierarchical"
 msgstr "层级"
 
-#: inc/post-types.php:596
+#: inc/post-types.php:600
 msgid "Whether the post type can have parent-child relationships"
 msgstr ""
 
-#: inc/post-types.php:614 inc/taxonomies.php:473
+#: inc/post-types.php:618 inc/taxonomies.php:477
 msgid "Rewrite"
 msgstr "重写"
 
-#: inc/post-types.php:616
+#: inc/post-types.php:620
 msgid "Whether or not WordPress should use rewrites for this post type"
 msgstr ""
 
-#: inc/post-types.php:627 inc/taxonomies.php:484
+#: inc/post-types.php:631 inc/taxonomies.php:488
 msgid "Custom Rewrite Slug"
 msgstr "自定义重写缩略名"
 
-#: inc/post-types.php:628
+#: inc/post-types.php:632
 msgid "(default: post type slug)"
 msgstr ""
 
-#: inc/post-types.php:629
+#: inc/post-types.php:633
 #, fuzzy
 msgid "Custom post type slug to use instead of the default."
 msgstr "自定义文章类型被成功删除"
 
-#: inc/post-types.php:646
+#: inc/post-types.php:650
 msgid "With Front"
 msgstr ""
 
-#: inc/post-types.php:648 inc/taxonomies.php:501
+#: inc/post-types.php:652 inc/taxonomies.php:505
 msgid "Should the permastruct be prepended with the front base."
 msgstr ""
 
-#: inc/post-types.php:666 inc/taxonomies.php:447
+#: inc/post-types.php:670 inc/taxonomies.php:451
 msgid "Query Var"
 msgstr "查询变量"
 
-#: inc/post-types.php:668
+#: inc/post-types.php:672
 msgid "Sets the query_var key for this post type."
 msgstr ""
 
-#: inc/post-types.php:679
+#: inc/post-types.php:683
 #, fuzzy
 msgid "Custom Query Var Slug"
 msgstr "自定义重写缩略名"
 
-#: inc/post-types.php:680
+#: inc/post-types.php:684
 msgid "(default: post type slug) Query var needs to be true to use."
 msgstr ""
 
-#: inc/post-types.php:681
+#: inc/post-types.php:685
 #, fuzzy
 msgid "Custom query var slug to use instead of the default."
 msgstr "自定义文章类型被成功删除"
 
-#: inc/post-types.php:688
+#: inc/post-types.php:692
 msgid "Menu Position"
 msgstr "菜单位置"
 
-#: inc/post-types.php:689
+#: inc/post-types.php:693
 msgid ""
 "The position in the menu order the post type should appear. show_in_menu "
 "must be true."
 msgstr ""
 
-#: inc/post-types.php:690
+#: inc/post-types.php:694
 msgid ""
 "See <a href=\"http://codex.wordpress.org/Function_Reference/"
 "register_post_type#Parameters\" target=\"_blank\">Available options</a> in "
 "the \"menu_position\" section. Range of 5-100"
 msgstr ""
 
-#: inc/post-types.php:705
+#: inc/post-types.php:709
 msgid "Show in Menu"
 msgstr ""
 
-#: inc/post-types.php:706
+#: inc/post-types.php:710
 msgid ""
 "Whether to show the post type in the admin menu and where to show that menu."
 msgstr ""
 
-#: inc/post-types.php:707
+#: inc/post-types.php:711
 msgid ""
 "\"Show UI\" must be \"true\". If an existing top level page such as \"tools."
 "php\" is indicated for second input, post type will be sub menu of that."
 msgstr ""
 
-#: inc/post-types.php:733
+#: inc/post-types.php:737
 msgid "Top-level page file name to make post type a sub-menu of."
 msgstr ""
 
-#: inc/post-types.php:745
+#: inc/post-types.php:749
 #, fuzzy
 msgid "Menu Icon"
 msgstr "菜单位置"
 
-#: inc/post-types.php:746
+#: inc/post-types.php:750
 msgid "(Full URL for icon or Dashicon class)"
 msgstr ""
 
-#: inc/post-types.php:747
+#: inc/post-types.php:751
 msgid "URL to image to be used as menu icon or Dashicon class to use instead."
 msgstr ""
 
-#: inc/post-types.php:760
+#: inc/post-types.php:764
 msgid "Title"
 msgstr ""
 
-#: inc/post-types.php:761
+#: inc/post-types.php:765
 msgid "Adds the title meta box when creating content for this custom post type"
 msgstr ""
 
-#: inc/post-types.php:775
+#: inc/post-types.php:779
 #, fuzzy
 msgid "Editor"
 msgstr "编辑"
 
-#: inc/post-types.php:776
+#: inc/post-types.php:780
 msgid ""
 "Adds the content editor meta box when creating content for this custom post "
 "type"
 msgstr ""
 
-#: inc/post-types.php:790
+#: inc/post-types.php:794
 msgid "Excerpt"
 msgstr ""
 
-#: inc/post-types.php:791
+#: inc/post-types.php:795
 msgid ""
 "Adds the excerpt meta box when creating content for this custom post type"
 msgstr ""
 
-#: inc/post-types.php:805
+#: inc/post-types.php:809
 msgid "Trackbacks"
 msgstr ""
 
-#: inc/post-types.php:806
+#: inc/post-types.php:810
 msgid ""
 "Adds the trackbacks meta box when creating content for this custom post type"
 msgstr ""
 
-#: inc/post-types.php:820
+#: inc/post-types.php:824
 #, fuzzy
 msgid "Custom Fields"
 msgstr "自定义重写缩略名"
 
-#: inc/post-types.php:821
+#: inc/post-types.php:825
 msgid ""
 "Adds the custom fields meta box when creating content for this custom post "
 "type"
 msgstr ""
 
-#: inc/post-types.php:835
+#: inc/post-types.php:839
 msgid "Comments"
 msgstr ""
 
-#: inc/post-types.php:836
+#: inc/post-types.php:840
 msgid ""
 "Adds the comments meta box when creating content for this custom post type"
 msgstr ""
 
-#: inc/post-types.php:850
+#: inc/post-types.php:854
 msgid "Revisions"
 msgstr ""
 
-#: inc/post-types.php:851
+#: inc/post-types.php:855
 msgid ""
 "Adds the revisions meta box when creating content for this custom post type"
 msgstr ""
 
-#: inc/post-types.php:865
+#: inc/post-types.php:869
 msgid "Featured Image"
 msgstr ""
 
-#: inc/post-types.php:866
+#: inc/post-types.php:870
 msgid ""
 "Adds the featured image meta box when creating content for this custom post "
 "type"
 msgstr ""
 
-#: inc/post-types.php:880
+#: inc/post-types.php:884
 msgid "Author"
 msgstr ""
 
-#: inc/post-types.php:881
+#: inc/post-types.php:885
 msgid ""
 "Adds the author meta box when creating content for this custom post type"
 msgstr ""
 
-#: inc/post-types.php:895
+#: inc/post-types.php:899
 msgid "Page Attributes"
 msgstr ""
 
-#: inc/post-types.php:896
+#: inc/post-types.php:900
 msgid ""
 "Adds the page attribute meta box when creating content for this custom post "
 "type"
 msgstr ""
 
-#: inc/post-types.php:910
+#: inc/post-types.php:914
 msgid "Post Formats"
 msgstr ""
 
-#: inc/post-types.php:911
+#: inc/post-types.php:915
 msgid "Adds post format support"
 msgstr ""
 
-#: inc/post-types.php:916
+#: inc/post-types.php:920
 msgid "Use the option below to explicitly set \"supports\" to false."
 msgstr ""
 
-#: inc/post-types.php:924
+#: inc/post-types.php:928
 msgid "None"
 msgstr ""
 
-#: inc/post-types.php:925
+#: inc/post-types.php:929
 msgid "Remove all support features"
 msgstr ""
 
-#: inc/post-types.php:932
+#: inc/post-types.php:936
 #, fuzzy
 msgid "Custom \"Supports\""
 msgstr "支持"
 
-#: inc/post-types.php:933
+#: inc/post-types.php:937
 msgid ""
 "Use this input to register custom \"supports\" values, separated by commas."
 msgstr ""
 
-#: inc/post-types.php:939
+#: inc/post-types.php:943
 msgid "Provide custom support slugs here."
 msgstr ""
 
-#: inc/post-types.php:945
+#: inc/post-types.php:949
 msgid "Built-in Taxonomies"
 msgstr "内置类别"
 
-#: inc/post-types.php:974 inc/taxonomies.php:196
+#: inc/post-types.php:978 inc/taxonomies.php:200
 #, php-format
 msgid "Adds %s support"
 msgstr ""
 
-#: inc/post-types.php:1081
+#: inc/post-types.php:1085
 msgid "Please provide a post type to delete"
 msgstr ""
 
-#: inc/post-types.php:1141
+#: inc/post-types.php:1145
 msgid "Please provide a post type name"
 msgstr ""
 
-#: inc/post-types.php:1165
+#: inc/post-types.php:1169
 msgid "Please do not use quotes in post type names or rewrite slugs"
 msgstr ""
 
-#: inc/post-types.php:1172
+#: inc/post-types.php:1176
 #, php-format
 msgid "Please choose a different post type name. %s is already registered."
 msgstr ""
 
-#: inc/support.php:41
+#: inc/support.php:45
 #, fuzzy
 msgid "Custom Post Type UI Support"
 msgstr "Custom Post Types UI"
 
-#: inc/support.php:43
+#: inc/support.php:47
 #, php-format
 msgid ""
 "Please note that this plugin will NOT handle display of registered post "
@@ -1189,34 +1189,47 @@ msgid ""
 "you. If all else fails, visit us on the %s"
 msgstr ""
 
-#: inc/support.php:44
+#: inc/support.php:48
 #, fuzzy
 msgid "Support Forums"
 msgstr "支持"
 
-#: inc/support.php:50
+#: inc/support.php:54
 msgid "General"
 msgstr ""
 
-#: inc/support.php:53
+#: inc/support.php:57
+msgid ""
+"I have post types with spaces in their slug and can not successfully delete "
+"them. How can I fix that?"
+msgstr ""
+
+#: inc/support.php:58
+msgid ""
+"Visit the Import/Export page and copy the export code into the import side "
+"on the left. Replace the space with an underscore and then click \"Import\". "
+"You should be able to delete the individual post types afterwards."
+msgstr ""
+
+#: inc/support.php:62
 msgid ""
 "I changed my custom post type name and now I can not get to my posts. How do "
 "I get them back?"
 msgstr ""
 
-#: inc/support.php:54
+#: inc/support.php:63
 msgid ""
 "You can either change the custom post type name back to the original name or "
 "try the Post Type Switcher plugin"
 msgstr ""
 
-#: inc/support.php:59
+#: inc/support.php:68
 msgid ""
 "I changed my custom post type or taxonomy slug and now I have duplicates "
 "shown. How do I remove the duplicate?"
 msgstr ""
 
-#: inc/support.php:60
+#: inc/support.php:69
 msgid ""
 "Renaming the slug for a post type or taxonomy creates a new entry in our "
 "saved option which gets registered as its own post type or taxonomy. Since "
@@ -1224,55 +1237,55 @@ msgid ""
 "delete the previous version's entry."
 msgstr ""
 
-#: inc/support.php:63
+#: inc/support.php:72
 msgid ""
 "I have added post thumbnail and/or post format support to my post type, but "
 "those do not appear when adding a post type post."
 msgstr ""
 
-#: inc/support.php:64
+#: inc/support.php:73
 msgid ""
 "Make sure your theme has post \"post-thumbnails\" theme support enabled."
 msgstr ""
 
-#: inc/support.php:67
+#: inc/support.php:76
 msgid "Do you have any recommendations for an alternative to Visual Composer."
 msgstr ""
 
-#: inc/support.php:68
+#: inc/support.php:77
 msgid "We recommend using VelocityPage."
 msgstr ""
 
-#: inc/support.php:73
+#: inc/support.php:82
 msgid ""
 "Is there any way to get CPTUI-registered post types working with Visual "
 "Composer Media Grid?"
 msgstr ""
 
-#: inc/support.php:75
+#: inc/support.php:84
 msgid "Please see the solution from the following forum support thread."
 msgstr ""
 
-#: inc/support.php:82
+#: inc/support.php:91
 msgid "Front-end Display"
 msgstr ""
 
-#: inc/support.php:85
+#: inc/support.php:94
 msgid "What template files should I edit to alter my post type display?"
 msgstr ""
 
-#: inc/support.php:86
+#: inc/support.php:95
 #, php-format
 msgid ""
 "Please visit the %sTemplate Hierarchy%s page on the WordPress codex for "
 "details about available templates."
 msgstr ""
 
-#: inc/support.php:93
+#: inc/support.php:102
 msgid "How do I display my custom post type on my site?"
 msgstr ""
 
-#: inc/support.php:94
+#: inc/support.php:103
 #, php-format
 msgid ""
 "You will need to utilize the %sWP_Query%s class to handle display in custom "
@@ -1280,13 +1293,13 @@ msgid ""
 "should be something like \"http://www.mysite.com/post-type-slug\""
 msgstr ""
 
-#: inc/support.php:100
+#: inc/support.php:109
 msgid ""
 "I have added categories and tags to my custom post type, but they do not "
 "appear in the archives."
 msgstr ""
 
-#: inc/support.php:101
+#: inc/support.php:110
 #, php-format
 msgid ""
 "You will need to add your newly created post type to the types that the "
@@ -1294,128 +1307,128 @@ msgid ""
 "that at %s"
 msgstr ""
 
-#: inc/support.php:110
+#: inc/support.php:119
 msgid "Advanced"
 msgstr ""
 
-#: inc/support.php:113
+#: inc/support.php:122
 msgid "How do I add custom metaboxes to my post type?"
 msgstr ""
 
-#: inc/support.php:115
+#: inc/support.php:124
 #, php-format
 msgid ""
 "We recommend checking out %s, the latest iteration of \"Custom Metaboxes and "
 "Fields for WordPress\". Both are maintained by WebDevStudios."
 msgstr ""
 
-#: inc/support.php:121
+#: inc/support.php:130
 msgid ""
 "How do I add a newly registered taxonomy to a post type that already exists?"
 msgstr ""
 
-#: inc/support.php:123
+#: inc/support.php:132
 #, php-format
 msgid "Check out the %s function for documentation and usage examples."
 msgstr ""
 
-#: inc/support.php:129
+#: inc/support.php:138
 #, fuzzy
 msgid "Post relationships?"
 msgstr "附属到文章类型"
 
-#: inc/support.php:130
+#: inc/support.php:139
 #, php-format
 msgid ""
 "%s has an excellent %spost%s introducing users to the %sPosts 2 Posts%s "
 "plugin that should be a good start."
 msgstr ""
 
-#: inc/support.php:139
+#: inc/support.php:148
 msgid "Is there any function reference list?"
 msgstr ""
 
-#: inc/support.php:140
+#: inc/support.php:149
 #, php-format
 msgid ""
 "%s has compiled a nice list of functions used by our plugin. Note not all "
 "will be useful as they are attached to hooks."
 msgstr ""
 
-#: inc/support.php:144
+#: inc/support.php:153
 msgid ""
 "How do I filter the \"enter title here\" text in the post editor screen?"
 msgstr ""
 
-#: inc/support.php:145
+#: inc/support.php:154
 msgid ""
 "Change text inside the post/page editor title field. Should be able to adapt "
 "as necessary."
 msgstr ""
 
-#: inc/taxonomies.php:85
+#: inc/taxonomies.php:89
 msgid ""
 "DO NOT EDIT the taxonomy slug unless necessary. Changing that value "
 "registers a new taxonomy entry for your install."
 msgstr ""
 
-#: inc/taxonomies.php:125
+#: inc/taxonomies.php:129
 #, fuzzy
 msgid "Taxonomy Slug"
 msgstr "类别名称"
 
-#: inc/taxonomies.php:126
+#: inc/taxonomies.php:130
 #, fuzzy
 msgid "(e.g. actor)"
 msgstr "添加或删除条目"
 
-#: inc/taxonomies.php:127
+#: inc/taxonomies.php:131
 msgid ""
 "The taxonomy name. Used to retrieve custom taxonomy content. Should be short "
 "and unique"
 msgstr ""
 
-#: inc/taxonomies.php:135 inc/taxonomies.php:265
+#: inc/taxonomies.php:139 inc/taxonomies.php:269
 msgid "(e.g. Actors)"
 msgstr ""
 
-#: inc/taxonomies.php:137
+#: inc/taxonomies.php:141
 msgid "Taxonomy label. Used in the admin menu for displaying custom taxonomy."
 msgstr ""
 
-#: inc/taxonomies.php:144
+#: inc/taxonomies.php:148
 msgid "(e.g. Actor)"
 msgstr ""
 
-#: inc/taxonomies.php:146
+#: inc/taxonomies.php:150
 msgid ""
 "Taxonomy Singular label.  Used in WordPress when a singular label is needed."
 msgstr ""
 
-#: inc/taxonomies.php:163
+#: inc/taxonomies.php:167
 msgid "Taxonomy Description. Describe what your taxonomy is used for."
 msgstr ""
 
-#: inc/taxonomies.php:166
+#: inc/taxonomies.php:170
 msgid "Attach to Post Type"
 msgstr "附属到文章类型"
 
-#: inc/taxonomies.php:216
+#: inc/taxonomies.php:220
 #, fuzzy
 msgid "Save Taxonomy"
 msgstr "类别名称"
 
-#: inc/taxonomies.php:227
+#: inc/taxonomies.php:231
 #, fuzzy
 msgid "Delete Taxonomy"
 msgstr "创建自定义类别"
 
-#: inc/taxonomies.php:239
+#: inc/taxonomies.php:243
 #, fuzzy
 msgid "Add Taxonomy"
 msgstr "类别名称"
 
-#: inc/taxonomies.php:248
+#: inc/taxonomies.php:252
 #, php-format
 msgid ""
 "Taxonomy names should have %smax 32 characters%s, and only contain "
@@ -1423,7 +1436,7 @@ msgid ""
 "letters that do not have accents."
 msgstr ""
 
-#: inc/taxonomies.php:249
+#: inc/taxonomies.php:253
 #, php-format
 msgid ""
 "If you are unfamiliar with the advanced taxonomy settings, just fill in the "
@@ -1433,7 +1446,7 @@ msgid ""
 "marks for more details."
 msgstr ""
 
-#: inc/taxonomies.php:250
+#: inc/taxonomies.php:254
 #, fuzzy, php-format
 msgid ""
 "Deleting custom taxonomies do %sNOT%s delete terms added to those "
@@ -1444,202 +1457,203 @@ msgstr ""
 "删除自定义类别<strong>不会</strong>删除被添加到该类别中的任何内容。您可以简单"
 "的重新创建您的类别，并且这些内容依旧存在。"
 
-#: inc/taxonomies.php:267 inc/taxonomies.php:276 inc/taxonomies.php:285
-#: inc/taxonomies.php:294 inc/taxonomies.php:303 inc/taxonomies.php:312
-#: inc/taxonomies.php:321 inc/taxonomies.php:330 inc/taxonomies.php:339
-#: inc/taxonomies.php:348 inc/taxonomies.php:357 inc/taxonomies.php:366
-#: inc/taxonomies.php:375 inc/taxonomies.php:384 inc/taxonomies.php:393
+#: inc/taxonomies.php:271 inc/taxonomies.php:280 inc/taxonomies.php:289
+#: inc/taxonomies.php:298 inc/taxonomies.php:307 inc/taxonomies.php:316
+#: inc/taxonomies.php:325 inc/taxonomies.php:334 inc/taxonomies.php:343
+#: inc/taxonomies.php:352 inc/taxonomies.php:361 inc/taxonomies.php:370
+#: inc/taxonomies.php:379 inc/taxonomies.php:388 inc/taxonomies.php:397
 msgid ""
 "Custom taxonomy label. Used in the admin menu for displaying taxonomies."
 msgstr ""
 
-#: inc/taxonomies.php:274
+#: inc/taxonomies.php:278
 msgid "(e.g. All Actors)"
 msgstr ""
 
-#: inc/taxonomies.php:283
+#: inc/taxonomies.php:287
 msgid "(e.g. Edit Actor)"
 msgstr ""
 
-#: inc/taxonomies.php:292
+#: inc/taxonomies.php:296
 msgid "(e.g. View Actor)"
 msgstr ""
 
-#: inc/taxonomies.php:301
+#: inc/taxonomies.php:305
 msgid "(e.g. Update Actor Name)"
 msgstr ""
 
-#: inc/taxonomies.php:302
+#: inc/taxonomies.php:306
 #, fuzzy
 msgid "Update Item Name"
 msgstr "更新条目"
 
-#: inc/taxonomies.php:310
+#: inc/taxonomies.php:314
 msgid "(e.g. Add New Actor)"
 msgstr ""
 
-#: inc/taxonomies.php:319
+#: inc/taxonomies.php:323
 msgid "(e.g. New Actor Name)"
 msgstr ""
 
-#: inc/taxonomies.php:320
+#: inc/taxonomies.php:324
 msgid "New Item Name"
 msgstr "新条目名称"
 
-#: inc/taxonomies.php:328
+#: inc/taxonomies.php:332
 msgid "(e.g. Parent Actor)"
 msgstr ""
 
-#: inc/taxonomies.php:329
+#: inc/taxonomies.php:333
 msgid "Parent Item"
 msgstr "上级条目"
 
-#: inc/taxonomies.php:337
+#: inc/taxonomies.php:341
 msgid "(e.g. Parent Actor:)"
 msgstr ""
 
-#: inc/taxonomies.php:338
+#: inc/taxonomies.php:342
 msgid "Parent Item Colon"
 msgstr "上级条目："
 
-#: inc/taxonomies.php:346
+#: inc/taxonomies.php:350
 msgid "(e.g. Search Actors)"
 msgstr ""
 
-#: inc/taxonomies.php:347
+#: inc/taxonomies.php:351
 msgid "Search Items"
 msgstr "搜索条目"
 
-#: inc/taxonomies.php:355
+#: inc/taxonomies.php:359
 msgid "(e.g. Popular Actors)"
 msgstr ""
 
-#: inc/taxonomies.php:356
+#: inc/taxonomies.php:360
 msgid "Popular Items"
 msgstr "热门条目"
 
-#: inc/taxonomies.php:364
+#: inc/taxonomies.php:368
 #, fuzzy
-msgid "(e.g. Separate actors with commas)"
+msgid "(e.g. Separate Actors with commas)"
 msgstr "使用英文逗号隔开多个标签条目"
 
-#: inc/taxonomies.php:365
+#: inc/taxonomies.php:369
 msgid "Separate Items with Commas"
 msgstr "使用英文逗号隔开多个标签条目"
 
-#: inc/taxonomies.php:373
+#: inc/taxonomies.php:377
 #, fuzzy
-msgid "(e.g. Add or remove actors)"
+msgid "(e.g. Add or remove Actors)"
 msgstr "添加或删除条目"
 
-#: inc/taxonomies.php:374
+#: inc/taxonomies.php:378
 msgid "Add or Remove Items"
 msgstr "添加或删除条目"
 
-#: inc/taxonomies.php:382
+#: inc/taxonomies.php:386
 #, fuzzy
-msgid "(e.g. Choose from the most used actors)"
+msgid "(e.g. Choose from the most used Actors)"
 msgstr "使用次数最多"
 
-#: inc/taxonomies.php:383
+#: inc/taxonomies.php:387
 msgid "Choose From Most Used"
 msgstr "使用次数最多"
 
-#: inc/taxonomies.php:391
-msgid "(e.g. No actors found)"
-msgstr ""
+#: inc/taxonomies.php:395
+#, fuzzy
+msgid "(e.g. No Actors found)"
+msgstr "在回收站中没有找到"
 
-#: inc/taxonomies.php:392
+#: inc/taxonomies.php:396
 #, fuzzy
 msgid "Not found"
 msgstr "未找到"
 
-#: inc/taxonomies.php:415
+#: inc/taxonomies.php:419
 msgid "Whether the taxonomy can have parent-child relationships"
 msgstr ""
 
-#: inc/taxonomies.php:432
+#: inc/taxonomies.php:436
 msgid "Whether to generate a default UI for managing this custom taxonomy."
 msgstr ""
 
-#: inc/taxonomies.php:449
+#: inc/taxonomies.php:453
 msgid "Sets the query_var key for this taxonomy."
 msgstr ""
 
-#: inc/taxonomies.php:457
+#: inc/taxonomies.php:461
 msgid "(default: taxonomy slug). Query var needs to be true to use."
 msgstr ""
 
-#: inc/taxonomies.php:458
+#: inc/taxonomies.php:462
 msgid "Custom Query Var String"
 msgstr ""
 
-#: inc/taxonomies.php:459
+#: inc/taxonomies.php:463
 msgid "Sets a custom query_var slug for this taxonomy."
 msgstr ""
 
-#: inc/taxonomies.php:475
+#: inc/taxonomies.php:479
 msgid "Whether or not WordPress should use rewrites for this taxonomy."
 msgstr ""
 
-#: inc/taxonomies.php:483
+#: inc/taxonomies.php:487
 #, fuzzy
 msgid "(default: taxonomy name)"
 msgstr "新条目名称"
 
-#: inc/taxonomies.php:485
+#: inc/taxonomies.php:489
 #, fuzzy
 msgid "Custom taxonomy rewrite slug."
 msgstr "自定义重写缩略名"
 
-#: inc/taxonomies.php:499
+#: inc/taxonomies.php:503
 msgid "Rewrite With Front"
 msgstr ""
 
-#: inc/taxonomies.php:500
+#: inc/taxonomies.php:504
 msgid "(default: true)"
 msgstr ""
 
-#: inc/taxonomies.php:516
+#: inc/taxonomies.php:520
 #, fuzzy
 msgid "Rewrite Hierarchical"
 msgstr "层级"
 
-#: inc/taxonomies.php:517
+#: inc/taxonomies.php:521
 msgid "(default: false)"
 msgstr ""
 
-#: inc/taxonomies.php:518
+#: inc/taxonomies.php:522
 msgid "Should the permastruct allow hierarchical urls."
 msgstr ""
 
-#: inc/taxonomies.php:533
+#: inc/taxonomies.php:537
 msgid "Show Admin Column"
 msgstr ""
 
-#: inc/taxonomies.php:535
+#: inc/taxonomies.php:539
 msgid ""
 "Whether to allow automatic creation of taxonomy columns on associated post-"
 "types."
 msgstr ""
 
-#: inc/taxonomies.php:555
+#: inc/taxonomies.php:559
 msgid "Whether to show this taxonomy data in the WP REST API."
 msgstr ""
 
-#: inc/taxonomies.php:672
+#: inc/taxonomies.php:676
 msgid "Please provide a taxonomy to delete"
 msgstr ""
 
-#: inc/taxonomies.php:723
+#: inc/taxonomies.php:727
 msgid "Please provide a taxonomy name"
 msgstr ""
 
-#: inc/taxonomies.php:739
+#: inc/taxonomies.php:743
 msgid "Please do not use quotes in taxonomy names or rewrite slugs"
 msgstr ""
 
-#: inc/taxonomies.php:745
+#: inc/taxonomies.php:749
 #, php-format
 msgid "Please choose a different taxonomy name. %s is already used."
 msgstr ""
