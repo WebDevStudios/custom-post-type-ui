@@ -214,6 +214,11 @@ function cptui_register_single_post_type( $post_type = array() ) {
 		$exclude_from_search = ( false === $public ) ? true : false;
 	}
 
+	if ( empty( $post_type['show_in_nav_menus'] ) ) {
+		// Defaults to value of public.
+		$post_type['show_in_nav_menus'] = $public;
+	}
+
 	if ( empty( $post_type['show_in_rest'] ) ) {
 		$post_type['show_in_rest'] = false;
 	}
