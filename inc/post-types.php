@@ -19,6 +19,10 @@ function cptui_post_type_enqueue_scripts() {
 		return;
 	}
 
+	if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
+		return;
+	}
+
 	/*$post_types = get_option( 'cptui_post_types' );
 	foreach( $post_types as $type ) {
 		$types[] = $type['name'];

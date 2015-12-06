@@ -19,6 +19,10 @@ function cptui_taxonomies_enqueue_scripts() {
 		return;
 	}
 
+	if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
+		return;
+	}
+
 	wp_enqueue_script( 'cptui', plugins_url( 'js/cptui.js' , dirname(__FILE__) ) . '', array( 'jquery', 'jquery-ui-core', 'jquery-ui-accordion' ), CPT_VERSION, true );
 	wp_localize_script(	'cptui', 'cptui_tax_data',
 		array(

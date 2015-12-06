@@ -47,8 +47,10 @@ All official development on this plugin is on GitHub. Version bumps will still b
 * Updated: Moved page title for some pages above tabs.
 * Updated: Textdomain now matches WordPress.org repo slug.
 * Updated: Added Visual Composer questions/answers to support section.
+* Updated: Added question/answer regarding spaces in post type slugs
 * Updated: Changed help icons to a Dashicon help icon.
 * Fixed: Support for YARPP plugin.
+* Fixed: Prevent potential issues with AJAX requests and our scripts/styles
 
 = 1.1.2 =
 * Change export value to plural label for taxonomies.
@@ -222,8 +224,10 @@ All official development on this plugin is on GitHub. Version bumps will still b
 * Updated: Moved page title for some pages above tabs.
 * Updated: Textdomain now matches WordPress.org repo slug.
 * Updated: Added Visual Composer questions/answers to support section.
+* Updated: Added question/answer regarding spaces in post type slugs
 * Updated: Changed help icons to a Dashicon help icon.
 * Fixed: Support for YARPP plugin.
+* Fixed: Prevent potential issues with AJAX requests and our scripts/styles
 
 = 1.1.2 =
 * Change export value to plural label for taxonomies.

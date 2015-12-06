@@ -85,6 +85,10 @@ function cptui_create_submenus() {
 add_action( 'init', 'cptui_create_submenus' );
 
 function cptui_add_styles() {
+	if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
+		return;
+	}
+
 	wp_enqueue_style( 'cptui-css', plugins_url( 'css/cptui.css', __FILE__ ) );
 }
 add_action( 'admin_enqueue_scripts', 'cptui_add_styles' );

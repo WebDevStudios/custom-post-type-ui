@@ -17,6 +17,10 @@ function cptui_support_enqueue_scripts() {
 		return;
 	}
 
+	if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
+		return;
+	}
+
 	wp_enqueue_script( 'cptui', plugins_url( 'js/cptui.js' , dirname(__FILE__) ) . '', array( 'jquery' ), '0.9', true );
 }
 add_action( 'admin_enqueue_scripts', 'cptui_support_enqueue_scripts' );
