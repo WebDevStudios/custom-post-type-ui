@@ -388,16 +388,32 @@ function cptui_settings() { ?>
 		<div class="changelog about-integrations">
 			<div class="cptui-feature feature-section col three-col">
 				<div>
-					<h2><?php _e( 'Post type migration', 'custom-post-type-ui' ); ?></h2>
-					<p><?php _e( 'In the past, if you changed your post type slug, you would lose immediate access to the posts in the post type and need to recover another way. We have now added support for migrating all posts within the old post type to the new post type you renamed it to.', 'custom-post-type-ui' ); ?></p>
+					<h2><?php _e( 'Updated internationalization', 'custom-post-type-ui' ); ?></h2>
+					<p><?php _e( 'Our textdomain now matches the plugin slug from our WordPress.org repository to help aid in translating Custom Post Type UI', 'custom-post-type-ui' ); ?></p>
 				</div>
 				<div>
-					<h2><?php _e( 'UI Refinement', 'custom-post-type-ui' ); ?></h2>
-					<p><?php _e( 'After receiving feedback regarding the 1.0.x changes, we have further simplified the UI to reduce the amount of clicking necessary to manage your post types and taxonomies.', 'custom-post-type-ui' ); ?></p>
+					<h2><?php _e( 'Debugging information', 'custom-post-type-ui' ); ?></h2>
+					<p><?php _e( 'We have added a new "Debug Info" tab to the Import/Export area to aid in debugging issues with Custom Post Type UI.', 'custom-post-type-ui' ); ?></p>
+				</div>
+				<div>
+					<h2><?php _e( 'Improved accessibility', 'custom-post-type-ui' ); ?></h2>
+					<p><?php _e( 'A lot of work was done in the areas of accessibility to help aid users who need it. If you have feedback on where it could be further improved, let us know.', 'custom-post-type-ui' ); ?></p>
+				</div>
+				<div>
+					<h2><?php _e( 'WP REST API support', 'custom-post-type-ui' ); ?></h2>
+					<p><?php _e( 'We now have support for the required fields for the WP REST API. Now you can add your Custom Post Type UI post types and taxonomies to the available REST API lists.', 'custom-post-type-ui' ); ?></p>
+				</div>
+				<div>
+					<h2><?php _e( 'More parameter support', 'custom-post-type-ui' ); ?></h2>
+					<p><?php _e( 'We have added more parameters for greater customization of your post type and taxonomy settings.', 'custom-post-type-ui' ); ?></p>
+				</div>
+				<div>
+					<h2><?php _e( 'New individual "Get Code" sections', 'custom-post-type-ui' ); ?></h2>
+					<p><?php _e( 'The "Get Code" area now has support for copy/paste of individual post types and taxonomies.', 'custom-post-type-ui' ); ?></p>
 				</div>
 				<div class="last-feature">
-					<h2><?php _e( 'Registered Post Type and Taxonomy Listings', 'custom-post-type-ui' ); ?></h2>
-					<p><?php _e( 'We are bringing back the listing of all CPTUI-registered post types and taxonomies for easier quick view of what you have going.', 'custom-post-type-ui' ); ?></p>
+					<h2><?php _e( 'Template hierarchy reference', 'custom-post-type-ui' ); ?></h2>
+					<p><?php _e( 'To help aid your development with post types and taxonomies, we have added a quick reference list of common template files you can use in your theme. They will be listed on the "Registered Types/Taxes" screen.', 'custom-post-type-ui' ); ?></p>
 				</div>
 			</div>
 		</div>
