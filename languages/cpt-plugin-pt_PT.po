@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Custom Post Type UI\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/plugins/custom-post-type-ui\n"
-"POT-Creation-Date: 2015-12-05 22:56-0600\n"
-"PO-Revision-Date: 2015-12-05 22:56-0600\n"
+"POT-Creation-Date: 2015-12-13 00:08-0600\n"
+"PO-Revision-Date: 2015-12-13 00:08-0600\n"
 "Last-Translator: Michael Beckwith <michael.d.beckwith@gmail.com>\n"
 "Language-Team: WebDevStudios <contact@webdevstudios.com>\n"
 "Language: pt_PT\n"
@@ -22,48 +22,61 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-0: tests\n"
 "X-Poedit-SearchPathExcluded-1: *.js\n"
 
-#: custom-post-type-ui.php:60
+#: classes/class.cptui_debug_info.php:7
+msgid ""
+"If you have sought support for Custom Post Type UI on the forums, you may be "
+"requested to send the information below to the plugin developer. Simply "
+"insert the email they provided in the input field at the bottom and click "
+"the \"Send debug info\" button. Only the data below will be sent to them."
+msgstr ""
+
+#: classes/class.cptui_debug_info.php:186
+#, php-format
+msgid "CPTUI debug information for %s"
+msgstr ""
+
+#: custom-post-type-ui.php:61
 msgid "Custom Post Types"
 msgstr "Tipos de artigo personalizados"
 
-#: custom-post-type-ui.php:60
+#: custom-post-type-ui.php:61
 msgid "CPT UI"
 msgstr "CPT UI"
 
-#: custom-post-type-ui.php:61 inc/listings.php:155
+#: custom-post-type-ui.php:62 inc/listings.php:155
 msgid "Add/Edit Post Types"
 msgstr "Adicionar/editar tipos de artigo"
 
-#: custom-post-type-ui.php:62 inc/listings.php:287
+#: custom-post-type-ui.php:63 inc/listings.php:287
 msgid "Add/Edit Taxonomies"
 msgstr "Adicionar/editar taxonomias"
 
-#: custom-post-type-ui.php:63
+#: custom-post-type-ui.php:64
 msgid "Registered Types and Taxes"
 msgstr "Tipos e taxonomias registados"
 
-#: custom-post-type-ui.php:63
+#: custom-post-type-ui.php:64
 msgid "Registered Types/Taxes"
 msgstr "Tipos/taxonomias registados"
 
-#: custom-post-type-ui.php:64 custom-post-type-ui.php:533
+#: custom-post-type-ui.php:65 custom-post-type-ui.php:551
 msgid "Import/Export"
 msgstr "Importar/exportar"
 
-#: custom-post-type-ui.php:65
+#: custom-post-type-ui.php:66
 msgid "Help/Support"
 msgstr "Ajuda/suporte"
 
-#: custom-post-type-ui.php:69
+#: custom-post-type-ui.php:70
 msgid "About CPT UI"
 msgstr "Sobre o CPT UI"
 
 #. Plugin Name of the plugin/theme
-#: custom-post-type-ui.php:381 custom-post-type-ui.php:460
+#: custom-post-type-ui.php:382 custom-post-type-ui.php:478
 msgid "Custom Post Type UI"
 msgstr "Custom Post Type UI"
 
-#: custom-post-type-ui.php:384
+#: custom-post-type-ui.php:385
 msgid ""
 "Thank you for choosing Custom Post Type UI. We hope that your experience "
 "with our plugin provides efficiency and speed in creating post types and "
@@ -74,276 +87,328 @@ msgstr ""
 "artigo e de taxonomias, para melhor organizar os seus conteúdos sem ter que "
 "mexer em código."
 
-#: custom-post-type-ui.php:390
-msgid "Post type migration"
-msgstr "Migração de tipo de artigo"
-
-#: custom-post-type-ui.php:391
-msgid ""
-"In the past, if you changed your post type slug, you would lose immediate "
-"access to the posts in the post type and need to recover another way. We "
-"have now added support for migrating all posts within the old post type to "
-"the new post type you renamed it to."
+#: custom-post-type-ui.php:387
+#, php-format
+msgid "What's new in version %s"
 msgstr ""
-"No passado, se alterasse o URL do seu tipo de artigo, perderia de imediato o "
-"acesso aos artigos desse tipo e precisaria de os recuperar de outro modo. "
-"Actualmente adicionámos suporte para migrar todos os artigos do tipo de "
-"artigo anterior para o recém nomeado tipo de artigo."
 
-#: custom-post-type-ui.php:394
-msgid "UI Refinement"
-msgstr "Refinamento do interface do utilizador"
-
-#: custom-post-type-ui.php:395
-msgid ""
-"After receiving feedback regarding the 1.0.x changes, we have further "
-"simplified the UI to reduce the amount of clicking necessary to manage your "
-"post types and taxonomies."
+#: custom-post-type-ui.php:392
+msgid "Updated internationalization"
 msgstr ""
-"Depois de recebermos retorno sobre alterações nas versões 1.0.x, "
-"simplificámos o interface do utilizador para reduzir a quantidade de cliques "
-"necessários para gerir os tipos de artigos e taxonomias."
 
-#: custom-post-type-ui.php:398
-msgid "Registered Post Type and Taxonomy Listings"
-msgstr "Listas de tipos de artigos e taxonomias registados"
-
-#: custom-post-type-ui.php:399
+#: custom-post-type-ui.php:393
 msgid ""
-"We are bringing back the listing of all CPTUI-registered post types and "
-"taxonomies for easier quick view of what you have going."
+"Our textdomain now matches the plugin slug from our WordPress.org repository "
+"to help aid in translating Custom Post Type UI"
 msgstr ""
-"Trouxémos de volta as listas de todos os tipos de artigos e taxonomias "
-"registados pelo CPTUI para uma visualização facilitada do que tem em "
-"funcionamento."
+
+#: custom-post-type-ui.php:396
+msgid "Debugging information"
+msgstr ""
+
+#: custom-post-type-ui.php:397
+msgid ""
+"We have added a new \"Debug Info\" tab to the Import/Export area to aid in "
+"debugging issues with Custom Post Type UI."
+msgstr ""
+
+#: custom-post-type-ui.php:400
+msgid "Improved accessibility"
+msgstr ""
+
+#: custom-post-type-ui.php:401
+msgid ""
+"A lot of work was done in the areas of accessibility to help aid users who "
+"need it. If you have feedback on where it could be further improved, let us "
+"know."
+msgstr ""
 
 #: custom-post-type-ui.php:404
+msgid "WP REST API support"
+msgstr ""
+
+#: custom-post-type-ui.php:405
+msgid ""
+"We now have support for the required fields for the WP REST API. Now you can "
+"add your Custom Post Type UI post types and taxonomies to the available REST "
+"API lists."
+msgstr ""
+
+#: custom-post-type-ui.php:408
+msgid "More parameter support"
+msgstr ""
+
+#: custom-post-type-ui.php:409
+msgid ""
+"We have added more parameters for greater customization of your post type "
+"and taxonomy settings."
+msgstr ""
+
+#: custom-post-type-ui.php:412
+msgid "New individual \"Get Code\" sections"
+msgstr ""
+
+#: custom-post-type-ui.php:413
+msgid ""
+"The \"Get Code\" area now has support for copy/paste of individual post "
+"types and taxonomies."
+msgstr ""
+
+#: custom-post-type-ui.php:416
+#, fuzzy
+msgid "Template hierarchy reference"
+msgstr "Reescrever URL hierarquicamente"
+
+#: custom-post-type-ui.php:417
+msgid ""
+"To help aid your development with post types and taxonomies, we have added a "
+"quick reference list of common template files you can use in your theme. "
+"They will be listed on the \"Registered Types/Taxes\" screen."
+msgstr ""
+
+#: custom-post-type-ui.php:422
 msgid "Help Support This Plugin!"
 msgstr "Ajude a apoiar este plugin!"
 
-#: custom-post-type-ui.php:408
+#: custom-post-type-ui.php:426
 msgid "Professional WordPress<br />Third Edition"
 msgstr "Professional WordPress<br />Terceira edição"
 
-#: custom-post-type-ui.php:410
+#: custom-post-type-ui.php:428
 #, fuzzy
 msgid "Professional WordPress Design and Development book cover."
 msgstr "Professional WordPress<br />Plugin Development"
 
-#: custom-post-type-ui.php:413
+#: custom-post-type-ui.php:431
 msgid ""
 "The leading book on WordPress design and development! Brand new third "
 "edition!"
 msgstr ""
 "O principal livro sobre design e desenvolvimento em WordPress! Nova edição!"
 
-#: custom-post-type-ui.php:416
+#: custom-post-type-ui.php:434
 msgid "Professional WordPress<br />Plugin Development"
 msgstr "Professional WordPress<br />Plugin Development"
 
-#: custom-post-type-ui.php:418
+#: custom-post-type-ui.php:436
 #, fuzzy
 msgid "Professional WordPress Pluing Development book cover."
 msgstr "Professional WordPress<br />Plugin Development"
 
-#: custom-post-type-ui.php:421
+#: custom-post-type-ui.php:439
 msgid "Highest rated WordPress development book on Amazon!"
 msgstr "Livro de desenvolvimento WordPress mais votado na Amazon!"
 
-#: custom-post-type-ui.php:424
+#: custom-post-type-ui.php:442
 msgid "PayPal Donation"
 msgstr "Donativo PayPal"
 
-#: custom-post-type-ui.php:428
+#: custom-post-type-ui.php:446
 msgid "PayPal - The safer, easier way to pay online!"
 msgstr "Paypal - o modo mais fácil e seguro de fazer pagamentos online!"
 
-#: custom-post-type-ui.php:431
+#: custom-post-type-ui.php:449
 msgid "Please donate to the development of Custom Post Type UI:"
 msgstr ""
 "Por favor faça um donativo para o desenvolvimento do Custom Port Type UI:"
 
-#: custom-post-type-ui.php:457
+#: custom-post-type-ui.php:475
 #, php-format
 msgid "%s version %s by %s"
 msgstr "%s versão %s por %s"
 
-#: custom-post-type-ui.php:468
+#: custom-post-type-ui.php:486
 msgid "Please Report Bugs"
 msgstr "Por favor reporte erros"
 
-#: custom-post-type-ui.php:471
+#: custom-post-type-ui.php:489
 msgid "Follow on Twitter:"
 msgstr "Seguir no Twitter:"
 
-#: custom-post-type-ui.php:535
+#: custom-post-type-ui.php:553
 msgid "Manage Taxonomies"
 msgstr "Gerir taxonomias"
 
-#: custom-post-type-ui.php:539
+#: custom-post-type-ui.php:557
 msgid "Manage Post Types"
 msgstr "Gerir tipos de artigo"
 
-#: custom-post-type-ui.php:565
+#: custom-post-type-ui.php:585
 msgid "Add New Post Type"
 msgstr "Adicionar novo tipo de artigo"
 
-#: custom-post-type-ui.php:568
+#: custom-post-type-ui.php:588
 msgid "Edit Post Types"
 msgstr "Editar tipos de artigo"
 
-#: custom-post-type-ui.php:572
+#: custom-post-type-ui.php:592
 msgid "Add New Taxonomy"
 msgstr "Adicionar nova taxonomia"
 
-#: custom-post-type-ui.php:575
+#: custom-post-type-ui.php:595
 msgid "Edit Taxonomies"
 msgstr "Editar taxonomias"
 
-#: custom-post-type-ui.php:579 inc/listings.php:13 inc/listings.php:171
+#: custom-post-type-ui.php:599 inc/listings.php:13 inc/listings.php:171
 msgid "Post Types"
 msgstr "Tipos de Artigo"
 
-#: custom-post-type-ui.php:580 inc/import_export.php:492 inc/listings.php:24
+#: custom-post-type-ui.php:600 inc/import_export.php:393 inc/listings.php:24
 #: inc/listings.php:161
 msgid "Taxonomies"
 msgstr "Taxonomias"
 
-#: custom-post-type-ui.php:581
+#: custom-post-type-ui.php:601
 msgid "Get Code"
 msgstr "Obter código"
 
-#: custom-post-type-ui.php:664 inc/listings.php:22 inc/listings.php:170
+#: custom-post-type-ui.php:602
+msgid "Debug Info"
+msgstr ""
+
+#: custom-post-type-ui.php:685 inc/listings.php:22 inc/listings.php:170
 #: inc/post-types.php:420 inc/taxonomies.php:402
 msgid "Settings"
 msgstr "Definições"
 
-#: custom-post-type-ui.php:664
+#: custom-post-type-ui.php:685
 msgid "Help"
 msgstr "﻿Ajuda"
 
-#: custom-post-type-ui.php:693
+#: custom-post-type-ui.php:714
 #, php-format
 msgid "%s has been successfully added"
 msgstr "%s foi adicionado com sucesso"
 
-#: custom-post-type-ui.php:695
+#: custom-post-type-ui.php:716
 #, php-format
 msgid "%s has failed to be added"
 msgstr "%s falhou ao ser adicionado"
 
-#: custom-post-type-ui.php:699
+#: custom-post-type-ui.php:720
 #, php-format
 msgid "%s has been successfully updated"
 msgstr "%s foi actualizado com sucesso"
 
-#: custom-post-type-ui.php:701
+#: custom-post-type-ui.php:722
 #, php-format
 msgid "%s has failed to be updated"
 msgstr "%s falhou ao ser actualizado"
 
-#: custom-post-type-ui.php:705
+#: custom-post-type-ui.php:726
 #, php-format
 msgid "%s has been successfully deleted"
 msgstr "%s foi apagado com sucesso"
 
-#: custom-post-type-ui.php:707
+#: custom-post-type-ui.php:728
 #, php-format
 msgid "%s has failed to be deleted"
 msgstr "%s falhou ao ser apagado"
 
-#: custom-post-type-ui.php:711
+#: custom-post-type-ui.php:732
 #, php-format
 msgid "%s has been successfully imported"
 msgstr "%s foi importado com sucesso"
 
-#: custom-post-type-ui.php:713
+#: custom-post-type-ui.php:734
 #, php-format
 msgid "%s has failed to be imported"
 msgstr "%s falhou ao ser importado"
 
-#: custom-post-type-ui.php:796 custom-post-type-ui.php:813
+#: custom-post-type-ui.php:817 custom-post-type-ui.php:834
 #, php-format
 msgid "Add new %s"
 msgstr "Adicionar novo %s"
 
-#: custom-post-type-ui.php:797 custom-post-type-ui.php:811 inc/listings.php:78
+#: custom-post-type-ui.php:818 custom-post-type-ui.php:832 inc/listings.php:78
 #: inc/listings.php:220
 #, php-format
 msgid "Edit %s"
 msgstr "Editar %s"
 
-#: custom-post-type-ui.php:798
+#: custom-post-type-ui.php:819
 #, php-format
 msgid "New %s"
 msgstr "Novo %s"
 
-#: custom-post-type-ui.php:799
+#: custom-post-type-ui.php:820
 #, php-format
 msgid "View %s"
 msgstr "Ver %s"
 
-#: custom-post-type-ui.php:800 custom-post-type-ui.php:808
+#: custom-post-type-ui.php:821 custom-post-type-ui.php:829
 #, php-format
 msgid "All %s"
 msgstr "Todos(as) os(as) %s"
 
-#: custom-post-type-ui.php:801 custom-post-type-ui.php:806
+#: custom-post-type-ui.php:822 custom-post-type-ui.php:827
 #, php-format
 msgid "Search %s"
 msgstr "Pesquisar %s"
 
-#: custom-post-type-ui.php:802
+#: custom-post-type-ui.php:823
 #, php-format
 msgid "No %s found."
 msgstr "%s não encontrados(as)."
 
-#: custom-post-type-ui.php:803
+#: custom-post-type-ui.php:824
 #, php-format
 msgid "No %s found in trash."
 msgstr "%s não encontrados(as) no lixo."
 
-#: custom-post-type-ui.php:807
+#: custom-post-type-ui.php:828
 #, php-format
 msgid "Popular %s"
 msgstr "%s mais populares"
 
-#: custom-post-type-ui.php:809
+#: custom-post-type-ui.php:830
 #, php-format
 msgid "Parent %s"
 msgstr "%s superior"
 
-#: custom-post-type-ui.php:810
+#: custom-post-type-ui.php:831
 #, php-format
 msgid "Parent %s:"
 msgstr "%s superior:"
 
-#: custom-post-type-ui.php:812
+#: custom-post-type-ui.php:833
 #, php-format
 msgid "Update %s"
 msgstr "Actualizar %s"
 
-#: custom-post-type-ui.php:814
+#: custom-post-type-ui.php:835
 #, php-format
 msgid "New %s name"
 msgstr "Novo nome de %s"
 
-#: custom-post-type-ui.php:815
+#: custom-post-type-ui.php:836
 #, php-format
 msgid "Separate %s with commas"
 msgstr "Separar %s por vírgulas"
 
-#: custom-post-type-ui.php:816
+#: custom-post-type-ui.php:837
 #, php-format
 msgid "Add or remove %s"
 msgstr "Adicionar ou remover %s"
 
-#: custom-post-type-ui.php:817
+#: custom-post-type-ui.php:838
 #, php-format
 msgid "Choose from the most used %s"
 msgstr "Escolher entre os(as) %s mais utilizados(as)"
 
-#: inc/import_export.php:42
+#: inc/import_export.php:77
+msgid "No taxonomies to display at this time"
+msgstr "Nenhuma taxonomia para mostrar neste momento"
+
+#: inc/import_export.php:184
+msgid "No post types to display at this time"
+msgstr "Nenhum tipo de artigo para mostrar neste momento"
+
+#: inc/import_export.php:372
+msgid "Post types"
+msgstr "Tipos de artigo"
+
+#: inc/import_export.php:404
 msgid ""
 "If you are wanting to migrate registered post types or taxonomies from this "
 "site to another, that will also use Custom Post Type UI, use the import and "
@@ -355,34 +420,34 @@ msgstr ""
 "e exportar. Se está a abandonar o Custom Post Type UI, utilize a informação "
 "do separador \"Obter código\"."
 
-#: inc/import_export.php:45
+#: inc/import_export.php:407
 msgid "NOTE"
 msgstr "NOTA"
 
-#: inc/import_export.php:46
+#: inc/import_export.php:408
 #, fuzzy
 msgid ""
 "This will not export the associated posts or taxonomy terms, just the "
 "settings."
 msgstr "Isto não exporta os artigos associados, apenas as definições."
 
-#: inc/import_export.php:53
+#: inc/import_export.php:415
 msgid "Import Post Types"
 msgstr "Importar tipos de artigo"
 
-#: inc/import_export.php:55 inc/import_export.php:80
+#: inc/import_export.php:419 inc/import_export.php:459
 msgid "Paste content here."
 msgstr "Colar o conteúdo aqui."
 
-#: inc/import_export.php:56 inc/import_export.php:81
+#: inc/import_export.php:422 inc/import_export.php:462
 msgid "Note:"
 msgstr "Nota:"
 
-#: inc/import_export.php:56 inc/import_export.php:81
+#: inc/import_export.php:422 inc/import_export.php:462
 msgid "Importing will overwrite previous registered settings."
 msgstr "Ao importar irá sobrepor as definições registadas anteriormente."
 
-#: inc/import_export.php:57
+#: inc/import_export.php:426
 msgid ""
 "To import post types from a different WordPress site, paste the exported "
 "content from that site and click the \"Import\" button."
@@ -390,19 +455,19 @@ msgstr ""
 "Para importar tipos de artigo de outro site WordPress, cole o conteúdo "
 "exportado desse site e clique no botão \"Importar\"."
 
-#: inc/import_export.php:58 inc/import_export.php:83
+#: inc/import_export.php:430 inc/import_export.php:470
 msgid "Import"
 msgstr "Importar"
 
-#: inc/import_export.php:62
+#: inc/import_export.php:435
 msgid "Export Post Types"
 msgstr "Exportar tipos de artigo"
 
-#: inc/import_export.php:68
+#: inc/import_export.php:442
 msgid "No post types registered yet."
 msgstr "Nenhum tipo de artigo registado ainda."
 
-#: inc/import_export.php:71 inc/import_export.php:96
+#: inc/import_export.php:445 inc/import_export.php:485
 msgid ""
 "To copy the system info, click below then press Ctrl + C (PC) or Cmd + C "
 "(Mac)."
@@ -410,7 +475,7 @@ msgstr ""
 "Para copiar a informação do sistema, clique abaixo e prima Ctrl + C (PC) ou "
 "Cmd + C (Mac)."
 
-#: inc/import_export.php:72
+#: inc/import_export.php:448
 msgid ""
 "Use the content above to import current post types into a different "
 "WordPress site. You can also use this to simply back up your post type "
@@ -420,11 +485,11 @@ msgstr ""
 "personalizados para outro site WordPress. Também pode utilizar isto "
 "simplesmente para fazer um backup das definições dos seus tipos de artigo."
 
-#: inc/import_export.php:78
+#: inc/import_export.php:455
 msgid "Import Taxonomies"
 msgstr "Importar taxonomias"
 
-#: inc/import_export.php:82
+#: inc/import_export.php:466
 msgid ""
 "To import taxonomies from a different WordPress site, paste the exported "
 "content from that site and click the \"Import\" button."
@@ -432,15 +497,15 @@ msgstr ""
 "Para importar taxonomias de outro site WordPress, cole o conteúdo exportado "
 "desse site e clique no botão \"Importar\"."
 
-#: inc/import_export.php:87
+#: inc/import_export.php:475
 msgid "Export Taxonomies"
 msgstr "Exportar taxonomias"
 
-#: inc/import_export.php:93
+#: inc/import_export.php:482
 msgid "No taxonomies registered yet."
 msgstr "Nenhuma taxonomia registada ainda."
 
-#: inc/import_export.php:97
+#: inc/import_export.php:488
 msgid ""
 "Use the content above to import current taxonomies into a different "
 "WordPress site. You can also use this to simply back up your taxonomy "
@@ -450,44 +515,40 @@ msgstr ""
 "WordPress. Também pode utilizar isto simplesmente para fazer um backup das "
 "definições das suas taxonomias."
 
-#: inc/import_export.php:105
+#: inc/import_export.php:499
 msgid "Get Post Type and Taxonomy Code"
 msgstr "Obter código do tipo de artigo e da taxonomia"
 
-#: inc/import_export.php:107
+#: inc/import_export.php:501
 msgid "All CPT UI Post Types"
 msgstr "Todos os tipos de artigos do CPT UI"
 
-#: inc/import_export.php:110 inc/import_export.php:119
-#: inc/import_export.php:127 inc/import_export.php:136
+#: inc/import_export.php:504 inc/import_export.php:513
+#: inc/import_export.php:521 inc/import_export.php:530
 msgid "Copy/paste the code below into your functions.php file."
 msgstr "Copie/cole o código abaixo no seu ficheiro functions.php."
 
-#: inc/import_export.php:118
+#: inc/import_export.php:512
 #, php-format
 msgid "%s Post Type"
 msgstr "Tipo de artigo %s"
 
-#: inc/import_export.php:124
+#: inc/import_export.php:518
 msgid "All CPT UI Taxonomies"
 msgstr "Todas as taxonomias do CPT UI"
 
-#: inc/import_export.php:135
+#: inc/import_export.php:529
 #, php-format
 msgid "%s Taxonomy"
 msgstr "Taxonomia %s"
 
-#: inc/import_export.php:176
-msgid "No taxonomies to display at this time"
-msgstr "Nenhuma taxonomia para mostrar neste momento"
+#: inc/import_export.php:549
+msgid "Please provide an email address to send debug information to: "
+msgstr ""
 
-#: inc/import_export.php:283
-msgid "No post types to display at this time"
-msgstr "Nenhum tipo de artigo para mostrar neste momento"
-
-#: inc/import_export.php:471
-msgid "Post types"
-msgstr "Tipos de artigo"
+#: inc/import_export.php:551
+msgid "Send debug info"
+msgstr ""
 
 #: inc/listings.php:10
 msgid "Post Types and Taxonomies registered by Custom Post Type UI."
@@ -1807,6 +1868,43 @@ msgstr "WebDevStudios"
 #. Author URI of the plugin/theme
 msgid "http://webdevstudios.com/"
 msgstr "http://webdevstudios.com/"
+
+#~ msgid "Post type migration"
+#~ msgstr "Migração de tipo de artigo"
+
+#~ msgid ""
+#~ "In the past, if you changed your post type slug, you would lose immediate "
+#~ "access to the posts in the post type and need to recover another way. We "
+#~ "have now added support for migrating all posts within the old post type "
+#~ "to the new post type you renamed it to."
+#~ msgstr ""
+#~ "No passado, se alterasse o URL do seu tipo de artigo, perderia de "
+#~ "imediato o acesso aos artigos desse tipo e precisaria de os recuperar de "
+#~ "outro modo. Actualmente adicionámos suporte para migrar todos os artigos "
+#~ "do tipo de artigo anterior para o recém nomeado tipo de artigo."
+
+#~ msgid "UI Refinement"
+#~ msgstr "Refinamento do interface do utilizador"
+
+#~ msgid ""
+#~ "After receiving feedback regarding the 1.0.x changes, we have further "
+#~ "simplified the UI to reduce the amount of clicking necessary to manage "
+#~ "your post types and taxonomies."
+#~ msgstr ""
+#~ "Depois de recebermos retorno sobre alterações nas versões 1.0.x, "
+#~ "simplificámos o interface do utilizador para reduzir a quantidade de "
+#~ "cliques necessários para gerir os tipos de artigos e taxonomias."
+
+#~ msgid "Registered Post Type and Taxonomy Listings"
+#~ msgstr "Listas de tipos de artigos e taxonomias registados"
+
+#~ msgid ""
+#~ "We are bringing back the listing of all CPTUI-registered post types and "
+#~ "taxonomies for easier quick view of what you have going."
+#~ msgstr ""
+#~ "Trouxémos de volta as listas de todos os tipos de artigos e taxonomias "
+#~ "registados pelo CPTUI para uma visualização facilitada do que tem em "
+#~ "funcionamento."
 
 #~ msgid "Whether posts of this type should be shown in the admin UI"
 #~ msgstr ""
