@@ -212,10 +212,10 @@ function cptui_register_single_post_type( $post_type = array() ) {
 		$menu_position = (int) $post_type['menu_position'];
 	}
 
+	$public = get_disp_boolean( $post_type['public'] );
 	if ( ! empty( $post_type['exclude_from_search'] ) ) {
 		$exclude_from_search = get_disp_boolean( $post_type['exclude_from_search'] );
 	} else {
-		$public = get_disp_boolean( $post_type['public'] );
 		$exclude_from_search = ( false === $public ) ? true : false;
 	}
 
