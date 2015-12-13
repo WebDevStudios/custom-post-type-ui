@@ -20,6 +20,8 @@ function cptui_importexport() {
 			$tab = 'taxonomies';
 		} elseif ( !empty( $_GET['action'] ) && 'get_code' == $_GET['action'] ) {
 			$tab = 'get_code';
+		} elseif ( !empty( $_GET['action'] ) && 'debuginfo' == $_GET['action'] ) {
+			$tab = 'debuginfo';
 		} else {
 			$tab = 'post_types';
 		}
@@ -37,108 +39,7 @@ function cptui_importexport() {
 	# Create our tabs.
 	cptui_settings_tab_menu( $page = 'importexport' );
 
-	if ( isset( $tab ) && ( 'post_types' == $tab || 'taxonomies' == $tab ) ) {
-	?>
-	<p><?php _e( 'If you are wanting to migrate registered post types or taxonomies from this site to another, that will also use Custom Post Type UI, use the import and export functionality. If you are moving away from Custom Post Type UI, use the information in the "Get Code" tab.', 'custom-post-type-ui' ); ?></p>
-
-	<p><?php printf( '<strong>%s</strong>: %s',
-			__( 'NOTE', 'custom-post-type-ui' ),
-			__( 'This will not export the associated posts or taxonomy terms, just the settings.', 'custom-post-type-ui' )
-		); ?>
-	</p>
-	<table class="form-table cptui-table">
-		<?php if ( !empty( $_GET ) && empty( $_GET['action'] ) ) { ?>
-		<tr>
-			<td class="outter">
-				<label for="cptui_post_import"><h2><?php _e( 'Import Post Types', 'custom-post-type-ui' ); ?></h2></label>
-				<form method="post">
-					<textarea class="cptui_post_import" placeholder="<?php esc_attr_e( 'Paste content here.', 'custom-post-type-ui' ); ?>" id="cptui_post_import" name="cptui_post_import"></textarea>
-					<p class="wp-ui-highlight"><strong><?php _e( 'Note:', 'custom-post-type-ui' ); ?></strong> <?php _e( 'Importing will overwrite previous registered settings.', 'custom-post-type-ui' ); ?></p>
-					<p><strong><?php _e( 'To import post types from a different WordPress site, paste the exported content from that site and click the "Import" button.', 'custom-post-type-ui' ); ?></strong></p>
-					<p><input class="button button-primary" type="submit" value="<?php esc_attr_e( 'Import', 'custom-post-type-ui' ); ?>"/></p>
-				</form>
-			</td>
-			<td class="outter">
-				<label for="cptui_post_export"><h2><?php _e( 'Export Post Types', 'custom-post-type-ui' ); ?></h2></label>
-				<?php
-					$cptui_post_types = get_option( 'cptui_post_types', array() );
-					if ( !empty( $cptui_post_types ) ) {
-						$content = esc_html( json_encode( $cptui_post_types ) );
-					} else {
-						$content = __( 'No post types registered yet.', 'custom-post-type-ui' );
-					}
-				?>
-				<textarea title="<?php esc_attr_e( 'To copy the system info, click below then press Ctrl + C (PC) or Cmd + C (Mac).', 'custom-post-type-ui' ); ?>" onclick="this.focus();this.select()" readonly="readonly" class="cptui_post_import" id="cptui_post_export" name="cptui_post_export"><?php echo $content; ?></textarea>
-				<p><strong><?php _e( 'Use the content above to import current post types into a different WordPress site. You can also use this to simply back up your post type settings.', 'custom-post-type-ui' ); ?></strong></p>
-			</td>
-		</tr>
-		<?php } elseif ( !empty( $_GET ) && 'taxonomies' == $_GET['action'] ) { ?>
-		<tr>
-			<td class="outter">
-				<label for="cptui_tax_import"><h2><?php _e( 'Import Taxonomies', 'custom-post-type-ui' ); ?></h2></label>
-				<form method="post">
-					<textarea class="cptui_tax_import" placeholder="<?php esc_attr_e( 'Paste content here.', 'custom-post-type-ui' ); ?>" id="cptui_tax_import" name="cptui_tax_import"></textarea>
-					<p class="wp-ui-highlight"><strong><?php _e( 'Note:', 'custom-post-type-ui' ); ?></strong> <?php _e( 'Importing will overwrite previous registered settings.', 'custom-post-type-ui' ); ?></p>
-					<p><strong><?php _e( 'To import taxonomies from a different WordPress site, paste the exported content from that site and click the "Import" button.', 'custom-post-type-ui' ); ?></strong></p>
-					<p><input class="button button-primary" type="submit" value="<?php esc_attr_e( 'Import', 'custom-post-type-ui' ); ?>"/></p>
-				</form>
-			</td>
-			<td class="outter">
-				<label for="cptui_tax_export"><h2><?php _e( 'Export Taxonomies', 'custom-post-type-ui' ); ?></h2></label>
-				<?php
-					$cptui_taxonomies = get_option( 'cptui_taxonomies', array() );
-					if ( !empty( $cptui_taxonomies ) ) {
-						$content = esc_html( json_encode( $cptui_taxonomies ) );
-					} else {
-						$content = __( 'No taxonomies registered yet.', 'custom-post-type-ui' );
-					}
-				?>
-				<textarea title="<?php esc_attr_e( 'To copy the system info, click below then press Ctrl + C (PC) or Cmd + C (Mac).', 'custom-post-type-ui' ); ?>" onclick="this.focus();this.select()" readonly="readonly" class="cptui_tax_import" id="cptui_tax_export" name="cptui_tax_export"><?php echo $content; ?></textarea>
-				<p><strong><?php _e( 'Use the content above to import current taxonomies into a different WordPress site. You can also use this to simply back up your taxonomy settings.', 'custom-post-type-ui' ); ?></strong></p>
-			</td>
-		</tr>
-		<?php } ?>
-	</table>
-
-	<?php
-	} else { ?>
-		<h1><?php _e( 'Get Post Type and Taxonomy Code', 'custom-post-type-ui' ); ?></h1>
-
-		<h2><?php _e( 'All CPT UI Post Types', 'custom-post-type-ui' ); ?></h2>
-
-		<?php $cptui_post_types = get_option( 'cptui_post_types' ); ?>
-		<label for="cptui_post_type_get_code"><?php _e( 'Copy/paste the code below into your functions.php file.', 'custom-post-type-ui' ); ?></label>
-		<textarea name="cptui_post_type_get_code" id="cptui_post_type_get_code" class="cptui_post_type_get_code" onclick="this.focus();this.select()" readonly="readonly"><?php cptui_get_post_type_code( $cptui_post_types ); ?></textarea>
-
-		<?php
-		if ( !empty( $cptui_post_types ) ) {
-			foreach ( $cptui_post_types as $post_type ) { ?>
-				<h2><?php
-					$type = ( !empty( $post_type['label'] ) ) ? $post_type['label'] : $post_type['name'];
-					printf( __( '%s Post Type', 'custom-post-type-ui' ), $type ); ?></h2>
-				<label for="cptui_post_type_get_code_<?php echo $post_type['name']; ?>"><?php _e( 'Copy/paste the code below into your functions.php file.', 'custom-post-type-ui' ); ?></label>
-				<textarea name="cptui_post_type_get_code_<?php echo $post_type['name']; ?>" id="cptui_post_type_get_code_<?php echo $post_type['name']; ?>" class="cptui_post_type_get_code" onclick="this.focus();this.select()" readonly="readonly"><?php cptui_get_post_type_code( array( $post_type ), true ); ?></textarea>
-			<?php }
-		} ?>
-
-		<h2><?php _e( 'All CPT UI Taxonomies', 'custom-post-type-ui' ); ?></h2>
-
-		<?php $cptui_taxonomies = get_option( 'cptui_taxonomies' ); ?>
-		<label for="cptui_tax_get_code"><?php _e( 'Copy/paste the code below into your functions.php file.', 'custom-post-type-ui' ); ?></label>
-		<textarea name="cptui_tax_get_code" id="cptui_tax_get_code" class="cptui_tax_get_code" onclick="this.focus();this.select()" readonly="readonly"><?php cptui_get_taxonomy_code( $cptui_taxonomies ); ?></textarea>
-
-		<?php
-		if ( ! empty( $cptui_taxonomies ) ) {
-			foreach ( $cptui_taxonomies as $taxonomy ) { ?>
-				<h2><?php
-					$tax = ( ! empty( $taxonomy['label'] ) ) ? $taxonomy['label'] : $taxonomy['name'];
-					printf( __( '%s Taxonomy', 'custom-post-type-ui' ), $tax ); ?></h2>
-				<label for="cptui_tax_get_code_<?php echo $taxonomy['name']; ?>"><?php _e( 'Copy/paste the code below into your functions.php file.', 'custom-post-type-ui' ); ?></label>
-				<textarea name="cptui_tax_get_code_<?php echo $taxonomy['name']; ?>" id="cptui_tax_get_code_<?php echo $taxonomy['name']; ?>" class="cptui_tax_get_code" onclick="this.focus();this.select()" readonly="readonly"><?php cptui_get_taxonomy_code( array( $taxonomy ), true ); ?></textarea>
-			<?php }
-		} ?>
-	<?php
-	}
+	do_action( 'cptui_import_export_sections', $tab );
 
 	echo '</div><!-- End .wrap -->';
 }
@@ -496,3 +397,174 @@ function cptui_import_types_taxes_settings( $postdata = array() ) {
 
 	return $success;
 }
+
+function cptui_render_posttypes_taxonomies_section() {
+?>
+
+	<p><?php _e( 'If you are wanting to migrate registered post types or taxonomies from this site to another, that will also use Custom Post Type UI, use the import and export functionality. If you are moving away from Custom Post Type UI, use the information in the "Get Code" tab.', 'custom-post-type-ui' ); ?></p>
+
+<p><?php printf( '<strong>%s</strong>: %s',
+			__( 'NOTE', 'custom-post-type-ui' ),
+			__( 'This will not export the associated posts or taxonomy terms, just the settings.', 'custom-post-type-ui' )
+	); ?>
+</p>
+<table class="form-table cptui-table">
+	<?php if ( ! empty( $_GET ) && empty( $_GET['action'] ) ) { ?>
+		<tr>
+			<td class="outter">
+				<label for="cptui_post_import"><h2><?php _e( 'Import Post Types', 'custom-post-type-ui' ); ?></h2>
+				</label>
+
+				<form method="post">
+					<textarea class="cptui_post_import" placeholder="<?php esc_attr_e( 'Paste content here.', 'custom-post-type-ui' ); ?>" id="cptui_post_import" name="cptui_post_import"></textarea>
+
+					<p class="wp-ui-highlight">
+						<strong><?php _e( 'Note:', 'custom-post-type-ui' ); ?></strong> <?php _e( 'Importing will overwrite previous registered settings.', 'custom-post-type-ui' ); ?>
+					</p>
+
+					<p>
+						<strong><?php _e( 'To import post types from a different WordPress site, paste the exported content from that site and click the "Import" button.', 'custom-post-type-ui' ); ?></strong>
+					</p>
+
+					<p>
+						<input class="button button-primary" type="submit" value="<?php esc_attr_e( 'Import', 'custom-post-type-ui' ); ?>" />
+					</p>
+				</form>
+			</td>
+			<td class="outter">
+				<label for="cptui_post_export"><h2><?php _e( 'Export Post Types', 'custom-post-type-ui' ); ?></h2>
+				</label>
+				<?php
+				$cptui_post_types = get_option( 'cptui_post_types', array() );
+				if ( ! empty( $cptui_post_types ) ) {
+					$content = esc_html( json_encode( $cptui_post_types ) );
+				} else {
+					$content = __( 'No post types registered yet.', 'custom-post-type-ui' );
+				}
+				?>
+				<textarea title="<?php esc_attr_e( 'To copy the system info, click below then press Ctrl + C (PC) or Cmd + C (Mac).', 'custom-post-type-ui' ); ?>" onclick="this.focus();this.select()" readonly="readonly" class="cptui_post_import" id="cptui_post_export" name="cptui_post_export"><?php echo $content; ?></textarea>
+
+				<p>
+					<strong><?php _e( 'Use the content above to import current post types into a different WordPress site. You can also use this to simply back up your post type settings.', 'custom-post-type-ui' ); ?></strong>
+				</p>
+			</td>
+		</tr>
+	<?php } elseif ( ! empty( $_GET ) && 'taxonomies' == $_GET['action'] ) { ?>
+		<tr>
+			<td class="outter">
+				<label for="cptui_tax_import"><h2><?php _e( 'Import Taxonomies', 'custom-post-type-ui' ); ?></h2>
+				</label>
+
+				<form method="post">
+					<textarea class="cptui_tax_import" placeholder="<?php esc_attr_e( 'Paste content here.', 'custom-post-type-ui' ); ?>" id="cptui_tax_import" name="cptui_tax_import"></textarea>
+
+					<p class="wp-ui-highlight">
+						<strong><?php _e( 'Note:', 'custom-post-type-ui' ); ?></strong> <?php _e( 'Importing will overwrite previous registered settings.', 'custom-post-type-ui' ); ?>
+					</p>
+
+					<p>
+						<strong><?php _e( 'To import taxonomies from a different WordPress site, paste the exported content from that site and click the "Import" button.', 'custom-post-type-ui' ); ?></strong>
+					</p>
+
+					<p>
+						<input class="button button-primary" type="submit" value="<?php esc_attr_e( 'Import', 'custom-post-type-ui' ); ?>" />
+					</p>
+				</form>
+			</td>
+			<td class="outter">
+				<label for="cptui_tax_export"><h2><?php _e( 'Export Taxonomies', 'custom-post-type-ui' ); ?></h2>
+				</label>
+				<?php
+				$cptui_taxonomies = get_option( 'cptui_taxonomies', array() );
+				if ( ! empty( $cptui_taxonomies ) ) {
+					$content = esc_html( json_encode( $cptui_taxonomies ) );
+				} else {
+					$content = __( 'No taxonomies registered yet.', 'custom-post-type-ui' );
+				}
+				?>
+				<textarea title="<?php esc_attr_e( 'To copy the system info, click below then press Ctrl + C (PC) or Cmd + C (Mac).', 'custom-post-type-ui' ); ?>" onclick="this.focus();this.select()" readonly="readonly" class="cptui_tax_import" id="cptui_tax_export" name="cptui_tax_export"><?php echo $content; ?></textarea>
+
+				<p>
+					<strong><?php _e( 'Use the content above to import current taxonomies into a different WordPress site. You can also use this to simply back up your taxonomy settings.', 'custom-post-type-ui' ); ?></strong>
+				</p>
+			</td>
+		</tr>
+	<?php } ?>
+</table>
+<?php
+}
+
+function cptui_render_getcode_section() {
+?>
+	<h1><?php _e( 'Get Post Type and Taxonomy Code', 'custom-post-type-ui' ); ?></h1>
+
+		<h2><?php _e( 'All CPT UI Post Types', 'custom-post-type-ui' ); ?></h2>
+
+		<?php $cptui_post_types = get_option( 'cptui_post_types' ); ?>
+		<label for="cptui_post_type_get_code"><?php _e( 'Copy/paste the code below into your functions.php file.', 'custom-post-type-ui' ); ?></label>
+		<textarea name="cptui_post_type_get_code" id="cptui_post_type_get_code" class="cptui_post_type_get_code" onclick="this.focus();this.select()" readonly="readonly"><?php cptui_get_post_type_code( $cptui_post_types ); ?></textarea>
+
+		<?php
+		if ( !empty( $cptui_post_types ) ) {
+			foreach ( $cptui_post_types as $post_type ) { ?>
+				<h2><?php
+					$type = ( !empty( $post_type['label'] ) ) ? $post_type['label'] : $post_type['name'];
+					printf( __( '%s Post Type', 'custom-post-type-ui' ), $type ); ?></h2>
+				<label for="cptui_post_type_get_code_<?php echo $post_type['name']; ?>"><?php _e( 'Copy/paste the code below into your functions.php file.', 'custom-post-type-ui' ); ?></label>
+				<textarea name="cptui_post_type_get_code_<?php echo $post_type['name']; ?>" id="cptui_post_type_get_code_<?php echo $post_type['name']; ?>" class="cptui_post_type_get_code" onclick="this.focus();this.select()" readonly="readonly"><?php cptui_get_post_type_code( array( $post_type ), true ); ?></textarea>
+			<?php }
+		} ?>
+
+		<h2><?php _e( 'All CPT UI Taxonomies', 'custom-post-type-ui' ); ?></h2>
+
+		<?php $cptui_taxonomies = get_option( 'cptui_taxonomies' ); ?>
+		<label for="cptui_tax_get_code"><?php _e( 'Copy/paste the code below into your functions.php file.', 'custom-post-type-ui' ); ?></label>
+		<textarea name="cptui_tax_get_code" id="cptui_tax_get_code" class="cptui_tax_get_code" onclick="this.focus();this.select()" readonly="readonly"><?php cptui_get_taxonomy_code( $cptui_taxonomies ); ?></textarea>
+
+		<?php
+		if ( ! empty( $cptui_taxonomies ) ) {
+			foreach ( $cptui_taxonomies as $taxonomy ) { ?>
+				<h2><?php
+					$tax = ( ! empty( $taxonomy['label'] ) ) ? $taxonomy['label'] : $taxonomy['name'];
+					printf( __( '%s Taxonomy', 'custom-post-type-ui' ), $tax ); ?></h2>
+				<label for="cptui_tax_get_code_<?php echo $taxonomy['name']; ?>"><?php _e( 'Copy/paste the code below into your functions.php file.', 'custom-post-type-ui' ); ?></label>
+				<textarea name="cptui_tax_get_code_<?php echo $taxonomy['name']; ?>" id="cptui_tax_get_code_<?php echo $taxonomy['name']; ?>" class="cptui_tax_get_code" onclick="this.focus();this.select()" readonly="readonly"><?php cptui_get_taxonomy_code( array( $taxonomy ), true ); ?></textarea>
+			<?php }
+		} ?>
+	<?php
+}
+
+function cptui_render_debuginfo_section() {
+	$debuginfo = new CPTUI_Debug_Info();
+
+	echo '<form id="cptui_debug_info" method="post">';
+	$debuginfo->tab_site_info();
+
+	if ( ! empty( $_POST ) && isset( $_POST['cptui_debug_info_email'] ) ) {
+		$email_args = array();
+		$email_args['email'] = sanitize_text_field( $_POST['cptui_debug_info_email'] );
+		$debuginfo->send_email( $email_args );
+	}
+
+	echo '<p><label for="cptui_debug_info_email">' . __( 'Please provide an email address to send debug information to: ', 'custom_post_type_ui' ) . '</label><input type="email" id="cptui_debug_info_email" name="cptui_debug_info_email" value="" /></p>';
+
+	echo '<p><input type="submit" class="button-primary" name="cptui_send_debug_email" value="' . esc_attr( apply_filters( 'cptui_post_type_debug_email', __( 'Send debug info', 'custom-post-type-ui' ) ) ) . '" /></p>';
+	echo '</form>';
+}
+
+function cptui_render_importexportsections( $tab ) {
+	if ( isset( $tab ) ) {
+		if ( 'post_types' == $tab || 'taxonomies' == $tab ) {
+			cptui_render_posttypes_taxonomies_section();
+		}
+
+		if ( 'get_code' == $tab ) {
+			cptui_render_getcode_section();
+		}
+
+		if ( 'debuginfo' == $tab ) {
+			cptui_render_debuginfo_section();
+		}
+	}
+}
+add_action( 'cptui_import_export_sections', 'cptui_render_importexportsections' );

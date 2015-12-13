@@ -26,6 +26,7 @@ define( 'CPTUI_WP_VERSION', get_bloginfo( 'version' ) );
  */
 function cptui_load_ui_class() {
 	require_once( plugin_dir_path( __FILE__ ) . 'classes/class.cptui_admin_ui.php' );
+	require_once( plugin_dir_path( __FILE__ ) . 'classes/class.cptui_debug_info.php' );
 }
 add_action( 'init', 'cptui_load_ui_class' );
 
@@ -526,7 +527,7 @@ function disp_boolean( $booText ) {
 function cptui_settings_tab_menu( $page = 'post_types' ) {
 
 	# initiate our arrays with default classes
-	$tab1 = $tab2 = $tab3 = array( 'nav-tab' );
+	$tab1 = $tab2 = $tab3 = $tab4 = array( 'nav-tab' );
 	$has = false;
 
 	if ( 'importexport' == $page ) :
@@ -546,13 +547,15 @@ function cptui_settings_tab_menu( $page = 'post_types' ) {
 			$tab2[] = 'nav-tab-active';
 		} elseif ( 'get_code' == $_GET['action'] ) {
 			$tab3[] = 'nav-tab-active';
+		} elseif ( 'debuginfo' == $_GET['action'] ) {
+			$tab4[] = 'nav-tab-active';
 		}
 	}  else {
 		$tab1[] = 'nav-tab-active';
 	}
 
 	# implode our arrays for class attributes
-	$tab1 = implode( ' ', $tab1 ); $tab2 = implode( ' ', $tab2 ); $tab3 = implode( ' ', $tab3 );
+	$tab1 = implode( ' ', $tab1 ); $tab2 = implode( ' ', $tab2 ); $tab3 = implode( ' ', $tab3 ); $tab4 = implode( ' ', $tab4 );
 
 	?>
 	<h1><?php echo $title; ?></h1>
@@ -579,6 +582,7 @@ function cptui_settings_tab_menu( $page = 'post_types' ) {
 		<a class="<?php echo $tab1; ?>" href="<?php echo admin_url( 'admin.php?page=cptui_' . $page ); ?>"><?php _e( 'Post Types', 'custom-post-type-ui' ); ?></a>
 		<a class="<?php echo $tab2; ?>" href="<?php echo esc_url( add_query_arg( array( 'action' => 'taxonomies' ), admin_url( 'admin.php?page=cptui_' . $page ) ) ); ?>"><?php _e( 'Taxonomies', 'custom-post-type-ui' ); ?></a>
 		<a class="<?php echo $tab3; ?>" href="<?php echo esc_url( add_query_arg( array( 'action' => 'get_code' ), admin_url( 'admin.php?page=cptui_' . $page ) ) ); ?>"><?php _e( 'Get Code', 'custom-post-type-ui' ); ?></a>
+		<a class="<?php echo $tab4; ?>" href="<?php echo esc_url( add_query_arg( array( 'action' => 'debuginfo' ), admin_url( 'admin.php?page=cptui_' . $page ) ) ); ?>"><?php _e( 'Debug Info', 'custom-post-type-ui' ); ?></a>
 	<?php
 	}
 
