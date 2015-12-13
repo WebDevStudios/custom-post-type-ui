@@ -384,9 +384,10 @@ function cptui_settings() { ?>
 		<div class="about-text cptui-about-text">
 			<?php _e( 'Thank you for choosing Custom Post Type UI. We hope that your experience with our plugin provides efficiency and speed in creating post types and taxonomies, to better organize your content, without having to touch code.', 'custom-post-type-ui' ); ?>
 		</div>
-
+		<h2><?php printf( __( 'What\'s new in version %s', 'custom-post-type-ui' ), CPT_VERSION ); ?></h2>
 		<div class="changelog about-integrations">
 			<div class="cptui-feature feature-section col three-col">
+
 				<div>
 					<h2><?php _e( 'Updated internationalization', 'custom-post-type-ui' ); ?></h2>
 					<p><?php _e( 'Our textdomain now matches the plugin slug from our WordPress.org repository to help aid in translating Custom Post Type UI', 'custom-post-type-ui' ); ?></p>
