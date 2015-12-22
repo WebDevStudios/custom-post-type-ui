@@ -73,7 +73,7 @@ function cptui_support() {
 							<div class="answer"><?php _e( 'Make sure your theme has post "post-thumbnails" theme support enabled.', 'custom-post-type-ui' ); ?> <a href="http://codex.wordpress.org/Function_Reference/add_theme_support" target="_blank">http://codex.wordpress.org/Function_Reference/add_theme_support</a></div>
 						</li>
 						<li>
-							<span class="question"><?php _e( 'Do you have any recommendations for an alternative to Visual Composer.', 'custom-post-type-ui' ); ?></span>
+							<span class="question"><?php _e( 'Do you have any recommendations for an alternative to Visual Composer?', 'custom-post-type-ui' ); ?></span>
 							<div class="answer"><?php _e( 'We recommend using VelocityPage.', 'custom-post-type-ui' ); ?>
 								<a href="https://velocitypage.com" target="_blank">https://velocitypage.com</a>
 							</div>
