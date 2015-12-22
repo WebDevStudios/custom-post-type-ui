@@ -1272,7 +1272,7 @@ msgid ""
 msgstr ""
 
 #: inc/support.php:76
-msgid "Do you have any recommendations for an alternative to Visual Composer."
+msgid "Do you have any recommendations for an alternative to Visual Composer?"
 msgstr ""
 
 #: inc/support.php:77
