@@ -131,7 +131,7 @@ function cptui_listings() {
 
 								<p><?php printf(
 										'<a href="https://developer.wordpress.org/themes/basics/template-hierarchy/">%s</a>',
-										__( 'Template hierarchy Theme Handbook' )
+										__( 'Template hierarchy Theme Handbook', 'custom-post-type-ui' )
 									); ?>
 								</p>
 							</td>
@@ -264,7 +264,7 @@ function cptui_listings() {
 									</p>
 									<p><?php printf(
 											'<a href="https://developer.wordpress.org/themes/basics/template-hierarchy/">%s</a>',
-											__( 'Template hierarchy Theme Handbook' )
+											__( 'Template hierarchy Theme Handbook', 'custom-post-type-ui' )
 										); ?></p>
 								</td>
 							</tr>
