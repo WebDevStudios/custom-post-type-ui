@@ -1,11 +1,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Custom Post Type UI 1.2\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/custom-post-type-"
-"ui\n"
-"POT-Creation-Date: 2015-12-13 00:09-0600\n"
-"PO-Revision-Date: 2015-12-13 00:09-0600\n"
-"Last-Translator: Michael Beckwith <michael.d.beckwith@gmail.com>\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/plugins/custom-post-type-ui\n"
+"POT-Creation-Date: 2016-01-04 01:29+0100\n"
+"PO-Revision-Date: 2016-01-04 01:49+0100\n"
+"Last-Translator: Ralf Koller <r.koller@gmail.com>\n"
 "Language-Team: Pascal Kläres & Ralf Koller <pascal.klaeres@gmail.com & r."
 "koller@gmail.com>\n"
 "Language: de_DE\n"
@@ -31,11 +30,17 @@ msgid ""
 "insert the email they provided in the input field at the bottom and click "
 "the \"Send debug info\" button. Only the data below will be sent to them."
 msgstr ""
+"Falls Sie in den Foren Hilfe zu Custom Post Type UI gesucht haben sollten "
+"kann es sein dass Sie vom Plugin-Entwickler gebeten wurden die nachfolgenden "
+"Informationen zu übermitteln. Tragen Sie einfach die angegebene E-Mail-"
+"Adresse in das Eingabefeld unten ein und klicke den „Debug-Informationen "
+"senden“-Button. Es werden einzig und alleine die angezeigten Daten an die "
+"Entwickler verschickt."
 
 #: classes/class.cptui_debug_info.php:186
 #, php-format
 msgid "CPTUI debug information for %s"
-msgstr ""
+msgstr "CPTUI Debug-Information für %s"
 
 #: custom-post-type-ui.php:61
 msgid "Custom Post Types"
@@ -92,31 +97,37 @@ msgstr ""
 #: custom-post-type-ui.php:387
 #, php-format
 msgid "What's new in version %s"
-msgstr ""
+msgstr "Was gibt es Neues in Version %s"
 
 #: custom-post-type-ui.php:392
 msgid "Updated internationalization"
-msgstr ""
+msgstr "Aktualisierte Internationalisierung"
 
 #: custom-post-type-ui.php:393
 msgid ""
 "Our textdomain now matches the plugin slug from our WordPress.org repository "
 "to help aid in translating Custom Post Type UI"
 msgstr ""
+"Unsere Text Domain ist nun identisch mit dem Kurzlink des Plugins im "
+"WordPress.org Repository, was das Übersetzen von Custom Post Type UI "
+"erleichtert"
 
 #: custom-post-type-ui.php:396
 msgid "Debugging information"
-msgstr ""
+msgstr "Hilfe fürs Debuggen"
 
 #: custom-post-type-ui.php:397
 msgid ""
 "We have added a new \"Debug Info\" tab to the Import/Export area to aid in "
 "debugging issues with Custom Post Type UI."
 msgstr ""
+"Wir haben einen „Debug“-Reiter zum Import/Export-Bereich hinzugefügt als "
+"Hilfestellung damit die Ursachen von Problemen mit Custom Post Type UI "
+"leichter herauszufinden sind."
 
 #: custom-post-type-ui.php:400
 msgid "Improved accessibility"
-msgstr ""
+msgstr "Verbesserte Barrierefreiheit"
 
 #: custom-post-type-ui.php:401
 msgid ""
@@ -124,10 +135,13 @@ msgid ""
 "need it. If you have feedback on where it could be further improved, let us "
 "know."
 msgstr ""
+"Es wurde viel Zeit im Bereich der Barrierefreiheit investiert um Nutzern zu "
+"helfen die diese benötigen. Falls Sie eine Idee haben wie wir diesen Bereich "
+"weiter verbessern können dann lassen Sie es uns bitte wissen."
 
 #: custom-post-type-ui.php:404
 msgid "WP REST API support"
-msgstr ""
+msgstr "Unterstützung der WP REST API"
 
 #: custom-post-type-ui.php:405
 msgid ""
@@ -135,31 +149,37 @@ msgid ""
 "add your Custom Post Type UI post types and taxonomies to the available REST "
 "API lists."
 msgstr ""
+"Wir unterstützen ab sofort die notwendigen Felder für die WP REST API. Sie "
+"können Ihre Custom Post Type UI Post Types und Taxonomien zu den verfügbaren "
+"REST API Listen hinzufügen."
 
 #: custom-post-type-ui.php:408
 msgid "More parameter support"
-msgstr ""
+msgstr "Unterstützung weiterer Parameter"
 
 #: custom-post-type-ui.php:409
 msgid ""
 "We have added more parameters for greater customization of your post type "
 "and taxonomy settings."
 msgstr ""
+"Wir haben weitere Parameter hinzugefügt damit Sie Ihre Post Types und "
+"Taxonomien noch besser anpassen können."
 
 #: custom-post-type-ui.php:412
 msgid "New individual \"Get Code\" sections"
-msgstr ""
+msgstr "Neue „Code erhalten“-Funktionalität"
 
 #: custom-post-type-ui.php:413
 msgid ""
 "The \"Get Code\" area now has support for copy/paste of individual post "
 "types and taxonomies."
 msgstr ""
+"Der „Code erhalten“-Bereich unterstützt das Kopieren und Einfügen von "
+"einzelnen Post Types und Taxonomien."
 
 #: custom-post-type-ui.php:416
-#, fuzzy
 msgid "Template hierarchy reference"
-msgstr "Hierarchischer Rewrite"
+msgstr "Übersicht der Template-Hierarchie"
 
 #: custom-post-type-ui.php:417
 msgid ""
@@ -167,6 +187,10 @@ msgid ""
 "quick reference list of common template files you can use in your theme. "
 "They will be listed on the \"Registered Types/Taxes\" screen."
 msgstr ""
+"Um Ihnen bei der Entwicklung mit Post Types und Taxonomien zu helfen haben "
+"wir eine Übersicht der gängigsten Template-Dateien die Sie in Ihrem Theme "
+"verwenden können zusammengestellt. Sie ist unter „Registrierte Post Types & "
+"Taxonomien“ zu finden."
 
 #: custom-post-type-ui.php:422
 msgid "Help Support This Plugin!"
@@ -177,9 +201,8 @@ msgid "Professional WordPress<br />Third Edition"
 msgstr "Professional WordPress<br />(Dritte Auflage)"
 
 #: custom-post-type-ui.php:428
-#, fuzzy
 msgid "Professional WordPress Design and Development book cover."
-msgstr "Professional WordPress<br />Plugin Development"
+msgstr "Bucheinband von Professional WordPress Design and Development"
 
 #: custom-post-type-ui.php:431
 msgid ""
@@ -194,9 +217,8 @@ msgid "Professional WordPress<br />Plugin Development"
 msgstr "Professional WordPress<br />Plugin Development"
 
 #: custom-post-type-ui.php:436
-#, fuzzy
 msgid "Professional WordPress Pluing Development book cover."
-msgstr "Professional WordPress<br />Plugin Development"
+msgstr "Bucheinband von Professional WordPress Plugin Development"
 
 #: custom-post-type-ui.php:439
 msgid "Highest rated WordPress development book on Amazon!"
@@ -268,7 +290,7 @@ msgstr "Code erhalten"
 
 #: custom-post-type-ui.php:602
 msgid "Debug Info"
-msgstr ""
+msgstr "Debug"
 
 #: custom-post-type-ui.php:685 inc/listings.php:22 inc/listings.php:170
 #: inc/post-types.php:420 inc/taxonomies.php:402
@@ -430,12 +452,12 @@ msgid "NOTE"
 msgstr "Anmerkung"
 
 #: inc/import_export.php:408
-#, fuzzy
 msgid ""
 "This will not export the associated posts or taxonomy terms, just the "
 "settings."
 msgstr ""
-"Es werden nur die Einstellungen exportiert, nicht die dazugehörigen Beiträge."
+"Es werden nur die Einstellungen exportiert; nicht die dazugehörigen Beiträge "
+"oder Taxonomie-Begriffe."
 
 #: inc/import_export.php:415
 msgid "Import Post Types"
@@ -556,10 +578,12 @@ msgstr "%s Taxonomie"
 #: inc/import_export.php:549
 msgid "Please provide an email address to send debug information to: "
 msgstr ""
+"Geben Sie bitte die E-Mail-Adresse ein an die die Informationen versendet "
+"werden sollen:"
 
 #: inc/import_export.php:551
 msgid "Send debug info"
-msgstr ""
+msgstr "Debug-Informationen versenden"
 
 #: inc/listings.php:10
 msgid "Post Types and Taxonomies registered by Custom Post Type UI."
@@ -584,9 +608,8 @@ msgid "Labels"
 msgstr "Beschriftungen"
 
 #: inc/listings.php:26 inc/listings.php:173
-#, fuzzy
 msgid "Template Hierarchy"
-msgstr "Hierarchischer Rewrite"
+msgstr "Template-Hierarchie"
 
 #: inc/listings.php:81
 msgid "View frontend archive"
@@ -598,15 +621,15 @@ msgstr "Keine benutzerdefinierten Beschriftungen zum Anzeigen"
 
 #: inc/listings.php:119
 msgid "Archives file name examples."
-msgstr ""
+msgstr "Beispiele für Archiv-Dateinamen."
 
 #: inc/listings.php:125
 msgid "Single Posts file name examples."
-msgstr ""
+msgstr "Beispiele für einzelne Beitragsseiten."
 
 #: inc/listings.php:134 inc/listings.php:267
 msgid "Template hierarchy Theme Handbook"
-msgstr ""
+msgstr "Die Template-Hierarchie im Theme-Handbuch"
 
 #: inc/listings.php:152
 #, php-format
@@ -620,16 +643,14 @@ msgid "Taxonomy"
 msgstr "Taxonomie"
 
 #: inc/listings.php:254
-#, fuzzy
 msgid "Archives"
-msgstr ""
-"Du musst Deinen neu erstellten Post Type zu der Gruppe hinzufügen nach der "
-"die Kategorie- und Ettiketten-Archive durchsucht werden. Du findest ein "
-"Tutorial dazu unter %s"
+msgstr "Archive"
 
 #: inc/listings.php:263
 msgid "*Replace \"term_slug\" with the slug of the actual taxonomy term."
 msgstr ""
+"*Ersetzen Sie „term_slug“ mit dem Kurzlink des eigentlichen Taxonomie-"
+"Begriffs."
 
 #: inc/listings.php:284
 #, php-format
@@ -962,18 +983,16 @@ msgstr ""
 "angelegt werden."
 
 #: inc/post-types.php:478
-#, fuzzy
 msgid "Show in Nav Menus"
-msgstr "Im Menü anzeigen"
+msgstr "Im Navigations-Menü anzeigen"
 
 #: inc/post-types.php:479
-#, fuzzy
 msgid "(CPTUI default: true)"
 msgstr "(CPTUI Voreinstellung: aktiviert)"
 
 #: inc/post-types.php:480
 msgid "Whether post type is available for selection in navigation menus."
-msgstr ""
+msgstr "Soll der Post Type in den Navigations-Menüs auswählbar sein."
 
 #: inc/post-types.php:498 inc/taxonomies.php:557
 msgid "Show in REST API"
@@ -992,12 +1011,11 @@ msgstr ""
 
 #: inc/post-types.php:508 inc/taxonomies.php:567
 msgid "REST API base slug"
-msgstr ""
+msgstr "REST API Kurzlink"
 
 #: inc/post-types.php:509 inc/taxonomies.php:568
-#, fuzzy
 msgid "Slug to use in REST API URLs."
-msgstr "In der REST API anzeigen"
+msgstr "Kurzlink der in den REST API URLs verwendet wird."
 
 #: inc/post-types.php:519
 msgid "Has Archive"
@@ -1369,6 +1387,8 @@ msgid ""
 "I have post types with spaces in their slug and can not successfully delete "
 "them. How can I fix that?"
 msgstr ""
+"Sie haben Post Types mit Leerzeichen in deren Kurzlink und können diese "
+"nicht löschen. Wie können Sie das beheben?"
 
 #: inc/support.php:58
 msgid ""
@@ -1376,6 +1396,11 @@ msgid ""
 "on the left. Replace the space with an underscore and then click \"Import\". "
 "You should be able to delete the individual post types afterwards."
 msgstr ""
+"Gehen Sie auf die Import/Export Seite und kopieren Sie den „Post Types "
+"exportieren“ Code zur Rechten in das „Post Types importieren“ Feld zur "
+"Linken. Ersetzen Sie das Leerzeichen durch einen Unterstrich und klicken "
+"dann „Importieren“. Es sollte Ihnen möglich sein im Anschluss den einzelnen "
+"Post Type zu löschen."
 
 #: inc/support.php:62
 msgid ""
@@ -1430,7 +1455,7 @@ msgstr ""
 "Thumbnails\" aktiviert hat"
 
 #: inc/support.php:76
-msgid "Do you have any recommendations for an alternative to Visual Composer."
+msgid "Do you have any recommendations for an alternative to Visual Composer?"
 msgstr "Haben Sie eine Empfehlung für eine Alternative zu Visual Composer."
 
 #: inc/support.php:77
@@ -1624,11 +1649,10 @@ msgstr ""
 "Beschriftungen in der Einzahl benötigt werden."
 
 #: inc/taxonomies.php:167
-#, fuzzy
 msgid "Taxonomy Description. Describe what your taxonomy is used for."
 msgstr ""
-"Custom Post Type-Beschreibung. Beschreibt für was der Custom Post Type "
-"verwendet wird."
+"Taxonomie-Beschreibung. Beschreiben Sie für was Ihre Taxonomie verwendet "
+"wird."
 
 #: inc/taxonomies.php:170
 msgid "Attach to Post Type"
@@ -1765,36 +1789,32 @@ msgid "Popular Items"
 msgstr "Beliebte Einträge"
 
 #: inc/taxonomies.php:368
-#, fuzzy
 msgid "(e.g. Separate Actors with commas)"
-msgstr "(z. B. Trenne die Regisseure mittels Komma)"
+msgstr "(z. B. Trennen Sie die Regisseure mittels Komma)"
 
 #: inc/taxonomies.php:369
 msgid "Separate Items with Commas"
 msgstr "Trenne Einträge mittels Komma"
 
 #: inc/taxonomies.php:377
-#, fuzzy
 msgid "(e.g. Add or remove Actors)"
-msgstr "(z. B. Lösche oder füge Regisseure hinzu)"
+msgstr "(z. B. Löschen oder fügen Sie Regisseure hinzu)"
 
 #: inc/taxonomies.php:378
 msgid "Add or Remove Items"
 msgstr "Lösche oder füge Einträge hinzu"
 
 #: inc/taxonomies.php:386
-#, fuzzy
 msgid "(e.g. Choose from the most used Actors)"
-msgstr "(z. B. Wähle aus den meist genutzten Regisseuren)"
+msgstr "(z. B. Wählen Sie aus den am Meisten verwendeten Regisseuren)"
 
 #: inc/taxonomies.php:387
 msgid "Choose From Most Used"
 msgstr "Wähle aus den am meisten Verwendeten"
 
 #: inc/taxonomies.php:395
-#, fuzzy
 msgid "(e.g. No Actors found)"
-msgstr "(z. B. Keine Regisseure gefunden)"
+msgstr "(z.B. Keine Regisseure gefunden)"
 
 #: inc/taxonomies.php:396
 msgid "Not found"
@@ -1875,10 +1895,9 @@ msgstr ""
 "Post Types erlaubt werden."
 
 #: inc/taxonomies.php:559
-#, fuzzy
 msgid "Whether to show this taxonomy data in the WP REST API."
 msgstr ""
-"Ob die Daten des Post Types in der WP REST API angezeigt werden sollen."
+"Ob die Daten diese Taxonomie in der WP REST API angezeigt werden sollen."
 
 #: inc/taxonomies.php:676
 msgid "Please provide a taxonomy to delete"
@@ -1918,6 +1937,10 @@ msgstr "WebDevStudios"
 #. Author URI of the plugin/theme
 msgid "http://webdevstudios.com/"
 msgstr "http://webdevstudios.com/"
+
+#~ msgid ""
+#~ "Do you have any recommendations for an alternative to Visual Composer."
+#~ msgstr "Haben Sie eine Empfehlung für eine Alternative zu Visual Composer."
 
 #~ msgid "Post type migration"
 #~ msgstr "Post Type Migrierung"
