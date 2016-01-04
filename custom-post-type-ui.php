@@ -513,8 +513,9 @@ function cptui_settings_tab_menu( $page = 'post_types' ) {
 	$tab1 = implode( ' ', $tab1 ); $tab2 = implode( ' ', $tab2 ); $tab3 = implode( ' ', $tab3 );
 
 	?>
+	<h2><?php echo $title; ?></h2>
 	<h2 class="nav-tab-wrapper">
-	<?php echo $title;
+	<?php
 
 	# Import/Export area is getting different tabs, so we need to separate out.
 	if ( 'importexport' != $page ) {
