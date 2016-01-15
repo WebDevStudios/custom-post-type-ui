@@ -1,12 +1,3 @@
-.cptui-help {
-	border-radius: 50%;
-	display: inline-block;
-	height: 15px;
-	margin-left: 2px;
-	text-align: center;
-	width: 15px;
-}
-.cptui-help:hover { font-weight: bold; }
 .required { color: rgb(255,0,0); }
 .cptui-table #excerpt { height: 16px; margin-right: 4px; width: auto; }
 .cptui-table td.outter { vertical-align: top; width: 50%; }
@@ -107,4 +98,22 @@
 .js #cptui_select_post_type input[type='submit'],
 .js #cptui_select_taxonomy input[type='submit'] {
 	display: none;
+}
+.cptui-help {
+	color: #424242;
+	margin-left: 4px;
+	opacity: 0.5;
+	text-decoration: none;
+	width: 16px;
+}
+fieldset .cptui-help {
+	position: relative;
+	top: 4px;
+}
+.cptui-help:hover {
+	color: #0074a2;
+	opacity: 1;
+}
+.cptui-help:focus {
+	box-shadow: none;
 }
