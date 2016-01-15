@@ -15,6 +15,8 @@ class CPTUI_Utility extends CPTUI_Base_Tests {
 	}
 
 	/**
+	 * Register our post type and taxonomy defaults.
+	 *
 	 * @before
 	 */
 	public function setupPostTypeTax() {
@@ -23,6 +25,8 @@ class CPTUI_Utility extends CPTUI_Base_Tests {
 	}
 
 	/**
+	 * Unregister our post type and taxonomies.
+	 *
 	 * @after
 	 */
 	public function removePostTypeTax() {
@@ -39,7 +43,7 @@ class CPTUI_Utility extends CPTUI_Base_Tests {
 	}
 
 	/**
-	 * Tests that we have our needed post type functions
+	 * Tests that we have our needed post type functions.
 	 */
 	public function test_CPTUI_post_type_registration_function_exists() {
 		$this->assertTrue( function_exists( 'cptui_register_single_post_type' ) );
@@ -121,8 +125,29 @@ class CPTUI_Utility extends CPTUI_Base_Tests {
 		$this->assertTrue( is_object( $actor->labels ) );
 		$this->assertNotEmpty( $actor->labels, 'No labels available' );
 
+		$this->assertEquals( 'Actors', $actor->labels->name );
+		$this->assertEquals( 'Actor', $actor->labels->singular_name );
+		$this->assertEquals( 'Actors', $actor->labels->menu_name );
+		$this->assertEquals( 'All Actors', $actor->labels->all_items );
+		$this->assertEquals( 'Edit Actor', $actor->labels->edit_item );
+		$this->assertEquals( 'View Actor', $actor->labels->view_item );
+		$this->assertEquals( 'Update Actor Name', $actor->labels->update_item );
+		$this->assertEquals( 'Add New Actor', $actor->labels->add_new_item );
+		$this->assertEquals( 'New Actor Name', $actor->labels->new_item_name );
+		$this->assertEquals( 'Parent Actor', $actor->labels->parent_item );
+		$this->assertEquals( 'Parent Actor:', $actor->labels->parent_item_colon );
+		$this->assertEquals( 'Search Actors', $actor->labels->search_items );
+		$this->assertEquals( 'Popular Actors', $actor->labels->popular_items );
+		$this->assertEquals( 'Separate Actors with commas', $actor->labels->separate_items_with_commas );
+		$this->assertEquals( 'Add or remove Actors', $actor->labels->add_or_remove_items );
+		$this->assertEquals( 'Choose from the most used Actors', $actor->labels->choose_from_most_used );
+		$this->assertEquals( 'No Actors found', $actor->labels->not_found );
+
 	}
 
+	/**
+	 * Tests our return values for the get_disp_boolean helper.
+	 */
 	public function test_get_disp_boolean() {
 
 		$this->assertFalse( get_disp_boolean( 0 ) );
@@ -140,6 +165,9 @@ class CPTUI_Utility extends CPTUI_Base_Tests {
 		$this->assertTrue( get_disp_boolean( 1235 ) );
 	}
 
+	/**
+	 * Tests our return values for the string disp_boolean helper.
+	 */
 	public function test_disp_boolean() {
 
 		$this->assertEquals( 'false', disp_boolean( 0 ) );
@@ -159,12 +187,68 @@ class CPTUI_Utility extends CPTUI_Base_Tests {
 	}
 
 	/**
+	 * Tests our reserved post type utility function.
+	 */
+	public function test_cptui_reserved_post_types() {
+
+		// Test without filters
+		$reserved = cptui_reserved_post_types();
+		$defaults = array(
+			'post',
+			'page',
+			'attachment',
+			'revision',
+			'nav_menu_item',
+			'action',
+			'order',
+			'theme'
+		);
+
+		$this->assertNotEmpty( $reserved );
+		foreach( $defaults as $default ) {
+			$this->assertContains( $default, $reserved );
+		}
+
+		// Pre filters
+		$this->assertNotContains( 'reserved_slug', $reserved );
+		$this->assertNotContains( 'reserved_string_slug', $reserved );
+
+		// Add filter to get custom slugs array
+		add_filter( 'cptui_reserved_post_types', array( $this, 'add_reserved_post_types_array' ) );
+		// Fetch new value with the custom slugs added.
+		$reserved = cptui_reserved_post_types();
+		remove_filter( 'cptui_reserved_post_types', array( $this, 'add_reserved_post_types_array' ) );
+
+		// Need to re-test these to make sure they persist.
+		$this->assertNotEmpty( $reserved );
+		foreach ( $defaults as $default ) {
+			$this->assertContains( $default, $reserved );
+		}
+
+		$this->assertContains( 'reserved_slug', $reserved );
+
+		// Add filters to get custom slugs string
+		add_filter( 'cptui_reserved_post_types', array( $this, 'add_reserved_post_types_string' ) );
+		// Fetch new value with the custom slugs added.
+		$reserved = cptui_reserved_post_types();
+		remove_filter( 'cptui_reserved_post_types', array( $this, 'add_reserved_post_types_string' ) );
+
+		// Need to re-test these to make sure they persist.
+		$this->assertNotEmpty( $reserved );
+		foreach ( $defaults as $default ) {
+			$this->assertContains( $default, $reserved );
+		}
+
+		$this->assertContains( 'reserved_string_slug', $reserved );
+	}
+
+	/**
 	 * Create our base post type to test.
 	 * @return mixed|void
 	 */
 	public function setup_cpt_option() {
 
-		$custom = 'a:1:{s:5:"movie";a:21:{s:4:"name";s:5:"movie";s:5:"label";s:6:"Movies";s:14:"singular_label";s:5:"Movie";s:11:"description";s:0:"";s:6:"public";s:4:"true";s:7:"show_ui";s:4:"true";s:11:"has_archive";s:5:"false";s:19:"exclude_from_search";s:5:"false";s:15:"capability_type";s:4:"post";s:12:"hierarchical";s:5:"false";s:7:"rewrite";s:4:"true";s:12:"rewrite_slug";s:0:"";s:17:"rewrite_withfront";s:4:"true";s:9:"query_var";s:4:"true";s:13:"menu_position";s:0:"";s:12:"show_in_menu";s:4:"true";s:19:"show_in_menu_string";s:0:"";s:9:"menu_icon";N;s:8:"supports";a:0:{}s:10:"taxonomies";a:0:{}s:6:"labels";a:13:{s:9:"menu_name";s:9:"My Movies";s:9:"all_items";s:10:"All Movies";s:7:"add_new";s:7:"Add New";s:12:"add_new_item";s:13:"Add New Movie";s:4:"edit";s:4:"Edit";s:9:"edit_item";s:10:"Edit Movie";s:8:"new_item";s:9:"New Movie";s:4:"view";s:4:"View";s:9:"view_item";s:10:"View Movie";s:12:"search_items";s:13:"Search Movies";s:9:"not_found";s:15:"No Movies Found";s:18:"not_found_in_trash";s:24:"No Movies found in trash";s:6:"parent";s:12:"Parent Movie";}}}';
+		$custom = 'a:1:{s:5:"movie";a:22:{s:4:"name";s:5:"movie";s:5:"label";s:6:"Movies";s:14:"singular_label";s:5:"Movie";s:11:"description";s:0:"";s:6:"public";s:4:"true";s:7:"show_ui";s:4:"true";s:17:"show_in_nav_menus";s:4:"true";s:11:"has_archive";s:5:"false";s:19:"exclude_from_search";s:5:"false";s:15:"capability_type";s:4:"post";s:12:"hierarchical";s:5:"false";s:7:"rewrite";s:4:"true";s:12:"rewrite_slug";s:0:"";s:17:"rewrite_withfront";s:4:"true";s:9:"query_var";s:4:"true";s:13:"menu_position";s:0:"";s:12:"show_in_menu";s:4:"true";s:19:"show_in_menu_string";s:0:"";s:9:"menu_icon";N;s:8:"supports";a:0:{}s:10:"taxonomies";a:0:{}s:6:"labels";a:13:{s:9:"menu_name";s:9:"My Movies";s:9:"all_items";s:10:"All Movies";s:7:"add_new";s:7:"Add New";s:12:"add_new_item";s:13:"Add New Movie";s:4:"edit";s:4:"Edit";s:9:"edit_item";s:10:"Edit Movie";s:8:"new_item";s:9:"New Movie";s:4:"view";s:4:"View";s:9:"view_item";s:10:"View Movie";s:12:"search_items";s:13:"Search Movies";s:9:"not_found";s:15:"No Movies Found";s:18:"not_found_in_trash";s:24:"No Movies found in trash";s:6:"parent";s:12:"Parent Movie";}}}';
 		update_option( 'cptui_post_types', maybe_unserialize( $custom ) );
 
 		return get_option( 'cptui_post_types' );
@@ -176,18 +260,44 @@ class CPTUI_Utility extends CPTUI_Base_Tests {
 	 */
 	public function setup_tax_option() {
 
-		$custom = 'a:1:{s:6:"actors";a:14:{s:4:"name";s:6:"actors";s:5:"label";s:6:"Actors";s:14:"singular_label";s:5:"Actor";s:12:"hierarchical";s:5:"false";s:7:"show_ui";s:4:"true";s:9:"query_var";s:4:"true";s:14:"query_var_slug";s:0:"";s:7:"rewrite";s:4:"true";s:12:"rewrite_slug";s:0:"";s:17:"rewrite_withfront";s:1:"1";s:20:"rewrite_hierarchical";s:1:"0";s:17:"show_admin_column";s:5:"false";s:6:"labels";a:0:{}s:11:"object_type";a:1:{i:0;s:5:"movie";}}}';
+		$custom = 'a:1:{s:6:"actors";a:17:{s:4:"name";s:6:"actors";s:5:"label";s:6:"Actors";s:14:"singular_label";s:5:"Actor";s:11:"description";s:12:"custom label";s:12:"hierarchical";s:5:"false";s:7:"show_ui";s:4:"true";s:9:"query_var";s:4:"true";s:14:"query_var_slug";s:0:"";s:7:"rewrite";s:4:"true";s:12:"rewrite_slug";s:0:"";s:17:"rewrite_withfront";s:1:"1";s:20:"rewrite_hierarchical";s:1:"0";s:17:"show_admin_column";s:5:"false";s:12:"show_in_rest";s:5:"false";s:9:"rest_base";s:0:"";s:6:"labels";a:15:{s:9:"menu_name";s:6:"Actors";s:9:"all_items";s:10:"All Actors";s:9:"edit_item";s:10:"Edit Actor";s:9:"view_item";s:10:"View Actor";s:11:"update_item";s:17:"Update Actor Name";s:12:"add_new_item";s:13:"Add New Actor";s:13:"new_item_name";s:14:"New Actor Name";s:11:"parent_item";s:12:"Parent Actor";s:17:"parent_item_colon";s:13:"Parent Actor:";s:12:"search_items";s:13:"Search Actors";s:13:"popular_items";s:14:"Popular Actors";s:26:"separate_items_with_commas";s:27:"Separate Actors with commas";s:19:"add_or_remove_items";s:20:"Add or remove Actors";s:21:"choose_from_most_used";s:32:"Choose from the most used Actors";s:9:"not_found";s:15:"No Actors found";}s:12:"object_types";s:0:"";}}';
 		update_option( 'cptui_taxonomies', maybe_unserialize( $custom ) );
 
 		return get_option( 'cptui_taxonomies' );
 	}
 
+	/**
+	 * Handle registering our plugin's post type registration function.
+	 */
 	public function register_post_type() {
 		cptui_register_single_post_type( $this->post_type_array['movie'] );
 	}
 
+	/**
+	 * Handle registering our plugin's taxonomy registration function.
+	 */
 	public function register_taxonomy() {
 		cptui_register_single_taxonomy( $this->taxonomy_array['actors'] );
+	}
+
+	/**
+	 * Callback for testing cptui_reserved_post_types filter.
+	 *
+	 * @param array $slugs Default empty array from filter.
+	 * @return array Array of custom slugs to add
+	 */
+	public function add_reserved_post_types_array( $slugs = array() ) {
+		return array( 'reserved_slug' );
+	}
+
+	/**
+	 * Callback for testing cptui_reserved_post_types filter.
+	 *
+	 * @param array $slugs Default empty array from filter.
+	 * @return string Slug to add to array.
+	 */
+	public function add_reserved_post_types_string( $slugs = array() ) {
+		return 'reserved_string_slug';
 	}
 
 }

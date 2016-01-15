@@ -6,8 +6,16 @@ require_once( 'CPTUI-Base-Tests.php' );
  */
 class CPTUI_Admin_UI_Inputs_Test extends CPTUI_Base_Tests {
 
+	/**
+	 * Our Admin UI object instance.
+	 * @var string
+	 */
+	public $ui = '';
+
 	public function setUp() {
 		parent::setUp();
+
+		$this->ui = new cptui_admin_ui();
 	}
 
 	public function tearDown() {
@@ -18,32 +26,47 @@ class CPTUI_Admin_UI_Inputs_Test extends CPTUI_Base_Tests {
 	 * Tests our label method.
 	 */
 	public function test_CPTUI_Label() {
-		$ui = new cptui_admin_ui();
 		$expected = '<label for="testing">Testing</label>';
 
-		$this->assertEquals( $expected, $ui->get_label( 'testing', 'Testing' ) );
+		$this->assertEquals( $expected, $this->ui->get_label( 'testing', 'Testing' ) );
+	}
+
+	/**
+	 * Tests our fieldset method opener.
+	 */
+	public function test_CPTUI_Fieldset_Start() {
+		$expected = '<fieldset>';
+
+		$this->assertEquals( $expected, $this->ui->get_fieldset_start() );
+	}
+
+	/**
+	 * Tests our fieldset method closer.
+	 */
+	public function test_CPTUI_Fieldset_End() {
+		$expected = '</fieldset>';
+
+		$this->assertEquals( $expected, $this->ui->get_fieldset_end() );
 	}
 
 	/**
 	 * Tests our required field method.
 	 */
 	public function test_CPTUI_Required() {
-		$ui = new cptui_admin_ui();
-		$expected = '<span class="required">*</span>';
+				$expected = '<span class="required">*</span>';
 
-		$this->assertEquals( $expected, $ui->get_required() );
+		$this->assertEquals( $expected, $this->ui->get_required() );
 	}
 
 	/**
 	 * Tests our textarea field method.
 	 */
 	public function test_CPTUI_Textarea() {
-		$ui = new cptui_admin_ui();
 
 		$expected = '<tr valign="top">
 			<th scope="row">
 				<label for="name">Description</label>
-				<a href="#" title="Helper text." class="cptui-help wp-ui-highlight">?</a>
+				<a href="#" class="cptui-help dashicons-before dashicons-editor-help" title="Helper text."></a>
 			</th>
 			<td>
 				<textarea id="name" name="name_array[name]" rows="4" cols="40">saved value</textarea>
@@ -60,19 +83,18 @@ class CPTUI_Admin_UI_Inputs_Test extends CPTUI_Base_Tests {
 			'helptext' => 'Helper text.'
 		);
 
-		$this->assertHTMLstringsAreEqual( $expected, $ui->get_textarea_input( $args ) );
+		$this->assertHTMLstringsAreEqual( $expected, $this->ui->get_textarea_input( $args ) );
 	}
 
 	/**
 	 * Tests our text field method.
 	 */
 	public function test_CPTUI_Text() {
-		$ui = new cptui_admin_ui();
 
 		$expected = '<tr valign="top">
 			<th scope="row">
 				<label for="name">Description</label>
-				<a href="#" title="Helper text." class="cptui-help wp-ui-highlight">?</a>
+				<a href="#" class="cptui-help dashicons-before dashicons-editor-help" title="Helper text."></a>
 			</th>
 			<td>
 				<input type="text" id="name" name="name_array[name]" value="saved value" /><br/>
@@ -89,7 +111,7 @@ class CPTUI_Admin_UI_Inputs_Test extends CPTUI_Base_Tests {
 			'helptext' => 'Helper text.'
 		);
 
-		$this->assertHTMLstringsAreEqual( $expected, $ui->get_text_input( $args ) );
+		$this->assertHTMLstringsAreEqual( $expected, $this->ui->get_text_input( $args ) );
 	}
 
 	/**
@@ -98,7 +120,6 @@ class CPTUI_Admin_UI_Inputs_Test extends CPTUI_Base_Tests {
 	 * This test checks for no required boolean and no saved value.
 	 */
 	public function test_CPTUI_Select_No_Required_No_Saved() {
-		$ui = new cptui_admin_ui();
 
 		$select = array(
 			'options' => array(
@@ -120,7 +141,7 @@ class CPTUI_Admin_UI_Inputs_Test extends CPTUI_Base_Tests {
 		$expected = '<tr valign="top">
 			<th scope="row">
 				<label for="public">Public</label>
-				<a href="#" title="Whether posts of this type should be shown in the admin UI" class="cptui-help wp-ui-highlight">?</a>
+				<a href="#" class="cptui-help dashicons-before dashicons-editor-help" title="Whether posts of this type should be shown in the admin UI"></a>
 			</th>
 			<td>
 				<select id="public" name="cpt_custom_post_type[public]">
@@ -131,7 +152,7 @@ class CPTUI_Admin_UI_Inputs_Test extends CPTUI_Base_Tests {
 			</td>
 		</tr>';
 
-		$this->assertHTMLstringsAreEqual( $expected, $ui->get_select_input( $args ) );
+		$this->assertHTMLstringsAreEqual( $expected, $this->ui->get_select_input( $args ) );
 	}
 
 	/**
@@ -140,7 +161,6 @@ class CPTUI_Admin_UI_Inputs_Test extends CPTUI_Base_Tests {
 	 * This test checks for no required boolean and no saved value.
 	 */
 	public function test_CPTUI_Select_Required_No_Saved() {
-		$ui = new cptui_admin_ui();
 
 		$select = array(
 			'options' => array(
@@ -163,7 +183,7 @@ class CPTUI_Admin_UI_Inputs_Test extends CPTUI_Base_Tests {
 		$expected = '<tr valign="top">
 			<th scope="row">
 				<label for="public">Public</label><span class="required">*</span>
-				<a href="#" title="Whether posts of this type should be shown in the admin UI" class="cptui-help wp-ui-highlight">?</a>
+				<a href="#" class="cptui-help dashicons-before dashicons-editor-help" title="Whether posts of this type should be shown in the admin UI"></a>
 			</th>
 			<td>
 				<select id="public" name="cpt_custom_post_type[public]">
@@ -174,7 +194,7 @@ class CPTUI_Admin_UI_Inputs_Test extends CPTUI_Base_Tests {
 			</td>
 		</tr>';
 
-		$this->assertHTMLstringsAreEqual( $expected, $ui->get_select_input( $args ) );
+		$this->assertHTMLstringsAreEqual( $expected, $this->ui->get_select_input( $args ) );
 	}
 
 	/**
@@ -183,7 +203,6 @@ class CPTUI_Admin_UI_Inputs_Test extends CPTUI_Base_Tests {
 	 * This test checks for no required boolean and a "true" saved value.
 	 */
 	public function test_CPTUI_Select_No_Required_True_Saved() {
-		$ui = new cptui_admin_ui();
 
 		$select = array(
 			'options' => array(
@@ -205,7 +224,7 @@ class CPTUI_Admin_UI_Inputs_Test extends CPTUI_Base_Tests {
 		$expected = '<tr valign="top">
 			<th scope="row">
 				<label for="public">Public</label>
-		<a href="#" title="Whether posts of this type should be shown in the admin UI" class="cptui-help wp-ui-highlight">?</a>
+				<a href="#" class="cptui-help dashicons-before dashicons-editor-help" title="Whether posts of this type should be shown in the admin UI"></a>
 			</th>
 			<td>
 				<select id="public" name="cpt_custom_post_type[public]">
@@ -216,7 +235,7 @@ class CPTUI_Admin_UI_Inputs_Test extends CPTUI_Base_Tests {
 			</td>
 		</tr>';
 
-		$this->assertHTMLstringsAreEqual( $expected, $ui->get_select_input( $args ) );
+		$this->assertHTMLstringsAreEqual( $expected, $this->ui->get_select_input( $args ) );
 	}
 
 	/**
@@ -225,7 +244,6 @@ class CPTUI_Admin_UI_Inputs_Test extends CPTUI_Base_Tests {
 	 * This test checks for no required boolean and a "false" saved value.
 	 */
 	public function test_CPTUI_Select_No_Required_False_Saved() {
-		$ui = new cptui_admin_ui();
 
 		$select = array(
 			'options' => array(
@@ -247,7 +265,7 @@ class CPTUI_Admin_UI_Inputs_Test extends CPTUI_Base_Tests {
 		$expected = '<tr valign="top">
 			<th scope="row">
 				<label for="public">Public</label>
-				<a href="#" title="Whether posts of this type should be shown in the admin UI" class="cptui-help wp-ui-highlight">?</a>
+				<a href="#" class="cptui-help dashicons-before dashicons-editor-help" title="Whether posts of this type should be shown in the admin UI"></a>
 			</th>
 			<td>
 				<select id="public" name="cpt_custom_post_type[public]">
@@ -258,14 +276,13 @@ class CPTUI_Admin_UI_Inputs_Test extends CPTUI_Base_Tests {
 			</td>
 		</tr>';
 
-		$this->assertHTMLstringsAreEqual( $expected, $ui->get_select_input( $args ) );
+		$this->assertHTMLstringsAreEqual( $expected, $this->ui->get_select_input( $args ) );
 	}
 
 	/**
 	 * Tests non boolean based select inputs
 	 */
 	public function test_CPTUI_Select_Non_Bool_No_Option() {
-		$ui = new cptui_admin_ui();
 
 		$select = array();
 		$select['options'] = array();
@@ -288,14 +305,13 @@ class CPTUI_Admin_UI_Inputs_Test extends CPTUI_Base_Tests {
 			<option value="tv_show">TV Show</option>
 		</select>';
 
-		$this->assertHTMLstringsAreEqual( $expected, $ui->get_select_input( $args ) );
+		$this->assertHTMLstringsAreEqual( $expected, $this->ui->get_select_input( $args ) );
 	}
 
 	/**
 	 * Tests non boolean based select inputs
 	 */
 	public function test_CPTUI_Select_Non_Bool_First_Option() {
-		$ui = new cptui_admin_ui();
 
 		$select = array();
 		$select['options'] = array();
@@ -318,14 +334,13 @@ class CPTUI_Admin_UI_Inputs_Test extends CPTUI_Base_Tests {
 			<option value="tv_show">TV Show</option>
 		</select>';
 
-		$this->assertHTMLstringsAreEqual( $expected, $ui->get_select_input( $args ) );
+		$this->assertHTMLstringsAreEqual( $expected, $this->ui->get_select_input( $args ) );
 	}
 
 	/**
 	 * Tests non boolean based select inputs
 	 */
 	public function test_CPTUI_Select_Non_Bool_Second_Option() {
-		$ui = new cptui_admin_ui();
 
 		$select = array();
 		$select['options'] = array();
@@ -348,7 +363,7 @@ class CPTUI_Admin_UI_Inputs_Test extends CPTUI_Base_Tests {
 			<option value="tv_show" selected="selected">TV Show</option>
 		</select>';
 
-		$this->assertHTMLstringsAreEqual( $expected, $ui->get_select_input( $args ) );
+		$this->assertHTMLstringsAreEqual( $expected, $this->ui->get_select_input( $args ) );
 	}
 
 	public function providertest_something()
