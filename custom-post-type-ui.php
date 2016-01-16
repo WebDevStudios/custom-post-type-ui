@@ -4,7 +4,7 @@ Plugin Name: Custom Post Type UI
 Plugin URI: https://github.com/WebDevStudios/custom-post-type-ui/
 Description: Admin panel for creating custom post types and custom taxonomies in WordPress
 Author: WebDevStudios
-Version: 1.2.0
+Version: 1.2.1
 Author URI: http://webdevstudios.com/
 GitHub Plugin URI: https://github.com/WebDevStudios/custom-post-type-ui
 GitHub Branch: master
@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'CPT_VERSION', '1.2.0' );
+define( 'CPT_VERSION', '1.2.1' );
 define( 'CPTUI_WP_VERSION', get_bloginfo( 'version' ) );
 
 /**
@@ -304,6 +304,11 @@ function cptui_register_single_taxonomy( $taxonomy = array() ) {
 		'singular_name'      => $taxonomy['singular_label']
 	);
 
+	$description = '';
+	if ( !empty( $taxonomy['description'] ) ) {
+		$description = $taxonomy['description'];
+	}
+
 	$preserved = cptui_get_preserved_keys( 'taxonomies' );
 	foreach( $taxonomy['labels'] as $key => $label ) {
 
@@ -331,6 +336,8 @@ function cptui_register_single_taxonomy( $taxonomy = array() ) {
 
 	$show_admin_column = ( !empty( $taxonomy['show_admin_column'] ) && false !== get_disp_boolean( $taxonomy['show_admin_column'] ) ) ? true : false;
 
+	$show_in_rest = ( ! empty( $taxonomy['show_in_rest'] ) && false !== get_disp_boolean( $taxonomy['show_in_rest'] ) ) ? true : false;
+
 	$rest_base = null;
 	if ( ! empty( $taxonomy['rest_base'] ) ) {
 		$rest_base = $taxonomy['rest_base'];
@@ -339,13 +346,13 @@ function cptui_register_single_taxonomy( $taxonomy = array() ) {
 	$args = array(
 		'labels'            => $labels,
 		'label'             => $taxonomy['label'],
-		'description'       => $taxonomy['description'],
+		'description'       => $description,
 		'hierarchical'      => get_disp_boolean( $taxonomy['hierarchical'] ),
 		'show_ui'           => get_disp_boolean( $taxonomy['show_ui'] ),
 		'query_var'         => $taxonomy['query_var'],
 		'rewrite'           => $rewrite,
 		'show_admin_column' => $show_admin_column,
-		'show_in_rest'      => get_disp_boolean( $taxonomy['show_in_rest'] ),
+		'show_in_rest'      => $show_in_rest,
 		'rest_base'         => $rest_base,
 	);
 
