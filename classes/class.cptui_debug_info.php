@@ -1,8 +1,8 @@
 <?php
 /**
  * Custom Post Type UI Debug Information.
- *
- * @package Custom Post Type UI
+
+ * @package CPTUI
  * @subpackage Debugging
  */
 

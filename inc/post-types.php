@@ -1,9 +1,9 @@
 <?php
 /**
  * Custom Post Type UI Post Type Settings.
- *
- * @package Custom Post Type UI
- * @subpackage Post Types
+
+ * @package CPTUI
+ * @subpackage PostTypes
  */
 
 # Exit if accessed directly

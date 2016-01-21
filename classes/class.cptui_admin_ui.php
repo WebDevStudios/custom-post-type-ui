@@ -1,8 +1,8 @@
 <?php
 /**
  * Custom Post Type UI Admin UI.
- *
- * @package Custom Post Type UI
+
+ * @package CPTUI
  * @subpackage AdminUI
  */
 

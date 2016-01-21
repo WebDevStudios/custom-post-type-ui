@@ -1,8 +1,8 @@
 <?php
 /**
  * Custom Post Type UI Taxonomy Settings.
- *
- * @package Custom Post Type UI
+
+ * @package CPTUI
  * @subpackage Taxonomies
  */
 

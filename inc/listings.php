@@ -1,9 +1,9 @@
 <?php
 /**
  * Custom Post Type UI Registered Content.
- *
- * @package Custom Post Type UI
- * @subpackage Listings.
+
+ * @package CPTUI
+ * @subpackage Listings
  */
 
 # Exit if accessed directly

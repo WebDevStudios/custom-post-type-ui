@@ -1,8 +1,8 @@
 <?php
 /**
  * Custom Post Type UI Import/Export.
- *
- * @package Custom Post Type UI
+
+ * @package CPTUI
  * @subpackage ImportExport
  */
 

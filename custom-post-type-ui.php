@@ -2,7 +2,7 @@
 /**
  * Custom Post Type UI.
  *
- * @package Custom Post Type UI
+ * @package CPTUI
  * @subpackage Loader
  */
 
