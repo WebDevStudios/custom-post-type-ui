@@ -6,9 +6,8 @@
  * @subpackage AdminUI
  */
 
-/**
- * Ideas: $this->get_td( $content ). Returns content wrapped in <td>. Similar with $this->get_tr(), $this->th()
- */
+# Ideas: $this->get_td( $content ). Returns content wrapped in <td>. Similar with $this->get_tr(), $this->th()
+
 
 /**
  * Custom Post Type UI Admin UI
@@ -16,100 +15,100 @@
 class cptui_admin_ui {
 
 	/**
-	 * Return an opening <tr> tag.
+	 * Return an opening `<tr>` tag.
 	 *
 	 * @since 1.0.0
 	 *
-	 * @return string $value Opening <tr> tag with attributes.
+	 * @return string $value Opening `<tr>` tag with attributes.
 	 */
 	public function get_tr_start() {
 		return '<tr valign="top">';
 	}
 
 	/**
-	 * Return a closing </tr> tag.
+	 * Return a closing `</tr>` tag.
 	 *
 	 * @since 1.0.0
 	 *
-	 * @return string $value Closing </tr> tag.
+	 * @return string $value Closing `</tr>` tag.
 	 */
 	public function get_tr_end() {
 		return '</tr>';
 	}
 
 	/**
-	 * Return an opening <th> tag.
+	 * Return an opening `<th>` tag.
 	 *
 	 * @since 1.0.0
 	 *
-	 * @return string $value Opening <th> tag with attributes.
+	 * @return string $value Opening `<th>` tag with attributes.
 	 */
 	public function get_th_start() {
 		return '<th scope="row">';
 	}
 
 	/**
-	 * Return a closing </th> tag.
+	 * Return a closing `</th>` tag.
 	 *
 	 * @since 1.0.0
 	 *
-	 * @return string $value Closing </th> tag.
+	 * @return string $value Closing `</th>` tag.
 	 */
 	public function get_th_end() {
 		return '</th>';
 	}
 
 	/**
-	 * Return an opening <td> tag.
+	 * Return an opening `<td>` tag.
 	 *
 	 * @since 1.0.0
 	 *
-	 * @return string $value Opening <td> tag.
+	 * @return string $value Opening `<td>` tag.
 	 */
 	public function get_td_start() {
 		return '<td>';
 	}
 
 	/**
-	 * Return a closing </td> tag.
+	 * Return a closing `</td>` tag.
 	 *
 	 * @since 1.0.0
 	 *
-	 * @return string $value Closing </td> tag.
+	 * @return string $value Closing `</td>` tag.
 	 */
 	public function get_td_end() {
 		return '</td>';
 	}
 
 	/**
-	 * Return an opening <fieldset> tag.
+	 * Return an opening `<fieldset>` tag.
 	 *
 	 * @since 1.2.0
 	 *
-	 * @return string $value Opening <fieldset> tag.
+	 * @return string $value Opening `<fieldset>` tag.
 	 */
 	public function get_fieldset_start() {
 		return '<fieldset>';
 	}
 
 	/**
-	 * Return an closing <fieldset> tag.
+	 * Return an closing `<fieldset>` tag.
 	 *
 	 * @since 1.2.0
 	 *
-	 * @return string $value Closing <fieldset> tag.
+	 * @return string $value Closing `<fieldset>` tag.
 	 */
 	public function get_fieldset_end() {
 		return '</fieldset>';
 	}
 
 	/**
-	 * Return string wrapped in a <p> tag.
+	 * Return string wrapped in a `<p>` tag.
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param string $text Content to wrap in a <p> tag.
-	 * @return string $value Content wrapped in a <p> tag.
+	 * @param string $text Content to wrap in a `<p>` tag.
+	 * @return string $value Content wrapped in a `<p>` tag.
 	 */
 	public function get_p( $text = '' ) {
 		return '<p>' . $text . '</p>';
@@ -120,16 +119,16 @@ class cptui_admin_ui {
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param string $label_for  Form input to associate <label> with.
-	 * @param string $label_text Text to display in the <label> tag.
-	 * @return string $value <label> tag with filled out parts.
+	 * @param string $label_for  Form input to associate `<label>` with.
+	 * @param string $label_text Text to display in the `<label>` tag.
+	 * @return string $value `<label>` tag with filled out parts.
 	 */
 	public function get_label( $label_for = '', $label_text = '' ) {
 		return '<label for="' . esc_attr( $label_for ) . '">' . strip_tags( $label_text ) . '</label>';
 	}
 
 	/**
-	 * Return a <span> to indicate required status, with class attribute.
+	 * Return a `<span>` to indicate required status, with class attribute.
 	 *
 	 * @since 1.0.0
 	 *
@@ -140,7 +139,7 @@ class cptui_admin_ui {
 	}
 
 	/**
-	 * Return an <a> tag with title attribute holding help text.
+	 * Return an `<a>` tag with title attribute holding help text.
 	 *
 	 * @since 1.0.0
 	 *
@@ -176,11 +175,11 @@ class cptui_admin_ui {
 	}
 
 	/**
-	 * Return a populated <select> input.
+	 * Return a populated `<select>` input.
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param array $args Arguments to use with the <select> input.
+	 * @param array $args Arguments to use with the `<select>` input.
 	 * @return string $value Complete <select> input with options and selected attribute.
 	 */
 	public function get_select_input( $args = array() ) {
@@ -249,7 +248,7 @@ class cptui_admin_ui {
 	 * @since 1.0.0
 	 *
 	 * @param array $args Arguments to use with the text input.
-	 * @return string Complete text <input> with proper attributes.
+	 * @return string Complete text `<input>` with proper attributes.
 	 */
 	public function get_text_input( $args = array() ) {
 		$defaults = $this->get_default_input_parameters(
@@ -302,7 +301,7 @@ class cptui_admin_ui {
 	}
 
 	/**
-	 * Return a <textarea> input.
+	 * Return a `<textarea>` input.
 	 *
 	 * @since 1.0.0
 	 *
@@ -344,12 +343,12 @@ class cptui_admin_ui {
 	}
 
 	/**
-	 * Return a checkbox <input>.
+	 * Return a checkbox `<input>`.
 	 *
 	 * @since 1.0.0
 	 *
 	 * @param array $args Arguments to use with the checkbox input.
-	 * @return string $value Complete checkbox <input> with proper attributes.
+	 * @return string $value Complete checkbox `<input>` with proper attributes.
 	 */
 	public function get_check_input( $args = array() ) {
 		$defaults = $this->get_default_input_parameters(
