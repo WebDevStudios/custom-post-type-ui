@@ -1,11 +1,18 @@
 <?php
 /**
+ * Custom Post Type UI Admin UI.
+ *
+ * @package Custom Post Type UI
+ * @subpackage AdminUI
+ */
+
+/**
  * Ideas: $this->get_td( $content ). Returns content wrapped in <td>. Similar with $this->get_tr(), $this->th()
  */
 
 /**
-* Custom Post Type UI Admin UI
-*/
+ * Custom Post Type UI Admin UI
+ */
 class cptui_admin_ui {
 
 	/**
