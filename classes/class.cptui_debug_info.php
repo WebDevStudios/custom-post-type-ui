@@ -1,7 +1,21 @@
 <?php
+/**
+ * Custom Post Type UI Debug Information.
+ *
+ * @package Custom Post Type UI
+ * @subpackage Debugging
+ */
 
+/**
+ * Custom Post Type UI Debug Info
+ */
 class CPTUI_Debug_Info {
 
+	/**
+	 * Tab content for the debug info tab.
+	 *
+	 * @since 1.2.0
+	 */
 	public function tab_site_info() {
 		?>
 		<p><?php _e( 'If you have sought support for Custom Post Type UI on the forums, you may be requested to send the information below to the plugin developer. Simply insert the email they provided in the input field at the bottom and click the "Send debug info" button. Only the data below will be sent to them.', 'custom-post-type-ui' ); ?></p>
@@ -12,6 +26,13 @@ class CPTUI_Debug_Info {
 		<?php
 	}
 
+	/**
+	 * Generate the debug information content.
+	 *
+	 * @since 1.2.0
+	 *
+	 * @return string
+	 */
 	private function system_status() {
 		if ( ! current_user_can( 'manage_options' ) ) {
 			return '';
@@ -145,7 +166,9 @@ class CPTUI_Debug_Info {
 	}
 
 	/**
-	 * helper function for number conversions
+	 * Helper function for number conversions.
+	 *
+	 * @since 1.2.0
 	 * @access public
 	 *
 	 * @param mixed $v
@@ -170,7 +193,14 @@ class CPTUI_Debug_Info {
 		return $ret;
 	}
 
-	public function send_email( $args ) {
+	/**
+	 * Sends an email to the specified address, with the system status as the message.
+	 *
+	 * @param array $args Array of arguments for the method.
+	 *
+	 * @return bool
+	 */
+	public function send_email( $args = array() ) {
 
 		if ( ! isset( $args['email'] ) || ! is_email( $args['email'] ) ) {
 			return false;
