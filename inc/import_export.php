@@ -401,6 +401,11 @@ function cptui_import_types_taxes_settings( $postdata = array() ) {
 	return $success;
 }
 
+/**
+ * Content for the Post Types/Taxonomies Import/Export tab.
+ *
+ * @since 1.2.0
+ */
 function cptui_render_posttypes_taxonomies_section() {
 ?>
 
@@ -497,6 +502,11 @@ function cptui_render_posttypes_taxonomies_section() {
 <?php
 }
 
+/**
+ * Content for the Get Code tab.
+ *
+ * @since 1.2.0
+ */
 function cptui_render_getcode_section() {
 ?>
 	<h1><?php _e( 'Get Post Type and Taxonomy Code', 'custom-post-type-ui' ); ?></h1>
@@ -537,6 +547,11 @@ function cptui_render_getcode_section() {
 	<?php
 }
 
+/**
+ * Content for the Debug Info tab.
+ *
+ * @since 1.2.0
+ */
 function cptui_render_debuginfo_section() {
 	$debuginfo = new CPTUI_Debug_Info();
 
@@ -555,6 +570,13 @@ function cptui_render_debuginfo_section() {
 	echo '</form>';
 }
 
+/**
+ * Renders various tab sections for the Import/Export page, based on current tab.
+ *
+ * @since 1.2.0
+ *
+ * @param $tab Current tab to display.
+ */
 function cptui_render_importexportsections( $tab ) {
 	if ( isset( $tab ) ) {
 		if ( 'post_types' == $tab || 'taxonomies' == $tab ) {
