@@ -1,8 +1,19 @@
 <?php
+/**
+ * Custom Post Type UI Registered Content.
+ *
+ * @package Custom Post Type UI
+ * @subpackage Listings.
+ */
 
 # Exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) exit;
 
+/**
+ * Output the content for the "Registered Types/Taxes" page.
+ *
+ * @since 1.1.0
+ */
 function cptui_listings() {
 		?>
 		<div class="wrap">

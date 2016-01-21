@@ -1,6 +1,9 @@
 <?php
 /**
- * This file controls all of the content from the Import/Export page.
+ * Custom Post Type UI Import/Export.
+ *
+ * @package Custom Post Type UI
+ * @subpackage ImportExport
  */
 
 # Exit if accessed directly

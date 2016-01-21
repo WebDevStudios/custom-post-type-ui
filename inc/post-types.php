@@ -1,6 +1,9 @@
 <?php
 /**
- * This file controls all of the content from the Post Types page.
+ * Custom Post Type UI Post Type Settings.
+ *
+ * @package Custom Post Type UI
+ * @subpackage Post Types
  */
 
 # Exit if accessed directly
