@@ -1,4 +1,11 @@
 <?php
+/**
+ * Custom Post Type UI.
+ *
+ * @package Custom Post Type UI
+ * @subpackage Loader
+ */
+
 /*
 Plugin Name: Custom Post Type UI
 Plugin URI: https://github.com/WebDevStudios/custom-post-type-ui/
@@ -85,6 +92,11 @@ function cptui_create_submenus() {
 }
 add_action( 'init', 'cptui_create_submenus' );
 
+/**
+ * Enqueue CPTUI admin styles.
+ *
+ * @since 1.0.0
+ */
 function cptui_add_styles() {
 	if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
 		return;
