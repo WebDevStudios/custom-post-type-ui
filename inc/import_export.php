@@ -577,11 +577,11 @@ function cptui_render_debuginfo_section() {
 
 	/**
 	 * Filters the text value to use on the button when sending debug information.
-     *
-     * @since 1.2.0
-     *
-     * @param string $value Text to use for the button.
-     */
+	 *
+	 * @since 1.2.0
+	 *
+	 * @param string $value Text to use for the button.
+	 */
 	echo '<p><input type="submit" class="button-primary" name="cptui_send_debug_email" value="' . esc_attr( apply_filters( 'cptui_post_type_debug_email', __( 'Send debug info', 'custom-post-type-ui' ) ) ) . '" /></p>';
 	echo '</form>';
 }
