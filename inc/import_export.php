@@ -42,6 +42,15 @@ function cptui_importexport() {
 	# Create our tabs.
 	cptui_settings_tab_menu( $page = 'importexport' );
 
+	/**
+	 * Fires inside the markup for the import/export section.
+	 *
+	 * Allows for more modular control and adding more sections more easily.
+	 *
+	 * @since 1.2.0
+	 *
+	 * @param string $tab Current tab being displayed.
+	 */
 	do_action( 'cptui_import_export_sections', $tab );
 
 	echo '</div><!-- End .wrap -->';
@@ -566,6 +575,13 @@ function cptui_render_debuginfo_section() {
 
 	echo '<p><label for="cptui_debug_info_email">' . __( 'Please provide an email address to send debug information to: ', 'custom-post-type-ui' ) . '</label><input type="email" id="cptui_debug_info_email" name="cptui_debug_info_email" value="" /></p>';
 
+	/**
+	 * Filters the text value to use on the button when sending debug information.
+     *
+     * @since 1.2.0
+     *
+     * @param string $value Text to use for the button.
+     */
 	echo '<p><input type="submit" class="button-primary" name="cptui_send_debug_email" value="' . esc_attr( apply_filters( 'cptui_post_type_debug_email', __( 'Send debug info', 'custom-post-type-ui' ) ) ) . '" /></p>';
 	echo '</form>';
 }
