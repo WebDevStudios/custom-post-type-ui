@@ -114,12 +114,29 @@ add_action( 'admin_enqueue_scripts', 'cptui_add_styles' );
 function cptui_create_custom_post_types() {
 	$cpts = get_option( 'cptui_post_types' );
 
+	/**
+	 * Fires before the start of the post type registrations.
+	 *
+	 * @since 1.3.0
+	 *
+	 * @param array $cpts Array of post types to register.
+	 */
+	do_action( 'cptui_pre_register_post_types', $cpts );
+
 	if ( is_array( $cpts ) ) {
 		foreach ( $cpts as $post_type ) {
 			cptui_register_single_post_type( $post_type );
 		}
 	}
-	return;
+
+	/**
+	 * Fires after the completion of the post type registrations.
+	 *
+	 * @since 1.3.0
+	 *
+	 * @param array $cpts Array of post types registered.
+	 */
+	do_action( 'cptui_post_register_post_types', $cpts );
 }
 add_action( 'init', 'cptui_create_custom_post_types', 10 );
 
