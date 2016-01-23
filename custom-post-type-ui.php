@@ -309,11 +309,29 @@ function cptui_register_single_post_type( $post_type = array() ) {
 function cptui_create_custom_taxonomies() {
 	$taxes = get_option('cptui_taxonomies');
 
+	/**
+	 * Fires before the start of the taxonomy registrations.
+	 *
+	 * @since 1.3.0
+	 *
+	 * @param array $taxes Array of taxonomies to register.
+	 */
+	do_action( 'cptui_pre_register_taxonomies', $taxes );
+
 	if ( is_array( $taxes ) ) {
 		foreach ( $taxes as $tax ) {
 			cptui_register_single_taxonomy( $tax );
 		}
 	}
+
+	/**
+	 * Fires after the completion of the taxonomy registrations.
+	 *
+	 * @since 1.3.0
+	 *
+	 * @param array $taxes Array of taxonomies registered.
+	 */
+	do_action( 'cptui_post_register_taxonomies', $taxes );
 }
 add_action( 'init', 'cptui_create_custom_taxonomies', 9 );
 
