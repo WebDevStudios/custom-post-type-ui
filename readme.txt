@@ -155,67 +155,6 @@ All official development on this plugin is on GitHub. Version bumps will still b
 * Changed how settings are stored so that post types and taxonomies are in named array indexes.
 * Bug fixes not mentioned above.
 
-= 0.9.5 =
-* Revert 0.9.0 release until unfound bugs are fixed.
-
-= 0.9.0 =
-* See 1.0.0 list. This was reverted by 0.9.5 release.
-
-= 0.8.5 =
-* Fix issue with menu_postion being quoted in CPT get_code functionality.
-
-= 0.8.4 =
-* Fix issue with get code and post types/taxonomies that use a dash instead of underscore. Props Evan Mullins/circlecube.
-
-= 0.8.3 =
-* Dashicon support
-
-= 0.8.2 =
-* Fix with_front logic issue.
-
-= 0.8.1 =
-* Renamed menu entry to "CPT UI".
-* Fixes for potential "undefined index" WP DEBUG log notices.
-* Updated localization text files for text changes.
-* Updated and fixed output for "get code" and custom post types.
-* Updated and fixed output for "get code" and custom taxonomies.
-* Fixes "get code" function callback name conflict.
-* Added support for show_admin_column for WordPress 3.5+
-* Added support for map_meta_cap field in custom post types.
-* Prevent quotes in slug fields for Custom Post Types or Taxonomies.
-
-= 0.8 =
-* Added "with_front" support
-* Added menu icon support. Upload and save full URL from Media Library
-* Added General post formats support
-* Every string is translation ready
-* Better fallback options for new install that haven't created anything yet
-* More notes to help users with options
-* Code refactoring and cleanup
-* Fix for possible empty rewrite value
-* Fixed slashes issue with description field and taxonomy label fields
-* Fixed issue with capabilities input having two value attributes
-* Flush rewrite rules on deactivation
-* UI touchups
-* Updated screenshots.
-
-= 0.7.2 =
-* Added exclude_from_search support
-* Fixed display bug with capability type
-* Fixed JavaScript bug
-* Strict CPT name check
-* Code cleanup
-
-= 0.7.1 =
-* Fixed XSS security bug (props Duck)
-
-= 0.7 =
-* WordPress 3.1 support
-* Added has_archive and show_in_menu support
-* Added label for custom menu name
-* Updated plugin UI to be consistent with WordPress styles
-* Added "Get Code" feature to easily copy code used for post types and taxonomies (BETA)
-
 == Upgrade Notice ==
 
 = 1.3.0 =
@@ -347,44 +286,6 @@ Full list:
 * Added function that automatically converts 0.8.x and down settings to new setting arrangement.
 * Changed how settings are stored so that post types and taxonomies are in named array indexes.
 * Bug fixes not mentioned above.
-
-= 0.9.5 =
-* Revert 0.9.0 release until unfound bugs are fixed.
-
-= 0.9.0 =
-* See 1.0.0 list. This was reverted by 0.9.5 release.
-
-= 0.8.5 =
-* Fix issue with menu_postion being quoted in CPT get_code functionality.
-
-= 0.8.4 =
-* Fix issue with get code and post types/taxonomies that use a dash instead of underscore. Props Evan Mullins/circlecube.
-
-= 0.8.3 =
-* Dashicon support. FINALLY. REJOICE!
-
-= 0.8.2 =
-* Fixes with_front logic issue that was defaulting to true.
-
-= 0.8.1 =
-* Many bug fixes and admittedly some features. Fixes the Get Code functionality primarily.
-
-= 0.7.2 =
-* Added exclude_from_search support
-* Fixed display bug with capability type
-* Fixed JavaScript bug
-* Strict CPT name check
-* Code cleanup
-
-= 0.7.1 =
-* XSS security bug patched
-
-= 0.7 =
-* WordPress 3.1 support
-* Added has_archive and show_in_menu support
-* Added label for custom menu name
-* Updated plugin UI to be consistent with WordPress styles
-* Added "Get Code" feature to easily copy code used for post types and taxonomies (BETA)
 
 == Installation ==
 
