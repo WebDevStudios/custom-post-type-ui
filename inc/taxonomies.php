@@ -206,6 +206,21 @@ function cptui_manage_taxonomies() {
 							) );
 						}
 
+						/*
+						 * Migrate taxonomy
+						 */
+						if ( 'edit' == $tab ) {
+							echo $ui->get_check_input( array(
+								'checkvalue' => 'update_taxonomy',
+								'checked'    => 'false',
+								'name'       => 'update_taxonomy',
+								'namearray'  => 'update_taxonomy',
+								'labeltext'  => __( 'Migrate terms to newly renamed taxonomy?', 'custom-post-type-ui' ),
+								'helptext'   => esc_attr__( 'Check this to migrate terms if and when renaming your taxonomy.', 'custom-post-type-ui' ),
+								'default'    => false
+							) );
+						}
+
 						echo $ui->get_fieldset_end() . $ui->get_td_end() . $ui->get_tr_end(); ?>
 					</table>
 				<p class="submit">
