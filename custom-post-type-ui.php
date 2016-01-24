@@ -291,11 +291,13 @@ function cptui_register_single_post_type( $post_type = array() ) {
 	 * Filters the arguments used for a post type right before registering.
 	 *
 	 * @since 1.0.0
+	 * @since 1.3.0 Added original passed in values array
 	 *
-	 * @param array  $args Array of arguments to use for registering post type.
-	 * @param string $value Post type slug to be registered.
+	 * @param array  $args      Array of arguments to use for registering post type.
+	 * @param string $value     Post type slug to be registered.
+	 * @param array  $post_type Original passed in values for post type.
 	 */
-	$args = apply_filters( 'cptui_pre_register_post_type', $args, $post_type['name'] );
+	$args = apply_filters( 'cptui_pre_register_post_type', $args, $post_type['name'], $post_type );
 
 	return register_post_type( $post_type['name'], $args );
 }
@@ -405,11 +407,13 @@ function cptui_register_single_taxonomy( $taxonomy = array() ) {
 	 * Filters the arguments used for a taxonomy right before registering.
 	 *
 	 * @since 1.0.0
+	 * @since 1.3.0 Added original passed in values array
 	 *
-	 * @param array  $args Array of arguments to use for registering taxonomy.
-	 * @param string $value Taxonomy slug to be registered.
+	 * @param array  $args     Array of arguments to use for registering taxonomy.
+	 * @param string $value    Taxonomy slug to be registered.
+	 * @param array  $taxonomy Original passed in values for taxonomy.
 	 */
-	$args = apply_filters( 'cptui_pre_register_taxonomy', $args, $taxonomy['name'] );
+	$args = apply_filters( 'cptui_pre_register_taxonomy', $args, $taxonomy['name'], $taxonomy );
 
 	return register_taxonomy( $taxonomy['name'], $object_type, $args );
 }
