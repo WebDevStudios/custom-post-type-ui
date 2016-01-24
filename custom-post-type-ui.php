@@ -146,7 +146,6 @@ add_action( 'init', 'cptui_create_custom_post_types', 10 );
  * @since 1.0.0
  *
  * @param array $post_type Post type array to register.
- *
  * @return null Result of register_post_type.
  */
 function cptui_register_single_post_type( $post_type = array() ) {
@@ -339,7 +338,6 @@ add_action( 'init', 'cptui_create_custom_taxonomies', 9 );
  * Helper function to register the actual taxonomy.
  *
  * @param array $taxonomy Taxonomy array to register.
- *
  * @return null Result of register_taxonomy.
  */
 function cptui_register_single_taxonomy( $taxonomy = array() ) {
@@ -514,7 +512,6 @@ function cptui_settings() { ?>
  * @since 0.3.0
  *
  * @param string $original Original footer content.
- *
  * @return string $value HTML for footer.
  */
 function cptui_footer( $original = '' ) {
@@ -556,7 +553,6 @@ add_filter( 'admin_footer_text', 'cptui_footer' );
  * @since 0.5.0
  *
  * @param mixed $booText text to compare to typical boolean values.
- *
  * @return bool Which bool value the passed in value was.
  */
 function get_disp_boolean( $booText ) {
@@ -574,7 +570,6 @@ function get_disp_boolean( $booText ) {
  * @since 0.1.0
  *
  * @param string $booText String boolean value.
- *
  * @return string standardized boolean text.
  */
 function disp_boolean( $booText ) {
@@ -592,7 +587,6 @@ function disp_boolean( $booText ) {
  * @since 1.0.0
  *
  * @param string $page Whether it's the CPT or Taxonomy page.
- *
  * @return string $value HTML tabs.
  */
 function cptui_settings_tab_menu( $page = 'post_types' ) {
@@ -727,7 +721,6 @@ add_action( 'admin_init', 'cptui_convert_settings' );
  * @since 1.0.0
  *
  * @param array $links Array of links to display below our plugin listing.
- *
  * @return array Amended array of links.
  */
 function cptui_edit_plugin_list_links( $links ) {
@@ -750,7 +743,6 @@ add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'cptui_edit_pl
  * @param string $object_type  Whether it's from a post type or taxonomy.
  * @param bool   $success      Whether the action succeeded or not.
  * @param string $custom       Custom message if necessary.
- *
  * @return bool|string false on no message, else HTML div with our notice message.
  */
 function cptui_admin_notices( $action = '', $object_type = '', $success = true , $custom = '' ) {
@@ -818,7 +810,6 @@ function cptui_admin_notices( $action = '', $object_type = '', $success = true ,
  * @since 1.0.5
  *
  * @param string $type Type to return. Either 'post_types' or 'taxonomies'.
- *
  * @return array Array of keys needing preservered for the requested type.
  */
 function cptui_get_preserved_keys( $type = '' ) {
@@ -861,7 +852,6 @@ function cptui_get_preserved_keys( $type = '' ) {
  * @param string $key Requested label key.
  * @param string $plural Plural verbiage for the requested label and type.
  * @param string $singular Singular verbiage for the requested label and type.
- *
  * @return string Internationalized default label.
  */
 function cptui_get_preserved_label( $type = '', $key = '', $plural = '', $singular = '' ) {
