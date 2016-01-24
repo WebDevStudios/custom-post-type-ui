@@ -858,7 +858,28 @@ function cptui_update_taxonomy( $data = array() ) {
 
 /**
  * Convert taxonomies.
- * @param string $original_slug
- * @param string $new_slug
+ *
+ * @since 1.3.0
+ *
+ * @param string $original_slug Original taxonomy slug.
+ * @param string $new_slug      New taxonomy slug.
  */
-function cptui_convert_taxonomy_terms( $original_slug = '', $new_slug = '' ) {}
+function cptui_convert_taxonomy_terms( $original_slug = '', $new_slug = '' ) {
+	global $wpdb;
+
+	$args = array(
+		'hide_empty' => false,
+		'fields'     => 'ids',
+	);
+
+	$term_ids = get_terms( $original_slug, $args );
+
+	$term_ids = implode( ',', $term_ids );
+
+	$query = "UPDATE `{$wpdb->term_taxonomy}` SET `taxonomy` = %s WHERE `taxonomy` = %s AND `term_id` IN ( {$term_ids} )";
+
+	$wpdb->query(
+		$wpdb->prepare( $query, $new_slug, $original_slug )
+	);
+	cptui_delete_taxonomy( $original_slug );
+}
