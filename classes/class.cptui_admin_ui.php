@@ -103,6 +103,28 @@ class cptui_admin_ui {
 	}
 
 	/**
+	 * Return an opening `<legend>` tag.
+	 *
+	 * @since 1.3.0
+	 *
+	 * @return string
+	 */
+	public function get_legend_start() {
+		return '<legend>';
+	}
+
+	/**
+	 * Return a closing `</legend>` tag.
+	 *
+	 * @since 1.3.0
+	 *
+	 * @return string
+	 */
+	public function get_legend_end() {
+		return '</legend>';
+	}
+
+	/**
 	 * Return string wrapped in a `<p>` tag.
 	 *
 	 * @since 1.0.0
