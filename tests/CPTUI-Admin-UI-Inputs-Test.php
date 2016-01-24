@@ -50,6 +50,24 @@ class CPTUI_Admin_UI_Inputs_Test extends CPTUI_Base_Tests {
 	}
 
 	/**
+	 * Tests our legend method opener.
+	 */
+	public function test_CPTUI_Legend_Start() {
+		$expected = '<legend>';
+
+		$this->assertEquals( $expected, $this->ui->get_legend_start() );
+	}
+
+	/**
+	 * Tests our legend method closer.
+	 */
+	public function test_CPTUI_Legend_End() {
+		$expected = '</legend>';
+
+		$this->assertEquals( $expected, $this->ui->get_legend_end() );
+	}
+
+	/**
 	 * Tests our required field method.
 	 */
 	public function test_CPTUI_Required() {
