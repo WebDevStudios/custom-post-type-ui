@@ -1,7 +1,7 @@
 <?php
 /**
  * Custom Post Type UI Registered Content.
-
+ *
  * @package CPTUI
  * @subpackage Listings
  */

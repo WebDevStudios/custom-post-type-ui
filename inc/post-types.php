@@ -1,7 +1,7 @@
 <?php
 /**
  * Custom Post Type UI Post Type Settings.
-
+ *
  * @package CPTUI
  * @subpackage PostTypes
  */

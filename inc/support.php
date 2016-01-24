@@ -1,7 +1,7 @@
 <?php
 /**
  * Custom Post Type UI Support Questions.
-
+ *
  * @package CPTUI
  * @subpackage Support
  */
