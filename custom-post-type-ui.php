@@ -437,6 +437,16 @@ function cptui_settings() { ?>
 		do_action( 'cptui_main_page_start' ); ?>
 		<h1><?php _e( 'Custom Post Type UI', 'custom-post-type-ui' ); ?> <?php echo CPT_VERSION; ?></h1>
 
+		<?php
+
+		/**
+		 * Fires after the main page `<h1>` heading tag.
+		 *
+		 * @since 1.3.0
+		 */
+		do_action( 'cptui_main_page_after_header' );
+		?>
+
 		<div class="about-text cptui-about-text">
 			<?php _e( 'Thank you for choosing Custom Post Type UI. We hope that your experience with our plugin provides efficiency and speed in creating post types and taxonomies, to better organize your content, without having to touch code.', 'custom-post-type-ui' ); ?>
 		</div>
