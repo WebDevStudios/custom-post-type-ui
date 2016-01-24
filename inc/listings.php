@@ -166,12 +166,13 @@ function cptui_listings() {
 				 */
 				do_action( 'cptui_after_post_type_listing' );
 			} else {
-				echo '<p>' . sprintf( __( 'No post types registered for display. Visit %s to get started.', 'custom-post-type-ui' ),
-					sprintf( '<a href="%s">%s</a>',
-						admin_url( 'admin.php?page=cptui_manage_post_types' ),
-						__( 'Add/Edit Post Types', 'custom-post-type-ui' )
-					)
-				) . '</p>';
+
+				/**
+				 * Fires when there are no registered post types to list.
+				 *
+				 * @since 1.3.0
+				 */
+				do_action( 'cptui_no_post_types_listing' );
 			}
 
 			$taxonomies = get_option( 'cptui_taxonomies' );
@@ -305,15 +306,36 @@ function cptui_listings() {
 				do_action( 'cptui_after_taxonomy_listing' );
 
 				} else {
-					echo '<p>' . sprintf( __( 'No taxonomies registered for display. Visit %s to get started.', 'custom-post-type-ui' ),
-							sprintf( '<a href="%s">%s</a>',
-								admin_url( 'admin.php?page=cptui_manage_taxonomies' ),
-								__( 'Add/Edit Taxonomies', 'custom-post-type-ui' )
-							)
-						) . '</p>';
+
+					/**
+					 * Fires when there are no registered taxonomies to list.
+					 *
+					 * @since 1.3.0
+					 */
+					do_action( 'cptui_no_taxonomies_listing' );
 				}
 			?>
 
 		</div>
 	<?php
 }
+
+function cptui_no_post_types_to_list() {
+	echo '<p>' . sprintf( __( 'No post types registered for display. Visit %s to get started.', 'custom-post-type-ui' ),
+		sprintf( '<a href="%s">%s</a>',
+			admin_url( 'admin.php?page=cptui_manage_post_types' ),
+			__( 'Add/Edit Post Types', 'custom-post-type-ui' )
+		)
+	) . '</p>';
+}
+add_action( 'cptui_no_post_types_listing', 'cptui_no_post_types_to_list' );
+
+function cptui_no_taxonomies_to_list() {
+	echo '<p>' . sprintf( __( 'No taxonomies registered for display. Visit %s to get started.', 'custom-post-type-ui' ),
+		sprintf( '<a href="%s">%s</a>',
+			admin_url( 'admin.php?page=cptui_manage_taxonomies' ),
+			__( 'Add/Edit Taxonomies', 'custom-post-type-ui' )
+		)
+	) . '</p>';
+}
+add_action( 'cptui_no_taxonomies_listing', 'cptui_no_taxonomies_to_list' );
