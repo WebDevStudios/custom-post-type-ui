@@ -66,7 +66,6 @@ function cptui_importexport() {
  *
  * @param array $cptui_taxonomies Array of taxonomies to render.
  * @param bool  $single           Whether or not we are rendering a single taxonomy.
- *
  * @return string Taxonomy registration text for use elsewhere.
  */
 function cptui_get_taxonomy_code( $cptui_taxonomies = array(), $single = false ) {
@@ -97,7 +96,6 @@ function <?php echo $callback; ?>() {
  * @since 1.0.0
  *
  * @param array $taxonomy Taxonomy data to output.
- *
  * @return string Copy/paste ready "php" code.
  */
 function cptui_get_single_taxonomy_registery( $taxonomy = array() ) {
@@ -172,7 +170,6 @@ function cptui_get_single_taxonomy_registery( $taxonomy = array() ) {
  *
  * @param array $cptui_post_types Array of post types to render.
  * @param bool  $single           Whether or not we are rendering a single post type.
- *
  * @return string Post type registration text for use elsewhere.
  */
 function cptui_get_post_type_code( $cptui_post_types = array(), $single = false ) {
@@ -204,7 +201,6 @@ function <?php echo $callback; ?>() {
  * @since 1.0.0
  *
  * @param array $post_type Post type data to output.
- *
  * @return string Copy/paste ready "php" code.
  */
 function cptui_get_single_post_type_registery( $post_type = array() ) {
@@ -323,7 +319,6 @@ function cptui_get_single_post_type_registery( $post_type = array() ) {
  * @since 1.0.0
  *
  * @param array $postdata $_POST data as json.
- *
  * @return mixed false on nothing to do, otherwise void.
  */
 function cptui_import_types_taxes_settings( $postdata = array() ) {
