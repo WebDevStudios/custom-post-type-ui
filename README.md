@@ -19,6 +19,7 @@ CPTUI does NOT handle display of registered post types or taxonomies in your cur
 **1.3.0**
 
 * Added: Legend tag support to admin UI class.
+* Added: Taxonomy slug update ability with preserved term association.
 
 **1.2.1**
 
