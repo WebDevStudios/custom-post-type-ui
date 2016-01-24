@@ -105,7 +105,6 @@ function cptui_get_single_taxonomy_registery( $taxonomy = array() ) {
 		$post_types = 'array( "' . implode( '", "', $taxonomy['object_types'] ) . '" )';
 	}
 
-	$rewrite = get_disp_boolean( $taxonomy['rewrite'] );
 	if ( false !== get_disp_boolean( $taxonomy['rewrite'] ) ) {
 		$rewrite = disp_boolean( $taxonomy['rewrite'] );
 
