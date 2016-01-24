@@ -687,6 +687,19 @@ function cptui_get_current_taxonomy( $taxonomy_deleted = false ) {
  */
 function cptui_delete_taxonomy( $data = array() ) {
 
+	if ( is_string( $data ) && taxonomy_exists( $data ) ) {
+		$data = array(
+			'cpt_custom_tax' => array(
+				'name' => $data
+			)
+		);
+	}
+
+	#Check if they selected one to delete
+	if ( empty( $data['cpt_custom_tax']['name'] ) ) {
+		return cptui_admin_notices( 'error', '', false, __( 'Please provide a taxonomy to delete', 'custom-post-type-ui' ) );
+	}
+
 	/**
 	 * Fires before a taxonomy is deleted from our saved options.
 	 *
@@ -695,11 +708,6 @@ function cptui_delete_taxonomy( $data = array() ) {
 	 * @param array $data Array of taxonomy data we are deleting.
 	 */
 	do_action( 'cptui_before_delete_taxonomy', $data );
-
-	#Check if they selected one to delete
-	if ( empty( $data['cpt_custom_tax']['name'] ) ) {
-		return cptui_admin_notices(	'error', '', false, __( 'Please provide a taxonomy to delete', 'custom-post-type-ui' ) );
-	}
 
 	$taxonomies = get_option( 'cptui_taxonomies' );
 
