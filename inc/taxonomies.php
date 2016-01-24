@@ -757,7 +757,13 @@ function cptui_update_taxonomy( $data = array() ) {
 
 	# They need to provide a name
 	if ( empty( $data['cpt_custom_tax']['name'] ) ) {
-		return cptui_admin_notices(	'error', '', false, __( 'Please provide a taxonomy name', 'custom-post-type-ui' ) );
+		return cptui_admin_notices( 'error', '', false, __( 'Please provide a taxonomy name', 'custom-post-type-ui' ) );
+	}
+
+	if ( ! empty( $data['tax_original'] ) && $data['tax_original'] != $data['cpt_custom_tax']['name'] ) {
+		if ( ! empty( $data['update_taxonomy'] ) ) {
+			cptui_convert_taxonomy_terms( $data['tax_original'], $data['cpt_custom_tax']['name'] );
+		}
 	}
 
 	foreach( $data as $key => $value ) {
