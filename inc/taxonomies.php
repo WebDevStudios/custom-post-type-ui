@@ -90,6 +90,7 @@ function cptui_manage_taxonomies() {
 	if ( !empty( $taxonomies ) ) { ?>
 		<form id="cptui_select_taxonomy" method="post">
 			<p><?php _e( 'DO NOT EDIT the taxonomy slug unless necessary. Changing that value registers a new taxonomy entry for your install.', 'custom-post-type-ui' ); ?></p>
+			<p><?php _e( 'Use appropriate checkbox above save/delete buttons if you wish to change slugs and update taxonomies for existing taxonomy terms.', 'custom-post-type-ui' ); ?></p>
 			<label for="taxonomy"><?php _e( 'Select: ', 'custom-post-type-ui' ); ?></label>
 			<?php
 			cptui_taxonomies_dropdown( $taxonomies );
