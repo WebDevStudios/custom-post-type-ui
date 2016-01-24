@@ -1085,7 +1085,7 @@ function cptui_delete_post_type( $data = array() ) {
 	}
 
 	if ( empty( $data['cpt_custom_post_type']['name'] ) || ! post_type_exists( $data['cpt_custom_post_type']['name'] ) ) {
-		return cptui_admin_notices(	'error', '', false, __( 'Please provide a post type to delete', 'custom-post-type-ui' ) );
+		return cptui_admin_notices( 'error', '', false, __( 'Please provide a post type to delete', 'custom-post-type-ui' ) );
 	}
 
 	/**
