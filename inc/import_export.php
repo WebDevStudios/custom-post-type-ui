@@ -18,6 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  */
 function cptui_importexport() {
 
+	$tab = '';
 	if ( !empty( $_GET ) ) {
 		if ( !empty( $_GET['action'] ) && 'taxonomies' == $_GET['action'] ) {
 			$tab = 'taxonomies';
