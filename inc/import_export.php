@@ -582,7 +582,7 @@ function cptui_render_debuginfo_section() {
  *
  * @since 1.2.0
  *
- * @param $tab Current tab to display.
+ * @param string $tab Current tab to display.
  */
 function cptui_render_importexportsections( $tab ) {
 	if ( isset( $tab ) ) {
