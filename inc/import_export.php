@@ -135,18 +135,20 @@ function cptui_get_single_taxonomy_registery( $taxonomy = array() ) {
 		$rewrite = disp_boolean( $taxonomy['rewrite'] );
 	}
 
+	$my_theme = wp_get_theme();
+	$textdomain = $my_theme->get( 'TextDomain' );
 	?>
-
 	$labels = array(
-		"name" => "<?php echo $taxonomy['label']; ?>",
-		"label" => "<?php echo $taxonomy['label']; ?>",
+		"name" => __( '<?php echo $taxonomy['label']; ?>', '<?php echo $textdomain; ?>' ),
+		"singular_name" => __( '<?php echo $taxonomy['singular_label']; ?>', '<?php echo $textdomain; ?>' ),
 		<?php foreach( $taxonomy['labels'] as $key => $label ) {
 			if ( !empty( $label ) ) {
-			echo '"' . $key . '" => "' . $label . '",' . "\n\t\t";
+				echo '"' . $key . '" => __( \'' . $label . '\', \'' . $textdomain . '\' ),' . "\n\t\t";
 			}
 		} ?>);
 
 	$args = array(
+		"label" => __( '<?php echo $taxonomy['label']; ?>', '<?php echo $textdomain; ?>' ),
 		"labels" => $labels,
 		"hierarchical" => <?php echo $taxonomy['hierarchical']; ?>,
 		"label" => "<?php echo $taxonomy['label']; ?>",
@@ -279,17 +281,21 @@ function cptui_get_single_post_type_registery( $post_type = array() ) {
 	}
 
 	$post_type['description'] = addslashes( $post_type['description'] );
+
+	$my_theme = wp_get_theme();
+	$textdomain = $my_theme->get( 'TextDomain' );
 	?>
 	$labels = array(
-		"name" => "<?php echo $post_type['label']; ?>",
-		"singular_name" => "<?php echo $post_type['singular_label']; ?>",
+		"name" => __( '<?php echo $post_type['label']; ?>', '<?php echo $textdomain; ?>' ),
+		"singular_name" => __( '<?php echo $post_type['singular_label']; ?>', '<?php echo $textdomain; ?>' ),
 		<?php foreach( $post_type['labels'] as $key => $label ) {
 			if ( !empty( $label ) ) {
-				echo '"' . $key . '" => "' . $label . '",' . "\n\t\t";
+				echo '"' . $key . '" => __( \'' . $label . '\', \'' . $textdomain . '\' ),' . "\n\t\t";
 			}
 		} ?>);
 
 	$args = array(
+		"label" => __( '<?php echo $post_type['label']; ?>', '<?php echo $textdomain; ?>' ),
 		"labels" => $labels,
 		"description" => "<?php echo $post_type['description']; ?>",
 		"public" => <?php echo disp_boolean( $post_type['public'] ); ?>,
