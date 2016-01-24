@@ -424,8 +424,7 @@ function cptui_render_posttypes_taxonomies_section() {
 	<?php if ( ! empty( $_GET ) && empty( $_GET['action'] ) ) { ?>
 		<tr>
 			<td class="outter">
-				<label for="cptui_post_import"><h2><?php _e( 'Import Post Types', 'custom-post-type-ui' ); ?></h2>
-				</label>
+				<h2><label for="cptui_post_import"><?php _e( 'Import Post Types', 'custom-post-type-ui' ); ?></label></h2>
 
 				<form method="post">
 					<textarea class="cptui_post_import" placeholder="<?php esc_attr_e( 'Paste content here.', 'custom-post-type-ui' ); ?>" id="cptui_post_import" name="cptui_post_import"></textarea>
@@ -444,8 +443,7 @@ function cptui_render_posttypes_taxonomies_section() {
 				</form>
 			</td>
 			<td class="outter">
-				<label for="cptui_post_export"><h2><?php _e( 'Export Post Types', 'custom-post-type-ui' ); ?></h2>
-				</label>
+				<h2><label for="cptui_post_export"><?php _e( 'Export Post Types', 'custom-post-type-ui' ); ?></label></h2>
 				<?php
 				$cptui_post_types = get_option( 'cptui_post_types', array() );
 				if ( ! empty( $cptui_post_types ) ) {
@@ -464,8 +462,7 @@ function cptui_render_posttypes_taxonomies_section() {
 	<?php } elseif ( ! empty( $_GET ) && 'taxonomies' == $_GET['action'] ) { ?>
 		<tr>
 			<td class="outter">
-				<label for="cptui_tax_import"><h2><?php _e( 'Import Taxonomies', 'custom-post-type-ui' ); ?></h2>
-				</label>
+				<h2><label for="cptui_tax_import"><?php _e( 'Import Taxonomies', 'custom-post-type-ui' ); ?></label></h2>
 
 				<form method="post">
 					<textarea class="cptui_tax_import" placeholder="<?php esc_attr_e( 'Paste content here.', 'custom-post-type-ui' ); ?>" id="cptui_tax_import" name="cptui_tax_import"></textarea>
@@ -484,8 +481,7 @@ function cptui_render_posttypes_taxonomies_section() {
 				</form>
 			</td>
 			<td class="outter">
-				<label for="cptui_tax_export"><h2><?php _e( 'Export Taxonomies', 'custom-post-type-ui' ); ?></h2>
-				</label>
+				<h2><label for="cptui_tax_export"><?php _e( 'Export Taxonomies', 'custom-post-type-ui' ); ?></label></h2>
 				<?php
 				$cptui_taxonomies = get_option( 'cptui_taxonomies', array() );
 				if ( ! empty( $cptui_taxonomies ) ) {
