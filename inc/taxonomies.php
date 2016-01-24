@@ -261,6 +261,11 @@ function cptui_manage_taxonomies() {
 						?>
 						<input type="submit" class="button-primary" name="cpt_submit" value="<?php echo esc_attr( apply_filters( 'cptui_taxonomy_submit_add', __( 'Add Taxonomy', 'custom-post-type-ui' ) ) ); ?>" />
 					<?php } ?>
+
+					<?php if ( ! empty( $current ) ) { ?>
+						<input type="hidden" name="tax_original" id="tax_original" value="<?php echo $current['name']; ?>" />
+					<?php } ?>
+
 					<input type="hidden" name="cpt_tax_status" id="cpt_tax_status" value="<?php echo $tab; ?>" />
 				</p>
 
