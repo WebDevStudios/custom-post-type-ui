@@ -634,7 +634,8 @@ function cptui_taxonomies_dropdown( $taxonomies = array() ) {
 		echo $ui->get_select_input( array(
 			'namearray'     => 'cptui_selected_taxonomy',
 			'name'          => 'taxonomy',
-			'selections'    => $select
+			'selections'    => $select,
+			'wrap'          => false
 		) );
 	}
 }
