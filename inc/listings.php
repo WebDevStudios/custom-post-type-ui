@@ -159,6 +159,12 @@ function cptui_listings() {
 				</tr>
 			</table>
 			<?php
+				/**
+				 * Fires after the listing of registered post type data.
+				 *
+				 * @since 1.3.0
+				 */
+				do_action( 'cptui_after_post_type_listing' );
 			} else {
 				echo '<p>' . sprintf( __( 'No post types registered for display. Visit %s to get started.', 'custom-post-type-ui' ),
 					sprintf( '<a href="%s">%s</a>',
@@ -291,6 +297,13 @@ function cptui_listings() {
 					</tr>
 				</table>
 			<?php
+				/**
+				 * Fires after the listing of registered taxonomy data.
+				 *
+				 * @since 1.3.0
+				 */
+				do_action( 'cptui_after_taxonomy_listing' );
+
 				} else {
 					echo '<p>' . sprintf( __( 'No taxonomies registered for display. Visit %s to get started.', 'custom-post-type-ui' ),
 							sprintf( '<a href="%s">%s</a>',
