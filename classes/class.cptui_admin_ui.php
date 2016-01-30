@@ -313,6 +313,8 @@ class cptui_admin_ui {
 			$value .= ' ' . $this->get_onblur( $args['onblur'] );
 		}
 
+		$value .= ' ' . $this->get_aria_required( $args['required'] );
+
 		$value .= ' />';
 
 		if ( $args['helptext_after'] ) {
