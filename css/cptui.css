@@ -1,5 +1,5 @@
 .required { color: rgb(255,0,0); }
-.cptui-table #excerpt { height: 16px; margin-right: 4px; width: auto; }
+.cptui-table #excerpt { display: inline; height: 16px; margin: 12px 4px 12px 0; width: auto; }
 .cptui-table td.outter { vertical-align: top; width: 50%; }
 #cptui_select_post_type, #cptui_select_taxonomy { margin-top: 15px; }
 .cptui_post_import, .cptui_tax_import {
