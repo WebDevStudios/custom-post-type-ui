@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: custom post types, CPT, CMS, post, types, post type, cck, taxonomy, tax, custom
 Requires at least: 4.2
 Tested up to: 4.4.1
-Stable tag: 1.2.1
+Stable tag: 1.2.2
 License: GPLv2
 
 Admin UI for creating custom post types and custom taxonomies in WordPress
@@ -29,6 +29,10 @@ All official development on this plugin is on GitHub. Version bumps will still b
 8. Update Information/Donate screen.
 
 == Changelog ==
+
+= 1.2.2 =
+* Fixed: Missing admin menu icon for some browsers.
+* Fixed: Undefined index notices for post type screen.
 
 = 1.2.1 =
 * Fixed: Undefined index notices for custom taxonomies and new fields from 1.2.0
@@ -213,6 +217,10 @@ All official development on this plugin is on GitHub. Version bumps will still b
 * Added "Get Code" feature to easily copy code used for post types and taxonomies (BETA)
 
 == Upgrade Notice ==
+
+= 1.2.2 =
+* Fixed: Missing admin menu icon for some browsers.
+* Fixed: Undefined index notices for post type screen.
 
 = 1.2.1 =
 * Fixed: Undefined index notices for custom taxonomies and new fields from 1.2.0
