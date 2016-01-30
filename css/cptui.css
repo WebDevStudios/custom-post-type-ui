@@ -117,3 +117,8 @@ fieldset .cptui-help {
 .cptui-help:focus {
 	box-shadow: none;
 }
+#toplevel_page_cptui_main_menu img {
+	height: 20 px;
+	margin-top: - 2 px;
+	width: 20 px;
+}
