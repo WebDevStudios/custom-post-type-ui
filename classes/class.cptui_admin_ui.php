@@ -154,10 +154,19 @@ class cptui_admin_ui {
 	 *
 	 * @since 1.0.0
 	 *
-	 * @return string span tag.
+	 * @return string Span tag.
 	 */
 	public function get_required() {
 		return '<span class="required">*</span>';
+	}
+
+	/**
+	 * Return an aria-required attribute set to true
+	 * @return string Aria required attribute
+	 */
+	public function get_aria_required( $required = false ) {
+		$attr = ( $required ) ? 'true' : 'false';
+		return 'aria-required="' . $attr . '"';
 	}
 
 	/**
