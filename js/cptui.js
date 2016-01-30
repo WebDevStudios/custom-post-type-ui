@@ -23,6 +23,8 @@
 			state = !state;
 			answer.slideToggle(state);
 			tis.toggleClass('active',state);
+			tis.attr('aria-expanded', state.toString() );
+			tis.focus();
 		});
 	});
 
