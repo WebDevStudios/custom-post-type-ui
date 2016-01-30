@@ -71,9 +71,21 @@ class CPTUI_Admin_UI_Inputs_Test extends CPTUI_Base_Tests {
 	 * Tests our required field method.
 	 */
 	public function test_CPTUI_Required() {
-				$expected = '<span class="required">*</span>';
+		$expected = '<span class="required">*</span>';
 
 		$this->assertEquals( $expected, $this->ui->get_required() );
+	}
+
+	/**
+	 * Tests our ARIA required field method
+	 */
+	public function test_CPTUI_ARIA_Required() {
+		$expected = 'aria-required="false"';
+		$this->assertEquals( $expected, $this->ui->get_aria_required() );
+		$this->assertEquals( $expected, $this->ui->get_aria_required( false ) );
+
+		$expected = 'aria-required="true"';
+		$this->assertEquals( $expected, $this->ui->get_aria_required( true ) );
 	}
 
 	/**
@@ -115,7 +127,7 @@ class CPTUI_Admin_UI_Inputs_Test extends CPTUI_Base_Tests {
 				<a href="#" class="cptui-help dashicons-before dashicons-editor-help" title="Helper text."></a>
 			</th>
 			<td>
-				<input type="text" id="name" name="name_array[name]" value="saved value" /><br/>
+				<input type="text" id="name" name="name_array[name]" value="saved value" aria-required="false" /><br/>
 			</td>
 		</tr>';
 
