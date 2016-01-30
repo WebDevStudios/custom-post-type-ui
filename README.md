@@ -16,6 +16,11 @@ CPTUI does NOT handle display of registered post types or taxonomies in your cur
 
 ## Changelog
 
+**1.2.2**
+
+* Fixed: Missing admin menu icon for some browsers.
+* Fixed: Undefined index notices for post type screen.
+
 **1.2.1**
 
 * Fixed: Undefined index notices for custom taxonomies and new fields from 1.2.0
