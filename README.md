@@ -16,6 +16,10 @@ CPTUI does NOT handle display of registered post types or taxonomies in your cur
 
 ## Changelog
 
+**1.2.3**
+
+* Fixed: copy/paste error with admin css.
+
 **1.2.2**
 
 * Fixed: Missing admin menu icon for some browsers.
