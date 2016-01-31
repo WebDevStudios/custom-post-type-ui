@@ -35,6 +35,9 @@ All official development on this plugin is on GitHub. Version bumps will still b
 * Added: Taxonomy slug update ability with preserved term association.
 * Added: Current theme's textdomain as output in get code textareas.
 
+= 1.2.3 =
+* Fixed: copy/paste error with admin css.
+
 = 1.2.2 =
 * Fixed: Missing admin menu icon for some browsers.
 * Fixed: Undefined index notices for post type screen.
@@ -166,6 +169,9 @@ All official development on this plugin is on GitHub. Version bumps will still b
 * Added: Legend tag support to admin UI class.
 * Added: Taxonomy slug update ability with preserved term association.
 * Added: Current theme's textdomain as output in get code textareas.
+
+= 1.2.3 =
+* Fixed: copy/paste error with admin css.
 
 = 1.2.2 =
 * Fixed: Missing admin menu icon for some browsers.
