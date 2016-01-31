@@ -24,7 +24,7 @@ CPTUI does NOT handle display of registered post types or taxonomies in your cur
 
 **1.2.3**
 
-* Fixed: copy/paste error with admin css.
+* Fixed: copy/paste error with admin css. Props hinaloe.
 
 **1.2.2**
 
