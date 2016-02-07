@@ -134,6 +134,7 @@ function cptui_get_single_taxonomy_registery( $taxonomy = array() ) {
 	} else {
 		$rewrite = disp_boolean( $taxonomy['rewrite'] );
 	}
+	$public = ( isset( $taxonomy['public'] ) ) ? disp_boolean( $taxonomy['public'] ) : 'true';
 
 	$my_theme = wp_get_theme();
 	$textdomain = $my_theme->get( 'TextDomain' );
@@ -150,6 +151,7 @@ function cptui_get_single_taxonomy_registery( $taxonomy = array() ) {
 	$args = array(
 		"label" => __( '<?php echo $taxonomy['label']; ?>', '<?php echo $textdomain; ?>' ),
 		"labels" => $labels,
+		"public" => <?php echo $public; ?>,
 		"hierarchical" => <?php echo $taxonomy['hierarchical']; ?>,
 		"label" => "<?php echo $taxonomy['label']; ?>",
 		"show_ui" => <?php echo disp_boolean( $taxonomy['show_ui'] ); ?>,
