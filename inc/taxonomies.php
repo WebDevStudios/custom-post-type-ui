@@ -420,6 +420,33 @@ function cptui_manage_taxonomies() {
 								'labeltext'     => __( 'Not found', 'custom-post-type-ui' ),
 								'helptext'      => esc_attr__( 'Custom taxonomy label. Used in the admin menu for displaying taxonomies.', 'custom-post-type-ui'),
 								) );
+
+							echo $ui->get_text_input( array(
+								'namearray' => 'cpt_tax_labels',
+								'name'      => 'no_terms',
+								'textvalue' => ( isset( $current['labels']['no_terms'] ) ) ? esc_attr( $current['labels']['no_terms'] ) : null,
+								'aftertext' => __( '(e.g. No actors)', 'custom-post-type-ui' ),
+								'labeltext' => __( 'No terms', 'custom-post-type-ui' ),
+								'helptext'  => esc_attr__( 'Custom taxonomy label. Used when indicating that there are no terms in the given taxonomy associated with an object.', 'custom-post-type-ui' ),
+							) );
+
+							echo $ui->get_text_input( array(
+								'namearray' => 'cpt_tax_labels',
+								'name'      => 'items_list_navigation',
+								'textvalue' => ( isset( $current['labels']['items_list_navigation'] ) ) ? esc_attr( $current['labels']['items_list_navigation'] ) : null,
+								'aftertext' => __( '(e.g. Actors list navigation)', 'custom-post-type-ui' ),
+								'labeltext' => __( 'Items list navigation', 'custom-post-type-ui' ),
+								'helptext'  => esc_attr__( 'Custom taxonomy label. Screen reader text for the pagination heading on the term listing screen.', 'custom-post-type-ui' ),
+							) );
+
+							echo $ui->get_text_input( array(
+								'namearray' => 'cpt_tax_labels',
+								'name'      => 'items_list',
+								'textvalue' => ( isset( $current['labels']['items_list'] ) ) ? esc_attr( $current['labels']['items_list'] ) : null,
+								'aftertext' => __( '(e.g. Actors list)', 'custom-post-type-ui' ),
+								'labeltext' => __( 'Items list', 'custom-post-type-ui' ),
+								'helptext'  => esc_attr__( 'Custom taxonomy label. Screen reader text for the items list heading on the term listing screen.', 'custom-post-type-ui' ),
+							) );
 							?>
 						</table>
 					</div>
