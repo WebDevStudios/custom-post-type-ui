@@ -35,6 +35,8 @@ All official development on this plugin is on GitHub. Version bumps will still b
 * Added: Taxonomy slug update ability with preserved term association.
 * Added: Current theme's textdomain as output in get code textareas.
 * Added: "Public" parameter for taxonomies
+* Added: New post type and taxonomy labels provided by WordPress 4.3 and 4.4 releases.
+	* See: https://make.wordpress.org/core/2015/12/11/additional-labels-for-custom-post-types-and-custom-taxonomies/
 
 = 1.2.3 =
 * Fixed: copy/paste error with admin css. Props hinaloe.
@@ -171,6 +173,8 @@ All official development on this plugin is on GitHub. Version bumps will still b
 * Added: Taxonomy slug update ability with preserved term association.
 * Added: Current theme's textdomain as output in get code textareas.
 * Added: "Public" parameter for taxonomies
+* Added: New post type and taxonomy labels provided by WordPress 4.3 and 4.4 releases.
+	* See: https://make.wordpress.org/core/2015/12/11/additional-labels-for-custom-post-types-and-custom-taxonomies/
 
 = 1.2.3 =
 * Fixed: copy/paste error with admin css. Props hinaloe.
