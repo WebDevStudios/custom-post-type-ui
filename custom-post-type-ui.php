@@ -379,7 +379,9 @@ function cptui_register_single_taxonomy( $taxonomy = array() ) {
 		$taxonomy['query_var'] = $taxonomy['query_var_slug'];
 	}
 
-	$show_admin_column = ( !empty( $taxonomy['show_admin_column'] ) && false !== get_disp_boolean( $taxonomy['show_admin_column'] ) ) ? true : false;
+	$public = ( ! empty( $taxonomy['public'] ) && false !== get_disp_boolean( $taxonomy['public'] ) ) ? true : false;
+
+	$show_admin_column = ( ! empty( $taxonomy['show_admin_column'] ) && false !== get_disp_boolean( $taxonomy['show_admin_column'] ) ) ? true : false;
 
 	$show_in_rest = ( ! empty( $taxonomy['show_in_rest'] ) && false !== get_disp_boolean( $taxonomy['show_in_rest'] ) ) ? true : false;
 
@@ -392,6 +394,7 @@ function cptui_register_single_taxonomy( $taxonomy = array() ) {
 		'labels'            => $labels,
 		'label'             => $taxonomy['label'],
 		'description'       => $description,
+		'public'            => $public,
 		'hierarchical'      => get_disp_boolean( $taxonomy['hierarchical'] ),
 		'show_ui'           => get_disp_boolean( $taxonomy['show_ui'] ),
 		'query_var'         => $taxonomy['query_var'],
