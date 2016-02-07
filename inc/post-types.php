@@ -417,10 +417,102 @@ function cptui_manage_post_types() {
 								'textvalue'     => ( isset( $current['labels']['parent'] ) ) ? esc_attr( $current['labels']['parent'] ) : '',
 								'aftertext'     => __( '(e.g. Parent Movie)', 'custom-post-type-ui' )
 								) );
+
+							echo $ui->get_text_input( array(
+								'labeltext' => __( 'Featured Image', 'custom-post-type-ui' ),
+								'helptext'  => esc_attr__( 'Post type label. Overrides the "Featured Image" phrase for this post type.', 'custom-post-type-ui' ),
+								'namearray' => 'cpt_labels',
+								'name'      => 'featured_image',
+								'textvalue' => ( isset( $current['labels']['featured_image'] ) ) ? esc_attr( $current['labels']['featured_image'] ) : '',
+								'aftertext' => __( '(e.g. Featured image for this movie)', 'custom-post-type-ui' )
+								) );
+
+							echo $ui->get_text_input( array(
+								'labeltext' => __( 'Set Featured Image', 'custom-post-type-ui' ),
+								'helptext'  => esc_attr__( 'Post type label. Overrides the "Set featured image" phrase for this post type.', 'custom-post-type-ui' ),
+								'namearray' => 'cpt_labels',
+								'name'      => 'set_featured_image',
+								'textvalue' => ( isset( $current['labels']['set_featured_image'] ) ) ? esc_attr( $current['labels']['set_featured_image'] ) : '',
+								'aftertext' => __( '(e.g. Set featured image for this movie)', 'custom-post-type-ui' )
+								) );
+
+							echo $ui->get_text_input( array(
+								'labeltext' => __( 'Remove Featured Image', 'custom-post-type-ui' ),
+								'helptext'  => esc_attr__( 'Post type label. Overrides the "Remove featured image" phrase for this post type.', 'custom-post-type-ui' ),
+								'namearray' => 'cpt_labels',
+								'name'      => 'remove_featured_image',
+								'textvalue' => ( isset( $current['labels']['remove_featured_image'] ) ) ? esc_attr( $current['labels']['remove_featured_image'] ) : '',
+								'aftertext' => __( '(e.g. Remove featured image for this movie)', 'custom-post-type-ui' )
+								) );
+
+							echo $ui->get_text_input( array(
+								'labeltext' => __( 'Use Featured Image', 'custom-post-type-ui' ),
+								'helptext'  => esc_attr__( 'Post type label. Overrides the "Use as featured image" phrase for this post type.', 'custom-post-type-ui' ),
+								'namearray' => 'cpt_labels',
+								'name'      => 'use_featured_image',
+								'textvalue' => ( isset( $current['labels']['use_featured_image'] ) ) ? esc_attr( $current['labels']['use_featured_image'] ) : '',
+								'aftertext' => __( '(e.g. Use as featured image for this movie)', 'custom-post-type-ui' )
+							) );
+
+							echo $ui->get_text_input( array(
+								'labeltext' => __( 'Archives', 'custom-post-type-ui' ),
+								'helptext'  => esc_attr__( 'Post type label. Post type archive label used in nav menus.', 'custom-post-type-ui' ),
+								'namearray' => 'cpt_labels',
+								'name'      => 'archives',
+								'textvalue' => ( isset( $current['labels']['archives'] ) ) ? esc_attr( $current['labels']['archives'] ) : '',
+								'aftertext' => __( '(e.g. Movie archives)', 'custom-post-type-ui' )
+							) );
+
+							echo $ui->get_text_input( array(
+								'labeltext' => __( 'Insert into item', 'custom-post-type-ui' ),
+								'helptext'  => esc_attr__( 'Post type label. Overrides the "Insert into post" or "Insert into page" phrase for this post type.', 'custom-post-type-ui' ),
+								'namearray' => 'cpt_labels',
+								'name'      => 'insert_into_item',
+								'textvalue' => ( isset( $current['labels']['insert_into_item'] ) ) ? esc_attr( $current['labels']['insert_into_item'] ) : '',
+								'aftertext' => __( '(e.g. Insert into movie)', 'custom-post-type-ui' )
+							) );
+
+							echo $ui->get_text_input( array(
+								'labeltext' => __( 'Uploaded to this Item', 'custom-post-type-ui' ),
+								'helptext'  => esc_attr__( 'Post type label. Overrides the "Uploaded to this post" or "Uploaded to this page" phrase for this post type.', 'custom-post-type-ui' ),
+								'namearray' => 'cpt_labels',
+								'name'      => 'uploaded_to_this_item',
+								'textvalue' => ( isset( $current['labels']['uploaded_to_this_item'] ) ) ? esc_attr( $current['labels']['uploaded_to_this_item'] ) : '',
+								'aftertext' => __( '(e.g. Uploaded to this movie)', 'custom-post-type-ui' )
+							) );
+
+							echo $ui->get_text_input( array(
+								'labeltext' => __( 'Filter Items List', 'custom-post-type-ui' ),
+								'helptext'  => esc_attr__( 'Post type label. Screen reader text for the filter links heading on the post type listing screen.', 'custom-post-type-ui' ),
+								'namearray' => 'cpt_labels',
+								'name'      => 'filter_items_list',
+								'textvalue' => ( isset( $current['labels']['filter_items_list'] ) ) ? esc_attr( $current['labels']['filter_items_list'] ) : '',
+								'aftertext' => __( '(e.g. Filter movies list)', 'custom-post-type-ui' )
+							) );
+
+							echo $ui->get_text_input( array(
+								'labeltext' => __( 'Items List Navigation', 'custom-post-type-ui' ),
+								'helptext'  => esc_attr__( 'Post type label. Screen reader text for the pagination heading on the post type listing screen.', 'custom-post-type-ui' ),
+								'namearray' => 'cpt_labels',
+								'name'      => 'items_list_navigation',
+								'textvalue' => ( isset( $current['labels']['items_list_navigation'] ) ) ? esc_attr( $current['labels']['items_list_navigation'] ) : '',
+								'aftertext' => __( '(e.g. Movies list navigation)', 'custom-post-type-ui' )
+							) );
+
+							echo $ui->get_text_input( array(
+								'labeltext' => __( 'Items List', 'custom-post-type-ui' ),
+								'helptext'  => esc_attr__( 'Post type label. Screen reader text for the items list heading on the post type listing screen.', 'custom-post-type-ui' ),
+								'namearray' => 'cpt_labels',
+								'name'      => 'items_list',
+								'textvalue' => ( isset( $current['labels']['items_list'] ) ) ? esc_attr( $current['labels']['items_list'] ) : '',
+								'aftertext' => __( '(e.g. Movies list)', 'custom-post-type-ui' )
+							) );
 							?>
 							</table>
 						</div>
+
 					<h2><?php _e( 'Settings', 'custom-post-type-ui' ); ?></h2>
+
 						<div>
 							<table>
 							<?php
