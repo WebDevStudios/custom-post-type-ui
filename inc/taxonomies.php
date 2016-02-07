@@ -427,6 +427,24 @@ function cptui_manage_taxonomies() {
 					<div>
 						<table>
 							<?php
+
+								$select = array(
+									'options' => array(
+										array( 'attr' => '0', 'text' => __( 'False', 'custom-post-type-ui' ) ),
+										array( 'attr' => '1', 'text' => __( 'True', 'custom-post-type-ui' ), 'default' => 'true' )
+									)
+								);
+								$selected  = ( isset( $current ) ) ? disp_boolean( $current['public'] ) : '';
+								$select['selected'] = ( ! empty( $selected ) ) ? $current['public'] : '';
+								echo $ui->get_select_input( array(
+									'namearray'  => 'cpt_custom_tax',
+									'name'       => 'public',
+									'labeltext'  => __( 'Public', 'custom-post-type-ui' ),
+									'aftertext'  => __( '(default: True)', 'custom-post-type-ui' ),
+									'helptext'   => esc_attr__( 'Whether the taxonomy should be publicly queryable.', 'custom-post-type-ui' ),
+									'selections' => $select
+								) );
+
 								$select = array(
 									'options' => array(
 										array( 'attr' => '0', 'text' => __( 'False', 'custom-post-type-ui' ), 'default' => 'true' ),
@@ -818,6 +836,7 @@ function cptui_update_taxonomy( $data = array() ) {
 		'label'                => $label,
 		'singular_label'       => $singular_label,
 		'description'          => $description,
+		'public'               => disp_boolean( $data['cpt_custom_tax']['public'] ),
 		'hierarchical'         => disp_boolean( $data['cpt_custom_tax']['hierarchical'] ),
 		'show_ui'              => disp_boolean( $data['cpt_custom_tax']['show_ui'] ),
 		'query_var'            => disp_boolean( $data['cpt_custom_tax']['query_var'] ),
