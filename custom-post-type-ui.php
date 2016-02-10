@@ -106,13 +106,15 @@ add_action( 'admin_menu', 'cptui_plugin_menu' );
  * @since 1.0.0
  */
 function cptui_create_submenus() {
+	require_once( plugin_dir_path( __FILE__ ) . 'inc/about.php' );
+	require_once( plugin_dir_path( __FILE__ ) . 'inc/utility.php' );
 	require_once( plugin_dir_path( __FILE__ ) . 'inc/post-types.php' );
 	require_once( plugin_dir_path( __FILE__ ) . 'inc/taxonomies.php' );
 	require_once( plugin_dir_path( __FILE__ ) . 'inc/listings.php' );
 	require_once( plugin_dir_path( __FILE__ ) . 'inc/import_export.php' );
 	require_once( plugin_dir_path( __FILE__ ) . 'inc/support.php' );
 }
-add_action( 'init', 'cptui_create_submenus' );
+add_action( 'plugins_loaded', 'cptui_create_submenus' );
 
 /**
  * Enqueue CPTUI admin styles.
