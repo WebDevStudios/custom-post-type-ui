@@ -101,6 +101,24 @@ function cptui_plugin_menu() {
 add_action( 'admin_menu', 'cptui_plugin_menu' );
 
 /**
+ * Fire our CPTUI Loaded hook.
+ *
+ * @since 1.3.0
+ */
+function cptui_loaded() {
+
+	/**
+	 * Fires upon plugins_loaded WordPress hook.
+	 *
+	 * CPTUI loads its required files on this hook.
+	 *
+	 * @since 1.3.0
+	 */
+	do_action( 'cptui_loaded' );
+}
+add_action( 'plugins_loaded', 'cptui_loaded' );
+
+/**
  * Load our submenus.
  *
  * @since 1.0.0
@@ -114,7 +132,23 @@ function cptui_create_submenus() {
 	require_once( plugin_dir_path( __FILE__ ) . 'inc/import_export.php' );
 	require_once( plugin_dir_path( __FILE__ ) . 'inc/support.php' );
 }
-add_action( 'plugins_loaded', 'cptui_create_submenus' );
+add_action( 'cptui_loaded', 'cptui_create_submenus' );
+
+/**
+ * Fire our CPTUI init hook.
+ *
+ * @since 1.3.0
+ */
+function cptui_init() {
+
+	/**
+	 * Fires upon init WordPress hook.
+	 *
+	 * @since 1.3.0
+	 */
+	do_action( 'cptui_init' );
+}
+add_action( 'init', 'cptui_init' );
 
 /**
  * Enqueue CPTUI admin styles.
@@ -162,7 +196,7 @@ function cptui_create_custom_post_types() {
 	 */
 	do_action( 'cptui_post_register_post_types', $cpts );
 }
-add_action( 'init', 'cptui_create_custom_post_types', 10 );
+add_action( 'init', 'cptui_create_custom_post_types', 10 ); // Leave on standard init for legacy purposes.
 
 /**
  * Helper function to register the actual post_type.
@@ -358,7 +392,7 @@ function cptui_create_custom_taxonomies() {
 	 */
 	do_action( 'cptui_post_register_taxonomies', $taxes );
 }
-add_action( 'init', 'cptui_create_custom_taxonomies', 9 );
+add_action( 'init', 'cptui_create_custom_taxonomies', 9 );  // Leave on standard init for legacy purposes.
 
 /**
  * Helper function to register the actual taxonomy.
