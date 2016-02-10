@@ -19,6 +19,7 @@ function cptui_settings() { ?>
 
 		/**
 		 * Fires inside and at the top of the wrapper for the main plugin landing page.
+		 *
 		 * @since 1.0.0
 		 */
 		do_action( 'cptui_main_page_start' ); ?>
@@ -28,6 +29,7 @@ function cptui_settings() { ?>
 
 		/**
 		 * Fires after the main page `<h1>` heading tag.
+		 *
 		 * @since 1.3.0
 		 */
 		do_action( 'cptui_main_page_after_header' );
@@ -76,6 +78,7 @@ function cptui_settings() { ?>
 
 			/**
 			 * Fires inside a div for extra notes.
+			 *
 			 * @since 1.3.0
 			 */
 			do_action( 'cptui_main_page_extra_notes' ); ?>
