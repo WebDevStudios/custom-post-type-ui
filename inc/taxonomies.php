@@ -435,7 +435,7 @@ function cptui_manage_taxonomies() {
 								'name'      => 'items_list_navigation',
 								'textvalue' => ( isset( $current['labels']['items_list_navigation'] ) ) ? esc_attr( $current['labels']['items_list_navigation'] ) : null,
 								'aftertext' => __( '(e.g. Actors list navigation)', 'custom-post-type-ui' ),
-								'labeltext' => __( 'Items list navigation', 'custom-post-type-ui' ),
+								'labeltext' => __( 'Items List Navigation', 'custom-post-type-ui' ),
 								'helptext'  => esc_attr__( 'Custom taxonomy label. Screen reader text for the pagination heading on the term listing screen.', 'custom-post-type-ui' ),
 							) );
 
@@ -444,7 +444,7 @@ function cptui_manage_taxonomies() {
 								'name'      => 'items_list',
 								'textvalue' => ( isset( $current['labels']['items_list'] ) ) ? esc_attr( $current['labels']['items_list'] ) : null,
 								'aftertext' => __( '(e.g. Actors list)', 'custom-post-type-ui' ),
-								'labeltext' => __( 'Items list', 'custom-post-type-ui' ),
+								'labeltext' => __( 'Items List', 'custom-post-type-ui' ),
 								'helptext'  => esc_attr__( 'Custom taxonomy label. Screen reader text for the items list heading on the term listing screen.', 'custom-post-type-ui' ),
 							) );
 							?>
