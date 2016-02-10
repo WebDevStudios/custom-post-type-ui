@@ -126,7 +126,7 @@ function cptui_add_styles() {
 		return;
 	}
 
-	wp_enqueue_style( 'cptui-css', plugins_url( 'css/cptui.css', __FILE__ ) );
+	wp_enqueue_style( 'cptui-css', plugins_url( 'css/cptui.css', __FILE__ ), array(), CPTUI_VERSION );
 }
 add_action( 'admin_enqueue_scripts', 'cptui_add_styles' );
 
