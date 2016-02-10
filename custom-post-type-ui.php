@@ -66,16 +66,37 @@ add_action( 'init', 'cptui_load_textdomain' );
  * @since 0.1.0
  */
 function cptui_plugin_menu() {
-	add_menu_page( __( 'Custom Post Types', 'custom-post-type-ui' ), __( 'CPT UI', 'custom-post-type-ui' ), 'manage_options', 'cptui_main_menu', 'cptui_settings', cptui_menu_icon() );
-	add_submenu_page( 'cptui_main_menu', __( 'Add/Edit Post Types', 'custom-post-type-ui' ), __( 'Add/Edit Post Types', 'custom-post-type-ui' ), 'manage_options', 'cptui_manage_post_types', 'cptui_manage_post_types' );
-	add_submenu_page( 'cptui_main_menu', __( 'Add/Edit Taxonomies', 'custom-post-type-ui' ), __( 'Add/Edit Taxonomies', 'custom-post-type-ui' ), 'manage_options', 'cptui_manage_taxonomies', 'cptui_manage_taxonomies' );
-	add_submenu_page( 'cptui_main_menu', __( 'Registered Types and Taxes', 'custom-post-type-ui' ), __( 'Registered Types/Taxes', 'custom-post-type-ui' ), 'manage_options', 'cptui_listings', 'cptui_listings' );
-	add_submenu_page( 'cptui_main_menu', __( 'Import/Export', 'custom-post-type-ui' ), __( 'Import/Export', 'custom-post-type-ui' ), 'manage_options', 'cptui_importexport', 'cptui_importexport' );
-	add_submenu_page( 'cptui_main_menu', __( 'Help/Support', 'custom-post-type-ui' ), __( 'Help/Support', 'custom-post-type-ui' ), 'manage_options', 'cptui_support', 'cptui_support' );
+
+	/**
+	 * Filters the required capability to manage CPTUI settings.
+	 *
+	 * @since 1.3.0
+	 *
+	 * @param string $value Capability required.
+	 */
+	$capability = apply_filters( 'cptui_required_capabilities', 'manage_options' );
+	$parent_slug = 'cptui_main_menu';
+
+	add_menu_page( __( 'Custom Post Types', 'custom-post-type-ui' ), __( 'CPT UI', 'custom-post-type-ui' ), $capability, $parent_slug, 'cptui_settings', cptui_menu_icon() );
+	add_submenu_page( $parent_slug, __( 'Add/Edit Post Types', 'custom-post-type-ui' ), __( 'Add/Edit Post Types', 'custom-post-type-ui' ), $capability, 'cptui_manage_post_types', 'cptui_manage_post_types' );
+	add_submenu_page( $parent_slug, __( 'Add/Edit Taxonomies', 'custom-post-type-ui' ), __( 'Add/Edit Taxonomies', 'custom-post-type-ui' ), $capability, 'cptui_manage_taxonomies', 'cptui_manage_taxonomies' );
+	add_submenu_page( $parent_slug, __( 'Registered Types and Taxes', 'custom-post-type-ui' ), __( 'Registered Types/Taxes', 'custom-post-type-ui' ), $capability, 'cptui_listings', 'cptui_listings' );
+	add_submenu_page( $parent_slug, __( 'Import/Export', 'custom-post-type-ui' ), __( 'Import/Export', 'custom-post-type-ui' ), $capability, 'cptui_importexport', 'cptui_importexport' );
+	add_submenu_page( $parent_slug, __( 'Help/Support', 'custom-post-type-ui' ), __( 'Help/Support', 'custom-post-type-ui' ), $capability, 'cptui_support', 'cptui_support' );
+
+	/**
+	 * Fires after the default submenu pages.
+	 *
+	 * @since 1.3.0
+	 *
+	 * @param string $value      Parent slug for Custom Post Type UI menu.
+	 * @param string $capability Capability required to manage CPTUI settings.
+	 */
+	do_action( 'cptui_extra_menu_items', $parent_slug, $capability );
 
 	# Remove the default one so we can add our customized version.
-	remove_submenu_page('cptui_main_menu', 'cptui_main_menu');
-	add_submenu_page( 'cptui_main_menu', __( 'About CPT UI', 'custom-post-type-ui' ), __( 'About CPT UI', 'custom-post-type-ui' ), 'manage_options', 'cptui_main_menu', 'cptui_settings' );
+	remove_submenu_page( $parent_slug, 'cptui_main_menu');
+	add_submenu_page( $parent_slug, __( 'About CPT UI', 'custom-post-type-ui' ), __( 'About CPT UI', 'custom-post-type-ui' ), 'manage_options', 'cptui_main_menu', 'cptui_settings' );
 }
 add_action( 'admin_menu', 'cptui_plugin_menu' );
 
