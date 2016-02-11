@@ -210,12 +210,26 @@ class CPTUI_Debug_Info {
 
 		$message = $this->system_status();
 
-		$subject = sprintf(
-			__( 'CPTUI debug information for %s'),
+		/**
+		 * Filters the debug email subject.
+		 *
+		 * @since 1.3.0
+		 *
+		 * @param string $value Intended email subject.
+		 */
+		$subject = apply_filters( 'cptui_debug_email_subject', sprintf(
+			__( 'CPTUI debug information for %s', 'custom-post-type-ui' ),
 			home_url( '/' )
-		);
+		) );
 
 		wp_mail( $args['email'], $subject, $message );
+
+		/**
+		 * Fires after the debug email has been sent.
+		 *
+		 * @since 1.3.0
+		 */
+		do_action( 'cptui_after_debug_email_sent' );
 	}
 }
 
