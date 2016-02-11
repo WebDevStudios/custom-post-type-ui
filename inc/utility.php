@@ -93,7 +93,7 @@ function cptui_footer( $original = '' ) {
 			       '<a target="_blank" href="http://wordpress.org/support/plugin/custom-post-type-ui">%s</a>',
 			       __( 'Custom Post Type UI', 'custom-post-type-ui' )
 		       ),
-		       CPT_VERSION,
+		       CPTUI_VERSION,
 		       '<a href="http://webdevstudios.com" target="_blank">WebDevStudios</a>'
 	       ) .
 	       ' - ' .

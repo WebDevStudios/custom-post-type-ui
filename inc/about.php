@@ -23,7 +23,7 @@ function cptui_settings() { ?>
 		 * @since 1.0.0
 		 */
 		do_action( 'cptui_main_page_start' ); ?>
-		<h1><?php _e( 'Custom Post Type UI', 'custom-post-type-ui' ); ?> <?php echo CPT_VERSION; ?></h1>
+		<h1><?php _e( 'Custom Post Type UI', 'custom-post-type-ui' ); ?> <?php echo CPTUI_VERSION; ?></h1>
 
 		<?php
 
@@ -38,7 +38,7 @@ function cptui_settings() { ?>
 		<div class="about-text cptui-about-text">
 			<?php _e( 'Thank you for choosing Custom Post Type UI. We hope that your experience with our plugin provides efficiency and speed in creating post types and taxonomies, to better organize your content, without having to touch code.', 'custom-post-type-ui' ); ?>
 		</div>
-		<h2><?php printf( __( 'What\'s new in version %s', 'custom-post-type-ui' ), CPT_VERSION ); ?></h2>
+		<h2><?php printf( __( 'What\'s new in version %s', 'custom-post-type-ui' ), CPTUI_VERSION ); ?></h2>
 		<div class="changelog about-integrations">
 			<div class="cptui-feature feature-section col three-col">
 
