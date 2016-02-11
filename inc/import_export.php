@@ -583,6 +583,13 @@ function cptui_render_debuginfo_section() {
 	 */
 	echo '<p><input type="submit" class="button-primary" name="cptui_send_debug_email" value="' . esc_attr( apply_filters( 'cptui_debug_email_submit_button', __( 'Send debug info', 'custom-post-type-ui' ) ) ) . '" /></p>';
 	echo '</form>';
+
+	/**
+	 * Fires after the display of the site information.
+	 *
+	 * @since 1.3.0
+	 */
+	do_action( 'cptui_after_site_info' );
 }
 
 /**
