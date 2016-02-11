@@ -156,6 +156,14 @@ class CPTUI_Debug_Info {
 		echo "\t\t" . 'Taxonomies: ' . "\n";
 		echo "\t\t" . esc_html( json_encode( $cptui_taxonomies ) ) . "\n";
 		echo "\n";
+
+		if ( has_action( 'cptui_custom_debug_info' ) ) {
+			echo "\t\t" . 'EXTRA DEBUG INFO';
+		}
+
+		do_action( 'cptui_custom_debug_info' );
+
+		echo "\n";
 		?>
 		### End Debug Info ###
 		<?php
@@ -232,4 +240,3 @@ class CPTUI_Debug_Info {
 		do_action( 'cptui_after_debug_email_sent' );
 	}
 }
-
