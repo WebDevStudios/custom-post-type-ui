@@ -20,7 +20,7 @@ class CPTUI_Debug_Info {
 		?>
 		<p><?php _e( 'If you have sought support for Custom Post Type UI on the forums, you may be requested to send the information below to the plugin developer. Simply insert the email they provided in the input field at the bottom and click the "Send debug info" button. Only the data below will be sent to them.', 'custom-post-type-ui' ); ?></p>
 		<label for="cptui_audit_textarea">
-		<textarea readonly="readonly" id="cptui-audit-textarea" name="cptui_audit_textarea" rows="20" cols="100">
+		<textarea readonly="readonly" aria-readonly="true" id="cptui-audit-textarea" name="cptui_audit_textarea" rows="20" cols="100">
 			<?php echo $this->system_status(); ?>
 		</textarea></label>
 		<?php
