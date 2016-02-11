@@ -161,6 +161,11 @@ class CPTUI_Debug_Info {
 			echo "\t\t" . 'EXTRA DEBUG INFO';
 		}
 
+		/**
+		 * Fires at the end of the debug info output.
+		 *
+		 * @since 1.3.0
+		 */
 		do_action( 'cptui_custom_debug_info' );
 
 		echo "\n";
