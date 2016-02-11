@@ -84,13 +84,11 @@ class CPTUI_Debug_Info {
 		$mu_plugins = get_mu_plugins();
 
 		if ( $mu_plugins ) :
-			$mu_count = count( $mu_plugins );
-
-			echo 'MU PLUGINS: (' . $mu_count . ')' . "\n\n";
+			echo "\t\t" . 'MU PLUGINS: (' . count( $mu_plugins ) . ')' . "\n\n";
 
 			foreach ( $mu_plugins as $mu_path => $mu_plugin ) {
 
-				echo $mu_plugin['Name'] . ': ' . $mu_plugin['Version'] . "\n";
+				echo "\t\t" . $mu_plugin['Name'] . ': ' . $mu_plugin['Version'] . "\n";
 			}
 		endif;
 		// standard plugins - active
@@ -100,7 +98,7 @@ class CPTUI_Debug_Info {
 		$ac_count = count( $active );
 		$ic_count = $pg_count - $ac_count;
 
-		echo 'ACTIVE PLUGINS: (' . $ac_count . ')' . "\n\n";
+		echo "\t\t" . 'ACTIVE PLUGINS: (' . $ac_count . ')' . "\n\n";
 
 		foreach ( $plugins as $plugin_path => $plugin ) {
 			// If the plugin isn't active, don't show it.
@@ -108,11 +106,11 @@ class CPTUI_Debug_Info {
 				continue;
 			}
 
-			echo $plugin['Name'] . ': ' . $plugin['Version'] . "\n";
+			echo "\t\t" . $plugin['Name'] . ': ' . $plugin['Version'] . "\n";
 		}
 		// standard plugins - inactive
 		echo "\n";
-		echo 'INACTIVE PLUGINS: (' . $ic_count . ')' . "\n\n";
+		echo "\t\t" , 'INACTIVE PLUGINS: (' . $ic_count . ')' . "\n\n";
 
 		foreach ( $plugins as $plugin_path => $plugin ) {
 			// If the plugin isn't active, show it here.
@@ -120,7 +118,7 @@ class CPTUI_Debug_Info {
 				continue;
 			}
 
-			echo $plugin['Name'] . ': ' . $plugin['Version'] . "\n";
+			echo "\t\t" . $plugin['Name'] . ': ' . $plugin['Version'] . "\n";
 		}
 
 		// if multisite, grab network as well
@@ -149,14 +147,14 @@ class CPTUI_Debug_Info {
 
 		echo "\n";
 		$cptui_post_types = get_option( 'cptui_post_types', array() );
-		echo 'Post Types: ' . "\n";
-		echo esc_html( json_encode( $cptui_post_types ) ) . "\n";
+		echo "\t\t" . 'Post Types: ' . "\n";
+		echo "\t\t" . esc_html( json_encode( $cptui_post_types ) ) . "\n";
 
 		echo "\n\n";
 
 		$cptui_taxonomies = get_option( 'cptui_taxonomies', array() );
-		echo 'Taxonomies: ' . "\n";
-		echo esc_html( json_encode( $cptui_taxonomies ) ) . "\n";
+		echo "\t\t" . 'Taxonomies: ' . "\n";
+		echo "\t\t" . esc_html( json_encode( $cptui_taxonomies ) ) . "\n";
 		echo "\n";
 		?>
 		### End Debug Info ###
