@@ -23,7 +23,7 @@ function cptui_taxonomies_enqueue_scripts() {
 		return;
 	}
 
-	wp_enqueue_script( 'cptui', plugins_url( 'js/cptui.js' , dirname(__FILE__) ) . '', array( 'jquery', 'jquery-ui-core', 'jquery-ui-accordion' ), CPT_VERSION, true );
+	wp_enqueue_script( 'cptui', plugins_url( 'js/cptui.js' , dirname(__FILE__) ) . '', array( 'jquery', 'jquery-ui-core', 'jquery-ui-accordion' ), CPTUI_VERSION, true );
 	wp_localize_script(	'cptui', 'cptui_tax_data',
 		array(
 			'confirm' => __( 'Are you sure you want to delete this?', 'custom-post-type-ui' ),
