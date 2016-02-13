@@ -16,6 +16,11 @@ CPTUI does NOT handle display of registered post types or taxonomies in your cur
 
 ## Changelog
 
+**1.2.4**
+
+* Added: new `CPTUI_VERSION` constant to match naming of other current constants.
+* Added: `CPTUI_VERSION` constant to cptui.css string for cache busting.
+
 **1.2.3**
 
 * Fixed: copy/paste error with admin css.

@@ -4,7 +4,7 @@ Plugin Name: Custom Post Type UI
 Plugin URI: https://github.com/WebDevStudios/custom-post-type-ui/
 Description: Admin panel for creating custom post types and custom taxonomies in WordPress
 Author: WebDevStudios
-Version: 1.2.3
+Version: 1.2.4
 Author URI: http://webdevstudios.com/
 Text Domain: custom-post-type-ui
 Domain Path: /languages
@@ -16,7 +16,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'CPT_VERSION', '1.2.3' );
+define( 'CPT_VERSION', '1.2.4' ); // Left for legacy purposes.
+define( 'CPTUI_VERSION', '1.2.4' );
 define( 'CPTUI_WP_VERSION', get_bloginfo( 'version' ) );
 
 /**
@@ -90,7 +91,7 @@ function cptui_add_styles() {
 		return;
 	}
 
-	wp_enqueue_style( 'cptui-css', plugins_url( 'css/cptui.css', __FILE__ ) );
+	wp_enqueue_style( 'cptui-css', plugins_url( 'css/cptui.css', __FILE__ ), array(), CPTUI_VERSION );
 }
 add_action( 'admin_enqueue_scripts', 'cptui_add_styles' );
 
@@ -386,12 +387,12 @@ function cptui_settings() { ?>
 		 * @since 1.0.0
 		 */
 		do_action( 'cptui_main_page_start' ); ?>
-		<h1><?php _e( 'Custom Post Type UI', 'custom-post-type-ui' ); ?> <?php echo CPT_VERSION; ?></h1>
+		<h1><?php _e( 'Custom Post Type UI', 'custom-post-type-ui' ); ?> <?php echo CPTUI_VERSION; ?></h1>
 
 		<div class="about-text cptui-about-text">
 			<?php _e( 'Thank you for choosing Custom Post Type UI. We hope that your experience with our plugin provides efficiency and speed in creating post types and taxonomies, to better organize your content, without having to touch code.', 'custom-post-type-ui' ); ?>
 		</div>
-		<h2><?php printf( __( 'What\'s new in version %s', 'custom-post-type-ui' ), CPT_VERSION ); ?></h2>
+		<h2><?php printf( __( 'What\'s new in version %s', 'custom-post-type-ui' ), CPTUI_VERSION ); ?></h2>
 		<div class="changelog about-integrations">
 			<div class="cptui-feature feature-section col three-col">
 
@@ -484,7 +485,7 @@ function cptui_footer( $original = '' ) {
 			'<a target="_blank" href="http://wordpress.org/support/plugin/custom-post-type-ui">%s</a>',
 			__( 'Custom Post Type UI', 'custom-post-type-ui' )
 		),
-		CPT_VERSION,
+		CPTUI_VERSION,
 		'<a href="http://webdevstudios.com" target="_blank">WebDevStudios</a>'
 	).
 	' - '.
