@@ -4,6 +4,8 @@
  *
  * @package CPTUI
  * @subpackage Support
+ * @author WebDevStudios
+ * @since 1.0.0
  */
 
 # Exit if accessed directly

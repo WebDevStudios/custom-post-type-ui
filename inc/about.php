@@ -1,8 +1,10 @@
 <?php
 /**
  * Custom Post Type UI About Page.
- * @package    CPTUI
+ *
+ * @package CPTUI
  * @subpackage About
+ * @author WebDevStudios
  * @since 1.3.0
  */
 

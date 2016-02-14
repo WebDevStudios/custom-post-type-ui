@@ -4,6 +4,8 @@
  *
  * @package CPTUI
  * @subpackage Loader
+ * @author WebDevStudios
+ * @since 0.1.0.0
  */
 
 /*

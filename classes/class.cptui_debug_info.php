@@ -1,9 +1,11 @@
 <?php
 /**
  * Custom Post Type UI Debug Information.
-
+ *
  * @package CPTUI
  * @subpackage Debugging
+ * @author WebDevStudios
+ * @since 1.2.0
  */
 
 /**
