@@ -120,8 +120,7 @@ function cptui_manage_post_types() {
 	<form method="post">
 		<table class="form-table cptui-table">
 			<tr>
-				<td class="outter">
-					<table>
+
 						<?php
 
 						/*
@@ -194,64 +193,11 @@ function cptui_manage_post_types() {
 							) );
 						}
 						?>
-					</table>
-				<p class="submit">
-					<?php wp_nonce_field( 'cptui_addedit_post_type_nonce_action', 'cptui_addedit_post_type_nonce_field' );
-					if ( !empty( $_GET ) && !empty( $_GET['action'] ) && 'edit' == $_GET['action'] ) { ?>
-						<?php
 
-						/**
-						 * Filters the text value to use on the button when editing.
-						 *
-						 * @since 1.0.0
-						 *
-						 * @param string $value Text to use for the button.
-						 */
-						?>
-						<input type="submit" class="button-primary" name="cpt_submit" value="<?php echo esc_attr( apply_filters( 'cptui_post_type_submit_edit', __( 'Save Post Type', 'custom-post-type-ui' ) ) ); ?>" />
-						<?php
 
-						/**
-						 * Filters the text value to use on the button when deleting.
-						 *
-						 * @since 1.0.0
-						 *
-						 * @param string $value Text to use for the button.
-						 */
-						?>
-						<input type="submit" class="button-secondary" name="cpt_delete" id="cpt_submit_delete" value="<?php echo esc_attr( apply_filters( 'cptui_post_type_submit_delete', __( 'Delete Post Type', 'custom-post-type-ui' ) ) ); ?>" />
-					<?php } else { ?>
-						<?php
 
-						/**
-						 * Filters the text value to use on the button when adding.
-						 *
-						 * @since 1.0.0
-						 *
-						 * @param string $value Text to use for the button.
-						 */
-						?>
-						<input type="submit" class="button-primary" name="cpt_submit" value="<?php echo esc_attr( apply_filters( 'cptui_post_type_submit_add', __( 'Add Post Type', 'custom-post-type-ui' ) ) ); ?>" />
-					<?php } ?>
 
-					<?php if ( !empty( $current ) ) { ?>
-						<input type="hidden" name="cpt_original" id="cpt_original" value="<?php echo $current['name']; ?>" />
-					<?php } ?>
 
-					<input type="hidden" name="cpt_type_status" id="cpt_type_status" value="<?php echo $tab; ?>" />
-				</p>
-
-				<?php if ( 'new' == $tab ) { ?>
-					<h2><?php _e( 'Starter Notes', 'custom-post-type-ui' ); ?></h2>
-					<div><ol>
-						<?php
-						echo '<li>' . sprintf( __( 'Post Type names should have %smax 20 characters%s, and only contain alphanumeric, lowercase characters, underscores in place of spaces and letters that do not have accents. Reserved names: post, page, attachment, revision, nav_menu_item.', 'custom-post-type-ui' ), '<strong class="wp-ui-highlight">', '</strong>' );
-						echo '<li>' . sprintf( __( 'If you are unfamiliar with the advanced post type settings, just fill in the %sPost Type Name%s and %sLabel%s fields. Remaining settings will use default values. Labels, if left blank, will be automatically created based on the post type name. Hover over the question mark for more details.', 'custom-post-type-ui' ), '<strong class="wp-ui-highlight">', '</strong>', '<strong class="wp-ui-highlight">', '</strong>' );
-						echo '<li>' . sprintf( __( 'Deleting custom post types will %sNOT%s delete any content into the database or added to those post types. You can easily recreate your post types and the content will still exist.', 'custom-post-type-ui' ), '<strong class="wp-ui-highlight">', '</strong>' ); ?>
-					</ol></div>
-				<?php } ?>
-			</td>
-			<td class="outter">
 				<div>
 					<h2><?php _e( 'Labels', 'custom-post-type-ui' ); ?></h2>
 						<div>
@@ -1079,7 +1025,50 @@ function cptui_manage_post_types() {
 				</td>
 			</tr>
 		</table>
+		<p class="submit">
+			<?php wp_nonce_field( 'cptui_addedit_post_type_nonce_action', 'cptui_addedit_post_type_nonce_field' );
+			if ( ! empty( $_GET ) && ! empty( $_GET['action'] ) && 'edit' == $_GET['action'] ) { ?>
+				<?php
+
+				/**
+				 * Filters the text value to use on the button when editing.
+				 * @since 1.0.0
+				 *
+				 * @param string $value Text to use for the button.
+				 */
+				?>
+				<input type="submit" class="button-primary" name="cpt_submit" value="<?php echo esc_attr( apply_filters( 'cptui_post_type_submit_edit', __( 'Save Post Type', 'custom-post-type-ui' ) ) ); ?>" />
+				<?php
+
+				/**
+				 * Filters the text value to use on the button when deleting.
+				 * @since 1.0.0
+				 *
+				 * @param string $value Text to use for the button.
+				 */
+				?>
+				<input type="submit" class="button-secondary" name="cpt_delete" id="cpt_submit_delete" value="<?php echo esc_attr( apply_filters( 'cptui_post_type_submit_delete', __( 'Delete Post Type', 'custom-post-type-ui' ) ) ); ?>" />
+			<?php } else { ?>
+				<?php
+
+				/**
+				 * Filters the text value to use on the button when adding.
+				 * @since 1.0.0
+				 *
+				 * @param string $value Text to use for the button.
+				 */
+				?>
+				<input type="submit" class="button-primary" name="cpt_submit" value="<?php echo esc_attr( apply_filters( 'cptui_post_type_submit_add', __( 'Add Post Type', 'custom-post-type-ui' ) ) ); ?>" />
+			<?php } ?>
+
+			<?php if ( ! empty( $current ) ) { ?>
+				<input type="hidden" name="cpt_original" id="cpt_original" value="<?php echo $current['name']; ?>" />
+			<?php } ?>
+
+			<input type="hidden" name="cpt_type_status" id="cpt_type_status" value="<?php echo $tab; ?>" />
+		</p>
 	</form>
+		<?php echo cptui_starter_notes( $tab, 'post_types' ); ?>
 	</div><!-- End .wrap -->
 <?php
 }
