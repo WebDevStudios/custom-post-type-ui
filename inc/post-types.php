@@ -205,7 +205,6 @@ function cptui_manage_post_types() {
 					</td>
 				</tr>
 				<?php
-
 					echo $ui->get_text_input( array(
 						'labeltext'     => __( 'Menu Name', 'custom-post-type-ui' ),
 						'helptext'      => esc_attr__( 'Custom menu name for your custom post type.', 'custom-post-type-ui' ),
