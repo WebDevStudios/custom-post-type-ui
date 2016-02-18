@@ -198,6 +198,18 @@ class cptui_admin_ui {
 	}
 
 	/**
+	 * Return a `<span>` tag with the help text.
+	 *
+	 * @since 1.3.0
+	 *
+	 * @param string $help_text Text to display after the input.
+	 * @return string
+	 */
+	public function get_description( $help_text = '' ) {
+		return '<span class="cptui-field-description">' . $help_text . '</span>';
+	}
+
+	/**
 	 * Return a maxlength HTML attribute with a specified length.
 	 *
 	 * @since 1.0.0
