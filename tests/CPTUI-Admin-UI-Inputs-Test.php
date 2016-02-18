@@ -77,7 +77,7 @@ class CPTUI_Admin_UI_Inputs_Test extends CPTUI_Base_Tests {
 	}
 
 	/**
-	 * Tests our ARIA required field method
+	 * Tests our ARIA required field method.
 	 */
 	public function test_CPTUI_ARIA_Required() {
 		$expected = 'aria-required="false"';
@@ -86,6 +86,26 @@ class CPTUI_Admin_UI_Inputs_Test extends CPTUI_Base_Tests {
 
 		$expected = 'aria-required="true"';
 		$this->assertEquals( $expected, $this->ui->get_aria_required( true ) );
+	}
+
+	/**
+	 * Tests our Placeholder method.
+	 */
+	public function test_CPTUI_Placeholder() {
+		$this->markTestIncomplete(
+			'This test has not been implemented yet.'
+		);
+		$this->ui->get_placeholder();
+	}
+
+	/**
+	 * Tests our Description method.
+	 */
+	public function test_CPTUI_Description() {
+		$this->markTestIncomplete(
+			'This test has not been implemented yet.'
+		);
+		$this->ui->get_description();
 	}
 
 	/**
