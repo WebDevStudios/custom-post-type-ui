@@ -135,7 +135,8 @@ function cptui_manage_post_types() {
 							'labeltext'     => __( 'Post Type Slug', 'custom-post-type-ui' ),
 							'aftertext'     => __( '(e.g. movie)', 'custom-post-type-ui' ),
 							'helptext'      => esc_attr__( 'The post type name. Used to retrieve custom post type content. Should be short and unique', 'custom-post-type-ui'),
-							'required'      => true
+							'required'      => true,
+							'placeholder'   => false
 							) );
 
 						/*
