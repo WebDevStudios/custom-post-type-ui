@@ -164,6 +164,8 @@ class cptui_admin_ui {
 
 	/**
 	 * Return an aria-required attribute set to true
+	 *
+	 * @param bool $required Whether or not the field is required.
 	 * @return string Aria required attribute
 	 */
 	public function get_aria_required( $required = false ) {
