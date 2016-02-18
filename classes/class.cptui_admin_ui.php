@@ -477,7 +477,8 @@ class cptui_admin_ui {
 				'helptext'      => '',
 				'helptext_after'=> false,
 				'required'      => false,
-				'wrap'          => true
+				'wrap'          => true,
+				'placeholder'   => true
 			),
 			(array)$additions
 		);
