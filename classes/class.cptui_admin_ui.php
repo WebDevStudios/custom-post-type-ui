@@ -248,6 +248,20 @@ class cptui_admin_ui {
 	}
 
 	/**
+	 * Return a placeholder HTML attribtue for a specified value.
+	 *
+	 * @param string $text Text to place in the placeholder attribute.
+	 * @return string $value Placeholder HTML attribute.
+	 */
+	public function get_placeholder( $text = '' ) {
+		return 'placeholder="' . esc_attr( $text ) . '"';
+	}
+
+	public function get_hidden_text( $text = '' ) {
+		return '<span class="visuallyhidden">' . $text . '</span>';
+	}
+
+	/**
 	 * Return a populated `<select>` input.
 	 *
 	 * @since 1.0.0
