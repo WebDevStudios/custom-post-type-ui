@@ -326,9 +326,9 @@ class cptui_admin_ui {
 			$value .= $this->get_th_start();
 			$value .= $this->get_label( $args['name'], $args['labeltext'] );
 			if ( $args['required'] ) { $value .= $this->get_required(); }
-			if ( !$args['helptext_after'] ) {
+			/*if ( !$args['helptext_after'] ) {
 				$value .= $this->get_help( $args['helptext'] );
-			}
+			}*/
 			$value .= $this->get_th_end();
 			$value .= $this->get_td_start();
 		}
@@ -345,15 +345,21 @@ class cptui_admin_ui {
 
 		$value .= ' ' . $this->get_aria_required( $args['required'] );
 
+		if ( ! empty( $args['aftertext'] ) ) {
+			if ( $args['placeholder'] ) {
+				$value .= ' ' . $this->get_placeholder( $args['aftertext'] );
+			}
+		}
+
 		$value .= ' />';
 
-		if ( $args['helptext_after'] ) {
-			$value .= $this->get_help( $args['helptext'] );
+		if ( ! empty( $args['aftertext'] ) ) {
+			$value .= $this->get_hidden_text( $args['aftertext'] );
 		}
-		$value .= '<br/>';
 
-		if ( !empty( $args['aftertext'] ) )
-			$value .= $args['aftertext'];
+		if ( $args['helptext'] ) {
+			$value .= ' ' . $this->get_description( $args['helptext'] );
+		}
 
 		if ( $args['wrap'] ) {
 			$value .= $this->get_td_end();
