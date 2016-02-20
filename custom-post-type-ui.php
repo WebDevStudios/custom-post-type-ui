@@ -534,6 +534,7 @@ function cptui_settings_tab_menu( $page = 'post_types' ) {
 			<?php
 			if ( $has ) { ?>
 			<a class="<?php echo $tab2; ?>" href="<?php echo esc_url( add_query_arg( array( 'action' => 'edit' ), admin_url( 'admin.php?page=cptui_manage_' . $page ) ) ); ?>"><?php _e( 'Edit Post Types', 'custom-post-type-ui' ); ?></a>
+			<a class="<?php echo $tab2; ?>" href="<?php echo esc_url( admin_url( 'admin.php?page=cptui_listings#post-types' ) ); ?>"><?php _e( 'View Post Types', 'custom-post-type-ui' ); ?></a>
 			<?php }
 		} elseif ( 'taxonomies' == $page ) {
 			?>
@@ -541,6 +542,7 @@ function cptui_settings_tab_menu( $page = 'post_types' ) {
 			<?php
 			if ( $has ) { ?>
 			<a class="<?php echo $tab2; ?>" href="<?php echo esc_url( add_query_arg( array( 'action' => 'edit' ), admin_url( 'admin.php?page=cptui_manage_' . $page ) ) ); ?>"><?php _e( 'Edit Taxonomies', 'custom-post-type-ui' ); ?></a>
+			<a class="<?php echo $tab2; ?>" href="<?php echo esc_url( admin_url( 'admin.php?page=cptui_listings#taxonomies' ) ); ?>"><?php _e( 'View Taxonomies', 'custom-post-type-ui' ); ?></a>
 			<?php }
 		}
 	} else { ?>
