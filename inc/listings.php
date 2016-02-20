@@ -23,7 +23,7 @@ function cptui_listings() {
 			<h1><?php _e( 'Post Types and Taxonomies registered by Custom Post Type UI.', 'custom-post-type-ui' ); ?></h1>
 			<?php
 			$post_types = get_option( 'cptui_post_types' );
-			echo '<h2>' . __( 'Post Types', 'custom-post-type-ui' ) . '</h2>';
+			echo '<h2 id="post-types">' . __( 'Post Types', 'custom-post-type-ui' ) . '</h2>';
 			if ( !empty( $post_types ) ) {
 			?>
 			<p><?php printf( __( 'Total count: %d', 'custom-post-type-ui' ), count( $post_types ) ); ?></p>
@@ -178,7 +178,7 @@ function cptui_listings() {
 			}
 
 			$taxonomies = get_option( 'cptui_taxonomies' );
-			echo '<h2>' . __( 'Taxonomies', 'custom-post-type-ui' ) . '</h2>';
+			echo '<h2 id="taxonomies">' . __( 'Taxonomies', 'custom-post-type-ui' ) . '</h2>';
 			if ( !empty( $taxonomies ) ) {
 				?>
 				<p><?php printf( __( 'Total count: %d', 'custom-post-type-ui' ), count( $taxonomies ) ); ?></p>
