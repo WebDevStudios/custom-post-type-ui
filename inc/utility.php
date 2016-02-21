@@ -195,5 +195,27 @@ function cptui_taxonomy_starter_notes( $notes = array() ) {
 
 	return $notes;
 }
-
 add_filter( 'cptui_starter_notes_taxonomies', 'cptui_taxonomy_starter_notes' );
+
+/**
+ * Conditionally flushes rewrite rules if we have reason to.
+ *
+ * @since 1.3.0
+ */
+function cptui_flush_rewrite_rules() {
+
+	/*
+	 * Wise men say that you should not do flush_rewrite_rules on init. Due to the nature of our plugin
+	 * and how new post types or taxonomies can suddenly be introduced, we need to...potentially. For this,
+	 * we rely on a short lived transient. Only 5 minutes life span. If it exists, we do a soft flush before
+	 * deleting the transient to prevent subsequent flushes. The only times the transient gets created, is if
+	 * post types or taxonomies are created, updated, deleted, or imported. Any other time and this condition
+	 * should not be met.
+	 */
+	if ( 'true' == ( $flush_it = get_transient( 'cptui_flush_rewrite_rules' ) ) ) {
+		flush_rewrite_rules( false );
+		// So we only run this once.
+		delete_transient( 'cptui_flush_rewrite_rules' );
+	}
+}
+add_action( 'init', 'cptui_flush_rewrite_rules' );
