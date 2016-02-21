@@ -940,8 +940,9 @@ function cptui_manage_post_types() {
 
 			<?php if ( ! empty( $current ) ) { ?>
 				<input type="hidden" name="cpt_original" id="cpt_original" value="<?php echo $current['name']; ?>" />
-			<?php } ?>
+			<?php }
 
+			// Used to check and see if we should prevent duplicate slugs. ?>
 			<input type="hidden" name="cpt_type_status" id="cpt_type_status" value="<?php echo $tab; ?>" />
 		</p>
 	</form>
