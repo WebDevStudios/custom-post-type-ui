@@ -769,7 +769,8 @@ function cptui_delete_taxonomy( $data = array() ) {
 	 */
 	do_action( 'cptui_after_delete_taxonomy', $data );
 
-	flush_rewrite_rules();
+	// Used to help flush rewrite rules on init.
+	set_transient( 'cptui_flush_rewrite_rules', 'true', 5 * 60 );
 
 	if ( isset( $success ) ) {
 		return cptui_admin_notices( 'delete', $data['cpt_custom_tax']['name'], $success );
@@ -888,7 +889,8 @@ function cptui_update_taxonomy( $data = array() ) {
 	 */
 	do_action( 'cptui_after_update_taxonomy', $data );
 
-	flush_rewrite_rules();
+	// Used to help flush rewrite rules on init.
+	set_transient( 'cptui_flush_rewrite_rules', 'true', 5 * 60 );
 
 	if ( isset( $success ) ) {
 		if ( 'new' == $data['cpt_tax_status'] ) {
