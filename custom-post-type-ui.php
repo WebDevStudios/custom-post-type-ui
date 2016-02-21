@@ -176,6 +176,10 @@ add_action( 'admin_enqueue_scripts', 'cptui_add_styles' );
 function cptui_create_custom_post_types() {
 	$cpts = get_option( 'cptui_post_types' );
 
+	if ( empty( $cpts ) ) {
+		return;
+	}
+
 	/**
 	 * Fires before the start of the post type registrations.
 	 *
@@ -375,6 +379,10 @@ function cptui_register_single_post_type( $post_type = array() ) {
  */
 function cptui_create_custom_taxonomies() {
 	$taxes = get_option( 'cptui_taxonomies' );
+
+	if ( empty( $taxes ) ) {
+		return;
+	}
 
 	/**
 	 * Fires before the start of the taxonomy registrations.
