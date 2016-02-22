@@ -28,6 +28,7 @@ CPTUI does NOT handle display of registered post types or taxonomies in your cur
 * Added: "CPTUI_VERSION" constant and deprecated "CPT_VERSION".
 * Added: For developers: plenty of extra hooks all over for customization needs.
 * Updated: Increased accessibility coverage.
+* Added: Notes about post types and taxonomies from WordPress core.
 
 **1.2.3**
 

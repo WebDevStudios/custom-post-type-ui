@@ -41,6 +41,7 @@ All official development on this plugin is on GitHub. Version bumps will still b
 * Added: "CPTUI_VERSION" constant and deprecated "CPT_VERSION".
 * Added: For developers: plenty of extra hooks all over for customization needs.
 * Updated: Increased accessibility coverage.
+* Added: Notes about post types and taxonomies from WordPress core.
 
 = 1.2.3 - 2016-01-31 =
 * Fixed: copy/paste error with admin css. Props hinaloe.
@@ -183,6 +184,7 @@ All official development on this plugin is on GitHub. Version bumps will still b
 * Added: "CPTUI_VERSION" constant and deprecated "CPT_VERSION".
 * Added: For developers: plenty of extra hooks all over for customization needs.
 * Updated: Increased accessibility coverage.
+* Added: Notes about post types and taxonomies from WordPress core.
 
 = 1.2.3 =
 * Fixed: copy/paste error with admin css. Props hinaloe.
