@@ -37,6 +37,10 @@ All official development on this plugin is on GitHub. Version bumps will still b
 * Added: "Public" parameter for taxonomies
 * Added: New post type and taxonomy labels provided by WordPress 4.3 and 4.4 releases.
 	* See: https://make.wordpress.org/core/2015/12/11/additional-labels-for-custom-post-types-and-custom-taxonomies/
+* Added: "View Post Types" and "View Taxonomies" tabs at top of add/edit screens.
+* Added: "CPTUI_VERSION" constant and deprecated "CPT_VERSION".
+* Added: For developers: plenty of extra hooks all over for customization needs.
+* Updated: Increased accessibility coverage.
 
 = 1.2.3 - 2016-01-31 =
 * Fixed: copy/paste error with admin css. Props hinaloe.
@@ -175,6 +179,10 @@ All official development on this plugin is on GitHub. Version bumps will still b
 * Added: "Public" parameter for taxonomies
 * Added: New post type and taxonomy labels provided by WordPress 4.3 and 4.4 releases.
 	* See: https://make.wordpress.org/core/2015/12/11/additional-labels-for-custom-post-types-and-custom-taxonomies/
+* Added: "View Post Types" and "View Taxonomies" tabs at top of add/edit screens.
+* Added: "CPTUI_VERSION" constant and deprecated "CPT_VERSION".
+* Added: For developers: plenty of extra hooks all over for customization needs.
+* Updated: Increased accessibility coverage.
 
 = 1.2.3 =
 * Fixed: copy/paste error with admin css. Props hinaloe.
