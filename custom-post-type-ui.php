@@ -233,7 +233,11 @@ function cptui_register_single_post_type( $post_type = array() ) {
 	$user_supports_params = apply_filters( 'cptui_user_supports_params', array(), $post_type['name'], $post_type );
 
 	if ( is_array( $user_supports_params ) ) {
-		$post_type['supports'] = array_merge( $post_type['supports'], $user_supports_params );
+		if ( is_array( $post_type['supports'] ) ) {
+			$post_type['supports'] = array_merge( $post_type['supports'], $user_supports_params );
+		} else {
+			$post_type['supports'] = $user_supports_params;
+		}
 	}
 
 	$yarpp = false; # Prevent notices.
