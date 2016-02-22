@@ -737,7 +737,7 @@ function cptui_get_preserved_keys( $type = '' ) {
 			'separate_items_with_commas',
 			'add_or_remove_items',
 			'choose_from_most_used',
-		)
+		),
 	);
 	return ( ! empty( $type ) ) ? $preserved_labels[ $type ] : array();
 }
