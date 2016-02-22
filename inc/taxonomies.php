@@ -185,14 +185,16 @@ function cptui_manage_taxonomies() {
 						 */
 						$args = apply_filters( 'cptui_attach_post_types_to_taxonomy', array( 'public' => true ) );
 
-						# If they don't return an array, fall back to the original default. Don't need to check for empty, because empty array is default for $args param in get_post_types anyway.
-						if ( !is_array( $args ) ) {
+						// If they don't return an array, fall back to the original default. Don't need to check for empty, because empty array is default for $args param in get_post_types anyway.
+						if ( ! is_array( $args ) ) {
 							$args = array( 'public' => true );
 						}
-						$output = 'objects'; # or objects
+						$output = 'objects'; // Or objects.
 						$post_types = get_post_types( $args, $output );
 
 						foreach ( $post_types  as $post_type ) {
+							$core_label = ( in_array( $post_type->name, array( 'post', 'page', 'attachment', ) ) ) ? __( '(WP Core)', 'custom-post-type-ui' ) : '';
+
 							/*
 							 * Supports Taxonomies Checkbox
 							 */
@@ -202,7 +204,7 @@ function cptui_manage_taxonomies() {
 								'name'              => $post_type->name,
 								'namearray'         => 'cpt_post_types',
 								'textvalue'         => $post_type->name,
-								'labeltext'         => $post_type->label,
+								'labeltext'         => $post_type->label . ' ' . $core_label,
 								'helptext'          => sprintf( esc_attr__( 'Adds %s support', 'custom-post-type-ui' ), $post_type->label ),
 								'wrap'              => false
 							) );

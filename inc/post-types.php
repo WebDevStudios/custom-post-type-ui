@@ -1062,6 +1062,8 @@ function cptui_manage_post_types() {
 							$add_taxes = get_taxonomies( $args, 'objects' );
 							unset( $add_taxes['nav_menu'] ); unset( $add_taxes['post_format'] );
 							foreach ( $add_taxes as $add_tax ) {
+
+								$core_label = ( in_array( $add_tax->name, array( 'category', 'post_tag' ) ) ) ? __( '(WP Core)', 'custom-post-type-ui' ) : '';
 								/*
 								 * Supports Taxonomies Checkbox
 								 */
@@ -1071,7 +1073,7 @@ function cptui_manage_post_types() {
 									'name'              => $add_tax->name,
 									'namearray'         => 'cpt_addon_taxes',
 									'textvalue'         => $add_tax->name,
-									'labeltext'         => $add_tax->label,
+									'labeltext'         => $add_tax->label . ' ' . $core_label,
 									'helptext'          => sprintf( esc_attr__( 'Adds %s support', 'custom-post-type-ui' ), $add_tax->label ),
 									'wrap'              => false
 								) );
