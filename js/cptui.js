@@ -34,6 +34,7 @@
 		var value = $(this).val();
 		value = value.replace(/ /g, "_");
 		value = value.toLowerCase();
+		value = replaceDiacritics(value);
 		$(this).attr('value',value);
 	});
 
