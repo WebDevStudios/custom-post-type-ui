@@ -134,7 +134,6 @@ function cptui_manage_taxonomies() {
 							'name'          => 'name',
 							'textvalue'     => ( isset( $current['name'] ) ) ? esc_attr( $current['name'] ) : '',
 							'maxlength'     => '32',
-							'onblur'        => 'this.value=this.value.toLowerCase()',
 							'labeltext'     => __( 'Taxonomy Slug', 'custom-post-type-ui' ),
 							'aftertext'     => __( '(e.g. actor)', 'custom-post-type-ui' ),
 							'helptext'      => esc_attr__( 'The taxonomy name. Used to retrieve custom taxonomy content. Should be short and unique', 'custom-post-type-ui'),
