@@ -1,22 +1,23 @@
 (function($) {
 
-	$( '#post_type' ).on( 'change', function(){
+	// Switch to newly selected post type or taxonomy automatically.
+	$('#post_type').on('change',function(){
 		$('#cptui_select_post_type').submit();
 	});
 
-	$( '#taxonomy' ).on( 'change', function(){
+	$('#taxonomy').on('change',function(){
 		$( '#cptui_select_taxonomy' ).submit();
 	});
 
-	//confirm our deletions
-	$( '#cpt_submit_delete' ).on( 'click', function() {
+	// Confirm our deletions
+	$('#cpt_submit_delete').on('click',function() {
 		if( confirm( cptui_type_data.confirm ) ) {
 			return true;
 		}
 		return false;
 	});
 
-	//Toggles help/support accordions.
+	// Toggles help/support accordions.
 	$('#support .question').each(function() {
 		var tis = $(this), state = false, answer = tis.next('div').slideUp();
 		tis.on('click',function() {
@@ -28,7 +29,7 @@
 		});
 	});
 
-	//Switch spaces for underscores on our slug fields.
+	// Switch spaces for underscores on our slug fields.
 	$('#name').on('keyup',function(e){
 		var value = $(this).val();
 		value = value.replace(/ /g, "_");
