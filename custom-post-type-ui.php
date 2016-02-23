@@ -20,7 +20,7 @@ Domain Path: /languages
 License: GPLv2
 */
 
-# Exit if accessed directly
+// Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
@@ -96,8 +96,8 @@ function cptui_plugin_menu() {
 	 */
 	do_action( 'cptui_extra_menu_items', $parent_slug, $capability );
 
-	# Remove the default one so we can add our customized version.
-	remove_submenu_page( $parent_slug, 'cptui_main_menu');
+	// Remove the default one so we can add our customized version.
+	remove_submenu_page( $parent_slug, 'cptui_main_menu' );
 	add_submenu_page( $parent_slug, __( 'About CPT UI', 'custom-post-type-ui' ), __( 'About CPT UI', 'custom-post-type-ui' ), 'manage_options', 'cptui_main_menu', 'cptui_settings' );
 }
 add_action( 'admin_menu', 'cptui_plugin_menu' );
@@ -240,11 +240,11 @@ function cptui_register_single_post_type( $post_type = array() ) {
 		}
 	}
 
-	$yarpp = false; # Prevent notices.
+	$yarpp = false; // Prevent notices.
 	if ( ! empty( $post_type['custom_supports'] ) ) {
 		$custom = explode( ',', $post_type['custom_supports'] );
-		foreach( $custom as $part ) {
-			# We'll handle YARPP separately.
+		foreach ( $custom as $part ) {
+			// We'll handle YARPP separately.
 			if ( in_array( $part, array( 'YARPP', 'yarpp' ) ) ) {
 				$yarpp = true;
 				continue;
@@ -259,13 +259,13 @@ function cptui_register_single_post_type( $post_type = array() ) {
 
 	$labels = array(
 		'name'               => $post_type['label'],
-		'singular_name'      => $post_type['singular_label']
+		'singular_name'      => $post_type['singular_label'],
 	);
 
 	$preserved = cptui_get_preserved_keys( 'post_types' );
-	foreach( $post_type['labels'] as $key => $label ) {
+	foreach ( $post_type['labels'] as $key => $label ) {
 
-		if ( !empty( $label ) ) {
+		if ( ! empty( $label ) ) {
 			$labels[ $key ] = $label;
 		} elseif ( empty( $label ) && in_array( $key, $preserved ) ) {
 			$labels[ $key ] = cptui_get_preserved_label( 'post_types', $key, $post_type['label'], $post_type['singular_label'] );
@@ -273,24 +273,24 @@ function cptui_register_single_post_type( $post_type = array() ) {
 	}
 
 	$has_archive = get_disp_boolean( $post_type['has_archive'] );
-	if ( !empty( $post_type['has_archive_string'] ) ) {
+	if ( ! empty( $post_type['has_archive_string'] ) ) {
 		$has_archive = $post_type['has_archive_string'];
 	}
 
 	$show_in_menu = get_disp_boolean( $post_type['show_in_menu'] );
-	if ( !empty( $post_type['show_in_menu_string'] ) ) {
+	if ( ! empty( $post_type['show_in_menu_string'] ) ) {
 		$show_in_menu = $post_type['show_in_menu_string'];
 	}
 
-	$rewrite = get_disp_boolean( $post_type['rewrite' ] );
+	$rewrite = get_disp_boolean( $post_type['rewrite'] );
 	if ( false !== $rewrite ) {
-		//Core converts to an empty array anyway, so safe to leave this instead of passing in boolean true.
+		// Core converts to an empty array anyway, so safe to leave this instead of passing in boolean true.
 		$rewrite = array();
-		$rewrite['slug'] = ( !empty( $post_type['rewrite_slug'] ) ) ? $post_type['rewrite_slug'] : $post_type['name'];
+		$rewrite['slug'] = ( ! empty( $post_type['rewrite_slug'] ) ) ? $post_type['rewrite_slug'] : $post_type['name'];
 		$rewrite['with_front'] = ( 'false' === disp_boolean( $post_type['rewrite_withfront'] ) ) ? false : true;
 	}
 
-	$menu_icon = ( !empty( $post_type['menu_icon'] ) ) ? $post_type['menu_icon'] : null;
+	$menu_icon = ( ! empty( $post_type['menu_icon'] ) ) ? $post_type['menu_icon'] : null;
 
 	if ( in_array( $post_type['query_var'], array( 'true', 'false', '0', '1' ) ) ) {
 		$post_type['query_var'] = get_disp_boolean( $post_type['query_var'] );
@@ -300,7 +300,7 @@ function cptui_register_single_post_type( $post_type = array() ) {
 	}
 
 	$menu_position = null;
-	if ( !empty( $post_type['menu_position'] ) ) {
+	if ( ! empty( $post_type['menu_position'] ) ) {
 		$menu_position = (int) $post_type['menu_position'];
 	}
 
@@ -344,7 +344,7 @@ function cptui_register_single_post_type( $post_type = array() ) {
 		'menu_icon'           => $menu_icon,
 		'query_var'           => $post_type['query_var'],
 		'supports'            => $post_type['supports'],
-		'taxonomies'          => $post_type['taxonomies']
+		'taxonomies'          => $post_type['taxonomies'],
 	);
 
 	if ( true === $yarpp ) {
@@ -372,7 +372,7 @@ function cptui_register_single_post_type( $post_type = array() ) {
  * @since 0.5.0
  */
 function cptui_create_custom_taxonomies() {
-	$taxes = get_option('cptui_taxonomies');
+	$taxes = get_option( 'cptui_taxonomies' );
 
 	/**
 	 * Fires before the start of the taxonomy registrations.
@@ -410,18 +410,18 @@ function cptui_register_single_taxonomy( $taxonomy = array() ) {
 
 	$labels = array(
 		'name'               => $taxonomy['label'],
-		'singular_name'      => $taxonomy['singular_label']
+		'singular_name'      => $taxonomy['singular_label'],
 	);
 
 	$description = '';
-	if ( !empty( $taxonomy['description'] ) ) {
+	if ( ! empty( $taxonomy['description'] ) ) {
 		$description = $taxonomy['description'];
 	}
 
 	$preserved = cptui_get_preserved_keys( 'taxonomies' );
-	foreach( $taxonomy['labels'] as $key => $label ) {
+	foreach ( $taxonomy['labels'] as $key => $label ) {
 
-		if ( !empty( $label ) ) {
+		if ( ! empty( $label ) ) {
 			$labels[ $key ] = $label;
 		} elseif ( empty( $label ) && in_array( $key, $preserved ) ) {
 			$labels[ $key ] = cptui_get_preserved_label( 'taxonomies', $key, $taxonomy['label'], $taxonomy['singular_label'] );
@@ -431,7 +431,7 @@ function cptui_register_single_taxonomy( $taxonomy = array() ) {
 	$rewrite = get_disp_boolean( $taxonomy['rewrite'] );
 	if ( false !== get_disp_boolean( $taxonomy['rewrite'] ) ) {
 		$rewrite = array();
-		$rewrite['slug'] = ( !empty( $taxonomy['rewrite_slug'] ) ) ? $taxonomy['rewrite_slug'] : $taxonomy['name'];
+		$rewrite['slug'] = ( ! empty( $taxonomy['rewrite_slug'] ) ) ? $taxonomy['rewrite_slug'] : $taxonomy['name'];
 		$rewrite['with_front'] = ( 'false' === disp_boolean( $taxonomy['rewrite_withfront'] ) ) ? false : true;
 		$rewrite['hierarchical'] = ( 'true' === disp_boolean( $taxonomy['rewrite_hierarchical'] ) ) ? true : false;
 	}
@@ -439,7 +439,7 @@ function cptui_register_single_taxonomy( $taxonomy = array() ) {
 	if ( in_array( $taxonomy['query_var'], array( 'true', 'false', '0', '1' ) ) ) {
 		$taxonomy['query_var'] = get_disp_boolean( $taxonomy['query_var'] );
 	}
-	if ( true === $taxonomy['query_var'] && !empty( $taxonomy['query_var_slug'] ) ) {
+	if ( true === $taxonomy['query_var'] && ! empty( $taxonomy['query_var_slug'] ) ) {
 		$taxonomy['query_var'] = $taxonomy['query_var_slug'];
 	}
 
@@ -468,7 +468,7 @@ function cptui_register_single_taxonomy( $taxonomy = array() ) {
 		'rest_base'         => $rest_base,
 	);
 
-	$object_type = ( !empty( $taxonomy['object_types'] ) ) ? $taxonomy['object_types'] : '';
+	$object_type = ( ! empty( $taxonomy['object_types'] ) ) ? $taxonomy['object_types'] : '';
 
 	/**
 	 * Filters the arguments used for a taxonomy right before registering.
@@ -491,11 +491,10 @@ function cptui_register_single_taxonomy( $taxonomy = array() ) {
  * @since 1.0.0
  *
  * @param string $page Whether it's the CPT or Taxonomy page.
- * @return string $value HTML tabs.
  */
 function cptui_settings_tab_menu( $page = 'post_types' ) {
 
-	# initiate our arrays with default classes
+	// Initiate our arrays with default classes.
 	$tab1 = $tab2 = $tab3 = $tab4 = array( 'nav-tab' );
 	$has = false;
 
@@ -504,14 +503,14 @@ function cptui_settings_tab_menu( $page = 'post_types' ) {
 	elseif ( 'taxonomies' == $page ) :
 		$title = __( 'Manage Taxonomies', 'custom-post-type-ui' );
 		$taxes = get_option( 'cptui_taxonomies' );
-		$has = ( !empty( $taxes ) ) ? true : false;
+		$has = ( ! empty( $taxes ) ) ? true : false;
 	else :
 		$title = __( 'Manage Post Types', 'custom-post-type-ui' );
 		$types = get_option( 'cptui_post_types' );
-		$has = ( !empty( $types ) ) ? true : false;
+		$has = ( ! empty( $types ) ) ? true : false;
 	endif;
 
-	if ( !empty( $_GET['action'] ) ) {
+	if ( ! empty( $_GET['action'] ) ) {
 		if ( 'edit' == $_GET['action'] || 'taxonomies' == $_GET['action'] ) {
 			$tab2[] = 'nav-tab-active';
 		} elseif ( 'get_code' == $_GET['action'] ) {
@@ -519,18 +518,21 @@ function cptui_settings_tab_menu( $page = 'post_types' ) {
 		} elseif ( 'debuginfo' == $_GET['action'] ) {
 			$tab4[] = 'nav-tab-active';
 		}
-	}  else {
+	} else {
 		$tab1[] = 'nav-tab-active';
 	}
 
-	# implode our arrays for class attributes
-	$tab1 = implode( ' ', $tab1 ); $tab2 = implode( ' ', $tab2 ); $tab3 = implode( ' ', $tab3 ); $tab4 = implode( ' ', $tab4 );
+	// Implode our arrays for class attributes.
+	$tab1 = implode( ' ', $tab1 );
+	$tab2 = implode( ' ', $tab2 );
+	$tab3 = implode( ' ', $tab3 );
+	$tab4 = implode( ' ', $tab4 );
 
 	?>
-	<h1><?php echo $title; ?></h1>
+	<h1><?php echo esc_html( $title ); ?></h1>
 	<h2 class="nav-tab-wrapper">
 	<?php
-	# Import/Export area is getting different tabs, so we need to separate out.
+	// Import/Export area is getting different tabs, so we need to separate out.
 	if ( 'importexport' != $page ) {
 		if ( 'post_types' == $page ) {
 			?>
@@ -582,16 +584,16 @@ function cptui_convert_settings() {
 	if ( false === get_option( 'cptui_post_types' ) && ( $post_types = get_option( 'cpt_custom_post_types' ) ) ) {
 
 		$new_post_types = array();
-		foreach( $post_types as $type ) {
-            $new_post_types[ $type['name'] ]                = $type; #This one assigns the # indexes       # Named arrays are our friend.
-            $new_post_types[ $type['name'] ]['supports']    = ( !empty( $type[0] ) ) ? $type[0] : array(); # Especially
-            $new_post_types[ $type['name'] ]['taxonomies']  = ( !empty( $type[1] ) ) ? $type[1] : array(); # for multidimensional
-            $new_post_types[ $type['name'] ]['labels']      = ( !empty( $type[2] ) ) ? $type[2] : array(); # arrays
+		foreach ( $post_types as $type ) {
+            $new_post_types[ $type['name'] ]               = $type; // This one assigns the indexes. Named arrays are our friend.
+            $new_post_types[ $type['name'] ]['supports']   = ( ! empty( $type[0] ) ) ? $type[0] : array(); // Especially
+            $new_post_types[ $type['name'] ]['taxonomies'] = ( ! empty( $type[1] ) ) ? $type[1] : array(); // for multidimensional
+            $new_post_types[ $type['name'] ]['labels']     = ( ! empty( $type[2] ) ) ? $type[2] : array(); // arrays.
 			unset(
 				$new_post_types[ $type['name'] ][0],
 				$new_post_types[ $type['name'] ][1],
 				$new_post_types[ $type['name'] ][2]
-			); # Remove our previous indexed versions.
+			); // Remove our previous indexed versions.
 		}
 
 		$retval = update_option( 'cptui_post_types', $new_post_types );
@@ -600,10 +602,10 @@ function cptui_convert_settings() {
 	if ( false === get_option( 'cptui_taxonomies' ) && ( $taxonomies = get_option( 'cpt_custom_tax_types' ) ) ) {
 
 		$new_taxonomies = array();
-		foreach( $taxonomies as $tax ) {
-            $new_taxonomies[ $tax['name'] ]                 = $tax;    # Yep, still our friend.
-            $new_taxonomies[ $tax['name'] ]['labels']       = $tax[0]; # Taxonomies are the only thing with
-            $new_taxonomies[ $tax['name'] ]['object_types'] = $tax[1]; # "tax" in the name that I like.
+		foreach ( $taxonomies as $tax ) {
+            $new_taxonomies[ $tax['name'] ]                 = $tax;    // Yep, still our friend.
+            $new_taxonomies[ $tax['name'] ]['labels']       = $tax[0]; // Taxonomies are the only thing with
+            $new_taxonomies[ $tax['name'] ]['object_types'] = $tax[1]; // "tax" in the name that I like.
 			unset(
 				$new_taxonomies[ $tax['name'] ][0],
 				$new_taxonomies[ $tax['name'] ][1]
@@ -613,7 +615,7 @@ function cptui_convert_settings() {
 		$retval = update_option( 'cptui_taxonomies', $new_taxonomies );
 	}
 
-	if ( !empty( $retval ) ) {
+	if ( ! empty( $retval ) ) {
 		flush_rewrite_rules();
 	}
 
@@ -632,7 +634,7 @@ add_action( 'admin_init', 'cptui_convert_settings' );
  * @param string $custom       Custom message if necessary.
  * @return bool|string false on no message, else HTML div with our notice message.
  */
-function cptui_admin_notices( $action = '', $object_type = '', $success = true , $custom = '' ) {
+function cptui_admin_notices( $action = '', $object_type = '', $success = true, $custom = '' ) {
 
 	$class = ( $success ) ? 'updated' : 'error';
 	$object_type = esc_attr( $object_type );
@@ -667,7 +669,7 @@ function cptui_admin_notices( $action = '', $object_type = '', $success = true ,
 			$message .= sprintf( __( '%s has failed to be imported', 'custom-post-type-ui' ), $object_type );
 		}
 	} elseif ( 'error' == $action ) {
-		if ( !empty( $custom ) ) {
+		if ( ! empty( $custom ) ) {
 			$message = $custom;
 		}
 	}
@@ -710,7 +712,7 @@ function cptui_get_preserved_keys( $type = '' ) {
 			'all_items',
 			'search_items',
 			'not_found',
-			'not_found_in_trash'
+			'not_found_in_trash',
 		),
 		'taxonomies' => array(
 			'search_items',
@@ -724,10 +726,10 @@ function cptui_get_preserved_keys( $type = '' ) {
 			'new_item_name',
 			'separate_items_with_commas',
 			'add_or_remove_items',
-			'choose_from_most_used'
+			'choose_from_most_used',
 		)
 	);
-	return ( !empty( $type ) ) ? $preserved_labels[ $type ] : array();
+	return ( ! empty( $type ) ) ? $preserved_labels[ $type ] : array();
 }
 
 /**
@@ -752,7 +754,7 @@ function cptui_get_preserved_label( $type = '', $key = '', $plural = '', $singul
 			'all_items'          => sprintf( __( 'All %s', 'custom-post-type-ui' ), $plural ),
 			'search_items'       => sprintf( __( 'Search %s', 'custom-post-type-ui' ), $plural ),
 			'not_found'          => sprintf( __( 'No %s found.', 'custom-post-type-ui' ), $plural ),
-			'not_found_in_trash' => sprintf( __( 'No %s found in trash.', 'custom-post-type-ui' ), $plural )
+			'not_found_in_trash' => sprintf( __( 'No %s found in trash.', 'custom-post-type-ui' ), $plural ),
 		),
 		'taxonomies' => array(
 			'search_items'               => sprintf( __( 'Search %s', 'custom-post-type-ui' ), $plural ),
@@ -766,8 +768,8 @@ function cptui_get_preserved_label( $type = '', $key = '', $plural = '', $singul
 			'new_item_name'              => sprintf( __( 'New %s name', 'custom-post-type-ui' ), $singular ),
 			'separate_items_with_commas' => sprintf( __( 'Separate %s with commas', 'custom-post-type-ui' ), $plural ),
 			'add_or_remove_items'        => sprintf( __( 'Add or remove %s', 'custom-post-type-ui' ), $plural ),
-			'choose_from_most_used'      => sprintf( __( 'Choose from the most used %s', 'custom-post-type-ui' ), $plural )
-		)
+			'choose_from_most_used'      => sprintf( __( 'Choose from the most used %s', 'custom-post-type-ui' ), $plural ),
+		),
 	);
 
 	return $preserved_labels[ $type ][ $key ];
