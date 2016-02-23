@@ -162,7 +162,9 @@ function cptui_add_styles() {
 		return;
 	}
 
-	wp_enqueue_style( 'cptui-css', plugins_url( 'css/cptui.css', __FILE__ ), array(), CPTUI_VERSION );
+	$min = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+	wp_register_script( 'cptui', plugins_url( "js/cptui{$min}.js", __FILE__ ), array( 'jquery' ), CPTUI_VERSION, true );
+	wp_enqueue_style( 'cptui-css', plugins_url( "css/cptui{$min}.css", __FILE__ ), array(), CPTUI_VERSION );
 }
 add_action( 'admin_enqueue_scripts', 'cptui_add_styles' );
 
