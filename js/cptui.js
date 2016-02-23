@@ -28,6 +28,11 @@
 		});
 	});
 
+	$('#name').on('blur',function(e){
+		var value = $(this).val();
+		$(this).attr('value',value.replace(/ /g,"_"));
+	});
+
 	//Handles message display for slug changes.
 	/*if ( 'cpt-ui_page_cptui_manage_post_types' === window.adminpage ) {
 		$('#name').after(cptui_type_data.post_change_name);
