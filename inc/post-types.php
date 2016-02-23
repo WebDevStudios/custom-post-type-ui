@@ -30,17 +30,10 @@ function cptui_post_type_enqueue_scripts() {
 		return;
 	}
 
-	/*$post_types = get_option( 'cptui_post_types' );
-	foreach( $post_types as $type ) {
-		$types[] = $type['name'];
-	}*/
-
-	wp_enqueue_script( 'cptui', plugins_url( 'js/cptui.js', dirname(__FILE__) ), array( 'jquery', 'jquery-ui-core', 'jquery-ui-accordion' ), CPTUI_VERSION, true );
-	wp_localize_script(	'cptui', 'cptui_type_data',
+	wp_enqueue_script( 'cptui' );
+	wp_localize_script( 'cptui', 'cptui_type_data',
 		array(
 			'confirm' => __( 'Are you sure you want to delete this?', 'custom-post-type-ui' ),
-			# 'post_types' => $types,
-			#'post_change_name' => '<div class="typetax-rename">' . __( 'Changing this will rename the post type.', 'custom-post-type-ui' ) . '</div>'
 		)
 	);
 }
