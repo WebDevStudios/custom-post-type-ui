@@ -37,29 +37,24 @@
 		$(this).attr('value',value);
 	});
 
-	//Handles message display for slug changes.
-	/*if ( 'cpt-ui_page_cptui_manage_post_types' === window.adminpage ) {
-		$('#name').after(cptui_type_data.post_change_name);
-	} else if ( 'cpt-ui_page_cptui_manage_taxonomies' === window.adminpage ) {
-		$('#name').after(cptui_tax_data.tax_change_name);
+	// Replace diacritic characters with latin characters.
+	function replaceDiacritics(s) {
+		var diacritics = [
+			/[\300-\306]/g, /[\340-\346]/g,  // A, a
+			/[\310-\313]/g, /[\350-\353]/g,  // E, e
+			/[\314-\317]/g, /[\354-\357]/g,  // I, i
+			/[\322-\330]/g, /[\362-\370]/g,  // O, o
+			/[\331-\334]/g, /[\371-\374]/g,  // U, u
+			/[\321]/g, /[\361]/g, // N, n
+			/[\307]/g, /[\347]/g, // C, c
+		];
+
+		var chars = ['A', 'a', 'E', 'e', 'I', 'i', 'O', 'o', 'U', 'u', 'N', 'n', 'C', 'c'];
+
+		for (var i = 0; i < diacritics.length; i++) {
+			s = s.replace(diacritics[i], chars[i]);
+		}
+
+		return s;
 	}
-	$( '#name' ).on( 'keyup', function( e ) {
-		//return early on this for now.
-		if ( 'cpt-ui_page_cptui_manage_taxonomies' === window.adminpage ) {
-			return;
-		}
-		var $input = $('.typetax-rename');
-
-		if ( 0 === $(this).val().length ) {
-			$input.addClass('cptui-hidden');
-		}
-
-		if ( -1 === $.inArray( $(this).val(), cptui_type_data.post_types ) || -1 === $.inArray( $(this).val(), cptui_tax_data.taxonomies ) ) {
-			if ( $input.hasClass( 'cptui-hidden' ) ) {
-				$input.removeClass('cptui-hidden');
-			}
-		} else {
-			$input.addClass('cptui-hidden');
-		}
-	});*/
 })(jQuery);
