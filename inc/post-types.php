@@ -50,14 +50,12 @@ add_action( 'admin_enqueue_scripts', 'cptui_post_type_enqueue_scripts' );
  * Create our settings page output.
  *
  * @since 1.0.0
- *
- * @return string HTML output for the page.
  */
 function cptui_manage_post_types() {
 
 	$post_type_deleted = false;
 
-	if ( !empty( $_POST ) ) {
+	if ( ! empty( $_POST ) ) {
 		if ( isset( $_POST['cpt_submit'] ) ) {
 			check_admin_referer( 'cptui_addedit_post_type_nonce_action', 'cptui_addedit_post_type_nonce_field' );
 			$notice = cptui_update_post_type( $_POST );
@@ -68,7 +66,7 @@ function cptui_manage_post_types() {
 		}
 	}
 
-	$tab = ( !empty( $_GET ) && !empty( $_GET['action'] ) && 'edit' == $_GET['action'] ) ? 'edit' : 'new'; ?>
+	$tab = ( ! empty( $_GET ) && ! empty( $_GET['action'] ) && 'edit' === $_GET['action'] ) ? 'edit' : 'new'; ?>
 
 	<div class="wrap">
 
@@ -94,7 +92,7 @@ function cptui_manage_post_types() {
 
 	$ui = new cptui_admin_ui();
 
-	# Will only be set if we're already on the edit screen
+	// Will only be set if we're already on the edit screen.
 	if ( !empty( $post_types ) ) { ?>
 		<form id="cptui_select_post_type" method="post">
 			<p><?php _e( 'DO NOT EDIT the post type slug unless necessary. Changing that value registers a new post type entry for your install.', 'custom-post-type-ui' ); ?></p>
