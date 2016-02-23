@@ -28,7 +28,9 @@ CPTUI does NOT handle display of registered post types or taxonomies in your cur
 * Added: "CPTUI_VERSION" constant and deprecated "CPT_VERSION".
 * Added: For developers: plenty of extra hooks all over for customization needs.
 * Updated: Increased accessibility coverage.
-* Added: Notes about post types and taxonomies from WordPress core.
+* Added: Notes to post type and taxonomy edit screens about WordPress core's post types and taxonomies.
+* Added: Javascript-based prevention of spaces and special characters for post type and taxonomy slugs.
+* Added: Minified copies of our JavaScript and CSS. Define SCRIPT_DEBUG to true to use non-minified versions.
 
 **1.2.3**
 
