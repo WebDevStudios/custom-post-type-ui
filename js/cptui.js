@@ -28,9 +28,12 @@
 		});
 	});
 
-	$('#name').on('blur',function(e){
+	//Switch spaces for underscores on our slug fields.
+	$('#name').on('keyup',function(e){
 		var value = $(this).val();
-		$(this).attr('value',value.replace(/ /g,"_"));
+		value = value.replace(/ /g, "_");
+		value = value.toLowerCase();
+		$(this).attr('value',value);
 	});
 
 	//Handles message display for slug changes.
