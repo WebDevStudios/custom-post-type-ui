@@ -8,8 +8,10 @@
  * @since 1.1.0
  */
 
-# Exit if accessed directly
-if ( ! defined( 'ABSPATH' ) ) exit;
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 /**
  * Output the content for the "Registered Types/Taxes" page.

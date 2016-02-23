@@ -8,8 +8,10 @@
  * @since 1.0.0
  */
 
-# Exit if accessed directly
-if ( ! defined( 'ABSPATH' ) ) exit;
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 /**
  * Add our cptui.js file, with dependencies on jQuery.

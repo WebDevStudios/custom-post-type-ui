@@ -8,6 +8,11 @@
  * @since 1.3.0
  */
 
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /**
  * Edit links that appear on installed plugins list page, for our plugin.
  *
