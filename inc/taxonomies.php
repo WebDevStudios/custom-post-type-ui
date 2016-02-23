@@ -62,9 +62,10 @@ function cptui_manage_taxonomies() {
 		}
 	}
 
-	$tab = ( !empty( $_GET ) && !empty( $_GET['action'] ) && 'edit' == $_GET['action'] ) ? 'edit' : 'new'; ?>
+	$tab = ( !empty( $_GET ) && !empty( $_GET['action'] ) && 'edit' == $_GET['action'] ) ? 'edit' : 'new';
+	$tab_class = 'cptui-' . $tab; ?>
 
-	<div class="wrap <?php echo esc_attr( $tab ); ?>">
+	<div class="wrap <?php echo esc_attr( $tab_class ); ?>">
 
 	<?php
 
