@@ -121,6 +121,12 @@ function cptui_manage_post_types() {
 	<form method="post">
 		<div class="cptui-section">
 			<?php echo cptui_starter_notes( $tab, 'post_types' ); ?>
+
+			<?php echo $ui->get_fieldset_start();
+				echo $ui->get_legend_start();
+				echo esc_html__( 'Basics', 'custom-post-type-ui' );
+				echo $ui->get_legend_end();
+			?>
 			<table class="form-table cptui-table">
 				<?php
 
@@ -180,9 +186,15 @@ function cptui_manage_post_types() {
 					}
 				?>
 			</table>
+			<?php echo $ui->get_fieldset_end(); ?>
 		</div>
 		<div class="cptui-section">
-			<h2><?php _e( 'Labels', 'custom-post-type-ui' ); ?></h2>
+			<?php
+				echo $ui->get_fieldset_start();
+				echo $ui->get_legend_start();
+				esc_html_e( 'Labels', 'custom-post-type-ui' );
+				echo $ui->get_legend_end();
+			?>
 			<table class="form-table cptui-table">
 				<?php
 					echo $ui->get_text_input( array(
@@ -393,9 +405,15 @@ function cptui_manage_post_types() {
 					) );
 				?>
 			</table>
+			<?php echo $ui->get_fieldset_end(); ?>
 		</div>
 		<div class="cptui-section">
-			<h2><?php _e( 'Settings', 'custom-post-type-ui' ); ?></h2>
+			<?php
+				echo $ui->get_fieldset_start();
+				echo $ui->get_legend_start();
+				esc_html_e( 'Settings', 'custom-post-type-ui' );
+				echo $ui->get_legend_end();
+			?>
 			<table class="form-table cptui-table">
 				<?php
 				$select = array(
@@ -876,6 +894,7 @@ function cptui_manage_post_types() {
 				echo $ui->get_fieldset_end() . $ui->get_td_end() . $ui->get_tr_end();
 				?>
 			</table>
+			<?php echo $ui->get_fieldset_end(); ?>
 		</div>
 		<p class="submit">
 			<?php wp_nonce_field( 'cptui_addedit_post_type_nonce_action', 'cptui_addedit_post_type_nonce_field' );
