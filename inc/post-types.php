@@ -886,7 +886,7 @@ function cptui_manage_post_types() {
 				 */
 				$args = apply_filters( 'cptui_attach_taxonomies_to_post_type', array( 'public' => true ) );
 
-				# If they don't return an array, fall back to the original default. Don't need to check for empty, because empty array is default for $args param in get_post_types anyway.
+				// If they don't return an array, fall back to the original default. Don't need to check for empty, because empty array is default for $args param in get_post_types anyway.
 				if ( !is_array( $args ) ) {
 					$args = array( 'public' => true );
 				}
@@ -894,13 +894,15 @@ function cptui_manage_post_types() {
 				$add_taxes = get_taxonomies( $args, 'objects' );
 				unset( $add_taxes['nav_menu'] ); unset( $add_taxes['post_format'] );
 				foreach ( $add_taxes as $add_tax ) {
+
+					$core_label = ( in_array( $add_tax->name, array( 'category', 'post_tag' ) ) ) ? __( '(WP Core)', 'custom-post-type-ui' ) : '';
 					echo $ui->get_check_input( array(
 						'checkvalue'        => $add_tax->name,
 						'checked'           => ( !empty( $current['taxonomies'] ) && is_array( $current['taxonomies'] ) && in_array( $add_tax->name, $current['taxonomies'] ) ) ? 'true' : 'false',
 						'name'              => $add_tax->name,
 						'namearray'         => 'cpt_addon_taxes',
 						'textvalue'         => $add_tax->name,
-						'labeltext'         => $add_tax->label,
+						'labeltext'         => $add_tax->label . ' ' . $core_label,
 						'helptext'          => sprintf( esc_attr__( 'Adds %s support', 'custom-post-type-ui' ), $add_tax->label ),
 						'wrap'              => false
 					) );
