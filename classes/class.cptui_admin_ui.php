@@ -285,14 +285,14 @@ class cptui_admin_ui {
 			$value .= $this->get_th_start();
 			$value .= $this->get_label( $args['name'], $args['labeltext'] );
 			if ( $args['required'] ) { $value .= $this->get_required(); }
-			if ( !empty( $args['helptext'] ) ) { $value .= $this->get_help( $args['helptext'] ); }
+			if ( ! empty( $args['helptext'] ) ) { $value .= $this->get_help( $args['helptext'] ); }
 			$value .= $this->get_th_end();
 			$value .= $this->get_td_start();
 		}
 
 		$value .= '<select id="' . $args['name'] . '" name="' . $args['namearray'] . '[' . $args['name'] . ']">';
-		if ( !empty( $args['selections']['options'] ) && is_array( $args['selections']['options'] ) ) {
-			foreach( $args['selections']['options'] as $val ) {
+		if ( ! empty( $args['selections']['options'] ) && is_array( $args['selections']['options'] ) ) {
+			foreach ( $args['selections']['options'] as $val ) {
 				$result = '';
 				$bool = disp_boolean( $val['attr'] );
 
@@ -302,17 +302,17 @@ class cptui_admin_ui {
 					$selected = $args['selections']['selected'];
 				}
 
-				if ( ( !empty( $selected ) ) && $selected === $bool ) {
+				if ( ( ! empty( $selected ) ) && $selected === $bool ) {
 					$result = ' selected="selected"';
 				} else {
-					if ( array_key_exists( 'default', $val ) && !empty( $val['default'] ) ) {
+					if ( array_key_exists( 'default', $val ) && ! empty( $val['default'] ) ) {
 						if ( empty( $selected ) ) {
 							$result = ' selected="selected"';
 						}
 					}
 				}
 
-				if ( !is_numeric( $args['selections']['selected'] ) && ( !empty( $args['selections']['selected'] ) && $args['selections']['selected'] == $val['attr'] ) ) {
+				if ( ! is_numeric( $args['selections']['selected'] ) && ( ! empty( $args['selections']['selected'] ) && $args['selections']['selected'] === $val['attr'] ) ) {
 					$result = ' selected="selected"';
 				}
 
@@ -321,8 +321,9 @@ class cptui_admin_ui {
 		}
 		$value .= '</select>';
 
-		if ( !empty( $args['aftertext'] ) )
+		if ( ! empty( $args['aftertext'] ) ) {
 			$value .= $args['aftertext'];
+		}
 
 		if ( $args['wrap'] ) {
 			$value .= $this->get_td_end();
@@ -429,8 +430,9 @@ class cptui_admin_ui {
 
 		$value .= '<textarea id="' . $args['name'] . '" name="' . $args['namearray'] . '[' . $args['name'] . ']" rows="' . $args['rows'] . '" cols="' . $args['cols'] . '">' . $args['textvalue'] . '</textarea>';
 
-		if ( !empty ( $args['aftertext'] ) )
+		if ( ! empty( $args['aftertext'] ) ) {
 			$value .= $args['aftertext'];
+		}
 
 		if ( $args['wrap'] ) {
 			$value .= $this->get_td_end();
@@ -454,7 +456,7 @@ class cptui_admin_ui {
 				'checkvalue'        => '',
 				'checked'           => 'true',
 				'checklisttext'     => '',
-				'default'           => false
+				'default'           => false,
 			)
 		);
 
@@ -470,7 +472,7 @@ class cptui_admin_ui {
 			$value .= $this->get_td_start();
 		}
 
-		if ( isset( $args['checked'] ) && 'false' == $args['checked'] ) {
+		if ( isset( $args['checked'] ) && 'false' === $args['checked'] ) {
 			$value .= '<input type="checkbox" id="' . $args['name'] . '" name="' . $args['namearray'] . '[]" value="' . $args['checkvalue'] . '" />';
 		} else {
 			$value .= '<input type="checkbox" id="' . $args['name'] . '" name="' . $args['namearray'] . '[]" value="' . $args['checkvalue'] . '" checked="checked" />';
@@ -498,18 +500,18 @@ class cptui_admin_ui {
 	public function get_default_input_parameters( $additions = array() ) {
 		return array_merge(
 			array(
-				'namearray'     => '',
-				'name'          => '',
-				'textvalue'     => '',
-				'labeltext'     => '',
-				'aftertext'     => '',
-				'helptext'      => '',
-				'helptext_after'=> false,
-				'required'      => false,
-				'wrap'          => true,
-				'placeholder'   => true
+				'namearray'      => '',
+				'name'           => '',
+				'textvalue'      => '',
+				'labeltext'      => '',
+				'aftertext'      => '',
+				'helptext'       => '',
+				'helptext_after' => false,
+				'required'       => false,
+				'wrap'           => true,
+				'placeholder'    => true,
 			),
-			(array)$additions
+			(array) $additions
 		);
 	}
 }
