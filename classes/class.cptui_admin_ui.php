@@ -322,7 +322,7 @@ class cptui_admin_ui {
 		$value .= '</select>';
 
 		if ( ! empty( $args['aftertext'] ) ) {
-			$value .= $args['aftertext'];
+			$value .=  ' ' . $this->get_description( $args['aftertext'] );
 		}
 
 		if ( $args['wrap'] ) {
