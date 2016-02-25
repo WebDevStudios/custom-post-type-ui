@@ -341,6 +341,13 @@ function cptui_listings() {
 	<?php
 }
 
+/**
+ * Displays a message for when no post types are registered.
+ *
+ * Uses the `cptui_no_post_types_listing` hook.
+ *
+ * @since 1.3.0
+ */
 function cptui_no_post_types_to_list() {
 	echo '<p>' . sprintf( esc_html__( 'No post types registered for display. Visit %s to get started.', 'custom-post-type-ui' ),
 		sprintf( '<a href="%s">%s</a>',
@@ -351,6 +358,13 @@ function cptui_no_post_types_to_list() {
 }
 add_action( 'cptui_no_post_types_listing', 'cptui_no_post_types_to_list' );
 
+/**
+ * Displays a message for when no taxonomies are registered.
+ *
+ * Uses the `cptui_no_taxonomies_listing` hook.
+ *
+ * @since 1.3.0
+ */
 function cptui_no_taxonomies_to_list() {
 	echo '<p>' . sprintf( esc_html__( 'No taxonomies registered for display. Visit %s to get started.', 'custom-post-type-ui' ),
 		sprintf( '<a href="%s">%s</a>',
