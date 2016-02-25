@@ -128,29 +128,29 @@ function cptui_manage_post_types() {
 						'name'          => 'name',
 						'textvalue'     => ( isset( $current['name'] ) ) ? esc_attr( $current['name'] ) : '',
 						'maxlength'     => '20',
-						'labeltext'     => __( 'Post Type Slug', 'custom-post-type-ui' ),
-						'aftertext'     => __( '(e.g. movie)', 'custom-post-type-ui' ),
-						'helptext'      => esc_attr__( 'The post type name. Used to retrieve custom post type content. Should be short and unique', 'custom-post-type-ui'),
+						'labeltext'     => esc_html__( 'Post Type Slug', 'custom-post-type-ui' ),
+						'aftertext'     => esc_html__( '(e.g. movie)', 'custom-post-type-ui' ),
+						'helptext'      => esc_html__( 'The post type name/slug. Used for various queries for post type content.', 'custom-post-type-ui' ),
 						'required'      => true,
-						'placeholder'   => false
+						'placeholder'   => false,
 					) );
 
 					echo $ui->get_text_input( array(
 						'namearray'     => 'cpt_custom_post_type',
 						'name'          => 'label',
 						'textvalue'     => ( isset( $current['label'] ) ) ? esc_attr( $current['label'] ) : '',
-						'labeltext'     => __( 'Plural Label', 'custom-post-type-ui' ),
-						'aftertext'     => __( '(e.g. Movies)', 'custom-post-type-ui' ),
-						'helptext'      => esc_attr__( 'Post type label. Used in the admin menu for displaying post types.', 'custom-post-type-ui' ),
+						'labeltext'     => esc_html__( 'Plural Label', 'custom-post-type-ui' ),
+						'aftertext'     => esc_html__( '(e.g. Movies)', 'custom-post-type-ui' ),
+						'helptext'      => esc_html__( 'Used for the post type admin menu item.', 'custom-post-type-ui' ),
 					) );
 
 					echo $ui->get_text_input( array(
 						'namearray'     => 'cpt_custom_post_type',
 						'name'          => 'singular_label',
 						'textvalue'     => ( isset( $current['singular_label'] ) ) ? esc_attr( $current['singular_label'] ) : '',
-						'labeltext'     => __( 'Singular Label', 'custom-post-type-ui' ),
-						'aftertext'     => __( '(e.g. Movie)', 'custom-post-type-ui' ),
-						'helptext'      => esc_attr__( 'Custom Post Type Singular label. Used in WordPress when a singular label is needed.', 'custom-post-type-ui' ),
+						'labeltext'     => esc_html__( 'Singular Label', 'custom-post-type-ui' ),
+						'aftertext'     => esc_html__( '(e.g. Movie)', 'custom-post-type-ui' ),
+						'helptext'      => esc_html__( 'Used when a singular label is needed.', 'custom-post-type-ui' ),
 					) );
 
 					if ( isset( $current['description'] ) ) {
@@ -162,8 +162,8 @@ function cptui_manage_post_types() {
 						'rows' => '4',
 						'cols' => '40',
 						'textvalue' => ( isset( $current['description'] ) ) ?  esc_textarea( $current['description'] ) : '',
-						'labeltext' => __('Description', 'custom-post-type-ui'),
-						'helptext' => esc_attr__( 'Custom Post Type Description. Describe what your custom post type is used for.', 'custom-post-type-ui' )
+						'labeltext' => __( 'Post Type Description', 'custom-post-type-ui'),
+						'helptext' => esc_attr__( 'Perhaps describe what your custom post type is used for?', 'custom-post-type-ui' )
 					) );
 
 					if ( 'edit' == $tab ) {
@@ -172,7 +172,7 @@ function cptui_manage_post_types() {
 							'checked'    => 'false',
 							'name'       => 'update_post_types',
 							'namearray'  => 'update_post_types',
-							'labeltext'  => __( 'Migrate posts to newly renamed post type?', 'custom-post-type-ui' ),
+							'labeltext'  => esc_html__( 'Migrate posts to newly renamed post type?', 'custom-post-type-ui' ),
 							'helptext'   => esc_attr__( 'Check this to migrate posts if and when renaming your post type.', 'custom-post-type-ui' ),
 							'default'    => false
 						) );
@@ -190,7 +190,7 @@ function cptui_manage_post_types() {
 				<?php
 					echo $ui->get_text_input( array(
 						'labeltext'     => __( 'Menu Name', 'custom-post-type-ui' ),
-						'helptext'      => esc_attr__( 'Custom menu name for your custom post type.', 'custom-post-type-ui' ),
+						'helptext'      => esc_attr__( 'Custom admin menu name for your custom post type.', 'custom-post-type-ui' ),
 						'namearray'     => 'cpt_labels',
 						'name'          => 'menu_name',
 						'textvalue'     => ( isset( $current['labels']['menu_name'] ) ) ? esc_attr( $current['labels']['menu_name'] ) : '',
@@ -199,7 +199,7 @@ function cptui_manage_post_types() {
 
 					echo $ui->get_text_input( array(
 						'labeltext'     => __( 'All Items', 'custom-post-type-ui' ),
-						'helptext'      => esc_attr__( 'Post type label. Used in the admin menu for displaying post types.', 'custom-post-type-ui' ),
+						'helptext'      => esc_attr__( 'Used in the post type admin submenu.', 'custom-post-type-ui' ),
 						'namearray'     => 'cpt_labels',
 						'name'          => 'all_items',
 						'textvalue'     => ( isset( $current['labels']['all_items'] ) ) ? esc_attr( $current['labels']['all_items'] ) : '',
@@ -208,7 +208,7 @@ function cptui_manage_post_types() {
 
 					echo $ui->get_text_input( array(
 						'labeltext'     => __( 'Add New', 'custom-post-type-ui' ),
-						'helptext'      => esc_attr__( 'Post type label. Used in the admin menu for displaying post types.', 'custom-post-type-ui' ),
+						'helptext'      => esc_attr__( 'Used in the post type admin submenu.', 'custom-post-type-ui' ),
 						'namearray'     => 'cpt_labels',
 						'name'          => 'add_new',
 						'textvalue'     => ( isset( $current['labels']['add_new'] ) ) ? esc_attr( $current['labels']['add_new'] ) : '',
@@ -217,7 +217,7 @@ function cptui_manage_post_types() {
 
 					echo $ui->get_text_input( array(
 						'labeltext'     => __( 'Add New Item', 'custom-post-type-ui' ),
-						'helptext'      => esc_attr__( 'Post type label. Used in the admin menu for displaying post types.', 'custom-post-type-ui' ),
+						'helptext'      => esc_attr__( 'Used at the top of the post editor screen for a new post type post.', 'custom-post-type-ui' ),
 						'namearray'     => 'cpt_labels',
 						'name'          => 'add_new_item',
 						'textvalue'     => ( isset( $current['labels']['add_new_item'] ) ) ? esc_attr( $current['labels']['add_new_item'] ) : '',
