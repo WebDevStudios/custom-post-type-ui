@@ -167,7 +167,7 @@ function cptui_starter_notes( $tab = '', $object_type = '' ) {
  * @return array Array of notes added.
  */
 function cptui_post_type_starter_notes( $notes = array() ) {
-	$notes[] = sprintf( __( 'Post Type names should have %smax 20 characters%s, and only contain alphanumeric, lowercase characters, underscores in place of spaces and letters that do not have accents. Reserved names: post, page, attachment, revision, nav_menu_item.', 'custom-post-type-ui' ), '<strong class="wp-ui-highlight">', '</strong>' );
+	$notes[] = sprintf( __( 'Post Type names should have %smax 20 characters%s, and only contain alphanumeric, lowercase latin characters. Underscores will automatically replace spaces and accented letters will be converted to non-accents. Reserved names: post, page, attachment, revision, nav_menu_item.', 'custom-post-type-ui' ), '<strong class="wp-ui-highlight">', '</strong>' );
 
 	$notes[] = sprintf( __( 'If you are unfamiliar with the advanced post type settings, just fill in the %sPost Type Name%s and %sLabel%s fields. Remaining settings will use default values. Labels, if left blank, will be automatically created based on the post type name. Hover over the question mark for more details.', 'custom-post-type-ui' ), '<strong class="wp-ui-highlight">', '</strong>', '<strong class="wp-ui-highlight">', '</strong>' );
 
@@ -184,7 +184,7 @@ add_filter( 'cptui_starter_notes_post_types', 'cptui_post_type_starter_notes' );
  * @return array Array of notes added.
  */
 function cptui_taxonomy_starter_notes( $notes = array() ) {
-	$notes[] = sprintf( __( 'Taxonomy names should have %smax 32 characters%s, and only contain alphanumeric, lowercase, characters, underscores in place of spaces, and letters that do not have accents.', 'custom-post-type-ui' ), '
+	$notes[] = sprintf( __( 'Taxonomy names should have %smax 32 characters%s, and only contain alphanumeric, lowercase, latin characters. Underscores will automatically replace spaces and accented letters will be converted to non-accents.', 'custom-post-type-ui' ), '
 <strong class="wp-ui-highlight">', '</strong>' );
 
 	$notes[] = sprintf( __( 'If you are unfamiliar with the advanced taxonomy settings, just fill in the %sTaxonomy Name%s and choose an %sAttach to Post Type%s option. Remaining settings will use default values. Labels, if left blank, will be automatically created based on the taxonomy name. Hover over the question marks for more details.', 'custom-post-type-ui' ), '<strong class="wp-ui-highlight">', '</strong>', '<strong class="wp-ui-highlight">', '</strong>' );
