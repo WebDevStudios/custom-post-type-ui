@@ -167,11 +167,13 @@ function cptui_starter_notes( $tab = '', $object_type = '' ) {
  * @return array Array of notes added.
  */
 function cptui_post_type_starter_notes( $notes = array() ) {
-	$notes[] = sprintf( __( 'Post Type names should have %smax 20 characters%s, and only contain alphanumeric, lowercase latin characters. Underscores will automatically replace spaces and accented letters will be converted to non-accents. Reserved names: post, page, attachment, revision, nav_menu_item.', 'custom-post-type-ui' ), '<strong class="wp-ui-highlight">', '</strong>' );
+	$notes[] = sprintf( esc_html__( 'Post Type names should have %smax 20 characters%s, and only contain alphanumeric, lowercase latin characters. Underscores will automatically replace spaces and accented letters will be converted to non-accents. Reserved names: post, page, attachment, revision, nav_menu_item.', 'custom-post-type-ui' ), '<strong class="wp-ui-highlight">', '</strong>' );
 
-	$notes[] = sprintf( __( 'If you are unfamiliar with the advanced post type settings, just fill in the %sPost Type Name%s and %sLabel%s fields. Remaining settings will use default values. Labels, if left blank, will be automatically created based on the post type name. Hover over the question mark for more details.', 'custom-post-type-ui' ), '<strong class="wp-ui-highlight">', '</strong>', '<strong class="wp-ui-highlight">', '</strong>' );
+	$notes[] = sprintf( esc_html__( 'If you are unfamiliar with the advanced post type settings, just fill in the %sPost Type Name%s and %sLabel%s fields. Remaining settings will use default values. Labels, if left blank, will be automatically created based on the post type name. Hover over the question mark for more details.', 'custom-post-type-ui' ), '<strong class="wp-ui-highlight">', '</strong>', '<strong class="wp-ui-highlight">', '</strong>' );
 
-	$notes[] = sprintf( __( 'Deleting custom post types will %sNOT%s delete any content into the database or added to those post types. You can easily recreate your post types and the content will still exist.', 'custom-post-type-ui' ), '<strong class="wp-ui-highlight">', '</strong>' );
+	$notes[] = sprintf( esc_html__( 'Deleting custom post types will %sNOT%s delete any content into the database or added to those post types. You can easily recreate your post types and the content will still exist.', 'custom-post-type-ui' ), '<strong class="wp-ui-highlight">', '</strong>' );
+
+	$notes[] = sprintf( esc_html__( 'Fields marked with an asterisk are required fields.', 'custom-post-type-ui' ) );
 
 	return $notes;
 }
@@ -184,12 +186,14 @@ add_filter( 'cptui_starter_notes_post_types', 'cptui_post_type_starter_notes' );
  * @return array Array of notes added.
  */
 function cptui_taxonomy_starter_notes( $notes = array() ) {
-	$notes[] = sprintf( __( 'Taxonomy names should have %smax 32 characters%s, and only contain alphanumeric, lowercase, latin characters. Underscores will automatically replace spaces and accented letters will be converted to non-accents.', 'custom-post-type-ui' ), '
+	$notes[] = sprintf( esc_html__( 'Taxonomy names should have %smax 32 characters%s, and only contain alphanumeric, lowercase, latin characters. Underscores will automatically replace spaces and accented letters will be converted to non-accents.', 'custom-post-type-ui' ), '
 <strong class="wp-ui-highlight">', '</strong>' );
 
-	$notes[] = sprintf( __( 'If you are unfamiliar with the advanced taxonomy settings, just fill in the %sTaxonomy Name%s and choose an %sAttach to Post Type%s option. Remaining settings will use default values. Labels, if left blank, will be automatically created based on the taxonomy name. Hover over the question marks for more details.', 'custom-post-type-ui' ), '<strong class="wp-ui-highlight">', '</strong>', '<strong class="wp-ui-highlight">', '</strong>' );
+	$notes[] = sprintf( esc_html__( 'If you are unfamiliar with the advanced taxonomy settings, just fill in the %sTaxonomy Name%s and choose an %sAttach to Post Type%s option. Remaining settings will use default values. Labels, if left blank, will be automatically created based on the taxonomy name. Hover over the question marks for more details.', 'custom-post-type-ui' ), '<strong class="wp-ui-highlight">', '</strong>', '<strong class="wp-ui-highlight">', '</strong>' );
 
-	$notes[] = sprintf( __( 'Deleting custom taxonomies do %sNOT%s delete terms added to those taxonomies. You can recreate your taxonomies and the terms will return. Changing the name, after adding terms to the taxonomy, will not update the terms in the database.', 'custom-post-type-ui' ), '<strong class="wp-ui-highlight">', '</strong>' );
+	$notes[] = sprintf( esc_html__( 'Deleting custom taxonomies do %sNOT%s delete terms added to those taxonomies. You can recreate your taxonomies and the terms will return. Changing the name, after adding terms to the taxonomy, will not update the terms in the database.', 'custom-post-type-ui' ), '<strong class="wp-ui-highlight">', '</strong>' );
+
+	$notes[] = sprintf( esc_html__( 'Fields marked with an asterisk are required fields.', 'custom-post-type-ui' ) );
 
 	return $notes;
 }
