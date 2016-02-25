@@ -195,7 +195,6 @@ function cptui_manage_taxonomies() {
 
 						foreach ( $post_types  as $post_type ) {
 							$core_label = ( in_array( $post_type->name, array( 'post', 'page', 'attachment', ) ) ) ? __( '(WP Core)', 'custom-post-type-ui' ) : '';
-
 							/*
 							 * Supports Taxonomies Checkbox
 							 */
