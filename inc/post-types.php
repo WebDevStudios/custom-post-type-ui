@@ -685,14 +685,24 @@ function cptui_manage_post_types() {
 				) );
 				echo $ui->get_td_end() . $ui->get_tr_end();
 
+				echo $ui->get_tr_start() . $ui->get_th_start() . '<label for="menu_icon">' . __( 'Menu Icon', 'custom-post-type-ui' ) . '</label>' . $ui->get_th_end() . $ui->get_td_start();
 				echo $ui->get_text_input( array(
 					'namearray'     => 'cpt_custom_post_type',
 					'name'          => 'menu_icon',
 					'textvalue'     => ( isset( $current['menu_icon'] ) ) ? esc_attr( $current['menu_icon'] ) : '',
-					'labeltext'     => __( 'Menu Icon', 'custom-post-type-ui' ),
 					'aftertext'     => __( '(Full URL for icon or Dashicon class)', 'custom-post-type-ui' ),
 					'helptext'      => esc_attr__( 'URL to image to be used as menu icon or Dashicon class to use instead.', 'custom-post-type-ui' ),
+					'wrap'          => false,
 				) );
+
+				echo '<br/>';
+
+				echo $ui->get_button( array(
+					'id'      => 'cptui_choose_icon',
+					'textvalue' => __( 'Choose image icon', 'custom-post-type-ui' ),
+				) );
+
+				echo $ui->get_td_end() . $ui->get_tr_end();
 
 				echo $ui->get_tr_start() . $ui->get_th_start() . __( 'Supports', 'custom-post-type-ui' ) . $ui->get_th_end() . $ui->get_td_start() . $ui->get_fieldset_start();
 
