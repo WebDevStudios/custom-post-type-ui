@@ -494,6 +494,21 @@ class cptui_admin_ui {
 	}
 
 	/**
+	 * Return a button `<input>`.
+	 *
+	 * @since 1.3.0
+	 *
+	 * @param array $args Arguments to use with the button input.
+	 * @return string Complete button `<input>`.
+	 */
+	public function get_button( $args = array() ) {
+		$value = '';
+		$value .= '<input id="' . $args['id'] . '" class="button" type="button" value="' . $args['textvalue'] . '" />';
+
+		return $value;
+	}
+
+	/**
 	 * Return some array_merged default arguments for all input types.
 	 *
 	 * @since 1.0.0
