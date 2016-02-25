@@ -4,7 +4,8 @@
 }
 .cptui-table #excerpt { display: inline; height: 16px; margin: 12px 4px 12px 0; width: auto; }
 .cptui-table td.outter { vertical-align: top; width: 50%; }
-.cptui-table input[type="text"] {
+.cptui-table input[type="text"],
+.cptui-table textarea {
 	width: 50%;
 }
 #cptui_select_post_type, #cptui_select_taxonomy { margin-top: 15px; }
@@ -135,4 +136,16 @@ fieldset .cptui-help {
 	width: 1px;
 	height: 1px;
 	overflow: hidden;
+}
+.cptui-section fieldset {
+	border: solid rgb(204, 204, 204) 1px;
+	margin-top: 30px;
+	padding: 10px;
+}
+.cptui-section legend {
+	border: solid rgb(204, 204, 204) 1px;
+	border-bottom: 0px;
+	font-size: 14px;
+	font-weight: bold;
+	padding: 5px;
 }
