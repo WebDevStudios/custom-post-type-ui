@@ -30,6 +30,7 @@ function cptui_post_type_enqueue_scripts() {
 		return;
 	}
 
+	wp_enqueue_media();
 	wp_enqueue_script( 'cptui' );
 	wp_localize_script( 'cptui', 'cptui_type_data',
 		array(
