@@ -174,7 +174,7 @@ function cptui_manage_post_types() {
 							'namearray'  => 'update_post_types',
 							'labeltext'  => esc_html__( 'Migrate posts to newly renamed post type?', 'custom-post-type-ui' ),
 							'helptext'   => esc_attr__( 'Check this to migrate posts if and when renaming your post type.', 'custom-post-type-ui' ),
-							'default'    => false
+							'default'    => false,
 						) );
 					}
 				?>
