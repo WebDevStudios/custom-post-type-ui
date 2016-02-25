@@ -255,7 +255,7 @@ function cptui_register_single_post_type( $post_type = array() ) {
 				$yarpp = true;
 				continue;
 			}
-			$post_type['supports'][] = $part;
+			$post_type['supports'][] = trim( $part );
 		}
 	}
 
