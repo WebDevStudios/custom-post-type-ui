@@ -87,7 +87,7 @@ function cptui_manage_post_types() {
 	$ui = new cptui_admin_ui();
 
 	// Will only be set if we're already on the edit screen.
-	if ( !empty( $post_types ) ) { ?>
+	if ( ! empty( $post_types ) ) { ?>
 		<form id="cptui_select_post_type" method="post">
 			<p><?php _e( 'DO NOT EDIT the post type slug unless necessary. Changing that value registers a new post type entry for your install.', 'custom-post-type-ui' ); ?></p>
 			<p><?php _e( 'Use appropriate checkbox above save/delete buttons if you wish to change slugs and update post types for existing posts.', 'custom-post-type-ui' ); ?></p>
@@ -115,17 +115,13 @@ function cptui_manage_post_types() {
 		 * @param string $value Current post type selected.
 		 */
 		do_action( 'cptui_below_post_type_select', $current['name'] );
-	} else {
-
 	} ?>
 
 	<form method="post">
 		<div class="cptui-section">
 			<table class="form-table cptui-table">
 				<?php
-					/*
-					 * Post Slug
-					 */
+
 					echo $ui->get_text_input( array(
 						'namearray'     => 'cpt_custom_post_type',
 						'name'          => 'name',
@@ -138,9 +134,6 @@ function cptui_manage_post_types() {
 						'placeholder'   => false
 					) );
 
-					/*
-					 * Post Label
-					 */
 					echo $ui->get_text_input( array(
 						'namearray'     => 'cpt_custom_post_type',
 						'name'          => 'label',
@@ -150,9 +143,6 @@ function cptui_manage_post_types() {
 						'helptext'      => esc_attr__( 'Post type label. Used in the admin menu for displaying post types.', 'custom-post-type-ui' ),
 					) );
 
-					/*
-					 * Post Singular Slug
-					 */
 					echo $ui->get_text_input( array(
 						'namearray'     => 'cpt_custom_post_type',
 						'name'          => 'singular_label',
@@ -162,13 +152,9 @@ function cptui_manage_post_types() {
 						'helptext'      => esc_attr__( 'Custom Post Type Singular label. Used in WordPress when a singular label is needed.', 'custom-post-type-ui' ),
 					) );
 
-					/*
-					 * Post Description
-					 */
 					if ( isset( $current['description'] ) ) {
 						$current['description'] = stripslashes_deep( $current['description'] );
 					}
-
 					echo $ui->get_textarea_input( array(
 						'namearray' => 'cpt_custom_post_type',
 						'name' => 'description',
@@ -179,9 +165,6 @@ function cptui_manage_post_types() {
 						'helptext' => esc_attr__( 'Custom Post Type Description. Describe what your custom post type is used for.', 'custom-post-type-ui' )
 					) );
 
-					/*
-					 * Migrate posts
-					 */
 					if ( 'edit' == $tab ) {
 						echo $ui->get_check_input( array(
 							'checkvalue' => 'update_post_types',
