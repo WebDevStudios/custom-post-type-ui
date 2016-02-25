@@ -20,9 +20,9 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 function cptui_support_enqueue_scripts() {
 
-	$currentScreen = get_current_screen();
+	$current_screen = get_current_screen();
 
-	if ( ! is_object( $currentScreen ) || $currentScreen->base == "post" ) {
+	if ( ! is_object( $current_screen ) || 'post' === $current_screen->base ) {
 		return;
 	}
 
@@ -38,8 +38,6 @@ add_action( 'admin_enqueue_scripts', 'cptui_support_enqueue_scripts' );
  * Create our settings page output.
  *
  * @since 1.0.0
- *
- * @return string HTML output for the page.
  */
 function cptui_support() {
 	echo '<div class="wrap">';
@@ -53,9 +51,10 @@ function cptui_support() {
 
 		<h1><?php _e( 'Custom Post Type UI Support', 'custom-post-type-ui' ); ?></h1>
 
-		<p><?php printf( __( 'Please note that this plugin will NOT handle display of registered post types or taxonomies in your current theme. It will simply register them for you. If all else fails, visit us on the %s', 'custom-post-type-ui' ),
-				'<a href="https://www.wordpress.org/support/plugin/custom-post-type-ui/">' . __( 'Support Forums', 'custom-post-type-ui' ) . '</a>'
-			); ?></p>
+		<p><?php printf(
+			__( 'Please note that this plugin will NOT handle display of registered post types or taxonomies in your current theme. It will simply register them for you. If all else fails, visit us on the %s', 'custom-post-type-ui' ),
+			'<a href="https://www.wordpress.org/support/plugin/custom-post-type-ui/">' . __( 'Support Forums', 'custom-post-type-ui' ) . '</a>'
+		); ?></p>
 
 		<table id="support" class="form-table cptui-table">
 			<tr>
@@ -196,5 +195,5 @@ add_filter( 'enter_title_here', 'my_custom_title_text' );
 		 */
 		do_action( 'cptui_main_page_after_faq' );
 
-	echo '</div>';
+		echo '</div>';
 }
