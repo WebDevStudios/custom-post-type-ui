@@ -514,6 +514,8 @@ function cptui_manage_post_types() {
 					'wrap'          => false
 				) );
 
+				echo '<br/>';
+
 				echo $ui->get_text_input( array(
 					'namearray'     => 'cpt_custom_post_type',
 					'name'          => 'has_archive_string',
@@ -670,6 +672,8 @@ function cptui_manage_post_types() {
 					'selections'    => $select,
 					'wrap'          => false
 				) );
+
+				echo '<br/>';
 
 				echo $ui->get_text_input( array(
 					'namearray'     => 'cpt_custom_post_type',
