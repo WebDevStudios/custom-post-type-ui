@@ -156,7 +156,7 @@ class cptui_admin_ui {
 	 * @return string Span tag.
 	 */
 	public function get_required() {
-		return '<span class="required">*</span>';
+		return ' <span class="required">*</span>';
 	}
 
 	/**
@@ -388,7 +388,7 @@ class cptui_admin_ui {
 		}
 
 		if ( $args['helptext'] ) {
-			$value .= ' ' . $this->get_description( $args['helptext'] );
+			$value .= '<br/>' . $this->get_description( $args['helptext'] );
 		}
 
 		if ( $args['wrap'] ) {
