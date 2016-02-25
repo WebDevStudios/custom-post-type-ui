@@ -119,6 +119,7 @@ function cptui_manage_post_types() {
 
 	<form method="post">
 		<div class="cptui-section">
+			<?php echo cptui_starter_notes( $tab, 'post_types' ); ?>
 			<table class="form-table cptui-table">
 				<?php
 
@@ -927,7 +928,6 @@ function cptui_manage_post_types() {
 			<input type="hidden" name="cpt_type_status" id="cpt_type_status" value="<?php echo $tab; ?>" />
 		</p>
 	</form>
-		<?php echo cptui_starter_notes( $tab, 'post_types' ); ?>
 	</div><!-- End .wrap -->
 <?php
 }
