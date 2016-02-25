@@ -8,9 +8,6 @@
  * @since 1.0.0
  */
 
-# Ideas: $this->get_td( $content ). Returns content wrapped in <td>. Similar with $this->get_tr(), $this->th()
-
-
 /**
  * Custom Post Type UI Admin UI
  */
