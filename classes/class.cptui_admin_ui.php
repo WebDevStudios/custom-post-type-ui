@@ -240,6 +240,12 @@ class cptui_admin_ui {
 		return 'placeholder="' . esc_attr( $text ) . '"';
 	}
 
+	/**
+	 * Return a span that will only be visible for screenreaders.
+	 *
+	 * @param string $text Text to visually hide.
+	 * @return string $value Visually hidden text meant for screen readers.
+	 */
 	public function get_hidden_text( $text = '' ) {
 		return '<span class="visuallyhidden">' . $text . '</span>';
 	}
