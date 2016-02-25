@@ -28,7 +28,7 @@ function cptui_edit_plugin_list_links( $links ) {
 	// Add our custom links to the returned array value.
 	return array_merge( array(
 		'<a href="' . admin_url( 'admin.php?page=cptui_main_menu' ) . '">' . __( 'About', 'custom-post-type-ui' ) . '</a>',
-		'<a href="' . admin_url( 'admin.php?page=cptui_support' ) . '">' . __( 'Help', 'custom-post-type-ui' ) . '</a>'
+		'<a href="' . admin_url( 'admin.php?page=cptui_support' ) . '">' . __( 'Help', 'custom-post-type-ui' ) . '</a>',
 	), $links );
 }
 add_filter( 'plugin_action_links_' . plugin_basename( dirname( dirname( __FILE__ ) ) ) . '/custom-post-type-ui.php', 'cptui_edit_plugin_list_links' );
@@ -49,12 +49,12 @@ function cptui_menu_icon() {
  *
  * @since 0.5.0
  *
- * @param mixed $booText text to compare to typical boolean values.
+ * @param mixed $bool_text text to compare to typical boolean values.
  * @return bool Which bool value the passed in value was.
  */
-function get_disp_boolean( $booText ) {
-	$booText = (string) $booText;
-	if ( empty( $booText ) || $booText == '0' || $booText == 'false' ) {
+function get_disp_boolean( $bool_text ) {
+	$bool_text = (string) $bool_text;
+	if ( empty( $bool_text ) || '0' === $bool_text || 'false' === $bool_text ) {
 		return false;
 	}
 
@@ -66,12 +66,12 @@ function get_disp_boolean( $booText ) {
  *
  * @since 0.1.0
  *
- * @param string $booText String boolean value.
+ * @param string $bool_text String boolean value.
  * @return string standardized boolean text.
  */
-function disp_boolean( $booText ) {
-	$booText = (string) $booText;
-	if ( empty( $booText ) || $booText == '0' || $booText == 'false' ) {
+function disp_boolean( $bool_text ) {
+	$bool_text = (string) $bool_text;
+	if ( empty( $bool_text ) || '0' === $bool_text || 'false' === $bool_text ) {
 		return 'false';
 	}
 
@@ -90,32 +90,30 @@ function cptui_footer( $original = '' ) {
 
 	$screen = get_current_screen();
 
-	if ( ! is_object( $screen ) || 'cptui_main_menu' != $screen->parent_base ) {
+	if ( ! is_object( $screen ) || 'cptui_main_menu' !== $screen->parent_base ) {
 		return $original;
 	}
 
 	return sprintf(
-		       __( '%s version %s by %s', 'custom-post-type-ui' ),
-		       sprintf(
-			       '<a target="_blank" href="https://wordpress.org/support/plugin/custom-post-type-ui">%s</a>',
-			       __( 'Custom Post Type UI', 'custom-post-type-ui' )
-		       ),
-		       CPTUI_VERSION,
-		       '<a href="https://webdevstudios.com" target="_blank">WebDevStudios</a>'
-	       ) .
-	       ' - ' .
-	       sprintf(
-		       '<a href="https://github.com/WebDevStudios/custom-post-type-ui/issues" target="_blank">%s</a>',
-		       __( 'Please Report Bugs', 'custom-post-type-ui' )
-	       ) .
-	       ' ' .
-	       __( 'Follow on Twitter:', 'custom-post-type-ui' ) .
-	       sprintf(
-		       ' %s &middot; %s &middot; %s',
-		       '<a href="https://twitter.com/tw2113" target="_blank">Michael</a>',
-		       '<a href="https://twitter.com/williamsba" target="_blank">Brad</a>',
-		       '<a href="https://twitter.com/webdevstudios" target="_blank">WebDevStudios</a>'
-	       );
+		__( '%s version %s by %s', 'custom-post-type-ui' ),
+		sprintf(
+			'<a target="_blank" href="https://wordpress.org/support/plugin/custom-post-type-ui">%s</a>',
+			__( 'Custom Post Type UI', 'custom-post-type-ui' )
+		),
+		CPTUI_VERSION,
+		'<a href="https://webdevstudios.com" target="_blank">WebDevStudios</a>'
+	) . ' - ' .
+	sprintf(
+		'<a href="https://github.com/WebDevStudios/custom-post-type-ui/issues" target="_blank">%s</a>',
+		__( 'Please Report Bugs', 'custom-post-type-ui' )
+	) . ' ' .
+	__( 'Follow on Twitter:', 'custom-post-type-ui' ) .
+	sprintf(
+		' %s &middot; %s &middot; %s',
+		'<a href="https://twitter.com/tw2113" target="_blank">Michael</a>',
+		'<a href="https://twitter.com/williamsba" target="_blank">Brad</a>',
+		'<a href="https://twitter.com/webdevstudios" target="_blank">WebDevStudios</a>'
+	);
 }
 add_filter( 'admin_footer_text', 'cptui_footer' );
 
@@ -130,7 +128,7 @@ add_filter( 'admin_footer_text', 'cptui_footer' );
  */
 function cptui_starter_notes( $tab = '', $object_type = '' ) {
 	$output = '';
-	if ( 'new' == $tab ) {
+	if ( 'new' === $tab ) {
 
 		if ( ! empty( $object_type ) ) {
 			$object_type = '_' . $object_type;
@@ -153,7 +151,7 @@ function cptui_starter_notes( $tab = '', $object_type = '' ) {
 		if ( ! empty( $notes ) && is_array( $notes ) ) {
 			$output .= '<h2>' . __( 'Starter Notes', 'custom-post-type-ui' ) . '</h2>';
 			$output .= '<div><ol>';
-			foreach( $notes as $note ) {
+			foreach ( $notes as $note ) {
 				$output .= '<li>' . $note . '</li>';
 			}
 			$output .= '</ol></div>';
@@ -165,7 +163,7 @@ function cptui_starter_notes( $tab = '', $object_type = '' ) {
 /**
  * Add our starter notes for post types.
  *
- * @param $notes Array of notes to add.
+ * @param array $notes Array of notes to add.
  * @return array Array of notes added.
  */
 function cptui_post_type_starter_notes( $notes = array() ) {
@@ -182,7 +180,7 @@ add_filter( 'cptui_starter_notes_post_types', 'cptui_post_type_starter_notes' );
 /**
  * Add our starter notes for taxonomies.
  *
- * @param $notes Array of notes to add.
+ * @param array $notes Array of notes to add.
  * @return array Array of notes added.
  */
 function cptui_taxonomy_starter_notes( $notes = array() ) {
@@ -203,7 +201,6 @@ add_filter( 'cptui_starter_notes_taxonomies', 'cptui_taxonomy_starter_notes' );
  * @since 1.3.0
  */
 function cptui_flush_rewrite_rules() {
-
 	/*
 	 * Wise men say that you should not do flush_rewrite_rules on init or admin_int. Due to the nature of our plugin
 	 * and how new post types or taxonomies can suddenly be introduced, we need to...potentially. For this,
@@ -212,7 +209,7 @@ function cptui_flush_rewrite_rules() {
 	 * post types or taxonomies are created, updated, deleted, or imported. Any other time and this condition
 	 * should not be met.
 	 */
-	if ( 'true' == ( $flush_it = get_transient( 'cptui_flush_rewrite_rules' ) ) ) {
+	if ( 'true' === ( $flush_it = get_transient( 'cptui_flush_rewrite_rules' ) ) ) {
 		flush_rewrite_rules( false );
 		// So we only run this once.
 		delete_transient( 'cptui_flush_rewrite_rules' );
