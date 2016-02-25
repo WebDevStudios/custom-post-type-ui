@@ -58,4 +58,26 @@
 
 		return s;
 	}
+
+	var _custom_media = true,
+		_orig_send_attachment = wp.media.editor.send.attachment;
+
+	$('#cptui_choose_icon').on('click',function(e){
+		e.preventDefault();
+
+		var button = $(this);
+		var id = jQuery('#menu_icon').attr('id');
+		_custom_media = true;
+		wp.media.editor.send.attachment = function (props, attachment) {
+			if (_custom_media) {
+				$("#" + id).val(attachment.url);
+			} else {
+				return _orig_send_attachment.apply(this, [props, attachment]);
+			};
+		}
+
+		wp.media.editor.open(button);
+		return false;
+	});
+
 })(jQuery);
