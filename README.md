@@ -31,6 +31,7 @@ CPTUI does NOT handle display of registered post types or taxonomies in your cur
 * Added: Notes to post type and taxonomy edit screens about WordPress core's post types and taxonomies.
 * Added: Javascript-based prevention of spaces and special characters for post type and taxonomy slugs.
 * Added: Minified copies of our JavaScript and CSS. Define SCRIPT_DEBUG to true to use non-minified versions.
+* Fixed: Need to visit permalinks page to flush rewrite rules after creating new post type or taxonomy
 
 **1.2.3**
 
