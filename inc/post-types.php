@@ -181,12 +181,8 @@ function cptui_manage_post_types() {
 			</table>
 		</div>
 		<div class="cptui-section">
+			<h2><?php _e( 'Labels', 'custom-post-type-ui' ); ?></h2>
 			<table class="form-table cptui-table">
-				<tr>
-					<td>
-						<h2><?php _e( 'Labels', 'custom-post-type-ui' ); ?></h2>
-					</td>
-				</tr>
 				<?php
 					echo $ui->get_text_input( array(
 						'labeltext'     => __( 'Menu Name', 'custom-post-type-ui' ),
@@ -398,12 +394,8 @@ function cptui_manage_post_types() {
 			</table>
 		</div>
 		<div class="cptui-section">
+			<h2><?php _e( 'Settings', 'custom-post-type-ui' ); ?></h2>
 			<table class="form-table cptui-table">
-				<tr>
-					<td>
-						<h2><?php _e( 'Settings', 'custom-post-type-ui' ); ?></h2>
-					</td>
-				</tr>
 				<?php
 				$select = array(
 					'options' => array(
