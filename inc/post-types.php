@@ -34,7 +34,7 @@ function cptui_post_type_enqueue_scripts() {
 	wp_enqueue_script( 'cptui' );
 	wp_localize_script( 'cptui', 'cptui_type_data',
 		array(
-			'confirm' => __( 'Are you sure you want to delete this?', 'custom-post-type-ui' ),
+			'confirm' => esc_html__( 'Are you sure you want to delete this?', 'custom-post-type-ui' ),
 		)
 	);
 }
