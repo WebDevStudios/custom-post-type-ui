@@ -434,6 +434,10 @@ class cptui_admin_ui {
 			$value .= $args['aftertext'];
 		}
 
+		if ( $args['helptext'] ) {
+			$value .= '<br/>' . $this->get_description( $args['helptext'] );
+		}
+
 		if ( $args['wrap'] ) {
 			$value .= $this->get_td_end();
 			$value .= $this->get_tr_end();
