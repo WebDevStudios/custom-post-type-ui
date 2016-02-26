@@ -1140,10 +1140,27 @@ function cptui_update_post_type( $data = array() ) {
 
 	$post_types = get_option( 'cptui_post_types', array() );
 
-	# Check if we already have a post type of that name.
-	if ( 'new' == $data['cpt_type_status'] && ( array_key_exists( strtolower( $data['cpt_custom_post_type']['name'] ), $post_types ) || in_array( $data['cpt_custom_post_type']['name'], cptui_reserved_post_types() ) ) ) {
-		return cptui_admin_notices( 'error', '', false, sprintf( __( 'Please choose a different post type name. %s is already registered.', 'custom-post-type-ui' ), $data['cpt_custom_post_type']['name'] ) );
+	/**
+	 * Check if we already have a post type of that name.
+	 *
+	 * @since 1.3.0
+	 *
+	 * @param bool   $value Assume we have no conflict by default.
+	 * @param string $value Post type slug being saved.
+	 * @param array  $post_types Array of existing post types from CPTUI.
+	 */
+	$slug_exists = apply_filters( 'cptui_slug_exists', false, $data['cpt_custom_post_type']['name'], $post_types );
+	$slug_as_page = cptui_check_page_slugs( $data['cpt_custom_post_type']['name'] );
+	if ( 'new' == $data['cpt_type_status'] ) {
+		if ( true === $slug_exists ) {
+			return cptui_admin_notices( 'error', '', false, sprintf( __( 'Please choose a different post type name. %s is already registered.', 'custom-post-type-ui' ), $data['cpt_custom_post_type']['name'] ) );
+		}
+		if ( true === $slug_exists ) {
+			return cptui_admin_notices( 'error', '', false, sprintf( __( 'Please choose a different post type name. %s matches an existing page slug, which can cause conflicts.', 'custom-post-type-ui' ), $data['cpt_custom_post_type']['name'] ) );
+		}
 	}
+
+
 
 	if ( empty( $data['cpt_addon_taxes'] ) || !is_array( $data['cpt_addon_taxes'] ) ) {
 		$data['cpt_addon_taxes'] = array();
