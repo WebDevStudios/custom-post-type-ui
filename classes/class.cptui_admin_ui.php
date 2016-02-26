@@ -195,18 +195,6 @@ class cptui_admin_ui {
 	}
 
 	/**
-	 * Return a `<span>` tag with the help text.
-	 *
-	 * @since 1.3.0
-	 *
-	 * @param string $help_text Text to display after the input.
-	 * @return string
-	 */
-	public function get_description( $help_text = '' ) {
-		return '<span class="cptui-field-description">' . $help_text . '</span>';
-	}
-
-	/**
 	 * Return a maxlength HTML attribute with a specified length.
 	 *
 	 * @since 1.0.0
@@ -246,20 +234,6 @@ class cptui_admin_ui {
 	 * @param string $text Text to visually hide.
 	 * @return string $value Visually hidden text meant for screen readers.
 	 */
-	public function get_hidden_text( $text = '' ) {
-		return '<span class="visuallyhidden">' . $text . '</span>';
-	}
-
-	/**
-	 * Return a placeholder HTML attribtue for a specified value.
-	 *
-	 * @param string $text Text to place in the placeholder attribute.
-	 * @return string $value Placeholder HTML attribute.
-	 */
-	public function get_placeholder( $text = '' ) {
-		return 'placeholder="' . esc_attr( $text ) . '"';
-	}
-
 	public function get_hidden_text( $text = '' ) {
 		return '<span class="visuallyhidden">' . $text . '</span>';
 	}
@@ -322,7 +296,7 @@ class cptui_admin_ui {
 		$value .= '</select>';
 
 		if ( ! empty( $args['aftertext'] ) ) {
-			$value .=  ' ' . $this->get_description( $args['aftertext'] );
+			$value .= ' ' . $this->get_description( $args['aftertext'] );
 		}
 
 		if ( $args['wrap'] ) {
