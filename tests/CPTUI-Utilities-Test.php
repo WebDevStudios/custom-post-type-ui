@@ -6,10 +6,16 @@ class CPTUI_Utility extends CPTUI_Base_Tests {
 	public $post_type_array = array();
 	public $taxonomy_array = array();
 
+	/**
+	 * Set up
+	 */
 	public function setUp() {
 		parent::setUp();
 	}
 
+	/*
+	 * Teardown.
+	 */
 	public function tearDown() {
 		parent::tearDown();
 	}
@@ -191,7 +197,7 @@ class CPTUI_Utility extends CPTUI_Base_Tests {
 	 */
 	public function test_cptui_reserved_post_types() {
 
-		// Test without filters
+		// Test without filters.
 		$reserved = cptui_reserved_post_types();
 		$defaults = array(
 			'post',
@@ -201,19 +207,19 @@ class CPTUI_Utility extends CPTUI_Base_Tests {
 			'nav_menu_item',
 			'action',
 			'order',
-			'theme'
+			'theme',
 		);
 
 		$this->assertNotEmpty( $reserved );
-		foreach( $defaults as $default ) {
+		foreach ( $defaults as $default ) {
 			$this->assertContains( $default, $reserved );
 		}
 
-		// Pre filters
+		// Pre filters.
 		$this->assertNotContains( 'reserved_slug', $reserved );
 		$this->assertNotContains( 'reserved_string_slug', $reserved );
 
-		// Add filter to get custom slugs array
+		// Add filter to get custom slugs array.
 		add_filter( 'cptui_reserved_post_types', array( $this, 'add_reserved_post_types_array' ) );
 		// Fetch new value with the custom slugs added.
 		$reserved = cptui_reserved_post_types();
@@ -227,7 +233,7 @@ class CPTUI_Utility extends CPTUI_Base_Tests {
 
 		$this->assertContains( 'reserved_slug', $reserved );
 
-		// Add filters to get custom slugs string
+		// Add filters to get custom slugs string.
 		add_filter( 'cptui_reserved_post_types', array( $this, 'add_reserved_post_types_string' ) );
 		// Fetch new value with the custom slugs added.
 		$reserved = cptui_reserved_post_types();
@@ -299,5 +305,4 @@ class CPTUI_Utility extends CPTUI_Base_Tests {
 	public function add_reserved_post_types_string( $slugs = array() ) {
 		return 'reserved_string_slug';
 	}
-
 }
