@@ -1318,3 +1318,64 @@ function cptui_convert_post_type_posts( $original_slug = '', $new_slug = '' ) {
 
 	cptui_delete_post_type( $original_slug );
 }
+
+/**
+ * Checks if we are trying to register an already registered post type slug.
+ *
+ * @since 1.3.0
+ *
+ * @param bool   $slug_exists    Whether or not the post type slug exists.
+ * @param string $post_type_slug The post type slug being saved.
+ * @param array  $post_types     Array of CPTUI-registered post types.
+ *
+*@return bool
+ */
+function cptui_check_existing_slugs( $slug_exists = false, $post_type_slug = '', $post_types = array() ) {
+
+	// If true, then we'll already have a conflict, let's not re-process.
+	if ( true === $slug_exists ) {
+		return $slug_exists;
+	}
+
+	// Check if CPTUI has already registered this slug.
+	if ( array_key_exists( strtolower( $post_type_slug ), $post_types ) ) {
+		return true;
+	}
+
+	// Check if we're registering a reserved post type slug.
+	if ( in_array( $post_type_slug, cptui_reserved_post_types() ) ) {
+		return true;
+	}
+
+	// Check if other plugins have registered this same slug.
+	$registered_post_types = get_post_types( array( '_builtin' => false, 'public' => false ) );
+	if ( in_array( $post_type_slug, $registered_post_types ) ) {
+		return true;
+	}
+
+	// If we're this far, it's false.
+	return $slug_exists;
+}
+add_filter( 'cptui_slug_exists', 'cptui_check_existing_slugs' );
+
+/**
+ * Checks if the slug matches any existing page slug.
+ *
+ * @since 1.3.0
+ *
+ * @param string $post_type_slug The post type slug being saved.
+ * @return bool Whether or not the slug exists.
+ */
+function cptui_check_page_slugs( $post_type_slug = '' ) {
+	$page = get_page_by_path( $post_type_slug );
+
+	if ( is_null( $page ) ) {
+		return false;
+	}
+
+	if ( is_object( $page ) && ( true === $page instanceof WP_Post ) ) {
+		return true;
+	}
+
+	return false;
+}
