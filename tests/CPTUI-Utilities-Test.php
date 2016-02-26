@@ -248,6 +248,33 @@ class CPTUI_Utility extends CPTUI_Base_Tests {
 		$this->assertContains( 'reserved_string_slug', $reserved );
 	}
 
+	public function test_cptui_check_existing_slugs() {
+		$this->register_post_type();
+
+		register_post_type( 'foo' );
+
+		$this->assertFalse( cptui_check_existing_slugs( false, 'tv_show', $this->post_type_array ) );
+		$this->assertTrue( cptui_check_existing_slugs( false, 'page', $this->post_type_array ) );
+		$this->assertTrue( cptui_check_existing_slugs( false, 'foo', $this->post_type_array ) );
+	}
+	/*
+	 * Tests for matching page slugs.
+	 */
+	public function test_cptui_check_page_slugs() {
+		$mismatched = 'non-matched-slug';
+		$matched    = 'matched-slug';
+		wp_insert_post(
+			array(
+				'post_title' => 'My Slug',
+				'post_name' => 'matched-slug',
+				'post_type' => 'page',
+			)
+		);
+
+		$this->assertFalse( cptui_check_page_slugs( $mismatched ) );
+		$this->assertTrue( cptui_check_page_slugs( $matched ) );
+	}
+
 	/**
 	 * Create our base post type to test.
 	 * @return mixed|void
