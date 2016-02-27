@@ -120,11 +120,9 @@ function cptui_manage_post_types() {
 
 	<form method="post">
 		<div class="cptui-section">
-			<?php echo cptui_starter_notes( $tab, 'post_types' ); ?>
-
 			<?php echo $ui->get_fieldset_start();
 				echo $ui->get_legend_start();
-				echo esc_html__( 'Basics', 'custom-post-type-ui' );
+				echo esc_html__( 'Required', 'custom-post-type-ui' );
 				echo $ui->get_legend_end();
 			?>
 			<table class="form-table cptui-table">
