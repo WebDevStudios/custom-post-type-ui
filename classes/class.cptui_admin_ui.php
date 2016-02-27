@@ -172,8 +172,11 @@ class cptui_admin_ui {
 	 * @return string `Required` attribute.
 	 */
 	public function get_required_attribute( $required = false ) {
-		$attr = ( $required ) ? 'true' : 'false';
-		return 'required="' . $attr . '"';
+		$attr = '';
+		if ( $required ) {
+			$attr .= 'required="true"';
+		}
+		return $attr;
 	}
 
 	/**
