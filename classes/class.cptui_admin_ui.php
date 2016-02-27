@@ -362,6 +362,8 @@ class cptui_admin_ui {
 
 		$value .= ' ' . $this->get_aria_required( $args['required'] );
 
+		$value .= ' ' . $this->get_required_attribute( $args['required'] );
+
 		if ( ! empty( $args['aftertext'] ) ) {
 			if ( $args['placeholder'] ) {
 				$value .= ' ' . $this->get_placeholder( $args['aftertext'] );
