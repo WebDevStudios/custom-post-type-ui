@@ -84,8 +84,11 @@
 		e.preventDefault();
 		$('#labels_expand').toggleClass('toggledclosed');
 	});
-	$('#togglesettings').on('click', function (e) {
+	$('#togglesettings').on('click',function(e) {
 		e.preventDefault();
 		$('#settings_expand').toggleClass('toggledclosed');
+	});
+	$('#labels_expand legend,#settings_expand legend').on('click',function(e){
+		$(this).parent().toggleClass('toggledclosed');
 	});
 })(jQuery);
