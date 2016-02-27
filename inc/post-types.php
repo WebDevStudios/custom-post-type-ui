@@ -1160,8 +1160,6 @@ function cptui_update_post_type( $data = array() ) {
 		}
 	}
 
-
-
 	if ( empty( $data['cpt_addon_taxes'] ) || !is_array( $data['cpt_addon_taxes'] ) ) {
 		$data['cpt_addon_taxes'] = array();
 	}
