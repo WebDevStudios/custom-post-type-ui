@@ -80,4 +80,12 @@
 		return false;
 	});
 
+	$('#togglelabels').on('click',function(e){
+		e.preventDefault();
+		$('#labels_expand').toggleClass('toggledclosed');
+	});
+	$('#togglesettings').on('click', function (e) {
+		e.preventDefault();
+		$('#settings_expand').toggleClass('toggledclosed');
+	});
 })(jQuery);
