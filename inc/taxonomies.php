@@ -33,7 +33,7 @@ function cptui_taxonomies_enqueue_scripts() {
 	wp_enqueue_script( 'cptui' );
 	wp_localize_script(	'cptui', 'cptui_tax_data',
 		array(
-			'confirm' => __( 'Are you sure you want to delete this?', 'custom-post-type-ui' ),
+			'confirm' => __( 'Are you sure you want to delete this? Deleting will NOT remove created content.', 'custom-post-type-ui' ),
 		)
 	);
 }
