@@ -173,8 +173,6 @@ function cptui_post_type_starter_notes( $notes = array() ) {
 
 	$notes[] = sprintf( esc_html__( 'Deleting custom post types will %sNOT%s delete any content into the database or added to those post types. You can easily recreate your post types and the content will still exist.', 'custom-post-type-ui' ), '<strong class="wp-ui-highlight">', '</strong>' );
 
-	$notes[] = sprintf( esc_html__( 'Fields marked with an asterisk are required fields.', 'custom-post-type-ui' ) );
-
 	return $notes;
 }
 add_filter( 'cptui_starter_notes_post_types', 'cptui_post_type_starter_notes' );
@@ -192,8 +190,6 @@ function cptui_taxonomy_starter_notes( $notes = array() ) {
 	$notes[] = sprintf( esc_html__( 'If you are unfamiliar with the advanced taxonomy settings, just fill in the %sTaxonomy Name%s and choose an %sAttach to Post Type%s option. Remaining settings will use default values. Labels, if left blank, will be automatically created based on the taxonomy name. Hover over the question marks for more details.', 'custom-post-type-ui' ), '<strong class="wp-ui-highlight">', '</strong>', '<strong class="wp-ui-highlight">', '</strong>' );
 
 	$notes[] = sprintf( esc_html__( 'Deleting custom taxonomies do %sNOT%s delete terms added to those taxonomies. You can recreate your taxonomies and the terms will return. Changing the name, after adding terms to the taxonomy, will not update the terms in the database.', 'custom-post-type-ui' ), '<strong class="wp-ui-highlight">', '</strong>' );
-
-	$notes[] = sprintf( esc_html__( 'Fields marked with an asterisk are required fields.', 'custom-post-type-ui' ) );
 
 	return $notes;
 }
