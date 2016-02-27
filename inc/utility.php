@@ -167,7 +167,7 @@ function cptui_starter_notes( $tab = '', $object_type = '' ) {
  * @return array Array of notes added.
  */
 function cptui_post_type_starter_notes( $notes = array() ) {
-	$notes[] = sprintf( esc_html__( 'Post Type names should have %smax 20 characters%s, and only contain alphanumeric, lowercase latin characters. Underscores will automatically replace spaces and accented letters will be converted to non-accents. Reserved names: post, page, attachment, revision, nav_menu_item.', 'custom-post-type-ui' ), '<strong class="wp-ui-highlight">', '</strong>' );
+	$notes[] = sprintf( esc_html__( 'Slugs should only contain alphanumeric, latin characters. Underscores or dashes should be used in place of spaces. Reserved WordPress core slugs: post, page, attachment, revision, nav_menu_item.', 'custom-post-type-ui' ), '<strong class="wp-ui-highlight">', '</strong>' );
 
 	$notes[] = sprintf( esc_html__( 'If you are unfamiliar with the advanced post type settings, just fill in the %sPost Type Name%s and %sLabel%s fields. Remaining settings will use default values. Labels, if left blank, will be automatically created based on the post type name. Hover over the question mark for more details.', 'custom-post-type-ui' ), '<strong class="wp-ui-highlight">', '</strong>', '<strong class="wp-ui-highlight">', '</strong>' );
 
