@@ -127,17 +127,19 @@ function cptui_manage_post_types() {
 			?>
 			<table class="form-table cptui-table">
 				<?php
+					echo $ui->get_tr_start() . $ui->get_th_start();
+					echo $ui->get_label( 'name', __( 'Post Type Slug', 'custom-post-type-ui' ) );
+					echo $ui->get_th_end() . $ui->get_td_start();
 
 					echo $ui->get_text_input( array(
 						'namearray'     => 'cpt_custom_post_type',
 						'name'          => 'name',
 						'textvalue'     => ( isset( $current['name'] ) ) ? esc_attr( $current['name'] ) : '',
 						'maxlength'     => '20',
-						'labeltext'     => esc_html__( 'Post Type Slug', 'custom-post-type-ui' ),
-						'aftertext'     => esc_html__( '(e.g. movie)', 'custom-post-type-ui' ),
 						'helptext'      => esc_html__( 'The post type name/slug. Used for various queries for post type content.', 'custom-post-type-ui' ),
 						'required'      => true,
 						'placeholder'   => false,
+						'wrap'          => false,
 					) );
 
 					echo $ui->get_text_input( array(
