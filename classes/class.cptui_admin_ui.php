@@ -149,6 +149,19 @@ class cptui_admin_ui {
 	}
 
 	/**
+	 * Return an html attribute denoting a required field.
+	 *
+	 * @since 1.3.0
+	 *
+	 * @param bool $required Whether or not the field is required.
+	 * @return string `Required` attribute.
+	 */
+	public function get_required_attribute( $required = false ) {
+		$attr = ( $required ) ? 'true' : 'false';
+		return 'required="' . $attr . '"';
+	}
+
+	/**
 	 * Return a `<span>` to indicate required status, with class attribute.
 	 *
 	 * @since 1.0.0
