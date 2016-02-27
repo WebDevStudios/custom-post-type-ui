@@ -106,6 +106,12 @@
 .js #cptui_select_taxonomy input[type='submit'] {
 	display: none;
 }
+#togglelabels {
+	display: none;
+}
+.js #togglelabels {
+	display: inline-block;
+}
 .cptui-help {
 	color: #424242;
 	margin-left: 4px;
@@ -139,8 +145,10 @@ fieldset .cptui-help {
 }
 .cptui-section fieldset {
 	border: solid rgb(204, 204, 204) 1px;
+	display: block;
 	margin-top: 30px;
 	padding: 10px;
+	overflow: hidden;
 }
 .cptui-section legend {
 	border: solid rgb(204, 204, 204) 1px;
@@ -148,4 +156,10 @@ fieldset .cptui-help {
 	font-size: 14px;
 	font-weight: bold;
 	padding: 5px;
+}
+.cptui-table .cptui-slug-details {
+	margin-top: 15px;
+}
+.js .cptui-section fieldset.toggledclosed {
+	height: 1px;
 }
