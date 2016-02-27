@@ -253,19 +253,6 @@ function cptui_manage_post_types() {
 							'default'    => false,
 						) );
 					}
-				?>
-			</table>
-			<?php echo $ui->get_fieldset_end(); ?>
-		</div>
-		<div class="cptui-section">
-			<?php
-				echo $ui->get_fieldset_start();
-				echo $ui->get_legend_start();
-				esc_html_e( 'Labels', 'custom-post-type-ui' );
-				echo $ui->get_legend_end();
-			?>
-			<table class="form-table cptui-table">
-				<?php
 					echo $ui->get_text_input( array(
 						'labeltext'     => __( 'Menu Name', 'custom-post-type-ui' ),
 						'helptext'      => esc_attr__( 'Custom admin menu name for your custom post type.', 'custom-post-type-ui' ),
@@ -478,7 +465,8 @@ function cptui_manage_post_types() {
 		</div>
 		<div class="cptui-section">
 			<?php
-				echo $ui->get_fieldset_start();
+				$fieldset_classes = 'toggledclosed';
+				echo $ui->get_fieldset_start( array( 'id' => 'settings_expand', 'classes' => array( $fieldset_classes ), 'aria-expanded' => 'false' ) );
 				echo $ui->get_legend_start();
 				esc_html_e( 'Settings', 'custom-post-type-ui' );
 				echo $ui->get_legend_end();
@@ -981,49 +969,6 @@ function cptui_manage_post_types() {
 			</table>
 			<?php echo $ui->get_fieldset_end(); ?>
 		</div>
-		<p class="submit">
-			<?php wp_nonce_field( 'cptui_addedit_post_type_nonce_action', 'cptui_addedit_post_type_nonce_field' );
-			if ( ! empty( $_GET ) && ! empty( $_GET['action'] ) && 'edit' == $_GET['action'] ) { ?>
-				<?php
-
-				/**
-				 * Filters the text value to use on the button when editing.
-				 * @since 1.0.0
-				 *
-				 * @param string $value Text to use for the button.
-				 */
-				?>
-				<input type="submit" class="button-primary" name="cpt_submit" value="<?php echo esc_attr( apply_filters( 'cptui_post_type_submit_edit', __( 'Save Post Type', 'custom-post-type-ui' ) ) ); ?>" />
-				<?php
-
-				/**
-				 * Filters the text value to use on the button when deleting.
-				 * @since 1.0.0
-				 *
-				 * @param string $value Text to use for the button.
-				 */
-				?>
-				<input type="submit" class="button-secondary" name="cpt_delete" id="cpt_submit_delete" value="<?php echo esc_attr( apply_filters( 'cptui_post_type_submit_delete', __( 'Delete Post Type', 'custom-post-type-ui' ) ) ); ?>" />
-			<?php } else { ?>
-				<?php
-
-				/**
-				 * Filters the text value to use on the button when adding.
-				 * @since 1.0.0
-				 *
-				 * @param string $value Text to use for the button.
-				 */
-				?>
-				<input type="submit" class="button-primary" name="cpt_submit" value="<?php echo esc_attr( apply_filters( 'cptui_post_type_submit_add', __( 'Add Post Type', 'custom-post-type-ui' ) ) ); ?>" />
-			<?php } ?>
-
-			<?php if ( ! empty( $current ) ) { ?>
-				<input type="hidden" name="cpt_original" id="cpt_original" value="<?php echo $current['name']; ?>" />
-			<?php }
-
-			// Used to check and see if we should prevent duplicate slugs. ?>
-			<input type="hidden" name="cpt_type_status" id="cpt_type_status" value="<?php echo $tab; ?>" />
-		</p>
 	</form>
 	</div><!-- End .wrap -->
 <?php
