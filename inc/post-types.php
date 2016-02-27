@@ -212,21 +212,21 @@ function cptui_manage_post_types() {
 				<?php
 
 					echo $ui->get_text_input( array(
-						'namearray'     => 'cpt_custom_post_type',
-						'name'          => 'label',
-						'textvalue'     => ( isset( $current['label'] ) ) ? esc_attr( $current['label'] ) : '',
-						'labeltext'     => esc_html__( 'Plural Label', 'custom-post-type-ui' ),
-						'aftertext'     => esc_html__( '(e.g. Movies)', 'custom-post-type-ui' ),
-						'helptext'      => esc_html__( 'Used for the post type admin menu item.', 'custom-post-type-ui' ),
+						'namearray' => 'cpt_custom_post_type',
+						'name'      => 'label',
+						'textvalue' => ( isset( $current['label'] ) ) ? esc_attr( $current['label'] ) : '',
+						'labeltext' => esc_html__( 'Plural Label', 'custom-post-type-ui' ),
+						'aftertext' => esc_html__( '(e.g. Movies)', 'custom-post-type-ui' ),
+						'helptext'  => esc_html__( 'Used for the post type admin menu item.', 'custom-post-type-ui' ),
 					) );
 
 					echo $ui->get_text_input( array(
-						'namearray'     => 'cpt_custom_post_type',
-						'name'          => 'singular_label',
-						'textvalue'     => ( isset( $current['singular_label'] ) ) ? esc_attr( $current['singular_label'] ) : '',
-						'labeltext'     => esc_html__( 'Singular Label', 'custom-post-type-ui' ),
-						'aftertext'     => esc_html__( '(e.g. Movie)', 'custom-post-type-ui' ),
-						'helptext'      => esc_html__( 'Used when a singular label is needed.', 'custom-post-type-ui' ),
+						'namearray' => 'cpt_custom_post_type',
+						'name'      => 'singular_label',
+						'textvalue' => ( isset( $current['singular_label'] ) ) ? esc_attr( $current['singular_label'] ) : '',
+						'labeltext' => esc_html__( 'Singular Label', 'custom-post-type-ui' ),
+						'aftertext' => esc_html__( '(e.g. Movie)', 'custom-post-type-ui' ),
+						'helptext'  => esc_html__( 'Used when a singular label is needed.', 'custom-post-type-ui' ),
 					) );
 
 					if ( isset( $current['description'] ) ) {
@@ -234,12 +234,12 @@ function cptui_manage_post_types() {
 					}
 					echo $ui->get_textarea_input( array(
 						'namearray' => 'cpt_custom_post_type',
-						'name' => 'description',
-						'rows' => '4',
-						'cols' => '40',
-						'textvalue' => ( isset( $current['description'] ) ) ?  esc_textarea( $current['description'] ) : '',
-						'labeltext' => __( 'Post Type Description', 'custom-post-type-ui'),
-						'helptext' => esc_attr__( 'Perhaps describe what your custom post type is used for?', 'custom-post-type-ui' )
+						'name'      => 'description',
+						'rows'      => '4',
+						'cols'      => '40',
+						'textvalue' => ( isset( $current['description'] ) ) ? esc_textarea( $current['description'] ) : '',
+						'labeltext' => __( 'Post Type Description', 'custom-post-type-ui' ),
+						'helptext'  => esc_attr__( 'Perhaps describe what your custom post type is used for?', 'custom-post-type-ui' )
 					) );
 
 					if ( 'edit' == $tab ) {
