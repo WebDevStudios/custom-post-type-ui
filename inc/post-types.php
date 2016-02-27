@@ -20,9 +20,9 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 function cptui_post_type_enqueue_scripts() {
 
-	$currentScreen = get_current_screen();
+	$current_screen = get_current_screen();
 
-	if ( ! is_object( $currentScreen ) || $currentScreen->base == "post" ) {
+	if ( ! is_object( $current_screen ) || 'post' === $current_screen->base ) {
 		return;
 	}
 
