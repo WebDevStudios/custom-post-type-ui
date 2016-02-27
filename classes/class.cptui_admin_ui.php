@@ -168,7 +168,7 @@ class cptui_admin_ui {
 	 *
 	 * @return string Span tag.
 	 */
-	public function get_required() {
+	public function get_required_span() {
 		return ' <span class="required">*</span>';
 	}
 
@@ -271,7 +271,7 @@ class cptui_admin_ui {
 			$value  = $this->get_tr_start();
 			$value .= $this->get_th_start();
 			$value .= $this->get_label( $args['name'], $args['labeltext'] );
-			if ( $args['required'] ) { $value .= $this->get_required(); }
+			if ( $args['required'] ) { $value .= $this->get_required_span(); }
 			if ( ! empty( $args['helptext'] ) ) { $value .= $this->get_help( $args['helptext'] ); }
 			$value .= $this->get_th_end();
 			$value .= $this->get_td_start();
@@ -342,7 +342,7 @@ class cptui_admin_ui {
 			$value .= $this->get_tr_start();
 			$value .= $this->get_th_start();
 			$value .= $this->get_label( $args['name'], $args['labeltext'] );
-			if ( $args['required'] ) { $value .= $this->get_required(); }
+			if ( $args['required'] ) { $value .= $this->get_required_span(); }
 			/*if ( !$args['helptext_after'] ) {
 				$value .= $this->get_help( $args['helptext'] );
 			}*/
@@ -409,7 +409,7 @@ class cptui_admin_ui {
 			$value .= $this->get_tr_start();
 			$value .= $this->get_th_start();
 			$value .= $this->get_label( $args['name'], $args['labeltext'] );
-			if ( $args['required'] ) { $value .= $this->get_required(); }
+			if ( $args['required'] ) { $value .= $this->get_required_span(); }
 			//$value .= $this->get_help( $args['helptext'] );
 			$value .= $this->get_th_end();
 			$value .= $this->get_td_start();
@@ -458,7 +458,7 @@ class cptui_admin_ui {
 			$value .= $this->get_tr_start();
 			$value .= $this->get_th_start();
 			$value .= $args['checklisttext'];
-			if ( $args['required'] ) { $value .= $this->get_required(); }
+			if ( $args['required'] ) { $value .= $this->get_required_span(); }
 			$value .= $this->get_th_end();
 			$value .= $this->get_td_start();
 		}
