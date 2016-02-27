@@ -274,7 +274,6 @@ function cptui_manage_taxonomies() {
 					<input type="hidden" name="cpt_tax_status" id="cpt_tax_status" value="<?php echo $tab; ?>" />
 				</p>
 
-				<?php echo cptui_starter_notes( $tab, 'taxonomies' ); ?>
 			</td>
 			<td class="outter">
 				<div>
