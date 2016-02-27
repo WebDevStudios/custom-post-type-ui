@@ -83,11 +83,26 @@ class cptui_admin_ui {
 	 * Return an opening `<fieldset>` tag.
 	 *
 	 * @since 1.2.0
+	 * @since 1.3.0 Added $args parameter.
 	 *
+	 * @param array $args Array of arguments.
 	 * @return string $value Opening `<fieldset>` tag.
 	 */
-	public function get_fieldset_start() {
-		return '<fieldset>';
+	public function get_fieldset_start( $args = array() ) {
+		$fieldset = '<fieldset';
+
+		if ( ! empty( $args['id'] ) ) {
+			$fieldset .= ' id="' . esc_attr( $args['id'] ) . '"';
+		}
+
+		if ( ! empty( $args['classes'] ) ) {
+			$classes = 'class="' . implode( ' ', $args['classes'] ) . '"';
+			$fieldset .= ' ' . $classes;
+		}
+
+		$fieldset .= '>';
+
+		return $fieldset;
 	}
 
 	/**
