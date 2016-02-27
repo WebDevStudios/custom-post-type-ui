@@ -141,6 +141,75 @@ function cptui_manage_post_types() {
 						'placeholder'   => false,
 						'wrap'          => false,
 					) );
+					echo '<p class="cptui-slug-details">';
+						esc_html_e( 'Slugs should only contain alphanumeric, latin characters. Underscores or dashes should be used in place of spaces.', 'custom-post-type-ui' );
+					echo '</p>';
+
+					echo $ui->get_td_end(); echo $ui->get_tr_end();
+				?>
+			</table>
+			<p class="submit">
+				<?php wp_nonce_field( 'cptui_addedit_post_type_nonce_action', 'cptui_addedit_post_type_nonce_field' );
+				if ( ! empty( $_GET ) && ! empty( $_GET['action'] ) && 'edit' == $_GET['action'] ) { ?>
+					<?php
+
+					/**
+					 * Filters the text value to use on the button when editing.
+					 *
+					 * @since 1.0.0
+					 *
+					 * @param string $value Text to use for the button.
+					 */
+					?>
+					<input type="submit" class="button-primary" name="cpt_submit" value="<?php echo esc_attr( apply_filters( 'cptui_post_type_submit_edit', __( 'Save Post Type', 'custom-post-type-ui' ) ) ); ?>" />
+					<?php
+
+					/**
+					 * Filters the text value to use on the button when deleting.
+					 *
+					 * @since 1.0.0
+					 *
+					 * @param string $value Text to use for the button.
+					 */
+					?>
+					<input type="submit" class="button-secondary" name="cpt_delete" id="cpt_submit_delete" value="<?php echo esc_attr( apply_filters( 'cptui_post_type_submit_delete', __( 'Delete Post Type', 'custom-post-type-ui' ) ) ); ?>" />
+				<?php } else { ?>
+					<?php
+
+					/**
+					 * Filters the text value to use on the button when adding.
+					 *
+					 * @since 1.0.0
+					 *
+					 * @param string $value Text to use for the button.
+					 */
+					?>
+					<input type="submit" class="button-primary" name="cpt_submit" value="<?php echo esc_attr( apply_filters( 'cptui_post_type_submit_add', __( 'Add Post Type', 'custom-post-type-ui' ) ) ); ?>" />
+				<?php } ?>
+					<p>
+						<a href="#" id="togglelabels" class="button-secondary"><?php esc_html_e( 'Toggle labels', 'custom-post-type-ui' ); ?></a>
+						<a href="#" id="togglesettings" class="button-secondary"><?php esc_html_e( 'Toggle settings', 'custom-post-type-ui' ); ?></a>
+					</p>
+
+				<?php if ( ! empty( $current ) ) { ?>
+					<input type="hidden" name="cpt_original" id="cpt_original" value="<?php esc_attr_e( $current['name'] ); ?>" />
+				<?php }
+
+				// Used to check and see if we should prevent duplicate slugs. ?>
+				<input type="hidden" name="cpt_type_status" id="cpt_type_status" value="<?php esc_attr_e( $tab ); ?>" />
+			</p>
+			<?php echo $ui->get_fieldset_end(); ?>
+		</div>
+		<div class="cptui-section">
+			<?php
+				$fieldset_classes = 'toggledclosed';
+				echo $ui->get_fieldset_start( array( 'id' => 'labels_expand', 'classes' => array( $fieldset_classes ) ) );
+				echo $ui->get_legend_start();
+				esc_html_e( 'Labels', 'custom-post-type-ui' );
+				echo $ui->get_legend_end();
+			?>
+			<table class="form-table cptui-table">
+				<?php
 
 					echo $ui->get_text_input( array(
 						'namearray'     => 'cpt_custom_post_type',
