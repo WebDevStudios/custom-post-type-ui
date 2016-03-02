@@ -18,6 +18,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since 1.0.0
  *
+ * @internal
+ *
  * @return string HTML output for the page.
  */
 function cptui_importexport() {
@@ -44,7 +46,7 @@ function cptui_importexport() {
 	}
 	echo '<div class="wrap">';
 
-	# Create our tabs.
+	// Create our tabs.
 	cptui_settings_tab_menu( $page = 'importexport' );
 
 	/**
@@ -70,7 +72,6 @@ function cptui_importexport() {
  *
  * @param array $cptui_taxonomies Array of taxonomies to render.
  * @param bool  $single           Whether or not we are rendering a single taxonomy.
- * @return string Taxonomy registration text for use elsewhere.
  */
 function cptui_get_taxonomy_code( $cptui_taxonomies = array(), $single = false ) {
 	if ( !empty( $cptui_taxonomies ) ) {
@@ -100,7 +101,6 @@ function <?php echo $callback; ?>() {
  * @since 1.0.0
  *
  * @param array $taxonomy Taxonomy data to output.
- * @return string Copy/paste ready "php" code.
  */
 function cptui_get_single_taxonomy_registery( $taxonomy = array() ) {
 
@@ -329,6 +329,8 @@ function cptui_get_single_post_type_registery( $post_type = array() ) {
  *
  * @since 1.0.0
  *
+ * @internal
+ *
  * @param array $postdata $_POST data as json.
  * @return mixed false on nothing to do, otherwise void.
  */
@@ -423,6 +425,8 @@ function cptui_import_types_taxes_settings( $postdata = array() ) {
  * Content for the Post Types/Taxonomies Import/Export tab.
  *
  * @since 1.2.0
+ *
+ * @internal
  */
 function cptui_render_posttypes_taxonomies_section() {
 ?>
@@ -520,6 +524,8 @@ function cptui_render_posttypes_taxonomies_section() {
  * Content for the Get Code tab.
  *
  * @since 1.2.0
+ *
+ * @internal
  */
 function cptui_render_getcode_section() {
 ?>
@@ -565,6 +571,8 @@ function cptui_render_getcode_section() {
  * Content for the Debug Info tab.
  *
  * @since 1.2.0
+ *
+ * @internal
  */
 function cptui_render_debuginfo_section() {
 	$debuginfo = new CPTUI_Debug_Info();
@@ -602,6 +610,8 @@ function cptui_render_debuginfo_section() {
  * Renders various tab sections for the Import/Export page, based on current tab.
  *
  * @since 1.2.0
+ *
+ * @internal
  *
  * @param string $tab Current tab to display.
  */

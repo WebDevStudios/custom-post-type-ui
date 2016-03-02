@@ -17,6 +17,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Output the content for the "Registered Types/Taxes" page.
  *
  * @since 1.1.0
+ *
+ * @internal
  */
 function cptui_listings() {
 		?>
@@ -347,6 +349,8 @@ function cptui_listings() {
  * Uses the `cptui_no_post_types_listing` hook.
  *
  * @since 1.3.0
+ *
+ * @internal
  */
 function cptui_no_post_types_to_list() {
 	echo '<p>' . sprintf( esc_html__( 'No post types registered for display. Visit %s to get started.', 'custom-post-type-ui' ),
@@ -364,6 +368,8 @@ add_action( 'cptui_no_post_types_listing', 'cptui_no_post_types_to_list' );
  * Uses the `cptui_no_taxonomies_listing` hook.
  *
  * @since 1.3.0
+ *
+ * @internal
  */
 function cptui_no_taxonomies_to_list() {
 	echo '<p>' . sprintf( esc_html__( 'No taxonomies registered for display. Visit %s to get started.', 'custom-post-type-ui' ),

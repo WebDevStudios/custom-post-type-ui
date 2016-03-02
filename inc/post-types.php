@@ -17,6 +17,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Add our cptui.js file, with dependencies on jQuery and jQuery UI.
  *
  * @since 1.0.0
+ *
+ * @internal
  */
 function cptui_post_type_enqueue_scripts() {
 
@@ -44,6 +46,8 @@ add_action( 'admin_enqueue_scripts', 'cptui_post_type_enqueue_scripts' );
  * Create our settings page output.
  *
  * @since 1.0.0
+ *
+ * @internal
  */
 function cptui_manage_post_types() {
 
@@ -1013,6 +1017,8 @@ function cptui_post_types_dropdown( $post_types = array() ) {
  *
  * @since 1.0.0
  *
+ * @internal
+ *
  * @param bool $post_type_deleted Whether or not a post type was recently deleted.
  *
  * @return bool|string $value False on no result, sanitized post type if set.
@@ -1048,6 +1054,8 @@ function cptui_get_current_post_type( $post_type_deleted = false ) {
  * Delete our custom post type from the array of post types.
  *
  * @since 1.0.0
+ *
+ * @internal
  *
  * @param $data array $_POST values.
  *
@@ -1107,6 +1115,8 @@ function cptui_delete_post_type( $data = array() ) {
  * Add to or update our CPTUI option with new data.
  *
  * @since 1.0.0
+ *
+ * @internal
  *
  * @param array $data Array of post type data to update.
  *
@@ -1313,6 +1323,8 @@ function cptui_reserved_post_types() {
  * Converts post type between original and newly renamed.
  *
  * @since 1.1.0
+ *
+ * @internal
  *
  * @param string $original_slug Original post type slug.
  * @param string $new_slug      New post type slug.

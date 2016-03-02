@@ -17,6 +17,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Add our cptui.js file, with dependencies on jQuery and jQuery UI.
  *
  * @since 1.0.0
+ *
+ * @internal
  */
 function cptui_taxonomies_enqueue_scripts() {
 
@@ -43,6 +45,8 @@ add_action( 'admin_enqueue_scripts', 'cptui_taxonomies_enqueue_scripts' );
  * Create our settings page output.
  *
  * @since 1.0.0
+ *
+ * @internal
  *
  * @return string HTML output for the page.
  */
@@ -653,7 +657,6 @@ function cptui_manage_taxonomies() {
  * @since 1.0.0
  *
  * @param array $taxonomies Array of taxonomies that are registered.
- *
  * @return string HTML select dropdown.
  */
 function cptui_taxonomies_dropdown( $taxonomies = array() ) {
@@ -686,8 +689,9 @@ function cptui_taxonomies_dropdown( $taxonomies = array() ) {
  *
  * @since 1.0.0
  *
- * @param bool $taxonomy_deleted Whether or not a taxonomy was recently deleted.
+ * @internal
  *
+ * @param bool $taxonomy_deleted Whether or not a taxonomy was recently deleted.
  * @return bool|string False on no result, sanitized taxonomy if set.
  */
 function cptui_get_current_taxonomy( $taxonomy_deleted = false ) {
@@ -722,8 +726,9 @@ function cptui_get_current_taxonomy( $taxonomy_deleted = false ) {
  *
  * @since 1.0.0
  *
- * @param $data array $_POST values.
+ * @internal
  *
+ * @param $data array $_POST values.
  * @return bool|string False on failure, string on success.
  */
 function cptui_delete_taxonomy( $data = array() ) {
@@ -782,8 +787,9 @@ function cptui_delete_taxonomy( $data = array() ) {
  *
  * @since 1.0.0
  *
- * @param array $data Array of taxonomy data to update.
+ * @internal
  *
+ * @param array $data Array of taxonomy data to update.
  * @return bool|string False on failure, string on success.
  */
 function cptui_update_taxonomy( $data = array() ) {
@@ -904,6 +910,8 @@ function cptui_update_taxonomy( $data = array() ) {
  * Convert taxonomies.
  *
  * @since 1.3.0
+ *
+ * @internal
  *
  * @param string $original_slug Original taxonomy slug.
  * @param string $new_slug      New taxonomy slug.

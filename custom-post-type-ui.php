@@ -33,6 +33,8 @@ define( 'CPTUI_WP_VERSION', get_bloginfo( 'version' ) );
  * Load our Admin UI class that powers our form inputs.
  *
  * @since 1.0.0
+ *
+ * @internal
  */
 function cptui_load_ui_class() {
 	require_once( plugin_dir_path( __FILE__ ) . 'classes/class.cptui_admin_ui.php' );
@@ -44,6 +46,8 @@ add_action( 'init', 'cptui_load_ui_class' );
  * Flush our rewrite rules on deactivation.
  *
  * @since 0.8.0
+ *
+ * @internal
  */
 function cptui_deactivation() {
 	flush_rewrite_rules();
@@ -54,6 +58,8 @@ register_deactivation_hook( __FILE__, 'cptui_deactivation' );
  * Register our text domain.
  *
  * @since 0.8.0
+ *
+ * @internal
  */
 function cptui_load_textdomain() {
 	load_plugin_textdomain( 'custom-post-type-ui', false, basename( dirname( __FILE__ ) ) . '/languages' );
@@ -66,6 +72,8 @@ add_action( 'init', 'cptui_load_textdomain' );
  * Submenu items added in version 1.1.0
  *
  * @since 0.1.0
+ *
+ * @internal
  */
 function cptui_plugin_menu() {
 
@@ -106,6 +114,8 @@ add_action( 'admin_menu', 'cptui_plugin_menu' );
  * Fire our CPTUI Loaded hook.
  *
  * @since 1.3.0
+ *
+ * @internal Use `cptui_loaded` hook.
  */
 function cptui_loaded() {
 
@@ -124,6 +134,8 @@ add_action( 'plugins_loaded', 'cptui_loaded' );
  * Load our submenus.
  *
  * @since 1.0.0
+ *
+ * @internal
  */
 function cptui_create_submenus() {
 	require_once( plugin_dir_path( __FILE__ ) . 'inc/about.php' );
@@ -140,6 +152,8 @@ add_action( 'cptui_loaded', 'cptui_create_submenus' );
  * Fire our CPTUI init hook.
  *
  * @since 1.3.0
+ *
+ * @internal Use `cptui_init` hook.
  */
 function cptui_init() {
 
@@ -156,6 +170,8 @@ add_action( 'init', 'cptui_init' );
  * Enqueue CPTUI admin styles.
  *
  * @since 1.0.0
+ *
+ * @internal
  */
 function cptui_add_styles() {
 	if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
@@ -172,6 +188,8 @@ add_action( 'admin_enqueue_scripts', 'cptui_add_styles' );
  * Register our users' custom post types.
  *
  * @since 0.5.0
+ *
+ * @internal
  */
 function cptui_create_custom_post_types() {
 	$cpts = get_option( 'cptui_post_types' );
@@ -210,6 +228,8 @@ add_action( 'init', 'cptui_create_custom_post_types', 10 ); // Leave on standard
  * Helper function to register the actual post_type.
  *
  * @since 1.0.0
+ *
+ * @internal
  *
  * @param array $post_type Post type array to register.
  * @return null Result of register_post_type.
@@ -376,6 +396,8 @@ function cptui_register_single_post_type( $post_type = array() ) {
  * Register our users' custom taxonomies.
  *
  * @since 0.5.0
+ *
+ * @internal
  */
 function cptui_create_custom_taxonomies() {
 	$taxes = get_option( 'cptui_taxonomies' );
@@ -412,6 +434,10 @@ add_action( 'init', 'cptui_create_custom_taxonomies', 9 );  // Leave on standard
 
 /**
  * Helper function to register the actual taxonomy.
+ *
+ * @since 1.0.0
+ *
+ * @internal
  *
  * @param array $taxonomy Taxonomy array to register.
  * @return null Result of register_taxonomy.
@@ -584,6 +610,8 @@ function cptui_settings_tab_menu( $page = 'post_types' ) {
  * Convert our old settings to the new options keys.
  *
  * @since 1.0.0
+ *
+ * @internal
  *
  * @return bool Whether or not options were successfully updated.
  */

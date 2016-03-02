@@ -17,6 +17,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Add our cptui.js file, with dependencies on jQuery.
  *
  * @since 1.0.0
+ *
+ * @internal
  */
 function cptui_support_enqueue_scripts() {
 
@@ -38,6 +40,8 @@ add_action( 'admin_enqueue_scripts', 'cptui_support_enqueue_scripts' );
  * Create our settings page output.
  *
  * @since 1.0.0
+ *
+ * @internal
  */
 function cptui_support() {
 	echo '<div class="wrap">';
