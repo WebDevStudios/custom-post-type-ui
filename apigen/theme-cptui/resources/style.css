@@ -50,7 +50,7 @@ var {
 }
 
 code {
-	color: #000;
+	color: #1D2428;
 	white-space: nowrap;
 	border: none;
 	background: transparent;
@@ -62,7 +62,7 @@ code:empty {
 }
 
 code a b {
-	color: #000;
+	color: #1D2428;
 }
 
 pre code {
@@ -128,13 +128,13 @@ pre code {
 }
 
 #menu a:hover {
-	background-color: #a46497;
+	background-color: #288EDF;
 	color: #fff !important;
 }
 
 #menu .active > a {
 	font-weight: bold;
-	color: #000;
+	color: #1D2428;
 }
 
 #menu .active > a.invalid {
@@ -198,11 +198,11 @@ pre code {
 }
 
 .ac_results li strong {
-	color: #000;
+	color: #1D2428;
 }
 
 .ac_over {
-	background-color: #a46497;
+	background-color: #288EDF;
 	color: #fff;
 }
 
@@ -235,7 +235,7 @@ pre code {
 .navbar .nav > li > span {
 	position: relative;
 	display: block;
-	color: #777;
+	color: #F3F3F3;
 	line-height: 20px;
 	padding: 15px;
 }
@@ -361,7 +361,7 @@ td.name, td.attributes {
 	line-height: 1;
 	font-size: 85%;
 	margin: 0;
-	color: #a46497 !important;
+	color: #288EDF !important;
 }
 
 .list {
@@ -549,13 +549,13 @@ span.l a.l:hover, span.l a.l:active, span.l a.l:focus {
 	color: #999;
 }
 .navbar .nav > li > a:hover > span {
-	color: #a46497;
+	color: #288EDF;
 }
 .navbar .nav > li.active > span, .navbar .nav > li.active > a {
-	background: #a46497;
+	background: #288EDF;
 	color: #fff;
 }
 
 a {
-	color: #a46497;
+	color: #288EDF;
 }
