@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since 0.3.0
  *
- * @return string $value HTML markup for the page.
+ * @internal
  */
 function cptui_settings() { ?>
 	<div class="wrap about-wrap">
@@ -98,6 +98,8 @@ function cptui_settings() { ?>
  * Outputs the Donation content on the about page.
  *
  * @since 1.3.0
+ *
+ * @internal
  */
 function cptui_donation_content() { ?>
 	<h1><?php _e( 'Help Support This Plugin!', 'custom-post-type-ui' ); ?></h1>
