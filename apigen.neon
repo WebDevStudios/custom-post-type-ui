@@ -23,7 +23,7 @@ charset: [UTF-8]
 # main: WC
 
 # title of generated documentation
-title: Custom Post Type UI Code Documentation
+title: Custom Post Type UI Documentation
 
 # base url used for sitemap (useful for public doc)
 # baseUrl: http://docs.woothemes.com/wc-apidocs/
