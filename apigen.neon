@@ -2,6 +2,8 @@ source: ./
 
 destination: cptui-docs
 
+templateConfig: apigen/theme-cptui/config.neon
+
 # list of scanned file extensions (e.g. php5, phpt...)
 extensions: [php]
 
@@ -11,6 +13,8 @@ exclude:
     - tmp/
     - tests/
     - apigen/
+    - languages/
+    - node_modules/
 
 # character set of source files; if you use only one across your files, we recommend you name it
 charset: [UTF-8]
