@@ -18,6 +18,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since 1.0.0
  *
+ * @internal
+ *
  * @param array $links Array of links to display below our plugin listing.
  * @return array Amended array of links.
  */
@@ -37,6 +39,8 @@ add_filter( 'plugin_action_links_' . plugin_basename( dirname( dirname( __FILE__
  * Returns SVG icon for custom menu icon
  *
  * @since 1.2.0
+ *
+ * @internal
  *
  * @return string
  */
@@ -83,6 +87,8 @@ function disp_boolean( $bool_text ) {
  *
  * @since 0.3.0
  *
+ * @internal
+ *
  * @param string $original Original footer content.
  * @return string $value HTML for footer.
  */
@@ -121,6 +127,8 @@ add_filter( 'admin_footer_text', 'cptui_footer' );
  * Output starter notes for Add New Post Type and Add New Taxonomy screens.
  *
  * @since 1.3.0
+ *
+ * @internal
  *
  * @param string $tab         Current tab being displayed.
  * @param string $object_type Whether a post type or taxonomy.
@@ -163,6 +171,10 @@ function cptui_starter_notes( $tab = '', $object_type = '' ) {
 /**
  * Add our starter notes for post types.
  *
+ * @since 1.3.0
+ *
+ * @internal
+ *
  * @param array $notes Array of notes to add.
  * @return array Array of notes added.
  */
@@ -179,6 +191,10 @@ add_filter( 'cptui_starter_notes_post_types', 'cptui_post_type_starter_notes' );
 
 /**
  * Add our starter notes for taxonomies.
+ *
+ * @since 1.3.0
+ *
+ * @internal
  *
  * @param array $notes Array of notes to add.
  * @return array Array of notes added.
