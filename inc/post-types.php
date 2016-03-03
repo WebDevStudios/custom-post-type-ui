@@ -215,8 +215,8 @@ function cptui_manage_post_types() {
 					<input type="submit" class="button-primary" name="cpt_submit" value="<?php echo esc_attr( apply_filters( 'cptui_post_type_submit_add', __( 'Add Post Type', 'custom-post-type-ui' ) ) ); ?>" />
 				<?php } ?>
 					<p>
-						<a href="#" id="togglelabels" class="button-secondary"><?php esc_html_e( 'Toggle labels', 'custom-post-type-ui' ); ?></a>
-						<a href="#" id="togglesettings" class="button-secondary"><?php esc_html_e( 'Toggle settings', 'custom-post-type-ui' ); ?></a>
+						<a href="#" id="togglelabels" class="button-secondary"><?php esc_html_e( 'Edit labels', 'custom-post-type-ui' ); ?></a>
+						<a href="#" id="togglesettings" class="button-secondary"><?php esc_html_e( 'Edit settings', 'custom-post-type-ui' ); ?></a>
 					</p>
 
 				<?php if ( ! empty( $current ) ) { ?>
