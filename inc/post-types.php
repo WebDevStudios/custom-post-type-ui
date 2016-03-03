@@ -1221,11 +1221,17 @@ function cptui_update_post_type( $data = array() ) {
 		$data['cpt_custom_post_type']['menu_icon'] = null;
 	}
 
-	$label = str_replace( '"', '', htmlspecialchars_decode( $data['cpt_custom_post_type']['label'] ) );
-	$label = htmlspecialchars( stripslashes( $label ), ENT_QUOTES );
+	$label = ucwords( str_replace( '_', ' ', $data['cpt_custom_post_type']['name'] ) );
+	if ( ! empty( $data['cpt_custom_post_type']['label'] ) ) {
+		$label = str_replace( '"', '', htmlspecialchars_decode( $data['cpt_custom_post_type']['label'] ) );
+		$label = htmlspecialchars( stripslashes( $label ), ENT_QUOTES );
+	}
 
-	$singular_label = str_replace( '"', '', htmlspecialchars_decode( $data['cpt_custom_post_type']['singular_label'] ) );
-	$singular_label = htmlspecialchars( stripslashes( $singular_label ), ENT_QUOTES );
+	$singular_label = ucwords( str_replace( '_', ' ', $data['cpt_custom_post_type']['name'] ) );
+	if ( ! empty( $data['cpt_custom_post_type']['singular_label'] ) ) {
+		$singular_label = str_replace( '"', '', htmlspecialchars_decode( $data['cpt_custom_post_type']['singular_label'] ) );
+		$singular_label = htmlspecialchars( stripslashes( $singular_label ), ENT_QUOTES );
+	}
 
 	$name = trim( $data['cpt_custom_post_type']['name'] );
 	$description = stripslashes_deep( $data['cpt_custom_post_type']['description'] );
