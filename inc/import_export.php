@@ -46,6 +46,13 @@ function cptui_importexport() {
 	}
 	echo '<div class="wrap">';
 
+	/**
+	 * Fires right inside the wrap div for the import/export pages.
+	 *
+	 * @since 1.3.0
+	 */
+	do_action( 'cptui_inside_importexport_wrap' );
+
 	// Create our tabs.
 	cptui_settings_tab_menu( $page = 'importexport' );
 

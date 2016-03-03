@@ -23,6 +23,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 function cptui_listings() {
 		?>
 		<div class="wrap">
+			<?php
+			/**
+			 * Fires right inside the wrap div for the listings screen.
+			 *
+			 * @since 1.3.0
+			 */
+			do_action( 'cptui_inside_listings_wrap' );
+			?>
 
 			<h1><?php esc_html_e( 'Post Types and Taxonomies registered by Custom Post Type UI.', 'custom-post-type-ui' ); ?></h1>
 			<?php
