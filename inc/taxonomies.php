@@ -71,6 +71,12 @@ function cptui_manage_taxonomies() {
 	<div class="wrap <?php echo esc_attr( $tab_class ); ?>">
 
 	<?php
+	/**
+	 * Fires right inside the wrap div for the taxonomy editor screen.
+	 *
+	 * @since 1.3.0
+	 */
+	do_action( 'cptui_inside_taxonomy_wrap' );
 
 	if ( isset( $notice ) ) {
 		echo $notice;

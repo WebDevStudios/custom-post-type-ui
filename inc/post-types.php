@@ -70,6 +70,13 @@ function cptui_manage_post_types() {
 	<div class="wrap <?php echo esc_attr( $tab_class ); ?>">
 
 	<?php
+	/**
+	 * Fires right inside the wrap div for the post type editor screen.
+	 *
+	 * @since 1.3.0
+	 */
+	do_action( 'cptui_inside_post_type_wrap' );
+
 	if ( isset( $notice ) ) {
 		echo $notice;
 	}
