@@ -1229,7 +1229,7 @@ function cptui_update_post_type( $data = array() ) {
 		if ( true === $slug_exists ) {
 			return cptui_admin_notices( 'error', '', false, sprintf( __( 'Please choose a different post type name. %s is already registered.', 'custom-post-type-ui' ), $data['cpt_custom_post_type']['name'] ) );
 		}
-		if ( true === $slug_exists ) {
+		if ( true === $slug_as_page ) {
 			return cptui_admin_notices( 'error', '', false, sprintf( __( 'Please choose a different post type name. %s matches an existing page slug, which can cause conflicts.', 'custom-post-type-ui' ), $data['cpt_custom_post_type']['name'] ) );
 		}
 	}
