@@ -987,6 +987,40 @@ function cptui_manage_post_types() {
 			</table>
 			<?php echo $ui->get_fieldset_end(); ?>
 		</div>
+		<p>
+		<?php
+			if ( ! empty( $_GET ) && ! empty( $_GET['action'] ) && 'edit' == $_GET['action'] ) {
+				/**
+				 * Filters the text value to use on the button when editing.
+				 * @since 1.0.0
+				 *
+				 * @param string $value Text to use for the button.
+				 */
+				?>
+				<input type="submit" class="button-primary" name="cpt_submit" value="<?php echo esc_attr( apply_filters( 'cptui_post_type_submit_edit', __( 'Save Post Type', 'custom-post-type-ui' ) ) ); ?>" />
+				<?php
+
+				/**
+				 * Filters the text value to use on the button when deleting.
+				 * @since 1.0.0
+				 *
+				 * @param string $value Text to use for the button.
+				 */
+				?>
+				<input type="submit" class="button-secondary" name="cpt_delete" id="cpt_submit_delete" value="<?php echo esc_attr( apply_filters( 'cptui_post_type_submit_delete', __( 'Delete Post Type', 'custom-post-type-ui' ) ) ); ?>" />
+		<?php
+			} else {
+
+				/**
+				 * Filters the text value to use on the button when adding.
+				 * @since 1.0.0
+				 *
+				 * @param string $value Text to use for the button.
+				 */
+				?>
+				<input type="submit" class="button-primary" name="cpt_submit" value="<?php echo esc_attr( apply_filters( 'cptui_post_type_submit_add', __( 'Add Post Type', 'custom-post-type-ui' ) ) ); ?>" />
+		<?php } ?>
+		</p>
 	</form>
 	</div><!-- End .wrap -->
 <?php
