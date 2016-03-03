@@ -44,7 +44,9 @@ All official development on this plugin is on GitHub. Version bumps will still b
 * Added: Notes to post type and taxonomy edit screens about WordPress core's post types and taxonomies.
 * Added: Javascript-based prevention of spaces and special characters for post type and taxonomy slugs.
 * Added: Minified copies of our JavaScript and CSS. Define SCRIPT_DEBUG to true to use non-minified versions.
-* Fixed: Need to visit permalinks page to flush rewrite rules after creating new post type or taxonomy
+* Fixed: Need to visit permalinks page to flush rewrite rules after creating new post type or taxonomy.
+* Added: Fill in singular and plural label fields if none provided. WordPress does not auto-fill these.
+
 
 = 1.2.3 - 2016-01-31 =
 * Fixed: copy/paste error with admin css. Props hinaloe.
@@ -190,7 +192,8 @@ All official development on this plugin is on GitHub. Version bumps will still b
 * Added: Notes to post type and taxonomy edit screens about WordPress core's post types and taxonomies.
 * Added: Javascript-based prevention of spaces and special characters for post type and taxonomy slugs.
 * Added: Minified copies of our JavaScript and CSS. Define SCRIPT_DEBUG to true to use non-minified versions.
-* Fixed: Need to visit permalinks page to flush rewrite rules after creating new post type or taxonomy
+* Fixed: Need to visit permalinks page to flush rewrite rules after creating new post type or taxonomy.
+* Added: Fill in singular and plural label fields if none provided. WordPress does not auto-fill these.
 
 = 1.2.3 =
 * Fixed: copy/paste error with admin css. Props hinaloe.
