@@ -229,7 +229,7 @@ function cptui_manage_post_types() {
 		</div>
 		<div class="cptui-section">
 			<?php
-				$fieldset_classes = 'toggledclosed';
+				$fieldset_classes = ( 'edit' == $tab ) ? '' : 'toggledclosed';
 				echo $ui->get_fieldset_start( array( 'id' => 'labels_expand', 'classes' => array( $fieldset_classes ) ) );
 				echo $ui->get_legend_start();
 				esc_html_e( 'Labels', 'custom-post-type-ui' );
@@ -481,7 +481,7 @@ function cptui_manage_post_types() {
 		</div>
 		<div class="cptui-section">
 			<?php
-				$fieldset_classes = 'toggledclosed';
+				$fieldset_classes = ( 'edit' == $tab ) ? '' : 'toggledclosed';
 				echo $ui->get_fieldset_start( array( 'id' => 'settings_expand', 'classes' => array( $fieldset_classes ), 'aria-expanded' => 'false' ) );
 				echo $ui->get_legend_start();
 				esc_html_e( 'Settings', 'custom-post-type-ui' );
