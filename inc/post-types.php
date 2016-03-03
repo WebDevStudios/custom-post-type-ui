@@ -159,13 +159,14 @@ function cptui_manage_post_types() {
 					echo '</p>';
 
 					if ( 'edit' == $tab ) {
-						echo '<div>';
+						echo '<div class="cptui-spacer">';
 						echo $ui->get_check_input( array(
 							'checkvalue' => 'update_post_types',
 							'checked'    => 'false',
 							'name'       => 'update_post_types',
 							'namearray'  => 'update_post_types',
 							'labeltext'  => esc_html__( 'Migrate posts to newly renamed post type?', 'custom-post-type-ui' ),
+							'helptext'   => false,
 							'default'    => false,
 							'wrap'       => false,
 						) );
@@ -768,13 +769,13 @@ function cptui_manage_post_types() {
 					'wrap'          => false,
 				) );
 
-				echo '<p>';
+				echo '<div class="cptui-spacer">';
 
 				echo $ui->get_button( array(
 					'id'      => 'cptui_choose_icon',
 					'textvalue' => __( 'Choose image icon', 'custom-post-type-ui' ),
 				) );
-				echo '</p>';
+				echo '</div>';
 
 				echo $ui->get_td_end() . $ui->get_tr_end();
 
