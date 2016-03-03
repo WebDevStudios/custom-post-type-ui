@@ -47,8 +47,6 @@ add_action( 'admin_enqueue_scripts', 'cptui_taxonomies_enqueue_scripts' );
  * @since 1.0.0
  *
  * @internal
- *
- * @return string HTML output for the page.
  */
 function cptui_manage_taxonomies() {
 
@@ -82,7 +80,7 @@ function cptui_manage_taxonomies() {
 		echo $notice;
 	}
 
-	# Create our tabs.
+	// Create our tabs.
 	cptui_settings_tab_menu( $page = 'taxonomies' );
 
 	if ( 'edit' == $tab ) {
