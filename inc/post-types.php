@@ -764,16 +764,17 @@ function cptui_manage_post_types() {
 					'name'          => 'menu_icon',
 					'textvalue'     => ( isset( $current['menu_icon'] ) ) ? esc_attr( $current['menu_icon'] ) : '',
 					'aftertext'     => __( '(Full URL for icon or Dashicon class)', 'custom-post-type-ui' ),
-					'helptext'      => esc_attr__( 'URL to image to be used as menu icon or Dashicon class to use instead.', 'custom-post-type-ui' ),
+					'helptext'      => esc_attr__( 'Image URL or Dashicon class name to use for icon. Custom image should be 20px by 20px.', 'custom-post-type-ui' ),
 					'wrap'          => false,
 				) );
 
-				echo '<br/>';
+				echo '<p>';
 
 				echo $ui->get_button( array(
 					'id'      => 'cptui_choose_icon',
 					'textvalue' => __( 'Choose image icon', 'custom-post-type-ui' ),
 				) );
+				echo '</p>';
 
 				echo $ui->get_td_end() . $ui->get_tr_end();
 
