@@ -170,7 +170,7 @@ function cptui_get_single_taxonomy_registery( $taxonomy = array() ) {
 		"rewrite" => <?php echo $rewrite; ?>,
 		"show_admin_column" => <?php echo $taxonomy['show_admin_column']; ?>,
 	);
-<?php # register_taxonomy( $taxonomy, $object_type, $args ); NEED TO DETERMINE THE $object_type ?>
+<?php // register_taxonomy( $taxonomy, $object_type, $args ); NEED TO DETERMINE THE $object_type. ?>
 	register_taxonomy( "<?php echo $taxonomy['name']; ?>", <?php echo $post_types; ?>, $args );
 <?php
 }
@@ -187,7 +187,7 @@ function cptui_get_single_taxonomy_registery( $taxonomy = array() ) {
  * @return string Post type registration text for use elsewhere.
  */
 function cptui_get_post_type_code( $cptui_post_types = array(), $single = false ) {
-	# Whitespace very much matters here, thus why it's all flush against the left side
+	// Whitespace very much matters here, thus why it's all flush against the left side.
 	if ( !empty( $cptui_post_types ) ) {
 		$callback = 'cptui_register_my_cpts';
 		if ( $single ) {
@@ -197,7 +197,7 @@ function cptui_get_post_type_code( $cptui_post_types = array(), $single = false 
 	?>
 add_action( 'init', '<?php echo $callback; ?>' );
 function <?php echo $callback; ?>() {
-<?php #space before this line reflects in textarea
+<?php // space before this line reflects in textarea.
 	foreach( $cptui_post_types as $type ) {
 	echo cptui_get_single_post_type_registery( $type ) . "\n";
 	} ?>
@@ -228,11 +228,11 @@ function cptui_get_single_post_type_registery( $post_type = array() ) {
 		$post_type['supports'] = array_merge( $post_type['supports'], $user_supports_params );
 	}
 
-	$yarpp = false; # Prevent notices.
+	$yarpp = false; // Prevent notices.
 	if ( ! empty( $post_type['custom_supports'] ) ) {
 		$custom = explode( ',', $post_type['custom_supports'] );
 		foreach ( $custom as $part ) {
-			# We'll handle YARPP separately.
+			// We'll handle YARPP separately.
 			if ( in_array( $part, array( 'YARPP', 'yarpp' ) ) ) {
 				$yarpp = true;
 				continue;
@@ -268,7 +268,7 @@ function cptui_get_single_post_type_registery( $post_type = array() ) {
 	}
 
 	$supports = '';
-	# Do a little bit of php work to get these into strings.
+	// Do a little bit of php work to get these into strings.
 	if ( !empty( $post_type['supports'] ) && is_array( $post_type['supports'] ) ) {
 		$supports = 'array( "' . implode( '", "', $post_type['supports'] ) . '" )';
 	}
@@ -382,11 +382,11 @@ function cptui_import_types_taxes_settings( $postdata = array() ) {
 		$cpt_data = stripslashes_deep( trim( $postdata['cptui_post_import'] ) );
 		$settings = json_decode( $cpt_data, true );
 
-		# Add support to delete settings outright, without accessing database.
-		# Doing double check to protect.
+		// Add support to delete settings outright, without accessing database.
+		// Doing double check to protect.
 		if ( is_null( $settings ) && '{""}' === $cpt_data ) {
 			delete_option( 'cptui_post_types' );
-			# We're technically successful in a sense. Importing nothing.
+			// We're technically successful in a sense. Importing nothing.
 			$success = true;
 		}
 
@@ -405,11 +405,11 @@ function cptui_import_types_taxes_settings( $postdata = array() ) {
 		$tax_data = stripslashes_deep( trim( $postdata['cptui_tax_import'] ) );
 		$settings = json_decode( $tax_data, true );
 
-		# Add support to delete settings outright, without accessing database.
-		# Doing double check to protect.
+		// Add support to delete settings outright, without accessing database.
+		// Doing double check to protect.
 		if ( is_null( $settings ) && '{""}' === $tax_data ) {
 			delete_option( 'cptui_taxonomies' );
-			# We're technically successful in a sense. Importing nothing.
+			// We're technically successful in a sense. Importing nothing.
 			$success = true;
 		}
 

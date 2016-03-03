@@ -98,7 +98,7 @@ function cptui_manage_taxonomies() {
 
 	$ui = new cptui_admin_ui();
 
-	# Will only be set if we're already on the edit screen
+	// Will only be set if we're already on the edit screen.
 	if ( !empty( $taxonomies ) ) { ?>
 		<form id="cptui_select_taxonomy" method="post">
 			<p><?php _e( 'DO NOT EDIT the taxonomy slug unless necessary. Changing that value registers a new taxonomy entry for your install.', 'custom-post-type-ui' ); ?></p>
@@ -717,7 +717,7 @@ function cptui_get_current_taxonomy( $taxonomy_deleted = false ) {
 	} else {
 		$taxonomies = get_option( 'cptui_taxonomies' );
 		if ( !empty( $taxonomies ) ) {
-			# Will return the first array key
+			// Will return the first array key.
 			return key( $taxonomies );
 		}
 	}
@@ -745,7 +745,7 @@ function cptui_delete_taxonomy( $data = array() ) {
 		);
 	}
 
-	#Check if they selected one to delete
+	// Check if they selected one to delete.
 	if ( empty( $data['cpt_custom_tax']['name'] ) ) {
 		return cptui_admin_notices( 'error', '', false, __( 'Please provide a taxonomy to delete', 'custom-post-type-ui' ) );
 	}
@@ -807,7 +807,7 @@ function cptui_update_taxonomy( $data = array() ) {
 	 */
 	do_action( 'cptui_before_update_taxonomy', $data );
 
-	# They need to provide a name
+	// They need to provide a name.
 	if ( empty( $data['cpt_custom_tax']['name'] ) ) {
 		return cptui_admin_notices( 'error', '', false, __( 'Please provide a taxonomy name', 'custom-post-type-ui' ) );
 	}

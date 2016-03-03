@@ -1049,7 +1049,7 @@ function cptui_get_current_post_type( $post_type_deleted = false ) {
 	} else {
 		$post_types = get_option( 'cptui_post_types' );
 		if ( !empty( $post_types ) ) {
-			# Will return the first array key
+			// Will return the first array key.
 			return key( $post_types );
 		}
 	}
@@ -1140,7 +1140,7 @@ function cptui_update_post_type( $data = array() ) {
 	 */
 	do_action( 'cptui_before_update_post_type', $data );
 
-	# They need to provide a name
+	// They need to provide a name.
 	if ( empty( $data['cpt_custom_post_type']['name'] ) ) {
 		return cptui_admin_notices( 'error', '', false, __( 'Please provide a post type name', 'custom-post-type-ui' ) );
 	}
@@ -1151,7 +1151,7 @@ function cptui_update_post_type( $data = array() ) {
 		}
 	}
 
-	# clean up $_POST data
+	// clean up $_POST data.
 	foreach( $data as $key => $value ) {
 		if ( is_string( $value ) ) {
 			$data[ $key ] = sanitize_text_field( $value );
@@ -1160,7 +1160,7 @@ function cptui_update_post_type( $data = array() ) {
 		}
 	}
 
-	# Check if they didn't put quotes in the name or rewrite slug.
+	// Check if they didn't put quotes in the name or rewrite slug.
 	if ( false !== strpos( $data['cpt_custom_post_type']['name'], '\'' ) ||
 		 false !== strpos( $data['cpt_custom_post_type']['name'], '\"' ) ||
 		 false !== strpos( $data['cpt_custom_post_type']['rewrite_slug'], '\'' ) ||
