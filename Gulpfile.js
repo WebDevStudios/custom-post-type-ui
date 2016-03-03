@@ -7,6 +7,7 @@ var mqpacker = require('css-mqpacker');
 var notify = require('gulp-notify');
 var plumber = require('gulp-plumber');
 var postcss = require('gulp-postcss');
+var rename = require('gulp-rename');
 var sass = require('gulp-sass');
 var sassLint = require('gulp-sass-lint');
 var sort = require('gulp-sort');
@@ -44,7 +45,7 @@ function handleErrors () {
  * Delete cptui.css and cptui.min.css before we minify and optimize
  */
 gulp.task('clean:styles', function() {
-	return del(['cptui.css', 'cptui.min.css'])
+	return del(['css/cptui.css', 'css/cptui.min.css'])
 });
 
 gulp.task('docsgen', shell.task([
@@ -68,7 +69,7 @@ gulp.task('postcss', ['clean:styles'], function() {
 
 	// Compile Sass using LibSass.
 	.pipe(sass({
-		includePaths: [].concat(bourbon, neat),
+		includePaths: [],
 		errLogToConsole: true,
 		outputStyle: 'expanded' // Options: nested, expanded, compact, compressed
 	}))
@@ -84,7 +85,7 @@ gulp.task('postcss', ['clean:styles'], function() {
 	]))
 
 	// Create style.css.
-	.pipe(gulp.dest('./'));
+	.pipe(gulp.dest('./css'));
 });
 
 /**
@@ -99,21 +100,7 @@ gulp.task('cssnano', ['postcss'], function() {
 		safe: true // Use safe optimizations
 	}))
 	.pipe(rename('cptui.min.css'))
-	.pipe(gulp.dest('./'))
-});
-
-/**
- * Sass linting
- *
- * https://www.npmjs.com/package/sass-lint
- */
-gulp.task('sass:lint', ['cssnano'], function() {
-	gulp.src([
-		'css/*.scss',
-	])
-	.pipe(sassLint())
-	.pipe(sassLint.format())
-	.pipe(sassLint.failOnError());
+	.pipe(gulp.dest('./css'))
 });
 
 /**
@@ -170,6 +157,6 @@ gulp.task('wp-pot', ['clean:pot'], function() {
  */
 gulp.task('i18n', ['wp-pot']);
 gulp.task('scripts', ['uglify']);
-gulp.task('styles', ['sass:lint']);
-gulp.task('default', ['i18n','icons', 'styles', 'scripts', 'sprites']);
-gulp.task('release', ['i18n', 'icons', 'styles', 'scripts', 'sprites', 'docsgen']);
+gulp.task('styles', ['cssnano']);
+gulp.task('default', ['i18n', 'styles', 'scripts']);
+gulp.task('release', ['i18n', 'styles', 'scripts', 'docsgen']);
