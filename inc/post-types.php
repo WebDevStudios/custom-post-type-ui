@@ -154,9 +154,11 @@ function cptui_manage_post_types() {
 						esc_html_e( 'Slugs should only contain alphanumeric, latin characters. Underscores or dashes should be used in place of spaces.', 'custom-post-type-ui' );
 					echo '</p>';
 
-					echo '<p>';
-					esc_html_e( 'DO NOT EDIT the post type slug unless also planning to migrate posts. Changing the slug registers a new post type entry.', 'custom-post-type-ui' );
-					echo '</p>';
+					if ( 'edit' == $tab ) {
+						echo '<p>';
+						esc_html_e( 'DO NOT EDIT the post type slug unless also planning to migrate posts. Changing the slug registers a new post type entry.', 'custom-post-type-ui' );
+						echo '</p>';
+					}
 
 					if ( 'edit' == $tab ) {
 						echo '<div class="cptui-spacer">';
