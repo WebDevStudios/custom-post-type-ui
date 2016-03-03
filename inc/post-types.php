@@ -101,8 +101,6 @@ function cptui_manage_post_types() {
 	// Will only be set if we're already on the edit screen.
 	if ( ! empty( $post_types ) ) { ?>
 		<form id="cptui_select_post_type" method="post">
-			<p><?php esc_html_e( 'DO NOT EDIT the post type slug unless necessary. Changing that value registers a new post type entry for your install.', 'custom-post-type-ui' ); ?></p>
-			<p><?php esc_html_e( 'Use appropriate checkbox above save/delete buttons if you wish to change slugs and update post types for existing posts.', 'custom-post-type-ui' ); ?></p>
 			<label for="post_type"><?php esc_html_e( 'Select: ', 'custom-post-type-ui' ); ?></label>
 			<?php
 			cptui_post_types_dropdown( $post_types );
@@ -155,6 +153,24 @@ function cptui_manage_post_types() {
 					echo '<p class="cptui-slug-details">';
 						esc_html_e( 'Slugs should only contain alphanumeric, latin characters. Underscores or dashes should be used in place of spaces.', 'custom-post-type-ui' );
 					echo '</p>';
+
+					echo '<p>';
+					esc_html_e( 'DO NOT EDIT the post type slug unless also planning to migrate posts. Changing the slug registers a new post type entry.', 'custom-post-type-ui' );
+					echo '</p>';
+
+					if ( 'edit' == $tab ) {
+						echo '<div>';
+						echo $ui->get_check_input( array(
+							'checkvalue' => 'update_post_types',
+							'checked'    => 'false',
+							'name'       => 'update_post_types',
+							'namearray'  => 'update_post_types',
+							'labeltext'  => esc_html__( 'Migrate posts to newly renamed post type?', 'custom-post-type-ui' ),
+							'default'    => false,
+							'wrap'       => false,
+						) );
+						echo '</div>';
+					}
 
 					echo $ui->get_td_end(); echo $ui->get_tr_end();
 				?>
@@ -253,17 +269,6 @@ function cptui_manage_post_types() {
 						'helptext'  => esc_attr__( 'Perhaps describe what your custom post type is used for?', 'custom-post-type-ui' )
 					) );
 
-					if ( 'edit' == $tab ) {
-						echo $ui->get_check_input( array(
-							'checkvalue' => 'update_post_types',
-							'checked'    => 'false',
-							'name'       => 'update_post_types',
-							'namearray'  => 'update_post_types',
-							'labeltext'  => esc_html__( 'Migrate posts to newly renamed post type?', 'custom-post-type-ui' ),
-							'helptext'   => esc_attr__( 'Check this to migrate posts if and when renaming your post type.', 'custom-post-type-ui' ),
-							'default'    => false,
-						) );
-					}
 					echo $ui->get_text_input( array(
 						'labeltext'     => __( 'Menu Name', 'custom-post-type-ui' ),
 						'helptext'      => esc_attr__( 'Custom admin menu name for your custom post type.', 'custom-post-type-ui' ),
