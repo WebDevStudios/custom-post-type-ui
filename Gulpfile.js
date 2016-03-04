@@ -104,7 +104,7 @@ gulp.task('cssnano', ['postcss'], function() {
  * Delete scripts before we concat and minify
  */
 gulp.task('clean:scripts', function() {
-	return del(['js/cptui.js']);
+	return del(['js/cptui.js','js/cptui.min.js']);
 });
 
 /**
