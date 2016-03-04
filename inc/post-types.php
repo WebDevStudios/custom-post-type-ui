@@ -158,9 +158,7 @@ function cptui_manage_post_types() {
 						echo '<p>';
 						esc_html_e( 'DO NOT EDIT the post type slug unless also planning to migrate posts. Changing the slug registers a new post type entry.', 'custom-post-type-ui' );
 						echo '</p>';
-					}
 
-					if ( 'edit' == $tab ) {
 						echo '<div class="cptui-spacer">';
 						echo $ui->get_check_input( array(
 							'checkvalue' => 'update_post_types',
