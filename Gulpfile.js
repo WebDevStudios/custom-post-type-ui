@@ -159,7 +159,6 @@ gulp.task('watch', function () {
 	// Run tasks when files change.
 	gulp.watch(paths.sass, ['styles']);
 	gulp.watch(paths.scripts, ['scripts']);
-	gulp.watch(paths.concat_scripts, ['scripts']);
 });
 
 /**
