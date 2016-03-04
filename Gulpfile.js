@@ -150,6 +150,19 @@ gulp.task('wp-pot', ['clean:pot'], function() {
 });
 
 /**
+ * Process tasks and reload browsers on file changes.
+ *
+ * https://www.npmjs.com/package/browser-sync
+ */
+gulp.task('watch', function () {
+
+	// Run tasks when files change.
+	gulp.watch(paths.sass, ['styles']);
+	gulp.watch(paths.scripts, ['scripts']);
+	gulp.watch(paths.concat_scripts, ['scripts']);
+});
+
+/**
  * Create indivdual tasks.
  */
 gulp.task('i18n', ['wp-pot']);
