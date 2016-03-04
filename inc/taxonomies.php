@@ -101,8 +101,6 @@ function cptui_manage_taxonomies() {
 	// Will only be set if we're already on the edit screen.
 	if ( !empty( $taxonomies ) ) { ?>
 		<form id="cptui_select_taxonomy" method="post">
-			<p><?php _e( 'DO NOT EDIT the taxonomy slug unless necessary. Changing that value registers a new taxonomy entry for your install.', 'custom-post-type-ui' ); ?></p>
-			<p><?php _e( 'Use appropriate checkbox above save/delete buttons if you wish to change slugs and update taxonomies for existing taxonomy terms.', 'custom-post-type-ui' ); ?></p>
 			<label for="taxonomy"><?php _e( 'Select: ', 'custom-post-type-ui' ); ?></label>
 			<?php
 			cptui_taxonomies_dropdown( $taxonomies );
@@ -139,16 +137,45 @@ function cptui_manage_taxonomies() {
 			?>
 			<table class="form-table cptui-table">
 				<?php
+					echo $ui->get_tr_start() . $ui->get_th_start();
+					echo $ui->get_label( 'name', __( 'Taxonomy Slug', 'custom-post-type-ui' ) ) . $ui->get_required_span();
+					echo $ui->get_th_end() . $ui->get_td_start();
+
 					echo $ui->get_text_input( array(
 						'namearray'     => 'cpt_custom_tax',
 						'name'          => 'name',
 						'textvalue'     => ( isset( $current['name'] ) ) ? esc_attr( $current['name'] ) : '',
 						'maxlength'     => '32',
-						'labeltext'     => __( 'Taxonomy Slug', 'custom-post-type-ui' ),
-						'aftertext'     => __( '(e.g. actor)', 'custom-post-type-ui' ),
-						'helptext'      => esc_attr__( 'The taxonomy name. Used to retrieve custom taxonomy content. Should be short and unique', 'custom-post-type-ui'),
+						'helptext'      => esc_attr__( 'The taxonomy name/slug. Used for various queries for taxonomy content.', 'custom-post-type-ui'),
 						'required'      => true,
+						'placeholder'   => false,
+						'wrap'          => false,
 					) );
+
+					echo '<p class="cptui-slug-details">';
+					esc_html_e( 'Slugs should only contain alphanumeric, latin characters. Underscores or dashes should be used in place of spaces.', 'custom-post-type-ui' );
+					echo '</p>';
+
+					if ( 'edit' == $tab ) {
+						echo '<p>';
+						esc_html_e( 'DO NOT EDIT the taxonomy slug unless also planning to migrate terms.. Changing the slug registers a new taxonomy entry.', 'custom-post-type-ui' );
+						echo '</p>';
+
+						echo '<div class="cptui-spacer">';
+						echo $ui->get_check_input( array(
+							'checkvalue' => 'update_taxonomy',
+							'checked'    => 'false',
+							'name'       => 'update_taxonomy',
+							'namearray'  => 'update_taxonomy',
+							'labeltext'  => __( 'Migrate terms to newly renamed taxonomy?', 'custom-post-type-ui' ),
+							'helptext'   => '',
+							'default'    => false,
+							'wrap'       => false,
+						) );
+						echo '</div>';
+					}
+
+					echo $ui->get_td_end() . $ui->get_tr_end();
 
 					echo $ui->get_tr_start() . $ui->get_th_start() . __( 'Attach to Post Type', 'custom-post-type-ui' ) . $ui->get_required_span();
 					echo $ui->get_th_end() . $ui->get_td_start() . $ui->get_fieldset_start();
@@ -238,18 +265,6 @@ function cptui_manage_taxonomies() {
 				<input type="hidden" name="cpt_tax_status" id="cpt_tax_status" value="<?php echo $tab; ?>" />
 			</p>
 			<?php
-
-			if ( 'edit' == $tab ) {
-				echo $ui->get_check_input( array(
-					'checkvalue' => 'update_taxonomy',
-					'checked'    => 'false',
-					'name'       => 'update_taxonomy',
-					'namearray'  => 'update_taxonomy',
-					'labeltext'  => __( 'Migrate terms to newly renamed taxonomy?', 'custom-post-type-ui' ),
-					'helptext'   => esc_attr__( 'Check this to migrate terms if and when renaming your taxonomy.', 'custom-post-type-ui' ),
-					'default'    => false
-				) );
-			}
 			echo $ui->get_fieldset_end(); ?>
 		</div>
 		<div class="cptui-section">
