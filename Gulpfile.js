@@ -46,6 +46,9 @@ gulp.task('clean:styles', function() {
 	return del(['css/cptui.css', 'css/cptui.min.css'])
 });
 
+/**
+ * Run our documentation generation.
+ */
 gulp.task('docsgen', shell.task([
 	'apigen generate',
 	'php apigen/hook-docs.php',
@@ -57,7 +60,6 @@ gulp.task('docsgen', shell.task([
  * https://www.npmjs.com/package/gulp-sass
  * https://www.npmjs.com/package/gulp-postcss
  * https://www.npmjs.com/package/gulp-autoprefixer
- * https://www.npmjs.com/package/css-mqpacker
  */
 gulp.task('postcss', ['clean:styles'], function() {
 	return gulp.src('css/*.scss', paths.css)
@@ -76,9 +78,6 @@ gulp.task('postcss', ['clean:styles'], function() {
 	.pipe(postcss([
 		autoprefixer({
 			browsers: ['last 2 version']
-		}),
-		mqpacker({
-			sort: true
 		}),
 	]))
 
