@@ -813,6 +813,22 @@ function cptui_manage_post_types() {
 					'wrap'          => false
 				) );
 
+				$thumb_checked = ( ! empty( $current['supports'] ) && is_array( $current['supports'] ) && in_array( 'thumbnail', $current['supports'] ) ) ? 'true' : 'false';
+				if ( 'new' == $tab ) {
+					$thumb_checked = 'true';
+				}
+				echo $ui->get_check_input( array(
+					'checkvalue' => 'thumbnail',
+					'checked'    => $thumb_checked,
+					'name'       => 'thumbnail',
+					'namearray'  => 'cpt_supports',
+					'textvalue'  => 'thumbnail',
+					'labeltext'  => __( 'Featured Image', 'custom-post-type-ui' ),
+					'helptext'   => esc_attr__( 'Adds the featured image meta box when creating content for this custom post type', 'custom-post-type-ui' ),
+					'default'    => true,
+					'wrap'       => false
+				) );
+
 				echo $ui->get_check_input( array(
 					'checkvalue'    => 'excerpt',
 					'checked'       => ( !empty( $current['supports'] ) && is_array( $current['supports'] ) && in_array( 'excerpt', $current['supports'] ) ) ? 'true' : 'false',
@@ -869,18 +885,6 @@ function cptui_manage_post_types() {
 					'textvalue'     => 'revisions',
 					'labeltext'     => __( 'Revisions' , 'custom-post-type-ui' ),
 					'helptext'      => esc_attr__( 'Adds the revisions meta box when creating content for this custom post type', 'custom-post-type-ui' ),
-					'default'       => true,
-					'wrap'          => false
-				) );
-
-				echo $ui->get_check_input( array(
-					'checkvalue'    => 'thumbnail',
-					'checked'       => ( !empty( $current['supports'] ) && is_array( $current['supports'] ) && in_array( 'thumbnail', $current['supports'] ) ) ? 'true' : 'false',
-					'name'          => 'thumbnail',
-					'namearray'     => 'cpt_supports',
-					'textvalue'     => 'thumbnail',
-					'labeltext'     => __( 'Featured Image' , 'custom-post-type-ui' ),
-					'helptext'      => esc_attr__( 'Adds the featured image meta box when creating content for this custom post type', 'custom-post-type-ui' ),
 					'default'       => true,
 					'wrap'          => false
 				) );
