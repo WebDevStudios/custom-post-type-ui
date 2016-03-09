@@ -47,7 +47,11 @@ All official development on this plugin is on GitHub. Version bumps will still b
 * Fixed: Need to visit permalinks page to flush rewrite rules after creating new post type or taxonomy.
 * Added: Fill in singular and plural label fields if none provided. WordPress does not auto-fill these.
 * Added: Title, Editor, and Featured Image now checked by default for new post types.
+* Updated: Revised how tabs are added to pages so 3rd party developers can add their own tabs.
 
+= 1.2.4 =
+* Added: new CPTUI_VERSION constant to match naming of other current constants.
+* Added: CPTUI_VERSION constant to cptui.css string for cache busting.
 
 = 1.2.3 - 2016-01-31 =
 * Fixed: copy/paste error with admin css. Props hinaloe.
@@ -196,6 +200,11 @@ All official development on this plugin is on GitHub. Version bumps will still b
 * Fixed: Need to visit permalinks page to flush rewrite rules after creating new post type or taxonomy.
 * Added: Fill in singular and plural label fields if none provided. WordPress does not auto-fill these.
 * Added: Title, Editor, and Featured Image now checked by default for new post types.
+* Updated: Revised how tabs are added to pages so 3rd party developers can add their own tabs.
+
+= 1.2.4 =
+* Added: new CPTUI_VERSION constant to match naming of other current constants.
+* Added: CPTUI_VERSION constant to cptui.css string for cache busting.
 
 = 1.2.3 =
 * Fixed: copy/paste error with admin css. Props hinaloe.
