@@ -137,6 +137,13 @@ function cptui_manage_post_types() {
 
 	cptui_settings_tab_menu();
 
+	/**
+	 * Fires below the output for the tab menu on the post type add/edit screen.
+	 *
+	 * @since 1.3.0
+	 */
+	do_action( 'cptui_below_post_type_tab_menu' );
+
 	if ( 'edit' == $tab ) {
 
 		$post_types = get_option( 'cptui_post_types' );
