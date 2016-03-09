@@ -43,6 +43,60 @@ function cptui_post_type_enqueue_scripts() {
 add_action( 'admin_enqueue_scripts', 'cptui_post_type_enqueue_scripts' );
 
 /**
+ * Register our tabs for the Post Type screen.
+ *
+ * @since 1.3.0
+ *
+ * @internal
+ *
+ * @param array  $tabs         Array of tabs to display.
+ * @param string $current_page Current page being shown.
+ * @return array Amended array of tabs to show.
+ */
+function cptui_post_type_tabs( $tabs = array(), $current_page = '' ) {
+
+	if ( 'post_types' == $current_page ) {
+		$post_types = get_option( 'cptui_post_types' );
+		$classes    = array( 'nav-tab' );
+
+		$tabs['page_title'] = __( 'Manage Post Types', 'custom-post-type-ui' );
+		$tabs['tabs'] = array();
+		// Start out with our basic "Add new" tab.
+		$tabs['tabs']['add'] = array(
+			'text'    => __( 'Add New Post Type', 'custom-post-type-ui' ),
+			'classes' => $classes,
+			'url'     => admin_url( 'admin.php?page=cptui_manage_' . $current_page )
+		);
+
+		$action = cptui_get_current_action();
+		if ( empty( $action ) ) {
+			$tabs['tabs']['add']['classes'][] = 'nav-tab-active';
+		}
+
+		if ( ! empty( $post_types ) ) {
+
+			if ( ! empty( $action ) ) {
+				$classes[] = 'nav-tab-active';
+			}
+			$tabs['tabs']['edit'] = array(
+				'text'    => __( 'Edit Post Types', 'custom-post-type-ui' ),
+				'classes' => $classes,
+				'url'     => esc_url( add_query_arg( array( 'action' => 'edit' ), admin_url( 'admin.php?page=cptui_manage_' . $current_page ) ) )
+			);
+
+			$tabs['tabs']['view'] = array(
+				'text'    => __( 'View Post Types', 'custom-post-type-ui' ),
+				'classes' => array( 'nav-tab' ), // Prevent notices.
+				'url'     => esc_url( admin_url( 'admin.php?page=cptui_listings#post-types' ) )
+			);
+		}
+	}
+
+	return $tabs;
+}
+add_filter( 'cptui_get_tabs', 'cptui_post_type_tabs', 10, 2 );
+
+/**
  * Create our settings page output.
  *
  * @since 1.0.0

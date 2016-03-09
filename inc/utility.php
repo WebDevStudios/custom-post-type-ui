@@ -232,3 +232,19 @@ function cptui_flush_rewrite_rules() {
 	}
 }
 add_action( 'admin_init', 'cptui_flush_rewrite_rules' );
+
+/**
+ * Return the current action being done within CPTUI context.
+ *
+ * @since 1.3.0
+ *
+ * @return string Current action being done by CPTUI
+ */
+function cptui_get_current_action() {
+	$current_action = '';
+	if ( ! empty( $_GET ) && isset( $_GET['action'] ) ) {
+		$current_action .= esc_textarea( $_GET['action'] );
+	}
+
+	return $current_action;
+}

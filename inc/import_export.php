@@ -14,6 +14,67 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
+ * Register our tabs for the Import/Export screen.
+ *
+ * @since 1.3.0
+ *
+ * @internal
+ *
+ * @param array  $tabs         Array of tabs to display.
+ * @param string $current_page Current page being shown.
+ * @return array Amended array of tabs to show.
+ */
+function cptui_importexport_tabs( $tabs = array(), $current_page = '' ) {
+
+	if ( 'importexport' == $current_page ) {
+		$classes = array( 'nav-tab' );
+
+		$tabs['page_title'] = __( 'Import/Export', 'custom-post-type-ui' );
+		$tabs['tabs']       = array();
+		$tabs['tabs']['post_types'] = array(
+			'text'    => __( 'Post Types', 'custom-post-type-ui' ),
+			'classes' => $classes,
+			'url'     => admin_url( 'admin.php?page=cptui_' . $current_page )
+		);
+
+		$tabs['tabs']['taxonomies'] = array(
+			'text'    => __( 'Taxonomies', 'custom-post-type-ui' ),
+			'classes' => $classes,
+			'url'     => esc_url( add_query_arg( array( 'action' => 'taxonomies' ), admin_url( 'admin.php?page=cptui_' . $current_page ) ) )
+		);
+
+		$tabs['tabs']['get_code'] = array(
+			'text'    => __( 'Get Code', 'custom-post-type-ui' ),
+			'classes' => $classes,
+			'url'     => esc_url( add_query_arg( array( 'action' => 'get_code' ), admin_url( 'admin.php?page=cptui_' . $current_page ) ) )
+		);
+
+		$tabs['tabs']['debuginfo'] = array(
+			'text'    => __( 'Debug Info', 'custom-post-type-ui' ),
+			'classes' => $classes,
+			'url'     => esc_url( add_query_arg( array( 'action' => 'debuginfo' ), admin_url( 'admin.php?page=cptui_' . $current_page ) ) )
+		);
+
+		$active_class = 'nav-tab-active';
+		$action = cptui_get_current_action();
+		if ( ! empty( $action ) ) {
+			if ( 'taxonomies' === $action ) {
+				$tabs['tabs']['taxonomies']['classes'][] = $active_class;
+			} elseif ( 'get_code' === $action ) {
+				$tabs['tabs']['get_code']['classes'][] = $active_class;
+			} elseif ( 'debuginfo' === $action ) {
+				$tabs['tabs']['debuginfo']['classes'][] = $active_class;
+			}
+		} else {
+			$tabs['tabs']['post_types']['classes'][] = $active_class;
+		}
+	}
+
+	return $tabs;
+}
+add_filter( 'cptui_get_tabs', 'cptui_importexport_tabs', 10, 2 );
+
+/**
  * Create our settings page output.
  *
  * @since 1.0.0

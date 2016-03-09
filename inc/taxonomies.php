@@ -42,6 +42,61 @@ function cptui_taxonomies_enqueue_scripts() {
 add_action( 'admin_enqueue_scripts', 'cptui_taxonomies_enqueue_scripts' );
 
 /**
+ * Register our tabs for the Taxonomy screen.
+ *
+ * @since 1.3.0
+ *
+ * @internal
+ *
+ * @param array  $tabs         Array of tabs to display.
+ * @param string $current_page Current page being shown.
+ * @return array Amended array of tabs to show.
+ */
+function cptui_taxonomy_tabs( $tabs = array(), $current_page = '' ) {
+
+	if ( 'taxonomies' == $current_page ) {
+		$taxonomies = get_option( 'cptui_taxonomies' );
+		$classes    = array( 'nav-tab' );
+
+		$tabs['page_title'] = __( 'Manage Taxonomies', 'custom-post-type-ui' );
+		$tabs['tabs']       = array();
+		// Start out with our basic "Add new" tab.
+		$tabs['tabs']['add'] = array(
+			'text'    => __( 'Add New Taxonomy', 'custom-post-type-ui' ),
+			'classes' => $classes,
+			'url'     => admin_url( 'admin.php?page=cptui_manage_' . $current_page )
+		);
+
+		$action = cptui_get_current_action();
+		if ( empty( $action ) ) {
+			$tabs['tabs']['add']['classes'][] = 'nav-tab-active';
+		}
+
+		if ( ! empty( $taxonomies ) ) {
+
+			if ( ! empty( $action ) ) {
+				$classes[] = 'nav-tab-active';
+			}
+			$tabs['tabs']['edit'] = array(
+				'text'    => __( 'Edit Taxonomies', 'custom-post-type-ui' ),
+				'classes' => $classes,
+				'url'     => esc_url( add_query_arg( array( 'action' => 'edit' ), admin_url( 'admin.php?page=cptui_manage_' . $current_page ) ) )
+			);
+
+			$tabs['tabs']['view'] = array(
+				'text'    => __( 'View Taxonomies', 'custom-post-type-ui' ),
+				'classes' => array( 'nav-tab' ), // Prevent notices.
+				'url'     => esc_url( admin_url( 'admin.php?page=cptui_listings#taxonomies' ) )
+			);
+		}
+	}
+
+	return $tabs;
+}
+
+add_filter( 'cptui_get_tabs', 'cptui_taxonomy_tabs', 10, 2 );
+
+/**
  * Create our settings page output.
  *
  * @since 1.0.0
@@ -212,7 +267,6 @@ function cptui_manage_taxonomies() {
 							'wrap'       => false
 						) );
 					}
-
 
 					echo $ui->get_fieldset_end() . $ui->get_td_end() . $ui->get_tr_end();
 			?>

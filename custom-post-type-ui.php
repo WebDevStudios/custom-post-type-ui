@@ -530,80 +530,25 @@ function cptui_register_single_taxonomy( $taxonomy = array() ) {
  */
 function cptui_settings_tab_menu( $page = 'post_types' ) {
 
-	// Initiate our arrays with default classes.
-	$tab1 = $tab2 = $tab3 = $tab4 = array( 'nav-tab' );
-	$has = false;
+	$tabs = (array) apply_filters( 'cptui_get_tabs', array(), $page );
 
-	if ( 'importexport' == $page ) :
-		$title = __( 'Import/Export', 'custom-post-type-ui' );
-	elseif ( 'taxonomies' == $page ) :
-		$title = __( 'Manage Taxonomies', 'custom-post-type-ui' );
-		$taxes = get_option( 'cptui_taxonomies' );
-		$has = ( ! empty( $taxes ) ) ? true : false;
-	else :
-		$title = __( 'Manage Post Types', 'custom-post-type-ui' );
-		$types = get_option( 'cptui_post_types' );
-		$has = ( ! empty( $types ) ) ? true : false;
-	endif;
-
-	if ( ! empty( $_GET['action'] ) ) {
-		if ( 'edit' == $_GET['action'] || 'taxonomies' == $_GET['action'] ) {
-			$tab2[] = 'nav-tab-active';
-		} elseif ( 'get_code' == $_GET['action'] ) {
-			$tab3[] = 'nav-tab-active';
-		} elseif ( 'debuginfo' == $_GET['action'] ) {
-			$tab4[] = 'nav-tab-active';
-		}
-	} else {
-		$tab1[] = 'nav-tab-active';
+	if ( ! empty( $tabs['page_title'] ) ) {
+		printf(
+			'<h1>%s</h1><h2 class="nav-tab-wrapper">',
+			$tabs['page_title']
+		);
 	}
 
-	// Implode our arrays for class attributes.
-	$tab1 = implode( ' ', $tab1 );
-	$tab2 = implode( ' ', $tab2 );
-	$tab3 = implode( ' ', $tab3 );
-	$tab4 = implode( ' ', $tab4 );
-
-	?>
-	<h1><?php echo esc_html( $title ); ?></h1>
-	<h2 class="nav-tab-wrapper">
-	<?php
-	// Import/Export area is getting different tabs, so we need to separate out.
-	if ( 'importexport' != $page ) {
-		if ( 'post_types' == $page ) {
-			?>
-			<a class="<?php echo $tab1; ?>" href="<?php echo admin_url( 'admin.php?page=cptui_manage_' . $page ); ?>"><?php _e( 'Add New Post Type', 'custom-post-type-ui' ); ?></a>
-			<?php
-			if ( $has ) { ?>
-			<a class="<?php echo $tab2; ?>" href="<?php echo esc_url( add_query_arg( array( 'action' => 'edit' ), admin_url( 'admin.php?page=cptui_manage_' . $page ) ) ); ?>"><?php _e( 'Edit Post Types', 'custom-post-type-ui' ); ?></a>
-			<a class="<?php echo $tab3; ?>" href="<?php echo esc_url( admin_url( 'admin.php?page=cptui_listings#post-types' ) ); ?>"><?php _e( 'View Post Types', 'custom-post-type-ui' ); ?></a>
-			<?php }
-		} elseif ( 'taxonomies' == $page ) {
-			?>
-			<a class="<?php echo $tab1; ?>" href="<?php echo admin_url( 'admin.php?page=cptui_manage_' . $page ); ?>"><?php _e( 'Add New Taxonomy', 'custom-post-type-ui' ); ?></a>
-			<?php
-			if ( $has ) { ?>
-			<a class="<?php echo $tab2; ?>" href="<?php echo esc_url( add_query_arg( array( 'action' => 'edit' ), admin_url( 'admin.php?page=cptui_manage_' . $page ) ) ); ?>"><?php _e( 'Edit Taxonomies', 'custom-post-type-ui' ); ?></a>
-			<a class="<?php echo $tab3; ?>" href="<?php echo esc_url( admin_url( 'admin.php?page=cptui_listings#taxonomies' ) ); ?>"><?php _e( 'View Taxonomies', 'custom-post-type-ui' ); ?></a>
-			<?php }
-		}
-	} else { ?>
-		<a class="<?php echo $tab1; ?>" href="<?php echo admin_url( 'admin.php?page=cptui_' . $page ); ?>"><?php _e( 'Post Types', 'custom-post-type-ui' ); ?></a>
-		<a class="<?php echo $tab2; ?>" href="<?php echo esc_url( add_query_arg( array( 'action' => 'taxonomies' ), admin_url( 'admin.php?page=cptui_' . $page ) ) ); ?>"><?php _e( 'Taxonomies', 'custom-post-type-ui' ); ?></a>
-		<a class="<?php echo $tab3; ?>" href="<?php echo esc_url( add_query_arg( array( 'action' => 'get_code' ), admin_url( 'admin.php?page=cptui_' . $page ) ) ); ?>"><?php _e( 'Get Code', 'custom-post-type-ui' ); ?></a>
-		<a class="<?php echo $tab4; ?>" href="<?php echo esc_url( add_query_arg( array( 'action' => 'debuginfo' ), admin_url( 'admin.php?page=cptui_' . $page ) ) ); ?>"><?php _e( 'Debug Info', 'custom-post-type-ui' ); ?></a>
-	<?php
+	foreach ( $tabs['tabs'] as $tab ) {
+		printf(
+			'<a class="%s" href="%s">%s</a>',
+			implode( ' ', $tab['classes'] ),
+			$tab['url'],
+			$tab['text']
+		);
 	}
 
-	/**
-	 * Fires inside and at end of the `<h2>` tag for settings tabs area.
-	 *
-	 * @since 1.0.0
-	 */
-	do_action( 'cptui_settings_tabs_after' );
-	?>
-	</h2>
-<?php
+	echo '</h2>';
 }
 
 /**
