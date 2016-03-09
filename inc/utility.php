@@ -248,3 +248,33 @@ function cptui_get_current_action() {
 
 	return $current_action;
 }
+
+/**
+ * Return an array of all post type slugs from Custom Post Type UI.
+ *
+ * @since 1.3.0
+ *
+ * @return array CPTUI post type slugs.
+ */
+function cptui_get_post_type_slugs() {
+	$post_types = get_option( 'cptui_post_types' );
+	if ( ! empty ( $post_types ) ) {
+		return array_keys( $post_types );
+	}
+	return array();
+}
+
+/**
+ * Return an array of all taxonomy slugs from Custom Post Type UI.
+ *
+ * @since 1.3.0
+ *
+ * @return array CPTUI taxonomy slugs.
+ */
+function cptui_get_taxonomy_slugs() {
+	$taxonomies = get_option( 'cptui_taxonomies' );
+	if ( ! empty ( $taxonomies ) ) {
+		return array_keys( $taxonomies );
+	}
+	return array();
+}
