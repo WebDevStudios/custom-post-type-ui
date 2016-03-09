@@ -138,6 +138,13 @@ function cptui_manage_taxonomies() {
 	// Create our tabs.
 	cptui_settings_tab_menu( $page = 'taxonomies' );
 
+	/**
+	 * Fires below the output for the tab menu on the taxonomy add/edit screen.
+	 *
+	 * @since 1.3.0
+	 */
+	do_action( 'cptui_below_taxonomy_tab_menu' );
+
 	if ( 'edit' == $tab ) {
 
 		$taxonomies = get_option( 'cptui_taxonomies' );
