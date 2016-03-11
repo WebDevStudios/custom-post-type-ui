@@ -22,7 +22,7 @@
 		var tis = $(this), state = false, answer = tis.next('div').slideUp();
 		tis.on('click keydown',function(e) {
 			// Helps with accessibility and keyboard navigation.
-			if(e.keyCode!==32 && e.keyCode!==13) {
+			if(e.type==='keydown' && e.keyCode!==32 && e.keyCode!==13) {
 				return;
 			}
 			e.preventDefault();
