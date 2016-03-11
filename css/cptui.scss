@@ -10,7 +10,8 @@
 		width: 50%;
 	}
 	input[type="text"],
-	textarea {
+	.cptui-new & textarea,
+	.cptui-edit & textarea {
 		width: 50%;
 	}
 	.question:hover {
