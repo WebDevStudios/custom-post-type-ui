@@ -20,7 +20,12 @@
 	// Toggles help/support accordions.
 	$('#support .question').each(function() {
 		var tis = $(this), state = false, answer = tis.next('div').slideUp();
-		tis.on('click',function() {
+		tis.on('click keydown',function(e) {
+			// Helps with accessibility and keyboard navigation.
+			if(e.keyCode!==32 && e.keyCode!==13) {
+				return;
+			}
+			e.preventDefault();
 			state = !state;
 			answer.slideToggle(state);
 			tis.toggleClass('active',state);
