@@ -1190,3 +1190,43 @@ function cptui_convert_taxonomy_terms( $original_slug = '', $new_slug = '' ) {
 	);
 	cptui_delete_taxonomy( $original_slug );
 }
+
+/**
+ * Checks if we are trying to register an already registered taxonomy slug.
+ *
+ * @since 1.3.0
+ *
+ * @param bool   $slug_exists   Whether or not the post type slug exists.
+ * @param string $taxonomy_slug The post type slug being saved.
+ * @param array  $taxonomies    Array of CPTUI-registered post types.
+ *
+ * @return bool
+ */
+function cptui_check_existing_taxonomy_slugs( $slug_exists = false, $taxonomy_slug = '', $taxonomies = array() ) {
+
+	// If true, then we'll already have a conflict, let's not re-process.
+	if ( true === $slug_exists ) {
+		return $slug_exists;
+	}
+
+	// Check if CPTUI has already registered this slug.
+	if ( array_key_exists( strtolower( $taxonomy_slug ), $taxonomies ) ) {
+		return true;
+	}
+
+	// Check if we're registering a reserved post type slug.
+	if ( in_array( $taxonomy_slug, cptui_reserved_post_types() ) ) {
+		return true;
+	}
+
+	// Check if other plugins have registered this same slug.
+	$registered_taxonomies = get_post_types( array( '_builtin' => false, 'public' => false ) );
+	if ( in_array( $taxonomy_slug, $registered_taxonomies ) ) {
+		return true;
+	}
+
+	// If we're this far, it's false.
+	return $slug_exists;
+}
+
+add_filter( 'cptui_taxonomy_slug_exists', 'cptui_check_existing_taxonomy_slugs' );
