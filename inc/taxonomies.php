@@ -962,8 +962,19 @@ function cptui_update_taxonomy( $data = array() ) {
 
 	$taxonomies = get_option( 'cptui_taxonomies', array() );
 
-	if ( 'new' == $data['cpt_tax_status'] && array_key_exists( strtolower( $data['cpt_custom_tax']['name'] ), $taxonomies ) ) {
-		return cptui_admin_notices(	'error', '', false, sprintf( __( 'Please choose a different taxonomy name. %s is already used.', 'custom-post-type-ui' ), $data['cpt_custom_tax']['name'] ) );
+	/**
+	 * Check if we already have a post type of that name.
+	 * @since 1.3.0
+	 *
+	 * @param bool   $value      Assume we have no conflict by default.
+	 * @param string $value      Post type slug being saved.
+	 * @param array  $post_types Array of existing post types from CPTUI.
+	 */
+	$slug_exists = apply_filters( 'cptui_taxonomy_slug_exists', false, $data['cpt_custom_tax']['name'], $taxonomies );
+	if ( 'new' == $data['cpt_tax_status'] ) {
+		if ( true === $slug_exists ) {
+			return cptui_admin_notices( 'error', '', false, sprintf( __( 'Please choose a different taxonomy name. %s is already registered.', 'custom-post-type-ui' ), $data['cpt_custom_tax']['name'] ) );
+		}
 	}
 
 	foreach( $data['cpt_tax_labels'] as $key => $label ) {
