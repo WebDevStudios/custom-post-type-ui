@@ -100,7 +100,7 @@ class cptui_admin_ui {
 			$fieldset .= ' ' . $classes;
 		}
 
-		$fieldset .= '>';
+		$fieldset .= ' tabindex="0">';
 
 		return $fieldset;
 	}
