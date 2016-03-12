@@ -253,9 +253,9 @@ class CPTUI_Utility extends CPTUI_Base_Tests {
 
 		register_post_type( 'foo' );
 
-		$this->assertFalse( cptui_check_existing_slugs( false, 'tv_show', $this->post_type_array ) );
-		$this->assertTrue( cptui_check_existing_slugs( false, 'page', $this->post_type_array ) );
-		$this->assertTrue( cptui_check_existing_slugs( false, 'foo', $this->post_type_array ) );
+		$this->assertFalse( cptui_check_existing_post_type_slugs( false, 'tv_show', $this->post_type_array ) );
+		$this->assertTrue( cptui_check_existing_post_type_slugs( false, 'page', $this->post_type_array ) );
+		$this->assertTrue( cptui_check_existing_post_type_slugs( false, 'foo', $this->post_type_array ) );
 	}
 	/*
 	 * Tests for matching page slugs.
