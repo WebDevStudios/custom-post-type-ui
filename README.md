@@ -18,22 +18,23 @@ CPTUI does NOT handle display of registered post types or taxonomies in your cur
 
 **1.3.0**
 
-* Added: Legend tag support to admin UI class.
-* Added: Taxonomy slug update ability with preserved term association.
-* Added: Current theme's textdomain as output in get code textareas.
+* Added: "CPTUI_VERSION" constant and deprecated "CPT_VERSION".
 * Added: "Public" parameter for taxonomies
+* Added: "View Post Types" and "View Taxonomies" tabs at top of add/edit screens.
+* Added: Better prevention of potential duplicate slugs in new post types and taxonomies.
+* Added: Current theme's textdomain as output in get code textareas.
+* Added: Fill in singular and plural label fields if none provided. WordPress does not auto-fill these.
+* Added: For developers: plenty of extra hooks all over for customization needs.
+* Added: Javascript-based prevention of spaces and special characters for post type and taxonomy slugs.
+* Added: Legend tag support to admin UI class.
+* Added: Minified copies of our JavaScript and CSS. Define SCRIPT_DEBUG to true to use non-minified versions.
 * Added: New post type and taxonomy labels provided by WordPress 4.3 and 4.4 releases.
 	* See: https://make.wordpress.org/core/2015/12/11/additional-labels-for-custom-post-types-and-custom-taxonomies/
-* Added: "View Post Types" and "View Taxonomies" tabs at top of add/edit screens.
-* Added: "CPTUI_VERSION" constant and deprecated "CPT_VERSION".
-* Added: For developers: plenty of extra hooks all over for customization needs.
-* Updated: Increased accessibility coverage.
 * Added: Notes to post type and taxonomy edit screens about WordPress core's post types and taxonomies.
-* Added: Javascript-based prevention of spaces and special characters for post type and taxonomy slugs.
-* Added: Minified copies of our JavaScript and CSS. Define SCRIPT_DEBUG to true to use non-minified versions.
-* Fixed: Need to visit permalinks page to flush rewrite rules after creating new post type or taxonomy.
-* Added: Fill in singular and plural label fields if none provided. WordPress does not auto-fill these.
+* Added: Taxonomy slug update ability with preserved term association.
 * Added: Title, Editor, and Featured Image now checked by default for new post types.
+* Fixed: Need to visit permalinks page to flush rewrite rules after creating new post type or taxonomy.
+* Updated: Increased accessibility coverage.
 * Updated: Revised how tabs are added to pages so 3rd party developers can add their own tabs.
 
 **1.2.4**
