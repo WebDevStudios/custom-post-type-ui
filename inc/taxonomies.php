@@ -1057,7 +1057,7 @@ function cptui_update_taxonomy( $data = array() ) {
  *
  * @return array $value Array of names that are recommended against.
  */
-function cptui_reserved_post_types() {
+function cptui_reserved_taxonomies() {
 
 	$reserved = array(
 		'attachment',
@@ -1215,7 +1215,7 @@ function cptui_check_existing_taxonomy_slugs( $slug_exists = false, $taxonomy_sl
 	}
 
 	// Check if we're registering a reserved post type slug.
-	if ( in_array( $taxonomy_slug, cptui_reserved_post_types() ) ) {
+	if ( in_array( $taxonomy_slug, cptui_reserved_taxonomies() ) ) {
 		return true;
 	}
 
