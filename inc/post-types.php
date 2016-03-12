@@ -1286,7 +1286,7 @@ function cptui_update_post_type( $data = array() ) {
 	 * @param string $value Post type slug being saved.
 	 * @param array  $post_types Array of existing post types from CPTUI.
 	 */
-	$slug_exists = apply_filters( 'cptui_slug_exists', false, $data['cpt_custom_post_type']['name'], $post_types );
+	$slug_exists = apply_filters( 'cptui_post_type_slug_exists', false, $data['cpt_custom_post_type']['name'], $post_types );
 	$slug_as_page = cptui_check_page_slugs( $data['cpt_custom_post_type']['name'] );
 	if ( 'new' == $data['cpt_type_status'] ) {
 		if ( true === $slug_exists ) {
@@ -1499,7 +1499,7 @@ function cptui_check_existing_post_type_slugs( $slug_exists = false, $post_type_
 	// If we're this far, it's false.
 	return $slug_exists;
 }
-add_filter( 'cptui_slug_exists', 'cptui_check_existing_post_type_slugs' );
+add_filter( 'cptui_post_type_slug_exists', 'cptui_check_existing_post_type_slugs' );
 
 /**
  * Checks if the slug matches any existing page slug.
