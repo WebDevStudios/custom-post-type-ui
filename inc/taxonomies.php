@@ -976,12 +976,19 @@ function cptui_update_taxonomy( $data = array() ) {
 		$data['cpt_tax_labels'][ $key ] = stripslashes_deep( $label );
 	}
 
-	$label = str_replace( '"', '', htmlspecialchars_decode( $data['cpt_custom_tax']['label'] ) );
-	$label = htmlspecialchars( stripslashes( $label ), ENT_QUOTES );
+	$label = ucwords( str_replace( '_', ' ', $data['cpt_custom_tax']['name'] ) );
+	if ( ! empty( $data['cpt_custom_tax']['label'] ) ) {
+		$label = str_replace( '"', '', htmlspecialchars_decode( $data['cpt_custom_tax']['label'] ) );
+		$label = htmlspecialchars( stripslashes( $label ), ENT_QUOTES );
+	}
 
 	$name = trim( $data['cpt_custom_tax']['name'] );
-	$singular_label = str_replace( '"', '', htmlspecialchars_decode( $data['cpt_custom_tax']['singular_label'] ) );
-	$singular_label = htmlspecialchars( stripslashes( $singular_label ) );
+
+	$singular_label = ucwords( str_replace( '_', ' ', $data['cpt_custom_tax']['name'] ) );
+	if ( ! empty( $data['cpt_custom_tax']['singular_label'] ) ) {
+		$singular_label = str_replace( '"', '', htmlspecialchars_decode( $data['cpt_custom_tax']['singular_label'] ) );
+		$singular_label = htmlspecialchars( stripslashes( $singular_label ) );
+	}
 	$description = stripslashes_deep( $data['cpt_custom_tax']['description'] );
 	$query_var_slug = trim( $data['cpt_custom_tax']['query_var_slug'] );
 	$rewrite_slug = trim( $data['cpt_custom_tax']['rewrite_slug'] );
