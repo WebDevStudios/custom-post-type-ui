@@ -934,6 +934,10 @@ function cptui_update_taxonomy( $data = array() ) {
 		return cptui_admin_notices( 'error', '', false, __( 'Please provide a taxonomy name', 'custom-post-type-ui' ) );
 	}
 
+	if ( empty( $data['cpt_post_types'] ) ) {
+		return cptui_admin_notices( 'error', '', false, __( 'Please provide a post type to attach to.', 'custom-post-type-ui' ) );
+	}
+
 	if ( ! empty( $data['tax_original'] ) && $data['tax_original'] != $data['cpt_custom_tax']['name'] ) {
 		if ( ! empty( $data['update_taxonomy'] ) ) {
 			cptui_convert_taxonomy_terms( $data['tax_original'], $data['cpt_custom_tax']['name'] );
@@ -960,10 +964,6 @@ function cptui_update_taxonomy( $data = array() ) {
 
 	if ( 'new' == $data['cpt_tax_status'] && array_key_exists( strtolower( $data['cpt_custom_tax']['name'] ), $taxonomies ) ) {
 		return cptui_admin_notices(	'error', '', false, sprintf( __( 'Please choose a different taxonomy name. %s is already used.', 'custom-post-type-ui' ), $data['cpt_custom_tax']['name'] ) );
-	}
-
-	if ( empty( $data['cpt_post_types'] ) || !is_array( $data['cpt_post_types'] ) ) {
-		$data['cpt_post_types'] = '';
 	}
 
 	foreach( $data['cpt_tax_labels'] as $key => $label ) {
