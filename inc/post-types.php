@@ -1473,7 +1473,7 @@ function cptui_convert_post_type_posts( $original_slug = '', $new_slug = '' ) {
  *
 *@return bool
  */
-function cptui_check_existing_slugs( $slug_exists = false, $post_type_slug = '', $post_types = array() ) {
+function cptui_check_existing_post_type_slugs( $slug_exists = false, $post_type_slug = '', $post_types = array() ) {
 
 	// If true, then we'll already have a conflict, let's not re-process.
 	if ( true === $slug_exists ) {
@@ -1499,7 +1499,7 @@ function cptui_check_existing_slugs( $slug_exists = false, $post_type_slug = '',
 	// If we're this far, it's false.
 	return $slug_exists;
 }
-add_filter( 'cptui_slug_exists', 'cptui_check_existing_slugs' );
+add_filter( 'cptui_slug_exists', 'cptui_check_existing_post_type_slugs' );
 
 /**
  * Checks if the slug matches any existing page slug.
