@@ -1228,5 +1228,4 @@ function cptui_check_existing_taxonomy_slugs( $slug_exists = false, $taxonomy_sl
 	// If we're this far, it's false.
 	return $slug_exists;
 }
-
-add_filter( 'cptui_taxonomy_slug_exists', 'cptui_check_existing_taxonomy_slugs' );
+add_filter( 'cptui_taxonomy_slug_exists', 'cptui_check_existing_taxonomy_slugs', 10, 3 );

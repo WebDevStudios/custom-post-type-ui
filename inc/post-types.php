@@ -1499,7 +1499,7 @@ function cptui_check_existing_post_type_slugs( $slug_exists = false, $post_type_
 	// If we're this far, it's false.
 	return $slug_exists;
 }
-add_filter( 'cptui_post_type_slug_exists', 'cptui_check_existing_post_type_slugs' );
+add_filter( 'cptui_post_type_slug_exists', 'cptui_check_existing_post_type_slugs', 10, 3 );
 
 /**
  * Checks if the slug matches any existing page slug.
