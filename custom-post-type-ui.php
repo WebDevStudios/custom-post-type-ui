@@ -485,23 +485,26 @@ function cptui_register_single_taxonomy( $taxonomy = array() ) {
 
 	$show_in_rest = ( ! empty( $taxonomy['show_in_rest'] ) && false !== get_disp_boolean( $taxonomy['show_in_rest'] ) ) ? true : false;
 
+	$show_in_quick_edit = ( ! empty( $taxonomy['show_in_quick_edit'] ) && false !== get_disp_boolean( $taxonomy['show_in_quick_edit'] ) ) ? true : false;
+
 	$rest_base = null;
 	if ( ! empty( $taxonomy['rest_base'] ) ) {
 		$rest_base = $taxonomy['rest_base'];
 	}
 
 	$args = array(
-		'labels'            => $labels,
-		'label'             => $taxonomy['label'],
-		'description'       => $description,
-		'public'            => $public,
-		'hierarchical'      => get_disp_boolean( $taxonomy['hierarchical'] ),
-		'show_ui'           => get_disp_boolean( $taxonomy['show_ui'] ),
-		'query_var'         => $taxonomy['query_var'],
-		'rewrite'           => $rewrite,
-		'show_admin_column' => $show_admin_column,
-		'show_in_rest'      => $show_in_rest,
-		'rest_base'         => $rest_base,
+		'labels'             => $labels,
+		'label'              => $taxonomy['label'],
+		'description'        => $description,
+		'public'             => $public,
+		'hierarchical'       => get_disp_boolean( $taxonomy['hierarchical'] ),
+		'show_ui'            => get_disp_boolean( $taxonomy['show_ui'] ),
+		'query_var'          => $taxonomy['query_var'],
+		'rewrite'            => $rewrite,
+		'show_admin_column'  => $show_admin_column,
+		'show_in_rest'       => $show_in_rest,
+		'rest_base'          => $rest_base,
+		'show_in_quick_edit' => $show_in_quick_edit
 	);
 
 	$object_type = ( ! empty( $taxonomy['object_types'] ) ) ? $taxonomy['object_types'] : '';
