@@ -32,27 +32,31 @@ function cptui_importexport_tabs( $tabs = array(), $current_page = '' ) {
 		$tabs['page_title'] = __( 'Import/Export', 'custom-post-type-ui' );
 		$tabs['tabs']       = array();
 		$tabs['tabs']['post_types'] = array(
-			'text'    => __( 'Post Types', 'custom-post-type-ui' ),
-			'classes' => $classes,
-			'url'     => admin_url( 'admin.php?page=cptui_' . $current_page )
+			'text'          => __( 'Post Types', 'custom-post-type-ui' ),
+			'classes'       => $classes,
+			'url'           => admin_url( 'admin.php?page=cptui_' . $current_page ),
+			'aria-selected' => 'false'
 		);
 
 		$tabs['tabs']['taxonomies'] = array(
-			'text'    => __( 'Taxonomies', 'custom-post-type-ui' ),
-			'classes' => $classes,
-			'url'     => esc_url( add_query_arg( array( 'action' => 'taxonomies' ), admin_url( 'admin.php?page=cptui_' . $current_page ) ) )
+			'text'          => __( 'Taxonomies', 'custom-post-type-ui' ),
+			'classes'       => $classes,
+			'url'           => esc_url( add_query_arg( array( 'action' => 'taxonomies' ), admin_url( 'admin.php?page=cptui_' . $current_page ) ) ),
+			'aria-selected' => 'false'
 		);
 
 		$tabs['tabs']['get_code'] = array(
-			'text'    => __( 'Get Code', 'custom-post-type-ui' ),
-			'classes' => $classes,
-			'url'     => esc_url( add_query_arg( array( 'action' => 'get_code' ), admin_url( 'admin.php?page=cptui_' . $current_page ) ) )
+			'text'          => __( 'Get Code', 'custom-post-type-ui' ),
+			'classes'       => $classes,
+			'url'           => esc_url( add_query_arg( array( 'action' => 'get_code' ), admin_url( 'admin.php?page=cptui_' . $current_page ) ) ),
+			'aria-selected' => 'false'
 		);
 
 		$tabs['tabs']['debuginfo'] = array(
-			'text'    => __( 'Debug Info', 'custom-post-type-ui' ),
-			'classes' => $classes,
-			'url'     => esc_url( add_query_arg( array( 'action' => 'debuginfo' ), admin_url( 'admin.php?page=cptui_' . $current_page ) ) )
+			'text'          => __( 'Debug Info', 'custom-post-type-ui' ),
+			'classes'       => $classes,
+			'url'           => esc_url( add_query_arg( array( 'action' => 'debuginfo' ), admin_url( 'admin.php?page=cptui_' . $current_page ) ) ),
+			'aria-selected' => 'false'
 		);
 
 		$active_class = 'nav-tab-active';
@@ -60,13 +64,17 @@ function cptui_importexport_tabs( $tabs = array(), $current_page = '' ) {
 		if ( ! empty( $action ) ) {
 			if ( 'taxonomies' === $action ) {
 				$tabs['tabs']['taxonomies']['classes'][] = $active_class;
+				$tabs['tabs']['taxonomies']['aria-selected'] = 'true';
 			} elseif ( 'get_code' === $action ) {
 				$tabs['tabs']['get_code']['classes'][] = $active_class;
+				$tabs['tabs']['get_code']['aria-selected'] = 'true';
 			} elseif ( 'debuginfo' === $action ) {
 				$tabs['tabs']['debuginfo']['classes'][] = $active_class;
+				$tabs['tabs']['debuginfo']['aria-selected'] = 'true';
 			}
 		} else {
 			$tabs['tabs']['post_types']['classes'][] = $active_class;
+			$tabs['tabs']['post_types']['aria-selected'] = 'true';
 		}
 	}
 
