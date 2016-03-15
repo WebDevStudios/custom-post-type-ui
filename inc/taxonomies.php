@@ -747,7 +747,16 @@ function cptui_manage_taxonomies() {
 					) );
 				?>
 				</table>
-			<?php echo $ui->get_fieldset_end(); ?>
+			<?php echo $ui->get_fieldset_end();
+
+			/**
+			 * Fires after the default fieldsets on the taxonomy screen.
+			 *
+			 * @since 1.3.0
+			 *
+			 * @param cptui_admin_ui $ui Admin UI instance.
+			 */
+			do_action( 'cptui_taxonomy_after_fieldsets', $ui ); ?>
 		</div>
 
 		<p class="submit">
