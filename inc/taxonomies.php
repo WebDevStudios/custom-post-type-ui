@@ -728,6 +728,23 @@ function cptui_manage_taxonomies() {
 						'name'      => 'rest_base',
 						'textvalue' => ( isset( $current['rest_base'] ) ) ? esc_attr( $current['rest_base'] ) : '',
 					) );
+
+					$select             = array(
+						'options' => array(
+							array( 'attr' => '0', 'text' => __( 'False', 'custom-post-type-ui' ), 'default' => 'false' ),
+							array( 'attr' => '1', 'text' => __( 'True', 'custom-post-type-ui' ) )
+						)
+					);
+					$selected           = ( isset( $current ) && ! empty( $current['show_in_quick_edit'] ) ) ? disp_boolean( $current['show_in_quick_edit'] ) : '';
+					$select['selected'] = ( ! empty( $selected ) ) ? $current['show_in_quick_edit'] : '';
+					echo $ui->get_select_input( array(
+						'namearray'  => 'cpt_custom_tax',
+						'name'       => 'show_in_quick_edit',
+						'labeltext'  => __( 'Show in quick/bulk edit panel.', 'custom-post-type-ui' ),
+						'aftertext'  => __( '(default: False)', 'custom-post-type-ui' ),
+						'helptext'   => esc_attr__( 'Whether to show the taxonomy in the quick/bulk edit panel.', 'custom-post-type-ui' ),
+						'selections' => $select
+					) );
 				?>
 				</table>
 			<?php echo $ui->get_fieldset_end(); ?>
@@ -1008,6 +1025,7 @@ function cptui_update_taxonomy( $data = array() ) {
 	$query_var_slug = trim( $data['cpt_custom_tax']['query_var_slug'] );
 	$rewrite_slug = trim( $data['cpt_custom_tax']['rewrite_slug'] );
 	$rest_base = trim( $data['cpt_custom_tax']['rest_base'] );
+	$show_quickpanel_bulk = ( ! empty( $data['cpt_custom_tax']['show_in_quick_edit'] ) ) ? disp_boolean( $data['cpt_custom_tax']['show_in_quick_edit'] ) : '';
 
 	$taxonomies[ $data['cpt_custom_tax']['name'] ] = array(
 		'name'                 => $name,
@@ -1025,6 +1043,7 @@ function cptui_update_taxonomy( $data = array() ) {
 		'rewrite_hierarchical' => $data['cpt_custom_tax']['rewrite_hierarchical'],
 		'show_admin_column'    => disp_boolean( $data['cpt_custom_tax']['show_admin_column'] ),
 		'show_in_rest'         => disp_boolean( $data['cpt_custom_tax']['show_in_rest'] ),
+		'show_in_quick_edit'   => $show_quickpanel_bulk,
 		'rest_base'            => $rest_base,
 		'labels'               => $data['cpt_tax_labels']
 	);
