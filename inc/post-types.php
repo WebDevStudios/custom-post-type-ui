@@ -63,14 +63,16 @@ function cptui_post_type_tabs( $tabs = array(), $current_page = '' ) {
 		$tabs['tabs'] = array();
 		// Start out with our basic "Add new" tab.
 		$tabs['tabs']['add'] = array(
-			'text'    => __( 'Add New Post Type', 'custom-post-type-ui' ),
-			'classes' => $classes,
-			'url'     => admin_url( 'admin.php?page=cptui_manage_' . $current_page )
+			'text'          => __( 'Add New Post Type', 'custom-post-type-ui' ),
+			'classes'       => $classes,
+			'url'           => admin_url( 'admin.php?page=cptui_manage_' . $current_page ),
+			'aria-selected' => 'false'
 		);
 
 		$action = cptui_get_current_action();
 		if ( empty( $action ) ) {
 			$tabs['tabs']['add']['classes'][] = 'nav-tab-active';
+			$tabs['tabs']['add']['aria-selected'] = 'true';
 		}
 
 		if ( ! empty( $post_types ) ) {
@@ -79,15 +81,17 @@ function cptui_post_type_tabs( $tabs = array(), $current_page = '' ) {
 				$classes[] = 'nav-tab-active';
 			}
 			$tabs['tabs']['edit'] = array(
-				'text'    => __( 'Edit Post Types', 'custom-post-type-ui' ),
-				'classes' => $classes,
-				'url'     => esc_url( add_query_arg( array( 'action' => 'edit' ), admin_url( 'admin.php?page=cptui_manage_' . $current_page ) ) )
+				'text'          => __( 'Edit Post Types', 'custom-post-type-ui' ),
+				'classes'       => $classes,
+				'url'           => esc_url( add_query_arg( array( 'action' => 'edit' ), admin_url( 'admin.php?page=cptui_manage_' . $current_page ) ) ),
+				'aria-selected' => ( ! empty( $action ) ) ? 'true' : 'false'
 			);
 
 			$tabs['tabs']['view'] = array(
-				'text'    => __( 'View Post Types', 'custom-post-type-ui' ),
-				'classes' => array( 'nav-tab' ), // Prevent notices.
-				'url'     => esc_url( admin_url( 'admin.php?page=cptui_listings#post-types' ) )
+				'text'          => __( 'View Post Types', 'custom-post-type-ui' ),
+				'classes'       => array( 'nav-tab' ), // Prevent notices.
+				'url'           => esc_url( admin_url( 'admin.php?page=cptui_listings#post-types' ) ),
+				'aria-selected' => 'false',
 			);
 		}
 	}
