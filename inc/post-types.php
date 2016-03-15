@@ -1054,7 +1054,16 @@ function cptui_manage_post_types() {
 				echo $ui->get_fieldset_end() . $ui->get_td_end() . $ui->get_tr_end();
 				?>
 			</table>
-			<?php echo $ui->get_fieldset_end(); ?>
+			<?php echo $ui->get_fieldset_end();
+
+			/**
+			 * Fires after the default fieldsets on the post editor screen.
+			 *
+			 * @since 1.3.0
+			 *
+			 * @param cptui_admin_ui $ui Admin UI instance.
+			 */
+			do_action( 'cptui_post_type_after_fieldsets', $ui ); ?>
 		</div>
 		<p>
 		<?php
