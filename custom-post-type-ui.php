@@ -541,9 +541,10 @@ function cptui_settings_tab_menu( $page = 'post_types' ) {
 
 	foreach ( $tabs['tabs'] as $tab ) {
 		printf(
-			'<a class="%s" href="%s">%s</a>',
+			'<a class="%s" href="%s" aria-selected="%s">%s</a>',
 			implode( ' ', $tab['classes'] ),
 			$tab['url'],
+			$tab['aria-selected'],
 			$tab['text']
 		);
 	}
