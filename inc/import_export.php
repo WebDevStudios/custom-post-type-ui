@@ -238,6 +238,9 @@ function cptui_get_single_taxonomy_registery( $taxonomy = array() ) {
 		"query_var" => <?php echo disp_boolean( $taxonomy['query_var'] );?>,
 		"rewrite" => <?php echo $rewrite; ?>,
 		"show_admin_column" => <?php echo $taxonomy['show_admin_column']; ?>,
+		"show_in_rest" => <?php echo disp_boolean( $taxonomy['show_in_rest'] ); ?>,
+		"rest_base" => "<?php echo $taxonomy['rest_base']; ?>",
+		"show_in_quick_edit" => <?php echo disp_boolean( $taxonomy['show_in_quick_edit'] ); ?>,
 	);
 <?php // register_taxonomy( $taxonomy, $object_type, $args ); NEED TO DETERMINE THE $object_type. ?>
 	register_taxonomy( "<?php echo $taxonomy['name']; ?>", <?php echo $post_types; ?>, $args );
@@ -383,6 +386,7 @@ function cptui_get_single_post_type_registery( $post_type = array() ) {
 		"public" => <?php echo disp_boolean( $post_type['public'] ); ?>,
 		"show_ui" => <?php echo disp_boolean( $post_type['show_ui'] ); ?>,
 		"show_in_rest" => <?php echo disp_boolean( $post_type['show_in_rest'] ); ?>,
+		"rest_base" => "<?php echo $post_type['rest_base']; ?>",
 		"has_archive" => <?php echo disp_boolean( $post_type['has_archive'] ); ?>,
 		"show_in_menu" => <?php echo disp_boolean( $post_type['show_in_menu'] ); ?>,
 		"exclude_from_search" => <?php echo disp_boolean( $post_type['exclude_from_search'] ); ?>,
