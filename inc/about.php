@@ -48,34 +48,29 @@ function cptui_settings() { ?>
 		<h2><?php printf( __( 'What\'s new in version %s', 'custom-post-type-ui' ), CPTUI_VERSION ); ?></h2>
 		<div class="changelog about-integrations">
 			<div class="cptui-feature feature-section col three-col">
-
 				<div>
-					<h2><?php _e( 'Updated internationalization', 'custom-post-type-ui' ); ?></h2>
-					<p><?php _e( 'Our textdomain now matches the plugin slug from our WordPress.org repository to help aid in translating Custom Post Type UI', 'custom-post-type-ui' ); ?></p>
+					<h2><?php _e( 'Evolved UI for Custom Post Type UI', 'custom-post-type-ui' ); ?></h2>
+					<p><?php _e( 'We have further revised our UI for post type and taxonomy parameter screens. Better separation of required and optional settings was a primary goal as well as user flow through the screen.' ) ?></p>
 				</div>
 				<div>
-					<h2><?php _e( 'Debugging information', 'custom-post-type-ui' ); ?></h2>
-					<p><?php _e( 'We have added a new "Debug Info" tab to the Import/Export area to aid in debugging issues with Custom Post Type UI.', 'custom-post-type-ui' ); ?></p>
+					<h2><?php _e( 'Slug prevention measures', 'custom-post-type-ui' ); ?></h2>
+					<p><?php _e( 'We added measures on the post type and taxonomy slug inputs to prevent using characters that should not be used in slugs. This is primarily for when adding new post types and taxonomies, but will also affect when editing existing options. Do not hesitate to contact support if you are experiencing issues.' ) ?></p>
 				</div>
 				<div>
-					<h2><?php _e( 'Improved accessibility', 'custom-post-type-ui' ); ?></h2>
-					<p><?php _e( 'A lot of work was done in the areas of accessibility to help aid users who need it. If you have feedback on where it could be further improved, let us know.', 'custom-post-type-ui' ); ?></p>
+					<h2><?php _e( 'Improved rewrite rules flushing', 'custom-post-type-ui' ); ?></h2>
+					<p><?php _e( 'We improved what we do after registering a new post type or taxonomy to better prevent having to manually flush rewrite rules.' ) ?></p>
 				</div>
 				<div>
-					<h2><?php _e( 'WP REST API support', 'custom-post-type-ui' ); ?></h2>
-					<p><?php _e( 'We now have support for the required fields for the WP REST API. Now you can add your Custom Post Type UI post types and taxonomies to the available REST API lists.', 'custom-post-type-ui' ); ?></p>
+					<h2><?php _e( 'Continued accessibility improvements', 'custom-post-type-ui' ); ?></h2>
+					<p><?php _e( 'We have continued working on the accessibility of the plugin, building off what we accomplished in previous releases. If you have feedback on where it could be further improved, let us know.') ?></p>
 				</div>
 				<div>
-					<h2><?php _e( 'More parameter support', 'custom-post-type-ui' ); ?></h2>
-					<p><?php _e( 'We have added more parameters for greater customization of your post type and taxonomy settings.', 'custom-post-type-ui' ); ?></p>
-				</div>
-				<div>
-					<h2><?php _e( 'New individual "Get Code" sections', 'custom-post-type-ui' ); ?></h2>
-					<p><?php _e( 'The "Get Code" area now has support for copy/paste of individual post types and taxonomies.', 'custom-post-type-ui' ); ?></p>
+					<h2><?php _e( 'More parameter and label support', 'custom-post-type-ui' ); ?></h2>
+					<p><?php _e( 'We have added more parameters as well as recently added labels for greater customization of your post type and taxonomy settings.', 'custom-post-type-ui' ); ?></p>
 				</div>
 				<div class="last-feature">
-					<h2><?php _e( 'Template hierarchy reference', 'custom-post-type-ui' ); ?></h2>
-					<p><?php _e( 'To help aid your development with post types and taxonomies, we have added a quick reference list of common template files you can use in your theme. They will be listed on the "Registered Types/Taxes" screen.', 'custom-post-type-ui' ); ?></p>
+					<h2><?php _e( 'Default "supports" for post types', 'custom-post-type-ui' ); ?></h2>
+					<p><?php _e( 'The "Title", "Editor", and "Featured Image" checkboxes are now checked by default when adding a new post type.', 'custom-post-type-ui' ); ?></p>
 				</div>
 			</div>
 		</div>
