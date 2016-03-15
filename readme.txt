@@ -46,7 +46,9 @@ All official development on this plugin is on GitHub. Version bumps will still b
 * Added: Notes to post type and taxonomy edit screens about WordPress core's post types and taxonomies.
 * Added: Taxonomy slug update ability with preserved term association.
 * Added: Title, Editor, and Featured Image now checked by default for new post types.
+* Added: "Show in Quick Edit" taxonomy parameter available in WP 4.2
 * Fixed: Need to visit permalinks page to flush rewrite rules after creating new post type or taxonomy.
+* Fixed: Missing REST API based parameters in "Get Code" output.
 * Updated: Increased accessibility coverage.
 * Updated: Revised how tabs are added to pages so 3rd party developers can add their own tabs.
 
@@ -200,7 +202,9 @@ All official development on this plugin is on GitHub. Version bumps will still b
 * Added: Notes to post type and taxonomy edit screens about WordPress core's post types and taxonomies.
 * Added: Taxonomy slug update ability with preserved term association.
 * Added: Title, Editor, and Featured Image now checked by default for new post types.
+* Added: "Show in Quick Edit" taxonomy parameter available in WP 4.2
 * Fixed: Need to visit permalinks page to flush rewrite rules after creating new post type or taxonomy.
+* Fixed: Missing REST API based parameters in "Get Code" output.
 * Updated: Increased accessibility coverage.
 * Updated: Revised how tabs are added to pages so 3rd party developers can add their own tabs.
 
