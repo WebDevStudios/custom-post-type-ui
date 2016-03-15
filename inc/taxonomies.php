@@ -224,7 +224,7 @@ function cptui_manage_taxonomies() {
 
 					if ( 'edit' == $tab ) {
 						echo '<p>';
-						esc_html_e( 'DO NOT EDIT the taxonomy slug unless also planning to migrate terms.. Changing the slug registers a new taxonomy entry.', 'custom-post-type-ui' );
+						esc_html_e( 'DO NOT EDIT the taxonomy slug unless also planning to migrate terms. Changing the slug registers a new taxonomy entry.', 'custom-post-type-ui' );
 						echo '</p>';
 
 						echo '<div class="cptui-spacer">';
