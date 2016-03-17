@@ -1387,7 +1387,9 @@ function cptui_update_post_type( $data = array() ) {
 		'custom_supports'       => $custom_supports
 	);
 
-	$success = update_option( 'cptui_post_types', $post_types );
+	if ( false === ( $success = apply_filters( 'cptui_post_type_update_save', false, $post_types ) ) ) {
+		$success = update_option( 'cptui_post_types', $post_types );
+	}
 
 	/**
 	 * Fires after a post type is updated to our saved options.

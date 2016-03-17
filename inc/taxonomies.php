@@ -1058,7 +1058,9 @@ function cptui_update_taxonomy( $data = array() ) {
 
 	$taxonomies[ $data['cpt_custom_tax']['name'] ]['object_types'] = $data['cpt_post_types'];
 
-	$success = update_option( 'cptui_taxonomies', $taxonomies );
+	if ( false === ( $success = apply_filters( 'cptui_taxonomy_update_save', false, $taxonomies ) ) ) {
+		$success = update_option( 'cptui_taxonomies', $taxonomies );
+	}
 
 	/**
 	 * Fires after a taxonomy is updated to our saved options.
