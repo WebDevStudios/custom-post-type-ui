@@ -1213,13 +1213,15 @@ function cptui_delete_post_type( $data = array() ) {
 	 */
 	do_action( 'cptui_before_delete_post_type', $data );
 
-	$post_types = get_option( 'cptui_post_types' );
+	$post_types = apply_filters( 'cptui_delete_post_type_data', get_option( 'cptui_post_types' ), get_current_blog_id() );
 
 	if ( array_key_exists( strtolower( $data['cpt_custom_post_type']['name'] ), $post_types ) ) {
 
 		unset( $post_types[ $data['cpt_custom_post_type']['name'] ] );
 
-		$success = update_option( 'cptui_post_types', $post_types );
+		if ( false === ( $success = apply_filters( 'cptui_post_type_delete_type', false, $post_types, $data ) ) ) {
+			$success = update_option( 'cptui_post_types', $post_types );
+		}
 	}
 
 	/**
