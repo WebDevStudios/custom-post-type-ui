@@ -382,7 +382,7 @@ function cptui_manage_post_types() {
 
 					echo $ui->get_text_input( array(
 						'labeltext'     => __( 'Edit Item', 'custom-post-type-ui' ),
-						'helptext'      => esc_attr__( 'Post type label. Used in the admin menu for displaying post types.', 'custom-post-type-ui' ),
+						'helptext'      => esc_attr__( 'Used at the top of the post editor screen for an existing post type post.', 'custom-post-type-ui' ),
 						'namearray'     => 'cpt_labels',
 						'name'          => 'edit_item',
 						'textvalue'     => ( isset( $current['labels']['edit_item'] ) ) ? esc_attr( $current['labels']['edit_item'] ) : '',
@@ -400,7 +400,7 @@ function cptui_manage_post_types() {
 
 					echo $ui->get_text_input( array(
 						'labeltext'     => __( 'View', 'custom-post-type-ui' ),
-						'helptext'      => esc_attr__( 'Post type label. Used in the admin menu for displaying post types.', 'custom-post-type-ui' ),
+						'helptext'      => esc_attr__( 'Used in the admin bar when viewing a published post in the post type.', 'custom-post-type-ui' ),
 						'namearray'     => 'cpt_labels',
 						'name'          => 'view',
 						'textvalue'     => ( isset( $current['labels']['view'] ) ) ? esc_attr( $current['labels']['view'] ) : '',
@@ -409,7 +409,7 @@ function cptui_manage_post_types() {
 
 					echo $ui->get_text_input( array(
 						'labeltext'     => __( 'View Item', 'custom-post-type-ui' ),
-						'helptext'      => esc_attr__( 'Post type label. Used in the admin menu for displaying post types.', 'custom-post-type-ui' ),
+						'helptext'      => esc_attr__( 'Used in the admin bar when viewing editor screen for a published post in the post type.', 'custom-post-type-ui' ),
 						'namearray'     => 'cpt_labels',
 						'name'          => 'view_item',
 						'textvalue'     => ( isset( $current['labels']['view_item'] ) ) ? esc_attr( $current['labels']['view_item'] ) : '',
@@ -418,7 +418,7 @@ function cptui_manage_post_types() {
 
 					echo $ui->get_text_input( array(
 						'labeltext'     => __( 'Search Item', 'custom-post-type-ui' ),
-						'helptext'      => esc_attr__( 'Post type label. Used in the admin menu for displaying post types.', 'custom-post-type-ui' ),
+						'helptext'      => esc_attr__( 'Used as the text for the search button on post type list screen.', 'custom-post-type-ui' ),
 						'namearray'     => 'cpt_labels',
 						'name'          => 'search_items',
 						'textvalue'     => ( isset( $current['labels']['search_items'] ) ) ? esc_attr( $current['labels']['search_items'] ) : '',
@@ -427,7 +427,7 @@ function cptui_manage_post_types() {
 
 					echo $ui->get_text_input( array(
 						'labeltext'     => __( 'Not Found', 'custom-post-type-ui' ),
-						'helptext'      => esc_attr__( 'Post type label. Used in the admin menu for displaying post types.', 'custom-post-type-ui' ),
+						'helptext'      => esc_attr__( 'Used when there are no posts to display on the post type list screen.', 'custom-post-type-ui' ),
 						'namearray'     => 'cpt_labels',
 						'name'          => 'not_found',
 						'textvalue'     => ( isset( $current['labels']['not_found'] ) ) ? esc_attr( $current['labels']['not_found'] ) : '',
@@ -436,7 +436,7 @@ function cptui_manage_post_types() {
 
 					echo $ui->get_text_input( array(
 						'labeltext'     => __( 'Not Found in Trash', 'custom-post-type-ui' ),
-						'helptext'      => esc_attr__( 'Post type label. Used in the admin menu for displaying post types.', 'custom-post-type-ui' ),
+						'helptext'      => esc_attr__( 'Used when there are no posts to display on the post type list trash screen.', 'custom-post-type-ui' ),
 						'namearray'     => 'cpt_labels',
 						'name'          => 'not_found_in_trash',
 						'textvalue'     => ( isset( $current['labels']['not_found_in_trash'] ) ) ? esc_attr( $current['labels']['not_found_in_trash'] ) : '',
@@ -454,7 +454,7 @@ function cptui_manage_post_types() {
 
 					echo $ui->get_text_input( array(
 						'labeltext' => __( 'Featured Image', 'custom-post-type-ui' ),
-						'helptext'  => esc_attr__( 'Post type label. Overrides the "Featured Image" phrase for this post type.', 'custom-post-type-ui' ),
+						'helptext'  => esc_attr__( 'Used as the "Featured Image" phrase for the post type.', 'custom-post-type-ui' ),
 						'namearray' => 'cpt_labels',
 						'name'      => 'featured_image',
 						'textvalue' => ( isset( $current['labels']['featured_image'] ) ) ? esc_attr( $current['labels']['featured_image'] ) : '',
@@ -463,7 +463,7 @@ function cptui_manage_post_types() {
 
 					echo $ui->get_text_input( array(
 						'labeltext' => __( 'Set Featured Image', 'custom-post-type-ui' ),
-						'helptext'  => esc_attr__( 'Post type label. Overrides the "Set featured image" phrase for this post type.', 'custom-post-type-ui' ),
+						'helptext'  => esc_attr__( 'Used as the "Set featured image" phrase for the post type.', 'custom-post-type-ui' ),
 						'namearray' => 'cpt_labels',
 						'name'      => 'set_featured_image',
 						'textvalue' => ( isset( $current['labels']['set_featured_image'] ) ) ? esc_attr( $current['labels']['set_featured_image'] ) : '',
@@ -472,7 +472,7 @@ function cptui_manage_post_types() {
 
 					echo $ui->get_text_input( array(
 						'labeltext' => __( 'Remove Featured Image', 'custom-post-type-ui' ),
-						'helptext'  => esc_attr__( 'Post type label. Overrides the "Remove featured image" phrase for this post type.', 'custom-post-type-ui' ),
+						'helptext'  => esc_attr__( 'Used as the "Remove featured image" phrase for the post type.', 'custom-post-type-ui' ),
 						'namearray' => 'cpt_labels',
 						'name'      => 'remove_featured_image',
 						'textvalue' => ( isset( $current['labels']['remove_featured_image'] ) ) ? esc_attr( $current['labels']['remove_featured_image'] ) : '',
@@ -481,7 +481,7 @@ function cptui_manage_post_types() {
 
 					echo $ui->get_text_input( array(
 						'labeltext' => __( 'Use Featured Image', 'custom-post-type-ui' ),
-						'helptext'  => esc_attr__( 'Post type label. Overrides the "Use as featured image" phrase for this post type.', 'custom-post-type-ui' ),
+						'helptext'  => esc_attr__( 'Used as the "Use as featured image" phrase for the post type.', 'custom-post-type-ui' ),
 						'namearray' => 'cpt_labels',
 						'name'      => 'use_featured_image',
 						'textvalue' => ( isset( $current['labels']['use_featured_image'] ) ) ? esc_attr( $current['labels']['use_featured_image'] ) : '',
@@ -490,7 +490,7 @@ function cptui_manage_post_types() {
 
 					echo $ui->get_text_input( array(
 						'labeltext' => __( 'Archives', 'custom-post-type-ui' ),
-						'helptext'  => esc_attr__( 'Post type label. Post type archive label used in nav menus.', 'custom-post-type-ui' ),
+						'helptext'  => esc_attr__( 'Post type archive label used in nav menus.', 'custom-post-type-ui' ),
 						'namearray' => 'cpt_labels',
 						'name'      => 'archives',
 						'textvalue' => ( isset( $current['labels']['archives'] ) ) ? esc_attr( $current['labels']['archives'] ) : '',
@@ -499,7 +499,7 @@ function cptui_manage_post_types() {
 
 					echo $ui->get_text_input( array(
 						'labeltext' => __( 'Insert into item', 'custom-post-type-ui' ),
-						'helptext'  => esc_attr__( 'Post type label. Overrides the "Insert into post" or "Insert into page" phrase for this post type.', 'custom-post-type-ui' ),
+						'helptext'  => esc_attr__( 'Used as the "Insert into post" or "Insert into page" phrase for the post type.', 'custom-post-type-ui' ),
 						'namearray' => 'cpt_labels',
 						'name'      => 'insert_into_item',
 						'textvalue' => ( isset( $current['labels']['insert_into_item'] ) ) ? esc_attr( $current['labels']['insert_into_item'] ) : '',
@@ -508,7 +508,7 @@ function cptui_manage_post_types() {
 
 					echo $ui->get_text_input( array(
 						'labeltext' => __( 'Uploaded to this Item', 'custom-post-type-ui' ),
-						'helptext'  => esc_attr__( 'Post type label. Overrides the "Uploaded to this post" or "Uploaded to this page" phrase for this post type.', 'custom-post-type-ui' ),
+						'helptext'  => esc_attr__( 'Used as the "Uploaded to this post" or "Uploaded to this page" phrase for the post type.', 'custom-post-type-ui' ),
 						'namearray' => 'cpt_labels',
 						'name'      => 'uploaded_to_this_item',
 						'textvalue' => ( isset( $current['labels']['uploaded_to_this_item'] ) ) ? esc_attr( $current['labels']['uploaded_to_this_item'] ) : '',
@@ -517,7 +517,7 @@ function cptui_manage_post_types() {
 
 					echo $ui->get_text_input( array(
 						'labeltext' => __( 'Filter Items List', 'custom-post-type-ui' ),
-						'helptext'  => esc_attr__( 'Post type label. Screen reader text for the filter links heading on the post type listing screen.', 'custom-post-type-ui' ),
+						'helptext'  => esc_attr__( 'Screen reader text for the filter links heading on the post type listing screen.', 'custom-post-type-ui' ),
 						'namearray' => 'cpt_labels',
 						'name'      => 'filter_items_list',
 						'textvalue' => ( isset( $current['labels']['filter_items_list'] ) ) ? esc_attr( $current['labels']['filter_items_list'] ) : '',
@@ -526,7 +526,7 @@ function cptui_manage_post_types() {
 
 					echo $ui->get_text_input( array(
 						'labeltext' => __( 'Items List Navigation', 'custom-post-type-ui' ),
-						'helptext'  => esc_attr__( 'Post type label. Screen reader text for the pagination heading on the post type listing screen.', 'custom-post-type-ui' ),
+						'helptext'  => esc_attr__( 'Screen reader text for the pagination heading on the post type listing screen.', 'custom-post-type-ui' ),
 						'namearray' => 'cpt_labels',
 						'name'      => 'items_list_navigation',
 						'textvalue' => ( isset( $current['labels']['items_list_navigation'] ) ) ? esc_attr( $current['labels']['items_list_navigation'] ) : '',
@@ -535,7 +535,7 @@ function cptui_manage_post_types() {
 
 					echo $ui->get_text_input( array(
 						'labeltext' => __( 'Items List', 'custom-post-type-ui' ),
-						'helptext'  => esc_attr__( 'Post type label. Screen reader text for the items list heading on the post type listing screen.', 'custom-post-type-ui' ),
+						'helptext'  => esc_attr__( 'Screen reader text for the items list heading on the post type listing screen.', 'custom-post-type-ui' ),
 						'namearray' => 'cpt_labels',
 						'name'      => 'items_list',
 						'textvalue' => ( isset( $current['labels']['items_list'] ) ) ? esc_attr( $current['labels']['items_list'] ) : '',
