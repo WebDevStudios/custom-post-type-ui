@@ -193,8 +193,7 @@ function cptui_manage_taxonomies() {
         do_action( 'cptui_below_taxonomy_select', $current['name'] );
 	} ?>
 
-
-	<form method="post">
+	<form method="post"  action="<?php echo $_SERVER['PHP_SELF']; ?>">
 		<div class="cptui-section">
 			<?php echo $ui->get_fieldset_start();
 				echo $ui->get_legend_start();
@@ -348,7 +347,7 @@ function cptui_manage_taxonomies() {
 						'textvalue'     => ( isset( $current['label'] ) ) ? esc_attr( $current['label'] ) : '',
 						'aftertext'     => __( '(e.g. Actors)', 'custom-post-type-ui' ),
 						'labeltext'     => __( 'Plural Label', 'custom-post-type-ui' ),
-						'helptext'      => esc_attr__( 'Taxonomy label. Used in the admin menu for displaying custom taxonomy.', 'custom-post-type-ui'),
+						'helptext'      => esc_attr__( 'Used for the taxonomy admin menu item.', 'custom-post-type-ui'),
 					) );
 
 					echo $ui->get_text_input( array(
@@ -357,7 +356,7 @@ function cptui_manage_taxonomies() {
 						'textvalue'     => ( isset( $current['singular_label'] ) ) ? esc_attr( $current['singular_label'] ) : '',
 						'aftertext'     => __( '(e.g. Actor)', 'custom-post-type-ui' ),
 						'labeltext'     => __( 'Singular Label', 'custom-post-type-ui' ),
-						'helptext'      => esc_attr__( 'Taxonomy Singular label.  Used in WordPress when a singular label is needed.', 'custom-post-type-ui'),
+						'helptext'      => esc_attr__( 'Used when a singular label is needed.', 'custom-post-type-ui'),
 					) );
 
 					if ( isset( $current['description'] ) ) {
@@ -370,7 +369,7 @@ function cptui_manage_taxonomies() {
 						'cols'      => '40',
 						'textvalue' => ( isset( $current['description'] ) ) ? esc_textarea( $current['description'] ) : '',
 						'labeltext' => __( 'Description', 'custom-post-type-ui' ),
-						'helptext'  => esc_attr__( 'Taxonomy Description. Describe what your taxonomy is used for.', 'custom-post-type-ui' )
+						'helptext'  => esc_attr__( 'Describe what your taxonomy is used for.', 'custom-post-type-ui' )
 					) );
 
 					echo $ui->get_text_input( array(
@@ -379,7 +378,7 @@ function cptui_manage_taxonomies() {
 						'textvalue'     => ( isset( $current['labels']['menu_name'] ) ) ? esc_attr( $current['labels']['menu_name'] ) : '',
 						'aftertext'     => __( '(e.g. Actors)', 'custom-post-type-ui' ),
 						'labeltext'     => __( 'Menu Name', 'custom-post-type-ui' ),
-						'helptext'      => esc_attr__( 'Custom taxonomy label. Used in the admin menu for displaying taxonomies.', 'custom-post-type-ui'),
+						'helptext'      => esc_attr__( 'Custom admin menu name for your taxonomy.', 'custom-post-type-ui'),
 					) );
 
 					echo $ui->get_text_input( array(
@@ -388,7 +387,7 @@ function cptui_manage_taxonomies() {
 						'textvalue'     => ( isset( $current['labels']['all_items'] ) ) ? esc_attr( $current['labels']['all_items'] ) : '',
 						'aftertext'     => __( '(e.g. All Actors)', 'custom-post-type-ui' ),
 						'labeltext'     => __( 'All Items', 'custom-post-type-ui' ),
-						'helptext'      => esc_attr__( 'Custom taxonomy label. Used in the admin menu for displaying taxonomies.', 'custom-post-type-ui'),
+						'helptext'      => esc_attr__( 'Used as tab text when showing all terms for hierarchical taxonomy while editing post.', 'custom-post-type-ui'),
 					) );
 
 					echo $ui->get_text_input( array(
@@ -397,7 +396,7 @@ function cptui_manage_taxonomies() {
 						'textvalue'     => ( isset( $current['labels']['edit_item'] ) ) ? esc_attr( $current['labels']['edit_item'] ) : '',
 						'aftertext'     => __( '(e.g. Edit Actor)', 'custom-post-type-ui' ),
 						'labeltext'     => __( 'Edit Item', 'custom-post-type-ui' ),
-						'helptext'      => esc_attr__( 'Custom taxonomy label. Used in the admin menu for displaying taxonomies.', 'custom-post-type-ui'),
+						'helptext'      => esc_attr__( 'Used at the top of the term editor screen for an existing taxonomy term.', 'custom-post-type-ui'),
 					) );
 
 					echo $ui->get_text_input( array(
@@ -406,7 +405,7 @@ function cptui_manage_taxonomies() {
 						'textvalue'     => ( isset( $current['labels']['view_item'] ) ) ? esc_attr( $current['labels']['view_item'] ) : '',
 						'aftertext'     => __( '(e.g. View Actor)', 'custom-post-type-ui' ),
 						'labeltext'     => __( 'View Item', 'custom-post-type-ui' ),
-						'helptext'      => esc_attr__( 'Custom taxonomy label. Used in the admin menu for displaying taxonomies.', 'custom-post-type-ui'),
+						'helptext'      => esc_attr__( 'Used in the admin bar when viewing editor screen for an existing taxonomy term.', 'custom-post-type-ui'),
 					) );
 
 					echo $ui->get_text_input( array(
@@ -424,7 +423,7 @@ function cptui_manage_taxonomies() {
 						'textvalue'     => ( isset( $current['labels']['add_new_item'] ) ) ? esc_attr( $current['labels']['add_new_item'] ) : '',
 						'aftertext'     => __( '(e.g. Add New Actor)', 'custom-post-type-ui' ),
 						'labeltext'     => __( 'Add New Item', 'custom-post-type-ui' ),
-						'helptext'      => esc_attr__( 'Custom taxonomy label. Used in the admin menu for displaying taxonomies.', 'custom-post-type-ui'),
+						'helptext'      => esc_attr__( 'Used at the top of the term editor screen and button text for a new taxonomy term.', 'custom-post-type-ui'),
 					) );
 
 					echo $ui->get_text_input( array(
@@ -514,7 +513,7 @@ function cptui_manage_taxonomies() {
 						'textvalue' => ( isset( $current['labels']['no_terms'] ) ) ? esc_attr( $current['labels']['no_terms'] ) : null,
 						'aftertext' => __( '(e.g. No actors)', 'custom-post-type-ui' ),
 						'labeltext' => __( 'No terms', 'custom-post-type-ui' ),
-						'helptext'  => esc_attr__( 'Custom taxonomy label. Used when indicating that there are no terms in the given taxonomy associated with an object.', 'custom-post-type-ui' ),
+						'helptext'  => esc_attr__( 'Used when indicating that there are no terms in the given taxonomy associated with an object.', 'custom-post-type-ui' ),
 					) );
 
 					echo $ui->get_text_input( array(
@@ -523,7 +522,7 @@ function cptui_manage_taxonomies() {
 						'textvalue' => ( isset( $current['labels']['items_list_navigation'] ) ) ? esc_attr( $current['labels']['items_list_navigation'] ) : null,
 						'aftertext' => __( '(e.g. Actors list navigation)', 'custom-post-type-ui' ),
 						'labeltext' => __( 'Items List Navigation', 'custom-post-type-ui' ),
-						'helptext'  => esc_attr__( 'Custom taxonomy label. Screen reader text for the pagination heading on the term listing screen.', 'custom-post-type-ui' ),
+						'helptext'  => esc_attr__( 'Screen reader text for the pagination heading on the term listing screen.', 'custom-post-type-ui' ),
 					) );
 
 					echo $ui->get_text_input( array(
@@ -532,7 +531,7 @@ function cptui_manage_taxonomies() {
 						'textvalue' => ( isset( $current['labels']['items_list'] ) ) ? esc_attr( $current['labels']['items_list'] ) : null,
 						'aftertext' => __( '(e.g. Actors list)', 'custom-post-type-ui' ),
 						'labeltext' => __( 'Items List', 'custom-post-type-ui' ),
-						'helptext'  => esc_attr__( 'Custom taxonomy label. Screen reader text for the items list heading on the term listing screen.', 'custom-post-type-ui' ),
+						'helptext'  => esc_attr__( 'Screen reader text for the items list heading on the term listing screen.', 'custom-post-type-ui' ),
 					) );
 				?>
 			</table>
