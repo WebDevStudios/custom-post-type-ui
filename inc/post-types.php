@@ -1546,15 +1546,3 @@ function cptui_check_page_slugs( $post_type_slug = '' ) {
 
 	return false;
 }
-
-/**
- * Filters CPTUI post form action.
- *
- * @since 1.3.0
- *
- * @param array $data CPTUI data object.
- * @return string The post form action.
- */
-function cptui_post_form_action( $data = array() ) {
-	return apply_filters( 'cptui_post_form_action', '', $data );
-}
