@@ -294,3 +294,25 @@ function cptui_admin_url( $path ) {
 
 	return admin_url( $path );
 }
+
+/**
+ * Construct action tag for `<form>` tag.
+ *
+ * @since 1.3.0
+ *
+ * @return string
+ */
+function cptui_get_post_form_action() {
+	$action = apply_filters( 'cptui_post_form_action', '' );
+
+	return sprintf( 'action="%s"', $action );
+}
+
+/**
+ * Display action tag for `<form>` tag.
+ *
+ * @since 1.3.0
+ */
+function cptui_post_form_action() {
+	echo cptui_get_post_form_action();
+}
