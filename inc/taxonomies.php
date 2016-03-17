@@ -913,13 +913,15 @@ function cptui_delete_taxonomy( $data = array() ) {
 	 */
 	do_action( 'cptui_before_delete_taxonomy', $data );
 
-	$taxonomies = get_option( 'cptui_taxonomies' );
+	$taxonomies = apply_filters( 'cptui_delete_taxonomy_data', get_option( 'cptui_taxonomies' ), get_current_blog_id() );
 
 	if ( array_key_exists( strtolower( $data['cpt_custom_tax']['name'] ), $taxonomies ) ) {
 
 		unset( $taxonomies[ $data['cpt_custom_tax']['name'] ] );
 
-		$success = update_option( 'cptui_taxonomies', $taxonomies );
+		if ( false === ( $success = apply_filters( 'cptui_taxonomy_delete_tax', false, $taxonomies, $data ) ) ) {
+			$success = update_option( 'cptui_taxonomies', $taxonomies );
+		}
 	}
 
 	/**
