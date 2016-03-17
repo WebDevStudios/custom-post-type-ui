@@ -192,7 +192,7 @@ function cptui_manage_post_types() {
 		do_action( 'cptui_below_post_type_select', $current['name'] );
 	} ?>
 
-	<form method="post">
+	<form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
 		<div class="cptui-section">
 			<?php echo $ui->get_fieldset_start();
 				echo $ui->get_legend_start();

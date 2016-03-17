@@ -193,8 +193,7 @@ function cptui_manage_taxonomies() {
         do_action( 'cptui_below_taxonomy_select', $current['name'] );
 	} ?>
 
-
-	<form method="post">
+	<form method="post"  action="<?php echo $_SERVER['PHP_SELF']; ?>">
 		<div class="cptui-section">
 			<?php echo $ui->get_fieldset_start();
 				echo $ui->get_legend_start();
