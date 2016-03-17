@@ -150,7 +150,7 @@ function cptui_manage_post_types() {
 
 	if ( 'edit' == $tab ) {
 
-		$post_types = get_option( 'cptui_post_types' );
+		$post_types = apply_filters( 'cptui_post_type_dropdown_switch_data', get_option( 'cptui_post_types' ), get_current_blog_id() );
 
 		$selected_post_type = cptui_get_current_post_type( $post_type_deleted );
 

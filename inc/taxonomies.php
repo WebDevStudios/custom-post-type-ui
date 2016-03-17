@@ -151,7 +151,7 @@ function cptui_manage_taxonomies() {
 
 	if ( 'edit' == $tab ) {
 
-		$taxonomies = get_option( 'cptui_taxonomies' );
+		$taxonomies = apply_filters( 'cptui_taxonomy_dropdown_switch_data', get_option( 'cptui_taxonomies' ), get_current_blog_id() );
 
 		$selected_taxonomy = cptui_get_current_taxonomy( $taxonomy_deleted );
 
