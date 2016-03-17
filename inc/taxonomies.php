@@ -166,7 +166,7 @@ function cptui_manage_taxonomies() {
 
 	// Will only be set if we're already on the edit screen.
 	if ( !empty( $taxonomies ) ) { ?>
-		<form id="cptui_select_taxonomy" method="post">
+		<form id="cptui_select_taxonomy" method="post" action="<?php echo esc_url( cptui_get_post_form_action( $ui ) ); ?>">
 			<label for="taxonomy"><?php _e( 'Select: ', 'custom-post-type-ui' ); ?></label>
 			<?php
 			cptui_taxonomies_dropdown( $taxonomies );
@@ -193,7 +193,7 @@ function cptui_manage_taxonomies() {
         do_action( 'cptui_below_taxonomy_select', $current['name'] );
 	} ?>
 
-	<form method="post"  action="<?php echo $_SERVER['PHP_SELF']; ?>">
+	<form method="post" action="<?php echo esc_url( cptui_get_post_form_action( $ui ) ); ?>">
 		<div class="cptui-section">
 			<?php echo $ui->get_fieldset_start();
 				echo $ui->get_legend_start();
