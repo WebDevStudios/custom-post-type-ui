@@ -1064,8 +1064,8 @@ function cptui_update_taxonomy( $data = array() ) {
 	 * @since 1.3.0
 	 *
 	 * @param bool  $value      Whether or not someone else saved successfully. Default false.
-	 * @param array $taxonomies Array of our updated post types data.
-	 * @param array $data       Array of submitted post type to update.
+	 * @param array $taxonomies Array of our updated taxonomies data.
+	 * @param array $data       Array of submitted taxonomy to update.
 	 */
 	if ( false === ( $success = apply_filters( 'cptui_taxonomy_update_save', false, $taxonomies, $data ) ) ) {
 		$success = update_option( 'cptui_taxonomies', $taxonomies );
