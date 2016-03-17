@@ -300,10 +300,11 @@ function cptui_admin_url( $path ) {
  *
  * @since 1.3.0
  *
+ * @param array $data Data to work with.
  * @return string
  */
-function cptui_get_post_form_action() {
-	$action = apply_filters( 'cptui_post_form_action', '' );
+function cptui_get_post_form_action( $data = array() ) {
+	$action = apply_filters( 'cptui_post_form_action', '', $data );
 
 	return sprintf( 'action="%s"', $action );
 }
@@ -312,7 +313,9 @@ function cptui_get_post_form_action() {
  * Display action tag for `<form>` tag.
  *
  * @since 1.3.0
+ *
+ * @param array $data Data to work with.
  */
-function cptui_post_form_action() {
-	echo cptui_get_post_form_action();
+function cptui_post_form_action( $data ) {
+	echo cptui_get_post_form_action( $data );
 }
