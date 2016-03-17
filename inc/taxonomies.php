@@ -1058,7 +1058,16 @@ function cptui_update_taxonomy( $data = array() ) {
 
 	$taxonomies[ $data['cpt_custom_tax']['name'] ]['object_types'] = $data['cpt_post_types'];
 
-	if ( false === ( $success = apply_filters( 'cptui_taxonomy_update_save', false, $taxonomies ) ) ) {
+	/**
+	 * Filters whether or not 3rd party options were saved successfully.
+	 *
+	 * @since 1.3.0
+	 *
+	 * @param bool  $value      Whether or not someone else saved successfully. Default false.
+	 * @param array $taxonomies Array of our updated post types data.
+	 * @param array $data       Array of submitted post type to update.
+	 */
+	if ( false === ( $success = apply_filters( 'cptui_taxonomy_update_save', false, $taxonomies, $data ) ) ) {
 		$success = update_option( 'cptui_taxonomies', $taxonomies );
 	}
 
