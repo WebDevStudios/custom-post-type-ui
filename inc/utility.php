@@ -278,3 +278,19 @@ function cptui_get_taxonomy_slugs() {
 	}
 	return array();
 }
+
+/**
+ * Return the appropriate admin URL depending on our context.
+ *
+ * @since 1.3.0
+ *
+ * @param $path
+ * @return string|void
+ */
+function cptui_admin_url( $path ) {
+	if ( is_multisite() && is_network_admin() ) {
+		return network_admin_url( $path );
+	}
+
+	return admin_url( $path );
+}
