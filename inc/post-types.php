@@ -1150,30 +1150,33 @@ function cptui_post_types_dropdown( $post_types = array() ) {
  * @return bool|string $value False on no result, sanitized post type if set.
  */
 function cptui_get_current_post_type( $post_type_deleted = false ) {
+
+	$type = false;
+
 	if ( ! empty( $_POST ) ) {
 		if ( isset( $_POST['cptui_selected_post_type']['post_type'] ) ) {
-			return sanitize_text_field( $_POST['cptui_selected_post_type']['post_type'] );
+			$type = sanitize_text_field( $_POST['cptui_selected_post_type']['post_type'] );
 		}
 
 		if ( $post_type_deleted ) {
 			$post_types = get_option( 'cptui_post_types' );
-			return key( $post_types );
+			$type = key( $post_types );
 		}
 
 		if ( isset( $_POST['cpt_custom_post_type']['name'] ) ) {
-			return sanitize_text_field( $_POST['cpt_custom_post_type']['name'] );
+			$type = sanitize_text_field( $_POST['cpt_custom_post_type']['name'] );
 		}
 	} else if ( !empty( $_GET ) && isset( $_GET['cptui_post_type'] ) ) {
-		return sanitize_text_field( $_GET['cptui_post_type'] );
+		$type = sanitize_text_field( $_GET['cptui_post_type'] );
 	} else {
 		$post_types = get_option( 'cptui_post_types' );
 		if ( !empty( $post_types ) ) {
 			// Will return the first array key.
-			return key( $post_types );
+			$type = key( $post_types );
 		}
 	}
 
-	return false;
+	return appy_filters( 'cptui_current_post_type', $type );
 }
 
 /**
