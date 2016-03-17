@@ -300,13 +300,11 @@ function cptui_admin_url( $path ) {
  *
  * @since 1.3.0
  *
- * @param array $data Data to work with.
+ * @param object $ui CPTUI Admin UI instance.
  * @return string
  */
-function cptui_get_post_form_action( $data = array() ) {
-	$action = apply_filters( 'cptui_post_form_action', '', $data );
-
-	return sprintf( 'action="%s"', $action );
+function cptui_get_post_form_action( $ui = array() ) {
+	return apply_filters( 'cptui_post_form_action', '', $ui );
 }
 
 /**
@@ -314,7 +312,7 @@ function cptui_get_post_form_action( $data = array() ) {
  *
  * @since 1.3.0
  *
- * @param array $data Data to work with.
+ * @param object $ui CPTUI Admin UI instance
  */
 function cptui_post_form_action( $data ) {
 	echo cptui_get_post_form_action( $data );
