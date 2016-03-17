@@ -1176,7 +1176,7 @@ function cptui_get_current_post_type( $post_type_deleted = false ) {
 		}
 	}
 
-	return appy_filters( 'cptui_current_post_type', $type );
+	return apply_filters( 'cptui_current_post_type', $type );
 }
 
 /**
