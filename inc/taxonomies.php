@@ -64,7 +64,7 @@ function cptui_taxonomy_tabs( $tabs = array(), $current_page = '' ) {
 		$tabs['tabs']['add'] = array(
 			'text'          => __( 'Add New Taxonomy', 'custom-post-type-ui' ),
 			'classes'       => $classes,
-			'url'           => network_admin_url( 'admin.php?page=cptui_manage_' . $current_page ),
+			'url'           => admin_url( 'admin.php?page=cptui_manage_' . $current_page ),
 			'aria-selected' => 'false'
 		);
 
@@ -82,14 +82,14 @@ function cptui_taxonomy_tabs( $tabs = array(), $current_page = '' ) {
 			$tabs['tabs']['edit'] = array(
 				'text'          => __( 'Edit Taxonomies', 'custom-post-type-ui' ),
 				'classes'       => $classes,
-				'url'           => esc_url( add_query_arg( array( 'action' => 'edit' ), network_admin_url( 'admin.php?page=cptui_manage_' . $current_page ) ) ),
+				'url'           => esc_url( add_query_arg( array( 'action' => 'edit' ), admin_url( 'admin.php?page=cptui_manage_' . $current_page ) ) ),
 				'aria-selected' => ( ! empty( $action ) ) ? 'true' : 'false'
 			);
 
 			$tabs['tabs']['view'] = array(
 				'text'          => __( 'View Taxonomies', 'custom-post-type-ui' ),
 				'classes'       => array( 'nav-tab' ), // Prevent notices.
-				'url'           => esc_url( network_admin_url( 'admin.php?page=cptui_listings#taxonomies' ) ),
+				'url'           => esc_url( admin_url( 'admin.php?page=cptui_listings#taxonomies' ) ),
 				'aria-selected' => 'false'
 			);
 		}

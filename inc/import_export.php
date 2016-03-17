@@ -34,28 +34,28 @@ function cptui_importexport_tabs( $tabs = array(), $current_page = '' ) {
 		$tabs['tabs']['post_types'] = array(
 			'text'          => __( 'Post Types', 'custom-post-type-ui' ),
 			'classes'       => $classes,
-			'url'           => network_admin_url( 'admin.php?page=cptui_' . $current_page ),
+			'url'           => admin_url( 'admin.php?page=cptui_' . $current_page ),
 			'aria-selected' => 'false'
 		);
 
 		$tabs['tabs']['taxonomies'] = array(
 			'text'          => __( 'Taxonomies', 'custom-post-type-ui' ),
 			'classes'       => $classes,
-			'url'           => esc_url( add_query_arg( array( 'action' => 'taxonomies' ), network_admin_url( 'admin.php?page=cptui_' . $current_page ) ) ),
+			'url'           => esc_url( add_query_arg( array( 'action' => 'taxonomies' ), admin_url( 'admin.php?page=cptui_' . $current_page ) ) ),
 			'aria-selected' => 'false'
 		);
 
 		$tabs['tabs']['get_code'] = array(
 			'text'          => __( 'Get Code', 'custom-post-type-ui' ),
 			'classes'       => $classes,
-			'url'           => esc_url( add_query_arg( array( 'action' => 'get_code' ), network_admin_url( 'admin.php?page=cptui_' . $current_page ) ) ),
+			'url'           => esc_url( add_query_arg( array( 'action' => 'get_code' ), admin_url( 'admin.php?page=cptui_' . $current_page ) ) ),
 			'aria-selected' => 'false'
 		);
 
 		$tabs['tabs']['debuginfo'] = array(
 			'text'          => __( 'Debug Info', 'custom-post-type-ui' ),
 			'classes'       => $classes,
-			'url'           => esc_url( add_query_arg( array( 'action' => 'debuginfo' ), network_admin_url( 'admin.php?page=cptui_' . $current_page ) ) ),
+			'url'           => esc_url( add_query_arg( array( 'action' => 'debuginfo' ), admin_url( 'admin.php?page=cptui_' . $current_page ) ) ),
 			'aria-selected' => 'false'
 		);
 
