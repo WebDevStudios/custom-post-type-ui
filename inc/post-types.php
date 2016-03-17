@@ -165,7 +165,7 @@ function cptui_manage_post_types() {
 
 	// Will only be set if we're already on the edit screen.
 	if ( ! empty( $post_types ) ) { ?>
-		<form id="cptui_select_post_type" method="post" action="<?php echo esc_url( cptui_post_form_action( $ui ) ); ?>">
+		<form id="cptui_select_post_type" method="post" action="<?php echo esc_url( cptui_get_post_form_action( $ui ) ); ?>">
 			<label for="post_type"><?php esc_html_e( 'Select: ', 'custom-post-type-ui' ); ?></label>
 			<?php
 			cptui_post_types_dropdown( $post_types );
@@ -192,7 +192,7 @@ function cptui_manage_post_types() {
 		do_action( 'cptui_below_post_type_select', $current['name'] );
 	} ?>
 
-	<form method="post" action="<?php echo esc_url( cptui_post_form_action( $ui ) ); ?>">
+	<form method="post" action="<?php echo esc_url( cptui_get_post_form_action( $ui ) ); ?>">
 		<div class="cptui-section">
 			<?php echo $ui->get_fieldset_start();
 				echo $ui->get_legend_start();
