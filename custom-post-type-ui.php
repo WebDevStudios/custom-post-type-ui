@@ -537,6 +537,9 @@ function cptui_settings_tab_menu( $page = 'post_types' ) {
 	 * Filters the tabs to render on a given page.
 	 *
 	 * @since 1.3.0
+	 *
+	 * @param array  $value Array of tabs to render.
+	 * @param string $page  Current page being displayed.
 	 */
 	$tabs = (array) apply_filters( 'cptui_get_tabs', array(), $page );
 
