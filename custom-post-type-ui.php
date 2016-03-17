@@ -533,6 +533,11 @@ function cptui_register_single_taxonomy( $taxonomy = array() ) {
  */
 function cptui_settings_tab_menu( $page = 'post_types' ) {
 
+	/**
+	 * Filters the tabs to render on a given page.
+	 *
+	 * @since 1.3.0
+	 */
 	$tabs = (array) apply_filters( 'cptui_get_tabs', array(), $page );
 
 	if ( ! empty( $tabs['page_title'] ) ) {
