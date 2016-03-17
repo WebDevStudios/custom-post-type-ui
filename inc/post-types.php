@@ -1387,7 +1387,16 @@ function cptui_update_post_type( $data = array() ) {
 		'custom_supports'       => $custom_supports
 	);
 
-	if ( false === ( $success = apply_filters( 'cptui_post_type_update_save', false, $post_types ) ) ) {
+	/**
+	 * Filters whether or not 3rd party options were saved successfully.
+	 *
+	 * @since 1.3.0
+	 *
+	 * @param bool  $value      Whether or not someone else saved successfully. Default false.
+	 * @param array $post_types Array of our updated post types data.
+	 * @param array $data       Array of submitted post type to update.
+	 */
+	if ( false === ( $success = apply_filters( 'cptui_post_type_update_save', false, $post_types, $data ) ) ) {
 		$success = update_option( 'cptui_post_types', $post_types );
 	}
 
