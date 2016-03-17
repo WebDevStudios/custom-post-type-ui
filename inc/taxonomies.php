@@ -850,30 +850,33 @@ function cptui_taxonomies_dropdown( $taxonomies = array() ) {
  * @return bool|string False on no result, sanitized taxonomy if set.
  */
 function cptui_get_current_taxonomy( $taxonomy_deleted = false ) {
+
+	$tax = false;
+
 	if ( !empty( $_POST ) ) {
 		if ( isset( $_POST['cptui_selected_taxonomy']['taxonomy'] ) ) {
-			return sanitize_text_field( $_POST['cptui_selected_taxonomy']['taxonomy'] );
+			$tax = sanitize_text_field( $_POST['cptui_selected_taxonomy']['taxonomy'] );
 		}
 
 		if ( $taxonomy_deleted ) {
 			$taxonomies = get_option( 'cptui_taxonomies' );
-			return key( $taxonomies );
+			$tax = key( $taxonomies );
 		}
 
 		if ( isset( $_POST['cpt_custom_tax']['name'] ) ) {
-			return sanitize_text_field( $_POST['cpt_custom_tax']['name'] );
+			$tax = sanitize_text_field( $_POST['cpt_custom_tax']['name'] );
 		}
 	} else if ( !empty( $_GET ) && isset( $_GET['cptui_taxonomy'] ) ) {
-		return sanitize_text_field( $_GET['cptui_taxonomy'] );
+		$tax = sanitize_text_field( $_GET['cptui_taxonomy'] );
 	} else {
 		$taxonomies = get_option( 'cptui_taxonomies' );
 		if ( !empty( $taxonomies ) ) {
 			// Will return the first array key.
-			return key( $taxonomies );
+			$tax = key( $taxonomies );
 		}
 	}
 
-	return false;
+	return apply_filters( 'cptui_current_taxonomy', $tax );
 }
 
 /**
