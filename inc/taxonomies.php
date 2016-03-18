@@ -247,6 +247,7 @@ function cptui_manage_taxonomies() {
 
 					/**
 					 * Filters the arguments for post types to list for taxonomy association.
+					 *
 					 * @since 1.0.0
 					 *
 					 * @param array $value Array of default arguments.
@@ -288,6 +289,7 @@ function cptui_manage_taxonomies() {
 
 					/**
 					 * Filters the text value to use on the button when editing.
+					 *
 					 * @since 1.0.0
 					 *
 					 * @param string $value Text to use for the button.
@@ -298,6 +300,7 @@ function cptui_manage_taxonomies() {
 
 					/**
 					 * Filters the text value to use on the button when deleting.
+					 *
 					 * @since 1.0.0
 					 *
 					 * @param string $value Text to use for the button.
@@ -309,6 +312,7 @@ function cptui_manage_taxonomies() {
 
 					/**
 					 * Filters the text value to use on the button when adding.
+					 *
 					 * @since 1.0.0
 					 *
 					 * @param string $value Text to use for the button.
@@ -765,6 +769,7 @@ function cptui_manage_taxonomies() {
 
 				/**
 				 * Filters the text value to use on the button when editing.
+				 *
 				 * @since 1.0.0
 				 *
 				 * @param string $value Text to use for the button.
@@ -775,6 +780,7 @@ function cptui_manage_taxonomies() {
 
 				/**
 				 * Filters the text value to use on the button when deleting.
+				 *
 				 * @since 1.0.0
 				 *
 				 * @param string $value Text to use for the button.
@@ -786,6 +792,7 @@ function cptui_manage_taxonomies() {
 
 				/**
 				 * Filters the text value to use on the button when adding.
+				 *
 				 * @since 1.0.0
 				 *
 				 * @param string $value Text to use for the button.
@@ -876,6 +883,13 @@ function cptui_get_current_taxonomy( $taxonomy_deleted = false ) {
 		}
 	}
 
+	/**
+	 * Filters the current taxonomy to edit.
+	 *
+	 * @since 1.3.0
+	 *
+	 * @param string $tax Taxonomy slug.
+	 */
 	return apply_filters( 'cptui_current_taxonomy', $tax );
 }
 
@@ -913,12 +927,21 @@ function cptui_delete_taxonomy( $data = array() ) {
 	 */
 	do_action( 'cptui_before_delete_taxonomy', $data );
 
-	$taxonomies = apply_filters( 'cptui_delete_taxonomy_data', get_option( 'cptui_taxonomies' ), get_current_blog_id() );
+	$taxonomies = cptui_get_taxonomies_option();
 
 	if ( array_key_exists( strtolower( $data['cpt_custom_tax']['name'] ), $taxonomies ) ) {
 
 		unset( $taxonomies[ $data['cpt_custom_tax']['name'] ] );
 
+		/**
+		 * Filters whether or not 3rd party options were saved successfully within taxonomy deletion.
+		 *
+		 * @since 1.3.0
+		 *
+		 * @param bool  $value      Whether or not someone else saved successfully. Default false.
+		 * @param array $taxonomies Array of our updated taxonomies data.
+		 * @param array $data       Array of submitted taxonomy to update.
+		 */
 		if ( false === ( $success = apply_filters( 'cptui_taxonomy_delete_tax', false, $taxonomies, $data ) ) ) {
 			$success = update_option( 'cptui_taxonomies', $taxonomies );
 		}
@@ -998,6 +1021,7 @@ function cptui_update_taxonomy( $data = array() ) {
 
 	/**
 	 * Check if we already have a post type of that name.
+	 *
 	 * @since 1.3.0
 	 *
 	 * @param bool   $value      Assume we have no conflict by default.
@@ -1064,7 +1088,7 @@ function cptui_update_taxonomy( $data = array() ) {
 	$taxonomies[ $data['cpt_custom_tax']['name'] ]['object_types'] = $data['cpt_post_types'];
 
 	/**
-	 * Filters whether or not 3rd party options were saved successfully.
+	 * Filters whether or not 3rd party options were saved successfully within taxonomy add/update.
 	 *
 	 * @since 1.3.0
 	 *
@@ -1191,6 +1215,7 @@ function cptui_reserved_taxonomies() {
 	/**
 	 * Filters the list of reserved post types to check against.
 	 * 3rd party plugin authors could use this to prevent duplicate post types.
+	 *
 	 * @since 1.0.0
 	 *
 	 * @param array $value Array of post type slugs to forbid.
