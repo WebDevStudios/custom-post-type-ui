@@ -304,6 +304,11 @@ function cptui_admin_url( $path ) {
  * @return string
  */
 function cptui_get_post_form_action( $ui = '' ) {
+	/**
+	 * Filters the string to be used in an `action=""` attribute.
+	 *
+	 * @since 1.3.0
+	 */
 	return apply_filters( 'cptui_post_form_action', '', $ui );
 }
 
