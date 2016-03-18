@@ -55,7 +55,7 @@ add_action( 'admin_enqueue_scripts', 'cptui_taxonomies_enqueue_scripts' );
 function cptui_taxonomy_tabs( $tabs = array(), $current_page = '' ) {
 
 	if ( 'taxonomies' == $current_page ) {
-		$taxonomies = get_option( 'cptui_taxonomies' );
+		$taxonomies = cptui_get_taxonomy_data();
 		$classes    = array( 'nav-tab' );
 
 		$tabs['page_title'] = __( 'Manage Taxonomies', 'custom-post-type-ui' );
@@ -151,7 +151,7 @@ function cptui_manage_taxonomies() {
 
 	if ( 'edit' == $tab ) {
 
-		$taxonomies = apply_filters( 'cptui_taxonomy_dropdown_switch_data', get_option( 'cptui_taxonomies' ), get_current_blog_id() );
+		$taxonomies = cptui_get_taxonomy_data();
 
 		$selected_taxonomy = cptui_get_current_taxonomy( $taxonomy_deleted );
 
@@ -866,7 +866,7 @@ function cptui_get_current_taxonomy( $taxonomy_deleted = false ) {
 		}
 
 		if ( $taxonomy_deleted ) {
-			$taxonomies = get_option( 'cptui_taxonomies' );
+			$taxonomies = cptui_get_taxonomy_data();
 			$tax = key( $taxonomies );
 		}
 
@@ -876,7 +876,7 @@ function cptui_get_current_taxonomy( $taxonomy_deleted = false ) {
 	} else if ( !empty( $_GET ) && isset( $_GET['cptui_taxonomy'] ) ) {
 		$tax = sanitize_text_field( $_GET['cptui_taxonomy'] );
 	} else {
-		$taxonomies = get_option( 'cptui_taxonomies' );
+		$taxonomies = cptui_get_taxonomy_data();
 		if ( !empty( $taxonomies ) ) {
 			// Will return the first array key.
 			$tax = key( $taxonomies );
@@ -927,7 +927,7 @@ function cptui_delete_taxonomy( $data = array() ) {
 	 */
 	do_action( 'cptui_before_delete_taxonomy', $data );
 
-	$taxonomies = cptui_get_taxonomies_option();
+	$taxonomies = cptui_get_taxonomy_data();
 
 	if ( array_key_exists( strtolower( $data['cpt_custom_tax']['name'] ), $taxonomies ) ) {
 
@@ -1017,7 +1017,7 @@ function cptui_update_taxonomy( $data = array() ) {
 		return cptui_admin_notices(	'error', '', false, __( 'Please do not use quotes in taxonomy names or rewrite slugs', 'custom-post-type-ui' ) );
 	}
 
-	$taxonomies = get_option( 'cptui_taxonomies', array() );
+	$taxonomies = cptui_get_taxonomy_data();
 
 	/**
 	 * Check if we already have a post type of that name.
