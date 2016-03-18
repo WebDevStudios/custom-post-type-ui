@@ -34,7 +34,7 @@ function cptui_listings() {
 
 			<h1><?php esc_html_e( 'Post Types and Taxonomies registered by Custom Post Type UI.', 'custom-post-type-ui' ); ?></h1>
 			<?php
-			$post_types = get_option( 'cptui_post_types' );
+			$post_types = cptui_get_post_type_data();
 			echo '<h2 id="post-types">' . esc_html__( 'Post Types', 'custom-post-type-ui' ) . '</h2>';
 			if ( ! empty( $post_types ) ) {
 			?>
@@ -198,7 +198,7 @@ function cptui_listings() {
 				do_action( 'cptui_no_post_types_listing' );
 			}
 
-			$taxonomies = get_option( 'cptui_taxonomies' );
+			$taxonomies = cptui_get_taxonomy_data( 'cptui_taxonomies' );
 			echo '<h2 id="taxonomies">' . esc_html__( 'Taxonomies', 'custom-post-type-ui' ) . '</h2>';
 			if ( ! empty( $taxonomies ) ) {
 				?>
