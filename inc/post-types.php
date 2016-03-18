@@ -1070,6 +1070,7 @@ function cptui_manage_post_types() {
 			if ( ! empty( $_GET ) && ! empty( $_GET['action'] ) && 'edit' == $_GET['action'] ) {
 				/**
 				 * Filters the text value to use on the button when editing.
+				 *
 				 * @since 1.0.0
 				 *
 				 * @param string $value Text to use for the button.
@@ -1080,6 +1081,7 @@ function cptui_manage_post_types() {
 
 				/**
 				 * Filters the text value to use on the button when deleting.
+				 *
 				 * @since 1.0.0
 				 *
 				 * @param string $value Text to use for the button.
@@ -1091,6 +1093,7 @@ function cptui_manage_post_types() {
 
 				/**
 				 * Filters the text value to use on the button when adding.
+				 *
 				 * @since 1.0.0
 				 *
 				 * @param string $value Text to use for the button.
@@ -1169,13 +1172,20 @@ function cptui_get_current_post_type( $post_type_deleted = false ) {
 	} else if ( !empty( $_GET ) && isset( $_GET['cptui_post_type'] ) ) {
 		$type = sanitize_text_field( $_GET['cptui_post_type'] );
 	} else {
-		$post_types = get_option( 'cptui_post_types' );
+		$post_types = cptui_get_post_types_option();
 		if ( !empty( $post_types ) ) {
 			// Will return the first array key.
 			$type = key( $post_types );
 		}
 	}
 
+	/**
+	 * Filters the current post type to edit.
+	 *
+	 * @since 1.3.0
+	 *
+	 * @param string $type Post type slug.
+	 */
 	return apply_filters( 'cptui_current_post_type', $type );
 }
 
@@ -1219,6 +1229,15 @@ function cptui_delete_post_type( $data = array() ) {
 
 		unset( $post_types[ $data['cpt_custom_post_type']['name'] ] );
 
+		/**
+		 * Filters whether or not 3rd party options were saved successfully within post type deletion.
+		 *
+		 * @since 1.3.0
+		 *
+		 * @param bool  $value      Whether or not someone else saved successfully. Default false.
+		 * @param array $post_types Array of our updated post types data.
+		 * @param array $data       Array of submitted post type to update.
+		 */
 		if ( false === ( $success = apply_filters( 'cptui_post_type_delete_type', false, $post_types, $data ) ) ) {
 			$success = update_option( 'cptui_post_types', $post_types );
 		}
@@ -1393,7 +1412,7 @@ function cptui_update_post_type( $data = array() ) {
 	);
 
 	/**
-	 * Filters whether or not 3rd party options were saved successfully.
+	 * Filters whether or not 3rd party options were saved successfully within post type add/update.
 	 *
 	 * @since 1.3.0
 	 *
