@@ -566,6 +566,8 @@ function cptui_settings_tab_menu( $page = 'post_types' ) {
 /**
  * Convert our old settings to the new options keys.
  *
+ * These are left with standard get_option/update_option function calls for legacy and pending update purposes.
+ *
  * @since 1.0.0
  *
  * @internal
