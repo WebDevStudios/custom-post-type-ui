@@ -319,6 +319,72 @@ function cptui_get_post_form_action( $ui = '' ) {
  *
  * @param object $ui CPTUI Admin UI instance
  */
-function cptui_post_form_action( $data ) {
-	echo cptui_get_post_form_action( $data );
+function cptui_post_form_action( $ui ) {
+	echo cptui_get_post_form_action( $ui );
+}
+
+/**
+ * Returns the CPTUI post types option.
+ *
+ * @since 1.3.0
+ *
+ * @return mixed|void
+ */
+function cptui_get_post_types_option() {
+	return apply_filters( 'cptui_get_post_types_option', get_option( 'cptui_post_types', array() ), get_current_blog_id() );
+}
+
+/**
+ * Returns the CPTUI taxonomies option.
+ *
+ * @since 1.3.0
+ *
+ * @return mixed|void
+ */
+function cptui_get_taxonomies_option() {
+	return apply_filters( 'cptui_get_taxonomies_option', get_option( 'cptui_taxonomies', array() ), get_current_blog_id() );
+}
+
+/**
+ * Deletes the CPTUI post types option.
+ *
+ * @since 1.3.0
+ *
+ * @return mixed|void
+ */
+function cptui_delete_post_types_option() {
+	return apply_filters( 'cptui_delete_post_types_option', delete_option( 'cptui_post_types' ), get_current_blog_id() );
+}
+
+/**
+ * Deletes the CPTUI taxonomies option.
+ *
+ * @since 1.3.0
+ *
+ * @return mixed|void
+ */
+function cptui_delete_taxonomies_option() {
+	return apply_filters( 'cptui_delete_taxonomies_option', delete_option( 'cptui_taxonomies' ), get_current_blog_id() );
+}
+
+/**
+ * Updates the CPTUI post types option.
+ *
+ * @param array $post_types Array of post types to save.
+ *
+ * @return mixed|void
+ */
+function cptui_update_post_types_option( $post_types = array() ) {
+	return apply_filters( 'cptui_update_post_types_option', update_option( 'cptui_post_types', $post_types ), get_current_blog_id() );
+}
+
+/**
+ * Updates the CPTUI taxonomies option.
+ *
+ * @param array $taxonomies Array of taxonomies to save.
+ *
+ * @return mixed|void
+ */
+function cptui_update_taxonomies_option( $taxonomies = array() ) {
+	return apply_filters( 'cptui_update_taxonomies_option', update_option( 'cptui_taxonomies', $taxonomies ), get_current_blog_id() );
 }
