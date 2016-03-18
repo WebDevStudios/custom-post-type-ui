@@ -300,10 +300,10 @@ function cptui_admin_url( $path ) {
  *
  * @since 1.3.0
  *
- * @param object $ui CPTUI Admin UI instance.
+ * @param object|string $ui CPTUI Admin UI instance.
  * @return string
  */
-function cptui_get_post_form_action( $ui = array() ) {
+function cptui_get_post_form_action( $ui = '' ) {
 	return apply_filters( 'cptui_post_form_action', '', $ui );
 }
 
