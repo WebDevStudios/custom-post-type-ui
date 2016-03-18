@@ -94,7 +94,9 @@
 		$('#settings_expand').toggleClass('toggledclosed');
 	});
 	$('#labels_expand,#settings_expand').on('focus',function(e) {
-		$(this).toggleClass('toggledclosed');
+		if ( $(this).hasClass('toggledclosed') ) {
+			$(this).toggleClass('toggledclosed');
+		}
 	});
 	$('#labels_expand legend,#settings_expand legend').on('click',function(e){
 		$(this).parent().toggleClass('toggledclosed');
