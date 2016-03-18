@@ -56,7 +56,7 @@ add_action( 'admin_enqueue_scripts', 'cptui_post_type_enqueue_scripts' );
 function cptui_post_type_tabs( $tabs = array(), $current_page = '' ) {
 
 	if ( 'post_types' == $current_page ) {
-		$post_types = get_option( 'cptui_post_types' );
+		$post_types = cptui_get_post_type_data();
 		$classes    = array( 'nav-tab' );
 
 		$tabs['page_title'] = __( 'Manage Post Types', 'custom-post-type-ui' );
@@ -150,7 +150,7 @@ function cptui_manage_post_types() {
 
 	if ( 'edit' == $tab ) {
 
-		$post_types = apply_filters( 'cptui_post_type_dropdown_switch_data', get_option( 'cptui_post_types' ), get_current_blog_id() );
+		$post_types = cptui_get_post_type_data();
 
 		$selected_post_type = cptui_get_current_post_type( $post_type_deleted );
 
@@ -1162,7 +1162,7 @@ function cptui_get_current_post_type( $post_type_deleted = false ) {
 		}
 
 		if ( $post_type_deleted ) {
-			$post_types = get_option( 'cptui_post_types' );
+			$post_types = cptui_get_post_type_data();
 			$type = key( $post_types );
 		}
 
@@ -1172,7 +1172,7 @@ function cptui_get_current_post_type( $post_type_deleted = false ) {
 	} else if ( !empty( $_GET ) && isset( $_GET['cptui_post_type'] ) ) {
 		$type = sanitize_text_field( $_GET['cptui_post_type'] );
 	} else {
-		$post_types = cptui_get_post_types_option();
+		$post_types = cptui_get_post_type_data();
 		if ( !empty( $post_types ) ) {
 			// Will return the first array key.
 			$type = key( $post_types );
@@ -1223,7 +1223,7 @@ function cptui_delete_post_type( $data = array() ) {
 	 */
 	do_action( 'cptui_before_delete_post_type', $data );
 
-	$post_types = apply_filters( 'cptui_delete_post_type_data', get_option( 'cptui_post_types' ), get_current_blog_id() );
+	$post_types = cptui_get_post_type_data();
 
 	if ( array_key_exists( strtolower( $data['cpt_custom_post_type']['name'] ), $post_types ) ) {
 
@@ -1312,7 +1312,7 @@ function cptui_update_post_type( $data = array() ) {
 		return cptui_admin_notices( 'error', '', false, __( 'Please do not use quotes in post type names or rewrite slugs', 'custom-post-type-ui' ) );
 	}
 
-	$post_types = get_option( 'cptui_post_types', array() );
+	$post_types = cptui_get_post_type_data();
 
 	/**
 	 * Check if we already have a post type of that name.
