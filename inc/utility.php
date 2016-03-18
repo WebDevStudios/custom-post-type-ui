@@ -323,6 +323,14 @@ function cptui_post_form_action( $ui ) {
 	echo cptui_get_post_form_action( $ui );
 }
 
+function cptui_get_post_type_data() {
+	return apply_filters( 'cptui_get_post_type_data', get_option( 'cptui_post_types', array() ), get_current_blog_id() );
+}
+
+function cptui_get_taxonomy_data() {
+	return apply_filters( 'cptui_get_taxonomy_data', get_option( 'cptui_taxonomies', array() ), get_current_blog_id() );
+}
+
 /**
  * Returns the CPTUI post types option.
  *
@@ -330,8 +338,8 @@ function cptui_post_form_action( $ui ) {
  *
  * @return mixed|void
  */
-function cptui_get_post_types_option() {
-	return apply_filters( 'cptui_get_post_types_option', get_option( 'cptui_post_types', array() ), get_current_blog_id() );
+function cptui_post_type_dropdown_switch_data() {
+	return apply_filters( 'cptui_post_type_dropdown_switch_data', get_option( 'cptui_post_types', array() ), get_current_blog_id() );
 }
 
 /**
@@ -341,8 +349,8 @@ function cptui_get_post_types_option() {
  *
  * @return mixed|void
  */
-function cptui_get_taxonomies_option() {
-	return apply_filters( 'cptui_get_taxonomies_option', get_option( 'cptui_taxonomies', array() ), get_current_blog_id() );
+function cptui_taxonomy_dropdown_switch_data() {
+	return apply_filters( 'cptui_taxonomy_dropdown_switch_data', get_option( 'cptui_taxonomies', array() ), get_current_blog_id() );
 }
 
 /**
