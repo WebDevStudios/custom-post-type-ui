@@ -458,16 +458,24 @@ function cptui_import_types_taxes_settings( $postdata = array() ) {
 		// Add support to delete settings outright, without accessing database.
 		// Doing double check to protect.
 		if ( is_null( $settings ) && '{""}' === $cpt_data ) {
+			/**
+			 * @TODO Network-ize
+			 */
 			delete_option( 'cptui_post_types' );
 			// We're technically successful in a sense. Importing nothing.
 			$success = true;
 		}
 
 		if ( $settings ) {
-			if ( false !== get_option( 'cptui_post_types' ) ) {
+			if ( false !== cptui_get_post_types_option() ) {
+				/**
+				 * @TODO Network-ize
+				 */
 				delete_option( 'cptui_post_types' );
 			}
-
+			/**
+			 * @TODO Network-ize
+			 */
 			$success = update_option( 'cptui_post_types', $settings );
 		}
 		// Used to help flush rewrite rules on init.
@@ -481,16 +489,24 @@ function cptui_import_types_taxes_settings( $postdata = array() ) {
 		// Add support to delete settings outright, without accessing database.
 		// Doing double check to protect.
 		if ( is_null( $settings ) && '{""}' === $tax_data ) {
+			/**
+			 * @TODO Network-ize
+			 */
 			delete_option( 'cptui_taxonomies' );
 			// We're technically successful in a sense. Importing nothing.
 			$success = true;
 		}
 
 		if ( $settings ) {
-			if ( false !== get_option( 'cptui_taxonomies' ) ) {
+			if ( false !== cptui_get_taxonomies_option() ) {
+				/**
+				 * @TODO Network-ize
+				 */
 				delete_option( 'cptui_taxonomies' );
 			}
-
+			/**
+			 * @TODO Network-ize
+			 */
 			$success = update_option( 'cptui_taxonomies', $settings );
 		}
 		// Used to help flush rewrite rules on init.
@@ -543,7 +559,7 @@ function cptui_render_posttypes_taxonomies_section() {
 			<td class="outter">
 				<h2><label for="cptui_post_export"><?php _e( 'Export Post Types', 'custom-post-type-ui' ); ?></label></h2>
 				<?php
-				$cptui_post_types = get_option( 'cptui_post_types', array() );
+				$cptui_post_types = cptui_get_post_type_data();
 				if ( ! empty( $cptui_post_types ) ) {
 					$content = esc_html( json_encode( $cptui_post_types ) );
 				} else {
@@ -581,7 +597,7 @@ function cptui_render_posttypes_taxonomies_section() {
 			<td class="outter">
 				<h2><label for="cptui_tax_export"><?php _e( 'Export Taxonomies', 'custom-post-type-ui' ); ?></label></h2>
 				<?php
-				$cptui_taxonomies = get_option( 'cptui_taxonomies', array() );
+				$cptui_taxonomies = cptui_get_taxonomy_data();
 				if ( ! empty( $cptui_taxonomies ) ) {
 					$content = esc_html( json_encode( $cptui_taxonomies ) );
 				} else {
@@ -613,7 +629,7 @@ function cptui_render_getcode_section() {
 
 		<h2><?php _e( 'All CPT UI Post Types', 'custom-post-type-ui' ); ?></h2>
 
-		<?php $cptui_post_types = get_option( 'cptui_post_types' ); ?>
+		<?php $cptui_post_types = cptui_get_post_type_data(); ?>
 		<label for="cptui_post_type_get_code"><?php _e( 'Copy/paste the code below into your functions.php file.', 'custom-post-type-ui' ); ?></label>
 		<textarea name="cptui_post_type_get_code" id="cptui_post_type_get_code" class="cptui_post_type_get_code" onclick="this.focus();this.select()" onfocus="this.focus();this.select();" readonly="readonly" aria-readonly="true"><?php cptui_get_post_type_code( $cptui_post_types ); ?></textarea>
 
@@ -630,7 +646,7 @@ function cptui_render_getcode_section() {
 
 		<h2><?php _e( 'All CPT UI Taxonomies', 'custom-post-type-ui' ); ?></h2>
 
-		<?php $cptui_taxonomies = get_option( 'cptui_taxonomies' ); ?>
+		<?php $cptui_taxonomies = cptui_get_taxonomy_data(); ?>
 		<label for="cptui_tax_get_code"><?php _e( 'Copy/paste the code below into your functions.php file.', 'custom-post-type-ui' ); ?></label>
 		<textarea name="cptui_tax_get_code" id="cptui_tax_get_code" class="cptui_tax_get_code" onclick="this.focus();this.select()" onfocus="this.focus();this.select();" readonly="readonly" aria-readonly="true"><?php cptui_get_taxonomy_code( $cptui_taxonomies ); ?></textarea>
 
