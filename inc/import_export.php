@@ -505,25 +505,40 @@ function cptui_import_types_taxes_settings( $postdata = array() ) {
 		// Add support to delete settings outright, without accessing database.
 		// Doing double check to protect.
 		if ( is_null( $settings ) && '{""}' === $tax_data ) {
+
 			/**
-			 * @TODO Network-ize
+			 * Filters whether or not 3rd party options were deleted successfully within taxonomy import.
+			 *
+			 * @since 1.3.0
+			 *
+			 * @param bool  $value    Whether or not someone else deleted successfully. Default false.
+			 * @param array $postdata Taxonomy data
 			 */
-			delete_option( 'cptui_taxonomies' );
+			if ( false === ( $success = apply_filters( 'cptui_taxonomy_import_delete_save', false, $postdata ) ) ) {
+				delete_option( 'cptui_taxonomies' );
+			}
 			// We're technically successful in a sense. Importing nothing.
 			$success = true;
 		}
 
 		if ( $settings ) {
-			if ( false !== cptui_get_taxonomies_option() ) {
-				/**
-				 * @TODO Network-ize
-				 */
-				delete_option( 'cptui_taxonomies' );
+			if ( false !== cptui_get_taxonomy_data() ) {
+				/** This filter is documented in /inc/import-export.php */
+				if ( false === ( $success = apply_filters( 'cptui_taxonomy_import_delete_save', false, $postdata ) ) ) {
+					delete_option( 'cptui_taxonomies' );
+				}
 			}
 			/**
-			 * @TODO Network-ize
+			 * Filters whether or not 3rd party options were updated successfully within the taxonomy import.
+			 *
+			 * @since 1.3.0
+			 *
+			 * @param bool  $value    Whether or not someone else updated successfully. Default false.
+			 * @param array $postdata Taxonomy data.
 			 */
-			$success = update_option( 'cptui_taxonomies', $settings );
+			if ( false === ( $success = apply_filters( 'cptui_taxonomy_import_update_save', false, $postdata ) ) ) {
+				$success = update_option( 'cptui_taxonomies', $settings );
+			}
 		}
 		// Used to help flush rewrite rules on init.
 		set_transient( 'cptui_flush_rewrite_rules', 'true', 5 * 60 );
