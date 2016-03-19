@@ -458,25 +458,41 @@ function cptui_import_types_taxes_settings( $postdata = array() ) {
 		// Add support to delete settings outright, without accessing database.
 		// Doing double check to protect.
 		if ( is_null( $settings ) && '{""}' === $cpt_data ) {
+
 			/**
-			 * @TODO Network-ize
+			 * Filters whether or not 3rd party options were deleted successfully within post type import.
+			 *
+			 * @since 1.3.0
+			 *
+			 * @param bool  $value    Whether or not someone else deleted successfully. Default false.
+			 * @param array $postdata Post type data.
 			 */
-			delete_option( 'cptui_post_types' );
+			if ( false === ( $success = apply_filters( 'cptui_post_type_import_delete_save', false, $postdata ) ) ) {
+				delete_option( 'cptui_post_types' );
+			}
 			// We're technically successful in a sense. Importing nothing.
 			$success = true;
 		}
 
 		if ( $settings ) {
-			if ( false !== cptui_get_post_types_option() ) {
-				/**
-				 * @TODO Network-ize
-				 */
-				delete_option( 'cptui_post_types' );
+			if ( false !== cptui_get_post_type_data() ) {
+				/** This filter is documented in /inc/import-export.php */
+				if ( false === ( $success = apply_filters( 'cptui_post_type_import_delete_save', false, $postdata ) ) ) {
+					delete_option( 'cptui_post_types' );
+				}
 			}
+
 			/**
-			 * @TODO Network-ize
+			 * Filters whether or not 3rd party options were updated successfully within the post type import.
+			 *
+			 * @since 1.3.0
+			 *
+			 * @param bool  $value    Whether or not someone else updated successfully. Default false.
+			 * @param array $postdata Post type data.
 			 */
-			$success = update_option( 'cptui_post_types', $settings );
+			if ( false === ( $success = apply_filters( 'cptui_post_type_import_update_save', false, $postdata ) ) ) {
+				$success = update_option( 'cptui_post_types', $settings );
+			}
 		}
 		// Used to help flush rewrite rules on init.
 		set_transient( 'cptui_flush_rewrite_rules', 'true', 5 * 60 );
