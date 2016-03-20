@@ -62,9 +62,9 @@ register_deactivation_hook( __FILE__, 'cptui_deactivation' );
  * @internal
  */
 function cptui_load_textdomain() {
-	load_plugin_textdomain( 'custom-post-type-ui', false, basename( dirname( __FILE__ ) ) . '/languages' );
+	load_plugin_textdomain( 'custom-post-type-ui' );
 }
-add_action( 'init', 'cptui_load_textdomain' );
+add_action( 'plugins_loaded', 'cptui_load_textdomain' );
 
 /**
  * Load our main menu.
