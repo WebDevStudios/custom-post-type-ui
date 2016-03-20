@@ -567,7 +567,7 @@ function cptui_manage_post_types() {
 					'namearray'     => 'cpt_custom_post_type',
 					'name'          => 'public',
 					'labeltext'     => __( 'Public', 'custom-post-type-ui' ),
-					'aftertext'     => __( '(CPTUI default: true.)', 'custom-post-type-ui' ),
+					'aftertext'     => __( '(CPTUI default: true)', 'custom-post-type-ui' ),
 					'helptext'      => esc_attr__( 'WordPress core defaults to false. CPTUI defaults to true for user sake. Whether posts of this type should be shown in the admin UI and is publicly queryable.', 'custom-post-type-ui' ),
 					'selections'    => $select
 				) );
