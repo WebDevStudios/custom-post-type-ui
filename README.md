@@ -38,6 +38,7 @@ CPTUI does NOT handle display of registered post types or taxonomies in your cur
 * Fixed: Missing REST API based parameters in "Get Code" output.
 * Updated: Increased accessibility coverage.
 * Updated: Revised how tabs are added to pages so 3rd party developers can add their own tabs.
+* Updated: Improved string consistency in our UI helper notes. Props @garyj
 
 **1.2.4**
 

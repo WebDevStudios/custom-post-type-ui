@@ -51,6 +51,7 @@ All official development on this plugin is on GitHub. Version bumps will still b
 * Fixed: Missing REST API based parameters in "Get Code" output.
 * Updated: Increased accessibility coverage.
 * Updated: Revised how tabs are added to pages so 3rd party developers can add their own tabs.
+* Updated: Improved string consistency in our UI helper notes. Props @garyj
 
 = 1.2.4 =
 * Added: new CPTUI_VERSION constant to match naming of other current constants.
@@ -207,6 +208,7 @@ All official development on this plugin is on GitHub. Version bumps will still b
 * Fixed: Missing REST API based parameters in "Get Code" output.
 * Updated: Increased accessibility coverage.
 * Updated: Revised how tabs are added to pages so 3rd party developers can add their own tabs.
+* Updated: Improved string consistency in our UI helper notes. Props @garyj
 
 = 1.2.4 =
 * Added: new CPTUI_VERSION constant to match naming of other current constants.
