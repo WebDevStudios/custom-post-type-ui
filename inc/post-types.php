@@ -567,7 +567,7 @@ function cptui_manage_post_types() {
 					'namearray'     => 'cpt_custom_post_type',
 					'name'          => 'public',
 					'labeltext'     => __( 'Public', 'custom-post-type-ui' ),
-					'aftertext'     => __( '(CPTUI default: True.)', 'custom-post-type-ui' ),
+					'aftertext'     => __( '(CPTUI default: true.)', 'custom-post-type-ui' ),
 					'helptext'      => esc_attr__( 'WordPress core defaults to false. CPTUI defaults to true for user sake. Whether posts of this type should be shown in the admin UI and is publicly queryable.', 'custom-post-type-ui' ),
 					'selections'    => $select
 				) );
@@ -584,7 +584,7 @@ function cptui_manage_post_types() {
 					'namearray'     => 'cpt_custom_post_type',
 					'name'          => 'show_ui',
 					'labeltext'     => __( 'Show UI', 'custom-post-type-ui' ),
-					'aftertext'     => __( '(default: True)', 'custom-post-type-ui' ),
+					'aftertext'     => __( '(default: true)', 'custom-post-type-ui' ),
 					'helptext'      => esc_attr__( 'Whether to generate a default UI for managing this post type.', 'custom-post-type-ui' ),
 					'selections'    => $select
 				) );
@@ -618,7 +618,7 @@ function cptui_manage_post_types() {
 					'namearray'     => 'cpt_custom_post_type',
 					'name'          => 'show_in_rest',
 					'labeltext'     => __( 'Show in REST API', 'custom-post-type-ui' ),
-					'aftertext'     => __( '(default: False)', 'custom-post-type-ui' ),
+					'aftertext'     => __( '(default: false)', 'custom-post-type-ui' ),
 					'helptext'      => esc_attr__( 'Whether to show this post type data in the WP REST API.', 'custom-post-type-ui' ),
 					'selections'    => $select
 				) );
@@ -648,7 +648,7 @@ function cptui_manage_post_types() {
 				echo $ui->get_select_input( array(
 					'namearray'     => 'cpt_custom_post_type',
 					'name'          => 'has_archive',
-					'aftertext'     => __( '(default: False)', 'custom-post-type-ui' ),
+					'aftertext'     => __( '(default: false)', 'custom-post-type-ui' ),
 					'selections'    => $select,
 					'wrap'          => false
 				) );
@@ -677,7 +677,7 @@ function cptui_manage_post_types() {
 					'namearray'     => 'cpt_custom_post_type',
 					'name'          => 'exclude_from_search',
 					'labeltext'     => __( 'Exclude From Search', 'custom-post-type-ui' ),
-					'aftertext'     => __( '(default: False)', 'custom-post-type-ui' ),
+					'aftertext'     => __( '(default: false)', 'custom-post-type-ui' ),
 					'helptext'      => esc_attr__( 'Whether to exclude posts with this post type from front end search results.', 'custom-post-type-ui' ),
 					'selections'    => $select
 				) );
@@ -702,7 +702,7 @@ function cptui_manage_post_types() {
 					'namearray'     => 'cpt_custom_post_type',
 					'name'          => 'hierarchical',
 					'labeltext'     => __( 'Hierarchical', 'custom-post-type-ui' ),
-					'aftertext'     => __( '(default: False)', 'custom-post-type-ui' ),
+					'aftertext'     => __( '(default: false)', 'custom-post-type-ui' ),
 					'helptext'      => esc_attr__( 'Whether the post type can have parent-child relationships', 'custom-post-type-ui' ),
 					'selections'    => $select
 				) );
@@ -719,7 +719,7 @@ function cptui_manage_post_types() {
 					'namearray'     => 'cpt_custom_post_type',
 					'name'          => 'rewrite',
 					'labeltext'     => __( 'Rewrite', 'custom-post-type-ui' ),
-					'aftertext'     => __( '(default: True)', 'custom-post-type-ui' ),
+					'aftertext'     => __( '(default: true)', 'custom-post-type-ui' ),
 					'helptext'      => esc_attr__( 'Whether or not WordPress should use rewrites for this post type', 'custom-post-type-ui' ),
 					'selections'    => $select
 				) );
@@ -745,7 +745,7 @@ function cptui_manage_post_types() {
 					'namearray'     => 'cpt_custom_post_type',
 					'name'          => 'rewrite_withfront',
 					'labeltext'     => __( 'With Front', 'custom-post-type-ui' ),
-					'aftertext'     => __( '(default: True)', 'custom-post-type-ui' ),
+					'aftertext'     => __( '(default: true)', 'custom-post-type-ui' ),
 					'helptext'      => esc_attr__( 'Should the permastruct be prepended with the front base.', 'custom-post-type-ui' ),
 					'selections'    => $select
 				) );
@@ -762,7 +762,7 @@ function cptui_manage_post_types() {
 					'namearray'     => 'cpt_custom_post_type',
 					'name'          => 'query_var',
 					'labeltext'     => __( 'Query Var', 'custom-post-type-ui' ),
-					'aftertext'     => __( '(default: True)', 'custom-post-type-ui' ),
+					'aftertext'     => __( '(default: true)', 'custom-post-type-ui' ),
 					'helptext'      => esc_attr__( 'Sets the query_var key for this post type.', 'custom-post-type-ui' ),
 					'selections'    => $select
 				) );
@@ -807,7 +807,7 @@ function cptui_manage_post_types() {
 				echo $ui->get_select_input( array(
 					'namearray'     => 'cpt_custom_post_type',
 					'name'          => 'show_in_menu',
-					'aftertext'     => __( '(default: True)', 'custom-post-type-ui' ),
+					'aftertext'     => __( '(default: true)', 'custom-post-type-ui' ),
 					'selections'    => $select,
 					'wrap'          => false
 				) );
