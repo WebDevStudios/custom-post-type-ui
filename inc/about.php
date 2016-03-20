@@ -111,7 +111,7 @@ function cptui_donation_content() { ?>
 			<td class="one-third valign">
 				<h2><?php _e( 'Professional WordPress<br />Plugin Development', 'custom-post-type-ui' ); ?></h2>
 				<a href="http://amzn.to/plugindevbook" target="_blank">
-					<img src="<?php echo plugins_url( '/images/professional-wordpress-plugin-development.png', dirname( __FILE__ ) ); ?>" width="200" alt="<?php esc_attr_e( 'Professional WordPress Pluing Development book cover.', 'custom-post-type-ui' ); ?>">
+					<img src="<?php echo plugins_url( '/images/professional-wordpress-plugin-development.png', dirname( __FILE__ ) ); ?>" width="200" alt="<?php esc_attr_e( 'Professional WordPress Plugin Development book cover.', 'custom-post-type-ui' ); ?>">
 				</a>
 				<br />
 				<p><?php _e( 'Highest rated WordPress development book on Amazon!', 'custom-post-type-ui' ); ?></p>
