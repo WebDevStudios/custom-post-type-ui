@@ -565,7 +565,7 @@ function cptui_manage_taxonomies() {
 						'namearray'  => 'cpt_custom_tax',
 						'name'       => 'public',
 						'labeltext'  => __( 'Public', 'custom-post-type-ui' ),
-						'aftertext'  => __( '(default: True)', 'custom-post-type-ui' ),
+						'aftertext'  => __( '(default: true)', 'custom-post-type-ui' ),
 						'helptext'   => esc_attr__( 'Whether the taxonomy should be publicly queryable.', 'custom-post-type-ui' ),
 						'selections' => $select
 					) );
@@ -582,7 +582,7 @@ function cptui_manage_taxonomies() {
 						'namearray'     => 'cpt_custom_tax',
 						'name'          => 'hierarchical',
 						'labeltext'     => __( 'Hierarchical', 'custom-post-type-ui' ),
-						'aftertext'     => __( '(default: False)', 'custom-post-type-ui' ),
+						'aftertext'     => __( '(default: false)', 'custom-post-type-ui' ),
 						'helptext'      => esc_attr__( 'Whether the taxonomy can have parent-child relationships', 'custom-post-type-ui' ),
 						'selections'    => $select
 					) );
@@ -599,7 +599,7 @@ function cptui_manage_taxonomies() {
 						'namearray'     => 'cpt_custom_tax',
 						'name'          => 'show_ui',
 						'labeltext'     => __( 'Show UI', 'custom-post-type-ui' ),
-						'aftertext'     => __( '(default: True)', 'custom-post-type-ui' ),
+						'aftertext'     => __( '(default: true)', 'custom-post-type-ui' ),
 						'helptext'      => esc_attr__( 'Whether to generate a default UI for managing this custom taxonomy.', 'custom-post-type-ui' ),
 						'selections'    => $select
 					) );
@@ -616,7 +616,7 @@ function cptui_manage_taxonomies() {
 						'namearray'     => 'cpt_custom_tax',
 						'name'          => 'query_var',
 						'labeltext'     => __( 'Query Var', 'custom-post-type-ui' ),
-						'aftertext'     => __( '(default: True)', 'custom-post-type-ui' ),
+						'aftertext'     => __( '(default: true)', 'custom-post-type-ui' ),
 						'helptext'      => esc_attr__( 'Sets the query_var key for this taxonomy.', 'custom-post-type-ui' ),
 						'selections'    => $select
 					) );
@@ -642,7 +642,7 @@ function cptui_manage_taxonomies() {
 						'namearray'     => 'cpt_custom_tax',
 						'name'          => 'rewrite',
 						'labeltext'     => __( 'Rewrite', 'custom-post-type-ui' ),
-						'aftertext'     => __( '(default: True)', 'custom-post-type-ui' ),
+						'aftertext'     => __( '(default: true)', 'custom-post-type-ui' ),
 						'helptext'      => esc_attr__( 'Whether or not WordPress should use rewrites for this taxonomy.', 'custom-post-type-ui' ),
 						'selections'    => $select
 					) );
@@ -702,7 +702,7 @@ function cptui_manage_taxonomies() {
 						'namearray'     => 'cpt_custom_tax',
 						'name'          => 'show_admin_column',
 						'labeltext'     => __( 'Show Admin Column', 'custom-post-type-ui' ),
-						'aftertext'     => __( '(default: False)', 'custom-post-type-ui' ),
+						'aftertext'     => __( '(default: false)', 'custom-post-type-ui' ),
 						'helptext'      => esc_attr__( 'Whether to allow automatic creation of taxonomy columns on associated post-types.', 'custom-post-type-ui' ),
 						'selections'    => $select
 					) );
@@ -719,7 +719,7 @@ function cptui_manage_taxonomies() {
 						'namearray'  => 'cpt_custom_tax',
 						'name'       => 'show_in_rest',
 						'labeltext'  => __( 'Show in REST API', 'custom-post-type-ui' ),
-						'aftertext'  => __( '(default: False)', 'custom-post-type-ui' ),
+						'aftertext'  => __( '(default: false)', 'custom-post-type-ui' ),
 						'helptext'   => esc_attr__( 'Whether to show this taxonomy data in the WP REST API.', 'custom-post-type-ui' ),
 						'selections' => $select
 					) );
@@ -744,7 +744,7 @@ function cptui_manage_taxonomies() {
 						'namearray'  => 'cpt_custom_tax',
 						'name'       => 'show_in_quick_edit',
 						'labeltext'  => __( 'Show in quick/bulk edit panel.', 'custom-post-type-ui' ),
-						'aftertext'  => __( '(default: False)', 'custom-post-type-ui' ),
+						'aftertext'  => __( '(default: false)', 'custom-post-type-ui' ),
 						'helptext'   => esc_attr__( 'Whether to show the taxonomy in the quick/bulk edit panel.', 'custom-post-type-ui' ),
 						'selections' => $select
 					) );
