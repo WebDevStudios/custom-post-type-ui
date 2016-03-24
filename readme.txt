@@ -30,7 +30,7 @@ All official development on this plugin is on GitHub. Version bumps will still b
 
 == Changelog ==
 
-= 1.3.0 - TBD =
+= 1.3.0 - 2016-3-24 =
 * Added: "CPTUI_VERSION" constant and deprecated "CPT_VERSION".
 * Added: "Public" parameter for taxonomies
 * Added: "View Post Types" and "View Taxonomies" tabs at top of add/edit screens.
