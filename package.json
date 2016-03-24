@@ -1,0 +1,42 @@
+{
+  "name": "custom-post-type-ui",
+  "version": "1.0.0",
+  "description": "Custom Post Type UI Gulp.",
+  "main": "Gulpfile.js",
+  "dependencies": {
+    "autoprefixer": "^6.3.1",
+    "del": "^2.2.0",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-cssnano": "^2.1.0",
+    "gulp-notify": "^2.2.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-postcss": "^6.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.2.0",
+    "gulp-sort": "^1.1.1",
+    "gulp-uglify": "^1.5.2",
+    "gulp-util": "^3.0.7"
+  },
+  "devDependencies": {
+    "gulp-shell": "^0.5.2"
+  },
+  "scripts": {
+    "test": "echo \"No test specified\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WebDevStudios/custom-post-type-ui.git"
+  },
+  "keywords": [
+    "plugin",
+    "post-types",
+    "taxonomies"
+  ],
+  "author": "WebDevStudios",
+  "license": "GPL-2.0",
+  "bugs": {
+    "url": "https://github.com/WebDevStudios/custom-post-type-ui/issues"
+  },
+  "homepage": "https://github.com/WebDevStudios/custom-post-type-ui#readme"
+}

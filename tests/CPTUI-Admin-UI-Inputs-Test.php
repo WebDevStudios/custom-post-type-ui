@@ -50,12 +50,62 @@ class CPTUI_Admin_UI_Inputs_Test extends CPTUI_Base_Tests {
 	}
 
 	/**
+	 * Tests our legend method opener.
+	 */
+	public function test_CPTUI_Legend_Start() {
+		$expected = '<legend>';
+
+		$this->assertEquals( $expected, $this->ui->get_legend_start() );
+	}
+
+	/**
+	 * Tests our legend method closer.
+	 */
+	public function test_CPTUI_Legend_End() {
+		$expected = '</legend>';
+
+		$this->assertEquals( $expected, $this->ui->get_legend_end() );
+	}
+
+	/**
 	 * Tests our required field method.
 	 */
 	public function test_CPTUI_Required() {
-				$expected = '<span class="required">*</span>';
+		$expected = '<span class="required">*</span>';
 
 		$this->assertEquals( $expected, $this->ui->get_required() );
+	}
+
+	/**
+	 * Tests our ARIA required field method.
+	 */
+	public function test_CPTUI_ARIA_Required() {
+		$expected = 'aria-required="false"';
+		$this->assertEquals( $expected, $this->ui->get_aria_required() );
+		$this->assertEquals( $expected, $this->ui->get_aria_required( false ) );
+
+		$expected = 'aria-required="true"';
+		$this->assertEquals( $expected, $this->ui->get_aria_required( true ) );
+	}
+
+	/**
+	 * Tests our Placeholder method.
+	 */
+	public function test_CPTUI_Placeholder() {
+		$this->markTestIncomplete(
+			'This test has not been implemented yet.'
+		);
+		$this->ui->get_placeholder();
+	}
+
+	/**
+	 * Tests our Description method.
+	 */
+	public function test_CPTUI_Description() {
+		$this->markTestIncomplete(
+			'This test has not been implemented yet.'
+		);
+		$this->ui->get_description();
 	}
 
 	/**
@@ -97,7 +147,7 @@ class CPTUI_Admin_UI_Inputs_Test extends CPTUI_Base_Tests {
 				<a href="#" class="cptui-help dashicons-before dashicons-editor-help" title="Helper text."></a>
 			</th>
 			<td>
-				<input type="text" id="name" name="name_array[name]" value="saved value" /><br/>
+				<input type="text" id="name" name="name_array[name]" value="saved value" aria-required="false" /><br/>
 			</td>
 		</tr>';
 
