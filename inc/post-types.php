@@ -203,6 +203,7 @@ function cptui_manage_post_types() {
 				<?php
 					echo $ui->get_tr_start() . $ui->get_th_start();
 					echo $ui->get_label( 'name', __( 'Post Type Slug', 'custom-post-type-ui' ) );
+					echo $ui->get_required_span();
 					echo $ui->get_th_end() . $ui->get_td_start();
 
 					echo $ui->get_text_input( array(
@@ -247,6 +248,7 @@ function cptui_manage_post_types() {
 						'labeltext' => esc_html__( 'Plural Label', 'custom-post-type-ui' ),
 						'aftertext' => esc_html__( '(e.g. Movies)', 'custom-post-type-ui' ),
 						'helptext'  => esc_html__( 'Used for the post type admin menu item.', 'custom-post-type-ui' ),
+						'required'  => true
 					) );
 
 					echo $ui->get_text_input( array(
@@ -256,6 +258,7 @@ function cptui_manage_post_types() {
 						'labeltext' => esc_html__( 'Singular Label', 'custom-post-type-ui' ),
 						'aftertext' => esc_html__( '(e.g. Movie)', 'custom-post-type-ui' ),
 						'helptext'  => esc_html__( 'Used when a singular label is needed.', 'custom-post-type-ui' ),
+						'required'  => true
 					) );
 				?>
 			</table>
