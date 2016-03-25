@@ -16,6 +16,9 @@ CPTUI does NOT handle display of registered post types or taxonomies in your cur
 
 ## Changelog
 
+**1.3.1**
+* Fixed: Logic issue for default values of `public` parameter for taxonomies added in 1.3.0.
+
 **1.3.0**
 
 * Added: "CPTUI_VERSION" constant and deprecated "CPT_VERSION".
