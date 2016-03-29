@@ -24,7 +24,7 @@ function cptui_support_enqueue_scripts() {
 
 	$current_screen = get_current_screen();
 
-	if ( ! is_object( $current_screen ) || 'post' === $current_screen->base ) {
+	if ( ! is_object( $current_screen ) || 'cpt-ui_page_cptui_support' !== $current_screen->base ) {
 		return;
 	}
 

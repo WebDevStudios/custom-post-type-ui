@@ -24,7 +24,7 @@ function cptui_taxonomies_enqueue_scripts() {
 
 	$currentScreen = get_current_screen();
 
-	if ( ! is_object( $currentScreen ) || $currentScreen->base == "post" ) {
+	if ( ! is_object( $currentScreen ) || 'cpt-ui_page_cptui_manage_taxonomies' !== $currentScreen->base ) {
 		return;
 	}
 
