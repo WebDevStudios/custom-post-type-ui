@@ -952,6 +952,17 @@ function cptui_taxonomies_dropdown( $taxonomies = array() ) {
 		$current = cptui_get_current_taxonomy();
 
 		$select['selected'] = $current;
+
+		/**
+		 * Filters the taxonomy dropdown options before rendering.
+		 *
+		 * @since 1.3.2
+		 *
+		 * @param array $select     Array of options for the dropdown.
+		 * @param array $taxonomies Array of original passed in post types.
+		 */
+		$select = apply_filters( 'cptui_taxonomies_dropdown_options', $select, $taxonomies );
+
 		echo $ui->get_select_input( array(
 			'namearray'     => 'cptui_selected_taxonomy',
 			'name'          => 'taxonomy',

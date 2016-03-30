@@ -1173,6 +1173,16 @@ function cptui_post_types_dropdown( $post_types = array() ) {
 		$current = cptui_get_current_post_type();
 
 		$select['selected'] = $current;
+
+		/**
+		 * Filters the post type dropdown options before rendering.
+		 * @since 1.3.2
+		 *
+		 * @param array $select     Array of options for the dropdown.
+		 * @param array $post_types Array of original passed in post types.
+		 */
+		$select = apply_filters( 'cptui_post_types_dropdown_options', $select, $post_types );
+
 		echo $ui->get_select_input( array(
 			'namearray'     => 'cptui_selected_post_type',
 			'name'          => 'post_type',
