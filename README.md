@@ -16,7 +16,7 @@ CPTUI does NOT handle display of registered post types or taxonomies in your cur
 
 ## Changelog
 
-** 1.3.2 **
+**1.3.2**
 * Fixed: Logic issue with cptui js files loading where they weren't meant to.
 * Fixed: Required markers missing on required post type fields.
 
