@@ -30,6 +30,10 @@ All official development on this plugin is on GitHub. Version bumps will still b
 
 == Changelog ==
 
+= 1.3.2 - TBD =
+* Fixed: Logic issue with cptui js files loading where they weren't meant to.
+* Fixed: Required markers missing on required post type fields.
+
 = 1.3.1 - 2016-3-25 =
 * Fixed: Logic issue for default values of `public` parameter for taxonomies added in 1.3.0.
 
@@ -197,6 +201,10 @@ All official development on this plugin is on GitHub. Version bumps will still b
 * Bug fixes not mentioned above.
 
 == Upgrade Notice ==
+
+= 1.3.2 - TBD =
+* Fixed: Logic issue with cptui js files loading where they weren't meant to.
+* Fixed: Required markers missing on required post type fields.
 
 = 1.3.1 - 2016-3-25 =
 * Fixed: Logic issue for default values of `public` parameter for taxonomies added in 1.3.0.
