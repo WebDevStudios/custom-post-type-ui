@@ -374,15 +374,6 @@ function cptui_manage_post_types() {
 					) );
 
 					echo $ui->get_text_input( array(
-						'labeltext'     => __( 'Edit', 'custom-post-type-ui' ),
-						'helptext'      => esc_attr__( 'Post type label. Used in the admin menu for displaying post types.', 'custom-post-type-ui' ),
-						'namearray'     => 'cpt_labels',
-						'name'          => 'edit',
-						'textvalue'     => ( isset( $current['labels']['edit'] ) ) ? esc_attr( $current['labels']['edit'] ) : '',
-						'aftertext'     => __( '(e.g. Edit)', 'custom-post-type-ui' )
-					) );
-
-					echo $ui->get_text_input( array(
 						'labeltext'     => __( 'Edit Item', 'custom-post-type-ui' ),
 						'helptext'      => esc_attr__( 'Used at the top of the post editor screen for an existing post type post.', 'custom-post-type-ui' ),
 						'namearray'     => 'cpt_labels',
@@ -398,15 +389,6 @@ function cptui_manage_post_types() {
 						'name'          => 'new_item',
 						'textvalue'     => ( isset( $current['labels']['new_item'] ) ) ? esc_attr( $current['labels']['new_item'] ) : '',
 						'aftertext'     => __( '(e.g. New Movie)', 'custom-post-type-ui' )
-					) );
-
-					echo $ui->get_text_input( array(
-						'labeltext'     => __( 'View', 'custom-post-type-ui' ),
-						'helptext'      => esc_attr__( 'Used in the admin bar when viewing a published post in the post type.', 'custom-post-type-ui' ),
-						'namearray'     => 'cpt_labels',
-						'name'          => 'view',
-						'textvalue'     => ( isset( $current['labels']['view'] ) ) ? esc_attr( $current['labels']['view'] ) : '',
-						'aftertext'     => __( '(e.g. View)', 'custom-post-type-ui' )
 					) );
 
 					echo $ui->get_text_input( array(
