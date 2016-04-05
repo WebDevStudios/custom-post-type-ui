@@ -75,10 +75,6 @@ All official development on this plugin is on GitHub. Version bumps will still b
 * Added: new CPTUI_VERSION constant to match naming of other current constants.
 * Added: CPTUI_VERSION constant to cptui.css string for cache busting.
 
-= 1.2.4 =
-* Added: new CPTUI_VERSION constant to match naming of other current constants.
-* Added: CPTUI_VERSION constant to cptui.css string for cache busting.
-
 = 1.2.3 - 2016-01-31 =
 * Fixed: copy/paste error with admin css. Props hinaloe.
 
@@ -246,10 +242,6 @@ All official development on this plugin is on GitHub. Version bumps will still b
 * Updated: Tested on WordPress 4.5
 * Updated: Cleaned up admin footer area for social links.
 * Updated: Moved all localization work to WordPress.org Translation packs
-
-= 1.2.4 =
-* Added: new CPTUI_VERSION constant to match naming of other current constants.
-* Added: CPTUI_VERSION constant to cptui.css string for cache busting.
 
 = 1.2.4 =
 * Added: new CPTUI_VERSION constant to match naming of other current constants.
