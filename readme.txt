@@ -33,9 +33,13 @@ All official development on this plugin is on GitHub. Version bumps will still b
 
 == Changelog ==
 
-= 1.3.2 - TBD =
+= 1.3.2 - 2016-4-5 =
 * Fixed: Logic issue with cptui js files loading where they weren't meant to.
 * Fixed: Required markers missing on required post type fields.
+* Fixed: Removed excess labels that are not used by WordPress core.
+* Added: New contributors to readme file. Welcome John and Ryan.
+* Updated: New screenshot from 1.3.0 release. Moved to assets folder so users will no longer download as part of CPTUI.
+* Updated: Better prevention of running our code during ajax/heartbeat api requests.
 
 = 1.3.1 - 2016-3-25 =
 * Fixed: Logic issue for default values of `public` parameter for taxonomies added in 1.3.0.
@@ -205,9 +209,13 @@ All official development on this plugin is on GitHub. Version bumps will still b
 
 == Upgrade Notice ==
 
-= 1.3.2 - TBD =
+= 1.3.2 - 2016-4-5 =
 * Fixed: Logic issue with cptui js files loading where they weren't meant to.
 * Fixed: Required markers missing on required post type fields.
+* Fixed: Removed excess labels that are not used by WordPress core.
+* Added: New contributors to readme file. Welcome John and Ryan.
+* Updated: New screenshot from 1.3.0 release. Moved to assets folder so users will no longer download as part of CPTUI.
+* Updated: Better prevention of running our code during ajax/heartbeat api requests.
 
 = 1.3.1 - 2016-3-25 =
 * Fixed: Logic issue for default values of `public` parameter for taxonomies added in 1.3.0.
