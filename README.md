@@ -16,6 +16,9 @@ CPTUI does NOT handle display of registered post types or taxonomies in your cur
 
 ## Changelog
 
+**1.3.3**
+* Revert Changes for ajax/heartbeat API requests before post type registration. 3rd party or other plugins were breaking because post types were not registered.
+
 **1.3.2**
 * Fixed: Logic issue with cptui js files loading where they weren't meant to.
 * Fixed: Required markers missing on required post type fields.

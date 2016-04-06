@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: custom post types, CPT, CMS, post, types, post type, cck, taxonomy, tax, custom
 Requires at least: 4.2
 Tested up to: 4.5
-Stable tag: 1.3.2
+Stable tag: 1.3.3
 License: GPLv2
 
 Admin UI for creating custom post types and custom taxonomies in WordPress
@@ -32,6 +32,9 @@ All official development on this plugin is on GitHub. Version bumps will still b
 11. About/Update Information/Donate screen.
 
 == Changelog ==
+
+= 1.3.3 - 2016-4-5 =
+* Revert Changes for ajax/heartbeat API requests before post type registration. 3rd party or other plugins were breaking because post types were not registered.
 
 = 1.3.2 - 2016-4-5 =
 * Fixed: Logic issue with cptui js files loading where they weren't meant to.
@@ -204,6 +207,9 @@ All official development on this plugin is on GitHub. Version bumps will still b
 * Bug fixes not mentioned above.
 
 == Upgrade Notice ==
+
+= 1.3.3 - 2016-4-5 =
+* Revert Changes for ajax/heartbeat API requests before post type registration. 3rd party or other plugins were breaking because post types were not registered.
 
 = 1.3.2 - 2016-4-5 =
 * Fixed: Logic issue with cptui js files loading where they weren't meant to.
