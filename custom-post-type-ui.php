@@ -192,11 +192,6 @@ add_action( 'admin_enqueue_scripts', 'cptui_add_styles' );
  * @internal
  */
 function cptui_create_custom_post_types() {
-
-	if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
-		return;
-	}
-
 	$cpts = get_option( 'cptui_post_types' );
 
 	if ( empty( $cpts ) ) {
@@ -405,11 +400,6 @@ function cptui_register_single_post_type( $post_type = array() ) {
  * @internal
  */
 function cptui_create_custom_taxonomies() {
-
-	if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
-		return;
-	}
-
 	$taxes = get_option( 'cptui_taxonomies' );
 
 	if ( empty( $taxes ) ) {
