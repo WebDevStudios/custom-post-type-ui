@@ -308,14 +308,14 @@ function cptui_products_sidebar() {
 			if ( 200 === wp_remote_retrieve_response_code( $image ) ) {
 				$the_ad = sprintf(
 					'<img src="%s" alt="%s">',
-					$ad->image,
-					$ad->text
+					esc_attr( $ad->image ),
+					esc_attr( $ad->text )
 				);
 			}
-
+			// Escaping $the_ad breaks the html.
 			printf(
 				'<p><a href="%s">%s</a></p>',
-				$ad->url,
+				esc_url( $ad->url ),
 				$the_ad
 			);
 		}
