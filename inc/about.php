@@ -131,3 +131,38 @@ function cptui_donation_content() { ?>
 	<?php
 }
 add_action( 'cptui_main_page_extra_notes', 'cptui_donation_content', 10 );
+
+function cptui_pluginize_content() {
+	if ( false === ( $ads = get_transient( 'wds_promos' ) ) ) {
+		$ads = wp_remote_get( 'https://webdevstudios.com/assets/wds.json' );
+
+		if ( 200 === wp_remote_retrieve_response_code( $ads ) ) {
+			$ads = json_decode( wp_remote_retrieve_body( $ads ) );
+			set_transient( 'wds_promos', $ads, DAY_IN_SECONDS );
+		}
+	}
+
+	if ( ! empty( $ads ) ) {
+		echo '<h1>' . sprintf( esc_html__( 'More from %s', 'custom-post-type-ui' ), 'WebDevStudios' ) . '</h1>';
+		echo '<div class="wdspromos-about">';
+		foreach ( $ads as $ad ) {
+			$the_ad = $ad->text;
+			$image  = wp_remote_get( $ad->image );
+			if ( 200 === wp_remote_retrieve_response_code( $image ) ) {
+				$the_ad = sprintf(
+					'<img src="%s" alt="%s">',
+					$ad->image,
+					$ad->text
+				);
+			}
+
+			printf(
+				'<a href="%s">%s</a>',
+				$ad->url,
+				$the_ad
+			);
+		}
+		echo '</div>';
+	}
+}
+add_action( 'cptui_main_page_extra_notes', 'cptui_pluginize_content', 9 );
