@@ -76,23 +76,35 @@ function cptui_support() {
 							</div>
 						</li>
 						<li>
-							<span tabindex="0" class="question" aria-controls="q3" aria-expanded="false"><?php esc_html_e( 'How can I remove the ads that suddenly started showing up?', 'custom-post-type-ui' ); ?></span>
-							<div class="answer" id="q3"><?php esc_html_e( '', 'custom-post-type-ui' ); ?>
+							<span tabindex="0" class="question" aria-controls="q3" aria-expanded="false"><?php esc_html_e( 'Will these ad spots ever show third-party data?', 'custom-post-type-ui' ); ?></span>
+							<div class="answer" id="q3"><?php esc_html_e( 'No. These spots are intended for and will only be used for other available WebDevStudios products and services.', 'custom-post-type-ui' ); ?>
 							</div>
 						</li>
 						<li>
-							<span tabindex="0" class="question" aria-controls="q4" aria-expanded="false"><?php esc_html_e( 'Are these ad spots tracking my personal information in any way?', 'custom-post-type-ui' ); ?></span>
-							<div class="answer" id="q4"><?php esc_html_e( '', 'custom-post-type-ui' ); ?>
+							<span tabindex="0" class="question" aria-controls="q4" aria-expanded="false"><?php esc_html_e( 'How can I remove the ads that suddenly started showing up?', 'custom-post-type-ui' ); ?></span>
+							<div class="answer" id="q4"><?php
+								printf(
+									esc_html__( 'You can have them automatically removed from display via a purchased copy of %s.', 'custom-post-type-ui' ),
+									sprintf( '<a href="%s">%s</a>',
+										'FILL ME IN',
+										'Custom Post Type UI Extended'
+									)
+								); ?>
 							</div>
 						</li>
 						<li>
-							<span tabindex="0" class="question" aria-controls="q5" aria-expanded="false"><?php esc_html_e( 'Do I still need Custom Post Type UI if I purchase and install Custom Post Type UI Extended?', 'custom-post-type-ui' ); ?></span>
-							<div class="answer" id="q5"><?php esc_html_e( '', 'custom-post-type-ui' ); ?>
+							<span tabindex="0" class="question" aria-controls="q5" aria-expanded="false"><?php esc_html_e( 'Are these ad spots tracking my personal information in any way?', 'custom-post-type-ui' ); ?></span>
+							<div class="answer" id="q5"><?php esc_html_e( 'No, there is no data being sent out from your site with these. The only way anything is tracked is via UTM parameters for WebDevStudios\'s analytics so we can get an idea of where traffic is coming from. Those are only tracked if you actually click on an ad spot.', 'custom-post-type-ui' ); ?>
 							</div>
 						</li>
 						<li>
-							<span tabindex="0" class="question" aria-controls="q6" aria-expanded="false"><?php esc_html_e( 'Does Custom Post Type UI Extended require multisite?', 'custom-post-type-ui' ); ?></span>
-							<div class="answer" id="q6"><?php esc_html_e( '', 'custom-post-type-ui' ); ?>
+							<span tabindex="0" class="question" aria-controls="q6" aria-expanded="false"><?php esc_html_e( 'Do I still need Custom Post Type UI if I purchase and install Custom Post Type UI Extended?', 'custom-post-type-ui' ); ?></span>
+							<div class="answer" id="q6"><?php esc_html_e( 'Yes you will. The Custom Post Type UI Extended is not a replacement of the free version with added extra features. It acts based on the data made available trhough Custom Post Type UI', 'custom-post-type-ui' ); ?>
+							</div>
+						</li>
+						<li>
+							<span tabindex="0" class="question" aria-controls="q7" aria-expanded="false"><?php esc_html_e( 'Does Custom Post Type UI Extended require multisite?', 'custom-post-type-ui' ); ?></span>
+							<div class="answer" id="q7"><?php esc_html_e( 'No it does not. The Shortcode builder is not multisite dependent and will work with either setup.', 'custom-post-type-ui' ); ?>
 							</div>
 						</li>
 					</ol>
