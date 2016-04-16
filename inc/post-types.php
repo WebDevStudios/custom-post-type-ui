@@ -1342,9 +1342,9 @@ function cptui_update_post_type( $data = array() ) {
 			unset( $data['cpt_labels'][ $key ] );
 		}
 
-		$label = str_replace( '"', '', htmlspecialchars_decode( $label ) );
-		$label = htmlspecialchars( $label, ENT_QUOTES );
-		$label = trim( $label );
+		$label                      = str_replace( '"', '', htmlspecialchars_decode( $label ) );
+		$label                      = htmlspecialchars( $label, ENT_QUOTES );
+		$label                      = trim( $label );
 		$data['cpt_labels'][ $key ] = stripslashes_deep( $label );
 	}
 
@@ -1364,46 +1364,47 @@ function cptui_update_post_type( $data = array() ) {
 		$singular_label = htmlspecialchars( stripslashes( $singular_label ), ENT_QUOTES );
 	}
 
-	$name = trim( $data['cpt_custom_post_type']['name'] );
-	$description = stripslashes_deep( $data['cpt_custom_post_type']['description'] );
-	$rest_base = trim( $data['cpt_custom_post_type']['rest_base'] );
-	$has_archive_string = trim( $data['cpt_custom_post_type']['has_archive_string'] );
-	$capability_type = trim( $data['cpt_custom_post_type']['capability_type'] );
-	$rewrite_slug = trim( $data['cpt_custom_post_type']['rewrite_slug'] );
-	$query_var_slug = trim( $data['cpt_custom_post_type']['query_var_slug'] );
-	$menu_position = trim( $data['cpt_custom_post_type']['menu_position'] );
+	$name                = trim( $data['cpt_custom_post_type']['name'] );
+	$description         = stripslashes_deep( $data['cpt_custom_post_type']['description'] );
+	$rest_base           = trim( $data['cpt_custom_post_type']['rest_base'] );
+	$has_archive_string  = trim( $data['cpt_custom_post_type']['has_archive_string'] );
+	$capability_type     = trim( $data['cpt_custom_post_type']['capability_type'] );
+	$rewrite_slug        = trim( $data['cpt_custom_post_type']['rewrite_slug'] );
+	$query_var_slug      = trim( $data['cpt_custom_post_type']['query_var_slug'] );
+	$menu_position       = trim( $data['cpt_custom_post_type']['menu_position'] );
 	$show_in_menu_string = trim( $data['cpt_custom_post_type']['show_in_menu_string'] );
-	$menu_icon = trim( $data['cpt_custom_post_type']['menu_icon'] );
-	$custom_supports = trim( $data['cpt_custom_post_type']['custom_supports'] );
+	$menu_icon           = trim( $data['cpt_custom_post_type']['menu_icon'] );
+	$custom_supports     = trim( $data['cpt_custom_post_type']['custom_supports'] );
 
 	$post_types[ $data['cpt_custom_post_type']['name'] ] = array(
-		'name'                  => $name,
-		'label'                 => $label,
-		'singular_label'        => $singular_label,
-		'description'           => $description,
-		'public'                => disp_boolean( $data['cpt_custom_post_type']['public'] ),
-		'show_ui'               => disp_boolean( $data['cpt_custom_post_type']['show_ui'] ),
-		'show_in_nav_menus'     => disp_boolean( $data['cpt_custom_post_type']['show_in_nav_menus'] ),
-		'show_in_rest'          => disp_boolean( $data['cpt_custom_post_type']['show_in_rest'] ),
-		'rest_base'             => $rest_base,
-		'has_archive'           => disp_boolean( $data['cpt_custom_post_type']['has_archive'] ),
-		'has_archive_string'    => $has_archive_string,
-		'exclude_from_search'   => disp_boolean( $data['cpt_custom_post_type']['exclude_from_search'] ),
-		'capability_type'       => $capability_type,
-		'hierarchical'          => disp_boolean( $data['cpt_custom_post_type']['hierarchical'] ),
-		'rewrite'               => disp_boolean( $data['cpt_custom_post_type']['rewrite'] ),
-		'rewrite_slug'          => $rewrite_slug,
-		'rewrite_withfront'     => disp_boolean( $data['cpt_custom_post_type']['rewrite_withfront'] ),
-		'query_var'             => disp_boolean( $data['cpt_custom_post_type']['query_var'] ),
-		'query_var_slug'        => $query_var_slug,
-		'menu_position'         => $menu_position,
-		'show_in_menu'          => disp_boolean( $data['cpt_custom_post_type']['show_in_menu'] ),
-		'show_in_menu_string'   => $show_in_menu_string,
-		'menu_icon'             => $menu_icon,
-		'supports'              => $data['cpt_supports'],
-		'taxonomies'            => $data['cpt_addon_taxes'],
-		'labels'                => $data['cpt_labels'],
-		'custom_supports'       => $custom_supports
+		'name'                => $name,
+		'label'               => $label,
+		'singular_label'      => $singular_label,
+		'description'         => $description,
+		'public'              => disp_boolean( $data['cpt_custom_post_type']['public'] ),
+		'publicly_queryable'  => disp_boolean( $data['cpt_custom_post_type']['publicly_queryable'] ),
+		'show_ui'             => disp_boolean( $data['cpt_custom_post_type']['show_ui'] ),
+		'show_in_nav_menus'   => disp_boolean( $data['cpt_custom_post_type']['show_in_nav_menus'] ),
+		'show_in_rest'        => disp_boolean( $data['cpt_custom_post_type']['show_in_rest'] ),
+		'rest_base'           => $rest_base,
+		'has_archive'         => disp_boolean( $data['cpt_custom_post_type']['has_archive'] ),
+		'has_archive_string'  => $has_archive_string,
+		'exclude_from_search' => disp_boolean( $data['cpt_custom_post_type']['exclude_from_search'] ),
+		'capability_type'     => $capability_type,
+		'hierarchical'        => disp_boolean( $data['cpt_custom_post_type']['hierarchical'] ),
+		'rewrite'             => disp_boolean( $data['cpt_custom_post_type']['rewrite'] ),
+		'rewrite_slug'        => $rewrite_slug,
+		'rewrite_withfront'   => disp_boolean( $data['cpt_custom_post_type']['rewrite_withfront'] ),
+		'query_var'           => disp_boolean( $data['cpt_custom_post_type']['query_var'] ),
+		'query_var_slug'      => $query_var_slug,
+		'menu_position'       => $menu_position,
+		'show_in_menu'        => disp_boolean( $data['cpt_custom_post_type']['show_in_menu'] ),
+		'show_in_menu_string' => $show_in_menu_string,
+		'menu_icon'           => $menu_icon,
+		'supports'            => $data['cpt_supports'],
+		'taxonomies'          => $data['cpt_addon_taxes'],
+		'labels'              => $data['cpt_labels'],
+		'custom_supports'     => $custom_supports,
 	);
 
 	/**
