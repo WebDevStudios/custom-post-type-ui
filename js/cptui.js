@@ -64,8 +64,10 @@
 		return s;
 	}
 
-	var _custom_media = true,
-		_orig_send_attachment = wp.media.editor.send.attachment;
+	if ( undefined != wp.media ) {
+		var _custom_media = true,
+			_orig_send_attachment = wp.media.editor.send.attachment;
+	}
 
 	$('#cptui_choose_icon').on('click',function(e){
 		e.preventDefault();
