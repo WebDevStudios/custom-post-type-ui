@@ -16,6 +16,11 @@ CPTUI does NOT handle display of registered post types or taxonomies in your cur
 
 ## Changelog
 
+**1.4.0**
+* Added: "Export" tab on editor screens for quick access to post type or taxonomy export pages.
+* Fixed: Hide "choose icon" button for non-js users.
+* Fixed: Resolved undefined javascript variable console errors showing up in some areas of the plugin pages.
+
 **1.3.3**
 * Revert Changes for ajax/heartbeat API requests before post type registration. 3rd party or other plugins were breaking because post types were not registered.
 

@@ -33,6 +33,11 @@ All official development on this plugin is on GitHub. New releases are still pub
 
 == Changelog ==
 
+= 1.4.0 - TBD =
+* Added: "Export" tab on editor screens for quick access to post type or taxonomy export pages.
+* Fixed: Hide "choose icon" button for non-js users.
+* Fixed: Resolved undefined javascript variable console errors showing up in some areas of the plugin pages.
+
 = 1.3.3 - 2016-4-5 =
 * Revert Changes for ajax/heartbeat API requests before post type registration. 3rd party or other plugins were breaking because post types were not registered.
 
@@ -207,6 +212,11 @@ All official development on this plugin is on GitHub. New releases are still pub
 * Bug fixes not mentioned above.
 
 == Upgrade Notice ==
+
+= 1.4.0 - TBD =
+* Added: "Export" tab on editor screens for quick access to post type or taxonomy export pages.
+* Fixed: Hide "choose icon" button for non-js users.
+* Fixed: Resolved undefined javascript variable console errors showing up in some areas of the plugin pages.
 
 = 1.3.3 - 2016-4-5 =
 * Revert Changes for ajax/heartbeat API requests before post type registration. 3rd party or other plugins were breaking because post types were not registered.
