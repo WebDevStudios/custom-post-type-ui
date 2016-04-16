@@ -108,6 +108,8 @@ function cptui_support() {
 							</div>
 						</li>
 					</ol>
+				</td>
+				<td class="outter">
 					<h2><?php esc_html_e( 'General', 'custom-post-type-ui' ); ?></h2>
 					<ol id="questions_general">
 						<li>
@@ -144,6 +146,8 @@ function cptui_support() {
 						</li>
 					</ol>
 				</td>
+			</tr>
+			<tr>
 				<td class="outter">
 					<h2><?php esc_html_e( 'Front-end Display', 'custom-post-type-ui' ); ?></h2>
 					<ol id="questions_front">
@@ -175,8 +179,6 @@ function cptui_support() {
 						</li>
 					</ol>
 				</td>
-			</tr>
-			<tr>
 				<td class="outter">
 					<h2><?php esc_html_e( 'Advanced', 'custom-post-type-ui' ); ?></h2>
 					<ol id="questions_advanced">
