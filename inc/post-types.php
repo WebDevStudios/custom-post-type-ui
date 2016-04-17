@@ -572,8 +572,8 @@ function cptui_manage_post_types() {
 						array( 'attr' => '1', 'text' => __( 'True', 'custom-post-type-ui' ), 'default' => 'true' ),
 					)
 				);
-				$selected = ( isset( $current ) ) ? disp_boolean( $current['public'] ) : '';
-				$select['selected'] = ( ! empty( $selected ) ) ? $current['public'] : '';
+				$selected = ( isset( $current ) ) ? disp_boolean( $current['publicly_queryable'] ) : '';
+				$select['selected'] = ( ! empty( $selected ) ) ? $current['publicly_queryable'] : '';
 				echo $ui->get_select_input( array(
 					'namearray'  => 'cpt_custom_post_type',
 					'name'       => 'publicly_queryable',
