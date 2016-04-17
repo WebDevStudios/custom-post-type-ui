@@ -35,6 +35,7 @@ All official development on this plugin is on GitHub. New releases are still pub
 
 = 1.4.0 - TBD =
 * Added: "Export" tab on editor screens for quick access to post type or taxonomy export pages.
+* Added: Support for "publicly_queryable" parameter
 * Fixed: Hide "choose icon" button for non-js users.
 * Fixed: Resolved undefined javascript variable console errors showing up in some areas of the plugin pages.
 
@@ -215,6 +216,7 @@ All official development on this plugin is on GitHub. New releases are still pub
 
 = 1.4.0 - TBD =
 * Added: "Export" tab on editor screens for quick access to post type or taxonomy export pages.
+* Added: Support for "publicly_queryable" parameter
 * Fixed: Hide "choose icon" button for non-js users.
 * Fixed: Resolved undefined javascript variable console errors showing up in some areas of the plugin pages.
 
