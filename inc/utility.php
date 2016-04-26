@@ -327,6 +327,12 @@ function cptui_products_sidebar() {
 add_action( 'cptui_below_post_type_tab_menu', 'cptui_products_sidebar' );
 add_action( 'cptui_below_taxonomy_tab_menu', 'cptui_products_sidebar' );
 
+/**
+ * Outputs our newsletter signup form.
+ *
+ * @since 1.3.4
+ * @internal
+ */
 function cptui_newsletter_form() {
 	?>
 <!-- Begin MailChimp Signup Form -->
