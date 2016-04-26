@@ -165,9 +165,8 @@ function cptui_support() {
 							<span tabindex="0" class="question" aria-controls="q15" aria-expanded="false"><?php esc_html_e( 'How do I display my custom post type on my site?', 'custom-post-type-ui' ); ?></span>
 							<div class="answer" id="q15"><?php
 								printf(
-									esc_html__( 'You will need to utilize the %sWP_Query%s class to handle display in custom locations. If you have set the post type to have archives, the archive url should be something like "http://www.mysite.com/post-type-slug"', 'custom-post-type-ui' ),
-									'<a href="https://codex.wordpress.org/Class_Reference/WP_Query" target="_blank">',
-									'</a>'
+									esc_html__( 'We encourage checking out Custom Post Type UI Extended for easily displaying post type content wherever you can utilize a shortcode. If you prefer to handle on your own, you will need to utilize the %s class to handle display in custom locations. If you have set the post type to have archives, the archive url should be something like "http://www.mysite.com/post-type-slug"', 'custom-post-type-ui' ),
+									'<a href="https://codex.wordpress.org/Class_Reference/WP_Query" target="_blank">WP_Query</a>'
 								); ?>
 							</div>
 						</li>
