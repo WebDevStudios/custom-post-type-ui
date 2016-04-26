@@ -11,11 +11,11 @@ Admin UI for creating custom post types and custom taxonomies in WordPress
 
 == Description ==
 
-This plugin provides an easy to use interface to create and administer custom post types and taxonomies in WordPress.  This plugin is created for WordPress 3.x.
+This plugin provides an easy to use interface for creating and administrating custom post types and taxonomies in WordPress.  This plugin is created for WordPress 3.0 and higher.
 
-Please note that this plugin will NOT handle display of registered post types or taxonomies in your current theme. It will simply register them for you.
+Please note that Custom Post Type UI alone will not display post types or taxonomies data in customized places within your site; it simply registers them for you to use. Check out [https://pluginize.com/product/custom-post-type-ui-extended/?utm_source=cptui-wporg&utm_medium=text&utm_campaign=cptui_description](Custom Post Type UI Extended) for an easy way to display post type content from any registered types on your site, including those created with Custom Post Type UI and more.
 
-All official development on this plugin is on GitHub. Version bumps will still be published here on WordPress.org. You can find the repo at [https://github.com/WebDevStudios/custom-post-type-ui](https://github.com/WebDevStudios/custom-post-type-ui). Please file confirmed issues, bugs, and enhancement ideas there, when possible.
+All official development on this plugin is on GitHub. New releases are still published here on WordPress.org. The version shown here should be considered the latest stable release. You can find the repo at [https://github.com/WebDevStudios/custom-post-type-ui](https://github.com/WebDevStudios/custom-post-type-ui). Please file confirmed issues, bugs, and enhancement ideas there, when possible.
 
 == Screenshots ==
 
@@ -388,12 +388,12 @@ Full list:
 
 == Installation ==
 
-=== Manual ===
+= Manual =
 1. Upload the Custom Post Type UI folder to the plugins directory in your WordPress installation
 2. Activate the plugin.
 3. Navigate to the "CPTUI" Menu.
 
-=== Admin Installer ===
+= Admin Installer =
 1. Visit the Add New plugin screen and search for "custom post type ui"
 2. Click the "Install Now" button.
 3. Activate the plugin.
