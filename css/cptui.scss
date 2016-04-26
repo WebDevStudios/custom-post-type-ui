@@ -238,8 +238,14 @@
   margin-top: 10px;
   width: 275px;
 
-  img {
+  img,
+  #mc_embed_signup {
 	margin-bottom: 10px;
+  }
+  #mc_embed_signup {
+	border: solid rgb(204, 204, 204) 1px;
+	background: #fff;
+	clear: left;
   }
 }
 .no-js {
