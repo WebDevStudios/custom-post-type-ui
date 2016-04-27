@@ -260,13 +260,9 @@ fieldset .cptui-help {
   width: 275px;
 }
 
-.wdspromos img,
 .wdspromos #mc_embed_signup {
-  margin-bottom: 10px;
-}
-
-.wdspromos #mc_embed_signup {
-  border: solid #cccccc 1px;
   background: #fff;
+  border: solid #cccccc 1px;
   clear: left;
+  margin-bottom: 10px;
 }
