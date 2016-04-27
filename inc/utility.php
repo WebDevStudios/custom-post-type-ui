@@ -345,11 +345,9 @@ function cptui_newsletter_form() {
 <div id="mc_embed_signup">
 	<form action="//webdevstudios.us1.list-manage.com/subscribe/post?u=67169b098c99de702c897d63e&amp;id=9cb1c7472e" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
 		<div id="mc_embed_signup_scroll">
-			<h2>Subscribe to our mailing list</h2>
-			<div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
+			<p><strong>Get email updates from pluginize.com about Custom Post Type UI</strong></p>
 			<div class="mc-field-group">
-				<label for="mce-EMAIL">Email Address <span class="asterisk">*</span>
-				</label>
+				<label for="mce-EMAIL">Email Address</label>
 				<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
 			</div>
 			<div id="mce-responses" class="clear">
