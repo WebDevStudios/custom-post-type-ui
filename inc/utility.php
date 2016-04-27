@@ -314,7 +314,7 @@ function cptui_products_sidebar() {
 			}
 
 			printf(
-				'<a href="%s">%s</a>',
+				'<p><a href="%s">%s</a></p>',
 				$ad->url,
 				$the_ad
 			);
