@@ -340,9 +340,9 @@ function cptui_newsletter_form() {
 <div id="mc_embed_signup">
 	<form action="//webdevstudios.us1.list-manage.com/subscribe/post?u=67169b098c99de702c897d63e&amp;id=9cb1c7472e" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
 		<div id="mc_embed_signup_scroll">
-			<p><strong>Get email updates from pluginize.com about Custom Post Type UI</strong></p>
+			<p><strong><?php esc_html_e( 'Get email updates from pluginize.com about Custom Post Type UI', 'custom-post-type-ui' ); ?></strong></p>
 			<div class="mc-field-group">
-				<label for="mce-EMAIL">Email Address</label>
+				<label for="mce-EMAIL"><?php esc_html_e( 'Email Address', 'custom-post-type-ui' ); ?></label>
 				<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
 			</div>
 			<div id="mce-responses" class="clear">
@@ -352,7 +352,7 @@ function cptui_newsletter_form() {
 			<div style="position: absolute; left: -5000px;" aria-hidden="true">
 				<input type="text" name="b_67169b098c99de702c897d63e_9cb1c7472e" tabindex="-1" value=""></div>
 			<div class="clear">
-				<input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
+				<input type="submit" value="<?php esc_attr_e( 'Subscribe', 'custom-post-type-ui' ); ?>" name="subscribe" id="mc-embedded-subscribe" class="button">
 			</div>
 		</div>
 	</form>
