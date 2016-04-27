@@ -67,12 +67,12 @@ function cptui_support() {
 					<ol id="questions_pluginize">
 						<li>
 							<span tabindex="0" class="question" aria-controls="q1" aria-expanded="false"><?php esc_html_e( 'What is Pluginize?', 'custom-post-type-ui' ); ?></span>
-							<div class="answer" id="q1"><?php esc_html_e( '', 'custom-post-type-ui' ); ?>
+							<div class="answer" id="q1"><?php esc_html_e( 'Pluginize is a marketplace of plugins by WebDevStudios.', 'custom-post-type-ui' ); ?>
 							</div>
 						</li>
 						<li>
 							<span tabindex="0" class="question" aria-controls="q2" aria-expanded="false"><?php esc_html_e( 'What does Pluginize offer?', 'custom-post-type-ui' ); ?></span>
-							<div class="answer" id="q2"><?php esc_html_e( '', 'custom-post-type-ui' ); ?>
+							<div class="answer" id="q2"><?php esc_html_e( 'Pluginize offers both free and paid WordPress plugins.', 'custom-post-type-ui' ); ?>
 							</div>
 						</li>
 						<li>
