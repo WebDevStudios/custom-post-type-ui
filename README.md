@@ -17,6 +17,7 @@ CPTUI does NOT handle display of registered post types or taxonomies in your cur
 ## Changelog
 
 **1.3.4**
+* Fixed: undefined variable error in cptui.js
 * Fixed: Better output formatting if WDS/Pluginize "ads" failed to load images.
 * Added: Newsletter subscription form to stay uptodate with Custom Post Type UI &amp; Custom Post Type UI Extended news.
 * Added: Support page/FAQ info regarding Pluginize and recent sidebar developments.
