@@ -16,11 +16,10 @@ CPTUI does NOT handle display of registered post types or taxonomies in your cur
 
 ## Changelog
 
-**1.4.0**
-* Added: "Export" tab on editor screens for quick access to post type or taxonomy export pages.
-* Added: Support for "publicly_queryable" parameter
-* Fixed: Hide "choose icon" button for non-js users.
-* Fixed: Resolved undefined javascript variable console errors showing up in some areas of the plugin pages.
+**1.3.4**
+* Fixed: Better output formatting if WDS/Pluginize "ads" failed to load images.
+* Added: Newsletter subscription form to stay uptodate with Custom Post Type UI &amp; Custom Post Type UI Extended news.
+* Added: Support page/FAQ info regarding Pluginize and recent sidebar developments.
 
 **1.3.3**
 * Revert Changes for ajax/heartbeat API requests before post type registration. 3rd party or other plugins were breaking because post types were not registered.
