@@ -314,8 +314,8 @@ function cptui_products_sidebar() {
 			}
 			// Escaping $the_ad breaks the html.
 			printf(
-				'<a href="%s">%s</a>',
-				esc_url( $ad->url ),
+				'<p><a href="%s">%s</a></p>',
+				$ad->url,
 				$the_ad
 			);
 		}
