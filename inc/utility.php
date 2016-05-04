@@ -288,40 +288,29 @@ function cptui_get_post_type_exists( $slug = '', $data = array() ) {
  */
 function cptui_products_sidebar() {
 
-	if ( false === ( $ads = get_transient( 'wds_promos' ) ) ) {
-		$ads = wp_remote_get( 'https://webdevstudios.com/assets/wds.json' );
+	echo '<div class="wdspromos">';
 
-		if ( 200 === wp_remote_retrieve_response_code( $ads ) ) {
-			$ads = json_decode( wp_remote_retrieve_body( $ads ) );
-			set_transient( 'wds_promos', $ads, DAY_IN_SECONDS );
-		}
-	}
+	cptui_newsletter_form();
 
+	$ads = cptui_get_ads();
 	if ( ! empty( $ads ) ) {
-		echo '<div class="wdspromos">';
-
-		cptui_newsletter_form();
-
 		foreach ( $ads as $ad ) {
-			$the_ad = $ad->text;
-			$image = wp_remote_get( $ad->image );
-			if ( 200 === wp_remote_retrieve_response_code( $image ) ) {
-				$the_ad = sprintf(
-					'<img src="%s" alt="%s">',
-					esc_attr( $ad->image ),
-					esc_attr( $ad->text )
-				);
-			}
+
+			$the_ad = sprintf(
+				'<img src="%s" alt="%s">',
+				esc_attr( $ad['image'] ),
+				esc_attr( $ad['text'] )
+			);
+
 			// Escaping $the_ad breaks the html.
 			printf(
 				'<p><a href="%s">%s</a></p>',
-				esc_url( $ad->url ),
+				esc_url( $ad['url'] ),
 				$the_ad
 			);
 		}
-		echo '</div>';
-
 	}
+	echo '</div>';
 
 }
 add_action( 'cptui_below_post_type_tab_menu', 'cptui_products_sidebar' );
