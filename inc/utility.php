@@ -357,3 +357,60 @@ function cptui_newsletter_form() {
 <!--End mc_embed_signup-->
 <?php
 }
+
+/**
+ * Fetch all set ads to be displayed.
+ *
+ * @since 1.3.4
+ *
+ * @return array
+ */
+function cptui_get_ads() {
+
+	/**
+	 * Filters the array of ads to iterate over.
+	 *
+	 * Each index in the ads array should have a url index with the url to link to,
+	 * an image index specifying an image location to load from, and a text index used
+	 * for alt attribute text.
+	 *
+	 * @since 1.3.4
+	 *
+	 * @param array $value Array of ads to iterate over. Default empty.
+	 */
+	$ads = (array) apply_filters( 'cptui_ads', array() );
+	return $ads;
+}
+
+/**
+ * Add our default ads to the ads filter.
+ *
+ * @since 1.3.4
+ *
+ * @internal
+ *
+ * @param array $ads Array of ads set so far.
+ * @return array $ads Array of newly constructed ads.
+ */
+function cptui_default_ads( $ads = array() ) {
+	$ads[] = array(
+		'url'   => 'https://pluginize.com/product/custom-post-type-ui-extended/?utm_source=sidebar-v3&utm_medium=banner&utm_campaign=cptui',
+		'image' => plugin_dir_url( dirname( __FILE__ ) ) . 'images/wds_ads/cptuix-ad-3.png',
+		'text'  => 'Custom Post Type UI Extended product ad',
+	);
+
+	$ads[] = array(
+		'url'   => 'https://apppresser.com/?utm_source=pluginize&utm_medium=plugin&utm_campaign=cptui',
+		'image' => plugin_dir_url( dirname( __FILE__ ) ) . 'images/wds_ads/apppresser.png',
+		'text'  => 'AppPresser product ad',
+	);
+
+	$ads[] = array(
+		'url'   => 'https://maintainn.com/?utm_source=Pluginize&utm_medium=Plugin-Sidebar&utm_campaign=CPTUI',
+		'image' => plugin_dir_url( dirname( __FILE__ ) ) . 'images/wds_ads/maintainn.png',
+		'text'  => 'Maintainn product ad',
+	);
+
+	return $ads;
+}
+add_filter( 'cptui_ads', 'cptui_default_ads' );
