@@ -288,40 +288,29 @@ function cptui_get_post_type_exists( $slug = '', $data = array() ) {
  */
 function cptui_products_sidebar() {
 
-	if ( false === ( $ads = get_transient( 'wds_promos' ) ) ) {
-		$ads = wp_remote_get( 'https://webdevstudios.com/assets/wds.json' );
+	echo '<div class="wdspromos">';
 
-		if ( 200 === wp_remote_retrieve_response_code( $ads ) ) {
-			$ads = json_decode( wp_remote_retrieve_body( $ads ) );
-			set_transient( 'wds_promos', $ads, DAY_IN_SECONDS );
-		}
-	}
+	cptui_newsletter_form();
 
+	$ads = cptui_get_ads();
 	if ( ! empty( $ads ) ) {
-		echo '<div class="wdspromos">';
-
-		cptui_newsletter_form();
-
 		foreach ( $ads as $ad ) {
-			$the_ad = $ad->text;
-			$image = wp_remote_get( $ad->image );
-			if ( 200 === wp_remote_retrieve_response_code( $image ) ) {
-				$the_ad = sprintf(
-					'<img src="%s" alt="%s">',
-					esc_attr( $ad->image ),
-					esc_attr( $ad->text )
-				);
-			}
+
+			$the_ad = sprintf(
+				'<img src="%s" alt="%s">',
+				esc_attr( $ad['image'] ),
+				esc_attr( $ad['text'] )
+			);
+
 			// Escaping $the_ad breaks the html.
 			printf(
 				'<p><a href="%s">%s</a></p>',
-				esc_url( $ad->url ),
+				esc_url( $ad['url'] ),
 				$the_ad
 			);
 		}
-		echo '</div>';
-
 	}
+	echo '</div>';
 
 }
 add_action( 'cptui_below_post_type_tab_menu', 'cptui_products_sidebar' );
@@ -368,3 +357,60 @@ function cptui_newsletter_form() {
 <!--End mc_embed_signup-->
 <?php
 }
+
+/**
+ * Fetch all set ads to be displayed.
+ *
+ * @since 1.3.4
+ *
+ * @return array
+ */
+function cptui_get_ads() {
+
+	/**
+	 * Filters the array of ads to iterate over.
+	 *
+	 * Each index in the ads array should have a url index with the url to link to,
+	 * an image index specifying an image location to load from, and a text index used
+	 * for alt attribute text.
+	 *
+	 * @since 1.3.4
+	 *
+	 * @param array $value Array of ads to iterate over. Default empty.
+	 */
+	$ads = (array) apply_filters( 'cptui_ads', array() );
+	return $ads;
+}
+
+/**
+ * Add our default ads to the ads filter.
+ *
+ * @since 1.3.4
+ *
+ * @internal
+ *
+ * @param array $ads Array of ads set so far.
+ * @return array $ads Array of newly constructed ads.
+ */
+function cptui_default_ads( $ads = array() ) {
+	$ads[] = array(
+		'url'   => 'https://pluginize.com/product/custom-post-type-ui-extended/?utm_source=sidebar-v3&utm_medium=banner&utm_campaign=cptui',
+		'image' => plugin_dir_url( dirname( __FILE__ ) ) . 'images/wds_ads/cptuix-ad-3.png',
+		'text'  => 'Custom Post Type UI Extended product ad',
+	);
+
+	$ads[] = array(
+		'url'   => 'https://apppresser.com/?utm_source=pluginize&utm_medium=plugin&utm_campaign=cptui',
+		'image' => plugin_dir_url( dirname( __FILE__ ) ) . 'images/wds_ads/apppresser.png',
+		'text'  => 'AppPresser product ad',
+	);
+
+	$ads[] = array(
+		'url'   => 'https://maintainn.com/?utm_source=Pluginize&utm_medium=Plugin-Sidebar&utm_campaign=CPTUI',
+		'image' => plugin_dir_url( dirname( __FILE__ ) ) . 'images/wds_ads/maintainn.png',
+		'text'  => 'Maintainn product ad',
+	);
+
+	return $ads;
+}
+add_filter( 'cptui_ads', 'cptui_default_ads' );
