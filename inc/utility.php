@@ -317,7 +317,7 @@ function cptui_products_sidebar() {
 		}
 		printf(
 			'<p><a href="%s">%s</a></p>',
-			'https://pluginize.com/product/custom-post-type-ui-extended/?utm_source=cptui-dashboard&utm_medium=text&utm_campaign=remove_ads',
+			'https://pluginize.com/product/custom-post-type-ui-extended/?utm_source=remove_ads&utm_medium=text&utm_campaign=cptui',
 			esc_html__( 'Remove these ads?', 'custom-post-type-ui' )
 		);
 		echo '</div>';
