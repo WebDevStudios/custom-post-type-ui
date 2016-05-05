@@ -287,38 +287,130 @@ function cptui_get_post_type_exists( $slug = '', $data = array() ) {
  * @internal
  */
 function cptui_products_sidebar() {
-	if ( false === ( $ads = get_transient( 'wds_promos' ) ) ) {
-		$ads = wp_remote_get( 'https://webdevstudios.com/assets/wds.json' );
 
-		if ( 200 === wp_remote_retrieve_response_code( $ads ) ) {
-			$ads = json_decode( wp_remote_retrieve_body( $ads ) );
-			set_transient( 'wds_promos', $ads, DAY_IN_SECONDS );
-		}
-	}
+	echo '<div class="wdspromos">';
 
+	cptui_newsletter_form();
+
+	$ads = cptui_get_ads();
 	if ( ! empty( $ads ) ) {
-		echo '<div class="wdspromos">';
 		foreach ( $ads as $ad ) {
-			$the_ad = $ad->text;
-			$image = wp_remote_get( $ad->image );
-			if ( 200 === wp_remote_retrieve_response_code( $image ) ) {
-				$the_ad = sprintf(
-					'<img src="%s" alt="%s">',
-					$ad->image,
-					$ad->text
-				);
-			}
 
+			$the_ad = sprintf(
+				'<img src="%s" alt="%s">',
+				esc_attr( $ad['image'] ),
+				esc_attr( $ad['text'] )
+			);
+
+			// Escaping $the_ad breaks the html.
 			printf(
-				'<a href="%s">%s</a>',
-				$ad->url,
+				'<p><a href="%s">%s</a></p>',
+				esc_url( $ad['url'] ),
 				$the_ad
 			);
 		}
-		echo '</div>';
-
 	}
+	echo '</div>';
 
 }
 add_action( 'cptui_below_post_type_tab_menu', 'cptui_products_sidebar' );
 add_action( 'cptui_below_taxonomy_tab_menu', 'cptui_products_sidebar' );
+
+/**
+ * Outputs our newsletter signup form.
+ *
+ * @since 1.3.4
+ * @internal
+ */
+function cptui_newsletter_form() {
+	?>
+<!-- Begin MailChimp Signup Form -->
+<link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
+<div id="mc_embed_signup">
+	<form action="//webdevstudios.us1.list-manage.com/subscribe/post?u=67169b098c99de702c897d63e&amp;id=9cb1c7472e" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+		<div id="mc_embed_signup_scroll">
+			<p><strong><?php esc_html_e( 'Get email updates from pluginize.com about Custom Post Type UI', 'custom-post-type-ui' ); ?></strong></p>
+			<div class="mc-field-group">
+				<label for="mce-EMAIL"><?php esc_html_e( 'Email Address', 'custom-post-type-ui' ); ?></label>
+				<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
+			</div>
+			<div id="mce-responses" class="clear">
+				<div class="response" id="mce-error-response" style="display:none"></div>
+				<div class="response" id="mce-success-response" style="display:none"></div>
+			</div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+			<div style="position: absolute; left: -5000px;" aria-hidden="true">
+				<input type="text" name="b_67169b098c99de702c897d63e_9cb1c7472e" tabindex="-1" value=""></div>
+			<div class="clear">
+				<input type="submit" value="<?php esc_attr_e( 'Subscribe', 'custom-post-type-ui' ); ?>" name="subscribe" id="mc-embedded-subscribe" class="button">
+			</div>
+		</div>
+	</form>
+</div>
+<script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
+<script type='text/javascript'>(function ($) {
+		window.fnames = new Array();
+		window.ftypes = new Array();
+		fnames[0] = 'EMAIL';
+		ftypes[0] = 'email';
+	}(jQuery));
+	var $mcj = jQuery.noConflict(true);</script>
+<!--End mc_embed_signup-->
+<?php
+}
+
+/**
+ * Fetch all set ads to be displayed.
+ *
+ * @since 1.3.4
+ *
+ * @return array
+ */
+function cptui_get_ads() {
+
+	/**
+	 * Filters the array of ads to iterate over.
+	 *
+	 * Each index in the ads array should have a url index with the url to link to,
+	 * an image index specifying an image location to load from, and a text index used
+	 * for alt attribute text.
+	 *
+	 * @since 1.3.4
+	 *
+	 * @param array $value Array of ads to iterate over. Default empty.
+	 */
+	$ads = (array) apply_filters( 'cptui_ads', array() );
+	return $ads;
+}
+
+/**
+ * Add our default ads to the ads filter.
+ *
+ * @since 1.3.4
+ *
+ * @internal
+ *
+ * @param array $ads Array of ads set so far.
+ * @return array $ads Array of newly constructed ads.
+ */
+function cptui_default_ads( $ads = array() ) {
+	$ads[] = array(
+		'url'   => 'https://pluginize.com/product/custom-post-type-ui-extended/?utm_source=sidebar-v3&utm_medium=banner&utm_campaign=cptui',
+		'image' => plugin_dir_url( dirname( __FILE__ ) ) . 'images/wds_ads/cptuix-ad-3.png',
+		'text'  => 'Custom Post Type UI Extended product ad',
+	);
+
+	$ads[] = array(
+		'url'   => 'https://apppresser.com/?utm_source=pluginize&utm_medium=plugin&utm_campaign=cptui',
+		'image' => plugin_dir_url( dirname( __FILE__ ) ) . 'images/wds_ads/apppresser.png',
+		'text'  => 'AppPresser product ad',
+	);
+
+	$ads[] = array(
+		'url'   => 'https://maintainn.com/?utm_source=Pluginize&utm_medium=Plugin-Sidebar&utm_campaign=CPTUI',
+		'image' => plugin_dir_url( dirname( __FILE__ ) ) . 'images/wds_ads/maintainn.png',
+		'text'  => 'Maintainn product ad',
+	);
+
+	return $ads;
+}
+add_filter( 'cptui_ads', 'cptui_default_ads' );

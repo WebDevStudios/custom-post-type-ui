@@ -4,18 +4,18 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: custom post types, CPT, CMS, post, types, post type, cck, taxonomy, tax, custom
 Requires at least: 4.2
 Tested up to: 4.5
-Stable tag: 1.3.3
+Stable tag: 1.3.4
 License: GPLv2
 
 Admin UI for creating custom post types and custom taxonomies in WordPress
 
 == Description ==
 
-This plugin provides an easy to use interface to create and administer custom post types and taxonomies in WordPress.  This plugin is created for WordPress 3.x.
+This plugin provides an easy to use interface for creating and administrating custom post types and taxonomies in WordPress.  This plugin is created for WordPress 3.0 and higher.
 
-Please note that this plugin will NOT handle display of registered post types or taxonomies in your current theme. It will simply register them for you.
+Please note that Custom Post Type UI alone will not display post types or taxonomies data in customized places within your site; it simply registers them for you to use. Check out [Custom Post Type UI Extended](https://pluginize.com/product/custom-post-type-ui-extended/?utm_source=cptui-desription&utm_medium=text&utm_campaign=wporg) for an easy way to display post type content from any registered types on your site, including those created with Custom Post Type UI and more.
 
-All official development on this plugin is on GitHub. Version bumps will still be published here on WordPress.org. You can find the repo at [https://github.com/WebDevStudios/custom-post-type-ui](https://github.com/WebDevStudios/custom-post-type-ui). Please file confirmed issues, bugs, and enhancement ideas there, when possible.
+All official development on this plugin is on GitHub. New releases are still published here on WordPress.org. The version shown here should be considered the latest stable release. You can find the repo at [https://github.com/WebDevStudios/custom-post-type-ui](https://github.com/WebDevStudios/custom-post-type-ui). Please file confirmed issues, bugs, and enhancement ideas there, when possible.
 
 == Screenshots ==
 
@@ -32,6 +32,13 @@ All official development on this plugin is on GitHub. Version bumps will still b
 11. About/Update Information/Donate screen.
 
 == Changelog ==
+
+= 1.3.4 - 2016-5-4 =
+* Fixed: moved WDS-based services "ads" to within the plugin itself. Will not request remote resources.
+* Fixed: Better output formatting if WDS/Pluginize "ads" failed to load images.
+* Fixed: undefined variable error in cptui.js
+* Added: Newsletter subscription form to stay uptodate with Custom Post Type UI &amp; Custom Post Type UI Extended news.
+* Added: Support page/FAQ info regarding Pluginize and recent sidebar developments.
 
 = 1.3.3 - 2016-4-5 =
 * Revert Changes for ajax/heartbeat API requests before post type registration. 3rd party or other plugins were breaking because post types were not registered.
@@ -207,6 +214,13 @@ All official development on this plugin is on GitHub. Version bumps will still b
 * Bug fixes not mentioned above.
 
 == Upgrade Notice ==
+
+= 1.3.4 - 2016-5-4 =
+* Fixed: moved WDS-based services "ads" to within the plugin itself. Will not request remote resources.
+* Fixed: Better output formatting if WDS/Pluginize "ads" failed to load images.
+* Fixed: undefined variable error in cptui.js
+* Added: Newsletter subscription form to stay uptodate with Custom Post Type UI &amp; Custom Post Type UI Extended news.
+* Added: Support page/FAQ info regarding Pluginize and recent sidebar developments.
 
 = 1.3.3 - 2016-4-5 =
 * Revert Changes for ajax/heartbeat API requests before post type registration. 3rd party or other plugins were breaking because post types were not registered.
@@ -388,12 +402,12 @@ Full list:
 
 == Installation ==
 
-=== Manual ===
+= Manual =
 1. Upload the Custom Post Type UI folder to the plugins directory in your WordPress installation
 2. Activate the plugin.
 3. Navigate to the "CPTUI" Menu.
 
-=== Admin Installer ===
+= Admin Installer =
 1. Visit the Add New plugin screen and search for "custom post type ui"
 2. Click the "Install Now" button.
 3. Activate the plugin.
