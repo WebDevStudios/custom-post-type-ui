@@ -84,7 +84,7 @@ function cptui_post_type_tabs( $tabs = array(), $current_page = '' ) {
 				'text'          => __( 'Edit Post Types', 'custom-post-type-ui' ),
 				'classes'       => $classes,
 				'url'           => esc_url( add_query_arg( array( 'action' => 'edit' ), cptui_admin_url( 'admin.php?page=cptui_manage_' . $current_page ) ) ),
-				'aria-selected' => ( ! empty( $action ) ) ? 'true' : 'false'
+				'aria-selected' => ( ! empty( $action ) ) ? 'true' : 'false',
 			);
 
 			$tabs['tabs']['view'] = array(
