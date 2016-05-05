@@ -16,6 +16,60 @@ CPTUI does NOT handle display of registered post types or taxonomies in your cur
 
 ## Changelog
 
+**1.3.4**
+* Fixed: moved WDS-based services "ads" to within the plugin itself. Will not request remote resources.
+* Fixed: Better output formatting if WDS/Pluginize "ads" failed to load images.
+* Fixed: undefined variable error in cptui.js
+* Added: Newsletter subscription form to stay uptodate with Custom Post Type UI &amp; Custom Post Type UI Extended news.
+* Added: Support page/FAQ info regarding Pluginize and recent sidebar developments.
+
+**1.3.3**
+* Revert Changes for ajax/heartbeat API requests before post type registration. 3rd party or other plugins were breaking because post types were not registered.
+
+**1.3.2**
+* Fixed: Logic issue with cptui js files loading where they weren't meant to.
+* Fixed: Required markers missing on required post type fields.
+* Fixed: Removed excess labels that are not used by WordPress core.
+* Added: New contributors to readme file. Welcome John and Ryan.
+* Updated: New screenshot from 1.3.0 release. Moved to assets folder so users will no longer download as part of CPTUI.
+* Updated: Better prevention of running our code during ajax/heartbeat api requests.
+
+**1.3.1**
+* Fixed: Logic issue for default values of `public` parameter for taxonomies added in 1.3.0.
+
+**1.3.0**
+
+* Added: "CPTUI_VERSION" constant and deprecated "CPT_VERSION".
+* Added: "Public" parameter for taxonomies
+* Added: "View Post Types" and "View Taxonomies" tabs at top of add/edit screens.
+* Added: Better prevention of potential duplicate slugs in new post types and taxonomies.
+* Added: Current theme's textdomain as output in get code textareas.
+* Added: Fill in singular and plural label fields if none provided. WordPress does not auto-fill these.
+* Added: For developers: plenty of extra hooks all over for customization needs.
+* Added: Javascript-based prevention of spaces and special characters for post type and taxonomy slugs.
+* Added: Legend tag support to admin UI class.
+* Added: Minified copies of our JavaScript and CSS. Define SCRIPT_DEBUG to true to use non-minified versions.
+* Added: New post type and taxonomy labels provided by WordPress 4.3 and 4.4 releases.
+	* See: https://make.wordpress.org/core/2015/12/11/additional-labels-for-custom-post-types-and-custom-taxonomies/
+* Added: Notes to post type and taxonomy edit screens about WordPress core's post types and taxonomies.
+* Added: Taxonomy slug update ability with preserved term association.
+* Added: Title, Editor, and Featured Image now checked by default for new post types.
+* Added: "Show in Quick Edit" taxonomy parameter available in WP 4.2
+* Added: Promo spots on add/edit screens for other products from WebDevStudios.
+* Fixed: Need to visit permalinks page to flush rewrite rules after creating new post type or taxonomy.
+* Fixed: Missing REST API based parameters in "Get Code" output.
+* Updated: Increased accessibility coverage.
+* Updated: Revised how tabs are added to pages so 3rd party developers can add their own tabs.
+* Updated: Improved string consistency in our UI helper notes. Props @GaryJones
+* Updated: Tested on WordPress 4.5
+* Updated: Cleaned up admin footer area for social links.
+* Updated: Moved all localization work to WordPress.org Translation packs
+
+**1.2.4**
+
+* Added: new CPTUI_VERSION constant to match naming of other current constants.
+* Added: CPTUI_VERSION constant to cptui.css string for cache busting.
+
 **1.2.4**
 
 * Added: new `CPTUI_VERSION` constant to match naming of other current constants.
@@ -23,7 +77,7 @@ CPTUI does NOT handle display of registered post types or taxonomies in your cur
 
 **1.2.3**
 
-* Fixed: copy/paste error with admin css.
+* Fixed: copy/paste error with admin css. Props hinaloe.
 
 **1.2.2**
 
@@ -165,78 +219,6 @@ CPTUI does NOT handle display of registered post types or taxonomies in your cur
 * Added function that automatically converts 0.8.x and down settings to new setting arrangement.
 * Changed how settings are stored so that post types and taxonomies are in named array indexes.
 * Bug fixes not mentioned above.
-
-**0.9.5**
-
-* Revert 0.9.0 release until unfound bugs are fixed.
-
-**0.9.0**
-
-* See 1.0.0 list. This was reverted by 0.9.5 release.
-
-**0.8.5**
-
-* Fix issue with menu_postion being quoted in CPT get_code functionality.
-
-**0.8.4**
-
-* Fix issue with get code and post types/taxonomies that use a dash instead of underscore. Props Evan Mullins/circlecube.
-
-**0.8.3**
-
-* Dashicon support
-
-**0.8.2**
-
-* Fix with_front logic issue.
-
-**0.8.1**
-
-* Renamed menu entry to "CPT UI".
-* Fixes for potential "undefined index" WP DEBUG log notices.
-* Updated localization text files for text changes.
-* Updated and fixed output for "get code" and custom post types.
-* Updated and fixed output for "get code" and custom taxonomies.
-* Fixes "get code" function callback name conflict.
-* Added support for show_admin_column for WordPress 3.5+
-* Added support for map_meta_cap field in custom post types.
-* Prevent quotes in slug fields for Custom Post Types or Taxonomies.
-
-**0.8**
-
-* Added "with_front" support
-* Added menu icon support. Upload and save full URL from Media Library
-* Added General post formats support
-* Every string is translation ready
-* Better fallback options for new install that haven't created anything yet
-* More notes to help users with options
-* Code refactoring and cleanup
-* Fix for possible empty rewrite value
-* Fixed slashes issue with description field and taxonomy label fields
-* Fixed issue with capabilities input having two value attributes
-* Flush rewrite rules on deactivation
-* UI touchups
-* Updated screenshots.
-
-**0.7.2**
-
-* Added exclude_from_search support
-* Fixed display bug with capability type
-* Fixed JavaScript bug
-* Strict CPT name check
-* Code cleanup
-
-**0.7.1**
-
-* Fixed XSS security bug (props Duck)
-
-**0.7**
-
-* WordPress 3.1 support
-* Added has_archive and show_in_menu support
-* Added label for custom menu name
-* Updated plugin UI to be consistent with WordPress styles
-* Added "Get Code" feature to easily copy code used for post types and taxonomies (BETA)
 
 ## Installation
 
