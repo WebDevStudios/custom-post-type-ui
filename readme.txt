@@ -33,7 +33,7 @@ All official development on this plugin is on GitHub. New releases are still pub
 
 == Changelog ==
 
-= 1.3.4 =
+= 1.3.4 - 2016-5-4 =
 * Fixed: moved WDS-based services "ads" to within the plugin itself. Will not request remote resources.
 * Fixed: Better output formatting if WDS/Pluginize "ads" failed to load images.
 * Fixed: undefined variable error in cptui.js
@@ -215,7 +215,7 @@ All official development on this plugin is on GitHub. New releases are still pub
 
 == Upgrade Notice ==
 
-= 1.3.4 =
+= 1.3.4 - 2016-5-4 =
 * Fixed: moved WDS-based services "ads" to within the plugin itself. Will not request remote resources.
 * Fixed: Better output formatting if WDS/Pluginize "ads" failed to load images.
 * Fixed: undefined variable error in cptui.js
