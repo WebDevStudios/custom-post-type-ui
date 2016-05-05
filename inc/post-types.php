@@ -569,6 +569,23 @@ function cptui_manage_post_types() {
 				$select = array(
 					'options' => array(
 						array( 'attr' => '0', 'text' => __( 'False', 'custom-post-type-ui' ) ),
+						array( 'attr' => '1', 'text' => __( 'True', 'custom-post-type-ui' ), 'default' => 'true' ),
+					)
+				);
+				$selected = ( isset( $current ) ) ? disp_boolean( $current['publicly_queryable'] ) : '';
+				$select['selected'] = ( ! empty( $selected ) ) ? $current['publicly_queryable'] : '';
+				echo $ui->get_select_input( array(
+					'namearray'  => 'cpt_custom_post_type',
+					'name'       => 'publicly_queryable',
+					'labeltext'  => __( 'Publicly Queryable', 'custom-post-type-ui' ),
+					'aftertext'  => __( '(default: true)', 'custom-post-type-ui' ),
+					'helptext'   => esc_attr__( 'Whether queries can be performed on the front end as part of parse_request()', 'custom-post-type-ui' ),
+					'selections' => $select,
+				) );
+
+				$select = array(
+					'options' => array(
+						array( 'attr' => '0', 'text' => __( 'False', 'custom-post-type-ui' ) ),
 						array( 'attr' => '1', 'text' => __( 'True', 'custom-post-type-ui' ), 'default' => 'true' )
 					)
 				);
@@ -1382,6 +1399,7 @@ function cptui_update_post_type( $data = array() ) {
 		'singular_label'      => $singular_label,
 		'description'         => $description,
 		'public'              => disp_boolean( $data['cpt_custom_post_type']['public'] ),
+		'publicly_queryable'  => disp_boolean( $data['cpt_custom_post_type']['publicly_queryable'] ),
 		'show_ui'             => disp_boolean( $data['cpt_custom_post_type']['show_ui'] ),
 		'show_in_nav_menus'   => disp_boolean( $data['cpt_custom_post_type']['show_in_nav_menus'] ),
 		'show_in_rest'        => disp_boolean( $data['cpt_custom_post_type']['show_in_rest'] ),
