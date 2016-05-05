@@ -13,7 +13,7 @@ Plugin Name: Custom Post Type UI
 Plugin URI: https://github.com/WebDevStudios/custom-post-type-ui/
 Description: Admin panel for creating custom post types and custom taxonomies in WordPress
 Author: WebDevStudios
-Version: 1.3.3
+Version: 1.3.4
 Author URI: https://webdevstudios.com/
 Text Domain: custom-post-type-ui
 Domain Path: /languages
@@ -25,8 +25,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'CPT_VERSION', '1.3.3' ); // Left for legacy purposes.
-define( 'CPTUI_VERSION', '1.3.3' );
+define( 'CPT_VERSION', '1.3.4' ); // Left for legacy purposes.
+define( 'CPTUI_VERSION', '1.3.4' );
 define( 'CPTUI_WP_VERSION', get_bloginfo( 'version' ) );
 
 /**
@@ -355,7 +355,6 @@ function cptui_register_single_post_type( $post_type = array() ) {
 		'labels'              => $labels,
 		'description'         => $post_type['description'],
 		'public'              => get_disp_boolean( $post_type['public'] ),
-		'publicly_queryable'  => get_disp_boolean( $post_type['publicly_queryable'] ),
 		'show_ui'             => get_disp_boolean( $post_type['show_ui'] ),
 		'show_in_nav_menus'   => get_disp_boolean( $post_type['show_in_nav_menus'] ),
 		'has_archive'         => $has_archive,
