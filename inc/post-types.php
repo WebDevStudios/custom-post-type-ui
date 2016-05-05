@@ -93,6 +93,13 @@ function cptui_post_type_tabs( $tabs = array(), $current_page = '' ) {
 				'url'           => esc_url( cptui_admin_url( 'admin.php?page=cptui_listings#post-types' ) ),
 				'aria-selected' => 'false',
 			);
+
+			$tabs['tabs']['export'] = array(
+				'text'          => __( 'Import/Export Post Types', 'custom-post-type-ui' ),
+				'classes'       => array( 'nav-tab' ), // Prevent notices.
+				'url'           => esc_url( cptui_admin_url( 'admin.php?page=cptui_importexport' ) ),
+				'aria-selected' => 'false',
+			);
 		}
 	}
 
