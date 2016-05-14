@@ -638,10 +638,12 @@ add_action( 'admin_init', 'cptui_convert_settings' );
  */
 function cptui_admin_notices( $action = '', $object_type = '', $success = true, $custom = '' ) {
 
-	$class = ( $success ) ? 'updated' : 'error';
+	$class = array();
+	$class[] = ( $success ) ? 'updated' : 'error';
+	$class[] = 'notice is-dismissible';
 	$object_type = esc_attr( $object_type );
 
-	$messagewrapstart = '<div id="message" class="' . $class . '"><p>';
+	$messagewrapstart = '<div id="message" class="' . implode( ' ', $class ) . '"><p>';
 	$message = '';
 
 	$messagewrapend = '</p></div>';
