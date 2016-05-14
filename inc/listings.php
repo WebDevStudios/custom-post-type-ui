@@ -101,9 +101,19 @@ function cptui_listings() {
 					?>
 						<tr class="<?php echo esc_attr( $rowclass ); ?>">
 							<?php $post_type_link_url = admin_url( 'admin.php?page=cptui_manage_post_types&action=edit&cptui_post_type=' . $post_type ); ?>
-							<td><a href="<?php echo esc_attr( $post_type_link_url ); ?>"><?php printf( esc_html__( 'Edit %s', 'custom-post-type-ui' ), esc_html( $post_type ) ); ?></a>
-								<?php if ( $archive ) { ?>
-								|
+							<td>
+								<?php printf(
+									'<a href="%s">%s</a> | <a href="%s">%s</a><br/>',
+									esc_attr( $post_type_link_url ),
+									sprintf(
+										esc_html__( 'Edit %s', 'custom-post-type-ui' ),
+										esc_html( $post_type )
+									),
+									esc_attr( admin_url( 'admin.php?page=cptui_importexport&action=get_code#' . $post_type ) ),
+									esc_html__( 'Get code', 'custom-post-type-ui' )
+								);
+
+								if ( $archive ) { ?>
 								<a href="<?php echo esc_attr( get_post_type_archive_link( $post_type ) ); ?>"><?php esc_html_e( 'View frontend archive', 'custom-post-type-ui' ); ?></a>
 								<?php } ?>
 							</td>
@@ -258,8 +268,17 @@ function cptui_listings() {
 						?>
 							<tr class="<?php echo esc_attr( $rowclass ); ?>">
 								<?php $taxonomy_link_url = admin_url( 'admin.php?page=cptui_manage_taxonomies&action=edit&cptui_taxonomy=' . $taxonomy ); ?>
-								<td><a href="<?php echo esc_attr( $taxonomy_link_url ); ?>"><?php echo esc_html( $taxonomy ); ?></a><br/><hr/>
-									<a href="<?php echo esc_attr( $taxonomy_link_url ); ?>"><?php printf( esc_html__( 'Edit %s', 'custom-post-type-ui' ), esc_html( $taxonomy ) ); ?></a>
+								<td>
+									<?php printf(
+										'<a href="%s">%s</a> | <a href="%s">%s</a>',
+										esc_attr( $taxonomy_link_url ),
+										sprintf(
+											esc_html__( 'Edit %s', 'custom-post-type-ui' ),
+											esc_html( $taxonomy )
+										),
+										esc_attr( admin_url( 'admin.php?page=cptui_importexport&action=get_code#' . $taxonomy ) ),
+										esc_html__( 'Get code', 'custom-post-type-ui' )
+									); ?>
 								</td>
 								<td>
 									<?php
