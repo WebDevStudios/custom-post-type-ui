@@ -666,10 +666,10 @@ function cptui_render_getcode_section() {
 		<textarea name="cptui_post_type_get_code" id="cptui_post_type_get_code" class="cptui_post_type_get_code" onclick="this.focus();this.select()" onfocus="this.focus();this.select();" readonly="readonly" aria-readonly="true"><?php cptui_get_post_type_code( $cptui_post_types ); ?></textarea>
 
 		<?php
-		if ( !empty( $cptui_post_types ) ) {
+		if ( ! empty( $cptui_post_types ) ) {
 			foreach ( $cptui_post_types as $post_type ) { ?>
-				<h2><?php
-					$type = ( !empty( $post_type['label'] ) ) ? $post_type['label'] : $post_type['name'];
+				<h2 id="<?php echo esc_attr( $post_type['name'] ); ?>"><?php
+					$type = ( ! empty( $post_type['label'] ) ) ? $post_type['label'] : $post_type['name'];
 					printf( __( '%s Post Type', 'custom-post-type-ui' ), $type ); ?></h2>
 				<label for="cptui_post_type_get_code_<?php echo $post_type['name']; ?>"><?php _e( 'Copy/paste the code below into your functions.php file.', 'custom-post-type-ui' ); ?></label>
 				<textarea name="cptui_post_type_get_code_<?php echo $post_type['name']; ?>" id="cptui_post_type_get_code_<?php echo $post_type['name']; ?>" class="cptui_post_type_get_code" onclick="this.focus();this.select()" onfocus="this.focus();this.select();" readonly="readonly" aria-readonly="true"><?php cptui_get_post_type_code( array( $post_type ), true ); ?></textarea>
@@ -685,7 +685,7 @@ function cptui_render_getcode_section() {
 		<?php
 		if ( ! empty( $cptui_taxonomies ) ) {
 			foreach ( $cptui_taxonomies as $taxonomy ) { ?>
-				<h2><?php
+				<h2 id="<?php echo esc_attr( $taxonomy['name'] ); ?>"><?php
 					$tax = ( ! empty( $taxonomy['label'] ) ) ? $taxonomy['label'] : $taxonomy['name'];
 					printf( __( '%s Taxonomy', 'custom-post-type-ui' ), $tax ); ?></h2>
 				<label for="cptui_tax_get_code_<?php echo $taxonomy['name']; ?>"><?php _e( 'Copy/paste the code below into your functions.php file.', 'custom-post-type-ui' ); ?></label>
