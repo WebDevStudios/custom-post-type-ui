@@ -37,6 +37,7 @@ All official development on this plugin is on GitHub. New releases are still pub
 
 = 1.4.0 - TBD =
 * Added: "Export" tab on editor screens for quick access to post type or taxonomy export pages.
+* Added: CPTUI notices are now dismissable via a button on the right side.
 * Fixed: Hide "choose icon" button for non-js users.
 * Updated: Switch to dedicated dashicon for color consistency between applied admin color schemes.
 
@@ -234,6 +235,7 @@ All official development on this plugin is on GitHub. New releases are still pub
 
 = 1.4.0 - TBD =
 * Added: "Export" tab on editor screens for quick access to post type or taxonomy export pages.
+* Added: CPTUI notices are now dismissable via a button on the right side.
 * Fixed: Hide "choose icon" button for non-js users.
 * Updated: Switch to dedicated dashicon for color consistency between applied admin color schemes.
 
