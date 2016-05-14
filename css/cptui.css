@@ -260,64 +260,56 @@ fieldset .cptui-help {
   width: 275px;
 }
 
-.wdspromos img {
+.wdspromos #mc_embed_signup {
+  background: #fff;
+  border: solid #cccccc 1px;
+  clear: left;
   margin-bottom: 10px;
 }
 
 .wdspromos-about {
   display: -ms-flexbox;
-  display: -webkit-flex;
   display: flex;
-  -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
-  -webkit-flex-wrap: nowrap;
   -ms-flex-wrap: nowrap;
   flex-wrap: nowrap;
-  -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
   -ms-flex-line-pack: stretch;
-  -webkit-align-content: stretch;
-          align-content: stretch;
-  -webkit-align-items: flex-start;
+  align-content: stretch;
   -ms-flex-align: start;
   align-items: flex-start;
   margin: 20px 0;
 }
 
 .wdspromos-about a:nth-child(1) {
-  -webkit-order: 0;
   -ms-flex-order: 0;
   order: 0;
-  -webkit-flex: 0 1 auto;
   -ms-flex: 0 1 auto;
   flex: 0 1 auto;
   -ms-flex-item-align: auto;
-  -webkit-align-self: auto;
-          align-self: auto;
+  align-self: auto;
 }
 
 .wdspromos-about a:nth-child(2) {
-  -webkit-order: 0;
   -ms-flex-order: 0;
   order: 0;
-  -webkit-flex: 0 1 auto;
   -ms-flex: 0 1 auto;
   flex: 0 1 auto;
   -ms-flex-item-align: auto;
-  -webkit-align-self: auto;
-          align-self: auto;
+  align-self: auto;
 }
 
 .wdspromos-about a:nth-child(3) {
-  -webkit-order: 0;
   -ms-flex-order: 0;
   order: 0;
-  -webkit-flex: 0 1 auto;
   -ms-flex: 0 1 auto;
   flex: 0 1 auto;
   -ms-flex-item-align: auto;
-  -webkit-align-self: auto;
-          align-self: auto;
+  align-self: auto;
+}
+
+.no-js #cptui_choose_icon {
+  display: none;
 }

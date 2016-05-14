@@ -238,11 +238,13 @@
   margin-top: 10px;
   width: 275px;
 
-  img {
+  #mc_embed_signup {
+	background: #fff;
+	border: solid rgb(204, 204, 204) 1px;
+	clear: left;
 	margin-bottom: 10px;
   }
 }
-
 .wdspromos-about {
   display: -ms-flexbox;
   display: -webkit-flex;
@@ -299,4 +301,9 @@
 	-ms-flex-item-align: auto;
 	align-self: auto;
   }
+}
+.no-js {
+  #cptui_choose_icon {
+  	display: none
+	}
 }

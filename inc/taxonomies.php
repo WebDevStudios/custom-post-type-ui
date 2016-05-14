@@ -83,14 +83,21 @@ function cptui_taxonomy_tabs( $tabs = array(), $current_page = '' ) {
 				'text'          => __( 'Edit Taxonomies', 'custom-post-type-ui' ),
 				'classes'       => $classes,
 				'url'           => esc_url( add_query_arg( array( 'action' => 'edit' ), cptui_admin_url( 'admin.php?page=cptui_manage_' . $current_page ) ) ),
-				'aria-selected' => ( ! empty( $action ) ) ? 'true' : 'false'
+				'aria-selected' => ( ! empty( $action ) ) ? 'true' : 'false',
 			);
 
 			$tabs['tabs']['view'] = array(
 				'text'          => __( 'View Taxonomies', 'custom-post-type-ui' ),
 				'classes'       => array( 'nav-tab' ), // Prevent notices.
 				'url'           => esc_url( cptui_admin_url( 'admin.php?page=cptui_listings#taxonomies' ) ),
-				'aria-selected' => 'false'
+				'aria-selected' => 'false',
+			);
+
+			$tabs['tabs']['export'] = array(
+				'text'          => __( 'Import/Export Taxonomies', 'custom-post-type-ui' ),
+				'classes'       => array( 'nav-tab' ), // Prevent notices.
+				'url'           => esc_url( cptui_admin_url( 'admin.php?page=cptui_importexport&action=taxonomies' ) ),
+				'aria-selected' => 'false',
 			);
 		}
 	}
@@ -111,7 +118,7 @@ function cptui_manage_taxonomies() {
 
 	$taxonomy_deleted = false;
 
-	if ( !empty( $_POST ) ) {
+	if ( ! empty( $_POST ) ) {
 		if ( isset( $_POST['cpt_submit'] ) ) {
 			check_admin_referer( 'cptui_addedit_taxonomy_nonce_action', 'cptui_addedit_taxonomy_nonce_field' );
 			$notice = cptui_update_taxonomy( $_POST );

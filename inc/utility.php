@@ -43,7 +43,7 @@ add_filter( 'plugin_action_links_' . plugin_basename( dirname( dirname( __FILE__
  * @return string
  */
 function cptui_menu_icon() {
-	return 'data:image/svg;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAABC9pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMDE0IDc5LjE1Njc5NywgMjAxNC8wOC8yMC0wOTo1MzowMiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wUmlnaHRzPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvcmlnaHRzLyIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIgeG1wUmlnaHRzOk1hcmtlZD0iVHJ1ZSIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo5NkE3NTc5MUJCOTIxMUU0QUVENDlFMUYwOEMyRDgwQyIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo5NkE3NTc5MEJCOTIxMUU0QUVENDlFMUYwOEMyRDgwQyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ0MgMjAxNCAoV2luZG93cykiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmRpZDo5NjMzOTU2ODgyMjhFMDExOTg5Q0MwQTFBRDAyQjVDMiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5NjMzOTU2ODgyMjhFMDExOTg5Q0MwQTFBRDAyQjVDMiIvPiA8ZGM6cmlnaHRzPiA8cmRmOkFsdD4gPHJkZjpsaSB4bWw6bGFuZz0ieC1kZWZhdWx0Ij5DcmVhdGl2ZSBDb21tb25zIEF0dHJpYnV0aW9uIE5vbi1Db21tZXJjaWFsIE5vIERlcml2YXRpdmVzPC9yZGY6bGk+IDwvcmRmOkFsdD4gPC9kYzpyaWdodHM+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+hXhu9wAAAjdJREFUeNrcWYFtwjAQBNQB0g3oBukEDRPUnYCwQRmhE8AGhgnKBh0h2YBuQDZIbclI6GXH7/c7cfrSCxEcuHv+7x3/su/7xZxttZi5/XsChfJP5Y3ynskFKwNdAw4Xym89r9UDv0dy1wd1z2/s4F0ERGbgC+WN8iuGQJFZ2tzB303ANbCIa1O4XLZTfiLeq3H8KC8frr3BRU/g/dbzpRflZ+Wd8ta8pjAbeG2VT4VGL0JE2kArXClUeCJ/GqEvuSL/aGtKJz5nAv5oUtdKYCifuwzAa+Bf8OIS7EZdW9PnCQoWBnADox+SQhjwtQcEFby2vQ18iAr5lEOadboJlkxqczcZspWgEJBgLYYEFnwDZZObgHSsHyKBBY/6N2MISEL0sODRjZNK4IAEocGuzT1lAHiJ7dxYGV0CtZEJe0JrJBMl2xQCN+YdK0rvHSYoD/WXhNHfB4DXmfBNrQGZ4KlNBuxYaxcwThUKsYYCPpZAiCT69H5NAR9LgIuEoILnIBBL4hCQOlajyGjMrhLq/WvIGVzKs9FQ/dbrP3I73A0hoY9bfnM8ncaQOHI2Q64awNZEaN6PVgOYf4It78cacEASG668HyOFUlhUClUTg69iU6hYZGpYAtuJcb5jZ2Q5nE5DL4eGLrCIG89+Zqz5QPUQ+aGhSwsJ6JHqYUZj4j0koJlecy5a0GdeVpaLu5lEX+PsVo48380A/MWmQqkn9RzPz2LoZM7WwGrTB8oJI94a9TtB5fsTYABOp6Z0XZr87gAAAABJRU5ErkJggg==';
+	return 'dashicons-forms';
 }
 
 /**
@@ -287,38 +287,130 @@ function cptui_get_post_type_exists( $slug = '', $data = array() ) {
  * @internal
  */
 function cptui_products_sidebar() {
-	if ( false === ( $ads = get_transient( 'wds_promos' ) ) ) {
-		$ads = wp_remote_get( 'https://webdevstudios.com/assets/wds.json' );
 
-		if ( 200 === wp_remote_retrieve_response_code( $ads ) ) {
-			$ads = json_decode( wp_remote_retrieve_body( $ads ) );
-			set_transient( 'wds_promos', $ads, DAY_IN_SECONDS );
-		}
-	}
+	echo '<div class="wdspromos">';
 
+	cptui_newsletter_form();
+
+	$ads = cptui_get_ads();
 	if ( ! empty( $ads ) ) {
-		echo '<div class="wdspromos">';
 		foreach ( $ads as $ad ) {
-			$the_ad = $ad->text;
-			$image = wp_remote_get( $ad->image );
-			if ( 200 === wp_remote_retrieve_response_code( $image ) ) {
-				$the_ad = sprintf(
-					'<img src="%s" alt="%s">',
-					$ad->image,
-					$ad->text
-				);
-			}
 
+			$the_ad = sprintf(
+				'<img src="%s" alt="%s">',
+				esc_attr( $ad['image'] ),
+				esc_attr( $ad['text'] )
+			);
+
+			// Escaping $the_ad breaks the html.
 			printf(
-				'<a href="%s">%s</a>',
-				$ad->url,
+				'<p><a href="%s">%s</a></p>',
+				esc_url( $ad['url'] ),
 				$the_ad
 			);
 		}
-		echo '</div>';
-
 	}
+	echo '</div>';
 
 }
 add_action( 'cptui_below_post_type_tab_menu', 'cptui_products_sidebar' );
 add_action( 'cptui_below_taxonomy_tab_menu', 'cptui_products_sidebar' );
+
+/**
+ * Outputs our newsletter signup form.
+ *
+ * @since 1.3.4
+ * @internal
+ */
+function cptui_newsletter_form() {
+	?>
+<!-- Begin MailChimp Signup Form -->
+<link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
+<div id="mc_embed_signup">
+	<form action="//webdevstudios.us1.list-manage.com/subscribe/post?u=67169b098c99de702c897d63e&amp;id=9cb1c7472e" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+		<div id="mc_embed_signup_scroll">
+			<p><strong><?php esc_html_e( 'Get email updates from pluginize.com about Custom Post Type UI', 'custom-post-type-ui' ); ?></strong></p>
+			<div class="mc-field-group">
+				<label for="mce-EMAIL"><?php esc_html_e( 'Email Address', 'custom-post-type-ui' ); ?></label>
+				<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
+			</div>
+			<div id="mce-responses" class="clear">
+				<div class="response" id="mce-error-response" style="display:none"></div>
+				<div class="response" id="mce-success-response" style="display:none"></div>
+			</div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+			<div style="position: absolute; left: -5000px;" aria-hidden="true">
+				<input type="text" name="b_67169b098c99de702c897d63e_9cb1c7472e" tabindex="-1" value=""></div>
+			<div class="clear">
+				<input type="submit" value="<?php esc_attr_e( 'Subscribe', 'custom-post-type-ui' ); ?>" name="subscribe" id="mc-embedded-subscribe" class="button">
+			</div>
+		</div>
+	</form>
+</div>
+<script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
+<script type='text/javascript'>(function ($) {
+		window.fnames = new Array();
+		window.ftypes = new Array();
+		fnames[0] = 'EMAIL';
+		ftypes[0] = 'email';
+	}(jQuery));
+	var $mcj = jQuery.noConflict(true);</script>
+<!--End mc_embed_signup-->
+<?php
+}
+
+/**
+ * Fetch all set ads to be displayed.
+ *
+ * @since 1.3.4
+ *
+ * @return array
+ */
+function cptui_get_ads() {
+
+	/**
+	 * Filters the array of ads to iterate over.
+	 *
+	 * Each index in the ads array should have a url index with the url to link to,
+	 * an image index specifying an image location to load from, and a text index used
+	 * for alt attribute text.
+	 *
+	 * @since 1.3.4
+	 *
+	 * @param array $value Array of ads to iterate over. Default empty.
+	 */
+	$ads = (array) apply_filters( 'cptui_ads', array() );
+	return $ads;
+}
+
+/**
+ * Add our default ads to the ads filter.
+ *
+ * @since 1.3.4
+ *
+ * @internal
+ *
+ * @param array $ads Array of ads set so far.
+ * @return array $ads Array of newly constructed ads.
+ */
+function cptui_default_ads( $ads = array() ) {
+	$ads[] = array(
+		'url'   => 'https://pluginize.com/product/custom-post-type-ui-extended/?utm_source=sidebar-v3&utm_medium=banner&utm_campaign=cptui',
+		'image' => plugin_dir_url( dirname( __FILE__ ) ) . 'images/wds_ads/cptuix-ad-3.png',
+		'text'  => 'Custom Post Type UI Extended product ad',
+	);
+
+	$ads[] = array(
+		'url'   => 'https://apppresser.com/?utm_source=pluginize&utm_medium=plugin&utm_campaign=cptui',
+		'image' => plugin_dir_url( dirname( __FILE__ ) ) . 'images/wds_ads/apppresser.png',
+		'text'  => 'AppPresser product ad',
+	);
+
+	$ads[] = array(
+		'url'   => 'https://maintainn.com/?utm_source=Pluginize&utm_medium=Plugin-Sidebar&utm_campaign=CPTUI',
+		'image' => plugin_dir_url( dirname( __FILE__ ) ) . 'images/wds_ads/maintainn.png',
+		'text'  => 'Maintainn product ad',
+	);
+
+	return $ads;
+}
+add_filter( 'cptui_ads', 'cptui_default_ads' );
