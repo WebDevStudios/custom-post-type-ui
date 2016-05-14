@@ -19,6 +19,7 @@ CPTUI does NOT handle display of registered post types or taxonomies in your cur
 **1.4.0**
 * Added: "Export" tab on editor screens for quick access to post type or taxonomy export pages.
 * Fixed: Hide "choose icon" button for non-js users.
+* Updated: Switch to dedicated dashicon for color consistency between applied admin color schemes.
 
 **1.3.4**
 * Fixed: moved WDS-based services "ads" to within the plugin itself. Will not request remote resources.
