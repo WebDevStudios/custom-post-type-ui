@@ -323,7 +323,7 @@ function cptui_manage_post_types() {
 			</p>
 			<?php
 				$fieldset_classes = ( 'edit' == $tab ) ? '' : 'toggledclosed';
-				echo $ui->get_fieldset_start( array( 'id' => 'labels_expand', 'classes' => array( $fieldset_classes ), ) );
+				echo $ui->get_fieldset_start( array( 'id' => 'labels_expand', 'classes' => array( $fieldset_classes ) ) );
 				echo $ui->get_legend_start();
 				esc_html_e( 'Additional labels', 'custom-post-type-ui' );
 				echo $ui->get_legend_end();
@@ -345,102 +345,102 @@ function cptui_manage_post_types() {
 					) );
 
 					echo $ui->get_text_input( array(
-						'labeltext'     => __( 'Menu Name', 'custom-post-type-ui' ),
-						'helptext'      => esc_attr__( 'Custom admin menu name for your custom post type.', 'custom-post-type-ui' ),
-						'namearray'     => 'cpt_labels',
-						'name'          => 'menu_name',
-						'textvalue'     => ( isset( $current['labels']['menu_name'] ) ) ? esc_attr( $current['labels']['menu_name'] ) : '',
-						'aftertext'     => __( '(e.g. My Movies)', 'custom-post-type-ui' ),
+						'labeltext' => __( 'Menu Name', 'custom-post-type-ui' ),
+						'helptext'  => esc_attr__( 'Custom admin menu name for your custom post type.', 'custom-post-type-ui' ),
+						'namearray' => 'cpt_labels',
+						'name'      => 'menu_name',
+						'textvalue' => ( isset( $current['labels']['menu_name'] ) ) ? esc_attr( $current['labels']['menu_name'] ) : '',
+						'aftertext' => __( '(e.g. My Movies)', 'custom-post-type-ui' ),
 					) );
 
 					echo $ui->get_text_input( array(
-						'labeltext'     => __( 'All Items', 'custom-post-type-ui' ),
-						'helptext'      => esc_attr__( 'Used in the post type admin submenu.', 'custom-post-type-ui' ),
-						'namearray'     => 'cpt_labels',
-						'name'          => 'all_items',
-						'textvalue'     => ( isset( $current['labels']['all_items'] ) ) ? esc_attr( $current['labels']['all_items'] ) : '',
-						'aftertext'     => __( '(e.g. All Movies)', 'custom-post-type-ui' ),
+						'labeltext' => __( 'All Items', 'custom-post-type-ui' ),
+						'helptext'  => esc_attr__( 'Used in the post type admin submenu.', 'custom-post-type-ui' ),
+						'namearray' => 'cpt_labels',
+						'name'      => 'all_items',
+						'textvalue' => ( isset( $current['labels']['all_items'] ) ) ? esc_attr( $current['labels']['all_items'] ) : '',
+						'aftertext' => __( '(e.g. All Movies)', 'custom-post-type-ui' ),
 					) );
 
 					echo $ui->get_text_input( array(
-						'labeltext'     => __( 'Add New', 'custom-post-type-ui' ),
-						'helptext'      => esc_attr__( 'Used in the post type admin submenu.', 'custom-post-type-ui' ),
-						'namearray'     => 'cpt_labels',
-						'name'          => 'add_new',
-						'textvalue'     => ( isset( $current['labels']['add_new'] ) ) ? esc_attr( $current['labels']['add_new'] ) : '',
-						'aftertext'     => __( '(e.g. Add New)', 'custom-post-type-ui' ),
+						'labeltext' => __( 'Add New', 'custom-post-type-ui' ),
+						'helptext'  => esc_attr__( 'Used in the post type admin submenu.', 'custom-post-type-ui' ),
+						'namearray' => 'cpt_labels',
+						'name'      => 'add_new',
+						'textvalue' => ( isset( $current['labels']['add_new'] ) ) ? esc_attr( $current['labels']['add_new'] ) : '',
+						'aftertext' => __( '(e.g. Add New)', 'custom-post-type-ui' ),
 					) );
 
 					echo $ui->get_text_input( array(
-						'labeltext'     => __( 'Add New Item', 'custom-post-type-ui' ),
-						'helptext'      => esc_attr__( 'Used at the top of the post editor screen for a new post type post.', 'custom-post-type-ui' ),
-						'namearray'     => 'cpt_labels',
-						'name'          => 'add_new_item',
-						'textvalue'     => ( isset( $current['labels']['add_new_item'] ) ) ? esc_attr( $current['labels']['add_new_item'] ) : '',
-						'aftertext'     => __( '(e.g. Add New Movie)', 'custom-post-type-ui' ),
+						'labeltext' => __( 'Add New Item', 'custom-post-type-ui' ),
+						'helptext'  => esc_attr__( 'Used at the top of the post editor screen for a new post type post.', 'custom-post-type-ui' ),
+						'namearray' => 'cpt_labels',
+						'name'      => 'add_new_item',
+						'textvalue' => ( isset( $current['labels']['add_new_item'] ) ) ? esc_attr( $current['labels']['add_new_item'] ) : '',
+						'aftertext' => __( '(e.g. Add New Movie)', 'custom-post-type-ui' ),
 					) );
 
 					echo $ui->get_text_input( array(
-						'labeltext'     => __( 'Edit Item', 'custom-post-type-ui' ),
-						'helptext'      => esc_attr__( 'Used at the top of the post editor screen for an existing post type post.', 'custom-post-type-ui' ),
-						'namearray'     => 'cpt_labels',
-						'name'          => 'edit_item',
-						'textvalue'     => ( isset( $current['labels']['edit_item'] ) ) ? esc_attr( $current['labels']['edit_item'] ) : '',
-						'aftertext'     => __( '(e.g. Edit Movie)', 'custom-post-type-ui' ),
+						'labeltext' => __( 'Edit Item', 'custom-post-type-ui' ),
+						'helptext'  => esc_attr__( 'Used at the top of the post editor screen for an existing post type post.', 'custom-post-type-ui' ),
+						'namearray' => 'cpt_labels',
+						'name'      => 'edit_item',
+						'textvalue' => ( isset( $current['labels']['edit_item'] ) ) ? esc_attr( $current['labels']['edit_item'] ) : '',
+						'aftertext' => __( '(e.g. Edit Movie)', 'custom-post-type-ui' ),
 					) );
 
 					echo $ui->get_text_input( array(
-						'labeltext'     => __( 'New Item', 'custom-post-type-ui' ),
-						'helptext'      => esc_attr__( 'Post type label. Used in the admin menu for displaying post types.', 'custom-post-type-ui' ),
-						'namearray'     => 'cpt_labels',
-						'name'          => 'new_item',
-						'textvalue'     => ( isset( $current['labels']['new_item'] ) ) ? esc_attr( $current['labels']['new_item'] ) : '',
-						'aftertext'     => __( '(e.g. New Movie)', 'custom-post-type-ui' ),
+						'labeltext' => __( 'New Item', 'custom-post-type-ui' ),
+						'helptext'  => esc_attr__( 'Post type label. Used in the admin menu for displaying post types.', 'custom-post-type-ui' ),
+						'namearray' => 'cpt_labels',
+						'name'      => 'new_item',
+						'textvalue' => ( isset( $current['labels']['new_item'] ) ) ? esc_attr( $current['labels']['new_item'] ) : '',
+						'aftertext' => __( '(e.g. New Movie)', 'custom-post-type-ui' ),
 					) );
 
 					echo $ui->get_text_input( array(
-						'labeltext'     => __( 'View Item', 'custom-post-type-ui' ),
-						'helptext'      => esc_attr__( 'Used in the admin bar when viewing editor screen for a published post in the post type.', 'custom-post-type-ui' ),
-						'namearray'     => 'cpt_labels',
-						'name'          => 'view_item',
-						'textvalue'     => ( isset( $current['labels']['view_item'] ) ) ? esc_attr( $current['labels']['view_item'] ) : '',
-						'aftertext'     => __( '(e.g. View Movie)', 'custom-post-type-ui' ),
+						'labeltext' => __( 'View Item', 'custom-post-type-ui' ),
+						'helptext'  => esc_attr__( 'Used in the admin bar when viewing editor screen for a published post in the post type.', 'custom-post-type-ui' ),
+						'namearray' => 'cpt_labels',
+						'name'      => 'view_item',
+						'textvalue' => ( isset( $current['labels']['view_item'] ) ) ? esc_attr( $current['labels']['view_item'] ) : '',
+						'aftertext' => __( '(e.g. View Movie)', 'custom-post-type-ui' ),
 					) );
 
 					echo $ui->get_text_input( array(
-						'labeltext'     => __( 'Search Item', 'custom-post-type-ui' ),
-						'helptext'      => esc_attr__( 'Used as the text for the search button on post type list screen.', 'custom-post-type-ui' ),
-						'namearray'     => 'cpt_labels',
-						'name'          => 'search_items',
-						'textvalue'     => ( isset( $current['labels']['search_items'] ) ) ? esc_attr( $current['labels']['search_items'] ) : '',
-						'aftertext'     => __( '(e.g. Search Movie)', 'custom-post-type-ui' ),
+						'labeltext' => __( 'Search Item', 'custom-post-type-ui' ),
+						'helptext'  => esc_attr__( 'Used as the text for the search button on post type list screen.', 'custom-post-type-ui' ),
+						'namearray' => 'cpt_labels',
+						'name'      => 'search_items',
+						'textvalue' => ( isset( $current['labels']['search_items'] ) ) ? esc_attr( $current['labels']['search_items'] ) : '',
+						'aftertext' => __( '(e.g. Search Movie)', 'custom-post-type-ui' ),
 					) );
 
 					echo $ui->get_text_input( array(
-						'labeltext'     => __( 'Not Found', 'custom-post-type-ui' ),
-						'helptext'      => esc_attr__( 'Used when there are no posts to display on the post type list screen.', 'custom-post-type-ui' ),
-						'namearray'     => 'cpt_labels',
-						'name'          => 'not_found',
-						'textvalue'     => ( isset( $current['labels']['not_found'] ) ) ? esc_attr( $current['labels']['not_found'] ) : '',
-						'aftertext'     => __( '(e.g. No Movies found)', 'custom-post-type-ui' ),
+						'labeltext' => __( 'Not Found', 'custom-post-type-ui' ),
+						'helptext'  => esc_attr__( 'Used when there are no posts to display on the post type list screen.', 'custom-post-type-ui' ),
+						'namearray' => 'cpt_labels',
+						'name'      => 'not_found',
+						'textvalue' => ( isset( $current['labels']['not_found'] ) ) ? esc_attr( $current['labels']['not_found'] ) : '',
+						'aftertext' => __( '(e.g. No Movies found)', 'custom-post-type-ui' ),
 					) );
 
 					echo $ui->get_text_input( array(
-						'labeltext'     => __( 'Not Found in Trash', 'custom-post-type-ui' ),
-						'helptext'      => esc_attr__( 'Used when there are no posts to display on the post type list trash screen.', 'custom-post-type-ui' ),
-						'namearray'     => 'cpt_labels',
-						'name'          => 'not_found_in_trash',
-						'textvalue'     => ( isset( $current['labels']['not_found_in_trash'] ) ) ? esc_attr( $current['labels']['not_found_in_trash'] ) : '',
-						'aftertext'     => __( '(e.g. No Movies found in Trash)', 'custom-post-type-ui' ),
+						'labeltext' => __( 'Not Found in Trash', 'custom-post-type-ui' ),
+						'helptext'  => esc_attr__( 'Used when there are no posts to display on the post type list trash screen.', 'custom-post-type-ui' ),
+						'namearray' => 'cpt_labels',
+						'name'      => 'not_found_in_trash',
+						'textvalue' => ( isset( $current['labels']['not_found_in_trash'] ) ) ? esc_attr( $current['labels']['not_found_in_trash'] ) : '',
+						'aftertext' => __( '(e.g. No Movies found in Trash)', 'custom-post-type-ui' ),
 					) );
 
 					echo $ui->get_text_input( array(
-						'labeltext'     => __( 'Parent', 'custom-post-type-ui' ),
-						'helptext'      => esc_attr__( 'Post type label. Used in the admin menu for displaying post types.', 'custom-post-type-ui' ),
-						'namearray'     => 'cpt_labels',
-						'name'          => 'parent',
-						'textvalue'     => ( isset( $current['labels']['parent'] ) ) ? esc_attr( $current['labels']['parent'] ) : '',
-						'aftertext'     => __( '(e.g. Parent Movie)', 'custom-post-type-ui' ),
+						'labeltext' => __( 'Parent', 'custom-post-type-ui' ),
+						'helptext'  => esc_attr__( 'Post type label. Used in the admin menu for displaying post types.', 'custom-post-type-ui' ),
+						'namearray' => 'cpt_labels',
+						'name'      => 'parent',
+						'textvalue' => ( isset( $current['labels']['parent'] ) ) ? esc_attr( $current['labels']['parent'] ) : '',
+						'aftertext' => __( '(e.g. Parent Movie)', 'custom-post-type-ui' ),
 					) );
 
 					echo $ui->get_text_input( array(
@@ -542,7 +542,7 @@ function cptui_manage_post_types() {
 			</p>
 			<?php
 				$fieldset_classes = '';
-				echo $ui->get_fieldset_start( array( 'id' => 'settings_expand', 'classes' => array( $fieldset_classes ), ) );
+				echo $ui->get_fieldset_start( array( 'id' => 'settings_expand', 'classes' => array( $fieldset_classes ) ) );
 				echo $ui->get_legend_start();
 				esc_html_e( 'Settings', 'custom-post-type-ui' );
 				echo $ui->get_legend_end();
@@ -553,24 +553,24 @@ function cptui_manage_post_types() {
 					'options' => array(
 						array( 'attr' => '0', 'text' => __( 'False', 'custom-post-type-ui' ) ),
 						array( 'attr' => '1', 'text' => __( 'True', 'custom-post-type-ui' ), 'default' => 'true' ),
-					)
+					),
 				);
 				$selected = ( isset( $current ) ) ? disp_boolean( $current['public'] ) : '';
-				$select['selected'] = ( !empty( $selected ) ) ? $current['public'] : '';
+				$select['selected'] = ( ! empty( $selected ) ) ? $current['public'] : '';
 				echo $ui->get_select_input( array(
-					'namearray'     => 'cpt_custom_post_type',
-					'name'          => 'public',
-					'labeltext'     => __( 'Public', 'custom-post-type-ui' ),
-					'aftertext'     => __( '(CPTUI default: true)', 'custom-post-type-ui' ),
-					'helptext'      => esc_attr__( 'WordPress core defaults to false. CPTUI defaults to true for user sake. Whether posts of this type should be shown in the admin UI and is publicly queryable.', 'custom-post-type-ui' ),
-					'selections'    => $select,
+					'namearray'  => 'cpt_custom_post_type',
+					'name'       => 'public',
+					'labeltext'  => __( 'Public', 'custom-post-type-ui' ),
+					'aftertext'  => __( '(CPTUI default: true)', 'custom-post-type-ui' ),
+					'helptext'   => esc_attr__( 'WordPress core defaults to false. CPTUI defaults to true for user sake. Whether posts of this type should be shown in the admin UI and is publicly queryable.', 'custom-post-type-ui' ),
+					'selections' => $select,
 				) );
 
 				$select = array(
 					'options' => array(
 						array( 'attr' => '0', 'text' => __( 'False', 'custom-post-type-ui' ) ),
 						array( 'attr' => '1', 'text' => __( 'True', 'custom-post-type-ui' ), 'default' => 'true' ),
-					)
+					),
 				);
 				$selected = ( isset( $current ) ) ? disp_boolean( $current['publicly_queryable'] ) : '';
 				$select['selected'] = ( ! empty( $selected ) ) ? $current['publicly_queryable'] : '';
@@ -586,25 +586,25 @@ function cptui_manage_post_types() {
 				$select = array(
 					'options' => array(
 						array( 'attr' => '0', 'text' => __( 'False', 'custom-post-type-ui' ) ),
-						array( 'attr' => '1', 'text' => __( 'True', 'custom-post-type-ui' ), 'default' => 'true' )
-					)
+						array( 'attr' => '1', 'text' => __( 'True', 'custom-post-type-ui' ), 'default' => 'true' ),
+					),
 				);
 				$selected = ( isset( $current ) ) ? disp_boolean( $current['show_ui'] ) : '';
-				$select['selected'] = ( !empty( $selected ) ) ? $current['show_ui'] : '';
+				$select['selected'] = ( ! empty( $selected ) ) ? $current['show_ui'] : '';
 				echo $ui->get_select_input( array(
-					'namearray'     => 'cpt_custom_post_type',
-					'name'          => 'show_ui',
-					'labeltext'     => __( 'Show UI', 'custom-post-type-ui' ),
-					'aftertext'     => __( '(default: true)', 'custom-post-type-ui' ),
-					'helptext'      => esc_attr__( 'Whether to generate a default UI for managing this post type.', 'custom-post-type-ui' ),
-					'selections'    => $select
+					'namearray'  => 'cpt_custom_post_type',
+					'name'       => 'show_ui',
+					'labeltext'  => __( 'Show UI', 'custom-post-type-ui' ),
+					'aftertext'  => __( '(default: true)', 'custom-post-type-ui' ),
+					'helptext'   => esc_attr__( 'Whether to generate a default UI for managing this post type.', 'custom-post-type-ui' ),
+					'selections' => $select,
 				) );
 
 				$select = array(
 					'options' => array(
 						array( 'attr' => '0', 'text' => __( 'False', 'custom-post-type-ui' ) ),
 						array( 'attr' => '1', 'text' => __( 'True', 'custom-post-type-ui' ), 'default' => 'true' ),
-					)
+					),
 				);
 				$selected = ( isset( $current ) && ! empty( $current['show_in_nav_menus'] ) ) ? disp_boolean( $current['show_in_nav_menus'] ) : '';
 				$select['selected'] = ( ! empty( $selected ) && ! empty( $current['show_in_nav_menus'] ) ) ? $current['show_in_nav_menus'] : '';
@@ -621,17 +621,17 @@ function cptui_manage_post_types() {
 					'options' => array(
 						array( 'attr' => '0', 'text' => __( 'False', 'custom-post-type-ui' ), 'default' => 'false' ),
 						array( 'attr' => '1', 'text' => __( 'True', 'custom-post-type-ui' ) ),
-					)
+					),
 				);
 				$selected = ( isset( $current ) && ! empty( $current['show_in_rest'] ) ) ? disp_boolean( $current['show_in_rest'] ) : '';
-				$select['selected'] = ( !empty( $selected ) && ! empty( $current['show_in_rest'] ) ) ? $current['show_in_rest'] : '';
+				$select['selected'] = ( ! empty( $selected ) && ! empty( $current['show_in_rest'] ) ) ? $current['show_in_rest'] : '';
 				echo $ui->get_select_input( array(
-					'namearray'     => 'cpt_custom_post_type',
-					'name'          => 'show_in_rest',
-					'labeltext'     => __( 'Show in REST API', 'custom-post-type-ui' ),
-					'aftertext'     => __( '(default: false)', 'custom-post-type-ui' ),
-					'helptext'      => esc_attr__( 'Whether to show this post type data in the WP REST API.', 'custom-post-type-ui' ),
-					'selections'    => $select
+					'namearray'  => 'cpt_custom_post_type',
+					'name'       => 'show_in_rest',
+					'labeltext'  => __( 'Show in REST API', 'custom-post-type-ui' ),
+					'aftertext'  => __( '(default: false)', 'custom-post-type-ui' ),
+					'helptext'   => esc_attr__( 'Whether to show this post type data in the WP REST API.', 'custom-post-type-ui' ),
+					'selections' => $select,
 				) );
 
 				echo $ui->get_text_input( array(
@@ -652,27 +652,27 @@ function cptui_manage_post_types() {
 					'options' => array(
 						array( 'attr' => '0', 'text' => __( 'False', 'custom-post-type-ui' ), 'default' => 'true' ),
 						array( 'attr' => '1', 'text' => __( 'True', 'custom-post-type-ui' ) ),
-					)
+					),
 				);
 				$selected = ( isset( $current ) ) ? disp_boolean( $current['has_archive'] ) : '';
-				$select['selected'] = ( !empty( $selected ) ) ? $current['has_archive'] : '';
+				$select['selected'] = ( ! empty( $selected ) ) ? $current['has_archive'] : '';
 				echo $ui->get_select_input( array(
-					'namearray'     => 'cpt_custom_post_type',
-					'name'          => 'has_archive',
-					'aftertext'     => __( '(default: false)', 'custom-post-type-ui' ),
-					'selections'    => $select,
-					'wrap'          => false,
+					'namearray'  => 'cpt_custom_post_type',
+					'name'       => 'has_archive',
+					'aftertext'  => __( '(default: false)', 'custom-post-type-ui' ),
+					'selections' => $select,
+					'wrap'       => false,
 				) );
 
 				echo '<br/>';
 
 				echo $ui->get_text_input( array(
-					'namearray'     => 'cpt_custom_post_type',
-					'name'          => 'has_archive_string',
-					'textvalue'     => ( isset( $current['has_archive_string'] ) ) ? esc_attr( $current['has_archive_string'] ) : '',
-					'helptext'      => esc_attr__( 'Slug to be used for archive URL.', 'custom-post-type-ui' ),
-					'helptext_after'=> true,
-					'wrap'          => false,
+					'namearray'      => 'cpt_custom_post_type',
+					'name'           => 'has_archive_string',
+					'textvalue'      => ( isset( $current['has_archive_string'] ) ) ? esc_attr( $current['has_archive_string'] ) : '',
+					'helptext'       => esc_attr__( 'Slug to be used for archive URL.', 'custom-post-type-ui' ),
+					'helptext_after' => true,
+					'wrap'           => false,
 				) );
 				echo $ui->get_td_end() . $ui->get_tr_end();
 
@@ -680,102 +680,102 @@ function cptui_manage_post_types() {
 					'options' => array(
 						array( 'attr' => '0', 'text' => __( 'False', 'custom-post-type-ui' ), 'default' => 'true' ),
 						array( 'attr' => '1', 'text' => __( 'True', 'custom-post-type-ui' ) ),
-					)
+					),
 				);
 				$selected = ( isset( $current ) ) ? disp_boolean( $current['exclude_from_search'] ) : '';
-				$select['selected'] = ( !empty( $selected ) ) ? $current['exclude_from_search'] : '';
+				$select['selected'] = ( ! empty( $selected ) ) ? $current['exclude_from_search'] : '';
 				echo $ui->get_select_input( array(
-					'namearray'     => 'cpt_custom_post_type',
-					'name'          => 'exclude_from_search',
-					'labeltext'     => __( 'Exclude From Search', 'custom-post-type-ui' ),
-					'aftertext'     => __( '(default: false)', 'custom-post-type-ui' ),
-					'helptext'      => esc_attr__( 'Whether to exclude posts with this post type from front end search results.', 'custom-post-type-ui' ),
-					'selections'    => $select,
+					'namearray'  => 'cpt_custom_post_type',
+					'name'       => 'exclude_from_search',
+					'labeltext'  => __( 'Exclude From Search', 'custom-post-type-ui' ),
+					'aftertext'  => __( '(default: false)', 'custom-post-type-ui' ),
+					'helptext'   => esc_attr__( 'Whether to exclude posts with this post type from front end search results.', 'custom-post-type-ui' ),
+					'selections' => $select,
 				) );
 
 				echo $ui->get_text_input( array(
-					'namearray'     => 'cpt_custom_post_type',
-					'name'          => 'capability_type',
-					'textvalue'     => ( isset( $current['capability_type'] ) ) ? esc_attr( $current['capability_type'] ) : 'post',
-					'labeltext'     => __( 'Capability Type', 'custom-post-type-ui' ),
-					'helptext'      => esc_attr__( 'The post type to use for checking read, edit, and delete capabilities', 'custom-post-type-ui' ),
+					'namearray' => 'cpt_custom_post_type',
+					'name'      => 'capability_type',
+					'textvalue' => ( isset( $current['capability_type'] ) ) ? esc_attr( $current['capability_type'] ) : 'post',
+					'labeltext' => __( 'Capability Type', 'custom-post-type-ui' ),
+					'helptext'  => esc_attr__( 'The post type to use for checking read, edit, and delete capabilities', 'custom-post-type-ui' ),
 				) );
 
 				$select = array(
 					'options' => array(
 						array( 'attr' => '0', 'text' => __( 'False', 'custom-post-type-ui' ), 'default' => 'true' ),
 						array( 'attr' => '1', 'text' => __( 'True', 'custom-post-type-ui' ) ),
-					)
+					),
 				);
 				$selected = ( isset( $current ) ) ? disp_boolean( $current['hierarchical'] ) : '';
-				$select['selected'] = ( !empty( $selected ) ) ? $current['hierarchical'] : '';
+				$select['selected'] = ( ! empty( $selected ) ) ? $current['hierarchical'] : '';
 				echo $ui->get_select_input( array(
-					'namearray'     => 'cpt_custom_post_type',
-					'name'          => 'hierarchical',
-					'labeltext'     => __( 'Hierarchical', 'custom-post-type-ui' ),
-					'aftertext'     => __( '(default: false)', 'custom-post-type-ui' ),
-					'helptext'      => esc_attr__( 'Whether the post type can have parent-child relationships', 'custom-post-type-ui' ),
-					'selections'    => $select,
+					'namearray'  => 'cpt_custom_post_type',
+					'name'       => 'hierarchical',
+					'labeltext'  => __( 'Hierarchical', 'custom-post-type-ui' ),
+					'aftertext'  => __( '(default: false)', 'custom-post-type-ui' ),
+					'helptext'   => esc_attr__( 'Whether the post type can have parent-child relationships', 'custom-post-type-ui' ),
+					'selections' => $select,
 				) );
 
 				$select = array(
 					'options' => array(
 						array( 'attr' => '0', 'text' => __( 'False', 'custom-post-type-ui' ) ),
 						array( 'attr' => '1', 'text' => __( 'True', 'custom-post-type-ui' ), 'default' => 'true' ),
-					)
+					),
 				);
 				$selected = ( isset( $current ) ) ? disp_boolean( $current['rewrite'] ) : '';
-				$select['selected'] = ( !empty( $selected ) ) ? $current['rewrite'] : '';
+				$select['selected'] = ( ! empty( $selected ) ) ? $current['rewrite'] : '';
 				echo $ui->get_select_input( array(
-					'namearray'     => 'cpt_custom_post_type',
-					'name'          => 'rewrite',
-					'labeltext'     => __( 'Rewrite', 'custom-post-type-ui' ),
-					'aftertext'     => __( '(default: true)', 'custom-post-type-ui' ),
-					'helptext'      => esc_attr__( 'Whether or not WordPress should use rewrites for this post type', 'custom-post-type-ui' ),
-					'selections'    => $select,
+					'namearray'  => 'cpt_custom_post_type',
+					'name'       => 'rewrite',
+					'labeltext'  => __( 'Rewrite', 'custom-post-type-ui' ),
+					'aftertext'  => __( '(default: true)', 'custom-post-type-ui' ),
+					'helptext'   => esc_attr__( 'Whether or not WordPress should use rewrites for this post type', 'custom-post-type-ui' ),
+					'selections' => $select,
 				) );
 
 				echo $ui->get_text_input( array(
-					'namearray'     => 'cpt_custom_post_type',
-					'name'          => 'rewrite_slug',
-					'textvalue'     => ( isset( $current['rewrite_slug'] ) ) ? esc_attr( $current['rewrite_slug'] ) : '',
-					'labeltext'     => __( 'Custom Rewrite Slug', 'custom-post-type-ui' ),
-					'aftertext'     => __( '(default: post type slug)', 'custom-post-type-ui' ),
-					'helptext'      => esc_attr__( 'Custom post type slug to use instead of the default.', 'custom-post-type-ui' ),
+					'namearray' => 'cpt_custom_post_type',
+					'name'      => 'rewrite_slug',
+					'textvalue' => ( isset( $current['rewrite_slug'] ) ) ? esc_attr( $current['rewrite_slug'] ) : '',
+					'labeltext' => __( 'Custom Rewrite Slug', 'custom-post-type-ui' ),
+					'aftertext' => __( '(default: post type slug)', 'custom-post-type-ui' ),
+					'helptext'  => esc_attr__( 'Custom post type slug to use instead of the default.', 'custom-post-type-ui' ),
 				) );
 
 				$select = array(
 					'options' => array(
 						array( 'attr' => '0', 'text' => __( 'False', 'custom-post-type-ui' ) ),
 						array( 'attr' => '1', 'text' => __( 'True', 'custom-post-type-ui' ), 'default' => 'true' ),
-					)
+					),
 				);
 				$selected = ( isset( $current ) ) ? disp_boolean( $current['rewrite_withfront'] ) : '';
-				$select['selected'] = ( !empty( $selected ) ) ? $current['rewrite_withfront'] : '';
+				$select['selected'] = ( ! empty( $selected ) ) ? $current['rewrite_withfront'] : '';
 				echo $ui->get_select_input( array(
-					'namearray'     => 'cpt_custom_post_type',
-					'name'          => 'rewrite_withfront',
-					'labeltext'     => __( 'With Front', 'custom-post-type-ui' ),
-					'aftertext'     => __( '(default: true)', 'custom-post-type-ui' ),
-					'helptext'      => esc_attr__( 'Should the permastruct be prepended with the front base.', 'custom-post-type-ui' ),
-					'selections'    => $select,
+					'namearray'  => 'cpt_custom_post_type',
+					'name'       => 'rewrite_withfront',
+					'labeltext'  => __( 'With Front', 'custom-post-type-ui' ),
+					'aftertext'  => __( '(default: true)', 'custom-post-type-ui' ),
+					'helptext'   => esc_attr__( 'Should the permastruct be prepended with the front base.', 'custom-post-type-ui' ),
+					'selections' => $select,
 				) );
 
 				$select = array(
 					'options' => array(
 						array( 'attr' => '0', 'text' => __( 'False', 'custom-post-type-ui' ) ),
 						array( 'attr' => '1', 'text' => __( 'True', 'custom-post-type-ui' ), 'default' => 'true' ),
-					)
+					),
 				);
 				$selected = ( isset( $current ) ) ? disp_boolean( $current['query_var'] ) : '';
-				$select['selected'] = ( !empty( $selected ) ) ? $current['query_var'] : '';
+				$select['selected'] = ( ! empty( $selected ) ) ? $current['query_var'] : '';
 				echo $ui->get_select_input( array(
-					'namearray'     => 'cpt_custom_post_type',
-					'name'          => 'query_var',
-					'labeltext'     => __( 'Query Var', 'custom-post-type-ui' ),
-					'aftertext'     => __( '(default: true)', 'custom-post-type-ui' ),
-					'helptext'      => esc_attr__( 'Sets the query_var key for this post type.', 'custom-post-type-ui' ),
-					'selections'    => $select,
+					'namearray'  => 'cpt_custom_post_type',
+					'name'       => 'query_var',
+					'labeltext'  => __( 'Query Var', 'custom-post-type-ui' ),
+					'aftertext'  => __( '(default: true)', 'custom-post-type-ui' ),
+					'helptext'   => esc_attr__( 'Sets the query_var key for this post type.', 'custom-post-type-ui' ),
+					'selections' => $select,
 				) );
 
 				echo $ui->get_text_input( array(
@@ -794,10 +794,10 @@ function cptui_manage_post_types() {
 
 				echo $ui->get_th_end() . $ui->get_td_start();
 				echo $ui->get_text_input( array(
-					'namearray'     => 'cpt_custom_post_type',
-					'name'          => 'menu_position',
-					'textvalue'     => ( isset( $current['menu_position'] ) ) ? esc_attr( $current['menu_position'] ) : '',
-					'wrap'          => false,
+					'namearray' => 'cpt_custom_post_type',
+					'name'      => 'menu_position',
+					'textvalue' => ( isset( $current['menu_position'] ) ) ? esc_attr( $current['menu_position'] ) : '',
+					'wrap'      => false,
 				) );
 				echo $ui->get_td_end() . $ui->get_tr_end();
 
@@ -811,38 +811,38 @@ function cptui_manage_post_types() {
 					'options' => array(
 						array( 'attr' => '0', 'text' => __( 'False', 'custom-post-type-ui' ) ),
 						array( 'attr' => '1', 'text' => __( 'True', 'custom-post-type-ui' ), 'default' => 'true' ),
-					)
+					),
 				);
 				$selected = ( isset( $current ) ) ? disp_boolean( $current['show_in_menu'] ) : '';
-				$select['selected'] = ( !empty( $selected ) ) ? $current['show_in_menu'] : '';
+				$select['selected'] = ( ! empty( $selected ) ) ? $current['show_in_menu'] : '';
 				echo $ui->get_select_input( array(
-					'namearray'     => 'cpt_custom_post_type',
-					'name'          => 'show_in_menu',
-					'aftertext'     => __( '(default: true)', 'custom-post-type-ui' ),
-					'selections'    => $select,
-					'wrap'          => false,
+					'namearray'  => 'cpt_custom_post_type',
+					'name'       => 'show_in_menu',
+					'aftertext'  => __( '(default: true)', 'custom-post-type-ui' ),
+					'selections' => $select,
+					'wrap'       => false,
 				) );
 
 				echo '<br/>';
 
 				echo $ui->get_text_input( array(
-					'namearray'     => 'cpt_custom_post_type',
-					'name'          => 'show_in_menu_string',
-					'textvalue'     => ( isset( $current['show_in_menu_string'] ) ) ? esc_attr( $current['show_in_menu_string'] ) : '',
-					'helptext'      => esc_attr__( 'Top-level page file name to make post type a sub-menu of.', 'custom-post-type-ui' ),
-					'helptext_after'=> true,
-					'wrap'          => false,
+					'namearray'      => 'cpt_custom_post_type',
+					'name'           => 'show_in_menu_string',
+					'textvalue'      => ( isset( $current['show_in_menu_string'] ) ) ? esc_attr( $current['show_in_menu_string'] ) : '',
+					'helptext'       => esc_attr__( 'Top-level page file name to make post type a sub-menu of.', 'custom-post-type-ui' ),
+					'helptext_after' => true,
+					'wrap'           => false,
 				) );
 				echo $ui->get_td_end() . $ui->get_tr_end();
 
 				echo $ui->get_tr_start() . $ui->get_th_start() . '<label for="menu_icon">' . __( 'Menu Icon', 'custom-post-type-ui' ) . '</label>' . $ui->get_th_end() . $ui->get_td_start();
 				echo $ui->get_text_input( array(
-					'namearray'     => 'cpt_custom_post_type',
-					'name'          => 'menu_icon',
-					'textvalue'     => ( isset( $current['menu_icon'] ) ) ? esc_attr( $current['menu_icon'] ) : '',
-					'aftertext'     => __( '(Full URL for icon or Dashicon class)', 'custom-post-type-ui' ),
-					'helptext'      => esc_attr__( 'Image URL or Dashicon class name to use for icon. Custom image should be 20px by 20px.', 'custom-post-type-ui' ),
-					'wrap'          => false,
+					'namearray' => 'cpt_custom_post_type',
+					'name'      => 'menu_icon',
+					'textvalue' => ( isset( $current['menu_icon'] ) ) ? esc_attr( $current['menu_icon'] ) : '',
+					'aftertext' => __( '(Full URL for icon or Dashicon class)', 'custom-post-type-ui' ),
+					'helptext'  => esc_attr__( 'Image URL or Dashicon class name to use for icon. Custom image should be 20px by 20px.', 'custom-post-type-ui' ),
+					'wrap'      => false,
 				) );
 
 				echo '<div class="cptui-spacer">';
@@ -862,15 +862,15 @@ function cptui_manage_post_types() {
 					$title_checked = 'true';
 				}
 				echo $ui->get_check_input( array(
-					'checkvalue'    => 'title',
-					'checked'       => $title_checked,
-					'name'          => 'title',
-					'namearray'     => 'cpt_supports',
-					'textvalue'     => 'title',
-					'labeltext'     => __( 'Title' , 'custom-post-type-ui' ),
-					'helptext'      => esc_attr__( 'Adds the title meta box when creating content for this custom post type', 'custom-post-type-ui' ),
-					'default'       => true,
-					'wrap'          => false,
+					'checkvalue' => 'title',
+					'checked'    => $title_checked,
+					'name'       => 'title',
+					'namearray'  => 'cpt_supports',
+					'textvalue'  => 'title',
+					'labeltext'  => __( 'Title', 'custom-post-type-ui' ),
+					'helptext'   => esc_attr__( 'Adds the title meta box when creating content for this custom post type', 'custom-post-type-ui' ),
+					'default'    => true,
+					'wrap'       => false,
 				) );
 
 				$editor_checked = ( ! empty( $current['supports'] ) && is_array( $current['supports'] ) && in_array( 'editor', $current['supports'] ) ) ? 'true' : 'false';
@@ -878,15 +878,15 @@ function cptui_manage_post_types() {
 					$editor_checked = 'true';
 				}
 				echo $ui->get_check_input( array(
-					'checkvalue'    => 'editor',
-					'checked'       => $editor_checked,
-					'name'          => 'editor',
-					'namearray'     => 'cpt_supports',
-					'textvalue'     => 'editor',
-					'labeltext'     => __( 'Editor' , 'custom-post-type-ui' ),
-					'helptext'      => esc_attr__( 'Adds the content editor meta box when creating content for this custom post type', 'custom-post-type-ui' ),
-					'default'       => true,
-					'wrap'          => false,
+					'checkvalue' => 'editor',
+					'checked'    => $editor_checked,
+					'name'       => 'editor',
+					'namearray'  => 'cpt_supports',
+					'textvalue'  => 'editor',
+					'labeltext'  => __( 'Editor', 'custom-post-type-ui' ),
+					'helptext'   => esc_attr__( 'Adds the content editor meta box when creating content for this custom post type', 'custom-post-type-ui' ),
+					'default'    => true,
+					'wrap'       => false,
 				) );
 
 				$thumb_checked = ( ! empty( $current['supports'] ) && is_array( $current['supports'] ) && in_array( 'thumbnail', $current['supports'] ) ) ? 'true' : 'false';
@@ -906,113 +906,113 @@ function cptui_manage_post_types() {
 				) );
 
 				echo $ui->get_check_input( array(
-					'checkvalue'    => 'excerpt',
-					'checked'       => ( !empty( $current['supports'] ) && is_array( $current['supports'] ) && in_array( 'excerpt', $current['supports'] ) ) ? 'true' : 'false',
-					'name'          => 'excerpts',
-					'namearray'     => 'cpt_supports',
-					'textvalue'     => 'excerpt',
-					'labeltext'     => __( 'Excerpt' , 'custom-post-type-ui' ),
-					'helptext'      => esc_attr__( 'Adds the excerpt meta box when creating content for this custom post type', 'custom-post-type-ui' ),
-					'default'       => true,
-					'wrap'          => false,
+					'checkvalue' => 'excerpt',
+					'checked'    => ( ! empty( $current['supports'] ) && is_array( $current['supports'] ) && in_array( 'excerpt', $current['supports'] ) ) ? 'true' : 'false',
+					'name'       => 'excerpts',
+					'namearray'  => 'cpt_supports',
+					'textvalue'  => 'excerpt',
+					'labeltext'  => __( 'Excerpt', 'custom-post-type-ui' ),
+					'helptext'   => esc_attr__( 'Adds the excerpt meta box when creating content for this custom post type', 'custom-post-type-ui' ),
+					'default'    => true,
+					'wrap'       => false,
 				) );
 
 				echo $ui->get_check_input( array(
-					'checkvalue'    => 'trackbacks',
-					'checked'       => ( !empty( $current['supports'] ) && is_array( $current['supports'] ) && in_array( 'trackbacks', $current['supports'] ) ) ? 'true' : 'false',
-					'name'          => 'trackbacks',
-					'namearray'     => 'cpt_supports',
-					'textvalue'     => 'trackbacks',
-					'labeltext'     => __( 'Trackbacks' , 'custom-post-type-ui' ),
-					'helptext'      => esc_attr__( 'Adds the trackbacks meta box when creating content for this custom post type', 'custom-post-type-ui' ),
-					'default'       => true,
-					'wrap'          => false,
+					'checkvalue' => 'trackbacks',
+					'checked'    => ( ! empty( $current['supports'] ) && is_array( $current['supports'] ) && in_array( 'trackbacks', $current['supports'] ) ) ? 'true' : 'false',
+					'name'       => 'trackbacks',
+					'namearray'  => 'cpt_supports',
+					'textvalue'  => 'trackbacks',
+					'labeltext'  => __( 'Trackbacks', 'custom-post-type-ui' ),
+					'helptext'   => esc_attr__( 'Adds the trackbacks meta box when creating content for this custom post type', 'custom-post-type-ui' ),
+					'default'    => true,
+					'wrap'       => false,
 				) );
 
 				echo $ui->get_check_input( array(
-					'checkvalue'    => 'custom-fields',
-					'checked'       => ( !empty( $current['supports'] ) && is_array( $current['supports'] ) && in_array( 'custom-fields', $current['supports'] ) ) ? 'true' : 'false',
-					'name'          => 'custom-fields',
-					'namearray'     => 'cpt_supports',
-					'textvalue'     => 'custom-fields',
-					'labeltext'     => __( 'Custom Fields' , 'custom-post-type-ui' ),
-					'helptext'      => esc_attr__( 'Adds the custom fields meta box when creating content for this custom post type', 'custom-post-type-ui' ),
-					'default'       => true,
-					'wrap'          => false,
+					'checkvalue' => 'custom-fields',
+					'checked'    => ( ! empty( $current['supports'] ) && is_array( $current['supports'] ) && in_array( 'custom-fields', $current['supports'] ) ) ? 'true' : 'false',
+					'name'       => 'custom-fields',
+					'namearray'  => 'cpt_supports',
+					'textvalue'  => 'custom-fields',
+					'labeltext'  => __( 'Custom Fields', 'custom-post-type-ui' ),
+					'helptext'   => esc_attr__( 'Adds the custom fields meta box when creating content for this custom post type', 'custom-post-type-ui' ),
+					'default'    => true,
+					'wrap'       => false,
 				) );
 
 				echo $ui->get_check_input( array(
-					'checkvalue'    => 'comments',
-					'checked'       => ( !empty( $current['supports'] ) && is_array( $current['supports'] ) && in_array( 'comments', $current['supports'] ) ) ? 'true' : 'false',
-					'name'          => 'comments',
-					'namearray'     => 'cpt_supports',
-					'textvalue'     => 'comments',
-					'labeltext'     => __( 'Comments' , 'custom-post-type-ui' ),
-					'helptext'      => esc_attr__( 'Adds the comments meta box when creating content for this custom post type', 'custom-post-type-ui' ),
-					'default'       => true,
-					'wrap'          => false,
+					'checkvalue' => 'comments',
+					'checked'    => ( ! empty( $current['supports'] ) && is_array( $current['supports'] ) && in_array( 'comments', $current['supports'] ) ) ? 'true' : 'false',
+					'name'       => 'comments',
+					'namearray'  => 'cpt_supports',
+					'textvalue'  => 'comments',
+					'labeltext'  => __( 'Comments', 'custom-post-type-ui' ),
+					'helptext'   => esc_attr__( 'Adds the comments meta box when creating content for this custom post type', 'custom-post-type-ui' ),
+					'default'    => true,
+					'wrap'       => false,
 				) );
 
 				echo $ui->get_check_input( array(
-					'checkvalue'    => 'revisions',
-					'checked'       => ( !empty( $current['supports'] ) && is_array( $current['supports'] ) && in_array( 'revisions', $current['supports'] ) ) ? 'true' : 'false',
-					'name'          => 'revisions',
-					'namearray'     => 'cpt_supports',
-					'textvalue'     => 'revisions',
-					'labeltext'     => __( 'Revisions' , 'custom-post-type-ui' ),
-					'helptext'      => esc_attr__( 'Adds the revisions meta box when creating content for this custom post type', 'custom-post-type-ui' ),
-					'default'       => true,
-					'wrap'          => false,
+					'checkvalue' => 'revisions',
+					'checked'    => ( ! empty( $current['supports'] ) && is_array( $current['supports'] ) && in_array( 'revisions', $current['supports'] ) ) ? 'true' : 'false',
+					'name'       => 'revisions',
+					'namearray'  => 'cpt_supports',
+					'textvalue'  => 'revisions',
+					'labeltext'  => __( 'Revisions', 'custom-post-type-ui' ),
+					'helptext'   => esc_attr__( 'Adds the revisions meta box when creating content for this custom post type', 'custom-post-type-ui' ),
+					'default'    => true,
+					'wrap'       => false,
 				) );
 
 				echo $ui->get_check_input( array(
-					'checkvalue'    => 'author',
-					'checked'       => ( !empty( $current['supports'] ) && is_array( $current['supports'] ) && in_array( 'author', $current['supports'] ) ) ? 'true' : 'false',
-					'name'          => 'author',
-					'namearray'     => 'cpt_supports',
-					'textvalue'     => 'author',
-					'labeltext'     => __( 'Author' , 'custom-post-type-ui' ),
-					'helptext'      => esc_attr__( 'Adds the author meta box when creating content for this custom post type', 'custom-post-type-ui' ),
-					'default'       => true,
-					'wrap'          => false,
+					'checkvalue' => 'author',
+					'checked'    => ( ! empty( $current['supports'] ) && is_array( $current['supports'] ) && in_array( 'author', $current['supports'] ) ) ? 'true' : 'false',
+					'name'       => 'author',
+					'namearray'  => 'cpt_supports',
+					'textvalue'  => 'author',
+					'labeltext'  => __( 'Author', 'custom-post-type-ui' ),
+					'helptext'   => esc_attr__( 'Adds the author meta box when creating content for this custom post type', 'custom-post-type-ui' ),
+					'default'    => true,
+					'wrap'       => false,
 				) );
 
 				echo $ui->get_check_input( array(
-					'checkvalue'    => 'page-attributes',
-					'checked'       => ( !empty( $current['supports'] ) && is_array( $current['supports'] ) && in_array( 'page-attributes', $current['supports'] ) ) ? 'true' : 'false',
-					'name'          => 'page-attributes',
-					'namearray'     => 'cpt_supports',
-					'textvalue'     => 'page-attributes',
-					'labeltext'     => __( 'Page Attributes' , 'custom-post-type-ui' ),
-					'helptext'      => esc_attr__( 'Adds the page attribute meta box when creating content for this custom post type', 'custom-post-type-ui' ),
-					'default'       => true,
-					'wrap'          => false,
+					'checkvalue' => 'page-attributes',
+					'checked'    => ( ! empty( $current['supports'] ) && is_array( $current['supports'] ) && in_array( 'page-attributes', $current['supports'] ) ) ? 'true' : 'false',
+					'name'       => 'page-attributes',
+					'namearray'  => 'cpt_supports',
+					'textvalue'  => 'page-attributes',
+					'labeltext'  => __( 'Page Attributes', 'custom-post-type-ui' ),
+					'helptext'   => esc_attr__( 'Adds the page attribute meta box when creating content for this custom post type', 'custom-post-type-ui' ),
+					'default'    => true,
+					'wrap'       => false,
 				) );
 
 				echo $ui->get_check_input( array(
-					'checkvalue'    => 'post-formats',
-					'checked'       => ( !empty( $current['supports'] ) && is_array( $current['supports'] ) && in_array( 'post-formats', $current['supports'] ) ) ? 'true' : 'false',
-					'name'          => 'post-formats',
-					'namearray'     => 'cpt_supports',
-					'textvalue'     => 'post-formats',
-					'labeltext'     => __( 'Post Formats' , 'custom-post-type-ui' ),
-					'helptext'      => esc_attr__( 'Adds post format support', 'custom-post-type-ui' ),
-					'default'       => true,
-					'wrap'          => false,
+					'checkvalue' => 'post-formats',
+					'checked'    => ( ! empty( $current['supports'] ) && is_array( $current['supports'] ) && in_array( 'post-formats', $current['supports'] ) ) ? 'true' : 'false',
+					'name'       => 'post-formats',
+					'namearray'  => 'cpt_supports',
+					'textvalue'  => 'post-formats',
+					'labeltext'  => __( 'Post Formats', 'custom-post-type-ui' ),
+					'helptext'   => esc_attr__( 'Adds post format support', 'custom-post-type-ui' ),
+					'default'    => true,
+					'wrap'       => false,
 				) );
 
 				echo $ui->get_p( __( 'Use the option below to explicitly set "supports" to false.', 'custom-post-type-ui' ) );
 
 				echo $ui->get_check_input( array(
-					'checkvalue'    => 'none',
-					'checked'       => ( !empty( $current['supports'] ) && ( is_array( $current['supports'] ) && in_array( 'none', $current['supports'] ) ) ) ? 'true' : 'false',
-					'name'          => 'none',
-					'namearray'     => 'cpt_supports',
-					'textvalue'     => 'none',
-					'labeltext'     => __( 'None' , 'custom-post-type-ui' ),
-					'helptext'      => esc_attr__( 'Remove all support features', 'custom-post-type-ui' ),
-					'default'       => false,
-					'wrap'          => false,
+					'checkvalue' => 'none',
+					'checked'    => ( ! empty( $current['supports'] ) && ( is_array( $current['supports'] ) && in_array( 'none', $current['supports'] ) ) ) ? 'true' : 'false',
+					'name'       => 'none',
+					'namearray'  => 'cpt_supports',
+					'textvalue'  => 'none',
+					'labeltext'  => __( 'None', 'custom-post-type-ui' ),
+					'helptext'   => esc_attr__( 'Remove all support features', 'custom-post-type-ui' ),
+					'default'    => false,
+					'wrap'       => false,
 				) );
 
 				echo $ui->get_fieldset_end() . $ui->get_td_end() . $ui->get_tr_end();
@@ -1021,12 +1021,12 @@ function cptui_manage_post_types() {
 				echo $ui->get_p( __( 'Use this input to register custom "supports" values, separated by commas.', 'custom-post-type-ui' ) );
 				echo $ui->get_th_end() . $ui->get_td_start();
 				echo $ui->get_text_input( array(
-					'namearray'     => 'cpt_custom_post_type',
-					'name'          => 'custom_supports',
-					'textvalue'     => ( isset( $current['custom_supports'] ) ) ? esc_attr( $current['custom_supports'] ) : '',
-					'helptext'      => esc_attr__( 'Provide custom support slugs here.', 'custom-post-type-ui' ),
-					'helptext_after'=> true,
-					'wrap'          => false,
+					'namearray'      => 'cpt_custom_post_type',
+					'name'           => 'custom_supports',
+					'textvalue'      => ( isset( $current['custom_supports'] ) ) ? esc_attr( $current['custom_supports'] ) : '',
+					'helptext'       => esc_attr__( 'Provide custom support slugs here.', 'custom-post-type-ui' ),
+					'helptext_after' => true,
+					'wrap'           => false,
 				) );
 				echo $ui->get_td_end() . $ui->get_tr_end();
 
@@ -1042,7 +1042,7 @@ function cptui_manage_post_types() {
 				$args = apply_filters( 'cptui_attach_taxonomies_to_post_type', array( 'public' => true ) );
 
 				// If they don't return an array, fall back to the original default. Don't need to check for empty, because empty array is default for $args param in get_post_types anyway.
-				if ( !is_array( $args ) ) {
+				if ( ! is_array( $args ) ) {
 					$args = array( 'public' => true );
 				}
 
@@ -1052,14 +1052,14 @@ function cptui_manage_post_types() {
 
 					$core_label = ( in_array( $add_tax->name, array( 'category', 'post_tag' ) ) ) ? __( '(WP Core)', 'custom-post-type-ui' ) : '';
 					echo $ui->get_check_input( array(
-						'checkvalue'        => $add_tax->name,
-						'checked'           => ( !empty( $current['taxonomies'] ) && is_array( $current['taxonomies'] ) && in_array( $add_tax->name, $current['taxonomies'] ) ) ? 'true' : 'false',
-						'name'              => $add_tax->name,
-						'namearray'         => 'cpt_addon_taxes',
-						'textvalue'         => $add_tax->name,
-						'labeltext'         => $add_tax->label . ' ' . $core_label,
-						'helptext'          => sprintf( esc_attr__( 'Adds %s support', 'custom-post-type-ui' ), $add_tax->label ),
-						'wrap'              => false
+						'checkvalue' => $add_tax->name,
+						'checked'    => ( ! empty( $current['taxonomies'] ) && is_array( $current['taxonomies'] ) && in_array( $add_tax->name, $current['taxonomies'] ) ) ? 'true' : 'false',
+						'name'       => $add_tax->name,
+						'namearray'  => 'cpt_addon_taxes',
+						'textvalue'  => $add_tax->name,
+						'labeltext'  => $add_tax->label . ' ' . $core_label,
+						'helptext'   => sprintf( esc_attr__( 'Adds %s support', 'custom-post-type-ui' ), $add_tax->label ),
+						'wrap'       => false,
 					) );
 				}
 				echo $ui->get_fieldset_end() . $ui->get_td_end() . $ui->get_tr_end();
@@ -1131,12 +1131,12 @@ function cptui_post_types_dropdown( $post_types = array() ) {
 
 	$ui = new cptui_admin_ui();
 
-	if ( !empty( $post_types ) ) {
+	if ( ! empty( $post_types ) ) {
 		$select = array();
 		$select['options'] = array();
 
-		foreach( $post_types as $type ) {
-			$text = ( !empty( $type['label'] ) ) ? $type['label'] : $type['name'];
+		foreach ( $post_types as $type ) {
+			$text = ( ! empty( $type['label'] ) ) ? $type['label'] : $type['name'];
 			$select['options'][] = array( 'attr' => $type['name'], 'text' => $text );
 		}
 
@@ -1147,7 +1147,7 @@ function cptui_post_types_dropdown( $post_types = array() ) {
 			'namearray'     => 'cptui_selected_post_type',
 			'name'          => 'post_type',
 			'selections'    => $select,
-			'wrap'          => false
+			'wrap'          => false,
 		) );
 	}
 }
@@ -1180,11 +1180,11 @@ function cptui_get_current_post_type( $post_type_deleted = false ) {
 		if ( isset( $_POST['cpt_custom_post_type']['name'] ) ) {
 			$type = sanitize_text_field( $_POST['cpt_custom_post_type']['name'] );
 		}
-	} else if ( !empty( $_GET ) && isset( $_GET['cptui_post_type'] ) ) {
+	} else if ( ! empty( $_GET ) && isset( $_GET['cptui_post_type'] ) ) {
 		$type = sanitize_text_field( $_GET['cptui_post_type'] );
 	} else {
 		$post_types = cptui_get_post_type_data();
-		if ( !empty( $post_types ) ) {
+		if ( ! empty( $post_types ) ) {
 			// Will return the first array key.
 			$type = key( $post_types );
 		}
@@ -1217,8 +1217,8 @@ function cptui_delete_post_type( $data = array() ) {
 	if ( is_string( $data ) && cptui_get_post_type_exists( $data, $data ) ) {
 		$data = array(
 			'cpt_custom_post_type' => array(
-				'name' => $data
-			)
+				'name' => $data,
+			),
 		);
 	}
 
@@ -1300,14 +1300,14 @@ function cptui_update_post_type( $data = array() ) {
 		return cptui_admin_notices( 'error', '', false, __( 'Please provide a post type name', 'custom-post-type-ui' ) );
 	}
 
-	if ( !empty( $data['cpt_original'] ) && $data['cpt_original'] != $data['cpt_custom_post_type']['name'] ) {
-		if ( !empty( $data['update_post_types'] ) ) {
+	if ( ! empty( $data['cpt_original'] ) && $data['cpt_original'] != $data['cpt_custom_post_type']['name'] ) {
+		if ( ! empty( $data['update_post_types'] ) ) {
 			cptui_convert_post_type_posts( $data['cpt_original'], $data['cpt_custom_post_type']['name'] );
 		}
 	}
 
 	// clean up $_POST data.
-	foreach( $data as $key => $value ) {
+	foreach ( $data as $key => $value ) {
 		if ( is_string( $value ) ) {
 			$data[ $key ] = sanitize_text_field( $value );
 		} else {
@@ -1346,15 +1346,15 @@ function cptui_update_post_type( $data = array() ) {
 		}
 	}
 
-	if ( empty( $data['cpt_addon_taxes'] ) || !is_array( $data['cpt_addon_taxes'] ) ) {
+	if ( empty( $data['cpt_addon_taxes'] ) || ! is_array( $data['cpt_addon_taxes'] ) ) {
 		$data['cpt_addon_taxes'] = array();
 	}
 
-	if ( empty( $data['cpt_supports'] ) || !is_array( $data['cpt_supports'] ) ) {
+	if ( empty( $data['cpt_supports'] ) || ! is_array( $data['cpt_supports'] ) ) {
 		$data['cpt_supports'] = array();
 	}
 
-	foreach( $data['cpt_labels'] as $key => $label ) {
+	foreach ( $data['cpt_labels'] as $key => $label ) {
 		if ( empty( $label ) ) {
 			unset( $data['cpt_labels'][ $key ] );
 		}
@@ -1516,9 +1516,12 @@ function cptui_convert_post_type_posts( $original_slug = '', $new_slug = '' ) {
 	);
 	$convert = new WP_Query( $args );
 
-	if ( $convert->have_posts() ) : while ( $convert->have_posts() ) : $convert->the_post();
-		set_post_type( get_the_ID(), $new_slug );
-	endwhile; endif;
+	if ( $convert->have_posts() ) :
+		while ( $convert->have_posts() ) :
+			$convert->the_post();
+			set_post_type( get_the_ID(), $new_slug );
+		endwhile;
+	endif;
 
 	cptui_delete_post_type( $original_slug );
 }
