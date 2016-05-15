@@ -198,7 +198,7 @@ function cptui_listings() {
 				do_action( 'cptui_no_post_types_listing' );
 			}
 
-			$taxonomies = cptui_get_taxonomy_data( 'cptui_taxonomies' );
+			$taxonomies = cptui_get_taxonomy_data();
 			echo '<h2 id="taxonomies">' . esc_html__( 'Taxonomies', 'custom-post-type-ui' ) . '</h2>';
 			if ( ! empty( $taxonomies ) ) {
 				?>
