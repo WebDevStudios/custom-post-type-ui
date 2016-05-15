@@ -168,7 +168,7 @@ function cptui_get_current_action() {
  */
 function cptui_get_post_type_slugs() {
 	$post_types = get_option( 'cptui_post_types' );
-	if ( ! empty ( $post_types ) ) {
+	if ( ! empty( $post_types ) ) {
 		return array_keys( $post_types );
 	}
 	return array();
@@ -183,7 +183,7 @@ function cptui_get_post_type_slugs() {
  */
 function cptui_get_taxonomy_slugs() {
 	$taxonomies = get_option( 'cptui_taxonomies' );
-	if ( ! empty ( $taxonomies ) ) {
+	if ( ! empty( $taxonomies ) ) {
 		return array_keys( $taxonomies );
 	}
 	return array();
