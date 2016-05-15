@@ -337,6 +337,8 @@ function cptui_register_single_post_type( $post_type = array() ) {
 		$exclude_from_search = ( false === $public ) ? true : false;
 	}
 
+	$queryable = ( ! empty( $post_type['publicly_queryable'] ) && isset( $post_type['publicly_queryable'] ) ) ? get_disp_boolean( $post_type['publicly_queryable'] ) : $public;
+
 	if ( empty( $post_type['show_in_nav_menus'] ) ) {
 		// Defaults to value of public.
 		$post_type['show_in_nav_menus'] = $public;
@@ -355,7 +357,7 @@ function cptui_register_single_post_type( $post_type = array() ) {
 		'labels'              => $labels,
 		'description'         => $post_type['description'],
 		'public'              => get_disp_boolean( $post_type['public'] ),
-		'publicly_queryable'  => get_disp_boolean( $post_type['publicly_queryable'] ),
+		'publicly_queryable'  => $queryable,
 		'show_ui'             => get_disp_boolean( $post_type['show_ui'] ),
 		'show_in_nav_menus'   => get_disp_boolean( $post_type['show_in_nav_menus'] ),
 		'has_archive'         => $has_archive,
