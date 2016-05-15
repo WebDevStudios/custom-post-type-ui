@@ -507,7 +507,7 @@ function cptui_register_single_taxonomy( $taxonomy = array() ) {
 		'show_admin_column'  => $show_admin_column,
 		'show_in_rest'       => $show_in_rest,
 		'rest_base'          => $rest_base,
-		'show_in_quick_edit' => $show_in_quick_edit
+		'show_in_quick_edit' => $show_in_quick_edit,
 	);
 
 	$object_type = ( ! empty( $taxonomy['object_types'] ) ) ? $taxonomy['object_types'] : '';
@@ -589,10 +589,10 @@ function cptui_convert_settings() {
 
 		$new_post_types = array();
 		foreach ( $post_types as $type ) {
-            $new_post_types[ $type['name'] ]                = $type; // This one assigns the # indexes. Named arrays are our friend.
-            $new_post_types[ $type['name'] ]['supports']    = ( ! empty( $type[0] ) ) ? $type[0] : array(); // Especially for multidimensional arrays.
-            $new_post_types[ $type['name'] ]['taxonomies']  = ( ! empty( $type[1] ) ) ? $type[1] : array();
-            $new_post_types[ $type['name'] ]['labels']      = ( ! empty( $type[2] ) ) ? $type[2] : array();
+			$new_post_types[ $type['name'] ]                = $type; // This one assigns the # indexes. Named arrays are our friend.
+			$new_post_types[ $type['name'] ]['supports']    = ( ! empty( $type[0] ) ) ? $type[0] : array(); // Especially for multidimensional arrays.
+			$new_post_types[ $type['name'] ]['taxonomies']  = ( ! empty( $type[1] ) ) ? $type[1] : array();
+			$new_post_types[ $type['name'] ]['labels']      = ( ! empty( $type[2] ) ) ? $type[2] : array();
 			unset(
 				$new_post_types[ $type['name'] ][0],
 				$new_post_types[ $type['name'] ][1],
@@ -607,9 +607,9 @@ function cptui_convert_settings() {
 
 		$new_taxonomies = array();
 		foreach ( $taxonomies as $tax ) {
-            $new_taxonomies[ $tax['name'] ]                 = $tax;    // Yep, still our friend.
-            $new_taxonomies[ $tax['name'] ]['labels']       = $tax[0]; // Taxonomies are the only thing with
-            $new_taxonomies[ $tax['name'] ]['object_types'] = $tax[1]; // "tax" in the name that I like.
+			$new_taxonomies[ $tax['name'] ]                 = $tax;    // Yep, still our friend.
+			$new_taxonomies[ $tax['name'] ]['labels']       = $tax[0]; // Taxonomies are the only thing with
+			$new_taxonomies[ $tax['name'] ]['object_types'] = $tax[1]; // "tax" in the name that I like.
 			unset(
 				$new_taxonomies[ $tax['name'] ][0],
 				$new_taxonomies[ $tax['name'] ][1]
