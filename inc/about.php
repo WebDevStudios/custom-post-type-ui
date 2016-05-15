@@ -20,7 +20,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @internal
  */
-function cptui_settings() { ?>
+function cptui_settings() {
+	?>
 	<div class="wrap about-wrap">
 		<?php
 
@@ -62,7 +63,7 @@ function cptui_settings() { ?>
 				</div>
 				<div>
 					<h2><?php _e( 'Continued accessibility improvements', 'custom-post-type-ui' ); ?></h2>
-					<p><?php _e( 'We have continued working on the accessibility of the plugin, building off what we accomplished in previous releases. If you have feedback on where it could be further improved, let us know.') ?></p>
+					<p><?php _e( 'We have continued working on the accessibility of the plugin, building off what we accomplished in previous releases. If you have feedback on where it could be further improved, let us know.' ) ?></p>
 				</div>
 				<div>
 					<h2><?php _e( 'More parameter and label support', 'custom-post-type-ui' ); ?></h2>
@@ -96,7 +97,8 @@ function cptui_settings() { ?>
  *
  * @internal
  */
-function cptui_donation_content() { ?>
+function cptui_donation_content() {
+	?>
 	<h1><?php _e( 'Help Support This Plugin!', 'custom-post-type-ui' ); ?></h1>
 	<table border="0">
 		<tr>
