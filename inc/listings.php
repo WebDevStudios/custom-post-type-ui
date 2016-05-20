@@ -102,7 +102,8 @@ function cptui_listings() {
 						<tr class="<?php echo esc_attr( $rowclass ); ?>">
 							<?php $post_type_link_url = admin_url( 'admin.php?page=cptui_manage_post_types&action=edit&cptui_post_type=' . $post_type ); ?>
 							<td>
-								<?php printf(
+								<?php
+								printf(
 									'<a href="%s">%s</a> | <a href="%s">%s</a><br/>',
 									esc_attr( $post_type_link_url ),
 									sprintf(
@@ -113,7 +114,8 @@ function cptui_listings() {
 									esc_html__( 'Get code', 'custom-post-type-ui' )
 								);
 
-								if ( $archive ) { ?>
+								if ( $archive ) {
+								?>
 								<a href="<?php echo esc_attr( get_post_type_archive_link( $post_type ) ); ?>"><?php esc_html_e( 'View frontend archive', 'custom-post-type-ui' ); ?></a>
 								<?php } ?>
 							</td>
