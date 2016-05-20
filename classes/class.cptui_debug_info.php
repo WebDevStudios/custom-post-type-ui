@@ -42,13 +42,8 @@ class CPTUI_Debug_Info {
 
 		global $wpdb;
 
-		if ( get_bloginfo( 'version' ) < '3.4' ) {
-			$theme_data = get_theme_data( get_stylesheet_directory() . '/style.css' );
-			$theme = $theme_data['Name'] . ' ' . $theme_data['Version'];
-		} else {
-			$theme_data = wp_get_theme();
-			$theme = $theme_data->Name . ' ' . $theme_data->Version;
-		}
+		$theme_data = wp_get_theme();
+		$theme = $theme_data->Name . ' ' . $theme_data->Version;
 
 		ob_start();
 		?>
@@ -76,7 +71,7 @@ class CPTUI_Debug_Info {
 		Page For Posts:           <?php $id = get_option( 'page_for_posts' );
 		echo get_the_title( $id ) . ' (#' . $id . ')' . "\n" ?>
 
-		WordPress Memory Limit:   <?php echo ( $this->num_convt( WP_MEMORY_LIMIT ) / ( 1024 ) ) . "MB"; ?><?php echo "\n"; ?>
+		WordPress Memory Limit:   <?php echo ( $this->num_convt( WP_MEMORY_LIMIT ) / ( 1024 ) ) . 'MB'; ?><?php echo "\n"; ?>
 
 		<?php
 		$plugins  = get_plugins();

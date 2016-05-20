@@ -10,6 +10,8 @@
 
 /**
  * Custom Post Type UI Admin UI
+ *
+ * @since 1.0.0
  */
 class cptui_admin_ui {
 
@@ -100,7 +102,7 @@ class cptui_admin_ui {
 			$fieldset .= ' ' . $classes;
 		}
 
-		if ( !empty( $args['aria-expanded'] ) ) {
+		if ( ! empty( $args['aria-expanded'] ) ) {
 			$fieldset .= ' aria-expanded="' . $args['aria-expanded'] . '"';
 		}
 

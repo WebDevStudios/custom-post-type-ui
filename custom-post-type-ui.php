@@ -292,7 +292,11 @@ function cptui_register_single_post_type( $post_type = array() ) {
 	foreach ( $post_type['labels'] as $key => $label ) {
 
 		if ( ! empty( $label ) ) {
-			$labels[ $key ] = $label;
+			if ( 'parent' === $key ) {
+				$labels['parent_item_colon'] = $label;
+			} else {
+				$labels[ $key ] = $label;
+			}
 		} elseif ( empty( $label ) && in_array( $key, $preserved ) ) {
 			$labels[ $key ] = cptui_get_preserved_label( 'post_types', $key, $post_type['label'], $post_type['singular_label'] );
 		}
@@ -337,6 +341,8 @@ function cptui_register_single_post_type( $post_type = array() ) {
 		$exclude_from_search = ( false === $public ) ? true : false;
 	}
 
+	$queryable = ( ! empty( $post_type['publicly_queryable'] ) && isset( $post_type['publicly_queryable'] ) ) ? get_disp_boolean( $post_type['publicly_queryable'] ) : $public;
+
 	if ( empty( $post_type['show_in_nav_menus'] ) ) {
 		// Defaults to value of public.
 		$post_type['show_in_nav_menus'] = $public;
@@ -355,7 +361,7 @@ function cptui_register_single_post_type( $post_type = array() ) {
 		'labels'              => $labels,
 		'description'         => $post_type['description'],
 		'public'              => get_disp_boolean( $post_type['public'] ),
-		'publicly_queryable'  => get_disp_boolean( $post_type['publicly_queryable'] ),
+		'publicly_queryable'  => $queryable,
 		'show_ui'             => get_disp_boolean( $post_type['show_ui'] ),
 		'show_in_nav_menus'   => get_disp_boolean( $post_type['show_in_nav_menus'] ),
 		'has_archive'         => $has_archive,
@@ -505,7 +511,7 @@ function cptui_register_single_taxonomy( $taxonomy = array() ) {
 		'show_admin_column'  => $show_admin_column,
 		'show_in_rest'       => $show_in_rest,
 		'rest_base'          => $rest_base,
-		'show_in_quick_edit' => $show_in_quick_edit
+		'show_in_quick_edit' => $show_in_quick_edit,
 	);
 
 	$object_type = ( ! empty( $taxonomy['object_types'] ) ) ? $taxonomy['object_types'] : '';
@@ -587,10 +593,10 @@ function cptui_convert_settings() {
 
 		$new_post_types = array();
 		foreach ( $post_types as $type ) {
-            $new_post_types[ $type['name'] ]                = $type; // This one assigns the # indexes. Named arrays are our friend.
-            $new_post_types[ $type['name'] ]['supports']    = ( ! empty( $type[0] ) ) ? $type[0] : array(); // Especially for multidimensional arrays.
-            $new_post_types[ $type['name'] ]['taxonomies']  = ( ! empty( $type[1] ) ) ? $type[1] : array();
-            $new_post_types[ $type['name'] ]['labels']      = ( ! empty( $type[2] ) ) ? $type[2] : array();
+			$new_post_types[ $type['name'] ]                = $type; // This one assigns the # indexes. Named arrays are our friend.
+			$new_post_types[ $type['name'] ]['supports']    = ( ! empty( $type[0] ) ) ? $type[0] : array(); // Especially for multidimensional arrays.
+			$new_post_types[ $type['name'] ]['taxonomies']  = ( ! empty( $type[1] ) ) ? $type[1] : array();
+			$new_post_types[ $type['name'] ]['labels']      = ( ! empty( $type[2] ) ) ? $type[2] : array();
 			unset(
 				$new_post_types[ $type['name'] ][0],
 				$new_post_types[ $type['name'] ][1],
@@ -605,9 +611,9 @@ function cptui_convert_settings() {
 
 		$new_taxonomies = array();
 		foreach ( $taxonomies as $tax ) {
-            $new_taxonomies[ $tax['name'] ]                 = $tax;    // Yep, still our friend.
-            $new_taxonomies[ $tax['name'] ]['labels']       = $tax[0]; // Taxonomies are the only thing with
-            $new_taxonomies[ $tax['name'] ]['object_types'] = $tax[1]; // "tax" in the name that I like.
+			$new_taxonomies[ $tax['name'] ]                 = $tax;    // Yep, still our friend.
+			$new_taxonomies[ $tax['name'] ]['labels']       = $tax[0]; // Taxonomies are the only thing with
+			$new_taxonomies[ $tax['name'] ]['object_types'] = $tax[1]; // "tax" in the name that I like.
 			unset(
 				$new_taxonomies[ $tax['name'] ][0],
 				$new_taxonomies[ $tax['name'] ][1]
@@ -638,10 +644,12 @@ add_action( 'admin_init', 'cptui_convert_settings' );
  */
 function cptui_admin_notices( $action = '', $object_type = '', $success = true, $custom = '' ) {
 
-	$class = ( $success ) ? 'updated' : 'error';
+	$class = array();
+	$class[] = ( $success ) ? 'updated' : 'error';
+	$class[] = 'notice is-dismissible';
 	$object_type = esc_attr( $object_type );
 
-	$messagewrapstart = '<div id="message" class="' . $class . '"><p>';
+	$messagewrapstart = '<div id="message" class="' . implode( ' ', $class ) . '"><p>';
 	$message = '';
 
 	$messagewrapend = '</p></div>';
