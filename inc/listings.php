@@ -58,7 +58,7 @@ function cptui_listings() {
 			 */
 			do_action( 'cptui_before_post_type_listing' );
 			?>
-			<table class="wp-list-table widefat">
+			<table class="wp-list-table widefat post-type-listing">
 				<tr>
 					<?php
 					foreach ( $post_type_table_heads as $head ) {
@@ -234,7 +234,7 @@ function cptui_listings() {
 				 */
 				do_action( 'cptui_before_taxonomy_listing' );
 				?>
-				<table class="wp-list-table widefat">
+				<table class="wp-list-table widefat taxonomy-listing">
 					<tr>
 						<?php
 						foreach ( $taxonomy_table_heads as $head ) {
