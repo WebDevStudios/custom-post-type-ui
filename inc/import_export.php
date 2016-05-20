@@ -375,7 +375,12 @@ function cptui_get_single_post_type_registery( $post_type = array() ) {
 		"singular_name" => __( '<?php echo $post_type['singular_label']; ?>', '<?php echo $textdomain; ?>' ),
 		<?php foreach ( $post_type['labels'] as $key => $label ) {
 			if ( ! empty( $label ) ) {
-				echo '"' . $key . '" => __( \'' . $label . '\', \'' . $textdomain . '\' ),' . "\n\t\t";
+				if ( 'parent' === $key ) {
+					// Fix for incorrect label key. See #439.
+					echo '"' . 'parent_item_colon' . '" => __( \'' . $label . '\', \'' . $textdomain . '\' ),' . "\n\t\t";
+				} else {
+					echo '"' . $key . '" => __( \'' . $label . '\', \'' . $textdomain . '\' ),' . "\n\t\t";
+				}
 			}
 		} ?>);
 

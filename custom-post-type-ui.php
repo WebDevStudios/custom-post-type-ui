@@ -292,7 +292,11 @@ function cptui_register_single_post_type( $post_type = array() ) {
 	foreach ( $post_type['labels'] as $key => $label ) {
 
 		if ( ! empty( $label ) ) {
-			$labels[ $key ] = $label;
+			if ( 'parent' === $key ) {
+				$labels['parent_item_colon'] = $label;
+			} else {
+				$labels[ $key ] = $label;
+			}
 		} elseif ( empty( $label ) && in_array( $key, $preserved ) ) {
 			$labels[ $key ] = cptui_get_preserved_label( 'post_types', $key, $post_type['label'], $post_type['singular_label'] );
 		}
