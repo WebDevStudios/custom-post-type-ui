@@ -38,7 +38,7 @@ function cptui_listings() {
 			echo '<h2 id="post-types">' . esc_html__( 'Post Types', 'custom-post-type-ui' ) . '</h2>';
 			if ( ! empty( $post_types ) ) {
 			?>
-			<p><?php printf( esc_html__( 'Total count: %d', 'custom-post-type-ui' ), count( $post_types ) ); ?></p>
+			<p><?php printf( esc_html__( 'Total registered post type count: %d', 'custom-post-type-ui' ), count( $post_types ) ); ?></p>
 
 			<?php
 
@@ -215,7 +215,7 @@ function cptui_listings() {
 			echo '<h2 id="taxonomies">' . esc_html__( 'Taxonomies', 'custom-post-type-ui' ) . '</h2>';
 			if ( ! empty( $taxonomies ) ) {
 				?>
-				<p><?php printf( esc_html__( 'Total count: %d', 'custom-post-type-ui' ), count( $taxonomies ) ); ?></p>
+				<p><?php printf( esc_html__( 'Total registered taxonomy count: %d', 'custom-post-type-ui' ), count( $taxonomies ) ); ?></p>
 
 				<?php
 
