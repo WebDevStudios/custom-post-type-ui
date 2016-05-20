@@ -434,13 +434,14 @@ function cptui_manage_post_types() {
 						'aftertext' => __( '(e.g. No Movies found in Trash)', 'custom-post-type-ui' ),
 					) );
 
+					// As of 1.4.0, this will register into `parent_item_colon` paramter upon registration and export.
 					echo $ui->get_text_input( array(
 						'labeltext' => __( 'Parent', 'custom-post-type-ui' ),
 						'helptext'  => esc_attr__( 'Post type label. Used in the admin menu for displaying post types.', 'custom-post-type-ui' ),
 						'namearray' => 'cpt_labels',
 						'name'      => 'parent',
 						'textvalue' => ( isset( $current['labels']['parent'] ) ) ? esc_attr( $current['labels']['parent'] ) : '',
-						'aftertext' => __( '(e.g. Parent Movie)', 'custom-post-type-ui' ),
+						'aftertext' => __( '(e.g. Parent Movie:)', 'custom-post-type-ui' ),
 					) );
 
 					echo $ui->get_text_input( array(
@@ -1362,7 +1363,11 @@ function cptui_update_post_type( $data = array() ) {
 		$label                      = str_replace( '"', '', htmlspecialchars_decode( $label ) );
 		$label                      = htmlspecialchars( $label, ENT_QUOTES );
 		$label                      = trim( $label );
-		$data['cpt_labels'][ $key ] = stripslashes_deep( $label );
+		if ( 'parent' === $key ) {
+			$data['cpt_labels']['parent_item_colon'] = stripslashes_deep( $label );
+		} else {
+			$data['cpt_labels'][ $key ] = stripslashes_deep( $label );
+		}
 	}
 
 	if ( empty( $data['cpt_custom_post_type']['menu_icon'] ) ) {

@@ -136,6 +136,9 @@ function cptui_listings() {
 								$maybe_empty = array_filter( $post_type_settings['labels'] );
 								if ( ! empty( $maybe_empty ) ) {
 									foreach ( $post_type_settings['labels'] as $key => $value ) {
+										if ( 'parent' === $key && array_key_exists( 'parent_item_colon', $post_type_settings['labels'] ) ) {
+											continue;
+										}
 										printf(
 											'%s: %s<br/>',
 											esc_html( $key ),
