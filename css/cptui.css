@@ -313,3 +313,11 @@ fieldset .cptui-help {
 .no-js #cptui_choose_icon {
   display: none;
 }
+
+.post-type-listing th {
+  width: 16.66667%;
+}
+
+.taxonomy-listing th {
+  width: 20%;
+}
