@@ -36,6 +36,7 @@ All official development on this plugin is on GitHub. New releases are still pub
 = 1.4.0 - TBD =
 * Added: "Export" tab on editor screens for quick access to post type or taxonomy export pages.
 * Added: CPTUI notices are now dismissable via a button on the right side.
+* Added: "Get code" link to registered post types and registered taxonomies listings.
 * Fixed: Hide "choose icon" button for non-js users.
 * Fixed: Issue with misused "parent" label key that should be parent_item_colon.
 * Updated: Switch to dedicated dashicon for color consistency between applied admin color schemes.
@@ -225,6 +226,7 @@ All official development on this plugin is on GitHub. New releases are still pub
 = 1.4.0 - TBD =
 * Added: "Export" tab on editor screens for quick access to post type or taxonomy export pages.
 * Added: CPTUI notices are now dismissable via a button on the right side.
+* Added: "Get code" link to registered post types and registered taxonomies listings.
 * Fixed: Hide "choose icon" button for non-js users.
 * Fixed: Issue with misused "parent" label key that should be parent_item_colon.
 * Updated: Switch to dedicated dashicon for color consistency between applied admin color schemes.
