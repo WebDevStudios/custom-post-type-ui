@@ -314,6 +314,11 @@ fieldset .cptui-help {
   display: none;
 }
 
+.post-type-listing th,
+.taxonomy-listing th {
+  font-weight: bold;
+}
+
 .post-type-listing th {
   width: 16.66667%;
 }

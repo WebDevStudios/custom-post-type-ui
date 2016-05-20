@@ -307,6 +307,12 @@
   	display: none
 	}
 }
+.post-type-listing,
+.taxonomy-listing {
+  th {
+	font-weight: bold;
+  }
+}
 .post-type-listing {
   th {
 	width: 16.66667%;
