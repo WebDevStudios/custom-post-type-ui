@@ -332,7 +332,7 @@ function cptui_newsletter_form() {
 			<p><strong><?php esc_html_e( 'Get email updates from pluginize.com about Custom Post Type UI', 'custom-post-type-ui' ); ?></strong></p>
 			<div class="mc-field-group">
 				<label for="mce-EMAIL"><?php esc_html_e( 'Email Address', 'custom-post-type-ui' ); ?></label>
-				<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
+				<input tabindex="-1" type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
 			</div>
 			<div id="mce-responses" class="clear">
 				<div class="response" id="mce-error-response" style="display:none"></div>
@@ -341,7 +341,7 @@ function cptui_newsletter_form() {
 			<div style="position: absolute; left: -5000px;" aria-hidden="true">
 				<input type="text" name="b_67169b098c99de702c897d63e_9cb1c7472e" tabindex="-1" value=""></div>
 			<div class="clear">
-				<input type="submit" value="<?php esc_attr_e( 'Subscribe', 'custom-post-type-ui' ); ?>" name="subscribe" id="mc-embedded-subscribe" class="button">
+				<input type="submit" value="<?php esc_attr_e( 'Subscribe', 'custom-post-type-ui' ); ?>" name="subscribe" id="mc-embedded-subscribe" class="button" tabindex="-1">
 			</div>
 		</div>
 	</form>
