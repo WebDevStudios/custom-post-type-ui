@@ -40,6 +40,7 @@
 		value = value.replace(/ /g, "_");
 		value = value.toLowerCase();
 		value = replaceDiacritics(value);
+		value = replaceSpecialCharacters(value);
 		$(this).attr('value',value);
 	});
 
@@ -60,6 +61,13 @@
 		for (var i = 0; i < diacritics.length; i++) {
 			s = s.replace(diacritics[i], chars[i]);
 		}
+
+		return s;
+	}
+
+	function replaceSpecialCharacters(s) {
+
+		s = s.replace(/[^a-z0-9\s]/gi, '_');
 
 		return s;
 	}
