@@ -355,7 +355,6 @@ function cptui_register_single_post_type( $post_type = array() ) {
 		'labels'              => $labels,
 		'description'         => $post_type['description'],
 		'public'              => get_disp_boolean( $post_type['public'] ),
-		'publicly_queryable'  => get_disp_boolean( $post_type['publicly_queryable'] ),
 		'show_ui'             => get_disp_boolean( $post_type['show_ui'] ),
 		'show_in_nav_menus'   => get_disp_boolean( $post_type['show_in_nav_menus'] ),
 		'has_archive'         => $has_archive,
