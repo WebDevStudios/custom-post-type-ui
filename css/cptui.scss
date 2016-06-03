@@ -245,7 +245,6 @@
 	margin-bottom: 10px;
   }
 }
-
 .wdspromos-about {
   display: -ms-flexbox;
   display: -webkit-flex;
@@ -301,5 +300,10 @@
 	-webkit-align-self: auto;
 	-ms-flex-item-align: auto;
 	align-self: auto;
+  }
+}
+.no-js {
+  #cptui_choose_icon {
+	display: none
   }
 }
