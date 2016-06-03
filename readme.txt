@@ -425,7 +425,8 @@ That's it! Now you can easily start creating custom post types and taxonomies in
 
 == Frequently Asked Questions ==
 
-Please see the Help/Support section for FAQs and start a new thread on the support forums for Custom Post Type UI if none of those answer your question.
+User documentation: http://docs.pluginize.com/collection/1-custom-post-type-ui
+Code/API documentation: http://codex.pluginize.com/cptui/
 
 == Other Notes ==
 
