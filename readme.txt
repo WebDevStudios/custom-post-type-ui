@@ -43,13 +43,6 @@ All official development on this plugin is on GitHub. New releases are still pub
 * Fixed: Issue with misused "parent" label key that should be parent_item_colon.
 * Updated: Switch to dedicated dashicon for color consistency between applied admin color schemes.
 
-= 1.3.4 - 2016-5-4 =
-* Fixed: moved WDS-based services "ads" to within the plugin itself. Will not request remote resources.
-* Fixed: Better output formatting if WDS/Pluginize "ads" failed to load images.
-* Fixed: undefined variable error in cptui.js
-* Added: Newsletter subscription form to stay uptodate with Custom Post Type UI &amp; Custom Post Type UI Extended news.
-* Added: Support page/FAQ info regarding Pluginize and recent sidebar developments.
-
 = 1.3.5 - 2016-6-3 =
 * Removed undefined index error for publicly_queryable in "Get Code" area. That parameter is targeted for 1.4.0 release.
 
@@ -242,13 +235,6 @@ All official development on this plugin is on GitHub. New releases are still pub
 * Fixed: Hide "choose icon" button for non-js users.
 * Fixed: Issue with misused "parent" label key that should be parent_item_colon.
 * Updated: Switch to dedicated dashicon for color consistency between applied admin color schemes.
-
-= 1.3.4 - 2016-5-4 =
-* Fixed: moved WDS-based services "ads" to within the plugin itself. Will not request remote resources.
-* Fixed: Better output formatting if WDS/Pluginize "ads" failed to load images.
-* Fixed: undefined variable error in cptui.js
-* Added: Newsletter subscription form to stay uptodate with Custom Post Type UI &amp; Custom Post Type UI Extended news.
-* Added: Support page/FAQ info regarding Pluginize and recent sidebar developments.
 
 = 1.3.5 - 2016-6-3 =
 * Removed undefined index error for publicly_queryable in "Get Code" area. That parameter is targeted for 1.4.0 release.
