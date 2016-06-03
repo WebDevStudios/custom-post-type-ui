@@ -1382,6 +1382,7 @@ function cptui_update_post_type( $data = array() ) {
 		'singular_label'      => $singular_label,
 		'description'         => $description,
 		'public'              => disp_boolean( $data['cpt_custom_post_type']['public'] ),
+		'publicly_queryable'  => disp_boolean( $data['cpt_custom_post_type']['publicly_queryable'] ),
 		'show_ui'             => disp_boolean( $data['cpt_custom_post_type']['show_ui'] ),
 		'show_in_nav_menus'   => disp_boolean( $data['cpt_custom_post_type']['show_in_nav_menus'] ),
 		'show_in_rest'        => disp_boolean( $data['cpt_custom_post_type']['show_in_rest'] ),
