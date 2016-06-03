@@ -35,6 +35,9 @@ All official development on this plugin is on GitHub. New releases are still pub
 
 == Changelog ==
 
+= 1.3.5 - 2016-6-3 =
+* Removed undefined index error for publicly_queryable in "Get Code" area. That parameter is targeted for 1.4.0 release.
+
 = 1.3.4 - 2016-5-4 =
 * Fixed: moved WDS-based services "ads" to within the plugin itself. Will not request remote resources.
 * Fixed: Better output formatting if WDS/Pluginize "ads" failed to load images.
@@ -216,6 +219,9 @@ All official development on this plugin is on GitHub. New releases are still pub
 * Bug fixes not mentioned above.
 
 == Upgrade Notice ==
+
+= 1.3.5 - 2016-6-3 =
+* Removed undefined index error for publicly_queryable in "Get Code" area. That parameter is targeted for 1.4.0 release.
 
 = 1.3.4 - 2016-5-4 =
 * Fixed: moved WDS-based services "ads" to within the plugin itself. Will not request remote resources.
