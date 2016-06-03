@@ -35,28 +35,28 @@ function cptui_importexport_tabs( $tabs = array(), $current_page = '' ) {
 			'text'          => __( 'Post Types', 'custom-post-type-ui' ),
 			'classes'       => $classes,
 			'url'           => cptui_admin_url( 'admin.php?page=cptui_' . $current_page ),
-			'aria-selected' => 'false'
+			'aria-selected' => 'false',
 		);
 
 		$tabs['tabs']['taxonomies'] = array(
 			'text'          => __( 'Taxonomies', 'custom-post-type-ui' ),
 			'classes'       => $classes,
 			'url'           => esc_url( add_query_arg( array( 'action' => 'taxonomies' ), cptui_admin_url( 'admin.php?page=cptui_' . $current_page ) ) ),
-			'aria-selected' => 'false'
+			'aria-selected' => 'false',
 		);
 
 		$tabs['tabs']['get_code'] = array(
 			'text'          => __( 'Get Code', 'custom-post-type-ui' ),
 			'classes'       => $classes,
 			'url'           => esc_url( add_query_arg( array( 'action' => 'get_code' ), cptui_admin_url( 'admin.php?page=cptui_' . $current_page ) ) ),
-			'aria-selected' => 'false'
+			'aria-selected' => 'false',
 		);
 
 		$tabs['tabs']['debuginfo'] = array(
 			'text'          => __( 'Debug Info', 'custom-post-type-ui' ),
 			'classes'       => $classes,
 			'url'           => esc_url( add_query_arg( array( 'action' => 'debuginfo' ), cptui_admin_url( 'admin.php?page=cptui_' . $current_page ) ) ),
-			'aria-selected' => 'false'
+			'aria-selected' => 'false',
 		);
 
 		$active_class = 'nav-tab-active';
@@ -94,19 +94,19 @@ add_filter( 'cptui_get_tabs', 'cptui_importexport_tabs', 10, 2 );
 function cptui_importexport() {
 
 	$tab = '';
-	if ( !empty( $_GET ) ) {
-		if ( !empty( $_GET['action'] ) && 'taxonomies' == $_GET['action'] ) {
+	if ( ! empty( $_GET ) ) {
+		if ( ! empty( $_GET['action'] ) && 'taxonomies' == $_GET['action'] ) {
 			$tab = 'taxonomies';
-		} elseif ( !empty( $_GET['action'] ) && 'get_code' == $_GET['action'] ) {
+		} elseif ( ! empty( $_GET['action'] ) && 'get_code' == $_GET['action'] ) {
 			$tab = 'get_code';
-		} elseif ( !empty( $_GET['action'] ) && 'debuginfo' == $_GET['action'] ) {
+		} elseif ( ! empty( $_GET['action'] ) && 'debuginfo' == $_GET['action'] ) {
 			$tab = 'debuginfo';
 		} else {
 			$tab = 'post_types';
 		}
 	}
 
-	if ( !empty( $_POST ) ) {
+	if ( ! empty( $_POST ) ) {
 		$notice = cptui_import_types_taxes_settings( $_POST );
 	}
 
@@ -150,17 +150,17 @@ function cptui_importexport() {
  * @param bool  $single           Whether or not we are rendering a single taxonomy.
  */
 function cptui_get_taxonomy_code( $cptui_taxonomies = array(), $single = false ) {
-	if ( !empty( $cptui_taxonomies ) ) {
+	if ( ! empty( $cptui_taxonomies ) ) {
 		$callback = 'cptui_register_my_taxes';
 		if ( $single ) {
 			$key      = key( $cptui_taxonomies );
-			$callback = 'cptui_register_my_taxes_' . str_replace('-', '_', $cptui_taxonomies[ $key ]['name'] );
+			$callback = 'cptui_register_my_taxes_' . str_replace( '-', '_', $cptui_taxonomies[ $key ]['name'] );
 		}
 	?>
 add_action( 'init', '<?php echo $callback; ?>' );
 function <?php echo $callback; ?>() {
 <?php
-	foreach( $cptui_taxonomies as $tax ) {
+	foreach ( $cptui_taxonomies as $tax ) {
 		echo cptui_get_single_taxonomy_registery( $tax ) . "\n";
 	} ?>
 // End <?php echo $callback; ?>()
@@ -189,23 +189,23 @@ function cptui_get_single_taxonomy_registery( $taxonomy = array() ) {
 		$rewrite = disp_boolean( $taxonomy['rewrite'] );
 
 		$rewrite_slug = ' \'slug\' => \'' . $taxonomy['name'] . '\',';
-		if ( !empty( $taxonomy['rewrite_slug'] ) ) {
+		if ( ! empty( $taxonomy['rewrite_slug'] ) ) {
 			$rewrite_slug = ' \'slug\' => \'' . $taxonomy['rewrite_slug'] . '\',';
 		}
 
 		$rewrite_withfront = '';
 		$withfront = disp_boolean( $taxonomy['rewrite_withfront'] );
-		if ( !empty( $withfront ) ) {
+		if ( ! empty( $withfront ) ) {
 			$rewrite_withfront = ' \'with_front\' => ' . $withfront . ' ';
 		}
 
-		$hierarchical = ( !empty( $taxonomy['rewrite_hierarchical'] ) ) ? disp_boolean( $taxonomy['rewrite_hierarchical'] ) : '';
+		$hierarchical = ( ! empty( $taxonomy['rewrite_hierarchical'] ) ) ? disp_boolean( $taxonomy['rewrite_hierarchical'] ) : '';
 		$rewrite_hierarchcial = '';
-		if ( !empty( $hierarchical ) ) {
+		if ( ! empty( $hierarchical ) ) {
 			$rewrite_hierarchcial = ' \'hierarchical\' => ' . $hierarchical . ' ';
 		}
 
-		if ( !empty( $taxonomy['rewrite_slug'] ) || false !== disp_boolean( $taxonomy['rewrite_withfront'] ) ) {
+		if ( ! empty( $taxonomy['rewrite_slug'] ) || false !== disp_boolean( $taxonomy['rewrite_withfront'] ) ) {
 			$rewrite_start = 'array(';
 			$rewrite_end   = ')';
 
@@ -222,8 +222,9 @@ function cptui_get_single_taxonomy_registery( $taxonomy = array() ) {
 	$labels = array(
 		"name" => __( '<?php echo $taxonomy['label']; ?>', '<?php echo $textdomain; ?>' ),
 		"singular_name" => __( '<?php echo $taxonomy['singular_label']; ?>', '<?php echo $textdomain; ?>' ),
-		<?php foreach( $taxonomy['labels'] as $key => $label ) {
-			if ( !empty( $label ) ) {
+		<?php
+		foreach ( $taxonomy['labels'] as $key => $label ) {
+			if ( ! empty( $label ) ) {
 				echo '"' . $key . '" => __( \'' . $label . '\', \'' . $textdomain . '\' ),' . "\n\t\t";
 			}
 		} ?>);
@@ -260,7 +261,7 @@ function cptui_get_single_taxonomy_registery( $taxonomy = array() ) {
  */
 function cptui_get_post_type_code( $cptui_post_types = array(), $single = false ) {
 	// Whitespace very much matters here, thus why it's all flush against the left side.
-	if ( !empty( $cptui_post_types ) ) {
+	if ( ! empty( $cptui_post_types ) ) {
 		$callback = 'cptui_register_my_cpts';
 		if ( $single ) {
 			$key = key( $cptui_post_types );
@@ -270,7 +271,7 @@ function cptui_get_post_type_code( $cptui_post_types = array(), $single = false 
 add_action( 'init', '<?php echo $callback; ?>' );
 function <?php echo $callback; ?>() {
 <?php // space before this line reflects in textarea.
-	foreach( $cptui_post_types as $type ) {
+	foreach ( $cptui_post_types as $type ) {
 	echo cptui_get_single_post_type_registery( $type ) . "\n";
 	} ?>
 // End of <?php echo $callback; ?>()
@@ -314,34 +315,33 @@ function cptui_get_single_post_type_registery( $post_type = array() ) {
 	}
 
 	$rewrite_withfront = '';
-	$rewrite = get_disp_boolean( $post_type['rewrite' ] );
+	$rewrite = get_disp_boolean( $post_type['rewrite'] );
 	if ( false !== $rewrite ) {
 		$rewrite = disp_boolean( $post_type['rewrite'] );
 
 		$rewrite_slug = ' "slug" => "' . $post_type['name'] . '",';
-		if ( !empty( $post_type['rewrite_slug'] ) ) {
+		if ( ! empty( $post_type['rewrite_slug'] ) ) {
 			$rewrite_slug = ' "slug" => "' . $post_type['rewrite_slug'] . '",';
 		}
 
 		$withfront = disp_boolean( $post_type['rewrite_withfront'] );
-		if ( !empty( $withfront ) ) {
+		if ( ! empty( $withfront ) ) {
 			$rewrite_withfront = ' "with_front" => ' . $withfront . ' ';
 		}
 
-		if ( !empty( $post_type['rewrite_slug'] ) || !empty( $post_type['rewrite_withfront'] ) ) {
+		if ( ! empty( $post_type['rewrite_slug'] ) || ! empty( $post_type['rewrite_withfront'] ) ) {
 			$rewrite_start = 'array(';
 			$rewrite_end   = ')';
 
 			$rewrite = $rewrite_start . $rewrite_slug . $rewrite_withfront . $rewrite_end;
 		}
-
 	} else {
 		$rewrite = disp_boolean( $post_type['rewrite'] );
 	}
 
 	$supports = '';
 	// Do a little bit of php work to get these into strings.
-	if ( !empty( $post_type['supports'] ) && is_array( $post_type['supports'] ) ) {
+	if ( ! empty( $post_type['supports'] ) && is_array( $post_type['supports'] ) ) {
 		$supports = 'array( "' . implode( '", "', $post_type['supports'] ) . '" )';
 	}
 
@@ -350,14 +350,14 @@ function cptui_get_single_post_type_registery( $post_type = array() ) {
 	}
 
 	$taxonomies = '';
-	if ( !empty( $post_type['taxonomies'] ) && is_array( $post_type['taxonomies'] ) ) {
+	if ( ! empty( $post_type['taxonomies'] ) && is_array( $post_type['taxonomies'] ) ) {
 		$taxonomies = 'array( "' . implode( '", "', $post_type['taxonomies'] ) . '" )';
 	}
 
 	if ( in_array( $post_type['query_var'], array( 'true', 'false', '0', '1' ) ) ) {
 		$post_type['query_var'] = disp_boolean( $post_type['query_var'] );
 	}
-	if ( !empty( $post_type['query_var_slug'] ) ) {
+	if ( ! empty( $post_type['query_var_slug'] ) ) {
 		$post_type['query_var'] = '"' . $post_type['query_var_slug'] . '"';
 	}
 
@@ -373,8 +373,8 @@ function cptui_get_single_post_type_registery( $post_type = array() ) {
 	$labels = array(
 		"name" => __( '<?php echo $post_type['label']; ?>', '<?php echo $textdomain; ?>' ),
 		"singular_name" => __( '<?php echo $post_type['singular_label']; ?>', '<?php echo $textdomain; ?>' ),
-		<?php foreach( $post_type['labels'] as $key => $label ) {
-			if ( !empty( $label ) ) {
+		<?php foreach ( $post_type['labels'] as $key => $label ) {
+			if ( ! empty( $label ) ) {
 				echo '"' . $key . '" => __( \'' . $label . '\', \'' . $textdomain . '\' ),' . "\n\t\t";
 			}
 		} ?>);
@@ -396,9 +396,9 @@ function cptui_get_single_post_type_registery( $post_type = array() ) {
 		"hierarchical" => <?php echo disp_boolean( $post_type['hierarchical'] ); ?>,
 		"rewrite" => <?php echo $rewrite; ?>,
 		"query_var" => <?php echo $post_type['query_var']; ?>,
-		<?php if ( !empty( $post_type['menu_position'] ) ) { ?>"menu_position" => <?php echo $post_type['menu_position']; ?>,<?php } ?><?php if ( !empty( $post_type['menu_icon'] ) ) { ?>"menu_icon" => "<?php echo $post_type['menu_icon']; ?>",<?php } ?>
-		<?php if ( !empty( $supports ) ) { echo "\n\t\t" ?>"supports" => <?php echo $supports; ?>,<?php } ?>
-		<?php if ( !empty( $taxonomies ) ) {  echo "\n\t\t" ?>"taxonomies" => <?php echo $taxonomies; ?>,<?php } ?>
+		<?php if ( ! empty( $post_type['menu_position'] ) ) { ?>"menu_position" => <?php echo $post_type['menu_position']; ?>,<?php } ?><?php if ( ! empty( $post_type['menu_icon'] ) ) { ?>"menu_icon" => "<?php echo $post_type['menu_icon']; ?>",<?php } ?>
+		<?php if ( ! empty( $supports ) ) { echo "\n\t\t" ?>"supports" => <?php echo $supports; ?>,<?php } ?>
+		<?php if ( ! empty( $taxonomies ) ) {  echo "\n\t\t" ?>"taxonomies" => <?php echo $taxonomies; ?>,<?php } ?>
 		<?php if ( true === $yarpp ) { echo "\n\t\t" ?>"yarpp_support" => <?php echo disp_boolean( $yarpp ); ?><?php } echo "\n";?>
 	);
 	register_post_type( "<?php echo $post_type['name']; ?>", $args );
@@ -416,7 +416,7 @@ function cptui_get_single_post_type_registery( $post_type = array() ) {
  * @return mixed false on nothing to do, otherwise void.
  */
 function cptui_import_types_taxes_settings( $postdata = array() ) {
-	if ( !isset( $postdata['cptui_post_import'] ) && !isset( $postdata['cptui_tax_import'] ) ) {
+	if ( ! isset( $postdata['cptui_post_import'] ) && ! isset( $postdata['cptui_tax_import'] ) ) {
 		return false;
 	}
 
@@ -452,7 +452,7 @@ function cptui_import_types_taxes_settings( $postdata = array() ) {
 		$postdata['cptui_tax_import'] = $third_party_taxonomy_data;
 	}
 
-	if ( !empty( $postdata['cptui_post_import'] ) ) {
+	if ( ! empty( $postdata['cptui_post_import'] ) ) {
 		$cpt_data = stripslashes_deep( trim( $postdata['cptui_post_import'] ) );
 		$settings = json_decode( $cpt_data, true );
 
@@ -499,7 +499,7 @@ function cptui_import_types_taxes_settings( $postdata = array() ) {
 		set_transient( 'cptui_flush_rewrite_rules', 'true', 5 * 60 );
 		return cptui_admin_notices( 'import', __( 'Post types', 'custom-post-type-ui' ), $success );
 
-  	} elseif ( !empty( $postdata['cptui_tax_import'] ) ) {
+	} elseif ( ! empty( $postdata['cptui_tax_import'] ) ) {
 		$tax_data = stripslashes_deep( trim( $postdata['cptui_tax_import'] ) );
 		$settings = json_decode( $tax_data, true );
 
@@ -544,7 +544,7 @@ function cptui_import_types_taxes_settings( $postdata = array() ) {
 		// Used to help flush rewrite rules on init.
 		set_transient( 'cptui_flush_rewrite_rules', 'true', 5 * 60 );
 		return cptui_admin_notices( 'import', __( 'Taxonomies', 'custom-post-type-ui' ), $success );
-  	}
+	}
 
 	return $success;
 }
@@ -562,9 +562,9 @@ function cptui_render_posttypes_taxonomies_section() {
 	<p><?php _e( 'If you are wanting to migrate registered post types or taxonomies from this site to another, that will also use Custom Post Type UI, use the import and export functionality. If you are moving away from Custom Post Type UI, use the information in the "Get Code" tab.', 'custom-post-type-ui' ); ?></p>
 
 <p><?php printf( '<strong>%s</strong>: %s',
-			__( 'NOTE', 'custom-post-type-ui' ),
-			__( 'This will not export the associated posts or taxonomy terms, just the settings.', 'custom-post-type-ui' )
-	); ?>
+	__( 'NOTE', 'custom-post-type-ui' ),
+	__( 'This will not export the associated posts or taxonomy terms, just the settings.', 'custom-post-type-ui' )
+); ?>
 </p>
 <table class="form-table cptui-table">
 	<?php if ( ! empty( $_GET ) && empty( $_GET['action'] ) ) { ?>
