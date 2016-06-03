@@ -431,6 +431,3 @@ Code/API documentation: http://codex.pluginize.com/cptui/
 == Other Notes ==
 
 Import/Export functionality amended from original contribution by [Ben Allfree](http://wordpress.org/support/profile/benallfree).
-
-= Outside contributors that we wish to thank =
-[brandondove](https://github.com/brandondove)
