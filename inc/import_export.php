@@ -566,10 +566,14 @@ function cptui_render_posttypes_taxonomies_section() {
 
 	<p><?php _e( 'If you are wanting to migrate registered post types or taxonomies from this site to another, that will also use Custom Post Type UI, use the import and export functionality. If you are moving away from Custom Post Type UI, use the information in the "Get Code" tab.', 'custom-post-type-ui' ); ?></p>
 
-<p><?php printf( '<strong>%s</strong>: %s',
-	__( 'NOTE', 'custom-post-type-ui' ),
-	__( 'This will not export the associated posts or taxonomy terms, just the settings.', 'custom-post-type-ui' )
-); ?>
+<p>
+<?php
+	printf(
+		'<strong>%s</strong>: %s',
+		__( 'NOTE', 'custom-post-type-ui' ),
+		__( 'This will not export the associated posts or taxonomy terms, just the settings.', 'custom-post-type-ui' )
+	);
+?>
 </p>
 <table class="form-table cptui-table">
 	<?php if ( ! empty( $_GET ) && empty( $_GET['action'] ) ) { ?>
