@@ -170,10 +170,15 @@ function cptui_listings() {
 								</p>
 
 								<p><strong><?php esc_html_e( 'Single Posts file name examples.', 'custom-post-type-ui' ); ?></strong><br/>
+								single-<?php echo esc_html( $post_type ); ?>-post_slug.php (WP 4.4+) *<br/>
 								single-<?php echo esc_html( $post_type ); ?>.php<br/>
 								single.php<br/>
-								singular.php(WP 4.3+)<br/>
+								singular.php (WP 4.3+)<br/>
 								index.php
+								</p>
+
+								<p>
+									<?php esc_html_e( '*Replace "post_slug" with the slug of the actual post slug.', 'custom-post-type-ui' ); ?>
 								</p>
 
 								<p><?php
