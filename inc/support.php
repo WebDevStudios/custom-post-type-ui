@@ -89,7 +89,7 @@ function cptui_support() {
 								printf(
 									esc_html__( 'You can have them automatically removed from display via a purchased copy of %s.', 'custom-post-type-ui' ),
 									sprintf( '<a href="%s">%s</a>',
-										'https://pluginize.com/product/custom-post-type-ui-extended/?utm_source=faq&utm_medium=text&utm_campaign=cptui',
+										'https://pluginize.com/product/custom-post-type-ui-extended/?utm_source=faq-remove&utm_medium=text&utm_campaign=cptui',
 										'Custom Post Type UI Extended'
 									)
 								); ?>
