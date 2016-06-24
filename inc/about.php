@@ -90,6 +90,11 @@ function cptui_settings() {
 	<?php
 }
 
+/**
+ * Display Pluginize-based content.
+ *
+ * @since 1.4.0
+ */
 function cptui_pluginize_content() {
 	echo '<h1>' . sprintf( esc_html__( 'More from %s', 'custom-post-type-ui' ), 'WebDevStudios' ) . '</h1>';
 	echo '<div class="wdspromos-about">';

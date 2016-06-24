@@ -88,8 +88,6 @@ add_filter( 'cptui_get_tabs', 'cptui_importexport_tabs', 10, 2 );
  * @since 1.0.0
  *
  * @internal
- *
- * @return string HTML output for the page.
  */
 function cptui_importexport() {
 
@@ -243,7 +241,6 @@ function cptui_get_single_taxonomy_registery( $taxonomy = array() ) {
 		"rest_base" => "<?php echo $taxonomy['rest_base']; ?>",
 		"show_in_quick_edit" => <?php echo disp_boolean( $taxonomy['show_in_quick_edit'] ); ?>,
 	);
-<?php // register_taxonomy( $taxonomy, $object_type, $args ); NEED TO DETERMINE THE $object_type. ?>
 	register_taxonomy( "<?php echo $taxonomy['name']; ?>", <?php echo $post_types; ?>, $args );
 <?php
 }
@@ -257,7 +254,6 @@ function cptui_get_single_taxonomy_registery( $taxonomy = array() ) {
  *
  * @param array $cptui_post_types Array of post types to render.
  * @param bool  $single           Whether or not we are rendering a single post type.
- * @return string Post type registration text for use elsewhere.
  */
 function cptui_get_post_type_code( $cptui_post_types = array(), $single = false ) {
 	// Whitespace very much matters here, thus why it's all flush against the left side.
@@ -270,7 +266,7 @@ function cptui_get_post_type_code( $cptui_post_types = array(), $single = false 
 	?>
 add_action( 'init', '<?php echo $callback; ?>' );
 function <?php echo $callback; ?>() {
-<?php // space before this line reflects in textarea.
+<?php // Space before this line reflects in textarea.
 	foreach ( $cptui_post_types as $type ) {
 	echo cptui_get_single_post_type_registery( $type ) . "\n";
 	} ?>
@@ -288,7 +284,6 @@ function <?php echo $callback; ?>() {
  * @since 1.0.0
  *
  * @param array $post_type Post type data to output.
- * @return string Copy/paste ready "php" code.
  */
 function cptui_get_single_post_type_registery( $post_type = array() ) {
 
