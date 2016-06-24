@@ -227,7 +227,7 @@ function cptui_get_post_form_action( $ui = '' ) {
  *
  * @since 1.3.0
  *
- * @param object $ui CPTUI Admin UI instance
+ * @param object $ui CPTUI Admin UI instance.
  */
 function cptui_post_form_action( $ui ) {
 	echo cptui_get_post_form_action( $ui );
@@ -260,7 +260,7 @@ function cptui_get_taxonomy_data() {
  *
  * @since 1.3.0
  *
- * @param string       $slug Post type slug to check
+ * @param string       $slug Post type slug to check.
  * @param array|string $data Post type data being utilized.
  * @return mixed|void
  */
