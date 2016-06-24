@@ -90,50 +90,6 @@ function cptui_settings() {
 	<?php
 }
 
-/**
- * Outputs the Donation content on the about page.
- *
- * @since 1.3.0
- *
- * @internal
- */
-function cptui_donation_content() {
-	?>
-	<h1><?php _e( 'Help Support This Plugin!', 'custom-post-type-ui' ); ?></h1>
-	<table border="0">
-		<tr>
-			<td class="one-third valign">
-				<h2><?php _e( 'Professional WordPress<br />Third Edition', 'custom-post-type-ui' ); ?></h2>
-				<a href="http://bit.ly/prowp3" target="_blank">
-					<img src="<?php echo plugins_url( '/images/professional-wordpress-thirdedition.jpg', dirname( __FILE__ ) ); ?>" width="200" alt="<?php esc_attr_e( 'Professional WordPress Design and Development book cover.', 'custom-post-type-ui' ); ?>">
-				</a>
-				<br />
-				<p><?php _e( 'The leading book on WordPress design and development! Brand new third edition!', 'custom-post-type-ui' ); ?></p>
-			</td>
-			<td class="one-third valign">
-				<h2><?php _e( 'Professional WordPress<br />Plugin Development', 'custom-post-type-ui' ); ?></h2>
-				<a href="http://amzn.to/plugindevbook" target="_blank">
-					<img src="<?php echo plugins_url( '/images/professional-wordpress-plugin-development.png', dirname( __FILE__ ) ); ?>" width="200" alt="<?php esc_attr_e( 'Professional WordPress Plugin Development book cover.', 'custom-post-type-ui' ); ?>">
-				</a>
-				<br />
-				<p><?php _e( 'Highest rated WordPress development book on Amazon!', 'custom-post-type-ui' ); ?></p>
-			</td>
-			<td class="one-third valign">
-				<h2><?php _e( 'PayPal Donation', 'custom-post-type-ui' ); ?></h2>
-				<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-					<input type="hidden" name="cmd" value="_s-xclick">
-					<input type="hidden" name="hosted_button_id" value="YJEDXPHE49Q3U">
-					<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donateCC_LG.gif" name="submit" alt="<?php esc_attr_e( 'PayPal - The safer, easier way to pay online!', 'custom-post-type-ui' ); ?>">
-					<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
-				</form>
-				<p><?php _e( 'Please donate to the development of Custom Post Type UI:', 'custom-post-type-ui' ); ?></p>
-			</td>
-		</tr>
-	</table>
-	<?php
-}
-add_action( 'cptui_main_page_extra_notes', 'cptui_donation_content', 10 );
-
 function cptui_pluginize_content() {
 	if ( false === ( $ads = get_transient( 'wds_promos' ) ) ) {
 		$ads = wp_remote_get( 'https://webdevstudios.com/assets/wds.json' );
