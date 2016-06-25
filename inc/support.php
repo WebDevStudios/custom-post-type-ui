@@ -44,7 +44,7 @@ add_action( 'admin_enqueue_scripts', 'cptui_support_enqueue_scripts' );
  * @internal
  */
 function cptui_support() {
-	echo '<div class="wrap">';
+	echo '<div class="wrap cptui-support">';
 
 		/**
 		 * Fires at the top of the FAQ/Support page.

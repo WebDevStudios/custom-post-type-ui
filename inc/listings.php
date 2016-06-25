@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 function cptui_listings() {
 		?>
-		<div class="wrap">
+		<div class="wrap cptui-listings">
 			<?php
 			/**
 			 * Fires right inside the wrap div for the listings screen.

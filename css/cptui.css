@@ -33,12 +33,12 @@
   margin-top: 15px;
 }
 
-#support .question {
+.cptui-support #support .question {
   font-size: 18px;
   font-weight: bold;
 }
 
-#support .question:before {
+.cptui-support #support .question:before {
   content: "\f139";
   display: inline-block;
   font: normal 25px/1 'dashicons';
@@ -47,19 +47,19 @@
   -webkit-font-smoothing: antialiased;
 }
 
-#support .question.active:before {
+.cptui-support #support .question.active:before {
   content: "\f140";
 }
 
-#support .answer {
+.cptui-support #support .answer {
   margin: 10px 0 0 20px;
 }
 
-#support ol li {
+.cptui-support #support ol li {
   list-style: none;
 }
 
-#support li {
+.cptui-support #support li {
   position: relative;
 }
 
@@ -89,14 +89,6 @@
   height: 300px;
   resize: vertical;
   width: 100%;
-}
-
-.one-third {
-  width: 33%;
-}
-
-.valign {
-  vertical-align: top;
 }
 
 .about-wrap .cptui-feature {
@@ -164,17 +156,17 @@
   margin: 0 -100px 0 0;
 }
 
-.about-integrations {
+.about-wrap .about-integrations {
   background: #fff;
   margin: 20px 0;
   padding: 1px 20px 10px;
 }
 
-.changelog h4 {
+.about-wrap .changelog h4 {
   line-height: 1.4;
 }
 
-.cptui-about-text {
+.about-wrap .cptui-about-text {
   margin-bottom: 1em !important;
 }
 
@@ -242,7 +234,7 @@ fieldset .cptui-help {
 
 .cptui-section legend {
   border: solid #cccccc 1px;
-  border-bottom: 0px;
+  border-bottom: 0;
   font-size: 14px;
   font-weight: bold;
   padding: 5px;
@@ -314,15 +306,14 @@ fieldset .cptui-help {
   display: none;
 }
 
-.post-type-listing th,
-.taxonomy-listing th {
+.cptui-listings th {
   font-weight: bold;
 }
 
-.post-type-listing th {
+.cptui-listings .post-type-listing th {
   width: 16.66667%;
 }
 
-.taxonomy-listing th {
+.cptui-listings .taxonomy-listing th {
   width: 20%;
 }
