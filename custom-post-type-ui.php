@@ -43,6 +43,52 @@ function cptui_load_ui_class() {
 add_action( 'init', 'cptui_load_ui_class' );
 
 /**
+ * Set a transient used for redirection upon activation.
+ *
+ * @since 1.4.0
+ */
+function cptui_add_activation_redirect() {
+	// Bail if activating from network, or bulk.
+	if ( isset( $_GET['activate-multi'] ) ) {
+		return;
+	}
+
+	// Add the transient to redirect.
+	set_transient( 'cptui_activation_redirect', true, 30 );
+}
+add_action( 'activate_' . plugin_basename( __FILE__ ), 'cptui_add_activation_redirect' );
+
+/**
+ * Redirect user to CPTUI about page upon plugin activation.
+ *
+ * @since 1.4.0
+ */
+function cptui_do_activation_redirect() {
+
+	if ( ! get_transient( 'cptui_activation_redirect' ) ) {
+		return;
+	}
+
+	delete_transient( 'cptui_activation_redirect' );
+
+	// Bail if activating from network, or bulk.
+	if ( isset( $_GET['activate-multi'] ) ) {
+		return;
+	}
+
+	$query_args = array( 'page' => 'cptui_main_menu' );
+
+	// Redirect to CPTUI about page.
+	wp_safe_redirect(
+		add_query_arg(
+			$query_args,
+			cptui_admin_url( 'admin.php?page=cptui_main_menu' )
+		)
+	);
+}
+add_action( 'admin_init', 'cptui_do_activation_redirect', 1 );
+
+/**
  * Flush our rewrite rules on deactivation.
  *
  * @since 0.8.0
