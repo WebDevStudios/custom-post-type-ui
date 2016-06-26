@@ -500,9 +500,6 @@ class cptui_admin_ui {
 			$value .= '<input type="checkbox" id="' . $args['name'] . '" name="' . $args['namearray'] . '[]" value="' . $args['checkvalue'] . '" checked="checked" />';
 		}
 		$value .= $this->get_label( $args['name'], $args['labeltext'] );
-		if ( ! empty( $args['helptext'] ) ) {
-			$value .= $this->get_help( $args['helptext'] );
-		}
 		$value .= '<br/>';
 
 		if ( $args['wrap'] ) {

@@ -17,7 +17,7 @@
 .cptui-table input[type="text"],
 .cptui-new .cptui-table textarea,
 .cptui-edit .cptui-table textarea {
-  width: 50%;
+  width: 75%;
 }
 
 .cptui-table .question:hover {
