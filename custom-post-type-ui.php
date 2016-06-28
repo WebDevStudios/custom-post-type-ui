@@ -47,7 +47,7 @@ add_action( 'init', 'cptui_load_ui_class' );
  *
  * @since 1.4.0
  */
-function cptui_add_activation_redirect() {
+function cptui_activation_redirect() {
 	// Bail if activating from network, or bulk.
 	if ( isset( $_GET['activate-multi'] ) ) {
 		return;
@@ -56,7 +56,7 @@ function cptui_add_activation_redirect() {
 	// Add the transient to redirect.
 	set_transient( 'cptui_activation_redirect', true, 30 );
 }
-add_action( 'activate_' . plugin_basename( __FILE__ ), 'cptui_add_activation_redirect' );
+add_action( 'activate_' . plugin_basename( __FILE__ ), 'cptui_activation_redirect' );
 
 /**
  * Redirect user to CPTUI about page upon plugin activation.
