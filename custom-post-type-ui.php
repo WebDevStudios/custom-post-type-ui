@@ -63,7 +63,7 @@ add_action( 'activate_' . plugin_basename( __FILE__ ), 'cptui_activation_redirec
  *
  * @since 1.4.0
  */
-function cptui_do_activation_redirect() {
+function cptui_make_activation_redirect() {
 
 	if ( ! get_transient( 'cptui_activation_redirect' ) ) {
 		return;
@@ -86,7 +86,7 @@ function cptui_do_activation_redirect() {
 		)
 	);
 }
-add_action( 'admin_init', 'cptui_do_activation_redirect', 1 );
+add_action( 'admin_init', 'cptui_make_activation_redirect', 1 );
 
 /**
  * Flush our rewrite rules on deactivation.
