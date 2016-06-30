@@ -39,7 +39,7 @@ after_script:
 branches:
     only:
         - master
-        - trunk
+        - alpha
 
 notifications:
   webhooks:
