@@ -73,7 +73,7 @@ class CPTUI_Admin_UI_Inputs_Test extends CPTUI_Base_Tests {
 	public function test_CPTUI_Required() {
 		$expected = '<span class="required">*</span>';
 
-		$this->assertEquals( $expected, $this->ui->get_required() );
+		$this->assertEquals( $expected, $this->ui->get_required_span() );
 	}
 
 	/**
