@@ -2,6 +2,8 @@
 /**
  * Custom Post Type UI.
  *
+ * For all your post type and taxonomy needs.
+ *
  * @package CPTUI
  * @subpackage Loader
  * @author WebDevStudios
