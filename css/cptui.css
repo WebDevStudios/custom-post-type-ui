@@ -33,6 +33,15 @@
   margin-top: 15px;
 }
 
+.cptui-table #slugchanged {
+  color: red;
+  font-weight: bold;
+}
+
+.cptui-table #slugchanged.hidemessage {
+  display: none;
+}
+
 .cptui-support #support .question {
   font-size: 18px;
   font-weight: bold;

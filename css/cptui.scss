@@ -29,6 +29,14 @@
 	.cptui-slug-details {
 		margin-top: 15px;
 	}
+
+	#slugchanged {
+		color: red;
+		font-weight: bold;
+		&.hidemessage {
+			display: none;
+		}
+	}
 }
 
 .cptui-support #support {
@@ -317,4 +325,3 @@
 		}
 	}
 }
-

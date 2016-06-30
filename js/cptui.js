@@ -1,5 +1,10 @@
 (function($) {
 
+	if ('edit' === getParameterByName('action')) {
+		// Store our original slug on page load for edit checking.
+		var original_slug = $('#name').val();
+	}
+
 	// Switch to newly selected post type or taxonomy automatically.
 	$('#post_type').on('change',function(){
 		$('#cptui_select_post_type').submit();
@@ -42,6 +47,16 @@
 		value = replaceDiacritics(value);
 		value = replaceSpecialCharacters(value);
 		$(this).attr('value',value);
+
+		//Displays a message if slug changes.
+		if(undefined != original_slug) {
+			var $slugchanged = $('#slugchanged');
+			if(value != original_slug) {
+				$slugchanged.removeClass('hidemessage');
+			} else {
+				$slugchanged.addClass('hidemessage');
+			}
+		}
 	});
 
 	// Replace diacritic characters with latin characters.
@@ -75,6 +90,16 @@
 	if ( undefined != wp.media ) {
 		var _custom_media = true,
 			_orig_send_attachment = wp.media.editor.send.attachment;
+	}
+
+	function getParameterByName(name, url) {
+		if (!url) url = window.location.href;
+		name = name.replace(/[\[\]]/g, "\\$&");
+		var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+			results = regex.exec(url);
+		if (!results) return null;
+		if (!results[2]) return '';
+		return decodeURIComponent(results[2].replace(/\+/g, " "));
 	}
 
 	$('#cptui_choose_icon').on('click',function(e){
