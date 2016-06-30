@@ -998,7 +998,7 @@ function cptui_manage_post_types() {
 
 				echo $ui->get_fieldset_end() . $ui->get_td_end() . $ui->get_tr_end();
 
-				echo $ui->get_tr_start() . $ui->get_th_start() . esc_html__( 'Custom "Supports"', 'custom-post-type-ui' );
+				echo $ui->get_tr_start() . $ui->get_th_start() . '<label for="custom_supports">' . esc_html__( 'Custom "Supports"', 'custom-post-type-ui' ) . '</label>';
 				echo $ui->get_p( sprintf( esc_html__( 'Use this input to register custom "supports" values, separated by commas. Learn about this at %s', 'custom-post-type-ui' ), '<a href="http://docs.pluginize.com/article/28-third-party-support-upon-registration" target="_blank">' . esc_html__( 'Custom "Supports"', 'custom-post-type-ui' ) . '</a>' ) );
 				echo $ui->get_th_end() . $ui->get_td_start();
 				echo $ui->get_text_input( array(
