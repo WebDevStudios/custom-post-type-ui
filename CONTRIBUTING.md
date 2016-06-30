@@ -37,5 +37,5 @@ WebDevStudios loves third-party contributions. Whether it is fixing a typo, or t
 
 ## Twitter
 * [Michael's Twitter](https://www.twitter.com/tw2113/)
-* [WebDevStudio's Twitter](https://www.twitter.com/webdevstudios/)
+* [WebDevStudios' Twitter](https://www.twitter.com/webdevstudios/)
 * [Brad's Twitter](https://www.twitter.com/williamsba/)
