@@ -20,9 +20,19 @@ CPTUI does NOT handle display of registered post types or taxonomies in your cur
 * Added: "Export" tab on editor screens for quick access to post type or taxonomy export pages.
 * Added: CPTUI notices are now dismissable via a button on the right side.
 * Added: "Get code" link to registered post types and registered taxonomies listings.
+* Added: More amending of incorrect characters in post type and taxonomy slugs. Latin standard alphabet only. Sorry.
+* Added: New post type template stack reference from recent WordPress versions.
+* Added: Side warning notification if post type or taxonomy slug has been edited.
+* Added: Display About page upon activation of plugin.
+* Added: Link below ads regarding getting them removed via purchase of CPTUI Extended.
+* Fixed: Further improved labels for information text on inputs.
 * Fixed: Hide "choose icon" button for non-js users.
 * Fixed: Issue with misused "parent" label key that should be parent_item_colon.
 * Updated: Switch to dedicated dashicon for color consistency between applied admin color schemes.
+* Updated: Updated about page.
+
+**1.3.5**
+* Removed undefined index error for publicly_queryable in "Get Code" area. That parameter is targeted for 1.4.0 release.
 
 **1.3.4**
 * Fixed: moved WDS-based services "ads" to within the plugin itself. Will not request remote resources.
