@@ -295,7 +295,6 @@ function cptui_products_sidebar() {
 	$ads = cptui_get_ads();
 	if ( ! empty( $ads ) ) {
 		foreach ( $ads as $ad ) {
-
 			$the_ad = sprintf(
 				'<img src="%s" alt="%s">',
 				esc_attr( $ad['image'] ),
@@ -309,6 +308,12 @@ function cptui_products_sidebar() {
 				$the_ad
 			);
 		}
+		printf(
+			'<p><a href="%s">%s</a></p>',
+			'https://pluginize.com/product/custom-post-type-ui-extended/?utm_source=remove_ads&utm_medium=text&utm_campaign=cptui',
+			esc_html__( 'Remove these ads?', 'custom-post-type-ui' )
+		);
+		echo '</div>';
 	}
 	echo '</div>';
 
