@@ -139,4 +139,11 @@
 	$('.cptui-help').on('click',function(e){
 		e.preventDefault();
 	});
+
+	$('.cptui-taxonomy-submit').on('click',function(e){
+		if ( $('.cptui-table :checkbox:checked').length == 0 ) {
+			e.preventDefault();
+			alert( cptui_tax_data.no_associated_type );
+		}
+	});
 })(jQuery);
