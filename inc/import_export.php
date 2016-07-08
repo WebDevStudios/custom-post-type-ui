@@ -399,9 +399,11 @@ function cptui_get_single_post_type_registery( $post_type = array() ) {
 		"rewrite" => <?php echo $rewrite; ?>,
 		"query_var" => <?php echo $post_type['query_var']; ?>,
 		<?php if ( ! empty( $post_type['menu_position'] ) ) { ?>"menu_position" => <?php echo $post_type['menu_position']; ?>,<?php } ?><?php if ( ! empty( $post_type['menu_icon'] ) ) { ?>"menu_icon" => "<?php echo $post_type['menu_icon']; ?>",<?php } ?>
-		<?php if ( ! empty( $supports ) ) { echo "\n\t\t" ?>"supports" => <?php echo $supports; ?>,<?php } ?>
-		<?php if ( ! empty( $taxonomies ) ) {  echo "\n\t\t" ?>"taxonomies" => <?php echo $taxonomies; ?>,<?php } ?>
-		<?php if ( true === $yarpp ) { echo "\n\t\t" ?>"yarpp_support" => <?php echo disp_boolean( $yarpp ); ?><?php } echo "\n";?>
+<?php if ( ! empty( $supports ) ) { echo "\n\t\t" ?>"supports" => <?php echo $supports; ?>,<?php } ?>
+		<?php if ( ! empty( $taxonomies ) ) {  echo "\n\t\t" ?>"taxonomies" => <?php echo $taxonomies; ?>,
+<?php } ?>
+		<?php if ( true === $yarpp ) { echo "\n\t\t" ?>"yarpp_support" => <?php echo disp_boolean( $yarpp ); ?>,
+<?php } ?>
 	);
 	register_post_type( "<?php echo $post_type['name']; ?>", $args );
 <?php
