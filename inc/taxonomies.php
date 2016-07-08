@@ -251,6 +251,26 @@ function cptui_manage_taxonomies() {
 						echo '</div>';
 					}
 
+					echo $ui->get_text_input( array(
+						'namearray' => 'cpt_custom_tax',
+						'name'      => 'label',
+						'textvalue' => ( isset( $current['label'] ) ) ? esc_attr( $current['label'] ) : '',
+						'aftertext' => esc_html__( '(e.g. Actors)', 'custom-post-type-ui' ),
+						'labeltext' => esc_html__( 'Plural Label', 'custom-post-type-ui' ),
+						'helptext'  => esc_attr__( 'Used for the taxonomy admin menu item.', 'custom-post-type-ui' ),
+						'required'  => true,
+					) );
+
+					echo $ui->get_text_input( array(
+						'namearray' => 'cpt_custom_tax',
+						'name'      => 'singular_label',
+						'textvalue' => ( isset( $current['singular_label'] ) ) ? esc_attr( $current['singular_label'] ) : '',
+						'aftertext' => esc_html__( '(e.g. Actor)', 'custom-post-type-ui' ),
+						'labeltext' => esc_html__( 'Singular Label', 'custom-post-type-ui' ),
+						'helptext'  => esc_attr__( 'Used when a singular label is needed.', 'custom-post-type-ui' ),
+						'required'  => true,
+					) );
+
 					echo $ui->get_td_end() . $ui->get_tr_end();
 
 					echo $ui->get_tr_start() . $ui->get_th_start() . esc_html__( 'Attach to Post Type', 'custom-post-type-ui' ) . $ui->get_required_span();
@@ -301,26 +321,6 @@ function cptui_manage_taxonomies() {
 					}
 
 					echo $ui->get_fieldset_end() . $ui->get_td_end() . $ui->get_tr_end();
-
-					echo $ui->get_text_input( array(
-						'namearray' => 'cpt_custom_tax',
-						'name'      => 'label',
-						'textvalue' => ( isset( $current['label'] ) ) ? esc_attr( $current['label'] ) : '',
-						'aftertext' => esc_html__( '(e.g. Actors)', 'custom-post-type-ui' ),
-						'labeltext' => esc_html__( 'Plural Label', 'custom-post-type-ui' ),
-						'helptext'  => esc_attr__( 'Used for the taxonomy admin menu item.', 'custom-post-type-ui' ),
-						'required'  => true,
-					) );
-
-					echo $ui->get_text_input( array(
-						'namearray' => 'cpt_custom_tax',
-						'name'      => 'singular_label',
-						'textvalue' => ( isset( $current['singular_label'] ) ) ? esc_attr( $current['singular_label'] ) : '',
-						'aftertext' => esc_html__( '(e.g. Actor)', 'custom-post-type-ui' ),
-						'labeltext' => esc_html__( 'Singular Label', 'custom-post-type-ui' ),
-						'helptext'  => esc_attr__( 'Used when a singular label is needed.', 'custom-post-type-ui' ),
-						'required'  => true,
-					) );
 			?>
 			</table>
 			<p class="submit">
