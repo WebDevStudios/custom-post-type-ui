@@ -390,6 +390,8 @@ function cptui_get_single_post_type_registery( $post_type = array() ) {
 		"rest_base" => "<?php echo $post_type['rest_base']; ?>",
 		"has_archive" => <?php echo disp_boolean( $post_type['has_archive'] ); ?>,
 		"show_in_menu" => <?php echo disp_boolean( $post_type['show_in_menu'] ); ?>,
+		<?php if ( ! empty( $post_type['show_in_menu_string'] ) ) { ?>"show_in_menu_string" => "<?php echo $post_type['show_in_menu_string']; ?>",
+<?php } ?>
 		"exclude_from_search" => <?php echo disp_boolean( $post_type['exclude_from_search'] ); ?>,
 		"capability_type" => "<?php echo $post_type['capability_type']; ?>",
 		"map_meta_cap" => <?php echo disp_boolean( $post_type['map_meta_cap'] ); ?>,
