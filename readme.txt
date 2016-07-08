@@ -47,6 +47,7 @@ All official development on this plugin is on GitHub. New releases are still pub
 * Fixed: Further improved labels for information text on inputs.
 * Fixed: Hide "choose icon" button for non-js users.
 * Fixed: Issue with misused "parent" label key that should be parent_item_colon.
+* Fixed: Missed show_in_menu_string parameter for "get code" area.
 * Updated: Switch to dedicated dashicon for color consistency between applied admin color schemes.
 * Updated: Updated about page.
 
@@ -152,6 +153,7 @@ All official development on this plugin is on GitHub. New releases are still pub
 * Fixed: Further improved labels for information text on inputs.
 * Fixed: Hide "choose icon" button for non-js users.
 * Fixed: Issue with misused "parent" label key that should be parent_item_colon.
+* Fixed: Missed show_in_menu_string parameter for "get code" area.
 * Updated: Switch to dedicated dashicon for color consistency between applied admin color schemes.
 * Updated: Updated about page.
 

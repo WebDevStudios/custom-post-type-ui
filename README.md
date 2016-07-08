@@ -28,6 +28,7 @@ CPTUI does NOT handle display of registered post types or taxonomies in your cur
 * Fixed: Further improved labels for information text on inputs.
 * Fixed: Hide "choose icon" button for non-js users.
 * Fixed: Issue with misused "parent" label key that should be parent_item_colon.
+* Fixed: Missed show_in_menu_string parameter for "get code" area.
 * Updated: Switch to dedicated dashicon for color consistency between applied admin color schemes.
 * Updated: Updated about page.
 
