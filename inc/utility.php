@@ -313,7 +313,6 @@ function cptui_products_sidebar() {
 			'https://pluginize.com/product/custom-post-type-ui-extended/?utm_source=remove_ads&utm_medium=text&utm_campaign=cptui',
 			esc_html__( 'Remove these ads?', 'custom-post-type-ui' )
 		);
-		echo '</div>';
 	}
 	echo '</div>';
 
