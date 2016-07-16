@@ -784,7 +784,18 @@ function cptui_manage_post_types() {
 
 				echo $ui->get_tr_start() . $ui->get_th_start();
 				echo $ui->get_label( 'menu_position', esc_html__( 'Menu Position', 'custom-post-type-ui' ) );
-				echo $ui->get_p( esc_html__( 'See <a href="http://codex.wordpress.org/Function_Reference/register_post_type#Parameters" target="_blank">Available options</a> in the "menu_position" section. Range of 5-100', 'custom-post-type-ui' ) );
+				echo $ui->get_p(
+					sprintf(
+						esc_html__(
+							'See %s in the "menu_position" section. Range of 5-100',
+							'custom-post-type-ui'
+						),
+						sprintf(
+							'<a href="http://codex.wordpress.org/Function_Reference/register_post_type#Parameters" target="_blank">%s</a>',
+							esc_html__( 'Available options', 'custom-post-type-ui' )
+						)
+					)
+				);
 
 				echo $ui->get_th_end() . $ui->get_td_start();
 				echo $ui->get_text_input( array(
