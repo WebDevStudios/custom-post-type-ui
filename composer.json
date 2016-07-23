@@ -22,5 +22,8 @@
 	},
 	"autoload": {
 		"psr-0": { "CPT": "src/" }
+	},
+	"require-dev": {
+		"johnbillion/php-docs-standards": "~1.0"
 	}
 }
