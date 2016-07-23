@@ -43,6 +43,7 @@ $GLOBALS['wp_tests_options'] = array(
  */
 function _tests_load_cptui() {
 	define( 'CPTUI_DIRECTORY_PATH', trailingslashit( dirname( dirname( __FILE__ ) ) ) );
+	require CPTUI_DIRECTORY_PATH . '/vendor/autoload.php';
 	require CPTUI_DIRECTORY_PATH . 'custom-post-type-ui.php';
 }
 tests_add_filter( 'muplugins_loaded', '_tests_load_cptui' );
