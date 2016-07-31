@@ -1169,14 +1169,10 @@ function cptui_get_current_post_type( $post_type_deleted = false ) {
 	if ( ! empty( $_POST ) ) {
 		if ( isset( $_POST['cptui_selected_post_type']['post_type'] ) ) {
 			$type = sanitize_text_field( $_POST['cptui_selected_post_type']['post_type'] );
-		}
-
-		if ( $post_type_deleted ) {
+		} else if ( $post_type_deleted ) {
 			$post_types = cptui_get_post_type_data();
 			$type = key( $post_types );
-		}
-
-		if ( isset( $_POST['cpt_custom_post_type']['name'] ) ) {
+		} else if ( isset( $_POST['cpt_custom_post_type']['name'] ) ) {
 			$type = sanitize_text_field( $_POST['cpt_custom_post_type']['name'] );
 		}
 	} else if ( ! empty( $_GET ) && isset( $_GET['cptui_post_type'] ) ) {
