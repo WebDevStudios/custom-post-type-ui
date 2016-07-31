@@ -881,14 +881,10 @@ function cptui_get_current_taxonomy( $taxonomy_deleted = false ) {
 	if ( ! empty( $_POST ) ) {
 		if ( isset( $_POST['cptui_selected_taxonomy']['taxonomy'] ) ) {
 			$tax = sanitize_text_field( $_POST['cptui_selected_taxonomy']['taxonomy'] );
-		}
-
-		if ( $taxonomy_deleted ) {
+		} else if ( $taxonomy_deleted ) {
 			$taxonomies = cptui_get_taxonomy_data();
 			$tax = key( $taxonomies );
-		}
-
-		if ( isset( $_POST['cpt_custom_tax']['name'] ) ) {
+		} else if ( isset( $_POST['cpt_custom_tax']['name'] ) ) {
 			$tax = sanitize_text_field( $_POST['cpt_custom_tax']['name'] );
 		}
 	} else if ( ! empty( $_GET ) && isset( $_GET['cptui_taxonomy'] ) ) {
