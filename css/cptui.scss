@@ -2,6 +2,25 @@
 	.cptui-section:first-child {
 		margin-top: 30px;
 	}
+	width: 75%;
+	.postbox-container {
+	  width: 100%;
+	}
+	.postbox .toggle-indicator:before {
+		content: "\f142";
+		display: inline-block;
+		font: normal 20px/1 dashicons;
+		speak: none;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		text-decoration: none !important;
+	}
+	.postbox.closed .handlediv .toggle-indicator::before {
+		content: "\f140";
+	}
+	.postbox .hndle {
+		cursor: pointer;
+	}
 }
 .cptui-table {
 	#excerpt {

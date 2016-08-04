@@ -1,5 +1,31 @@
+.posttypesui, .taxonomiesui {
+  width: 75%;
+}
+
 .posttypesui .cptui-section:first-child, .taxonomiesui .cptui-section:first-child {
   margin-top: 30px;
+}
+
+.posttypesui .postbox-container, .taxonomiesui .postbox-container {
+  width: 100%;
+}
+
+.posttypesui .postbox .toggle-indicator:before, .taxonomiesui .postbox .toggle-indicator:before {
+  content: "\f142";
+  display: inline-block;
+  font: normal 20px/1 dashicons;
+  speak: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-decoration: none !important;
+}
+
+.posttypesui .postbox.closed .handlediv .toggle-indicator::before, .taxonomiesui .postbox.closed .handlediv .toggle-indicator::before {
+  content: "\f140";
+}
+
+.posttypesui .postbox .hndle, .taxonomiesui .postbox .hndle {
+  cursor: pointer;
 }
 
 .cptui-table #excerpt {

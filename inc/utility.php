@@ -194,7 +194,7 @@ function cptui_get_taxonomy_slugs() {
  *
  * @since 1.3.0
  *
- * @param $path
+ * @param string $path URL path.
  * @return string|void
  */
 function cptui_admin_url( $path ) {
@@ -418,3 +418,220 @@ function cptui_default_ads( $ads = array() ) {
 	return $ads;
 }
 add_filter( 'cptui_ads', 'cptui_default_ads' );
+
+/**
+ * Secondary admin notices function for use with admin_notices hook.
+ *
+ * Constructs admin notice HTML.
+ *
+ * @since 1.4.0
+ *
+ * @param string $message Message to use in admin notice.
+ * @param bool   $success Whether or not a success.
+ *
+ * @return mixed|void
+ */
+function cptui_admin_notices_helper( $message = '', $success = true ) {
+
+	$class       = array();
+	$class[]     = ( $success ) ? 'updated' : 'error';
+	$class[]     = 'notice is-dismissible';
+
+	$messagewrapstart = '<div id="message" class="' . implode( ' ', $class ) . '"><p>';
+
+	$messagewrapend = '</p></div>';
+
+	$action = '';
+
+	/**
+	 * Filters the custom admin notice for CPTUI.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param string $value            Complete HTML output for notice.
+	 * @param string $action           Action whose message is being generated.
+	 * @param string $message          The message to be displayed.
+	 * @param string $messagewrapstart Beginning wrap HTML.
+	 * @param string $messagewrapend   Ending wrap HTML.
+	 */
+	return apply_filters( 'cptui_admin_notice', $messagewrapstart . $message . $messagewrapend, $action, $message, $messagewrapstart, $messagewrapend );
+}
+
+/**
+ * Grab post type or taxonomy slug from $_POST global, if available.
+ *
+ * @since 1.4.0
+ *
+ * @internal
+ *
+ * @return string
+ */
+function cptui_get_object_from_post_global() {
+	if ( isset( $_POST['cpt_custom_post_type']['name'] ) ) {
+		return sanitize_text_field( $_POST['cpt_custom_post_type']['name'] );
+	}
+
+	if ( isset( $_POST['cpt_custom_tax']['name'] ) ) {
+		return sanitize_text_field( $_POST['cpt_custom_tax']['name'] );
+	}
+
+	return esc_html__( 'Object', 'custom-post-type-ui' );
+}
+
+/**
+ * Successful add callback.
+ *
+ * @since 1.4.0
+ */
+function cptui_add_success_admin_notice() {
+	echo cptui_admin_notices_helper(
+		sprintf(
+			esc_html__( '%s has been successfully added', 'custom-post-type-ui' ),
+			cptui_get_object_from_post_global()
+		),
+		true
+	);
+}
+
+/**
+ * Fail to add callback.
+ *
+ * @since 1.4.0
+ */
+function cptui_add_fail_admin_notice() {
+	echo cptui_admin_notices_helper(
+		sprintf(
+			esc_html__( '%s has failed to be added', 'custom-post-type-ui' ),
+			cptui_get_object_from_post_global()
+		),
+		false
+	);
+}
+
+/**
+ * Successful update callback.
+ *
+ * @since 1.4.0
+ */
+function cptui_update_success_admin_notice() {
+	echo cptui_admin_notices_helper(
+		sprintf(
+			esc_html__( '%s has been successfully updated', 'custom-post-type-ui' ),
+			cptui_get_object_from_post_global()
+		),
+		true
+	);
+}
+
+/**
+ * Fail to update callback.
+ *
+ * @since 1.4.0
+ */
+function cptui_update_fail_admin_notice() {
+	echo cptui_admin_notices_helper(
+		sprintf(
+			esc_html__( '%s has failed to be updated', 'custom-post-type-ui' ),
+			cptui_get_object_from_post_global()
+		),
+		false
+	);
+}
+
+/**
+ * Successful delete callback.
+ *
+ * @since 1.4.0
+ */
+function cptui_delete_success_admin_notice() {
+	echo cptui_admin_notices_helper(
+		sprintf(
+			esc_html__( '%s has been successfully deleted', 'custom-post-type-ui' ),
+			cptui_get_object_from_post_global()
+		),
+		true
+	);
+}
+
+/**
+ * Fail to delete callback.
+ *
+ * @since 1.4.0
+ */
+function cptui_delete_fail_admin_notice() {
+	echo cptui_admin_notices_helper(
+		sprintf(
+			esc_html__( '%s has failed to be deleted', 'custom-post-type-ui' ),
+			cptui_get_object_from_post_global()
+		),
+		false
+	);
+}
+
+/**
+ * Returns error message for if trying to register existing post type.
+ *
+ * @since 1.4.0
+ *
+ * @return string
+ */
+function cptui_slug_matches_post_type() {
+	return sprintf(
+		esc_html__( 'Please choose a different post type name. %s is already registered.', 'custom-post-type-ui' ),
+		cptui_get_object_from_post_global()
+	);
+}
+
+/**
+ * Returns error message for if trying to register existing taxonomy.
+ *
+ * @since 1.4.0
+ *
+ * @return string
+ */
+function cptui_slug_matches_taxonomy() {
+	return sprintf(
+		esc_html__( 'Please choose a different taxonomy name. %s is already registered.', 'custom-post-type-ui' ),
+		cptui_get_object_from_post_global()
+	);
+}
+
+/**
+ * Returns error message for if trying to register post type with matching page slug.
+ *
+ * @since 1.4.0
+ *
+ * @return string
+ */
+function cptui_slug_matches_page() {
+	return sprintf(
+		esc_html__( 'Please choose a different post type name. %s matches an existing page slug, which can cause conflicts.', 'custom-post-type-ui' ),
+		cptui_get_object_from_post_global()
+	);
+}
+
+/**
+ * Returns error message for if trying to use quotes in slugs or rewrite slugs.
+ *
+ * @since 1.4.0
+ *
+ * @return string
+ */
+function cptui_slug_has_quotes() {
+	return sprintf(
+		esc_html__( 'Please do not use quotes in post type/taxonomy names or rewrite slugs', 'custom-post-type-ui' ),
+		cptui_get_object_from_post_global()
+	);
+}
+
+/**
+ * Error admin notice.
+ *
+ * @since 1.4.0
+ */
+function cptui_error_admin_notice() {
+	echo cptui_admin_notices_helper(
+		apply_filters( 'cptui_custom_error_message', '' ),
+		false
+	);
+}

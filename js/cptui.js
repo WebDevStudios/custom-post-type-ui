@@ -1,3 +1,11 @@
+/**
+ * Add collapseable boxes to our editor screens.
+ */
+postboxes.add_postbox_toggles(pagenow);
+
+/**
+ * The rest of our customizations.
+ */
 (function($) {
 
 	if ('edit' === getParameterByName('action')) {
