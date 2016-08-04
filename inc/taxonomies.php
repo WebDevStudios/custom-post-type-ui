@@ -805,17 +805,16 @@ function cptui_manage_taxonomies() {
 						</table>
 					</div>
 				</div>
-
-				<?php
-				/**
-				 * Fires after the default fieldsets on the taxonomy screen.
-				 *
-				 * @since 1.3.0
-				 *
-				 * @param cptui_admin_ui $ui Admin UI instance.
-				 */
-				do_action( 'cptui_taxonomy_after_fieldsets', $ui ); ?>
 			</div>
+
+			<?php
+			/**
+			 * Fires after the default fieldsets on the taxonomy screen.
+			 * @since 1.3.0
+			 *
+			 * @param cptui_admin_ui $ui Admin UI instance.
+			 */
+			do_action( 'cptui_taxonomy_after_fieldsets', $ui ); ?>
 
 			<p class="submit">
 				<?php wp_nonce_field( 'cptui_addedit_taxonomy_nonce_action', 'cptui_addedit_taxonomy_nonce_field' );
