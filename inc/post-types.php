@@ -1065,17 +1065,19 @@ function cptui_manage_post_types() {
 							?>
 						</table>
 					</div>
-				<?php
-				/**
-				 * Fires after the default fieldsets on the post editor screen.
-				 *
-				 * @since 1.3.0
-				 *
-				 * @param cptui_admin_ui $ui Admin UI instance.
-				 */
-				do_action( 'cptui_post_type_after_fieldsets', $ui ); ?>
 				</div>
 			</div>
+
+			<?php
+			/**
+			 * Fires after the default fieldsets on the post editor screen.
+			 *
+			 * @since 1.3.0
+			 *
+			 * @param cptui_admin_ui $ui Admin UI instance.
+			 */
+			do_action( 'cptui_post_type_after_fieldsets', $ui ); ?>
+
 			<p>
 			<?php
 				if ( ! empty( $_GET ) && ! empty( $_GET['action'] ) && 'edit' == $_GET['action'] ) {
