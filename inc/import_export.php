@@ -213,6 +213,7 @@ function cptui_get_single_taxonomy_registery( $taxonomy = array() ) {
 		$rewrite = disp_boolean( $taxonomy['rewrite'] );
 	}
 	$public = ( isset( $taxonomy['public'] ) ) ? disp_boolean( $taxonomy['public'] ) : 'true';
+	$show_in_quick_edit = ( isset( $taxonomy['show_in_quick_edit'] ) ) ? disp_boolean( $taxonomy['show_in_quick_edit'] ) : disp_boolean( $taxonomy['show_ui'] );
 
 	$my_theme = wp_get_theme();
 	$textdomain = $my_theme->get( 'TextDomain' );
@@ -239,7 +240,7 @@ function cptui_get_single_taxonomy_registery( $taxonomy = array() ) {
 		"show_admin_column" => <?php echo $taxonomy['show_admin_column']; ?>,
 		"show_in_rest" => <?php echo disp_boolean( $taxonomy['show_in_rest'] ); ?>,
 		"rest_base" => "<?php echo $taxonomy['rest_base']; ?>",
-		"show_in_quick_edit" => <?php echo disp_boolean( $taxonomy['show_in_quick_edit'] ); ?>,
+		"show_in_quick_edit" => <?php echo $show_in_quick_edit; ?>,
 	);
 	register_taxonomy( "<?php echo $taxonomy['name']; ?>", <?php echo $post_types; ?>, $args );
 <?php
