@@ -194,13 +194,13 @@ function cptui_get_single_taxonomy_registery( $taxonomy = array() ) {
 		$rewrite_withfront = '';
 		$withfront = disp_boolean( $taxonomy['rewrite_withfront'] );
 		if ( ! empty( $withfront ) ) {
-			$rewrite_withfront = ' \'with_front\' => ' . $withfront . ' ';
+			$rewrite_withfront = ' \'with_front\' => ' . $withfront . ', ';
 		}
 
 		$hierarchical = ( ! empty( $taxonomy['rewrite_hierarchical'] ) ) ? disp_boolean( $taxonomy['rewrite_hierarchical'] ) : '';
 		$rewrite_hierarchcial = '';
 		if ( ! empty( $hierarchical ) ) {
-			$rewrite_hierarchcial = ' \'hierarchical\' => ' . $hierarchical . ' ';
+			$rewrite_hierarchcial = ' \'hierarchical\' => ' . $hierarchical . ', ';
 		}
 
 		if ( ! empty( $taxonomy['rewrite_slug'] ) || false !== disp_boolean( $taxonomy['rewrite_withfront'] ) ) {
