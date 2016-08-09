@@ -22,16 +22,11 @@ All official development on this plugin is on GitHub. New releases are still pub
 == Screenshots ==
 
 1. Add new post type screen and tab.
-2. Edit post type screen and tab.
-3. Add new taxonomy screen and tab.
-4. Edit taxonomy screen and tab.
-5. Registered post types and taxonomies from CPTUI
-6. Import/Export Post Types screen.
-7. Import/Export Taxonomies screen.
-8. Get Code screen.
-9. Debug Info screen.
-10. Help/support screen.
-11. About/Update Information/Donate screen.
+2. Add new taxonomy screen and tab.
+3. Registered post types and taxonomies from CPTUI
+4. Import/Export Post Types screen.
+5. Get Code screen.
+6. Help/support screen.
 
 == Changelog ==
 
