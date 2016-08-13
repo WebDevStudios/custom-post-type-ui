@@ -45,6 +45,7 @@ All official development on this plugin is on GitHub. New releases are still pub
 * Fixed: Issue with misused "parent" label key that should be parent_item_colon.
 * Fixed: Missed show_in_menu_string parameter for "get code" area.
 * Fixed: Make sure taxonomies have required post type associated.
+* Fixed: "Edit" links in listings area now account for network-admin when needed, with CPTUI Extended.
 * Updated: Switch to dedicated dashicon for color consistency between applied admin color schemes.
 * Updated: Updated about page.
 * Updated: Further UI refinements to better match WordPress admin. Adapted styles found from metaboxes, including collapse/expand toggles.
@@ -154,6 +155,7 @@ All official development on this plugin is on GitHub. New releases are still pub
 * Fixed: Issue with misused "parent" label key that should be parent_item_colon.
 * Fixed: Missed show_in_menu_string parameter for "get code" area.
 * Fixed: Make sure taxonomies have required post type associated.
+* Fixed: "Edit" links in listings area now account for network-admin when needed, with CPTUI Extended.
 * Updated: Switch to dedicated dashicon for color consistency between applied admin color schemes.
 * Updated: Updated about page.
 * Updated: Further UI refinements to better match WordPress admin. Adapted styles found from metaboxes, including collapse/expand toggles.
