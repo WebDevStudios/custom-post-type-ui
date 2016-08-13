@@ -279,7 +279,9 @@ function cptui_listings() {
 						}
 						?>
 							<tr class="<?php echo esc_attr( $rowclass ); ?>">
-								<?php $taxonomy_link_url = admin_url( 'admin.php?page=cptui_manage_taxonomies&action=edit&cptui_taxonomy=' . $taxonomy ); ?>
+								<?php
+								$edit_path          = 'admin.php?page=cptui_manage_taxonomies&action=edit&cptui_taxonomy=' . $taxonomy;
+								$taxonomy_link_url  = ( is_network_admin() ) ? network_admin_url( $edit_path ) : admin_url( $edit_path ); ?>
 								<td>
 									<?php printf(
 										'<a href="%s">%s</a> | <a href="%s">%s</a>',
