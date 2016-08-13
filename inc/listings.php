@@ -100,7 +100,9 @@ function cptui_listings() {
 					}
 					?>
 						<tr class="<?php echo esc_attr( $rowclass ); ?>">
-							<?php $post_type_link_url = admin_url( 'admin.php?page=cptui_manage_post_types&action=edit&cptui_post_type=' . $post_type ); ?>
+							<?php
+							$edit_path          = 'admin.php?page=cptui_manage_post_types&action=edit&cptui_post_type=' . $post_type;
+							$post_type_link_url = ( is_network_admin() ) ? network_admin_url( $edit_path ) : admin_url( $edit_path ); ?>
 							<td>
 								<?php
 								printf(
