@@ -233,7 +233,7 @@ class CPTUI_Debug_Info {
 			home_url( '/' )
 		) );
 
-		wp_mail( $args['email'], $subject, $message );
+		$result = wp_mail( $args['email'], $subject, $message );
 
 		/**
 		 * Fires after the debug email has been sent.
@@ -241,5 +241,7 @@ class CPTUI_Debug_Info {
 		 * @since 1.3.0
 		 */
 		do_action( 'cptui_after_debug_email_sent' );
+
+		return $result;
 	}
 }
