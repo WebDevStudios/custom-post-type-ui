@@ -114,6 +114,11 @@ function cptui_pluginize_content() {
 }
 add_action( 'cptui_main_page_extra_notes', 'cptui_pluginize_content', 9 );
 
+/**
+ * Render our newsletter form for the about page.
+ *
+ * @since 1.4.0
+ */
 function cptui_about_page_newsletter() {
 	?>
 	<h3><?php esc_html_e( 'Stay informed', 'custom-post-type-ui' ); ?></h3>
