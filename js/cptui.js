@@ -24,7 +24,7 @@ postboxes.add_postbox_toggles(pagenow);
 
 	// Confirm our deletions
 	$('#cpt_submit_delete').on('click',function() {
-		if( confirm( cptui_type_data.confirm ) ) {
+		if ( confirm( cptui_type_data.confirm ) ) {
 			return true;
 		}
 		return false;
@@ -76,7 +76,7 @@ postboxes.add_postbox_toggles(pagenow);
 			/[\322-\330]/g, /[\362-\370]/g,  // O, o
 			/[\331-\334]/g, /[\371-\374]/g,  // U, u
 			/[\321]/g, /[\361]/g, // N, n
-			/[\307]/g, /[\347]/g, // C, c
+			/[\307]/g, /[\347]/g  // C, c
 		];
 
 		var chars = ['A', 'a', 'E', 'e', 'I', 'i', 'O', 'o', 'U', 'u', 'N', 'n', 'C', 'c'];
@@ -121,8 +121,8 @@ postboxes.add_postbox_toggles(pagenow);
 				$("#" + id).val(attachment.url);
 			} else {
 				return _orig_send_attachment.apply(this, [props, attachment]);
-			};
-		}
+			}
+		};
 
 		wp.media.editor.open(button);
 		return false;
