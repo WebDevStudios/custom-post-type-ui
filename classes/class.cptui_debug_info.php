@@ -77,7 +77,7 @@ class CPTUI_Debug_Info {
 		$plugins  = get_plugins();
 		$pg_count = count( $plugins );
 		echo 'TOTAL PLUGINS: ' . $pg_count . "\n\n";
-		// MU plugins
+		// MU plugins.
 		$mu_plugins = get_mu_plugins();
 
 		if ( $mu_plugins ) :
@@ -88,7 +88,7 @@ class CPTUI_Debug_Info {
 				echo "\t\t" . $mu_plugin['Name'] . ': ' . $mu_plugin['Version'] . "\n";
 			}
 		endif;
-		// standard plugins - active
+		// Standard plugins - active.
 		echo "\n";
 
 		$active   = get_option( 'active_plugins', array() );
@@ -105,7 +105,7 @@ class CPTUI_Debug_Info {
 
 			echo "\t\t" . $plugin['Name'] . ': ' . $plugin['Version'] . "\n";
 		}
-		// standard plugins - inactive
+		// Standard plugins - inactive.
 		echo "\n";
 		echo "\t\t" , 'INACTIVE PLUGINS: (' . $ic_count . ')' . "\n\n";
 
@@ -118,7 +118,7 @@ class CPTUI_Debug_Info {
 			echo "\t\t" . $plugin['Name'] . ': ' . $plugin['Version'] . "\n";
 		}
 
-		// if multisite, grab network as well
+		// If multisite, grab network as well.
 		if ( is_multisite() ) :
 
 			$net_plugins = wp_get_active_network_plugins();
@@ -179,7 +179,7 @@ class CPTUI_Debug_Info {
 	 * @since 1.2.0
 	 * @access public
 	 *
-	 * @param mixed $v
+	 * @param mixed $v Value.
 	 * @return int
 	 */
 	public function num_convt( $v ) {
@@ -187,11 +187,11 @@ class CPTUI_Debug_Info {
 		$ret = substr( $v, 0, - 1 );
 
 		switch ( strtoupper( $l ) ) {
-			case 'P': // fall-through
-			case 'T': // fall-through
-			case 'G': // fall-through
-			case 'M': // fall-through
-			case 'K': // fall-through
+			case 'P': // Fall-through.
+			case 'T': // Fall-through.
+			case 'G': // Fall-through.
+			case 'M': // Fall-through.
+			case 'K': // Fall-through.
 				$ret *= 1024;
 				break;
 			default:
