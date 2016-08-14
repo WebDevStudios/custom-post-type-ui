@@ -31,7 +31,7 @@ function cptui_settings() {
 		 * @since 1.0.0
 		 */
 		do_action( 'cptui_main_page_start' ); ?>
-		<h1><?php _e( 'Custom Post Type UI', 'custom-post-type-ui' ); ?> <?php echo CPTUI_VERSION; ?></h1>
+		<h1><?php esc_html_e( 'Custom Post Type UI', 'custom-post-type-ui' ); ?> <?php echo CPTUI_VERSION; ?></h1>
 
 		<?php
 
@@ -44,7 +44,7 @@ function cptui_settings() {
 		?>
 
 		<div class="about-text cptui-about-text">
-			<?php _e( 'Thank you for choosing Custom Post Type UI! We hope that your experience with our plugin makes creating post types and taxonomies and organizing your content quick and easy.', 'custom-post-type-ui' ); ?>
+			<?php esc_html_e( 'Thank you for choosing Custom Post Type UI! We hope that your experience with our plugin makes creating post types and taxonomies and organizing your content quick and easy.', 'custom-post-type-ui' ); ?>
 		</div>
 
 		<?php
@@ -55,16 +55,16 @@ function cptui_settings() {
 		 */
 		do_action( 'cptui_main_page_before_changelog' ); ?>
 
-		<h2><?php printf( __( 'What\'s new in version %s', 'custom-post-type-ui' ), CPTUI_VERSION ); ?></h2>
+		<h2><?php printf( esc_html__( 'What\'s new in version %s', 'custom-post-type-ui' ), CPTUI_VERSION ); ?></h2>
 		<div class="changelog about-integrations">
 			<div class="cptui-feature feature-section col three-col">
 				<div>
-					<h2><?php _e( 'Evolved UI for Custom Post Type UI', 'custom-post-type-ui' ); ?></h2>
-					<p><?php _e( 'Once again we have evolved the UI for post type and taxonomy parameter screens. We strive to adhere to familiar WordPress admin familiarity and have adapted styles and UX applied to WordPress metaboxes.' ) ?></p>
+					<h2><?php esc_html_e( 'Evolved UI for Custom Post Type UI', 'custom-post-type-ui' ); ?></h2>
+					<p><?php esc_html_e( 'Once again we have evolved the UI for post type and taxonomy parameter screens. We strive to adhere to familiar WordPress admin familiarity and have adapted styles and UX applied to WordPress metaboxes.' ) ?></p>
 				</div>
 				<div class="last-feature">
-					<h2><?php _e( 'Eliminated page refresh need.', 'custom-post-type-ui' ); ?></h2>
-					<p><?php _e( 'Previously, due to how settings were saved, there was need for an extra refresh for newly saved settings to be applied to a post type or taxonomy. Under the hood, we have amended the saving process in order to remove need to trigger a refresh to see applied changes.' ) ?></p>
+					<h2><?php esc_html_e( 'Eliminated page refresh need.', 'custom-post-type-ui' ); ?></h2>
+					<p><?php esc_html_e( 'Previously, due to how settings were saved, there was need for an extra refresh for newly saved settings to be applied to a post type or taxonomy. Under the hood, we have amended the saving process in order to remove need to trigger a refresh to see applied changes.' ) ?></p>
 				</div>
 			</div>
 		</div>
