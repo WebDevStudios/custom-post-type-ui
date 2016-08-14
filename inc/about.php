@@ -60,27 +60,11 @@ function cptui_settings() {
 			<div class="cptui-feature feature-section col three-col">
 				<div>
 					<h2><?php _e( 'Evolved UI for Custom Post Type UI', 'custom-post-type-ui' ); ?></h2>
-					<p><?php _e( 'We have further revised our UI for post type and taxonomy parameter screens. Better separation of required and optional settings was a primary goal as well as user flow through the screen.' ) ?></p>
-				</div>
-				<div>
-					<h2><?php _e( 'Slug prevention measures', 'custom-post-type-ui' ); ?></h2>
-					<p><?php _e( 'We added measures on the post type and taxonomy slug inputs to prevent using characters that should not be used in slugs. This is primarily for when adding new post types and taxonomies, but will also affect when editing existing options. Do not hesitate to contact support if you are experiencing issues.' ) ?></p>
-				</div>
-				<div>
-					<h2><?php _e( 'Improved rewrite rules flushing', 'custom-post-type-ui' ); ?></h2>
-					<p><?php _e( 'We improved what we do after registering a new post type or taxonomy to better prevent having to manually flush rewrite rules.' ) ?></p>
-				</div>
-				<div>
-					<h2><?php _e( 'Continued accessibility improvements', 'custom-post-type-ui' ); ?></h2>
-					<p><?php _e( 'We have continued working on the accessibility of the plugin, building off what we accomplished in previous releases. If you have feedback on where it could be further improved, let us know.' ) ?></p>
-				</div>
-				<div>
-					<h2><?php _e( 'More parameter and label support', 'custom-post-type-ui' ); ?></h2>
-					<p><?php _e( 'We have added more parameters as well as recently added labels for greater customization of your post type and taxonomy settings.', 'custom-post-type-ui' ); ?></p>
+					<p><?php _e( 'Once again we have evolved the UI for post type and taxonomy parameter screens. We strive to adhere to familiar WordPress admin familiarity and have adapted styles and UX applied to WordPress metaboxes.' ) ?></p>
 				</div>
 				<div class="last-feature">
-					<h2><?php _e( 'Default "supports" for post types', 'custom-post-type-ui' ); ?></h2>
-					<p><?php _e( 'The "Title", "Editor", and "Featured Image" checkboxes are now checked by default when adding a new post type.', 'custom-post-type-ui' ); ?></p>
+					<h2><?php _e( 'Eliminated page refresh need.', 'custom-post-type-ui' ); ?></h2>
+					<p><?php _e( 'Previously, due to how settings were saved, there was need for an extra refresh for newly saved settings to be applied to a post type or taxonomy. Under the hood, we have amended the saving process in order to remove need to trigger a refresh to see applied changes.' ) ?></p>
 				</div>
 			</div>
 		</div>
