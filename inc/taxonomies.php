@@ -810,6 +810,7 @@ function cptui_manage_taxonomies() {
 			<?php
 			/**
 			 * Fires after the default fieldsets on the taxonomy screen.
+			 *
 			 * @since 1.3.0
 			 *
 			 * @param cptui_admin_ui $ui Admin UI instance.
