@@ -373,9 +373,6 @@ class cptui_admin_ui {
 			$value .= $this->get_th_start();
 			$value .= $this->get_label( $args['name'], $args['labeltext'] );
 			if ( $args['required'] ) { $value .= $this->get_required_span(); }
-			/*if ( !$args['helptext_after'] ) {
-				$value .= $this->get_help( $args['helptext'] );
-			}*/
 			$value .= $this->get_th_end();
 			$value .= $this->get_td_start();
 		}
