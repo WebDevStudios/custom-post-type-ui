@@ -26,10 +26,11 @@ CPTUI does NOT handle display of registered post types or taxonomies in your cur
 * Added: Display About page upon activation of plugin.
 * Added: Link below ads regarding getting them removed via purchase of CPTUI Extended.
 * Added: No need to refresh page after initial save to see post types and taxonomies in menu.
+* Added: Taxonomy support for `show_in_menu` and `show_in_nav_menus`.
 * Fixed: Further improved labels for information text on inputs.
 * Fixed: Hide "choose icon" button for non-js users.
-* Fixed: Issue with misused "parent" label key that should be parent_item_colon.
-* Fixed: Missed show_in_menu_string parameter for "get code" area.
+* Fixed: Issue with misused "parent" label key that should be `parent_item_colon`.
+* Fixed: Missed `show_in_menu_string` parameter for "get code" area.
 * Fixed: Make sure taxonomies have required post type associated.
 * Fixed: "Edit" links in listings area now account for network-admin when needed, with CPTUI Extended.
 * Updated: Switch to dedicated dashicon for color consistency between applied admin color schemes.
@@ -37,7 +38,7 @@ CPTUI does NOT handle display of registered post types or taxonomies in your cur
 * Updated: Further UI refinements to better match WordPress admin. Adapted styles found from metaboxes, including collapse/expand toggles.
 
 **1.3.5**
-* Removed undefined index error for publicly_queryable in "Get Code" area. That parameter is targeted for 1.4.0 release.
+* Removed undefined index error for `publicly_queryable` in "Get Code" area. That parameter is targeted for 1.4.0 release.
 
 **1.3.4**
 * Fixed: moved WDS-based services "ads" to within the plugin itself. Will not request remote resources.
@@ -61,7 +62,7 @@ CPTUI does NOT handle display of registered post types or taxonomies in your cur
 * Fixed: Logic issue for default values of `public` parameter for taxonomies added in 1.3.0.
 
 **1.3.0**
-* Added: "CPTUI_VERSION" constant and deprecated "CPT_VERSION".
+* Added: `"CPTUI_VERSION"` constant and deprecated `"CPT_VERSION"`.
 * Added: "Public" parameter for taxonomies
 * Added: "View Post Types" and "View Taxonomies" tabs at top of add/edit screens.
 * Added: Better prevention of potential duplicate slugs in new post types and taxonomies.

@@ -40,6 +40,7 @@ All official development on this plugin is on GitHub. New releases are still pub
 * Added: Display About page upon activation of plugin.
 * Added: Link below ads regarding getting them removed via purchase of CPTUI Extended.
 * Added: No need to refresh page after initial save to see post types and taxonomies in menu.
+* Added: Taxonomy support for show_in_menu and show_in_nav_menus.
 * Fixed: Further improved labels for information text on inputs.
 * Fixed: Hide "choose icon" button for non-js users.
 * Fixed: Issue with misused "parent" label key that should be parent_item_colon.
@@ -150,6 +151,7 @@ All official development on this plugin is on GitHub. New releases are still pub
 * Added: Display About page upon activation of plugin.
 * Added: Link below ads regarding getting them removed via purchase of CPTUI Extended.
 * Added: No need to refresh page after initial save to see post types and taxonomies in menu.
+* Added: Taxonomy support for show_in_menu and show_in_nav_menus.
 * Fixed: Further improved labels for information text on inputs.
 * Fixed: Hide "choose icon" button for non-js users.
 * Fixed: Issue with misused "parent" label key that should be parent_item_colon.
