@@ -646,6 +646,46 @@ function cptui_manage_taxonomies() {
 									),
 								),
 							);
+							$selected           = ( isset( $current ) ) ? disp_boolean( $current['show_in_menu'] ) : '';
+							$select['selected'] = ( ! empty( $selected ) ) ? $current['show_in_menu'] : '';
+							echo $ui->get_select_input( array(
+								'namearray'  => 'cpt_custom_tax',
+								'name'       => 'show_in_menu',
+								'labeltext'  => esc_html__( 'Show in menu', 'custom-post-type-ui' ),
+								'aftertext'  => esc_html__( '(default: value of show_ui) Whether to show the taxonomy in the admin menu.', 'custom-post-type-ui' ),
+								'selections' => $select,
+							) );
+
+							$select             = array(
+								'options' => array(
+									array( 'attr' => '0', 'text' => esc_attr__( 'False', 'custom-post-type-ui' ) ),
+									array(
+										'attr'    => '1',
+										'text'    => esc_attr__( 'True', 'custom-post-type-ui' ),
+										'default' => 'true'
+									),
+								),
+							);
+							$selected           = ( isset( $current ) && ! empty( $current['show_in_nav_menus'] ) ) ? disp_boolean( $current['show_in_nav_menus'] ) : '';
+							$select['selected'] = ( ! empty( $selected ) ) ? $current['show_in_nav_menus'] : '';
+							echo $ui->get_select_input( array(
+								'namearray'  => 'cpt_custom_tax',
+								'name'       => 'show_in_nav_menus',
+								'labeltext'  => esc_html__( 'Show in nav menus', 'custom-post-type-ui' ),
+								'aftertext'  => esc_html__( '(default: value of public) Whether to make the taxonomy available for selection in navigation menus.', 'custom-post-type-ui' ),
+								'selections' => $select,
+							) );
+
+							$select             = array(
+								'options' => array(
+									array( 'attr' => '0', 'text' => esc_attr__( 'False', 'custom-post-type-ui' ) ),
+									array(
+										'attr'    => '1',
+										'text'    => esc_attr__( 'True', 'custom-post-type-ui' ),
+										'default' => 'true'
+									),
+								),
+							);
 							$selected           = ( isset( $current ) ) ? disp_boolean( $current['query_var'] ) : '';
 							$select['selected'] = ( ! empty( $selected ) ) ? $current['query_var'] : '';
 							echo $ui->get_select_input( array(
@@ -1126,6 +1166,8 @@ function cptui_update_taxonomy( $data = array() ) {
 		'public'               => disp_boolean( $data['cpt_custom_tax']['public'] ),
 		'hierarchical'         => disp_boolean( $data['cpt_custom_tax']['hierarchical'] ),
 		'show_ui'              => disp_boolean( $data['cpt_custom_tax']['show_ui'] ),
+		'show_in_menu'         => disp_boolean( $data['cpt_custom_tax']['show_in_menu'] ),
+		'show_in_nav_menus'    => disp_boolean( $data['cpt_custom_tax']['show_in_nav_menus'] ),
 		'query_var'            => disp_boolean( $data['cpt_custom_tax']['query_var'] ),
 		'query_var_slug'       => $query_var_slug,
 		'rewrite'              => disp_boolean( $data['cpt_custom_tax']['rewrite'] ),
