@@ -1,0 +1,18 @@
+# run on container environment
+sudo: false
+
+language: php
+
+notifications:
+    on_success: change
+    on_failure: always
+
+php:
+    - 7.0
+    - 5.6
+
+install:
+    - composer install --dev
+
+script:
+    - ./vendor/bin/phpunit -v
