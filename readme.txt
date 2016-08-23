@@ -1,10 +1,10 @@
 === Custom Post Type UI ===
 Contributors: webdevstudios, tw2113, vegasgeek, modemlooper, williamsba1
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3084056
-Tags: custom post types, CPT, CMS, post, types, post type, cck, taxonomy, tax, custom
+Tags: custom post types, CPT, CMS, post, types, post type, cck, taxonomy, tax, custom, content types, post types
 Requires at least: 4.2
-Tested up to: 4.5
-Stable tag: 1.3.4
+Tested up to: 4.6
+Stable tag: 1.4.0
 License: GPLv2
 
 Admin UI for creating custom post types and custom taxonomies in WordPress
@@ -17,21 +17,42 @@ Please note that Custom Post Type UI alone will not display post types or taxono
 
 All official development on this plugin is on GitHub. New releases are still published here on WordPress.org. The version shown here should be considered the latest stable release. You can find the repo at [https://github.com/WebDevStudios/custom-post-type-ui](https://github.com/WebDevStudios/custom-post-type-ui). Please file confirmed issues, bugs, and enhancement ideas there, when possible.
 
+[Pluginize](https://pluginize.com/?utm_source=cptui&utm_medium=text&utm_campaign=wporg) was launched in 2016 by [WebDevStudios](https://webdevstudios.com/) to promote, support, and house all of their [WordPress products](https://pluginize.com/shop/?utm_source=cptui-&utm_medium=text&utm_campaign=wporg). Pluginize is not only [creating new products for WordPress all the time, like CPTUI Extended](https://pluginize.com/product/custom-post-type-ui-extended/?utm_source=cptui&utm_medium=text&utm_campaign=wporg), but also provides ongoing support and development for WordPress community favorites like [CMB2](https://wordpress.org/plugins/cmb2/) and more.
+
 == Screenshots ==
 
 1. Add new post type screen and tab.
-2. Edit post type screen and tab.
-3. Add new taxonomy screen and tab.
-4. Edit taxonomy screen and tab.
-5. Registered post types and taxonomies from CPTUI
-6. Import/Export Post Types screen.
-7. Import/Export Taxonomies screen.
-8. Get Code screen.
-9. Debug Info screen.
-10. Help/support screen.
-11. About/Update Information/Donate screen.
+2. Add new taxonomy screen and tab.
+3. Registered post types and taxonomies from CPTUI
+4. Import/Export Post Types screen.
+5. Get Code screen.
+6. Help/support screen.
 
 == Changelog ==
+
+= 1.4.0 - 2016-8-22 =
+* Added: "Export" tab on editor screens for quick access to post type or taxonomy export pages.
+* Added: CPTUI notices are now dismissable via a button on the right side.
+* Added: "Get code" link to registered post types and registered taxonomies listings.
+* Added: More amending of incorrect characters in post type and taxonomy slugs. Latin standard alphabet only. Sorry.
+* Added: New post type template stack reference from recent WordPress versions.
+* Added: Side warning notification if post type or taxonomy slug has been edited.
+* Added: Display About page upon activation of plugin.
+* Added: Link below ads regarding getting them removed via purchase of CPTUI Extended.
+* Added: No need to refresh page after initial save to see post types and taxonomies in menu.
+* Added: Taxonomy support for show_in_menu and show_in_nav_menus.
+* Fixed: Further improved labels for information text on inputs.
+* Fixed: Hide "choose icon" button for non-js users.
+* Fixed: Issue with misused "parent" label key that should be parent_item_colon.
+* Fixed: Missed show_in_menu_string parameter for "get code" area.
+* Fixed: Make sure taxonomies have required post type associated.
+* Fixed: "Edit" links in listings area now account for network-admin when needed, with CPTUI Extended.
+* Updated: Switch to dedicated dashicon for color consistency between applied admin color schemes.
+* Updated: Updated about page.
+* Updated: Further UI refinements to better match WordPress admin. Adapted styles found from metaboxes, including collapse/expand toggles.
+
+= 1.3.5 - 2016-6-3 =
+* Removed undefined index error for publicly_queryable in "Get Code" area. That parameter is targeted for 1.4.0 release.
 
 = 1.3.4 - 2016-5-4 =
 * Fixed: moved WDS-based services "ads" to within the plugin itself. Will not request remote resources.
@@ -118,102 +139,31 @@ All official development on this plugin is on GitHub. New releases are still pub
 * Fixed: Support for YARPP plugin.
 * Fixed: Prevent potential issues with AJAX requests and our scripts/styles
 
-= 1.1.3 - 2015-12-23 =
-* Bumping WordPress compatibility version only. No other changes involved.
-
-= 1.1.2 - 2015-08-11 =
-* Change export value to plural label for taxonomies.
-* Properly select a post type or taxonomy after deleting an existing value.
-* Updated screenshots
-* Added target="_blank" attribute to one of the inline help links for Menu position. Thanks @JulieKuehl
-* Fixed potential XSS issue.
-
-= 1.1.1 - 2015-06-15 =
-* Re-add post type and taxonomy select buttons and only display for non-js users.
-
-= 1.1.0 - 2015-06-12 =
-* Simplified UI with regards to clicking amount.
-* Auto selecting of first available post type or taxonomy in Edit tab.
-* Switch to post type or taxonomy upon selection within Edit tab.
-* Return of a list of CPTUI-registered post types and taxonomies.
-* Post type slug update capability.
-* Added function reference 3rd party link to support area.
-* New hooks in edit screen for custom content display on screen.
-* String updates.
-* UI field option for custom "Supports" parameters from other plugins. Example: Yet Another Related Posts Plugin.
-* Updated help/support section with another reference tool.
-* Trim extra spaces potentially left behind in text inputs.
-* Rearranged menu listing slightly to remove duplicate naming.
-* GitHub repo has GitHub Updater (https://github.com/afragen/github-updater) compatible copy of CPTUI version that is available on WordPress.org
-
-= 1.0.8 - 2015-05-01 =
-* Register taxonomies at a higher priority than post types.
-
-= 1.0.7 - 2015-04-20 =
-* Preventive measures for potential XSS security issues with add_query_arg()
-
-= 1.0.6 - 2015-04-14 =
-* Change priority of post type registration function that was causing rewrite issues for many.
-* Fix issues with help text spots not showing up for some post type fields. Props pedro-mendonca.
-* Fix logic issue with PHP's empty() function and CPTUI 0.9.x saved settings.
-
-= 1.0.5 - 2015-03-20 =
-* Explicitly set the post type and taxonomy rewrite slugs as the registered slug if no custom ones provided.
-* Prevent cptui.js from loading where it is not needed.
-* Fixed undefined index notice for post type rewrite_withfront.
-* Repopulated labels when none provided and post type or taxonomy mentioned in default label.
-* Fix for import/export get code tab and hierarchical taxonomies
-
-= 1.0.4 - 2015-03-05 =
-* Fixed incorrect boolean order for hierarchical taxonomies and default value.
-* Fixed missing closing div tags.
-* Default menu position to null instead of empty string.
-* Undefined index notice cleanup.
-* Remove unnecessary hook.
-
-= 1.0.3 - Unknown =
-* Fix logic error regarding string "0" evaluating to false when checked for not empty.
-* Fix for taxonomy with_front boolean value not evaluating correctly.
-* Fix for taxonomy hierarchical boolean value not evaluating correctly.
-* Fix for post type has_archive.
-* German translation updates. If you speak/read German, myself and the translator would LOVE to have feedback on this.
-* Internationalization string changes after feedback from German translation work.
-* Minor issue with link html being stripped from UI field explanation.
-* Better apostrophe/single quote support in label fields.
-
-= 1.0.2 - 2015-02-12 =
-* Fix issue with checked checkboxes for post type associations for taxonomies.
-* Fix "Get Code" spot related to post type associations for taxonomies.
-* Update some text strings after localization feedback.
-* Fix typos in textdomain for two spots.
-* Updating progressing translation files.
-* Fix value for with_front parameter.
-* Fix error in boolean type for map_meta_cap.
-* Fix missing use of query_var slug if present for taxonomies.
-
-= 1.0.1 - 2015-02-11 =
-* Fix issues with taxonomy transfer and registration.
-* Fix issue with taxonomy "show admin column" evaluating to true regardless of setting.
-* Prefix our "help" class to prevent conflict with other plugins that use just "help".
-* Fix issue with menu position values not being obeyed.
-* Fix hook names inside taxonomy update function.
-* Fix potentially empty parameter with taxonomies and "Get Code" output.
-* Added PHP "undefined index" notice prevention for some parameters.
-
-= 1.0.0 - 2015-02-09 =
-* CPTUI has been given a new UI!
-* Separated out post type and taxonomy creation to their own screens.
-* Added import/export ability for post type and taxonomy settings.
-* Added a Help/Support Screen.
-* Added/Updated available parameters for post types and parameters.
-* Updated i18n and translation files.
-* Added Confirmation prompts before deleting post types and taxonomies.
-* Added actions and filters for 3rd party customization.
-* Added function that automatically converts 0.8.x and down settings to new setting arrangement.
-* Changed how settings are stored so that post types and taxonomies are in named array indexes.
-* Bug fixes not mentioned above.
-
 == Upgrade Notice ==
+
+= 1.4.0 - 2016-8-22 =
+* Added: "Export" tab on editor screens for quick access to post type or taxonomy export pages.
+* Added: CPTUI notices are now dismissable via a button on the right side.
+* Added: "Get code" link to registered post types and registered taxonomies listings.
+* Added: More amending of incorrect characters in post type and taxonomy slugs. Latin standard alphabet only. Sorry.
+* Added: New post type template stack reference from recent WordPress versions.
+* Added: Side warning notification if post type or taxonomy slug has been edited.
+* Added: Display About page upon activation of plugin.
+* Added: Link below ads regarding getting them removed via purchase of CPTUI Extended.
+* Added: No need to refresh page after initial save to see post types and taxonomies in menu.
+* Added: Taxonomy support for show_in_menu and show_in_nav_menus.
+* Fixed: Further improved labels for information text on inputs.
+* Fixed: Hide "choose icon" button for non-js users.
+* Fixed: Issue with misused "parent" label key that should be parent_item_colon.
+* Fixed: Missed show_in_menu_string parameter for "get code" area.
+* Fixed: Make sure taxonomies have required post type associated.
+* Fixed: "Edit" links in listings area now account for network-admin when needed, with CPTUI Extended.
+* Updated: Switch to dedicated dashicon for color consistency between applied admin color schemes.
+* Updated: Updated about page.
+* Updated: Further UI refinements to better match WordPress admin. Adapted styles found from metaboxes, including collapse/expand toggles.
+
+= 1.3.5 - 2016-6-3 =
+* Removed undefined index error for publicly_queryable in "Get Code" area. That parameter is targeted for 1.4.0 release.
 
 = 1.3.4 - 2016-5-4 =
 * Fixed: moved WDS-based services "ads" to within the plugin itself. Will not request remote resources.
@@ -263,143 +213,6 @@ All official development on this plugin is on GitHub. New releases are still pub
 * Updated: Cleaned up admin footer area for social links.
 * Updated: Moved all localization work to WordPress.org Translation packs
 
-= 1.2.4 =
-* Added: new CPTUI_VERSION constant to match naming of other current constants.
-* Added: CPTUI_VERSION constant to cptui.css string for cache busting.
-
-= 1.2.3 =
-* Fixed: copy/paste error with admin css. Props hinaloe.
-
-= 1.2.2 =
-* Fixed: Missing admin menu icon for some browsers.
-* Fixed: Undefined index notices for post type screen.
-
-= 1.2.1 =
-* Fixed: Undefined index notices for custom taxonomies and new fields from 1.2.0
-
-= 1.2.0 =
-* Added: Support for show_in_nav_menus parameter for post types.
-* Added: Support for taxonomy descriptions.
-* Added: Message on listings page if no post types or taxonomies are available.
-* Added: Note regarding 'public' parameter not being true by default for WordPress but is for CPTUI.
-* Added: Individual post type and taxonomy output for "Get Code" area.
-* Added: Fallback values for post type/taxonomy select input and get code area if no plural label provided.
-* Added: Support for custom query_var strings for post types.
-* Added: Support for show_in_rest and rest_base for post types and taxonomies for the upcoming WordPress REST API.
-* Added: Template hierarchy files to listings tables for user reference.
-* Added: Form labels in more areas to help with accessibility and usability.
-* Added: Fieldset method to Admin UI class for easily adding fieldset output.
-* Added: Debugging tab for use with CPTUI support.
-* Updated: Minimum version required. Now WordPress 4.2.
-* Updated: Heading tags match accessibility changes in WordPress 4.3.
-* Updated: Moved page title for some pages above tabs.
-* Updated: Textdomain now matches WordPress.org repo slug.
-* Updated: Added Visual Composer questions/answers to support section.
-* Updated: Added question/answer regarding spaces in post type slugs
-* Updated: Changed help icons to a Dashicon help icon.
-* Fixed: Support for YARPP plugin.
-* Fixed: Prevent potential issues with AJAX requests and our scripts/styles
-
-= 1.1.3 =
-* Bumping WordPress compatibility version only. No other changes involved.
-
-= 1.1.2 =
-* Change export value to plural label for taxonomies.
-* Properly select a post type or taxonomy after deleting an existing value.
-* Updated screenshots
-* Added target="_blank" attribute to one of the inline help links for Menu position. Thanks @JulieKuehl
-* Fixed potential XSS issue.
-
-= 1.1.1 =
-* Re-add post type and taxonomy select buttons and only display for non-js users.
-
-= 1.1.0 =
-* Simplified UI with regards to clicking amount.
-* Auto selecting of first available post type or taxonomy in Edit tab.
-* Switch to post type or taxonomy upon selection within Edit tab.
-* Return of a list of CPTUI-registered post types and taxonomies.
-* Post type slug update capability.
-* Added function reference 3rd party link to support area.
-* New hooks in edit screen for custom content display on screen.
-* String updates.
-* UI field option for custom "Supports" parameters from other plugins. Example: Yet Another Related Posts Plugin.
-* Updated help/support section with another reference tool.
-* Trim extra spaces potentially left behind in text inputs.
-* Rearranged menu listing slightly to remove duplicate naming.
-* GitHub repo has GitHub Updater (https://github.com/afragen/github-updater) compatible copy of CPTUI version that is available on WordPress.org
-
-= 1.0.8 =
-* Register taxonomies at a higher priority than post types.
-
-= 1.0.7 =
-* Preventive measures for potential XSS security issues with add_query_arg()
-
-= 1.0.6 =
-* Change priority of post type registration function that was causing rewrite issues for many.
-* Fix issues with help text spots not showing up for some post type fields. Props pedro-mendonca.
-* Fix logic issue with PHP's empty() function and CPTUI 0.9.x saved settings.
-
-= 1.0.5 =
-* Explicitly set the post type and taxonomy rewrite slugs as the registered slug if no custom ones provided.
-* Prevent cptui.js from loading where it is not needed.
-* Fixed undefined index notice for post type rewrite_withfront.
-* Repopulated labels when none provided and post type or taxonomy mentioned in default label.
-* Fix for import/export get code tab and hierarchical taxonomies
-
-= 1.0.4 =
-* Fixed incorrect boolean order for hierarchical taxonomies and default value.
-* Fixed missing closing div tags.
-* Default menu position to null instead of empty string.
-* Undefined index notice cleanup.
-* Remove unnecessary hook.
-
-= 1.0.3 =
-* Fix logic error regarding string "0" evaluating to false when checked for not empty.
-* Fix for taxonomy with_front boolean value not evaluating correctly.
-* Fix for taxonomy hierarchical boolean value not evaluating correctly.
-* Fix for post type has_archive.
-* German translation updates. If you speak/read German, myself and the translator would LOVE to have feedback on this.
-* Internationalization string changes after feedback from German translation work.
-* Minor issue with link html being stripped from UI field explanation.
-* Better apostrophe/single quote support in label fields.
-
-= 1.0.2 =
-* PLEASE TEST THIS UPDATE ON A DEV SITE IF YOU CAN, BEFORE UPDATING ON A LIVE SITE.
-* Fix issue with checked checkboxes for post type associations for taxonomies.
-* Fix "Get Code" spot related to post type associations for taxonomies.
-* Update some text strings after localization feedback.
-* Fix typos in textdomain for two spots.
-* Updating progressing translation files.
-* Fix value for with_front parameter.
-* Fix error in boolean type for map_meta_cap.
-* Fix missing use of query_var slug if present for taxonomies.
-
-= 1.0.1 =
-* Fix issues with taxonomy transfer and registration. May need to delete new option value and re-convert afterwards.
-* Fix issue with taxonomy "show admin column" evaluating to true regardless of setting.
-* Prefix our "help" class to prevent conflict with other plugins that use just "help".
-* Fix issue with menu position values not being obeyed.
-* Fix hook names inside taxonomy update function.
-* Fix potentially empty parameter with taxonomies and "Get Code" output.
-* Added PHP "undefined index" notice prevention for some parameters.
-
-= 1.0.0 =
-
-This is a major upgrade. This includes a new UI and a settings conversion to new stored arangement. 0.8.x settings will not be deleted if for some reason you must revert to the previous version.
-
-Full list:
-* CPTUI has been given a new UI!
-* Separated out post type and taxonomy creation to their own screens.
-* Added import/export ability for post type and taxonomy settings.
-* Added a Help/Support Screen.
-* Added/Updated available parameters for post types and parameters.
-* Updated i18n and translation files.
-* Added Confirmation prompts before deleting post types and taxonomies.
-* Added actions and filters for 3rd party customization.
-* Added function that automatically converts 0.8.x and down settings to new setting arrangement.
-* Changed how settings are stored so that post types and taxonomies are in named array indexes.
-* Bug fixes not mentioned above.
-
 == Installation ==
 
 = Manual =
@@ -417,11 +230,9 @@ That's it! Now you can easily start creating custom post types and taxonomies in
 
 == Frequently Asked Questions ==
 
-Please see the Help/Support section for FAQs and start a new thread on the support forums for Custom Post Type UI if none of those answer your question.
+User documentation: http://docs.pluginize.com/collection/1-custom-post-type-ui
+Code/API documentation: http://codex.pluginize.com/cptui/
 
 == Other Notes ==
 
 Import/Export functionality amended from original contribution by [Ben Allfree](http://wordpress.org/support/profile/benallfree).
-
-= Outside contributors that we wish to thank =
-[brandondove](https://github.com/brandondove)

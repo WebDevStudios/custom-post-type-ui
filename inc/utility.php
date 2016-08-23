@@ -43,7 +43,7 @@ add_filter( 'plugin_action_links_' . plugin_basename( dirname( dirname( __FILE__
  * @return string
  */
 function cptui_menu_icon() {
-	return 'data:image/svg;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAABC9pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMDE0IDc5LjE1Njc5NywgMjAxNC8wOC8yMC0wOTo1MzowMiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wUmlnaHRzPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvcmlnaHRzLyIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIgeG1wUmlnaHRzOk1hcmtlZD0iVHJ1ZSIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo5NkE3NTc5MUJCOTIxMUU0QUVENDlFMUYwOEMyRDgwQyIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo5NkE3NTc5MEJCOTIxMUU0QUVENDlFMUYwOEMyRDgwQyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ0MgMjAxNCAoV2luZG93cykiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmRpZDo5NjMzOTU2ODgyMjhFMDExOTg5Q0MwQTFBRDAyQjVDMiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5NjMzOTU2ODgyMjhFMDExOTg5Q0MwQTFBRDAyQjVDMiIvPiA8ZGM6cmlnaHRzPiA8cmRmOkFsdD4gPHJkZjpsaSB4bWw6bGFuZz0ieC1kZWZhdWx0Ij5DcmVhdGl2ZSBDb21tb25zIEF0dHJpYnV0aW9uIE5vbi1Db21tZXJjaWFsIE5vIERlcml2YXRpdmVzPC9yZGY6bGk+IDwvcmRmOkFsdD4gPC9kYzpyaWdodHM+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+hXhu9wAAAjdJREFUeNrcWYFtwjAQBNQB0g3oBukEDRPUnYCwQRmhE8AGhgnKBh0h2YBuQDZIbclI6GXH7/c7cfrSCxEcuHv+7x3/su/7xZxttZi5/XsChfJP5Y3ynskFKwNdAw4Xym89r9UDv0dy1wd1z2/s4F0ERGbgC+WN8iuGQJFZ2tzB303ANbCIa1O4XLZTfiLeq3H8KC8frr3BRU/g/dbzpRflZ+Wd8ta8pjAbeG2VT4VGL0JE2kArXClUeCJ/GqEvuSL/aGtKJz5nAv5oUtdKYCifuwzAa+Bf8OIS7EZdW9PnCQoWBnADox+SQhjwtQcEFby2vQ18iAr5lEOadboJlkxqczcZspWgEJBgLYYEFnwDZZObgHSsHyKBBY/6N2MISEL0sODRjZNK4IAEocGuzT1lAHiJ7dxYGV0CtZEJe0JrJBMl2xQCN+YdK0rvHSYoD/WXhNHfB4DXmfBNrQGZ4KlNBuxYaxcwThUKsYYCPpZAiCT69H5NAR9LgIuEoILnIBBL4hCQOlajyGjMrhLq/WvIGVzKs9FQ/dbrP3I73A0hoY9bfnM8ncaQOHI2Q64awNZEaN6PVgOYf4It78cacEASG668HyOFUlhUClUTg69iU6hYZGpYAtuJcb5jZ2Q5nE5DL4eGLrCIG89+Zqz5QPUQ+aGhSwsJ6JHqYUZj4j0koJlecy5a0GdeVpaLu5lEX+PsVo48380A/MWmQqkn9RzPz2LoZM7WwGrTB8oJI94a9TtB5fsTYABOp6Z0XZr87gAAAABJRU5ErkJggg==';
+	return 'dashicons-forms';
 }
 
 /**
@@ -168,7 +168,7 @@ function cptui_get_current_action() {
  */
 function cptui_get_post_type_slugs() {
 	$post_types = get_option( 'cptui_post_types' );
-	if ( ! empty ( $post_types ) ) {
+	if ( ! empty( $post_types ) ) {
 		return array_keys( $post_types );
 	}
 	return array();
@@ -183,7 +183,7 @@ function cptui_get_post_type_slugs() {
  */
 function cptui_get_taxonomy_slugs() {
 	$taxonomies = get_option( 'cptui_taxonomies' );
-	if ( ! empty ( $taxonomies ) ) {
+	if ( ! empty( $taxonomies ) ) {
 		return array_keys( $taxonomies );
 	}
 	return array();
@@ -194,7 +194,7 @@ function cptui_get_taxonomy_slugs() {
  *
  * @since 1.3.0
  *
- * @param $path
+ * @param string $path URL path.
  * @return string|void
  */
 function cptui_admin_url( $path ) {
@@ -227,7 +227,7 @@ function cptui_get_post_form_action( $ui = '' ) {
  *
  * @since 1.3.0
  *
- * @param object $ui CPTUI Admin UI instance
+ * @param object $ui CPTUI Admin UI instance.
  */
 function cptui_post_form_action( $ui ) {
 	echo cptui_get_post_form_action( $ui );
@@ -260,7 +260,7 @@ function cptui_get_taxonomy_data() {
  *
  * @since 1.3.0
  *
- * @param string       $slug Post type slug to check
+ * @param string       $slug Post type slug to check.
  * @param array|string $data Post type data being utilized.
  * @return mixed|void
  */
@@ -295,7 +295,6 @@ function cptui_products_sidebar() {
 	$ads = cptui_get_ads();
 	if ( ! empty( $ads ) ) {
 		foreach ( $ads as $ad ) {
-
 			$the_ad = sprintf(
 				'<img src="%s" alt="%s">',
 				esc_attr( $ad['image'] ),
@@ -309,6 +308,11 @@ function cptui_products_sidebar() {
 				$the_ad
 			);
 		}
+		printf(
+			'<p><a href="%s">%s</a></p>',
+			'https://pluginize.com/product/custom-post-type-ui-extended/?utm_source=remove_ads&utm_medium=text&utm_campaign=cptui',
+			esc_html__( 'Remove these ads?', 'custom-post-type-ui' )
+		);
 	}
 	echo '</div>';
 
@@ -332,7 +336,7 @@ function cptui_newsletter_form() {
 			<p><strong><?php esc_html_e( 'Get email updates from pluginize.com about Custom Post Type UI', 'custom-post-type-ui' ); ?></strong></p>
 			<div class="mc-field-group">
 				<label for="mce-EMAIL"><?php esc_html_e( 'Email Address', 'custom-post-type-ui' ); ?></label>
-				<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
+				<input tabindex="-1" type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
 			</div>
 			<div id="mce-responses" class="clear">
 				<div class="response" id="mce-error-response" style="display:none"></div>
@@ -341,7 +345,7 @@ function cptui_newsletter_form() {
 			<div style="position: absolute; left: -5000px;" aria-hidden="true">
 				<input type="text" name="b_67169b098c99de702c897d63e_9cb1c7472e" tabindex="-1" value=""></div>
 			<div class="clear">
-				<input type="submit" value="<?php esc_attr_e( 'Subscribe', 'custom-post-type-ui' ); ?>" name="subscribe" id="mc-embedded-subscribe" class="button">
+				<input type="submit" value="<?php esc_attr_e( 'Subscribe', 'custom-post-type-ui' ); ?>" name="subscribe" id="mc-embedded-subscribe" class="button" tabindex="-1">
 			</div>
 		</div>
 	</form>
@@ -414,3 +418,220 @@ function cptui_default_ads( $ads = array() ) {
 	return $ads;
 }
 add_filter( 'cptui_ads', 'cptui_default_ads' );
+
+/**
+ * Secondary admin notices function for use with admin_notices hook.
+ *
+ * Constructs admin notice HTML.
+ *
+ * @since 1.4.0
+ *
+ * @param string $message Message to use in admin notice.
+ * @param bool   $success Whether or not a success.
+ *
+ * @return mixed|void
+ */
+function cptui_admin_notices_helper( $message = '', $success = true ) {
+
+	$class       = array();
+	$class[]     = ( $success ) ? 'updated' : 'error';
+	$class[]     = 'notice is-dismissible';
+
+	$messagewrapstart = '<div id="message" class="' . implode( ' ', $class ) . '"><p>';
+
+	$messagewrapend = '</p></div>';
+
+	$action = '';
+
+	/**
+	 * Filters the custom admin notice for CPTUI.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param string $value            Complete HTML output for notice.
+	 * @param string $action           Action whose message is being generated.
+	 * @param string $message          The message to be displayed.
+	 * @param string $messagewrapstart Beginning wrap HTML.
+	 * @param string $messagewrapend   Ending wrap HTML.
+	 */
+	return apply_filters( 'cptui_admin_notice', $messagewrapstart . $message . $messagewrapend, $action, $message, $messagewrapstart, $messagewrapend );
+}
+
+/**
+ * Grab post type or taxonomy slug from $_POST global, if available.
+ *
+ * @since 1.4.0
+ *
+ * @internal
+ *
+ * @return string
+ */
+function cptui_get_object_from_post_global() {
+	if ( isset( $_POST['cpt_custom_post_type']['name'] ) ) {
+		return sanitize_text_field( $_POST['cpt_custom_post_type']['name'] );
+	}
+
+	if ( isset( $_POST['cpt_custom_tax']['name'] ) ) {
+		return sanitize_text_field( $_POST['cpt_custom_tax']['name'] );
+	}
+
+	return esc_html__( 'Object', 'custom-post-type-ui' );
+}
+
+/**
+ * Successful add callback.
+ *
+ * @since 1.4.0
+ */
+function cptui_add_success_admin_notice() {
+	echo cptui_admin_notices_helper(
+		sprintf(
+			esc_html__( '%s has been successfully added', 'custom-post-type-ui' ),
+			cptui_get_object_from_post_global()
+		),
+		true
+	);
+}
+
+/**
+ * Fail to add callback.
+ *
+ * @since 1.4.0
+ */
+function cptui_add_fail_admin_notice() {
+	echo cptui_admin_notices_helper(
+		sprintf(
+			esc_html__( '%s has failed to be added', 'custom-post-type-ui' ),
+			cptui_get_object_from_post_global()
+		),
+		false
+	);
+}
+
+/**
+ * Successful update callback.
+ *
+ * @since 1.4.0
+ */
+function cptui_update_success_admin_notice() {
+	echo cptui_admin_notices_helper(
+		sprintf(
+			esc_html__( '%s has been successfully updated', 'custom-post-type-ui' ),
+			cptui_get_object_from_post_global()
+		),
+		true
+	);
+}
+
+/**
+ * Fail to update callback.
+ *
+ * @since 1.4.0
+ */
+function cptui_update_fail_admin_notice() {
+	echo cptui_admin_notices_helper(
+		sprintf(
+			esc_html__( '%s has failed to be updated', 'custom-post-type-ui' ),
+			cptui_get_object_from_post_global()
+		),
+		false
+	);
+}
+
+/**
+ * Successful delete callback.
+ *
+ * @since 1.4.0
+ */
+function cptui_delete_success_admin_notice() {
+	echo cptui_admin_notices_helper(
+		sprintf(
+			esc_html__( '%s has been successfully deleted', 'custom-post-type-ui' ),
+			cptui_get_object_from_post_global()
+		),
+		true
+	);
+}
+
+/**
+ * Fail to delete callback.
+ *
+ * @since 1.4.0
+ */
+function cptui_delete_fail_admin_notice() {
+	echo cptui_admin_notices_helper(
+		sprintf(
+			esc_html__( '%s has failed to be deleted', 'custom-post-type-ui' ),
+			cptui_get_object_from_post_global()
+		),
+		false
+	);
+}
+
+/**
+ * Returns error message for if trying to register existing post type.
+ *
+ * @since 1.4.0
+ *
+ * @return string
+ */
+function cptui_slug_matches_post_type() {
+	return sprintf(
+		esc_html__( 'Please choose a different post type name. %s is already registered.', 'custom-post-type-ui' ),
+		cptui_get_object_from_post_global()
+	);
+}
+
+/**
+ * Returns error message for if trying to register existing taxonomy.
+ *
+ * @since 1.4.0
+ *
+ * @return string
+ */
+function cptui_slug_matches_taxonomy() {
+	return sprintf(
+		esc_html__( 'Please choose a different taxonomy name. %s is already registered.', 'custom-post-type-ui' ),
+		cptui_get_object_from_post_global()
+	);
+}
+
+/**
+ * Returns error message for if trying to register post type with matching page slug.
+ *
+ * @since 1.4.0
+ *
+ * @return string
+ */
+function cptui_slug_matches_page() {
+	return sprintf(
+		esc_html__( 'Please choose a different post type name. %s matches an existing page slug, which can cause conflicts.', 'custom-post-type-ui' ),
+		cptui_get_object_from_post_global()
+	);
+}
+
+/**
+ * Returns error message for if trying to use quotes in slugs or rewrite slugs.
+ *
+ * @since 1.4.0
+ *
+ * @return string
+ */
+function cptui_slug_has_quotes() {
+	return sprintf(
+		esc_html__( 'Please do not use quotes in post type/taxonomy names or rewrite slugs', 'custom-post-type-ui' ),
+		cptui_get_object_from_post_global()
+	);
+}
+
+/**
+ * Error admin notice.
+ *
+ * @since 1.4.0
+ */
+function cptui_error_admin_notice() {
+	echo cptui_admin_notices_helper(
+		apply_filters( 'cptui_custom_error_message', '' ),
+		false
+	);
+}

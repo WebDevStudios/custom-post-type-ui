@@ -16,6 +16,30 @@ CPTUI does NOT handle display of registered post types or taxonomies in your cur
 
 ## Changelog
 
+**1.4.0**
+* Added: "Export" tab on editor screens for quick access to post type or taxonomy export pages.
+* Added: CPTUI notices are now dismissable via a button on the right side.
+* Added: "Get code" link to registered post types and registered taxonomies listings.
+* Added: More amending of incorrect characters in post type and taxonomy slugs. Latin standard alphabet only. Sorry.
+* Added: New post type template stack reference from recent WordPress versions.
+* Added: Side warning notification if post type or taxonomy slug has been edited.
+* Added: Display About page upon activation of plugin.
+* Added: Link below ads regarding getting them removed via purchase of CPTUI Extended.
+* Added: No need to refresh page after initial save to see post types and taxonomies in menu.
+* Added: Taxonomy support for `show_in_menu` and `show_in_nav_menus`.
+* Fixed: Further improved labels for information text on inputs.
+* Fixed: Hide "choose icon" button for non-js users.
+* Fixed: Issue with misused "parent" label key that should be `parent_item_colon`.
+* Fixed: Missed `show_in_menu_string` parameter for "get code" area.
+* Fixed: Make sure taxonomies have required post type associated.
+* Fixed: "Edit" links in listings area now account for network-admin when needed, with CPTUI Extended.
+* Updated: Switch to dedicated dashicon for color consistency between applied admin color schemes.
+* Updated: Updated about page.
+* Updated: Further UI refinements to better match WordPress admin. Adapted styles found from metaboxes, including collapse/expand toggles.
+
+**1.3.5**
+* Removed undefined index error for `publicly_queryable` in "Get Code" area. That parameter is targeted for 1.4.0 release.
+
 **1.3.4**
 * Fixed: moved WDS-based services "ads" to within the plugin itself. Will not request remote resources.
 * Fixed: Better output formatting if WDS/Pluginize "ads" failed to load images.
@@ -38,8 +62,7 @@ CPTUI does NOT handle display of registered post types or taxonomies in your cur
 * Fixed: Logic issue for default values of `public` parameter for taxonomies added in 1.3.0.
 
 **1.3.0**
-
-* Added: "CPTUI_VERSION" constant and deprecated "CPT_VERSION".
+* Added: `"CPTUI_VERSION"` constant and deprecated `"CPT_VERSION"`.
 * Added: "Public" parameter for taxonomies
 * Added: "View Post Types" and "View Taxonomies" tabs at top of add/edit screens.
 * Added: Better prevention of potential duplicate slugs in new post types and taxonomies.
@@ -66,30 +89,24 @@ CPTUI does NOT handle display of registered post types or taxonomies in your cur
 * Updated: Moved all localization work to WordPress.org Translation packs
 
 **1.2.4**
-
 * Added: new CPTUI_VERSION constant to match naming of other current constants.
 * Added: CPTUI_VERSION constant to cptui.css string for cache busting.
 
 **1.2.4**
-
 * Added: new `CPTUI_VERSION` constant to match naming of other current constants.
 * Added: `CPTUI_VERSION` constant to cptui.css string for cache busting.
 
 **1.2.3**
-
 * Fixed: copy/paste error with admin css. Props hinaloe.
 
 **1.2.2**
-
 * Fixed: Missing admin menu icon for some browsers.
 * Fixed: Undefined index notices for post type screen.
 
 **1.2.1**
-
 * Fixed: Undefined index notices for custom taxonomies and new fields from 1.2.0
 
 **1.2.0**
-
 * Added: Support for show_in_nav_menus parameter for post types.
 * Added: Support for taxonomy descriptions.
 * Added: Message on listings page if no post types or taxonomies are available.
@@ -113,11 +130,9 @@ CPTUI does NOT handle display of registered post types or taxonomies in your cur
 * Fixed: Prevent potential issues with AJAX requests and our scripts/styles
 
 **1.1.3**
-
 * Bumping WordPress compatibility version only. No other changes involved.
 
 **1.1.2**
-
 * Change export value to plural label for taxonomies.
 * Properly select a post type or taxonomy after deleting an existing value.
 * Updated screenshots
@@ -125,11 +140,9 @@ CPTUI does NOT handle display of registered post types or taxonomies in your cur
 * Fixed potential XSS issue.
 
 **1.1.1**
-
 * Re-add post type and taxonomy select buttons and only display for non-js users.
 
 **1.1.0**
-
 * Simplified UI with regards to clicking amount.
 * Auto selecting of first available post type or taxonomy in Edit tab.
 * Switch to post type or taxonomy upon selection within Edit tab.
@@ -145,21 +158,17 @@ CPTUI does NOT handle display of registered post types or taxonomies in your cur
 * GitHub repo has GitHub Updater (https://github.com/afragen/github-updater) compatible copy of CPTUI version that is available on WordPress.org
 
 **1.0.8**
-
 * Register taxonomies at a higher priority than post types.
 
 **1.0.7**
-
 * Preventive measures for potential XSS security issues with add_query_arg()
 
 **1.0.6**
-
 * Change priority of post type registration function that was causing rewrite issues for many.
 * Fix issues with help text spots not showing up for some post type fields. Props pedro-mendonca.
 * Fix logic issue with PHP's empty() function and CPTUI 0.9.x saved settings.
 
 **1.0.5**
-
 * Explicitly set the post type and taxonomy rewrite slugs as the registered slug if no custom ones provided.
 * Prevent cptui.js from loading where it is not needed.
 * Fixed undefined index notice for post type rewrite_withfront.
@@ -167,7 +176,6 @@ CPTUI does NOT handle display of registered post types or taxonomies in your cur
 * Fix for import/export get code tab and hierarchical taxonomies
 
 **1.0.4**
-
 * Fixed incorrect boolean order for hierarchical taxonomies and default value.
 * Fixed missing closing div tags.
 * Default menu position to null instead of empty string.
@@ -175,7 +183,6 @@ CPTUI does NOT handle display of registered post types or taxonomies in your cur
 * Remove unnecessary hook.
 
 **1.0.3**
-
 * Fix logic error regarding string "0" evaluating to false when checked for not empty.
 * Fix for taxonomy with_front boolean value not evaluating correctly.
 * Fix for taxonomy hierarchical boolean value not evaluating correctly.
@@ -186,7 +193,6 @@ CPTUI does NOT handle display of registered post types or taxonomies in your cur
 * Better apostrophe/single quote support in label fields.
 
 **1.0.2**
-
 * Fix issue with checked checkboxes for post type associations for taxonomies.
 * Fix "Get Code" spot related to post type associations for taxonomies.
 * Update some text strings after localization feedback.
@@ -197,7 +203,6 @@ CPTUI does NOT handle display of registered post types or taxonomies in your cur
 * Fix missing use of query_var slug if present for taxonomies.
 
 **1.0.1**
-
 * Fix issues with taxonomy transfer and registration.
 * Fix issue with taxonomy "show admin column" evaluating to true regardless of setting.
 * Prefix our "help" class to prevent conflict with other plugins that use just "help".
@@ -207,7 +212,6 @@ CPTUI does NOT handle display of registered post types or taxonomies in your cur
 * Added PHP "undefined index" notice prevention for some parameters.
 
 **1.0.0**
-
 * CPTUI has been given a new UI!
 * Separated out post type and taxonomy creation to their own screens.
 * Added import/export ability for post type and taxonomy settings.

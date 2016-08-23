@@ -42,13 +42,8 @@ class CPTUI_Debug_Info {
 
 		global $wpdb;
 
-		if ( get_bloginfo( 'version' ) < '3.4' ) {
-			$theme_data = get_theme_data( get_stylesheet_directory() . '/style.css' );
-			$theme = $theme_data['Name'] . ' ' . $theme_data['Version'];
-		} else {
-			$theme_data = wp_get_theme();
-			$theme = $theme_data->Name . ' ' . $theme_data->Version;
-		}
+		$theme_data = wp_get_theme();
+		$theme = $theme_data->Name . ' ' . $theme_data->Version;
 
 		ob_start();
 		?>
@@ -76,13 +71,13 @@ class CPTUI_Debug_Info {
 		Page For Posts:           <?php $id = get_option( 'page_for_posts' );
 		echo get_the_title( $id ) . ' (#' . $id . ')' . "\n" ?>
 
-		WordPress Memory Limit:   <?php echo ( $this->num_convt( WP_MEMORY_LIMIT ) / ( 1024 ) ) . "MB"; ?><?php echo "\n"; ?>
+		WordPress Memory Limit:   <?php echo ( $this->num_convt( WP_MEMORY_LIMIT ) / ( 1024 ) ) . 'MB'; ?><?php echo "\n"; ?>
 
 		<?php
 		$plugins  = get_plugins();
 		$pg_count = count( $plugins );
 		echo 'TOTAL PLUGINS: ' . $pg_count . "\n\n";
-		// MU plugins
+		// MU plugins.
 		$mu_plugins = get_mu_plugins();
 
 		if ( $mu_plugins ) :
@@ -93,7 +88,7 @@ class CPTUI_Debug_Info {
 				echo "\t\t" . $mu_plugin['Name'] . ': ' . $mu_plugin['Version'] . "\n";
 			}
 		endif;
-		// standard plugins - active
+		// Standard plugins - active.
 		echo "\n";
 
 		$active   = get_option( 'active_plugins', array() );
@@ -110,7 +105,7 @@ class CPTUI_Debug_Info {
 
 			echo "\t\t" . $plugin['Name'] . ': ' . $plugin['Version'] . "\n";
 		}
-		// standard plugins - inactive
+		// Standard plugins - inactive.
 		echo "\n";
 		echo "\t\t" , 'INACTIVE PLUGINS: (' . $ic_count . ')' . "\n\n";
 
@@ -123,7 +118,7 @@ class CPTUI_Debug_Info {
 			echo "\t\t" . $plugin['Name'] . ': ' . $plugin['Version'] . "\n";
 		}
 
-		// if multisite, grab network as well
+		// If multisite, grab network as well.
 		if ( is_multisite() ) :
 
 			$net_plugins = wp_get_active_network_plugins();
@@ -184,7 +179,7 @@ class CPTUI_Debug_Info {
 	 * @since 1.2.0
 	 * @access public
 	 *
-	 * @param mixed $v
+	 * @param mixed $v Value.
 	 * @return int
 	 */
 	public function num_convt( $v ) {
@@ -192,11 +187,11 @@ class CPTUI_Debug_Info {
 		$ret = substr( $v, 0, - 1 );
 
 		switch ( strtoupper( $l ) ) {
-			case 'P': // fall-through
-			case 'T': // fall-through
-			case 'G': // fall-through
-			case 'M': // fall-through
-			case 'K': // fall-through
+			case 'P': // Fall-through.
+			case 'T': // Fall-through.
+			case 'G': // Fall-through.
+			case 'M': // Fall-through.
+			case 'K': // Fall-through.
 				$ret *= 1024;
 				break;
 			default:
@@ -238,7 +233,7 @@ class CPTUI_Debug_Info {
 			home_url( '/' )
 		) );
 
-		wp_mail( $args['email'], $subject, $message );
+		$result = wp_mail( $args['email'], $subject, $message );
 
 		/**
 		 * Fires after the debug email has been sent.
@@ -246,5 +241,7 @@ class CPTUI_Debug_Info {
 		 * @since 1.3.0
 		 */
 		do_action( 'cptui_after_debug_email_sent' );
+
+		return $result;
 	}
 }

@@ -10,6 +10,8 @@
 
 /**
  * Custom Post Type UI Admin UI
+ *
+ * @since 1.0.0
  */
 class cptui_admin_ui {
 
@@ -100,7 +102,7 @@ class cptui_admin_ui {
 			$fieldset .= ' ' . $classes;
 		}
 
-		if ( !empty( $args['aria-expanded'] ) ) {
+		if ( ! empty( $args['aria-expanded'] ) ) {
 			$fieldset .= ' aria-expanded="' . $args['aria-expanded'] . '"';
 		}
 
@@ -371,9 +373,6 @@ class cptui_admin_ui {
 			$value .= $this->get_th_start();
 			$value .= $this->get_label( $args['name'], $args['labeltext'] );
 			if ( $args['required'] ) { $value .= $this->get_required_span(); }
-			/*if ( !$args['helptext_after'] ) {
-				$value .= $this->get_help( $args['helptext'] );
-			}*/
 			$value .= $this->get_th_end();
 			$value .= $this->get_td_start();
 		}
@@ -498,9 +497,6 @@ class cptui_admin_ui {
 			$value .= '<input type="checkbox" id="' . $args['name'] . '" name="' . $args['namearray'] . '[]" value="' . $args['checkvalue'] . '" checked="checked" />';
 		}
 		$value .= $this->get_label( $args['name'], $args['labeltext'] );
-		if ( ! empty( $args['helptext'] ) ) {
-			$value .= $this->get_help( $args['helptext'] );
-		}
 		$value .= '<br/>';
 
 		if ( $args['wrap'] ) {
