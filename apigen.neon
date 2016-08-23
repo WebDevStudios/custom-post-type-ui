@@ -15,6 +15,7 @@ exclude:
     - apigen/
     - languages/
     - node_modules/
+    - vendor/
 
 # character set of source files; if you use only one across your files, we recommend you name it
 charset: [UTF-8]

@@ -1,0 +1,22 @@
+{
+	"name": "johnbillion/php-docs-standards",
+	"description": "PHPUnit tests for documentation standards of PHP functions and methods.",
+	"license"    : "GPL-2.0+",
+	"authors"    : [
+		{
+			"name"    : "John Blackbourn",
+			"homepage": "https://johnblackbourn.com/"
+		}
+	],
+	"require": {
+		"phpdocumentor/reflection-docblock": "~2.0"
+	},
+	"require-dev" : {
+		"phpunit/phpunit": ">=3.7"
+	},
+	"autoload": {
+		"psr-4": {
+			"Johnbillion\\DocsStandards\\": "src/"
+		}
+	}
+}
