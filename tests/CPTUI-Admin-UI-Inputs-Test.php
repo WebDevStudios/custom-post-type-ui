@@ -35,7 +35,7 @@ class CPTUI_Admin_UI_Inputs_Test extends CPTUI_Base_Tests {
 	 * Tests our fieldset method opener.
 	 */
 	public function test_CPTUI_Fieldset_Start() {
-		$expected = '<fieldset>';
+		$expected = '<fieldset tabindex="0">';
 
 		$this->assertEquals( $expected, $this->ui->get_fieldset_start() );
 	}
@@ -71,9 +71,9 @@ class CPTUI_Admin_UI_Inputs_Test extends CPTUI_Base_Tests {
 	 * Tests our required field method.
 	 */
 	public function test_CPTUI_Required() {
-		$expected = '<span class="required">*</span>';
+		$expected = ' <span class="required">*</span>';
 
-		$this->assertEquals( $expected, $this->ui->get_required() );
+		$this->assertEquals( $expected, $this->ui->get_required_span() );
 	}
 
 	/**
@@ -116,10 +116,10 @@ class CPTUI_Admin_UI_Inputs_Test extends CPTUI_Base_Tests {
 		$expected = '<tr valign="top">
 			<th scope="row">
 				<label for="name">Description</label>
-				<a href="#" class="cptui-help dashicons-before dashicons-editor-help" title="Helper text."></a>
 			</th>
 			<td>
-				<textarea id="name" name="name_array[name]" rows="4" cols="40">saved value</textarea>
+				<textarea id="name" name="name_array[name]" rows="4" cols="40">saved value</textarea><br/>
+				<span class="cptui-field-description">Helper text.</span>
 			</td>
 		</tr>';
 
@@ -144,10 +144,10 @@ class CPTUI_Admin_UI_Inputs_Test extends CPTUI_Base_Tests {
 		$expected = '<tr valign="top">
 			<th scope="row">
 				<label for="name">Description</label>
-				<a href="#" class="cptui-help dashicons-before dashicons-editor-help" title="Helper text."></a>
 			</th>
 			<td>
 				<input type="text" id="name" name="name_array[name]" value="saved value" aria-required="false" /><br/>
+				<span class="cptui-field-description">Helper text.</span>
 			</td>
 		</tr>';
 
@@ -198,7 +198,7 @@ class CPTUI_Admin_UI_Inputs_Test extends CPTUI_Base_Tests {
 					<option value="0">False</option>
 					<option value="1" selected="selected">True</option>
 				</select>
-				(default: True)
+				<span class="cptui-field-description">(default: True)</span>
 			</td>
 		</tr>';
 
@@ -240,7 +240,7 @@ class CPTUI_Admin_UI_Inputs_Test extends CPTUI_Base_Tests {
 					<option value="0">False</option>
 					<option value="1" selected="selected">True</option>
 				</select>
-				(default: True)
+				<span class="cptui-field-description">(default: True)</span>
 			</td>
 		</tr>';
 
@@ -281,7 +281,7 @@ class CPTUI_Admin_UI_Inputs_Test extends CPTUI_Base_Tests {
 					<option value="0">False</option>
 					<option value="1" selected="selected">True</option>
 				</select>
-				(default: True)
+				<span class="cptui-field-description">(default: True)</span>
 			</td>
 		</tr>';
 
@@ -322,7 +322,7 @@ class CPTUI_Admin_UI_Inputs_Test extends CPTUI_Base_Tests {
 					<option value="0" selected="selected">False</option>
 					<option value="1">True</option>
 				</select>
-				(default: True)
+				<span class="cptui-field-description">(default: True)</span>
 			</td>
 		</tr>';
 

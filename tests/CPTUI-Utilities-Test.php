@@ -90,7 +90,7 @@ class CPTUI_Utility extends CPTUI_Base_Tests {
 		$this->assertEquals( 'Search Movies', $movie->labels->search_items );
 		$this->assertEquals( 'No Movies Found', $movie->labels->not_found );
 		$this->assertEquals( 'No Movies found in trash', $movie->labels->not_found_in_trash );
-		$this->assertEquals( 'Parent Movie', $movie->labels->parent );
+		$this->assertEquals( 'Parent Movie', $movie->labels->parent_item_colon );
 	}
 
 	/**
