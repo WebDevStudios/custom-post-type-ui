@@ -539,8 +539,14 @@ function cptui_register_single_taxonomy( $taxonomy = array() ) {
 	$show_admin_column = ( ! empty( $taxonomy['show_admin_column'] ) && false !== get_disp_boolean( $taxonomy['show_admin_column'] ) ) ? true : false;
 
 	$show_in_menu = ( ! empty( $taxonomy['show_in_menu'] ) && false !== get_disp_boolean( $taxonomy['show_in_menu'] ) ) ? true : false;
+	if ( empty( $taxonomy['show_in_menu'] ) ) {
+		$show_in_menu = get_disp_boolean( $taxonomy['show_ui'] );
+	}
 
 	$show_in_nav_menus = ( ! empty( $taxonomy['show_in_nav_menus'] ) && false !== get_disp_boolean( $taxonomy['show_in_nav_menus'] ) ) ? true : false;
+	if ( empty( $taxonomy['show_in_nav_menus'] ) ) {
+		$show_in_nav_menus = $public;
+	}
 
 	$show_in_rest = ( ! empty( $taxonomy['show_in_rest'] ) && false !== get_disp_boolean( $taxonomy['show_in_rest'] ) ) ? true : false;
 
