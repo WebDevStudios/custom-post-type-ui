@@ -30,8 +30,9 @@ All official development on this plugin is on GitHub. New releases are still pub
 
 == Changelog ==
 
-= 1.4.1 - TBD =
-* Fix issue with default values for new parameters regarding menu/nav menu display for taxonomies.
+= 1.4.1 - 2016-8-25 =
+* Fixed: issue with default values for new parameters regarding menu/nav menu display for taxonomies.
+* Fixed: typo in support area.
 
 = 1.4.0 - 2016-8-22 =
 * Added: "Export" tab on editor screens for quick access to post type or taxonomy export pages.
@@ -144,8 +145,9 @@ All official development on this plugin is on GitHub. New releases are still pub
 
 == Upgrade Notice ==
 
-= 1.4.1 - TBD =
-* Fix issue with default values for new parameters regarding menu/nav menu display for taxonomies.
+= 1.4.1 - 2016-8-25 =
+* Fixed: issue with default values for new parameters regarding menu/nav menu display for taxonomies.
+* Fixed: typo in support area.
 
 = 1.4.0 - 2016-8-22 =
 * Added: "Export" tab on editor screens for quick access to post type or taxonomy export pages.

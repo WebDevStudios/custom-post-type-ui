@@ -16,8 +16,9 @@ CPTUI does NOT handle display of registered post types or taxonomies in your cur
 
 ## Changelog
 
-**1.4.1 - TBD**
-* Fix issue with default values for new parameters regarding menu/nav menu display for taxonomies.
+**1.4.1**
+* Fixed: issue with default values for new parameters regarding menu/nav menu display for taxonomies.
+* Fixed: typo in support area.
 
 **1.4.0**
 * Added: "Export" tab on editor screens for quick access to post type or taxonomy export pages.
