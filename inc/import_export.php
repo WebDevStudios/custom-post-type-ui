@@ -215,6 +215,16 @@ function cptui_get_single_taxonomy_registery( $taxonomy = array() ) {
 	$public = ( isset( $taxonomy['public'] ) ) ? disp_boolean( $taxonomy['public'] ) : 'true';
 	$show_in_quick_edit = ( isset( $taxonomy['show_in_quick_edit'] ) ) ? disp_boolean( $taxonomy['show_in_quick_edit'] ) : disp_boolean( $taxonomy['show_ui'] );
 
+	$show_in_menu = ( ! empty( $taxonomy['show_in_menu'] ) && false !== get_disp_boolean( $taxonomy['show_in_menu'] ) ) ? 'true' : 'false';
+	if ( empty( $taxonomy['show_in_menu'] ) ) {
+		$show_in_menu = disp_boolean( $taxonomy['show_ui'] );
+	}
+
+	$show_in_nav_menus = ( ! empty( $taxonomy['show_in_nav_menus'] ) && false !== get_disp_boolean( $taxonomy['show_in_nav_menus'] ) ) ? 'true' : 'false';
+	if ( empty( $taxonomy['show_in_nav_menus'] ) ) {
+		$show_in_nav_menus = $public;
+	}
+
 	$my_theme = wp_get_theme();
 	$textdomain = $my_theme->get( 'TextDomain' );
 	?>
@@ -235,8 +245,8 @@ function cptui_get_single_taxonomy_registery( $taxonomy = array() ) {
 		"hierarchical" => <?php echo $taxonomy['hierarchical']; ?>,
 		"label" => "<?php echo $taxonomy['label']; ?>",
 		"show_ui" => <?php echo disp_boolean( $taxonomy['show_ui'] ); ?>,
-		"show_in_menu" => <?php echo disp_boolean( $taxonomy['show_in_menu'] ); ?>,
-		"show_in_nav_menus" => <?php echo disp_boolean( $taxonomy['show_in_nav_menus'] ); ?>,
+		"show_in_menu" => <?php echo $show_in_menu; ?>,
+		"show_in_nav_menus" => <?php echo $show_in_nav_menus; ?>,
 		"query_var" => <?php echo disp_boolean( $taxonomy['query_var'] );?>,
 		"rewrite" => <?php echo $rewrite; ?>,
 		"show_admin_column" => <?php echo $taxonomy['show_admin_column']; ?>,
