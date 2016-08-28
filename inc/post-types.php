@@ -1592,7 +1592,7 @@ function cptui_check_page_slugs( $post_type_slug = '' ) {
 }
 
 /**
- * Handle the save and deletion of taxonomy data.
+ * Handle the save and deletion of post type data.
  *
  * @since 1.4.0
  */

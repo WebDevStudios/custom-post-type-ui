@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: custom post types, CPT, CMS, post, types, post type, cck, taxonomy, tax, custom, content types, post types
 Requires at least: 4.2
 Tested up to: 4.6
-Stable tag: 1.3.5
+Stable tag: 1.4.1
 License: GPLv2
 
 Admin UI for creating custom post types and custom taxonomies in WordPress
@@ -30,7 +30,11 @@ All official development on this plugin is on GitHub. New releases are still pub
 
 == Changelog ==
 
-= 1.4.0 - TBD =
+= 1.4.1 - 2016-8-25 =
+* Fixed: issue with default values for new parameters regarding menu/nav menu display for taxonomies.
+* Fixed: typo in support area.
+
+= 1.4.0 - 2016-8-22 =
 * Added: "Export" tab on editor screens for quick access to post type or taxonomy export pages.
 * Added: CPTUI notices are now dismissable via a button on the right side.
 * Added: "Get code" link to registered post types and registered taxonomies listings.
@@ -141,7 +145,11 @@ All official development on this plugin is on GitHub. New releases are still pub
 
 == Upgrade Notice ==
 
-= 1.4.0 - TBD =
+= 1.4.1 - 2016-8-25 =
+* Fixed: issue with default values for new parameters regarding menu/nav menu display for taxonomies.
+* Fixed: typo in support area.
+
+= 1.4.0 - 2016-8-22 =
 * Added: "Export" tab on editor screens for quick access to post type or taxonomy export pages.
 * Added: CPTUI notices are now dismissable via a button on the right side.
 * Added: "Get code" link to registered post types and registered taxonomies listings.
