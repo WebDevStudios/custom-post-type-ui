@@ -128,7 +128,7 @@ function cptui_flush_rewrite_rules() {
 	}
 
 	/*
-	 * Wise men say that you should not do flush_rewrite_rules on init or admin_int. Due to the nature of our plugin
+	 * Wise men say that you should not do flush_rewrite_rules on init or admin_init. Due to the nature of our plugin
 	 * and how new post types or taxonomies can suddenly be introduced, we need to...potentially. For this,
 	 * we rely on a short lived transient. Only 5 minutes life span. If it exists, we do a soft flush before
 	 * deleting the transient to prevent subsequent flushes. The only times the transient gets created, is if
