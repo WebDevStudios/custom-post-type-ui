@@ -206,7 +206,7 @@ class CPTUI_Debug_Info {
 	 *
 	 * @since 1.2.0
 	 *
-	 * @param array $args Array of arguments for the method.
+	 * @param array $args Array of arguments for the method. Optional.
 	 * @return bool
 	 */
 	public function send_email( $args = array() ) {
