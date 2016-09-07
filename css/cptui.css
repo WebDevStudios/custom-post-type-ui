@@ -7,7 +7,7 @@
 }
 
 .posttypesui .postbox-container, .taxonomiesui .postbox-container {
-  width: 100%;
+  width: 99%; 
 }
 
 .posttypesui .postbox .toggle-indicator:before, .taxonomiesui .postbox .toggle-indicator:before {
