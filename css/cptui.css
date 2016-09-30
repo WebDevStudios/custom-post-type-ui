@@ -205,6 +205,12 @@
   margin-bottom: 1em !important;
 }
 
+.about-wrap .cptui-badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
 .js #cptui_select_post_type input[type='submit'],
 .js #cptui_select_taxonomy input[type='submit'] {
   display: none;
@@ -358,4 +364,18 @@ fieldset .cptui-help {
 
 #poststuff {
   min-width: 463px;
+}
+
+@media screen and (min-width: 768px) {
+  .cptui-badge {
+    padding-top: 142px;
+    height: 50px;
+    width: 173px;
+    color: #fafafa;
+    font-weight: bold;
+    font-size: 14px;
+    text-align: center;
+    margin: 0 -5px;
+    background: url(../images/cptui-icon-256x256.png) no-repeat;
+  }
 }

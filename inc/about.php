@@ -46,6 +46,7 @@ function cptui_settings() {
 		<div class="about-text cptui-about-text">
 			<?php esc_html_e( 'Thank you for choosing Custom Post Type UI! We hope that your experience with our plugin makes creating post types and taxonomies and organizing your content quick and easy.', 'custom-post-type-ui' ); ?>
 		</div>
+		<div class="cptui-badge"></div>
 
 		<?php
 		/**
