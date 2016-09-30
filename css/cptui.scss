@@ -2,7 +2,7 @@
 	.cptui-section:first-child {
 		margin-top: 30px;
 	}
-	width: 75%;
+	width: calc(100% - 300px);
 	.postbox-container {
 	  width: 100%;
 	}
@@ -343,4 +343,7 @@
 			width: 20%;
 		}
 	}
+}
+#poststuff {
+	min-width: 463px;
 }
