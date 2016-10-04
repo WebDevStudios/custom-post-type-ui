@@ -1,5 +1,5 @@
 .posttypesui, .taxonomiesui {
-  width: 75%;
+  width: calc(100% - 300px);
 }
 
 .posttypesui .cptui-section:first-child, .taxonomiesui .cptui-section:first-child {
@@ -316,7 +316,8 @@ fieldset .cptui-help {
   -ms-flex: 0 1 auto;
   flex: 0 1 auto;
   -ms-flex-item-align: auto;
-  align-self: auto;
+  -ms-grid-row-align: auto;
+      align-self: auto;
 }
 
 .wdspromos-about a:nth-child(2) {
@@ -325,7 +326,8 @@ fieldset .cptui-help {
   -ms-flex: 0 1 auto;
   flex: 0 1 auto;
   -ms-flex-item-align: auto;
-  align-self: auto;
+  -ms-grid-row-align: auto;
+      align-self: auto;
 }
 
 .wdspromos-about a:nth-child(3) {
@@ -334,7 +336,8 @@ fieldset .cptui-help {
   -ms-flex: 0 1 auto;
   flex: 0 1 auto;
   -ms-flex-item-align: auto;
-  align-self: auto;
+  -ms-grid-row-align: auto;
+      align-self: auto;
 }
 
 .no-js #cptui_choose_icon {
@@ -351,4 +354,8 @@ fieldset .cptui-help {
 
 .cptui-listings .taxonomy-listing th {
   width: 20%;
+}
+
+#poststuff {
+  min-width: 463px;
 }

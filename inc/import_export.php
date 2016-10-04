@@ -225,7 +225,6 @@ function cptui_get_single_taxonomy_registery( $taxonomy = array() ) {
 		$show_in_nav_menus = $public;
 	}
 
-
 	$my_theme = wp_get_theme();
 	$textdomain = $my_theme->get( 'TextDomain' );
 	?>
