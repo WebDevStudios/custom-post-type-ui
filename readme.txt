@@ -1,10 +1,10 @@
 === Custom Post Type UI ===
-Contributors: webdevstudios, tw2113, vegasgeek, modemlooper, williamsba1
+Contributors: webdevstudios, pluginize, tw2113, vegasgeek, modemlooper, williamsba1
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3084056
 Tags: custom post types, CPT, CMS, post, types, post type, cck, taxonomy, tax, custom, content types, post types
 Requires at least: 4.2
-Tested up to: 4.6
-Stable tag: 1.4.1
+Tested up to: 4.6.1
+Stable tag: 1.4.2
 License: GPLv2
 
 Admin UI for creating custom post types and custom taxonomies in WordPress
@@ -29,6 +29,9 @@ All official development on this plugin is on GitHub. New releases are still pub
 6. Help/support screen.
 
 == Changelog ==
+
+= 1.4.2 - 2016-10-03 =
+* Fixed: Responsiveness of sections and "ad" space when creating post types or taxonomies on smaller screens. Props @thecxguy
 
 = 1.4.1 - 2016-8-25 =
 * Fixed: issue with default values for new parameters regarding menu/nav menu display for taxonomies.
@@ -144,6 +147,9 @@ All official development on this plugin is on GitHub. New releases are still pub
 * Fixed: Prevent potential issues with AJAX requests and our scripts/styles
 
 == Upgrade Notice ==
+
+= 1.4.2 - 2016-10-03 =
+* Fixed: Responsiveness of sections and "ad" space when creating post types or taxonomies on smaller screens. Props @thecxguy
 
 = 1.4.1 - 2016-8-25 =
 * Fixed: issue with default values for new parameters regarding menu/nav menu display for taxonomies.
