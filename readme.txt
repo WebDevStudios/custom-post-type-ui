@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: custom post types, CPT, CMS, post, types, post type, cck, taxonomy, tax, custom, content types, post types
 Requires at least: 4.2
 Tested up to: 4.6.1
-Stable tag: 1.4.2
+Stable tag: 1.4.3
 License: GPLv2
 
 Admin UI for creating custom post types and custom taxonomies in WordPress
@@ -29,6 +29,11 @@ All official development on this plugin is on GitHub. New releases are still pub
 6. Help/support screen.
 
 == Changelog ==
+
+= 1.4.3 - 2016-10-17 =
+* Fixed: issue with post types and taxonomies trying to be converted before registration. Prevented full success of process.
+* Fixed: Prevent trying to convert taxonomy terms if no terms exist. Taxonomy will still be deleted from CPTUI list.
+* Fixed: Prevent trying to redirect on activation if being network-activated.
 
 = 1.4.2 - 2016-10-03 =
 * Fixed: Responsiveness of sections and "ad" space when creating post types or taxonomies on smaller screens. Props @thecxguy
@@ -147,6 +152,11 @@ All official development on this plugin is on GitHub. New releases are still pub
 * Fixed: Prevent potential issues with AJAX requests and our scripts/styles
 
 == Upgrade Notice ==
+
+= 1.4.3 - TBD =
+* Fixed: issue with post types and taxonomies trying to be converted before registration. Prevented full success of process.
+* Fixed: Prevent trying to convert taxonomy terms if no terms exist. Taxonomy will still be deleted from CPTUI list.
+* Fixed: Prevent trying to redirect on activation if being network-activated.
 
 = 1.4.2 - 2016-10-03 =
 * Fixed: Responsiveness of sections and "ad" space when creating post types or taxonomies on smaller screens. Props @thecxguy
