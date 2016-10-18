@@ -1343,11 +1343,12 @@ function cptui_convert_taxonomy_terms( $original_slug = '', $new_slug = '' ) {
 	global $wpdb;
 
 	$args = array(
+		'taxonomy'   => $original_slug,
 		'hide_empty' => false,
 		'fields'     => 'ids',
 	);
 
-	$term_ids = get_terms( $original_slug, $args );
+	$term_ids = get_terms( $args );
 
 	if ( is_int( $term_ids ) ) {
 		$term_ids = (array) $term_ids;
