@@ -141,9 +141,13 @@ function cptui_listings() {
 							</td>
 							<td>
 								<?php
-								foreach ( $taxonomies['taxonomies'] as $taxonomy ) {
-									echo esc_html( $taxonomy ) . '<br/>';
-								} ?>
+								if ( ! empty( $taxonomies['taxonomies'] ) ) {
+									foreach ( $taxonomies['taxonomies'] as $taxonomy ) {
+										echo esc_html( $taxonomy ) . '<br/>';
+									}
+								} else {
+									esc_html_e( 'No associated taxonomies', 'custom-post-type-ui' );
+								}?>
 							</td>
 							<td>
 								<?php
