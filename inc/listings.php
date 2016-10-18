@@ -106,7 +106,8 @@ function cptui_listings() {
 							<td>
 								<?php
 								printf(
-									'<a href="%s">%s</a> | <a href="%s">%s</a><br/>',
+									'<a href="%s">%s</a><br/>
+									<a href="%s">%s</a><br/>',
 									esc_attr( $post_type_link_url ),
 									sprintf(
 										esc_html__( 'Edit %s', 'custom-post-type-ui' ),
@@ -288,7 +289,8 @@ function cptui_listings() {
 								$taxonomy_link_url  = ( is_network_admin() ) ? network_admin_url( $edit_path ) : admin_url( $edit_path ); ?>
 								<td>
 									<?php printf(
-										'<a href="%s">%s</a> | <a href="%s">%s</a>',
+										'<a href="%s">%s</a><br/>
+										<a href="%s">%s</a>',
 										esc_attr( $taxonomy_link_url ),
 										sprintf(
 											esc_html__( 'Edit %s', 'custom-post-type-ui' ),
