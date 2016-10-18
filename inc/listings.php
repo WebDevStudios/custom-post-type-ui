@@ -335,7 +335,7 @@ function cptui_listings() {
 									?>
 								</td>
 								<td>
-									<p><strong><?php esc_html_e( 'Archives', 'custom-post-type-ui' ); ?></strong><br />
+									<p><strong><?php esc_html_e( 'Archives file name examples.', 'custom-post-type-ui' ); ?></strong><br />
 										taxonomy-<?php echo esc_html( $taxonomy ); ?>-term_slug.php *<br />
 										taxonomy-<?php echo esc_html( $taxonomy ); ?>.php<br />
 										taxonomy.php<br />
