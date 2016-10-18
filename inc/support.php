@@ -180,7 +180,7 @@ function cptui_support() {
 						<li>
 							<span tabindex="0" class="question" aria-controls="q16" aria-expanded="false"><?php esc_html_e( 'I have added categories and tags to my custom post type, but they do not appear in the archives.', 'custom-post-type-ui' ); ?></span>
 							<div class="answer" id="q16"><?php printf( esc_html__( 'You will need to add your newly created post type to the types that the category and tag archives query for. You can see a tutorial on how to do that at %s', 'custom-post-type-ui' ),
-								'<a href="https://wpmu.org/add-custom-post-types-to-tags-and-categories-in-wordpress/" target="_blank">https://wpmu.org/add-custom-post-types-to-tags-and-categories-in-wordpress/</a>'
+								'<a href="http://docs.pluginize.com/article/17-post-types-in-category-tag-archives" target="_blank">http://docs.pluginize.com/article/17-post-types-in-category-tag-archives</a>'
 							); ?> </div>
 						</li>
 					</ol>
@@ -221,7 +221,7 @@ function cptui_support() {
 						<li>
 							<span tabindex="0" class="question" aria-controls="q20" aria-expanded="false"><?php esc_html_e( 'Is there any function reference list?', 'custom-post-type-ui' ); ?></span>
 							<div class="answer" id="q20"><?php printf( esc_html__( '%s has compiled a nice list of functions used by our plugin. Note not all will be useful as they are attached to hooks.', 'custom-post-type-ui' ),
-							'<a href="http://hookr.io/plugins/custom-post-type-ui/1.0.5/all/#index=c" target="_blank">Hookr.io</a>' ); ?></div>
+							'<a href="http://hookr.io/plugins/custom-post-type-ui/" target="_blank">Hookr.io</a>' ); ?></div>
 						</li>
 						<li>
 							<span tabindex="0" class="question" aria-controls="q21" aria-expanded="false"><?php esc_html_e( 'How do I filter the "enter title here" text in the post editor screen?', 'custom-post-type-ui' ); ?></span>
