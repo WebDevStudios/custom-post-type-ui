@@ -1227,6 +1227,7 @@ function cptui_update_taxonomy( $data = array() ) {
 function cptui_reserved_taxonomies() {
 
 	$reserved = array(
+		'action',
 		'attachment',
 		'attachment_id',
 		'author',
