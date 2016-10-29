@@ -279,7 +279,7 @@ add_action( 'init', 'cptui_create_custom_post_types', 10 ); // Leave on standard
  *
  * @internal
  *
- * @param array $post_type Post type array to register.
+ * @param array $post_type Post type array to register. Optional.
  * @return null Result of register_post_type.
  */
 function cptui_register_single_post_type( $post_type = array() ) {
@@ -498,7 +498,7 @@ add_action( 'init', 'cptui_create_custom_taxonomies', 9 );  // Leave on standard
  *
  * @internal
  *
- * @param array $taxonomy Taxonomy array to register.
+ * @param array $taxonomy Taxonomy array to register. Optional.
  * @return null Result of register_taxonomy.
  */
 function cptui_register_single_taxonomy( $taxonomy = array() ) {
@@ -608,7 +608,7 @@ function cptui_register_single_taxonomy( $taxonomy = array() ) {
  *
  * @since 1.0.0
  *
- * @param string $page Whether it's the CPT or Taxonomy page.
+ * @param string $page Whether it's the CPT or Taxonomy page. Optional.
  */
 function cptui_settings_tab_menu( $page = 'post_types' ) {
 
@@ -708,7 +708,7 @@ add_action( 'admin_init', 'cptui_convert_settings' );
  *
  * @since 1.0.0
  *
- * @param string $action       The type of action that occurred.
+ * @param string $action       The type of action that occurred. Optional.
  * @param string $object_type  Whether it's from a post type or taxonomy.
  * @param bool   $success      Whether the action succeeded or not.
  * @param string $custom       Custom message if necessary.
@@ -780,7 +780,7 @@ function cptui_admin_notices( $action = '', $object_type = '', $success = true, 
  *
  * @since 1.0.5
  *
- * @param string $type Type to return. Either 'post_types' or 'taxonomies'.
+ * @param string $type Type to return. Either 'post_types' or 'taxonomies'. Optional.
  * @return array Array of keys needing preservered for the requested type.
  */
 function cptui_get_preserved_keys( $type = '' ) {
@@ -819,7 +819,7 @@ function cptui_get_preserved_keys( $type = '' ) {
  *
  * @since 1.0.5
  *
- * @param string $type Type to return. Either 'post_types' or 'taxonomies'.
+ * @param string $type Type to return. Either 'post_types' or 'taxonomies'. Optional.
  * @param string $key Requested label key.
  * @param string $plural Plural verbiage for the requested label and type.
  * @param string $singular Singular verbiage for the requested label and type.

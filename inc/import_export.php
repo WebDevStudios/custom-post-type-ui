@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @internal
  *
- * @param array  $tabs         Array of tabs to display.
+ * @param array  $tabs         Array of tabs to display. Optional.
  * @param string $current_page Current page being shown.
  * @return array Amended array of tabs to show.
  */
@@ -144,7 +144,7 @@ function cptui_importexport() {
  * @since 1.2.0 Added $cptui_taxonomies parameter.
  * @since 1.2.0 Added $single parameter.
  *
- * @param array $cptui_taxonomies Array of taxonomies to render.
+ * @param array $cptui_taxonomies Array of taxonomies to render. Optional.
  * @param bool  $single           Whether or not we are rendering a single taxonomy.
  */
 function cptui_get_taxonomy_code( $cptui_taxonomies = array(), $single = false ) {
@@ -174,7 +174,7 @@ function <?php echo $callback; ?>() {
  *
  * @since 1.0.0
  *
- * @param array $taxonomy Taxonomy data to output.
+ * @param array $taxonomy Taxonomy data to output. Optional.
  */
 function cptui_get_single_taxonomy_registery( $taxonomy = array() ) {
 
@@ -265,7 +265,7 @@ function cptui_get_single_taxonomy_registery( $taxonomy = array() ) {
  * @since 1.2.0 Added $cptui_post_types parameter.
  * @since 1.2.0 Added $single parameter.
  *
- * @param array $cptui_post_types Array of post types to render.
+ * @param array $cptui_post_types Array of post types to render. Optional.
  * @param bool  $single           Whether or not we are rendering a single post type.
  */
 function cptui_get_post_type_code( $cptui_post_types = array(), $single = false ) {
@@ -296,7 +296,7 @@ function <?php echo $callback; ?>() {
  *
  * @since 1.0.0
  *
- * @param array $post_type Post type data to output.
+ * @param array $post_type Post type data to output. Optional.
  */
 function cptui_get_single_post_type_registery( $post_type = array() ) {
 
@@ -429,7 +429,7 @@ function cptui_get_single_post_type_registery( $post_type = array() ) {
  *
  * @internal
  *
- * @param array $postdata $_POST data as json.
+ * @param array $postdata $_POST data as json. Optional.
  * @return mixed false on nothing to do, otherwise void.
  */
 function cptui_import_types_taxes_settings( $postdata = array() ) {

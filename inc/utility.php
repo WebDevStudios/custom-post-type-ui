@@ -87,7 +87,7 @@ function disp_boolean( $bool_text ) {
  *
  * @internal
  *
- * @param string $original Original footer content.
+ * @param string $original Original footer content. Optional.
  * @return string $value HTML for footer.
  */
 function cptui_footer( $original = '' ) {
@@ -210,7 +210,7 @@ function cptui_admin_url( $path ) {
  *
  * @since 1.3.0
  *
- * @param object|string $ui CPTUI Admin UI instance.
+ * @param object|string $ui CPTUI Admin UI instance. Optional.
  * @return string
  */
 function cptui_get_post_form_action( $ui = '' ) {
@@ -260,7 +260,7 @@ function cptui_get_taxonomy_data() {
  *
  * @since 1.3.0
  *
- * @param string       $slug Post type slug to check.
+ * @param string       $slug Post type slug to check. Optional.
  * @param array|string $data Post type data being utilized.
  * @return mixed|void
  */
@@ -393,7 +393,7 @@ function cptui_get_ads() {
  *
  * @internal
  *
- * @param array $ads Array of ads set so far.
+ * @param array $ads Array of ads set so far. Optional.
  * @return array $ads Array of newly constructed ads.
  */
 function cptui_default_ads( $ads = array() ) {
@@ -426,7 +426,7 @@ add_filter( 'cptui_ads', 'cptui_default_ads' );
  *
  * @since 1.4.0
  *
- * @param string $message Message to use in admin notice.
+ * @param string $message Message to use in admin notice. Optional.
  * @param bool   $success Whether or not a success.
  *
  * @return mixed|void

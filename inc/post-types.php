@@ -49,7 +49,7 @@ add_action( 'admin_enqueue_scripts', 'cptui_post_type_enqueue_scripts' );
  *
  * @internal
  *
- * @param array  $tabs         Array of tabs to display.
+ * @param array  $tabs         Array of tabs to display. Optional.
  * @param string $current_page Current page being shown.
  * @return array Amended array of tabs to show.
  */
@@ -1126,7 +1126,7 @@ function cptui_manage_post_types() {
  *
  * @since 1.0.0
  *
- * @param array $post_types Array of post types that are registered.
+ * @param array $post_types Array of post types that are registered. Optional.
  */
 function cptui_post_types_dropdown( $post_types = array() ) {
 
@@ -1160,8 +1160,7 @@ function cptui_post_types_dropdown( $post_types = array() ) {
  *
  * @internal
  *
- * @param bool $post_type_deleted Whether or not a post type was recently deleted.
- *
+ * @param bool $post_type_deleted Whether or not a post type was recently deleted. Optional.
  * @return bool|string $value False on no result, sanitized post type if set.
  */
 function cptui_get_current_post_type( $post_type_deleted = false ) {
@@ -1204,8 +1203,7 @@ function cptui_get_current_post_type( $post_type_deleted = false ) {
  *
  * @internal
  *
- * @param array $data $_POST values.
- *
+ * @param array $data $_POST values. Optional.
  * @return bool|string False on failure, string on success.
  */
 function cptui_delete_post_type( $data = array() ) {
@@ -1277,8 +1275,7 @@ function cptui_delete_post_type( $data = array() ) {
  *
  * @internal
  *
- * @param array $data Array of post type data to update.
- *
+ * @param array $data Array of post type data to update. Optional.
  * @return bool|string False on failure, string on success.
  */
 function cptui_update_post_type( $data = array() ) {
@@ -1510,7 +1507,7 @@ function cptui_reserved_post_types() {
  *
  * @internal
  *
- * @param string $original_slug Original post type slug.
+ * @param string $original_slug Original post type slug. Optional.
  * @param string $new_slug      New post type slug.
  */
 function cptui_convert_post_type_posts( $original_slug = '', $new_slug = '' ) {
@@ -1535,7 +1532,7 @@ function cptui_convert_post_type_posts( $original_slug = '', $new_slug = '' ) {
  *
  * @since 1.3.0
  *
- * @param bool   $slug_exists    Whether or not the post type slug exists.
+ * @param bool   $slug_exists    Whether or not the post type slug exists. Optional.
  * @param string $post_type_slug The post type slug being saved.
  * @param array  $post_types     Array of CPTUI-registered post types.
  *
@@ -1574,7 +1571,7 @@ add_filter( 'cptui_post_type_slug_exists', 'cptui_check_existing_post_type_slugs
  *
  * @since 1.3.0
  *
- * @param string $post_type_slug The post type slug being saved.
+ * @param string $post_type_slug The post type slug being saved. Optional.
  * @return bool Whether or not the slug exists.
  */
 function cptui_check_page_slugs( $post_type_slug = '' ) {
