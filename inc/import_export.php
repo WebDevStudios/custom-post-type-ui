@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @internal
  *
  * @param array  $tabs         Array of tabs to display. Optional.
- * @param string $current_page Current page being shown.
+ * @param string $current_page Current page being shown. Optional. Default empty string.
  * @return array Amended array of tabs to show.
  */
 function cptui_importexport_tabs( $tabs = array(), $current_page = '' ) {
@@ -145,7 +145,7 @@ function cptui_importexport() {
  * @since 1.2.0 Added $single parameter.
  *
  * @param array $cptui_taxonomies Array of taxonomies to render. Optional.
- * @param bool  $single           Whether or not we are rendering a single taxonomy.
+ * @param bool  $single           Whether or not we are rendering a single taxonomy. Optional. Default false.
  */
 function cptui_get_taxonomy_code( $cptui_taxonomies = array(), $single = false ) {
 	if ( ! empty( $cptui_taxonomies ) ) {
@@ -266,7 +266,7 @@ function cptui_get_single_taxonomy_registery( $taxonomy = array() ) {
  * @since 1.2.0 Added $single parameter.
  *
  * @param array $cptui_post_types Array of post types to render. Optional.
- * @param bool  $single           Whether or not we are rendering a single post type.
+ * @param bool  $single           Whether or not we are rendering a single post type. Optional. Default false.
  */
 function cptui_get_post_type_code( $cptui_post_types = array(), $single = false ) {
 	// Whitespace very much matters here, thus why it's all flush against the left side.

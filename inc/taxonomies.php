@@ -50,7 +50,7 @@ add_action( 'admin_enqueue_scripts', 'cptui_taxonomies_enqueue_scripts' );
  * @internal
  *
  * @param array  $tabs         Array of tabs to display. Optional.
- * @param string $current_page Current page being shown.
+ * @param string $current_page Current page being shown. Optional. Default empty string.
  * @return array Amended array of tabs to show.
  */
 function cptui_taxonomy_tabs( $tabs = array(), $current_page = '' ) {
@@ -949,7 +949,7 @@ function cptui_taxonomies_dropdown( $taxonomies = array() ) {
  *
  * @internal
  *
- * @param bool $taxonomy_deleted Whether or not a taxonomy was recently deleted. Optional.
+ * @param bool $taxonomy_deleted Whether or not a taxonomy was recently deleted. Optional. Default false.
  * @return bool|string False on no result, sanitized taxonomy if set.
  */
 function cptui_get_current_taxonomy( $taxonomy_deleted = false ) {
@@ -1337,8 +1337,8 @@ function cptui_reserved_taxonomies() {
  *
  * @internal
  *
- * @param string $original_slug Original taxonomy slug. Optional.
- * @param string $new_slug      New taxonomy slug.
+ * @param string $original_slug Original taxonomy slug. Optional. Default empty string.
+ * @param string $new_slug      New taxonomy slug. Optional. Default empty string.
  */
 function cptui_convert_taxonomy_terms( $original_slug = '', $new_slug = '' ) {
 	global $wpdb;
@@ -1372,9 +1372,9 @@ function cptui_convert_taxonomy_terms( $original_slug = '', $new_slug = '' ) {
  *
  * @since 1.3.0
  *
- * @param bool   $slug_exists   Whether or not the post type slug exists. Optional.
- * @param string $taxonomy_slug The post type slug being saved.
- * @param array  $taxonomies    Array of CPTUI-registered post types.
+ * @param bool   $slug_exists   Whether or not the post type slug exists. Optional. Default false.
+ * @param string $taxonomy_slug The post type slug being saved. Optional. Default empty string.
+ * @param array  $taxonomies    Array of CPTUI-registered post types. Optional.
  *
  * @return bool
  */

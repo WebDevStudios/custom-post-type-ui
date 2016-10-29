@@ -608,7 +608,7 @@ function cptui_register_single_taxonomy( $taxonomy = array() ) {
  *
  * @since 1.0.0
  *
- * @param string $page Whether it's the CPT or Taxonomy page. Optional.
+ * @param string $page Whether it's the CPT or Taxonomy page. Optional. Default "post_types".
  */
 function cptui_settings_tab_menu( $page = 'post_types' ) {
 
@@ -708,10 +708,10 @@ add_action( 'admin_init', 'cptui_convert_settings' );
  *
  * @since 1.0.0
  *
- * @param string $action       The type of action that occurred. Optional.
- * @param string $object_type  Whether it's from a post type or taxonomy.
- * @param bool   $success      Whether the action succeeded or not.
- * @param string $custom       Custom message if necessary.
+ * @param string $action       The type of action that occurred. Optional. Default empty string.
+ * @param string $object_type  Whether it's from a post type or taxonomy. Optional. Default empty string.
+ * @param bool   $success      Whether the action succeeded or not. Optional. Default true.
+ * @param string $custom       Custom message if necessary. Optional. Default empty string.
  * @return bool|string false on no message, else HTML div with our notice message.
  */
 function cptui_admin_notices( $action = '', $object_type = '', $success = true, $custom = '' ) {
@@ -780,7 +780,7 @@ function cptui_admin_notices( $action = '', $object_type = '', $success = true, 
  *
  * @since 1.0.5
  *
- * @param string $type Type to return. Either 'post_types' or 'taxonomies'. Optional.
+ * @param string $type Type to return. Either 'post_types' or 'taxonomies'. Optional. Default empty string.
  * @return array Array of keys needing preservered for the requested type.
  */
 function cptui_get_preserved_keys( $type = '' ) {
@@ -819,10 +819,10 @@ function cptui_get_preserved_keys( $type = '' ) {
  *
  * @since 1.0.5
  *
- * @param string $type Type to return. Either 'post_types' or 'taxonomies'. Optional.
- * @param string $key Requested label key.
- * @param string $plural Plural verbiage for the requested label and type.
- * @param string $singular Singular verbiage for the requested label and type.
+ * @param string $type Type to return. Either 'post_types' or 'taxonomies'. Optional. Default empty string.
+ * @param string $key Requested label key. Optional. Default empty string.
+ * @param string $plural Plural verbiage for the requested label and type. Optional. Default empty string.
+ * @param string $singular Singular verbiage for the requested label and type. Optional. Default empty string.
  * @return string Internationalized default label.
  */
 function cptui_get_preserved_label( $type = '', $key = '', $plural = '', $singular = '' ) {

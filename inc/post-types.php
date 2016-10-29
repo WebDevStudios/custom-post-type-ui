@@ -50,7 +50,7 @@ add_action( 'admin_enqueue_scripts', 'cptui_post_type_enqueue_scripts' );
  * @internal
  *
  * @param array  $tabs         Array of tabs to display. Optional.
- * @param string $current_page Current page being shown.
+ * @param string $current_page Current page being shown. Optional. Default empty string.
  * @return array Amended array of tabs to show.
  */
 function cptui_post_type_tabs( $tabs = array(), $current_page = '' ) {
@@ -1160,7 +1160,7 @@ function cptui_post_types_dropdown( $post_types = array() ) {
  *
  * @internal
  *
- * @param bool $post_type_deleted Whether or not a post type was recently deleted. Optional.
+ * @param bool $post_type_deleted Whether or not a post type was recently deleted. Optional. Default false.
  * @return bool|string $value False on no result, sanitized post type if set.
  */
 function cptui_get_current_post_type( $post_type_deleted = false ) {
@@ -1507,8 +1507,8 @@ function cptui_reserved_post_types() {
  *
  * @internal
  *
- * @param string $original_slug Original post type slug. Optional.
- * @param string $new_slug      New post type slug.
+ * @param string $original_slug Original post type slug. Optional. Default empty string.
+ * @param string $new_slug      New post type slug. Optional. Default empty string.
  */
 function cptui_convert_post_type_posts( $original_slug = '', $new_slug = '' ) {
 	$args = array(
@@ -1532,10 +1532,9 @@ function cptui_convert_post_type_posts( $original_slug = '', $new_slug = '' ) {
  *
  * @since 1.3.0
  *
- * @param bool   $slug_exists    Whether or not the post type slug exists. Optional.
- * @param string $post_type_slug The post type slug being saved.
- * @param array  $post_types     Array of CPTUI-registered post types.
- *
+ * @param bool   $slug_exists    Whether or not the post type slug exists. Optional. Default false.
+ * @param string $post_type_slug The post type slug being saved. Optional. Default empty string.
+ * @param array  $post_types     Array of CPTUI-registered post types. Optional.
  * @return bool
  */
 function cptui_check_existing_post_type_slugs( $slug_exists = false, $post_type_slug = '', $post_types = array() ) {
@@ -1571,7 +1570,7 @@ add_filter( 'cptui_post_type_slug_exists', 'cptui_check_existing_post_type_slugs
  *
  * @since 1.3.0
  *
- * @param string $post_type_slug The post type slug being saved. Optional.
+ * @param string $post_type_slug The post type slug being saved. Optional. Default empty string.
  * @return bool Whether or not the slug exists.
  */
 function cptui_check_page_slugs( $post_type_slug = '' ) {
