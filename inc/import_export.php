@@ -29,7 +29,7 @@ function cptui_importexport_tabs( $tabs = array(), $current_page = '' ) {
 	if ( 'importexport' == $current_page ) {
 		$classes = array( 'nav-tab' );
 
-		$tabs['page_title'] = __( 'Import/Export', 'custom-post-type-ui' );
+		$tabs['page_title'] = get_admin_page_title();
 		$tabs['tabs']       = array();
 		$tabs['tabs']['post_types'] = array(
 			'text'          => __( 'Post Types', 'custom-post-type-ui' ),

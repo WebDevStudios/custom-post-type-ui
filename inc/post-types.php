@@ -59,7 +59,7 @@ function cptui_post_type_tabs( $tabs = array(), $current_page = '' ) {
 		$post_types = cptui_get_post_type_data();
 		$classes    = array( 'nav-tab' );
 
-		$tabs['page_title'] = __( 'Manage Post Types', 'custom-post-type-ui' );
+		$tabs['page_title'] = get_admin_page_title();
 		$tabs['tabs'] = array();
 		// Start out with our basic "Add new" tab.
 		$tabs['tabs']['add'] = array(

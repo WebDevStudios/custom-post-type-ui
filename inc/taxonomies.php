@@ -59,7 +59,7 @@ function cptui_taxonomy_tabs( $tabs = array(), $current_page = '' ) {
 		$taxonomies = cptui_get_taxonomy_data();
 		$classes    = array( 'nav-tab' );
 
-		$tabs['page_title'] = esc_html__( 'Manage Taxonomies', 'custom-post-type-ui' );
+		$tabs['page_title'] = get_admin_page_title();
 		$tabs['tabs']       = array();
 		// Start out with our basic "Add new" tab.
 		$tabs['tabs']['add'] = array(
