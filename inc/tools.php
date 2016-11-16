@@ -1,9 +1,9 @@
 <?php
 /**
- * Custom Post Type UI Import/Export.
+ * Custom Post Type UI Tools.
  *
  * @package CPTUI
- * @subpackage ImportExport
+ * @subpackage Tools
  * @author WebDevStudios
  * @since 1.0.0
  */
@@ -14,9 +14,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Register our tabs for the Import/Export screen.
+ * Register our tabs for the Tools screen.
  *
  * @since 1.3.0
+ * @since 1.5.0 Renamed to "Tools"
  *
  * @internal
  *
@@ -24,9 +25,9 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @param string $current_page Current page being shown. Optional. Default empty string.
  * @return array Amended array of tabs to show.
  */
-function cptui_importexport_tabs( $tabs = array(), $current_page = '' ) {
+function cptui_tools_tabs( $tabs = array(), $current_page = '' ) {
 
-	if ( 'importexport' == $current_page ) {
+	if ( 'tools' == $current_page ) {
 		$classes = array( 'nav-tab' );
 
 		$tabs['page_title'] = get_admin_page_title();
@@ -80,7 +81,7 @@ function cptui_importexport_tabs( $tabs = array(), $current_page = '' ) {
 
 	return $tabs;
 }
-add_filter( 'cptui_get_tabs', 'cptui_importexport_tabs', 10, 2 );
+add_filter( 'cptui_get_tabs', 'cptui_tools_tabs', 10, 2 );
 
 /**
  * Create our settings page output.
@@ -89,7 +90,7 @@ add_filter( 'cptui_get_tabs', 'cptui_importexport_tabs', 10, 2 );
  *
  * @internal
  */
-function cptui_importexport() {
+function cptui_tools() {
 
 	$tab = '';
 	if ( ! empty( $_GET ) ) {
@@ -117,11 +118,20 @@ function cptui_importexport() {
 	 * Fires right inside the wrap div for the import/export pages.
 	 *
 	 * @since 1.3.0
+	 *
+	 * @deprecated 1.5.0
 	 */
-	do_action( 'cptui_inside_importexport_wrap' );
+	do_action_deprecated( 'cptui_inside_importexport_wrap', array(), '1.5.0', 'cptui_inside_tools_wrap' );
+
+	/**
+	 * Fires right inside the wrap div for the tools pages.
+	 *
+	 * @since 1.5.0
+	 */
+	do_action( 'cptui_inside_tools_wrap' );
 
 	// Create our tabs.
-	cptui_settings_tab_menu( $page = 'importexport' );
+	cptui_settings_tab_menu( $page = 'tools' );
 
 	/**
 	 * Fires inside the markup for the import/export section.
@@ -130,9 +140,23 @@ function cptui_importexport() {
 	 *
 	 * @since 1.2.0
 	 *
+	 * @deprecated 1.5.0
+	 *
 	 * @param string $tab Current tab being displayed.
 	 */
-	do_action( 'cptui_import_export_sections', $tab );
+	do_action_deprecated( 'cptui_import_export_sections', array( $tab ), '1.5.0', 'cptui_tools_sections' );
+
+	/**
+	 * Fires inside the markup for the tools section.
+	 *
+	 * Allows for more modular control and adding more sections more easily.
+	 *
+	 * @since 1.5.0
+	 *
+	 * @param string $tab Current tab being displayed.
+	 */
+	do_action( 'cptui_tools_sections', $tab );
+
 
 	echo '</div><!-- End .wrap -->';
 }
@@ -567,7 +591,7 @@ function cptui_import_types_taxes_settings( $postdata = array() ) {
 }
 
 /**
- * Content for the Post Types/Taxonomies Import/Export tab.
+ * Content for the Post Types/Taxonomies Tools tab.
  *
  * @since 1.2.0
  *
@@ -756,7 +780,7 @@ function cptui_render_debuginfo_section() {
 }
 
 /**
- * Renders various tab sections for the Import/Export page, based on current tab.
+ * Renders various tab sections for the Tools page, based on current tab.
  *
  * @since 1.2.0
  *
@@ -764,7 +788,7 @@ function cptui_render_debuginfo_section() {
  *
  * @param string $tab Current tab to display.
  */
-function cptui_render_importexportsections( $tab ) {
+function cptui_render_tools( $tab ) {
 	if ( isset( $tab ) ) {
 		if ( 'post_types' == $tab || 'taxonomies' == $tab ) {
 			cptui_render_posttypes_taxonomies_section();
@@ -779,4 +803,4 @@ function cptui_render_importexportsections( $tab ) {
 		}
 	}
 }
-add_action( 'cptui_import_export_sections', 'cptui_render_importexportsections' );
+add_action( 'cptui_tools_sections', 'cptui_render_tools' );

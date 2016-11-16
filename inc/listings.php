@@ -117,7 +117,7 @@ function cptui_listings() {
 										esc_html__( 'Edit %s', 'custom-post-type-ui' ),
 										esc_html( $post_type )
 									),
-									esc_attr( admin_url( 'admin.php?page=cptui_importexport&action=get_code#' . $post_type ) ),
+									esc_attr( admin_url( 'admin.php?page=cptui_tools&action=get_code#' . $post_type ) ),
 									esc_html__( 'Get code', 'custom-post-type-ui' )
 								);
 
@@ -313,7 +313,7 @@ function cptui_listings() {
 											esc_html__( 'Edit %s', 'custom-post-type-ui' ),
 											esc_html( $taxonomy )
 										),
-										esc_attr( admin_url( 'admin.php?page=cptui_importexport&action=get_code#' . $taxonomy ) ),
+										esc_attr( admin_url( 'admin.php?page=cptui_tools&action=get_code#' . $taxonomy ) ),
 										esc_html__( 'Get code', 'custom-post-type-ui' )
 									); ?>
 								</td>

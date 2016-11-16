@@ -97,7 +97,7 @@ function cptui_taxonomy_tabs( $tabs = array(), $current_page = '' ) {
 			$tabs['tabs']['export'] = array(
 				'text'          => esc_html__( 'Import/Export Taxonomies', 'custom-post-type-ui' ),
 				'classes'       => array( 'nav-tab' ), // Prevent notices.
-				'url'           => esc_url( cptui_admin_url( 'admin.php?page=cptui_importexport&action=taxonomies' ) ),
+				'url'           => esc_url( cptui_admin_url( 'admin.php?page=cptui_tools&action=taxonomies' ) ),
 				'aria-selected' => 'false',
 			);
 		}
