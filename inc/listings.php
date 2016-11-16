@@ -151,8 +151,12 @@ function cptui_listings() {
 										echo esc_html( $taxonomy ) . '<br/>';
 									}
 								} else {
-									esc_html_e( 'No associated taxonomies', 'custom-post-type-ui' );
-								}?>
+									printf(
+										'<span aria-hidden="true">—</span><span class="screen-reader-text">%s</span>',
+										esc_html__( 'No associated taxonomies', 'custom-post-type-ui' )
+									);
+								}
+								?>
 							</td>
 							<td>
 								<?php
@@ -169,7 +173,10 @@ function cptui_listings() {
 										);
 									}
 								} else {
-									esc_html_e( 'No custom labels to display', 'custom-post-type-ui' );
+									printf(
+										'<span aria-hidden="true">—</span><span class="screen-reader-text">%s</span>',
+										esc_html__( 'No custom labels to display', 'custom-post-type-ui' )
+									);
 								}
 								?>
 							</td>
@@ -342,7 +349,10 @@ function cptui_listings() {
 											);
 										}
 									} else {
-										esc_html_e( 'No custom labels to display', 'custom-post-type-ui' );
+										printf(
+											'<span aria-hidden="true">—</span><span class="screen-reader-text">%s</span>',
+											esc_html__( 'No custom labels to display', 'custom-post-type-ui' )
+										);
 									}
 									?>
 								</td>
