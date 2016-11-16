@@ -129,7 +129,7 @@ function cptui_listings() {
 									if ( in_array( $value, array( '1', '0' ) ) ) {
 										echo esc_html( disp_boolean( $value ) );
 									} else {
-										echo esc_html( $value );
+										echo ( ! empty( $value ) ) ? esc_html( $value ) : '""';
 									}
 									echo '<br/>';
 								} ?>
@@ -307,7 +307,7 @@ function cptui_listings() {
 										if ( in_array( $value, array( '1', '0' ) ) ) {
 											echo esc_html( disp_boolean( $value ) );
 										} else {
-											echo esc_html( $value );
+											echo ( ! empty( $value ) ) ? esc_html( $value ) : '""';
 										}
 										echo '<br/>';
 									} ?>
