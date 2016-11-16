@@ -637,6 +637,66 @@ function cptui_error_admin_notice() {
 }
 
 /**
+ * Mark site as not a new CPTUI install upon update to 1.5.0
+ *
+ * @since 1.5.0
+ *
+ * @param object $wp_upgrader WP_Upgrader instance.
+ * @param array  $extras      Extra information about performed upgrade.
+ */
+function cptui_not_new_install( $wp_upgrader, $extras ) {
+	// Was CPTUI updated?
+	if ( ! in_array( 'custom-post-type-ui/custom-post-type-ui.php', $extras['plugins'] ) ) {
+		return;
+	}
+
+	// If we are already known as not new, return.
+	if ( cptui_is_new_install() ) {
+		return;
+	}
+
+	// We need to mark ourselves as not new.
+	cptui_set_not_new_install();
+}
+add_action( 'upgrader_process_complete', 'cptui_not_new_install', 10, 2 );
+
+/**
+ * Check whether or not we're on a new install.
+ *
+ * @since 1.5.0
+ *
+ * @return bool
+ */
+function cptui_is_new_install() {
+	$new_or_not = true;
+	$saved = get_option( 'cptui_new_install', '' );
+
+	if ( 'false' === $saved ) {
+		$new_or_not = false;
+	}
+
+	/**
+	 * Filters the new install status.
+	 *
+	 * Offers third parties the ability to override if they choose to.
+	 *
+	 * @since 1.5.0
+	 *
+	 * @param bool $new_or_not Whether or not site is a new install.
+	 */
+	return (bool) apply_filters( 'cptui_is_new_install',  $new_or_not );
+}
+
+/**
+ * Set our activation status to not new.
+ *
+ * @since 1.5.0
+ */
+function cptui_set_not_new_install() {
+	update_option( 'cptui_new_install', 'false' );
+}
+
+/**
  * Returns saved values for single post type from CPTUI settings.
  *
  * @since 1.5.0

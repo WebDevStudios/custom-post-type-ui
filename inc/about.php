@@ -134,10 +134,14 @@ add_action( 'cptui_main_page_extra_notes', 'cptui_pluginize_content', 9 );
  * @since 1.4.0
  */
 function cptui_about_page_newsletter() {
+	if ( cptui_is_new_install() ) {
+		return '';
+	}
 	?>
 	<h3><?php esc_html_e( 'Stay informed', 'custom-post-type-ui' ); ?></h3>
 	<?php
 	cptui_about_page_newsletter_form();
+	return '';
 }
 add_action( 'cptui_main_page_before_changelog', 'cptui_about_page_newsletter' );
 
@@ -186,3 +190,18 @@ function cptui_about_page_newsletter_form() {
 	<!--End mc_embed_signup-->
 	<?php
 }
+
+/**
+ * Marks site as not new at the end of the about/main page.
+ *
+ * Can't be done on activation or else cptui_is_new_install() will immediately start
+ * returning false. So we'll do it at the end of the redirected landing page.
+ *
+ * @since 1.5.0
+ */
+function cptui_mark_not_new() {
+	if ( cptui_is_new_install() ) {
+		cptui_set_not_new_install();
+	}
+}
+add_action( 'cptui_main_page_extra_notes', 'cptui_mark_not_new', 999 );
