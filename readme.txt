@@ -30,6 +30,20 @@ All official development on this plugin is on GitHub. New releases are still pub
 
 == Changelog ==
 
+= 1.5.0 - TBD =
+* Added: Helper functions to grab individual post types or taxonomies from CPTUI options, function to check for support for custom saved values.
+* Added: Helper functions to mark and check if a new CPTUI install.
+* Added: FAQ clarifying why post type/taxonomy slugs are forced to underscores. We mean well, I assure you.
+* Fixed: Parameter handling for get_terms() to match WordPress 4.5.
+* Fixed: Added "action" as a reserved taxonomy name.
+* Fixed: PHP Notices for rewrite array index, present since version 1.0.6
+* Fixed: Prevent triggering post type/taxonomy slug convert when navigating screen via tab key.
+* Fixed: Provide empty quote indicator in Registered Post Types and Taxonomies screen for empty values.
+* Updated: Further evolved Registered Post Types and Taxonomies screen to better match list table styles.
+* Updated: Bumped minimum required WordPress version to 4.5.
+* Updated: Clarified what checking a checkbox does in regards to "Supports" area of post type settings.
+* Updated: Changed appropriate help/support links to docs.pluginize.com.
+
 = 1.4.3 - 2016-10-17 =
 * Fixed: issue with post types and taxonomies trying to be converted before registration. Prevented full success of process.
 * Fixed: Prevent trying to convert taxonomy terms if no terms exist. Taxonomy will still be deleted from CPTUI list.
@@ -116,7 +130,21 @@ All official development on this plugin is on GitHub. New releases are still pub
 
 == Upgrade Notice ==
 
-= 1.4.3 - TBD =
+= 1.5.0 - TBD =
+* Added: Helper functions to grab individual post types or taxonomies from CPTUI options, function to check for support for custom saved values.
+* Added: Helper functions to mark and check if a new CPTUI install.
+* Added: FAQ clarifying why post type/taxonomy slugs are forced to underscores. We mean well, I assure you.
+* Fixed: Parameter handling for get_terms() to match WordPress 4.5.
+* Fixed: Added "action" as a reserved taxonomy name.
+* Fixed: PHP Notices for rewrite array index, present since version 1.0.6
+* Fixed: Prevent triggering post type/taxonomy slug convert when navigating screen via tab key.
+* Fixed: Provide empty quote indicator in Registered Post Types and Taxonomies screen for empty values.
+* Updated: Further evolved Registered Post Types and Taxonomies screen to better match list table styles.
+* Updated: Bumped minimum required WordPress version to 4.5.
+* Updated: Clarified what checking a checkbox does in regards to "Supports" area of post type settings.
+* Updated: Changed appropriate help/support links to docs.pluginize.com.
+
+= 1.4.3 - 2016-10-17 =
 * Fixed: issue with post types and taxonomies trying to be converted before registration. Prevented full success of process.
 * Fixed: Prevent trying to convert taxonomy terms if no terms exist. Taxonomy will still be deleted from CPTUI list.
 * Fixed: Prevent trying to redirect on activation if being network-activated.
