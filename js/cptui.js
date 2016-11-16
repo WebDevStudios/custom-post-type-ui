@@ -49,12 +49,15 @@ postboxes.add_postbox_toggles(pagenow);
 
 	// Switch spaces for underscores on our slug fields.
 	$('#name').on('keyup',function(e){
+
 		var value = $(this).val();
-		value = value.replace(/ /g, "_");
-		value = value.toLowerCase();
-		value = replaceDiacritics(value);
-		value = replaceSpecialCharacters(value);
-		$(this).attr('value',value);
+		if ( e.keyCode !== 9 ) {
+			value = value.replace(/ /g, "_");
+			value = value.toLowerCase();
+			value = replaceDiacritics(value);
+			value = replaceSpecialCharacters(value);
+			$(this).attr('value', value);
+		}
 
 		//Displays a message if slug changes.
 		if(undefined != original_slug) {
