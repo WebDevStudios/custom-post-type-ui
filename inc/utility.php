@@ -635,3 +635,61 @@ function cptui_error_admin_notice() {
 		false
 	);
 }
+
+/**
+ * Returns saved values for single post type from CPTUI settings.
+ *
+ * @since 1.5.0
+ *
+ * @param string $post_type Post type to retrieve CPTUI object for.
+ * @return string
+ */
+function cptui_get_cptui_post_type_object( $post_type = '' ) {
+	$post_types = get_option( 'cptui_post_types' );
+
+	if ( array_key_exists( $post_type, $post_types ) ) {
+		return $post_types[ $post_type ];
+	}
+	return '';
+}
+
+/**
+ * Returns saved values for single taxonomy from CPTUI settings.
+ *
+ * @since 1.5.0
+ *
+ * @param string $taxonomy Taxonomy to retrieve CPTUI object for.
+ * @return string
+ */
+function cptui_get_cptui_taxonomy_object( $taxonomy = '' ) {
+	$taxonomies = get_option( 'cptui_taxonomies' );
+
+	if ( array_key_exists( $taxonomy, $taxonomies ) ) {
+		return $taxonomies[ $taxonomy ];
+	}
+	return '';
+}
+
+/**
+ * Checks if a requested post type has a custom CPTUI feature supported.
+ *
+ * @since 1.5.0
+ *
+ * @param string $post_type Post type slug.
+ * @param string $feature   Feature to check for.
+ * @return bool
+ */
+function cptui_post_type_supports( $post_type, $feature ) {
+
+	$object = cptui_get_cptui_post_type_object( $post_type );
+
+	if ( ! empty( $object ) ) {
+		if ( array_key_exists( $feature, $object ) && ! empty( $object[ $feature ] ) ) {
+			return true;
+		}
+
+		return false;
+	}
+
+	return false;
+}
