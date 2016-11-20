@@ -77,6 +77,17 @@ function cptui_tools_tabs( $tabs = array(), $current_page = '' ) {
 			$tabs['tabs']['post_types']['classes'][] = $active_class;
 			$tabs['tabs']['post_types']['aria-selected'] = 'true';
 		}
+
+		/**
+		 * Filters the tabs being added for the tools area.
+		 *
+		 * @since 1.5.0
+		 *
+		 * @param array  $tabs         Array of tabs to show.
+		 * @param string $action       Current tab being shown.
+		 * @param string $active_class Class to use to mark the tab active.
+		 */
+		$tabs = apply_filters( 'cptui_tools_tabs', $tabs, $action, $active_class );
 	}
 
 	return $tabs;
