@@ -816,7 +816,10 @@ add_action( 'cptui_tools_sections', 'cptui_render_tools' );
  */
 function cptui_do_import_types_taxes() {
 
-	if ( ! empty( $_POST ) && ! empty( $_POST['cptui_post_import'] ) && isset( $_POST['cptui_post_import'] ) ) {
+	if ( ! empty( $_POST ) &&
+	     ( ! empty( $_POST['cptui_post_import'] ) && isset( $_POST['cptui_post_import'] ) ) ||
+	     ( ! empty( $_POST['cptui_tax_import'] ) && isset( $_POST['cptui_tax_import'] ) )
+	) {
 		$success = cptui_import_types_taxes_settings( $_POST );
 		add_action( 'admin_notices', "cptui_{$success}_admin_notice" );
 	}
