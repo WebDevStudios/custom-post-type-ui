@@ -465,6 +465,7 @@ function cptui_import_types_taxes_settings( $postdata = array() ) {
 		return false;
 	}
 
+	$status = 'import_fail';
 	$success = false;
 
 	/**
@@ -514,10 +515,8 @@ function cptui_import_types_taxes_settings( $postdata = array() ) {
 			 * @param array $postdata Post type data.
 			 */
 			if ( false === ( $success = apply_filters( 'cptui_post_type_import_delete_save', false, $postdata ) ) ) {
-				delete_option( 'cptui_post_types' );
+				$success = delete_option( 'cptui_post_types' );
 			}
-			// We're technically successful in a sense. Importing nothing.
-			$success = true;
 		}
 
 		if ( $settings ) {
@@ -542,8 +541,9 @@ function cptui_import_types_taxes_settings( $postdata = array() ) {
 		}
 		// Used to help flush rewrite rules on init.
 		set_transient( 'cptui_flush_rewrite_rules', 'true', 5 * 60 );
-		return cptui_admin_notices( 'import', __( 'Post types', 'custom-post-type-ui' ), $success );
-
+		if ( $success ) {
+			$status = 'import_success';
+		}
 	} elseif ( ! empty( $postdata['cptui_tax_import'] ) ) {
 		$tax_data = stripslashes_deep( trim( $postdata['cptui_tax_import'] ) );
 		$settings = json_decode( $tax_data, true );
@@ -561,10 +561,8 @@ function cptui_import_types_taxes_settings( $postdata = array() ) {
 			 * @param array $postdata Taxonomy data
 			 */
 			if ( false === ( $success = apply_filters( 'cptui_taxonomy_import_delete_save', false, $postdata ) ) ) {
-				delete_option( 'cptui_taxonomies' );
+				$success = delete_option( 'cptui_taxonomies' );
 			}
-			// We're technically successful in a sense. Importing nothing.
-			$success = true;
 		}
 
 		if ( $settings ) {
@@ -588,10 +586,12 @@ function cptui_import_types_taxes_settings( $postdata = array() ) {
 		}
 		// Used to help flush rewrite rules on init.
 		set_transient( 'cptui_flush_rewrite_rules', 'true', 5 * 60 );
-		return cptui_admin_notices( 'import', __( 'Taxonomies', 'custom-post-type-ui' ), $success );
+		if ( $success ) {
+			$status = 'import_success';
+		}
 	}
 
-	return $success;
+	return $status;
 }
 
 /**
