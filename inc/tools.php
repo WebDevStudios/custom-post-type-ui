@@ -116,13 +116,6 @@ function cptui_tools() {
 		}
 	}
 
-	if ( ! empty( $_POST ) ) {
-		$notice = cptui_import_types_taxes_settings( $_POST );
-	}
-
-	if ( isset( $notice ) ) {
-		echo $notice;
-	}
 	echo '<div class="wrap">';
 
 	/**
