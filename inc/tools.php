@@ -27,7 +27,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 function cptui_tools_tabs( $tabs = array(), $current_page = '' ) {
 
-	if ( 'tools' == $current_page ) {
+	if ( 'tools' === $current_page ) {
 		$classes = array( 'nav-tab' );
 
 		$tabs['page_title'] = get_admin_page_title();
@@ -105,11 +105,11 @@ function cptui_tools() {
 
 	$tab = '';
 	if ( ! empty( $_GET ) ) {
-		if ( ! empty( $_GET['action'] ) && 'taxonomies' == $_GET['action'] ) {
+		if ( ! empty( $_GET['action'] ) && 'taxonomies' === $_GET['action'] ) {
 			$tab = 'taxonomies';
-		} elseif ( ! empty( $_GET['action'] ) && 'get_code' == $_GET['action'] ) {
+		} elseif ( ! empty( $_GET['action'] ) && 'get_code' === $_GET['action'] ) {
 			$tab = 'get_code';
-		} elseif ( ! empty( $_GET['action'] ) && 'debuginfo' == $_GET['action'] ) {
+		} elseif ( ! empty( $_GET['action'] ) && 'debuginfo' === $_GET['action'] ) {
 			$tab = 'debuginfo';
 		} else {
 			$tab = 'post_types';
@@ -192,7 +192,7 @@ function cptui_get_taxonomy_code( $cptui_taxonomies = array(), $single = false )
 	?>
 add_action( 'init', '<?php echo $callback; ?>' );
 function <?php echo $callback; ?>() {
-<?php
+	<?php
 	foreach ( $cptui_taxonomies as $tax ) {
 		echo cptui_get_single_taxonomy_registery( $tax ) . "\n";
 	} ?>
