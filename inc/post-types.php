@@ -1554,8 +1554,10 @@ function cptui_check_existing_post_type_slugs( $slug_exists = false, $post_type_
 		return true;
 	}
 
-	// Check if other plugins have registered this same slug.
-	$registered_post_types = get_post_types( array( '_builtin' => false, 'public' => false ) );
+	// Check if other plugins have registered non-public this same slug.
+	$public = get_post_types( array( '_builtin' => false, 'public' => true ) );
+	$private = get_post_types( array( '_builtin' => false, 'public' => false ) );
+	$registered_post_types = array_merge( $public, $private );
 	if ( in_array( $post_type_slug, $registered_post_types ) ) {
 		return true;
 	}
