@@ -569,6 +569,28 @@ function cptui_delete_fail_admin_notice() {
 }
 
 /**
+ * Success to import callback.
+ *
+ * @since 1.5.0
+ */
+function cptui_import_success_admin_notice() {
+	echo cptui_admin_notices_helper(
+		esc_html__( 'Successfully imported data.', 'custom-post-type-ui' )
+	);
+}
+
+/**
+ * Failure to import callback.
+ *
+ * @since 1.5.0
+ */
+function cptui_import_fail_admin_notice() {
+	echo cptui_admin_notices_helper(
+		esc_html__( 'Invalid data provided', 'custom-post-type-ui' )
+	);
+}
+
+/**
  * Returns error message for if trying to register existing post type.
  *
  * @since 1.4.0
