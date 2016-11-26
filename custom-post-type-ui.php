@@ -537,7 +537,6 @@ function cptui_register_single_taxonomy( $taxonomy = array() ) {
 		if ( isset( $taxonomy['rewrite_hierarchical'] ) ) {
 			$rewrite['hierarchical'] = ( 'true' === disp_boolean( $taxonomy['rewrite_hierarchical'] ) ) ? true : false;
 		}
-
 	}
 
 	if ( in_array( $taxonomy['query_var'], array( 'true', 'false', '0', '1' ) ) ) {
