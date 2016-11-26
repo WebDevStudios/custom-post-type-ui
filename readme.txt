@@ -34,6 +34,7 @@ All official development on this plugin is on GitHub. New releases are still pub
 * Added: Helper functions to grab individual post types or taxonomies from CPTUI options, function to check for support for custom saved values.
 * Added: Helper functions to mark and check if a new CPTUI install.
 * Added: FAQ clarifying why post type/taxonomy slugs are forced to underscores. We mean well, I assure you.
+* Added: Conversion from Cyrillic characters to latin equivalents.
 * Fixed: Parameter handling for get_terms() to match WordPress 4.5.
 * Fixed: Added "action" as a reserved taxonomy name.
 * Fixed: PHP Notices for rewrite array index, present since version 1.0.6
