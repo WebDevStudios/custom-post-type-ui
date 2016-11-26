@@ -211,7 +211,7 @@ function cptui_manage_post_types() {
 						echo $ui->get_required_span();
 
 						if ( 'edit' == $tab ) {
-							echo '<p id="slugchanged" class="hidemessage">' . __( 'Slug has changed', 'custom_post_type_ui' ) . '</p>';
+							echo '<p id="slugchanged" class="hidemessage">' . esc_html__( 'Slug has changed', 'custom_post_type_ui' ) . '</p>';
 						}
 
 						echo $ui->get_th_end() . $ui->get_td_start();
@@ -642,7 +642,7 @@ function cptui_manage_post_types() {
 							) );
 
 							echo $ui->get_tr_start() . $ui->get_th_start();
-							echo $ui->get_label( 'has_archive', __( 'Has Archive', 'custom-post-type-ui' ) );
+							echo $ui->get_label( 'has_archive', esc_html__( 'Has Archive', 'custom-post-type-ui' ) );
 							echo $ui->get_p( esc_html__( 'If left blank, the archive slug will default to the post type slug.', 'custom-post-type-ui' ) );
 							echo $ui->get_th_end() . $ui->get_td_start();
 
