@@ -374,6 +374,15 @@ function cptui_get_single_post_type_registery( $post_type = array() ) {
 	} else {
 		$rewrite = disp_boolean( $post_type['rewrite'] );
 	}
+	$has_archive = get_disp_boolean( $post_type['has_archive'] );
+	if ( false !== $has_archive ) {
+		$has_archive = disp_boolean( $post_type['has_archive'] );
+		if ( ! empty( $post_type['has_archive_string'] ) ) {
+			$has_archive = '"' . $post_type['has_archive_string'] . '"';
+		}
+	} else {
+		$has_archive = disp_boolean( $post_type['has_archive'] );
+	}
 
 	$supports = '';
 	// Do a little bit of php work to get these into strings.
@@ -429,7 +438,7 @@ function cptui_get_single_post_type_registery( $post_type = array() ) {
 		"show_ui" => <?php echo disp_boolean( $post_type['show_ui'] ); ?>,
 		"show_in_rest" => <?php echo disp_boolean( $post_type['show_in_rest'] ); ?>,
 		"rest_base" => "<?php echo $post_type['rest_base']; ?>",
-		"has_archive" => <?php echo disp_boolean( $post_type['has_archive'] ); ?>,
+		"has_archive" => <?php echo $has_archive; ?>,
 		"show_in_menu" => <?php echo disp_boolean( $post_type['show_in_menu'] ); ?>,
 		<?php if ( ! empty( $post_type['show_in_menu_string'] ) ) { ?>"show_in_menu_string" => "<?php echo $post_type['show_in_menu_string']; ?>",
 <?php } ?>
