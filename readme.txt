@@ -42,7 +42,7 @@ All official development on this plugin is on GitHub. New releases are still pub
 * Fixed: Provide empty quote indicator in Registered Post Types and Taxonomies screen for empty values.
 * Fixed: Post types and taxonomies no longer need extra page refresh to be registered after an import.
 * Updated: Further evolved Registered Post Types and Taxonomies screen to better match list table styles.
-* Updated: Bumped minimum required WordPress version to 4.5.
+* Updated: Bumped minimum required WordPress version to 4.6.
 * Updated: Clarified what checking a checkbox does in regards to "Supports" area of post type settings.
 * Updated: Changed appropriate help/support links to docs.pluginize.com.
 * Updated: Added filter to tab collection for the tools section. You can now add your own tabs.
@@ -144,7 +144,7 @@ All official development on this plugin is on GitHub. New releases are still pub
 * Fixed: Provide empty quote indicator in Registered Post Types and Taxonomies screen for empty values.
 * Fixed: Post types and taxonomies no longer need extra page refresh to be registered after an import.
 * Updated: Further evolved Registered Post Types and Taxonomies screen to better match list table styles.
-* Updated: Bumped minimum required WordPress version to 4.5.
+* Updated: Bumped minimum required WordPress version to 4.6.
 * Updated: Clarified what checking a checkbox does in regards to "Supports" area of post type settings.
 * Updated: Changed appropriate help/support links to docs.pluginize.com.
 * Updated: Added filter to tab collection for the tools section. You can now add your own tabs.
