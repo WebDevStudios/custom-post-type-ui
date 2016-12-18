@@ -7,15 +7,15 @@ Tested up to: 4.7
 Stable tag: 1.5.0
 License: GPLv2
 
-Admin UI for creating custom post types and custom taxonomies in WordPress
+Admin UI for creating custom post types and custom taxonomies for WordPress
 
 == Description ==
 
-This plugin provides an easy to use interface for creating and administrating custom post types and taxonomies in WordPress.  This plugin is created for WordPress 3.0 and higher.
+Custom Post Type UI provides an easy to use interface for registering and managing custom post types and taxonomies for your website.
 
-Please note that Custom Post Type UI alone will not display post types or taxonomies data in customized places within your site; it simply registers them for you to use. Check out [Custom Post Type UI Extended](https://pluginize.com/product/custom-post-type-ui-extended/?utm_source=cptui-desription&utm_medium=text&utm_campaign=wporg) for an easy way to display post type content from any registered types on your site, including those created with Custom Post Type UI and more.
+CPTUI alone does not handle aspects related to the display of post type or taxonomy content. Its goal is simply the registration of both. For help with content display, please check out [Custom Post Type UI Extended](https://pluginize.com/product/custom-post-type-ui-extended/?utm_source=cptui-desription&utm_medium=text&utm_campaign=wporg). CPTUI-Extended provides tools intended to help display content from all registered types in your site.
 
-All official development on this plugin is on GitHub. New releases are still published here on WordPress.org. The version shown here should be considered the latest stable release. You can find the repo at [https://github.com/WebDevStudios/custom-post-type-ui](https://github.com/WebDevStudios/custom-post-type-ui). Please file confirmed issues, bugs, and enhancement ideas there, when possible.
+Official development of Custom Post Type UI is on GitHub, with official stable releases published on WordPress.org. The GitHub repo can be found at [https://github.com/WebDevStudios/custom-post-type-ui](https://github.com/WebDevStudios/custom-post-type-ui). Please use the Support tab for potential bugs, issues, or enhancement ideas.
 
 [Pluginize](https://pluginize.com/?utm_source=cptui&utm_medium=text&utm_campaign=wporg) was launched in 2016 by [WebDevStudios](https://webdevstudios.com/) to promote, support, and house all of their [WordPress products](https://pluginize.com/shop/?utm_source=cptui-&utm_medium=text&utm_campaign=wporg). Pluginize is not only [creating new products for WordPress all the time, like CPTUI Extended](https://pluginize.com/product/custom-post-type-ui-extended/?utm_source=cptui&utm_medium=text&utm_campaign=wporg), but also provides ongoing support and development for WordPress community favorites like [CMB2](https://wordpress.org/plugins/cmb2/) and more.
 
@@ -252,7 +252,3 @@ That's it! Now you can easily start creating custom post types and taxonomies in
 
 User documentation: http://docs.pluginize.com/collection/1-custom-post-type-ui
 Code/API documentation: http://codex.pluginize.com/cptui/
-
-== Other Notes ==
-
-Import/Export functionality amended from original contribution by [Ben Allfree](http://wordpress.org/support/profile/benallfree).
