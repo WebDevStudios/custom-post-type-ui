@@ -183,14 +183,14 @@ function cptui_get_taxonomy_code( $cptui_taxonomies = array(), $single = false )
 			$callback = 'cptui_register_my_taxes_' . str_replace( '-', '_', $cptui_taxonomies[ $key ]['name'] );
 		}
 	?>
-add_action( 'init', '<?php echo $callback; ?>' );
 function <?php echo $callback; ?>() {
-	<?php
+<?php
 	foreach ( $cptui_taxonomies as $tax ) {
-		echo cptui_get_single_taxonomy_registery( $tax ) . "\n";
+		echo cptui_get_single_taxonomy_registery( $tax );
 	} ?>
-// End <?php echo $callback; ?>()
 }
+
+add_action( 'init', '<?php echo $callback; ?>' );
 <?php
 	} else {
 		_e( 'No taxonomies to display at this time', 'custom-post-type-ui' );
@@ -255,16 +255,23 @@ function cptui_get_single_taxonomy_registery( $taxonomy = array() ) {
 
 	$my_theme = wp_get_theme();
 	$textdomain = $my_theme->get( 'TextDomain' );
-	?>
+?>
+
+	/**
+	 * Taxonomy: <?php echo $taxonomy['label']; ?>.
+	 */
+
 	$labels = array(
 		"name" => __( '<?php echo $taxonomy['label']; ?>', '<?php echo $textdomain; ?>' ),
 		"singular_name" => __( '<?php echo $taxonomy['singular_label']; ?>', '<?php echo $textdomain; ?>' ),
-		<?php
-		foreach ( $taxonomy['labels'] as $key => $label ) {
-			if ( ! empty( $label ) ) {
-				echo '"' . $key . '" => __( \'' . $label . '\', \'' . $textdomain . '\' ),' . "\n\t\t";
-			}
-		} ?>);
+<?php
+	foreach ( $taxonomy['labels'] as $key => $label ) {
+		if ( ! empty( $label ) ) {
+			echo "\t\t" . '"' . $key . '" => __( \'' . $label . '\', \'' . $textdomain . '\' ),' . "\n";
+		}
+	}
+?>
+	);
 
 	$args = array(
 		"label" => __( '<?php echo $taxonomy['label']; ?>', '<?php echo $textdomain; ?>' ),
@@ -282,6 +289,7 @@ function cptui_get_single_taxonomy_registery( $taxonomy = array() ) {
 		"rest_base" => "<?php echo $taxonomy['rest_base']; ?>",
 		"show_in_quick_edit" => <?php echo $show_in_quick_edit; ?>,
 	);
+
 	register_taxonomy( "<?php echo $taxonomy['name']; ?>", <?php echo $post_types; ?>, $args );
 <?php
 }
@@ -304,15 +312,17 @@ function cptui_get_post_type_code( $cptui_post_types = array(), $single = false 
 			$key = key( $cptui_post_types );
 			$callback = 'cptui_register_my_cpts_' . str_replace( '-', '_', $cptui_post_types[ $key ]['name'] );
 		}
-	?>
-add_action( 'init', '<?php echo $callback; ?>' );
+?>
+
 function <?php echo $callback; ?>() {
 <?php // Space before this line reflects in textarea.
-	foreach ( $cptui_post_types as $type ) {
-	echo cptui_get_single_post_type_registery( $type ) . "\n";
-	} ?>
-// End of <?php echo $callback; ?>()
+		foreach ( $cptui_post_types as $type ) {
+			echo cptui_get_single_post_type_registery( $type );
+		}
+?>
 }
+
+add_action( 'init', '<?php echo $callback; ?>' );
 <?php
 	} else {
 		_e( 'No post types to display at this time', 'custom-post-type-ui' );
@@ -414,20 +424,28 @@ function cptui_get_single_post_type_registery( $post_type = array() ) {
 
 	$my_theme = wp_get_theme();
 	$textdomain = $my_theme->get( 'TextDomain' );
-	?>
+?>
+
+	/**
+	 * Post Type: <?php echo $post_type['label']; ?>.
+	 */
+
 	$labels = array(
 		"name" => __( '<?php echo $post_type['label']; ?>', '<?php echo $textdomain; ?>' ),
 		"singular_name" => __( '<?php echo $post_type['singular_label']; ?>', '<?php echo $textdomain; ?>' ),
-		<?php foreach ( $post_type['labels'] as $key => $label ) {
-			if ( ! empty( $label ) ) {
-				if ( 'parent' === $key ) {
-					// Fix for incorrect label key. See #439.
-					echo '"' . 'parent_item_colon' . '" => __( \'' . $label . '\', \'' . $textdomain . '\' ),' . "\n\t\t";
-				} else {
-					echo '"' . $key . '" => __( \'' . $label . '\', \'' . $textdomain . '\' ),' . "\n\t\t";
-				}
+<?php
+	foreach ( $post_type['labels'] as $key => $label ) {
+		if ( ! empty( $label ) ) {
+			if ( 'parent' === $key ) {
+				// Fix for incorrect label key. See #439.
+				echo "\t\t" . '"' . 'parent_item_colon' . '" => __( \'' . $label . '\', \'' . $textdomain . '\' ),' . "\n";
+			} else {
+				echo "\t\t" . '"' . $key . '" => __( \'' . $label . '\', \'' . $textdomain . '\' ),' . "\n";
 			}
-		} ?>);
+		}
+	}
+?>
+	);
 
 	$args = array(
 		"label" => __( '<?php echo $post_type['label']; ?>', '<?php echo $textdomain; ?>' ),
@@ -440,7 +458,8 @@ function cptui_get_single_post_type_registery( $post_type = array() ) {
 		"rest_base" => "<?php echo $post_type['rest_base']; ?>",
 		"has_archive" => <?php echo $has_archive; ?>,
 		"show_in_menu" => <?php echo disp_boolean( $post_type['show_in_menu'] ); ?>,
-		<?php if ( ! empty( $post_type['show_in_menu_string'] ) ) { ?>"show_in_menu_string" => "<?php echo $post_type['show_in_menu_string']; ?>",
+<?php if ( ! empty( $post_type['show_in_menu_string'] ) ) { ?>
+		"show_in_menu_string" => "<?php echo $post_type['show_in_menu_string']; ?>",
 <?php } ?>
 		"exclude_from_search" => <?php echo disp_boolean( $post_type['exclude_from_search'] ); ?>,
 		"capability_type" => "<?php echo $post_type['capability_type']; ?>",
@@ -448,13 +467,23 @@ function cptui_get_single_post_type_registery( $post_type = array() ) {
 		"hierarchical" => <?php echo disp_boolean( $post_type['hierarchical'] ); ?>,
 		"rewrite" => <?php echo $rewrite; ?>,
 		"query_var" => <?php echo $post_type['query_var']; ?>,
-		<?php if ( ! empty( $post_type['menu_position'] ) ) { ?>"menu_position" => <?php echo $post_type['menu_position']; ?>,<?php } ?><?php if ( ! empty( $post_type['menu_icon'] ) ) { ?>"menu_icon" => "<?php echo $post_type['menu_icon']; ?>",<?php } ?>
-<?php if ( ! empty( $supports ) ) { echo "\n\t\t" ?>"supports" => <?php echo $supports; ?>,<?php } ?>
-		<?php if ( ! empty( $taxonomies ) ) {  echo "\n\t\t" ?>"taxonomies" => <?php echo $taxonomies; ?>,
+<?php if ( ! empty( $post_type['menu_position'] ) ) { ?>
+		"menu_position" => <?php echo $post_type['menu_position']; ?>,
 <?php } ?>
-		<?php if ( true === $yarpp ) { echo "\n\t\t" ?>"yarpp_support" => <?php echo disp_boolean( $yarpp ); ?>,
+<?php if ( ! empty( $post_type['menu_icon'] ) ) { ?>
+		"menu_icon" => "<?php echo $post_type['menu_icon']; ?>",
+<?php } ?>
+<?php if ( ! empty( $supports ) ) { ?>
+		"supports" => <?php echo $supports; ?>,
+<?php } ?>
+<?php if ( ! empty( $taxonomies ) ) { ?>
+		"taxonomies" => <?php echo $taxonomies; ?>,
+<?php } ?>
+<?php if ( true === $yarpp ) { ?>
+		"yarpp_support" => <?php echo disp_boolean( $yarpp ); ?>,
 <?php } ?>
 	);
+
 	register_post_type( "<?php echo $post_type['name']; ?>", $args );
 <?php
 }
