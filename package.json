@@ -3,9 +3,9 @@
   "version": "1.4.0",
   "description": "Custom Post Type UI",
   "main": "Gulpfile.js",
-  "directories": [
+  "directories": {
     "tests": "tests"
-  ]
+  },
   "dependencies": {
     "autoprefixer": "^6.3.1",
     "del": "^2.2.0",
