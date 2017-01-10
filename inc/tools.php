@@ -116,14 +116,6 @@ function cptui_tools() {
 		}
 	}
 
-	if ( ! empty( $_POST ) ) {
-		$notice = cptui_import_types_taxes_settings( $_POST );
-	}
-
-	if ( isset( $notice ) ) {
-		echo $notice;
-	}
-
 	echo '<div class="wrap">';
 
 	/**
@@ -341,7 +333,6 @@ add_action( 'init', '<?php echo $callback; ?>' );
  *
  * @since 1.0.0
  *
- * @param array $post_type Post type data to output.
  * @param array $post_type Post type data to output. Optional.
  */
 function cptui_get_single_post_type_registery( $post_type = array() ) {

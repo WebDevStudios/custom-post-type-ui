@@ -1355,10 +1355,6 @@ function cptui_convert_taxonomy_terms( $original_slug = '', $new_slug = '' ) {
 		$term_ids = (array) $term_ids;
 	}
 
-	if ( is_int( $term_ids ) ) {
-		$term_ids = (array) $term_ids;
-	}
-
 	if ( is_array( $term_ids ) && ! empty( $term_ids ) ) {
 		$term_ids = implode( ',', $term_ids );
 
