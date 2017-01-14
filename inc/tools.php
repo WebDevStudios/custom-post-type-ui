@@ -1,9 +1,9 @@
 <?php
 /**
- * Custom Post Type UI Import/Export.
+ * Custom Post Type UI Tools.
  *
  * @package CPTUI
- * @subpackage ImportExport
+ * @subpackage Tools
  * @author WebDevStudios
  * @since 1.0.0
  */
@@ -14,22 +14,23 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Register our tabs for the Import/Export screen.
+ * Register our tabs for the Tools screen.
  *
  * @since 1.3.0
+ * @since 1.5.0 Renamed to "Tools"
  *
  * @internal
  *
- * @param array  $tabs         Array of tabs to display.
- * @param string $current_page Current page being shown.
+ * @param array  $tabs         Array of tabs to display. Optional.
+ * @param string $current_page Current page being shown. Optional. Default empty string.
  * @return array Amended array of tabs to show.
  */
-function cptui_importexport_tabs( $tabs = array(), $current_page = '' ) {
+function cptui_tools_tabs( $tabs = array(), $current_page = '' ) {
 
-	if ( 'importexport' == $current_page ) {
+	if ( 'tools' === $current_page ) {
 		$classes = array( 'nav-tab' );
 
-		$tabs['page_title'] = __( 'Import/Export', 'custom-post-type-ui' );
+		$tabs['page_title'] = get_admin_page_title();
 		$tabs['tabs']       = array();
 		$tabs['tabs']['post_types'] = array(
 			'text'          => __( 'Post Types', 'custom-post-type-ui' ),
@@ -76,11 +77,22 @@ function cptui_importexport_tabs( $tabs = array(), $current_page = '' ) {
 			$tabs['tabs']['post_types']['classes'][] = $active_class;
 			$tabs['tabs']['post_types']['aria-selected'] = 'true';
 		}
+
+		/**
+		 * Filters the tabs being added for the tools area.
+		 *
+		 * @since 1.5.0
+		 *
+		 * @param array  $tabs         Array of tabs to show.
+		 * @param string $action       Current tab being shown.
+		 * @param string $active_class Class to use to mark the tab active.
+		 */
+		$tabs = apply_filters( 'cptui_tools_tabs', $tabs, $action, $active_class );
 	}
 
 	return $tabs;
 }
-add_filter( 'cptui_get_tabs', 'cptui_importexport_tabs', 10, 2 );
+add_filter( 'cptui_get_tabs', 'cptui_tools_tabs', 10, 2 );
 
 /**
  * Create our settings page output.
@@ -89,39 +101,41 @@ add_filter( 'cptui_get_tabs', 'cptui_importexport_tabs', 10, 2 );
  *
  * @internal
  */
-function cptui_importexport() {
+function cptui_tools() {
 
 	$tab = '';
 	if ( ! empty( $_GET ) ) {
-		if ( ! empty( $_GET['action'] ) && 'taxonomies' == $_GET['action'] ) {
+		if ( ! empty( $_GET['action'] ) && 'taxonomies' === $_GET['action'] ) {
 			$tab = 'taxonomies';
-		} elseif ( ! empty( $_GET['action'] ) && 'get_code' == $_GET['action'] ) {
+		} elseif ( ! empty( $_GET['action'] ) && 'get_code' === $_GET['action'] ) {
 			$tab = 'get_code';
-		} elseif ( ! empty( $_GET['action'] ) && 'debuginfo' == $_GET['action'] ) {
+		} elseif ( ! empty( $_GET['action'] ) && 'debuginfo' === $_GET['action'] ) {
 			$tab = 'debuginfo';
 		} else {
 			$tab = 'post_types';
 		}
 	}
 
-	if ( ! empty( $_POST ) ) {
-		$notice = cptui_import_types_taxes_settings( $_POST );
-	}
-
-	if ( isset( $notice ) ) {
-		echo $notice;
-	}
 	echo '<div class="wrap">';
 
 	/**
 	 * Fires right inside the wrap div for the import/export pages.
 	 *
 	 * @since 1.3.0
+	 *
+	 * @deprecated 1.5.0
 	 */
-	do_action( 'cptui_inside_importexport_wrap' );
+	do_action_deprecated( 'cptui_inside_importexport_wrap', array(), '1.5.0', 'cptui_inside_tools_wrap' );
+
+	/**
+	 * Fires right inside the wrap div for the tools pages.
+	 *
+	 * @since 1.5.0
+	 */
+	do_action( 'cptui_inside_tools_wrap' );
 
 	// Create our tabs.
-	cptui_settings_tab_menu( $page = 'importexport' );
+	cptui_settings_tab_menu( $page = 'tools' );
 
 	/**
 	 * Fires inside the markup for the import/export section.
@@ -130,9 +144,23 @@ function cptui_importexport() {
 	 *
 	 * @since 1.2.0
 	 *
+	 * @deprecated 1.5.0
+	 *
 	 * @param string $tab Current tab being displayed.
 	 */
-	do_action( 'cptui_import_export_sections', $tab );
+	do_action_deprecated( 'cptui_import_export_sections', array( $tab ), '1.5.0', 'cptui_tools_sections' );
+
+	/**
+	 * Fires inside the markup for the tools section.
+	 *
+	 * Allows for more modular control and adding more sections more easily.
+	 *
+	 * @since 1.5.0
+	 *
+	 * @param string $tab Current tab being displayed.
+	 */
+	do_action( 'cptui_tools_sections', $tab );
+
 
 	echo '</div><!-- End .wrap -->';
 }
@@ -144,8 +172,8 @@ function cptui_importexport() {
  * @since 1.2.0 Added $cptui_taxonomies parameter.
  * @since 1.2.0 Added $single parameter.
  *
- * @param array $cptui_taxonomies Array of taxonomies to render.
- * @param bool  $single           Whether or not we are rendering a single taxonomy.
+ * @param array $cptui_taxonomies Array of taxonomies to render. Optional.
+ * @param bool  $single           Whether or not we are rendering a single taxonomy. Optional. Default false.
  */
 function cptui_get_taxonomy_code( $cptui_taxonomies = array(), $single = false ) {
 	if ( ! empty( $cptui_taxonomies ) ) {
@@ -155,14 +183,14 @@ function cptui_get_taxonomy_code( $cptui_taxonomies = array(), $single = false )
 			$callback = 'cptui_register_my_taxes_' . str_replace( '-', '_', $cptui_taxonomies[ $key ]['name'] );
 		}
 	?>
-add_action( 'init', '<?php echo $callback; ?>' );
 function <?php echo $callback; ?>() {
 <?php
 	foreach ( $cptui_taxonomies as $tax ) {
-		echo cptui_get_single_taxonomy_registery( $tax ) . "\n";
+		echo cptui_get_single_taxonomy_registery( $tax );
 	} ?>
-// End <?php echo $callback; ?>()
 }
+
+add_action( 'init', '<?php echo $callback; ?>' );
 <?php
 	} else {
 		_e( 'No taxonomies to display at this time', 'custom-post-type-ui' );
@@ -174,7 +202,7 @@ function <?php echo $callback; ?>() {
  *
  * @since 1.0.0
  *
- * @param array $taxonomy Taxonomy data to output.
+ * @param array $taxonomy Taxonomy data to output. Optional.
  */
 function cptui_get_single_taxonomy_registery( $taxonomy = array() ) {
 
@@ -227,16 +255,23 @@ function cptui_get_single_taxonomy_registery( $taxonomy = array() ) {
 
 	$my_theme = wp_get_theme();
 	$textdomain = $my_theme->get( 'TextDomain' );
-	?>
+?>
+
+	/**
+	 * Taxonomy: <?php echo $taxonomy['label']; ?>.
+	 */
+
 	$labels = array(
 		"name" => __( '<?php echo $taxonomy['label']; ?>', '<?php echo $textdomain; ?>' ),
 		"singular_name" => __( '<?php echo $taxonomy['singular_label']; ?>', '<?php echo $textdomain; ?>' ),
-		<?php
-		foreach ( $taxonomy['labels'] as $key => $label ) {
-			if ( ! empty( $label ) ) {
-				echo '"' . $key . '" => __( \'' . $label . '\', \'' . $textdomain . '\' ),' . "\n\t\t";
-			}
-		} ?>);
+<?php
+	foreach ( $taxonomy['labels'] as $key => $label ) {
+		if ( ! empty( $label ) ) {
+			echo "\t\t" . '"' . $key . '" => __( \'' . $label . '\', \'' . $textdomain . '\' ),' . "\n";
+		}
+	}
+?>
+	);
 
 	$args = array(
 		"label" => __( '<?php echo $taxonomy['label']; ?>', '<?php echo $textdomain; ?>' ),
@@ -265,8 +300,8 @@ function cptui_get_single_taxonomy_registery( $taxonomy = array() ) {
  * @since 1.2.0 Added $cptui_post_types parameter.
  * @since 1.2.0 Added $single parameter.
  *
- * @param array $cptui_post_types Array of post types to render.
- * @param bool  $single           Whether or not we are rendering a single post type.
+ * @param array $cptui_post_types Array of post types to render. Optional.
+ * @param bool  $single           Whether or not we are rendering a single post type. Optional. Default false.
  */
 function cptui_get_post_type_code( $cptui_post_types = array(), $single = false ) {
 	// Whitespace very much matters here, thus why it's all flush against the left side.
@@ -276,15 +311,17 @@ function cptui_get_post_type_code( $cptui_post_types = array(), $single = false 
 			$key = key( $cptui_post_types );
 			$callback = 'cptui_register_my_cpts_' . str_replace( '-', '_', $cptui_post_types[ $key ]['name'] );
 		}
-	?>
-add_action( 'init', '<?php echo $callback; ?>' );
+?>
+
 function <?php echo $callback; ?>() {
 <?php // Space before this line reflects in textarea.
-	foreach ( $cptui_post_types as $type ) {
-	echo cptui_get_single_post_type_registery( $type ) . "\n";
-	} ?>
-// End of <?php echo $callback; ?>()
+		foreach ( $cptui_post_types as $type ) {
+			echo cptui_get_single_post_type_registery( $type );
+		}
+?>
 }
+
+add_action( 'init', '<?php echo $callback; ?>' );
 <?php
 	} else {
 		_e( 'No post types to display at this time', 'custom-post-type-ui' );
@@ -296,7 +333,7 @@ function <?php echo $callback; ?>() {
  *
  * @since 1.0.0
  *
- * @param array $post_type Post type data to output.
+ * @param array $post_type Post type data to output. Optional.
  */
 function cptui_get_single_post_type_registery( $post_type = array() ) {
 
@@ -346,6 +383,15 @@ function cptui_get_single_post_type_registery( $post_type = array() ) {
 	} else {
 		$rewrite = disp_boolean( $post_type['rewrite'] );
 	}
+	$has_archive = get_disp_boolean( $post_type['has_archive'] );
+	if ( false !== $has_archive ) {
+		$has_archive = disp_boolean( $post_type['has_archive'] );
+		if ( ! empty( $post_type['has_archive_string'] ) ) {
+			$has_archive = '"' . $post_type['has_archive_string'] . '"';
+		}
+	} else {
+		$has_archive = disp_boolean( $post_type['has_archive'] );
+	}
 
 	$supports = '';
 	// Do a little bit of php work to get these into strings.
@@ -377,20 +423,28 @@ function cptui_get_single_post_type_registery( $post_type = array() ) {
 
 	$my_theme = wp_get_theme();
 	$textdomain = $my_theme->get( 'TextDomain' );
-	?>
+?>
+
+	/**
+	 * Post Type: <?php echo $post_type['label']; ?>.
+	 */
+
 	$labels = array(
 		"name" => __( '<?php echo $post_type['label']; ?>', '<?php echo $textdomain; ?>' ),
 		"singular_name" => __( '<?php echo $post_type['singular_label']; ?>', '<?php echo $textdomain; ?>' ),
-		<?php foreach ( $post_type['labels'] as $key => $label ) {
-			if ( ! empty( $label ) ) {
-				if ( 'parent' === $key ) {
-					// Fix for incorrect label key. See #439.
-					echo '"' . 'parent_item_colon' . '" => __( \'' . $label . '\', \'' . $textdomain . '\' ),' . "\n\t\t";
-				} else {
-					echo '"' . $key . '" => __( \'' . $label . '\', \'' . $textdomain . '\' ),' . "\n\t\t";
-				}
+<?php
+	foreach ( $post_type['labels'] as $key => $label ) {
+		if ( ! empty( $label ) ) {
+			if ( 'parent' === $key ) {
+				// Fix for incorrect label key. See #439.
+				echo "\t\t" . '"' . 'parent_item_colon' . '" => __( \'' . $label . '\', \'' . $textdomain . '\' ),' . "\n";
+			} else {
+				echo "\t\t" . '"' . $key . '" => __( \'' . $label . '\', \'' . $textdomain . '\' ),' . "\n";
 			}
-		} ?>);
+		}
+	}
+?>
+	);
 
 	$args = array(
 		"label" => __( '<?php echo $post_type['label']; ?>', '<?php echo $textdomain; ?>' ),
@@ -401,9 +455,10 @@ function cptui_get_single_post_type_registery( $post_type = array() ) {
 		"show_ui" => <?php echo disp_boolean( $post_type['show_ui'] ); ?>,
 		"show_in_rest" => <?php echo disp_boolean( $post_type['show_in_rest'] ); ?>,
 		"rest_base" => "<?php echo $post_type['rest_base']; ?>",
-		"has_archive" => <?php echo disp_boolean( $post_type['has_archive'] ); ?>,
+		"has_archive" => <?php echo $has_archive; ?>,
 		"show_in_menu" => <?php echo disp_boolean( $post_type['show_in_menu'] ); ?>,
-		<?php if ( ! empty( $post_type['show_in_menu_string'] ) ) { ?>"show_in_menu_string" => "<?php echo $post_type['show_in_menu_string']; ?>",
+<?php if ( ! empty( $post_type['show_in_menu_string'] ) ) { ?>
+		"show_in_menu_string" => "<?php echo $post_type['show_in_menu_string']; ?>",
 <?php } ?>
 		"exclude_from_search" => <?php echo disp_boolean( $post_type['exclude_from_search'] ); ?>,
 		"capability_type" => "<?php echo $post_type['capability_type']; ?>",
@@ -411,13 +466,23 @@ function cptui_get_single_post_type_registery( $post_type = array() ) {
 		"hierarchical" => <?php echo disp_boolean( $post_type['hierarchical'] ); ?>,
 		"rewrite" => <?php echo $rewrite; ?>,
 		"query_var" => <?php echo $post_type['query_var']; ?>,
-		<?php if ( ! empty( $post_type['menu_position'] ) ) { ?>"menu_position" => <?php echo $post_type['menu_position']; ?>,<?php } ?><?php if ( ! empty( $post_type['menu_icon'] ) ) { ?>"menu_icon" => "<?php echo $post_type['menu_icon']; ?>",<?php } ?>
-<?php if ( ! empty( $supports ) ) { echo "\n\t\t" ?>"supports" => <?php echo $supports; ?>,<?php } ?>
-		<?php if ( ! empty( $taxonomies ) ) {  echo "\n\t\t" ?>"taxonomies" => <?php echo $taxonomies; ?>,
+<?php if ( ! empty( $post_type['menu_position'] ) ) { ?>
+		"menu_position" => <?php echo $post_type['menu_position']; ?>,
 <?php } ?>
-		<?php if ( true === $yarpp ) { echo "\n\t\t" ?>"yarpp_support" => <?php echo disp_boolean( $yarpp ); ?>,
+<?php if ( ! empty( $post_type['menu_icon'] ) ) { ?>
+		"menu_icon" => "<?php echo $post_type['menu_icon']; ?>",
+<?php } ?>
+<?php if ( ! empty( $supports ) ) { ?>
+		"supports" => <?php echo $supports; ?>,
+<?php } ?>
+<?php if ( ! empty( $taxonomies ) ) { ?>
+		"taxonomies" => <?php echo $taxonomies; ?>,
+<?php } ?>
+<?php if ( true === $yarpp ) { ?>
+		"yarpp_support" => <?php echo disp_boolean( $yarpp ); ?>,
 <?php } ?>
 	);
+
 	register_post_type( "<?php echo $post_type['name']; ?>", $args );
 <?php
 }
@@ -429,7 +494,7 @@ function cptui_get_single_post_type_registery( $post_type = array() ) {
  *
  * @internal
  *
- * @param array $postdata $_POST data as json.
+ * @param array $postdata $_POST data as json. Optional.
  * @return mixed false on nothing to do, otherwise void.
  */
 function cptui_import_types_taxes_settings( $postdata = array() ) {
@@ -437,6 +502,7 @@ function cptui_import_types_taxes_settings( $postdata = array() ) {
 		return false;
 	}
 
+	$status = 'import_fail';
 	$success = false;
 
 	/**
@@ -486,10 +552,8 @@ function cptui_import_types_taxes_settings( $postdata = array() ) {
 			 * @param array $postdata Post type data.
 			 */
 			if ( false === ( $success = apply_filters( 'cptui_post_type_import_delete_save', false, $postdata ) ) ) {
-				delete_option( 'cptui_post_types' );
+				$success = delete_option( 'cptui_post_types' );
 			}
-			// We're technically successful in a sense. Importing nothing.
-			$success = true;
 		}
 
 		if ( $settings ) {
@@ -514,8 +578,10 @@ function cptui_import_types_taxes_settings( $postdata = array() ) {
 		}
 		// Used to help flush rewrite rules on init.
 		set_transient( 'cptui_flush_rewrite_rules', 'true', 5 * 60 );
-		return cptui_admin_notices( 'import', __( 'Post types', 'custom-post-type-ui' ), $success );
 
+		if ( $success ) {
+			$status = 'import_success';
+		}
 	} elseif ( ! empty( $postdata['cptui_tax_import'] ) ) {
 		$tax_data = stripslashes_deep( trim( $postdata['cptui_tax_import'] ) );
 		$settings = json_decode( $tax_data, true );
@@ -533,10 +599,8 @@ function cptui_import_types_taxes_settings( $postdata = array() ) {
 			 * @param array $postdata Taxonomy data
 			 */
 			if ( false === ( $success = apply_filters( 'cptui_taxonomy_import_delete_save', false, $postdata ) ) ) {
-				delete_option( 'cptui_taxonomies' );
+				$success = delete_option( 'cptui_taxonomies' );
 			}
-			// We're technically successful in a sense. Importing nothing.
-			$success = true;
 		}
 
 		if ( $settings ) {
@@ -560,14 +624,16 @@ function cptui_import_types_taxes_settings( $postdata = array() ) {
 		}
 		// Used to help flush rewrite rules on init.
 		set_transient( 'cptui_flush_rewrite_rules', 'true', 5 * 60 );
-		return cptui_admin_notices( 'import', __( 'Taxonomies', 'custom-post-type-ui' ), $success );
+		if ( $success ) {
+			$status = 'import_success';
+		}
 	}
 
-	return $success;
+	return $status;
 }
 
 /**
- * Content for the Post Types/Taxonomies Import/Export tab.
+ * Content for the Post Types/Taxonomies Tools tab.
  *
  * @since 1.2.0
  *
@@ -756,7 +822,7 @@ function cptui_render_debuginfo_section() {
 }
 
 /**
- * Renders various tab sections for the Import/Export page, based on current tab.
+ * Renders various tab sections for the Tools page, based on current tab.
  *
  * @since 1.2.0
  *
@@ -764,7 +830,7 @@ function cptui_render_debuginfo_section() {
  *
  * @param string $tab Current tab to display.
  */
-function cptui_render_importexportsections( $tab ) {
+function cptui_render_tools( $tab ) {
 	if ( isset( $tab ) ) {
 		if ( 'post_types' == $tab || 'taxonomies' == $tab ) {
 			cptui_render_posttypes_taxonomies_section();
@@ -779,4 +845,21 @@ function cptui_render_importexportsections( $tab ) {
 		}
 	}
 }
-add_action( 'cptui_import_export_sections', 'cptui_render_importexportsections' );
+add_action( 'cptui_tools_sections', 'cptui_render_tools' );
+
+/**
+ * Handle the import of transferred post types and taxonomies.
+ *
+ * @since 1.5.0
+ */
+function cptui_do_import_types_taxes() {
+
+	if ( ! empty( $_POST ) &&
+	     ( ! empty( $_POST['cptui_post_import'] ) && isset( $_POST['cptui_post_import'] ) ) ||
+	     ( ! empty( $_POST['cptui_tax_import'] ) && isset( $_POST['cptui_tax_import'] ) )
+	) {
+		$success = cptui_import_types_taxes_settings( $_POST );
+		add_action( 'admin_notices', "cptui_{$success}_admin_notice" );
+	}
+}
+add_action( 'init', 'cptui_do_import_types_taxes', 8 );
