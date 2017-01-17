@@ -156,7 +156,7 @@ function cptui_plugin_menu() {
 
 	// Remove the default one so we can add our customized version.
 	remove_submenu_page( $parent_slug, 'cptui_main_menu' );
-	add_submenu_page( $parent_slug, __( 'About CPT UI', 'custom-post-type-ui' ), __( 'About CPT UI', 'custom-post-type-ui' ), 'manage_options', 'cptui_main_menu', 'cptui_settings' );
+	add_submenu_page( $parent_slug, __( 'About CPT UI', 'custom-post-type-ui' ), __( 'About CPT UI', 'custom-post-type-ui' ), $capability, 'cptui_main_menu', 'cptui_settings' );
 }
 add_action( 'admin_menu', 'cptui_plugin_menu' );
 
