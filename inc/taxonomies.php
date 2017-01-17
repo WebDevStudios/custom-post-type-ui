@@ -1251,6 +1251,7 @@ function cptui_reserved_taxonomies() {
 		'feed',
 		'fields',
 		'hour',
+		'include',
 		'link_category',
 		'm',
 		'minute',
