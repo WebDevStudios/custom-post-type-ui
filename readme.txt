@@ -30,6 +30,12 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 
 == Changelog ==
 
+= 1.5.1 - 2017-1-17 =
+* Fixed: Undefined index notice during update process for themes or plugins.
+* Fixed: Blacklisted the word "include" from allowed taxonomy slugs. Causes menus to not show in WP Admin.
+* Fixed: Blacklisted the word "fields" from allowed post type slugs. Causes pages to not show in WP Admin.
+* Updated: Replaced hardcoded "manage_options" reference in our menu setup with variable holding filtered capability.
+
 = 1.5.0 - 2017-1-10 =
 * Added: Helper functions to grab individual post types or taxonomies from CPTUI options, function to check for support for custom saved values.
 * Added: Helper functions to mark and check if a new CPTUI install.
@@ -81,6 +87,12 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 * Updated: Further UI refinements to better match WordPress admin. Adapted styles found from metaboxes, including collapse/expand toggles.
 
 == Upgrade Notice ==
+
+= 1.5.1 - 2017-1-17 =
+* Fixed: Undefined index notice during update process for themes or plugins.
+* Fixed: Blacklisted the word "include" from allowed taxonomy slugs. Causes menus to not show in WP Admin.
+* Fixed: Blacklisted the word "fields" from allowed post type slugs. Causes pages to not show in WP Admin.
+* Updated: Replaced hardcoded "manage_options" reference in our menu setup with variable holding filtered capability.
 
 = 1.5.0 - 2017-1-10 =
 * Added: Helper functions to grab individual post types or taxonomies from CPTUI options, function to check for support for custom saved values.
