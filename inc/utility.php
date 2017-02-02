@@ -667,7 +667,11 @@ function cptui_error_admin_notice() {
  */
 function cptui_not_new_install( $wp_upgrader, $extras ) {
 
-	if ( ! is_array( $extras['plugins'] ) ) {
+	if ( ! is_a( $wp_upgrader, 'Plugin_Upgrader' ) ) {
+		return;
+	}
+
+	if ( ! array_key_exists( 'plugins', $extras ) || ! is_array( $extras['plugins'] ) ) {
 		return;
 	}
 

@@ -748,6 +748,8 @@ function cptui_render_getcode_section() {
 
 		<h2><?php _e( 'All CPT UI Post Types', 'custom-post-type-ui' ); ?></h2>
 
+		<p><?php esc_html_e( 'All of the selectable code snippets below are useful if you wish to migrate away from CPTUI and retain your existing registered post types or taxonomies.', 'custom-post-type-ui' ); ?></p>
+
 		<?php $cptui_post_types = cptui_get_post_type_data(); ?>
 		<label for="cptui_post_type_get_code"><?php _e( 'Copy/paste the code below into your functions.php file.', 'custom-post-type-ui' ); ?></label>
 		<textarea name="cptui_post_type_get_code" id="cptui_post_type_get_code" class="cptui_post_type_get_code" onclick="this.focus();this.select()" onfocus="this.focus();this.select();" readonly="readonly" aria-readonly="true"><?php cptui_get_post_type_code( $cptui_post_types ); ?></textarea>
