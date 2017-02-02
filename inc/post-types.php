@@ -1494,6 +1494,7 @@ function cptui_reserved_post_types() {
 		'action',
 		'order',
 		'theme',
+		'fields',
 	);
 
 	/**

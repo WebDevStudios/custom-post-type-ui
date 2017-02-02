@@ -3,8 +3,8 @@ Contributors: webdevstudios, pluginize, tw2113, vegasgeek, modemlooper, williams
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3084056
 Tags: custom post types, CPT, CMS, post, types, post type, taxonomy, tax, custom, content types, post types
 Requires at least: 4.6
-Tested up to: 4.7
-Stable tag: 1.5.0
+Tested up to: 4.7.2
+Stable tag: 1.5.2
 License: GPLv2
 
 Admin UI for creating custom post types and custom taxonomies for WordPress
@@ -29,6 +29,18 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 6. Help/support screen.
 
 == Changelog ==
+
+= 1.5.2 - 2017-2-1 =
+* Fixed: Chrome conflicts around the js used to sanitize post type and taxonomy slugs and cursors moving to end of input.
+* Fixed: Further hardened undefined index notices and instance checks in our cptui_not_new_install() callback.
+* Updated: Help text for post type and taxonomy slugs around the use of dashes. See http://docs.pluginize.com/article/135-dashes-in-post-type-taxonomy-slugs-for-url-seo
+* Added: Clarification text regarding what the "Get code" section is useful for.
+
+= 1.5.1 - 2017-1-17 =
+* Fixed: Undefined index notice during update process for themes or plugins.
+* Fixed: Blacklisted the word "include" from allowed taxonomy slugs. Causes menus to not show in WP Admin.
+* Fixed: Blacklisted the word "fields" from allowed post type slugs. Causes pages to not show in WP Admin.
+* Updated: Replaced hardcoded "manage_options" reference in our menu setup with variable holding filtered capability.
 
 = 1.5.0 - 2017-1-10 =
 * Added: Helper functions to grab individual post types or taxonomies from CPTUI options, function to check for support for custom saved values.
@@ -81,6 +93,18 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 * Updated: Further UI refinements to better match WordPress admin. Adapted styles found from metaboxes, including collapse/expand toggles.
 
 == Upgrade Notice ==
+
+= 1.5.2 - 2017-2-1 =
+* Fixed: Chrome conflicts around the js used to sanitize post type and taxonomy slugs and cursors moving to end of input.
+* Fixed: Further hardened undefined index notices and instance checks in our cptui_not_new_install() callback.
+* Updated: Help text for post type and taxonomy slugs around the use of dashes. See http://docs.pluginize.com/article/135-dashes-in-post-type-taxonomy-slugs-for-url-seo
+* Added: Clarification text regarding what the "Get code" section is useful for.
+
+= 1.5.1 - 2017-1-17 =
+* Fixed: Undefined index notice during update process for themes or plugins.
+* Fixed: Blacklisted the word "include" from allowed taxonomy slugs. Causes menus to not show in WP Admin.
+* Fixed: Blacklisted the word "fields" from allowed post type slugs. Causes pages to not show in WP Admin.
+* Updated: Replaced hardcoded "manage_options" reference in our menu setup with variable holding filtered capability.
 
 = 1.5.0 - 2017-1-10 =
 * Added: Helper functions to grab individual post types or taxonomies from CPTUI options, function to check for support for custom saved values.
@@ -154,5 +178,5 @@ That's it! Now you can easily start creating custom post types and taxonomies in
 
 == Frequently Asked Questions ==
 
-User documentation: http://docs.pluginize.com/collection/1-custom-post-type-ui
+User documentation: http://docs.pluginize.com/category/126-custom-post-type-ui
 Code/API documentation: http://codex.pluginize.com/cptui/

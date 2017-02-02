@@ -146,7 +146,6 @@ function cptui_tools() {
 	 *
 	 * @deprecated 1.5.0
 	 *
-	 * @param string $tab Current tab being displayed.
 	 */
 	do_action_deprecated( 'cptui_import_export_sections', array( $tab ), '1.5.0', 'cptui_tools_sections' );
 
@@ -160,7 +159,6 @@ function cptui_tools() {
 	 * @param string $tab Current tab being displayed.
 	 */
 	do_action( 'cptui_tools_sections', $tab );
-
 
 	echo '</div><!-- End .wrap -->';
 }
@@ -747,6 +745,8 @@ function cptui_render_getcode_section() {
 	<h1><?php _e( 'Get Post Type and Taxonomy Code', 'custom-post-type-ui' ); ?></h1>
 
 		<h2><?php _e( 'All CPT UI Post Types', 'custom-post-type-ui' ); ?></h2>
+
+		<p><?php esc_html_e( 'All of the selectable code snippets below are useful if you wish to migrate away from CPTUI and retain your existing registered post types or taxonomies.', 'custom-post-type-ui' ); ?></p>
 
 		<?php $cptui_post_types = cptui_get_post_type_data(); ?>
 		<label for="cptui_post_type_get_code"><?php _e( 'Copy/paste the code below into your functions.php file.', 'custom-post-type-ui' ); ?></label>

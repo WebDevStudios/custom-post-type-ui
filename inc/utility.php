@@ -666,6 +666,15 @@ function cptui_error_admin_notice() {
  * @param array  $extras      Extra information about performed upgrade.
  */
 function cptui_not_new_install( $wp_upgrader, $extras ) {
+
+	if ( ! is_a( $wp_upgrader, 'Plugin_Upgrader' ) ) {
+		return;
+	}
+
+	if ( ! array_key_exists( 'plugins', $extras ) || ! is_array( $extras['plugins'] ) ) {
+		return;
+	}
+
 	// Was CPTUI updated?
 	if ( ! in_array( 'custom-post-type-ui/custom-post-type-ui.php', $extras['plugins'] ) ) {
 		return;
