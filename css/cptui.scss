@@ -1,3 +1,5 @@
+$min-tablet: "screen and (min-width: 768px)";
+
 .posttypesui, .taxonomiesui {
 	.cptui-section:first-child {
 		margin-top: 30px;
@@ -123,6 +125,11 @@
 	h3 + .cptui-feature {
 		margin-top: 0;
 	}
+  	.changelog {
+	  h2 {
+		text-align: center;
+	  }
+	}
 	.feature-rest {
 		div {
 			width: 50% !important;
@@ -184,6 +191,11 @@
   	}
 	.cptui-about-text {
 		margin-bottom: 1em !important;
+	}
+	.cptui-badge {
+		position: absolute;
+	    top: 0;
+	    right: 0;
 	}
 }
 .js {
@@ -346,4 +358,18 @@
 }
 #poststuff {
 	min-width: 463px;
+}
+
+@media #{$min-tablet} {
+	.cptui-badge {
+	    padding-top: 142px;
+	    height: 50px;
+	    width: 173px;
+	    color: #fafafa;
+	    font-weight: bold;
+	    font-size: 14px;
+	    text-align: center;
+	    margin: 0 -5px;
+	    background: url(../images/cptui-icon-173x173.png) no-repeat;
+	}
 }

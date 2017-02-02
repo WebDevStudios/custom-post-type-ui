@@ -87,7 +87,7 @@ function disp_boolean( $bool_text ) {
  *
  * @internal
  *
- * @param string $original Original footer content.
+ * @param string $original Original footer content. Optional. Default empty string.
  * @return string $value HTML for footer.
  */
 function cptui_footer( $original = '' ) {
@@ -128,7 +128,7 @@ function cptui_flush_rewrite_rules() {
 	}
 
 	/*
-	 * Wise men say that you should not do flush_rewrite_rules on init or admin_int. Due to the nature of our plugin
+	 * Wise men say that you should not do flush_rewrite_rules on init or admin_init. Due to the nature of our plugin
 	 * and how new post types or taxonomies can suddenly be introduced, we need to...potentially. For this,
 	 * we rely on a short lived transient. Only 5 minutes life span. If it exists, we do a soft flush before
 	 * deleting the transient to prevent subsequent flushes. The only times the transient gets created, is if
@@ -195,7 +195,7 @@ function cptui_get_taxonomy_slugs() {
  * @since 1.3.0
  *
  * @param string $path URL path.
- * @return string|void
+ * @return string
  */
 function cptui_admin_url( $path ) {
 	if ( is_multisite() && is_network_admin() ) {
@@ -210,7 +210,7 @@ function cptui_admin_url( $path ) {
  *
  * @since 1.3.0
  *
- * @param object|string $ui CPTUI Admin UI instance.
+ * @param object|string $ui CPTUI Admin UI instance. Optional. Default empty string.
  * @return string
  */
 function cptui_get_post_form_action( $ui = '' ) {
@@ -238,7 +238,7 @@ function cptui_post_form_action( $ui ) {
  *
  * @since 1.3.0
  *
- * @return mixed|void
+ * @return mixed
  */
 function cptui_get_post_type_data() {
 	return apply_filters( 'cptui_get_post_type_data', get_option( 'cptui_post_types', array() ), get_current_blog_id() );
@@ -249,7 +249,7 @@ function cptui_get_post_type_data() {
  *
  * @since 1.3.0
  *
- * @return mixed|void
+ * @return mixed
  */
 function cptui_get_taxonomy_data() {
 	return apply_filters( 'cptui_get_taxonomy_data', get_option( 'cptui_taxonomies', array() ), get_current_blog_id() );
@@ -260,9 +260,9 @@ function cptui_get_taxonomy_data() {
  *
  * @since 1.3.0
  *
- * @param string       $slug Post type slug to check.
- * @param array|string $data Post type data being utilized.
- * @return mixed|void
+ * @param string       $slug Post type slug to check. Optional. Default empty string.
+ * @param array|string $data Post type data being utilized. Optional.
+ * @return mixed
  */
 function cptui_get_post_type_exists( $slug = '', $data = array() ) {
 
@@ -310,7 +310,7 @@ function cptui_products_sidebar() {
 		}
 		printf(
 			'<p><a href="%s">%s</a></p>',
-			'https://pluginize.com/product/custom-post-type-ui-extended/?utm_source=remove_ads&utm_medium=text&utm_campaign=cptui',
+			'https://pluginize.com/plugins/custom-post-type-ui-extended/?utm_source=remove_ads&utm_medium=text&utm_campaign=cptui',
 			esc_html__( 'Remove these ads?', 'custom-post-type-ui' )
 		);
 	}
@@ -393,12 +393,12 @@ function cptui_get_ads() {
  *
  * @internal
  *
- * @param array $ads Array of ads set so far.
+ * @param array $ads Array of ads set so far. Optional.
  * @return array $ads Array of newly constructed ads.
  */
 function cptui_default_ads( $ads = array() ) {
 	$ads[] = array(
-		'url'   => 'https://pluginize.com/product/custom-post-type-ui-extended/?utm_source=sidebar-v3&utm_medium=banner&utm_campaign=cptui',
+		'url'   => 'https://pluginize.com/plugins/custom-post-type-ui-extended/?utm_source=sidebar-v3&utm_medium=banner&utm_campaign=cptui',
 		'image' => plugin_dir_url( dirname( __FILE__ ) ) . 'images/wds_ads/cptuix-ad-3.png',
 		'text'  => 'Custom Post Type UI Extended product ad',
 	);
@@ -426,9 +426,8 @@ add_filter( 'cptui_ads', 'cptui_default_ads' );
  *
  * @since 1.4.0
  *
- * @param string $message Message to use in admin notice.
- * @param bool   $success Whether or not a success.
- *
+ * @param string $message Message to use in admin notice. Optional. Default empty string.
+ * @param bool   $success Whether or not a success. Optional. Default true.
  * @return mixed|void
  */
 function cptui_admin_notices_helper( $message = '', $success = true ) {
@@ -569,6 +568,28 @@ function cptui_delete_fail_admin_notice() {
 }
 
 /**
+ * Success to import callback.
+ *
+ * @since 1.5.0
+ */
+function cptui_import_success_admin_notice() {
+	echo cptui_admin_notices_helper(
+		esc_html__( 'Successfully imported data.', 'custom-post-type-ui' )
+	);
+}
+
+/**
+ * Failure to import callback.
+ *
+ * @since 1.5.0
+ */
+function cptui_import_fail_admin_notice() {
+	echo cptui_admin_notices_helper(
+		esc_html__( 'Invalid data provided', 'custom-post-type-ui' )
+	);
+}
+
+/**
  * Returns error message for if trying to register existing post type.
  *
  * @since 1.4.0
@@ -634,4 +655,131 @@ function cptui_error_admin_notice() {
 		apply_filters( 'cptui_custom_error_message', '' ),
 		false
 	);
+}
+
+/**
+ * Mark site as not a new CPTUI install upon update to 1.5.0
+ *
+ * @since 1.5.0
+ *
+ * @param object $wp_upgrader WP_Upgrader instance.
+ * @param array  $extras      Extra information about performed upgrade.
+ */
+function cptui_not_new_install( $wp_upgrader, $extras ) {
+
+	if ( ! is_a( $wp_upgrader, 'Plugin_Upgrader' ) ) {
+		return;
+	}
+
+	if ( ! array_key_exists( 'plugins', $extras ) || ! is_array( $extras['plugins'] ) ) {
+		return;
+	}
+
+	// Was CPTUI updated?
+	if ( ! in_array( 'custom-post-type-ui/custom-post-type-ui.php', $extras['plugins'] ) ) {
+		return;
+	}
+
+	// If we are already known as not new, return.
+	if ( cptui_is_new_install() ) {
+		return;
+	}
+
+	// We need to mark ourselves as not new.
+	cptui_set_not_new_install();
+}
+add_action( 'upgrader_process_complete', 'cptui_not_new_install', 10, 2 );
+
+/**
+ * Check whether or not we're on a new install.
+ *
+ * @since 1.5.0
+ *
+ * @return bool
+ */
+function cptui_is_new_install() {
+	$new_or_not = true;
+	$saved = get_option( 'cptui_new_install', '' );
+
+	if ( 'false' === $saved ) {
+		$new_or_not = false;
+	}
+
+	/**
+	 * Filters the new install status.
+	 *
+	 * Offers third parties the ability to override if they choose to.
+	 *
+	 * @since 1.5.0
+	 *
+	 * @param bool $new_or_not Whether or not site is a new install.
+	 */
+	return (bool) apply_filters( 'cptui_is_new_install',  $new_or_not );
+}
+
+/**
+ * Set our activation status to not new.
+ *
+ * @since 1.5.0
+ */
+function cptui_set_not_new_install() {
+	update_option( 'cptui_new_install', 'false' );
+}
+
+/**
+ * Returns saved values for single post type from CPTUI settings.
+ *
+ * @since 1.5.0
+ *
+ * @param string $post_type Post type to retrieve CPTUI object for.
+ * @return string
+ */
+function cptui_get_cptui_post_type_object( $post_type = '' ) {
+	$post_types = get_option( 'cptui_post_types' );
+
+	if ( array_key_exists( $post_type, $post_types ) ) {
+		return $post_types[ $post_type ];
+	}
+	return '';
+}
+
+/**
+ * Returns saved values for single taxonomy from CPTUI settings.
+ *
+ * @since 1.5.0
+ *
+ * @param string $taxonomy Taxonomy to retrieve CPTUI object for.
+ * @return string
+ */
+function cptui_get_cptui_taxonomy_object( $taxonomy = '' ) {
+	$taxonomies = get_option( 'cptui_taxonomies' );
+
+	if ( array_key_exists( $taxonomy, $taxonomies ) ) {
+		return $taxonomies[ $taxonomy ];
+	}
+	return '';
+}
+
+/**
+ * Checks if a requested post type has a custom CPTUI feature supported.
+ *
+ * @since 1.5.0
+ *
+ * @param string $post_type Post type slug.
+ * @param string $feature   Feature to check for.
+ * @return bool
+ */
+function cptui_post_type_supports( $post_type, $feature ) {
+
+	$object = cptui_get_cptui_post_type_object( $post_type );
+
+	if ( ! empty( $object ) ) {
+		if ( array_key_exists( $feature, $object ) && ! empty( $object[ $feature ] ) ) {
+			return true;
+		}
+
+		return false;
+	}
+
+	return false;
 }

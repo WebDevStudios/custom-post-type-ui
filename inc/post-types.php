@@ -49,8 +49,8 @@ add_action( 'admin_enqueue_scripts', 'cptui_post_type_enqueue_scripts' );
  *
  * @internal
  *
- * @param array  $tabs         Array of tabs to display.
- * @param string $current_page Current page being shown.
+ * @param array  $tabs         Array of tabs to display. Optional.
+ * @param string $current_page Current page being shown. Optional. Default empty string.
  * @return array Amended array of tabs to show.
  */
 function cptui_post_type_tabs( $tabs = array(), $current_page = '' ) {
@@ -59,7 +59,7 @@ function cptui_post_type_tabs( $tabs = array(), $current_page = '' ) {
 		$post_types = cptui_get_post_type_data();
 		$classes    = array( 'nav-tab' );
 
-		$tabs['page_title'] = __( 'Manage Post Types', 'custom-post-type-ui' );
+		$tabs['page_title'] = get_admin_page_title();
 		$tabs['tabs'] = array();
 		// Start out with our basic "Add new" tab.
 		$tabs['tabs']['add'] = array(
@@ -97,7 +97,7 @@ function cptui_post_type_tabs( $tabs = array(), $current_page = '' ) {
 			$tabs['tabs']['export'] = array(
 				'text'          => __( 'Import/Export Post Types', 'custom-post-type-ui' ),
 				'classes'       => array( 'nav-tab' ), // Prevent notices.
-				'url'           => esc_url( cptui_admin_url( 'admin.php?page=cptui_importexport' ) ),
+				'url'           => esc_url( cptui_admin_url( 'admin.php?page=cptui_tools' ) ),
 				'aria-selected' => 'false',
 			);
 		}
@@ -211,7 +211,7 @@ function cptui_manage_post_types() {
 						echo $ui->get_required_span();
 
 						if ( 'edit' == $tab ) {
-							echo '<p id="slugchanged" class="hidemessage">' . __( 'Slug has changed', 'custom_post_type_ui' ) . '</p>';
+							echo '<p id="slugchanged" class="hidemessage">' . esc_html__( 'Slug has changed', 'custom_post_type_ui' ) . '</p>';
 						}
 
 						echo $ui->get_th_end() . $ui->get_td_start();
@@ -227,7 +227,7 @@ function cptui_manage_post_types() {
 							'wrap'          => false,
 						) );
 						echo '<p class="cptui-slug-details">';
-							esc_html_e( 'Slugs should only contain alphanumeric, latin characters. Underscores or dashes should be used in place of spaces.', 'custom-post-type-ui' );
+							esc_html_e( 'Slugs should only contain alphanumeric, latin characters. Underscores should be used in place of spaces. Set "Custom Rewrite Slug" field to make slug use dashes for URLs.', 'custom-post-type-ui' );
 						echo '</p>';
 
 						if ( 'edit' == $tab ) {
@@ -411,6 +411,15 @@ function cptui_manage_post_types() {
 								) );
 
 								echo $ui->get_text_input( array(
+									'labeltext' => esc_html__( 'View Items', 'custom-post-type-ui' ),
+									'helptext'  => esc_html__( 'Used in the admin bar when viewing editor screen for a published post in the post type.', 'custom-post-type-ui' ),
+									'namearray' => 'cpt_labels',
+									'name'      => 'view_items',
+									'textvalue' => ( isset( $current['labels']['view_items'] ) ) ? esc_attr( $current['labels']['view_items'] ) : '',
+									'aftertext' => esc_html__( '(e.g. View Movies)', 'custom-post-type-ui' ),
+								) );
+
+								echo $ui->get_text_input( array(
 									'labeltext' => esc_html__( 'Search Item', 'custom-post-type-ui' ),
 									'helptext'  => esc_html__( 'Used as the text for the search button on post type list screen.', 'custom-post-type-ui' ),
 									'namearray' => 'cpt_labels',
@@ -536,6 +545,15 @@ function cptui_manage_post_types() {
 									'textvalue' => ( isset( $current['labels']['items_list'] ) ) ? esc_attr( $current['labels']['items_list'] ) : '',
 									'aftertext' => esc_html__( '(e.g. Movies list)', 'custom-post-type-ui' ),
 								) );
+
+								echo $ui->get_text_input( array(
+									'labeltext' => esc_html__( 'Attributes', 'custom-post-type-ui' ),
+									'helptext'  => esc_html__( 'Used for the title of the post attributes meta box.', 'custom-post-type-ui' ),
+									'namearray' => 'cpt_labels',
+									'name'      => 'attributes',
+									'textvalue' => ( isset( $current['labels']['attributes'] ) ) ? esc_attr( $current['labels']['attributes'] ) : '',
+									'aftertext' => esc_html__( '(e.g. Movies Attributes)', 'custom-post-type-ui' ),
+								) );
 							?>
 						</table>
 					</div>
@@ -642,7 +660,7 @@ function cptui_manage_post_types() {
 							) );
 
 							echo $ui->get_tr_start() . $ui->get_th_start();
-							echo $ui->get_label( 'has_archive', __( 'Has Archive', 'custom-post-type-ui' ) );
+							echo $ui->get_label( 'has_archive', esc_html__( 'Has Archive', 'custom-post-type-ui' ) );
 							echo $ui->get_p( esc_html__( 'If left blank, the archive slug will default to the post type slug.', 'custom-post-type-ui' ) );
 							echo $ui->get_th_end() . $ui->get_td_start();
 
@@ -860,7 +878,7 @@ function cptui_manage_post_types() {
 
 							echo $ui->get_tr_start() . $ui->get_th_start() . esc_html__( 'Supports', 'custom-post-type-ui' );
 
-							echo $ui->get_p( esc_html__( 'Add support for various available post editor features on the right.', 'custom_post_type_ui' ) );
+							echo $ui->get_p( esc_html__( 'Add support for various available post editor features on the right. A checked value means the post type means the feature is supported.', 'custom_post_type_ui' ) );
 
 							echo $ui->get_p( esc_html__( 'Use the "None" option to explicitly set "supports" to false.', 'custom-post-type-ui' ) );
 
@@ -1126,7 +1144,7 @@ function cptui_manage_post_types() {
  *
  * @since 1.0.0
  *
- * @param array $post_types Array of post types that are registered.
+ * @param array $post_types Array of post types that are registered. Optional.
  */
 function cptui_post_types_dropdown( $post_types = array() ) {
 
@@ -1160,8 +1178,7 @@ function cptui_post_types_dropdown( $post_types = array() ) {
  *
  * @internal
  *
- * @param bool $post_type_deleted Whether or not a post type was recently deleted.
- *
+ * @param bool $post_type_deleted Whether or not a post type was recently deleted. Optional. Default false.
  * @return bool|string $value False on no result, sanitized post type if set.
  */
 function cptui_get_current_post_type( $post_type_deleted = false ) {
@@ -1204,8 +1221,7 @@ function cptui_get_current_post_type( $post_type_deleted = false ) {
  *
  * @internal
  *
- * @param array $data $_POST values.
- *
+ * @param array $data $_POST values. Optional.
  * @return bool|string False on failure, string on success.
  */
 function cptui_delete_post_type( $data = array() ) {
@@ -1277,8 +1293,7 @@ function cptui_delete_post_type( $data = array() ) {
  *
  * @internal
  *
- * @param array $data Array of post type data to update.
- *
+ * @param array $data Array of post type data to update. Optional.
  * @return bool|string False on failure, string on success.
  */
 function cptui_update_post_type( $data = array() ) {
@@ -1479,6 +1494,7 @@ function cptui_reserved_post_types() {
 		'action',
 		'order',
 		'theme',
+		'fields',
 	);
 
 	/**
@@ -1510,8 +1526,8 @@ function cptui_reserved_post_types() {
  *
  * @internal
  *
- * @param string $original_slug Original post type slug.
- * @param string $new_slug      New post type slug.
+ * @param string $original_slug Original post type slug. Optional. Default empty string.
+ * @param string $new_slug      New post type slug. Optional. Default empty string.
  */
 function cptui_convert_post_type_posts( $original_slug = '', $new_slug = '' ) {
 	$args = array(
@@ -1535,10 +1551,9 @@ function cptui_convert_post_type_posts( $original_slug = '', $new_slug = '' ) {
  *
  * @since 1.3.0
  *
- * @param bool   $slug_exists    Whether or not the post type slug exists.
- * @param string $post_type_slug The post type slug being saved.
- * @param array  $post_types     Array of CPTUI-registered post types.
- *
+ * @param bool   $slug_exists    Whether or not the post type slug exists. Optional. Default false.
+ * @param string $post_type_slug The post type slug being saved. Optional. Default empty string.
+ * @param array  $post_types     Array of CPTUI-registered post types. Optional.
  * @return bool
  */
 function cptui_check_existing_post_type_slugs( $slug_exists = false, $post_type_slug = '', $post_types = array() ) {
@@ -1558,8 +1573,10 @@ function cptui_check_existing_post_type_slugs( $slug_exists = false, $post_type_
 		return true;
 	}
 
-	// Check if other plugins have registered this same slug.
-	$registered_post_types = get_post_types( array( '_builtin' => false, 'public' => false ) );
+	// Check if other plugins have registered non-public this same slug.
+	$public = get_post_types( array( '_builtin' => false, 'public' => true ) );
+	$private = get_post_types( array( '_builtin' => false, 'public' => false ) );
+	$registered_post_types = array_merge( $public, $private );
 	if ( in_array( $post_type_slug, $registered_post_types ) ) {
 		return true;
 	}
@@ -1574,7 +1591,7 @@ add_filter( 'cptui_post_type_slug_exists', 'cptui_check_existing_post_type_slugs
  *
  * @since 1.3.0
  *
- * @param string $post_type_slug The post type slug being saved.
+ * @param string $post_type_slug The post type slug being saved. Optional. Default empty string.
  * @return bool Whether or not the slug exists.
  */
 function cptui_check_page_slugs( $post_type_slug = '' ) {

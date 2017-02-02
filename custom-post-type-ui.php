@@ -15,7 +15,7 @@ Plugin Name: Custom Post Type UI
 Plugin URI: https://github.com/WebDevStudios/custom-post-type-ui/
 Description: Admin panel for creating custom post types and custom taxonomies in WordPress
 Author: WebDevStudios
-Version: 1.4.3
+Version: 1.5.2
 Author URI: https://webdevstudios.com/
 Text Domain: custom-post-type-ui
 Domain Path: /languages
@@ -27,8 +27,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'CPT_VERSION', '1.4.3' ); // Left for legacy purposes.
-define( 'CPTUI_VERSION', '1.4.3' );
+define( 'CPT_VERSION', '1.5.2' ); // Left for legacy purposes.
+define( 'CPTUI_VERSION', '1.5.2' );
 define( 'CPTUI_WP_VERSION', get_bloginfo( 'version' ) );
 
 /**
@@ -78,12 +78,14 @@ function cptui_make_activation_redirect() {
 		return;
 	}
 
-	$query_args = array( 'page' => 'cptui_main_menu' );
+	if ( ! cptui_is_new_install() ) {
+		return;
+	}
 
 	// Redirect to CPTUI about page.
 	wp_safe_redirect(
 		add_query_arg(
-			$query_args,
+			array( 'page' => 'cptui_main_menu' ),
 			cptui_admin_url( 'admin.php?page=cptui_main_menu' )
 		)
 	);
@@ -139,7 +141,7 @@ function cptui_plugin_menu() {
 	add_submenu_page( $parent_slug, __( 'Add/Edit Post Types', 'custom-post-type-ui' ), __( 'Add/Edit Post Types', 'custom-post-type-ui' ), $capability, 'cptui_manage_post_types', 'cptui_manage_post_types' );
 	add_submenu_page( $parent_slug, __( 'Add/Edit Taxonomies', 'custom-post-type-ui' ), __( 'Add/Edit Taxonomies', 'custom-post-type-ui' ), $capability, 'cptui_manage_taxonomies', 'cptui_manage_taxonomies' );
 	add_submenu_page( $parent_slug, __( 'Registered Types and Taxes', 'custom-post-type-ui' ), __( 'Registered Types/Taxes', 'custom-post-type-ui' ), $capability, 'cptui_listings', 'cptui_listings' );
-	add_submenu_page( $parent_slug, __( 'Import/Export', 'custom-post-type-ui' ), __( 'Import/Export', 'custom-post-type-ui' ), $capability, 'cptui_importexport', 'cptui_importexport' );
+	add_submenu_page( $parent_slug, __( 'Custom Post Type UI Tools', 'custom-post-type-ui' ), __( 'Tools', 'custom-post-type-ui' ), $capability, 'cptui_tools', 'cptui_tools' );
 	add_submenu_page( $parent_slug, __( 'Help/Support', 'custom-post-type-ui' ), __( 'Help/Support', 'custom-post-type-ui' ), $capability, 'cptui_support', 'cptui_support' );
 
 	/**
@@ -154,7 +156,7 @@ function cptui_plugin_menu() {
 
 	// Remove the default one so we can add our customized version.
 	remove_submenu_page( $parent_slug, 'cptui_main_menu' );
-	add_submenu_page( $parent_slug, __( 'About CPT UI', 'custom-post-type-ui' ), __( 'About CPT UI', 'custom-post-type-ui' ), 'manage_options', 'cptui_main_menu', 'cptui_settings' );
+	add_submenu_page( $parent_slug, __( 'About CPT UI', 'custom-post-type-ui' ), __( 'About CPT UI', 'custom-post-type-ui' ), $capability, 'cptui_main_menu', 'cptui_settings' );
 }
 add_action( 'admin_menu', 'cptui_plugin_menu' );
 
@@ -191,7 +193,7 @@ function cptui_create_submenus() {
 	require_once( plugin_dir_path( __FILE__ ) . 'inc/post-types.php' );
 	require_once( plugin_dir_path( __FILE__ ) . 'inc/taxonomies.php' );
 	require_once( plugin_dir_path( __FILE__ ) . 'inc/listings.php' );
-	require_once( plugin_dir_path( __FILE__ ) . 'inc/import_export.php' );
+	require_once( plugin_dir_path( __FILE__ ) . 'inc/tools.php' );
 	require_once( plugin_dir_path( __FILE__ ) . 'inc/support.php' );
 }
 add_action( 'cptui_loaded', 'cptui_create_submenus' );
@@ -279,7 +281,7 @@ add_action( 'init', 'cptui_create_custom_post_types', 10 ); // Leave on standard
  *
  * @internal
  *
- * @param array $post_type Post type array to register.
+ * @param array $post_type Post type array to register. Optional.
  * @return null Result of register_post_type.
  */
 function cptui_register_single_post_type( $post_type = array() ) {
@@ -365,7 +367,11 @@ function cptui_register_single_post_type( $post_type = array() ) {
 		// Core converts to an empty array anyway, so safe to leave this instead of passing in boolean true.
 		$rewrite = array();
 		$rewrite['slug'] = ( ! empty( $post_type['rewrite_slug'] ) ) ? $post_type['rewrite_slug'] : $post_type['name'];
-		$rewrite['with_front'] = ( 'false' === disp_boolean( $post_type['rewrite_withfront'] ) ) ? false : true;
+
+		$rewrite['with_front'] = true; // Default value.
+		if ( isset( $post_type['rewrite_withfront'] ) ) {
+			$rewrite['with_front'] = ( 'false' === disp_boolean( $post_type['rewrite_withfront'] ) ) ? false : true;
+		}
 	}
 
 	$menu_icon = ( ! empty( $post_type['menu_icon'] ) ) ? $post_type['menu_icon'] : null;
@@ -494,7 +500,7 @@ add_action( 'init', 'cptui_create_custom_taxonomies', 9 );  // Leave on standard
  *
  * @internal
  *
- * @param array $taxonomy Taxonomy array to register.
+ * @param array $taxonomy Taxonomy array to register. Optional.
  * @return null Result of register_taxonomy.
  */
 function cptui_register_single_taxonomy( $taxonomy = array() ) {
@@ -523,8 +529,14 @@ function cptui_register_single_taxonomy( $taxonomy = array() ) {
 	if ( false !== get_disp_boolean( $taxonomy['rewrite'] ) ) {
 		$rewrite = array();
 		$rewrite['slug'] = ( ! empty( $taxonomy['rewrite_slug'] ) ) ? $taxonomy['rewrite_slug'] : $taxonomy['name'];
-		$rewrite['with_front'] = ( 'false' === disp_boolean( $taxonomy['rewrite_withfront'] ) ) ? false : true;
-		$rewrite['hierarchical'] = ( 'true' === disp_boolean( $taxonomy['rewrite_hierarchical'] ) ) ? true : false;
+		$rewrite['with_front'] = true;
+		if ( isset( $taxonomy['rewrite_withfront'] ) ) {
+			$rewrite['with_front'] = ( 'false' === disp_boolean( $taxonomy['rewrite_withfront'] ) ) ? false : true;
+		}
+		$rewrite['hierarchical'] = false;
+		if ( isset( $taxonomy['rewrite_hierarchical'] ) ) {
+			$rewrite['hierarchical'] = ( 'true' === disp_boolean( $taxonomy['rewrite_hierarchical'] ) ) ? true : false;
+		}
 	}
 
 	if ( in_array( $taxonomy['query_var'], array( 'true', 'false', '0', '1' ) ) ) {
@@ -597,7 +609,7 @@ function cptui_register_single_taxonomy( $taxonomy = array() ) {
  *
  * @since 1.0.0
  *
- * @param string $page Whether it's the CPT or Taxonomy page.
+ * @param string $page Whether it's the CPT or Taxonomy page. Optional. Default "post_types".
  */
 function cptui_settings_tab_menu( $page = 'post_types' ) {
 
@@ -697,10 +709,10 @@ add_action( 'admin_init', 'cptui_convert_settings' );
  *
  * @since 1.0.0
  *
- * @param string $action       The type of action that occurred.
- * @param string $object_type  Whether it's from a post type or taxonomy.
- * @param bool   $success      Whether the action succeeded or not.
- * @param string $custom       Custom message if necessary.
+ * @param string $action       The type of action that occurred. Optional. Default empty string.
+ * @param string $object_type  Whether it's from a post type or taxonomy. Optional. Default empty string.
+ * @param bool   $success      Whether the action succeeded or not. Optional. Default true.
+ * @param string $custom       Custom message if necessary. Optional. Default empty string.
  * @return bool|string false on no message, else HTML div with our notice message.
  */
 function cptui_admin_notices( $action = '', $object_type = '', $success = true, $custom = '' ) {
@@ -769,7 +781,7 @@ function cptui_admin_notices( $action = '', $object_type = '', $success = true, 
  *
  * @since 1.0.5
  *
- * @param string $type Type to return. Either 'post_types' or 'taxonomies'.
+ * @param string $type Type to return. Either 'post_types' or 'taxonomies'. Optional. Default empty string.
  * @return array Array of keys needing preservered for the requested type.
  */
 function cptui_get_preserved_keys( $type = '' ) {
@@ -808,10 +820,10 @@ function cptui_get_preserved_keys( $type = '' ) {
  *
  * @since 1.0.5
  *
- * @param string $type Type to return. Either 'post_types' or 'taxonomies'.
- * @param string $key Requested label key.
- * @param string $plural Plural verbiage for the requested label and type.
- * @param string $singular Singular verbiage for the requested label and type.
+ * @param string $type Type to return. Either 'post_types' or 'taxonomies'. Optional. Default empty string.
+ * @param string $key Requested label key. Optional. Default empty string.
+ * @param string $plural Plural verbiage for the requested label and type. Optional. Default empty string.
+ * @param string $singular Singular verbiage for the requested label and type. Optional. Default empty string.
  * @return string Internationalized default label.
  */
 function cptui_get_preserved_label( $type = '', $key = '', $plural = '', $singular = '' ) {

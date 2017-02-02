@@ -49,12 +49,18 @@ postboxes.add_postbox_toggles(pagenow);
 
 	// Switch spaces for underscores on our slug fields.
 	$('#name').on('keyup',function(e){
-		var value = $(this).val();
-		value = value.replace(/ /g, "_");
-		value = value.toLowerCase();
-		value = replaceDiacritics(value);
-		value = replaceSpecialCharacters(value);
-		$(this).attr('value',value);
+		var value, original_value;
+		value = original_value = $(this).val();
+		if ( e.keyCode !== 9 && e.keyCode !== 37 && e.keyCode !== 38 && e.keyCode !== 39 && e.keyCode !== 40 ) {
+			value = value.replace(/ /g, "_");
+			value = value.toLowerCase();
+			value = replaceDiacritics(value);
+			value = transliterate(value);
+			value = replaceSpecialCharacters(value);
+			if ( value !== original_value ) {
+				$(this).attr('value', value);
+			}
+		}
 
 		//Displays a message if slug changes.
 		if(undefined != original_slug) {
@@ -93,6 +99,16 @@ postboxes.add_postbox_toggles(pagenow);
 		s = s.replace(/[^a-z0-9\s]/gi, '_');
 
 		return s;
+	}
+
+	var cyrillic = {
+		"Ё": "YO", "Й": "I", "Ц": "TS", "У": "U", "К": "K", "Е": "E", "Н": "N", "Г": "G", "Ш": "SH", "Щ": "SCH", "З": "Z", "Х": "H", "Ъ": "'", "ё": "yo", "й": "i", "ц": "ts", "у": "u", "к": "k", "е": "e", "н": "n", "г": "g", "ш": "sh", "щ": "sch", "з": "z", "х": "h", "ъ": "'", "Ф": "F", "Ы": "I", "В": "V", "А": "a", "П": "P", "Р": "R", "О": "O", "Л": "L", "Д": "D", "Ж": "ZH", "Э": "E", "ф": "f", "ы": "i", "в": "v", "а": "a", "п": "p", "р": "r", "о": "o", "л": "l", "д": "d", "ж": "zh", "э": "e", "Я": "Ya", "Ч": "CH", "С": "S", "М": "M", "И": "I", "Т": "T", "Ь": "'", "Б": "B", "Ю": "YU", "я": "ya", "ч": "ch", "с": "s", "м": "m", "и": "i", "т": "t", "ь": "'", "б": "b", "ю": "yu"
+	};
+
+	function transliterate(word) {
+		return word.split('').map(function (char) {
+			return cyrillic[char] || char;
+		}).join("");
 	}
 
 	if ( undefined != wp.media ) {
