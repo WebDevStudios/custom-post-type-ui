@@ -594,12 +594,14 @@ function cptui_register_single_taxonomy( $taxonomy = array() ) {
 	 *
 	 * @since 1.0.0
 	 * @since 1.3.0 Added original passed in values array
+	 * @since 1.6.0 Added $obect_type variable to passed parameters.
 	 *
-	 * @param array  $args     Array of arguments to use for registering taxonomy.
-	 * @param string $value    Taxonomy slug to be registered.
-	 * @param array  $taxonomy Original passed in values for taxonomy.
+	 * @param array  $args        Array of arguments to use for registering taxonomy.
+	 * @param string $value       Taxonomy slug to be registered.
+	 * @param array  $taxonomy    Original passed in values for taxonomy.
+	 * @param array  $object_type Array of chosen post types for the taxonomy.
 	 */
-	$args = apply_filters( 'cptui_pre_register_taxonomy', $args, $taxonomy['name'], $taxonomy );
+	$args = apply_filters( 'cptui_pre_register_taxonomy', $args, $taxonomy['name'], $taxonomy, $object_type );
 
 	return register_taxonomy( $taxonomy['name'], $object_type, $args );
 }
