@@ -1502,6 +1502,9 @@ function cptui_reserved_post_types() {
 		'order',
 		'theme',
 		'fields',
+		'custom_css',
+		'customize_changeset',
+		'author',
 	);
 
 	/**
