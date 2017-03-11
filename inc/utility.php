@@ -641,6 +641,17 @@ function cptui_slug_matches_taxonomy() {
 }
 
 /**
+ * Returns error message for if not providing a post type to associate taxonomy to.
+ *
+ * @since 1.6.0
+ *
+ * @return string
+ */
+function cptui_empty_cpt_on_taxonomy() {
+	return esc_html__( 'Please provide a post type to attach to.', 'custom-post-type-ui' );
+}
+
+/**
  * Returns error message for if trying to register post type with matching page slug.
  *
  * @since 1.4.0
