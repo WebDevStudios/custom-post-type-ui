@@ -1084,7 +1084,8 @@ function cptui_update_taxonomy( $data = array() ) {
 	}
 
 	if ( empty( $data['cpt_post_types'] ) ) {
-		return cptui_admin_notices( 'error', '', false, esc_html__( 'Please provide a post type to attach to.', 'custom-post-type-ui' ) );
+		add_filter( 'cptui_custom_error_message', 'cptui_empty_cpt_on_taxonomy' );
+		return 'error';
 	}
 
 	if ( ! empty( $data['tax_original'] ) && $data['tax_original'] != $data['cpt_custom_tax']['name'] ) {
