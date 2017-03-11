@@ -1444,6 +1444,16 @@ function cptui_update_post_type( $data = array() ) {
 	);
 
 	/**
+	 * Filters final data to be saved right before saving post type data.
+	 *
+	 * @since 1.6.0
+	 *
+	 * @param array  $post_types Array of final post type data to save.
+	 * @param string $name       Post type slug for post type being saved.
+	 */
+	$post_types = apply_filters( 'cptui_pre_save_post_type', $post_types, $name );
+
+	/**
 	 * Filters whether or not 3rd party options were saved successfully within post type add/update.
 	 *
 	 * @since 1.3.0

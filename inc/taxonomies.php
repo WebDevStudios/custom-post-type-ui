@@ -1184,6 +1184,16 @@ function cptui_update_taxonomy( $data = array() ) {
 	$taxonomies[ $data['cpt_custom_tax']['name'] ]['object_types'] = $data['cpt_post_types'];
 
 	/**
+	 * Filters final data to be saved right before saving taxoomy data.
+	 *
+	 * @since 1.6.0
+	 *
+	 * @param array  $taxonomies Array of final taxonomy data to save.
+	 * @param string $name       Taxonomy slug for taxonomy being saved.
+	 */
+	$taxonomies = apply_filters( 'cptui_pre_save_taxonomy', $taxonomies, $name );
+
+	/**
 	 * Filters whether or not 3rd party options were saved successfully within taxonomy add/update.
 	 *
 	 * @since 1.3.0
