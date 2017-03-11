@@ -66,7 +66,7 @@ function cptui_support() {
 
 		<table id="support" class="form-table cptui-table">
 			<tr>
-				<td class="outter">
+				<td class="outer">
 					<h2><?php esc_html_e( 'Pluginize', 'custom-post-type-ui' ); ?></h2>
 					<ol id="questions_pluginize">
 						<li>
@@ -114,7 +114,7 @@ function cptui_support() {
 						</li>
 					</ol>
 				</td>
-				<td class="outter">
+				<td class="outer">
 					<h2><?php esc_html_e( 'General', 'custom-post-type-ui' ); ?></h2>
 					<ol id="questions_general">
 						<li>
@@ -160,7 +160,7 @@ function cptui_support() {
 				</td>
 			</tr>
 			<tr>
-				<td class="outter">
+				<td class="outer">
 					<h2><?php esc_html_e( 'Front-end Display', 'custom-post-type-ui' ); ?></h2>
 					<ol id="questions_front">
 						<li>
@@ -199,7 +199,7 @@ function cptui_support() {
 						</li>
 					</ol>
 				</td>
-				<td class="outter">
+				<td class="outer">
 					<h2><?php esc_html_e( 'Advanced', 'custom-post-type-ui' ); ?></h2>
 					<ol id="questions_advanced">
 						<li>
@@ -254,7 +254,7 @@ add_filter( 'enter_title_here', 'my_custom_title_text' );
 						</li>
 					</ol>
 				</td>
-				<td class="outter">
+				<td class="outer">
 					&nbsp;
 					<?php
 

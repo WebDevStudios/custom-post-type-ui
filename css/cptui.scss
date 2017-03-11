@@ -31,7 +31,7 @@ $min-tablet: "screen and (min-width: 768px)";
 		margin: 12px 4px 12px 0;
 		width: auto;
 	}
-	td.outter {
+	td.outer {
 		vertical-align: top;
 		width: 50%;
 	}
@@ -56,6 +56,15 @@ $min-tablet: "screen and (min-width: 768px)";
 		font-weight: bold;
 		&.hidemessage {
 			display: none;
+		}
+	}
+}
+.cpt-ui_page_cptui_tools {
+	.cptui-table {
+		.outer {
+			p {
+				padding: 0 4px;
+			}
 		}
 	}
 }

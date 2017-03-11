@@ -656,7 +656,7 @@ function cptui_render_posttypes_taxonomies_section() {
 <table class="form-table cptui-table">
 	<?php if ( ! empty( $_GET ) && empty( $_GET['action'] ) ) { ?>
 		<tr>
-			<td class="outter">
+			<td class="outer">
 				<h2><label for="cptui_post_import"><?php _e( 'Import Post Types', 'custom-post-type-ui' ); ?></label></h2>
 
 				<form method="post">
@@ -675,7 +675,7 @@ function cptui_render_posttypes_taxonomies_section() {
 					</p>
 				</form>
 			</td>
-			<td class="outter">
+			<td class="outer">
 				<h2><label for="cptui_post_export"><?php _e( 'Export Post Types', 'custom-post-type-ui' ); ?></label></h2>
 				<?php
 				$cptui_post_types = cptui_get_post_type_data();
@@ -694,7 +694,7 @@ function cptui_render_posttypes_taxonomies_section() {
 		</tr>
 	<?php } elseif ( ! empty( $_GET ) && 'taxonomies' == $_GET['action'] ) { ?>
 		<tr>
-			<td class="outter">
+			<td class="outer">
 				<h2><label for="cptui_tax_import"><?php _e( 'Import Taxonomies', 'custom-post-type-ui' ); ?></label></h2>
 
 				<form method="post">
@@ -713,7 +713,7 @@ function cptui_render_posttypes_taxonomies_section() {
 					</p>
 				</form>
 			</td>
-			<td class="outter">
+			<td class="outer">
 				<h2><label for="cptui_tax_export"><?php _e( 'Export Taxonomies', 'custom-post-type-ui' ); ?></label></h2>
 				<?php
 				$cptui_taxonomies = cptui_get_taxonomy_data();

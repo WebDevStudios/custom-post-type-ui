@@ -35,7 +35,7 @@
   width: auto;
 }
 
-.cptui-table td.outter {
+.cptui-table td.outer {
   vertical-align: top;
   width: 50%;
 }
@@ -66,6 +66,10 @@
 
 .cptui-table #slugchanged.hidemessage {
   display: none;
+}
+
+.cpt-ui_page_cptui_tools .cptui-table .outer p {
+  padding: 0 4px;
 }
 
 .cptui-support #support .question {
