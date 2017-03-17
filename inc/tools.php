@@ -161,7 +161,6 @@ function cptui_tools() {
 	 */
 	do_action( 'cptui_tools_sections', $tab );
 
-
 	echo '</div><!-- End .wrap -->';
 }
 
