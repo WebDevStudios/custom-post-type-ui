@@ -374,7 +374,7 @@ fieldset .cptui-help {
   min-width: 463px;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 769px) {
   .cptui-badge {
     padding-top: 142px;
     height: 50px;
@@ -386,6 +386,9 @@ fieldset .cptui-help {
     margin: 0 -5px;
     background: url(../images/cptui-icon-173x173.png) no-repeat;
   }
+}
+
+@media screen and (max-width: 768px) {
   .cptui-table #description {
     width: 100%;
   }
