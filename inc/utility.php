@@ -451,7 +451,7 @@ add_filter( 'cptui_ads', 'cptui_default_ads' );
  *
  * @param string $message Message to use in admin notice. Optional. Default empty string.
  * @param bool   $success Whether or not a success. Optional. Default true.
- * @return mixed|void
+ * @return mixed
  */
 function cptui_admin_notices_helper( $message = '', $success = true ) {
 
