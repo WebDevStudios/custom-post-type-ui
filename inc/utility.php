@@ -230,7 +230,7 @@ function cptui_get_post_form_action( $ui = '' ) {
  * @param object $ui CPTUI Admin UI instance.
  */
 function cptui_post_form_action( $ui ) {
-	echo cptui_get_post_form_action( $ui );
+	echo esc_attr( cptui_get_post_form_action( $ui ) );
 }
 
 /**
