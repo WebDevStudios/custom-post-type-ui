@@ -108,6 +108,10 @@ function cptui_footer( $original = '' ) {
 		'<a href="http://wordpress.org/support/plugin/custom-post-type-ui" target="_blank">%s</a>',
 		__( 'Support forums', 'custom-post-type-ui' )
 	) . ' - ' .
+	sprintf(
+		'<a href="https://wordpress.org/plugins/custom-post-type-ui/reviews/" target="_blank">%s</a>',
+		__( 'Review CPTUI', 'custom-post-type-ui' )
+	) . ' - ' .
 	__( 'Follow on Twitter:', 'custom-post-type-ui' ) .
 	sprintf(
 		' %s',
