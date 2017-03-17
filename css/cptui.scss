@@ -1,4 +1,5 @@
-$min-tablet: "screen and (min-width: 768px)";
+$min-tablet: "screen and (min-width: 769px)";
+$max-tablet: "screen and (max-width: 768px)";
 
 .posttypesui, .taxonomiesui {
 	.cptui-section:first-child {
@@ -381,9 +382,12 @@ $min-tablet: "screen and (min-width: 768px)";
 	    margin: 0 -5px;
 	    background: url(../images/cptui-icon-173x173.png) no-repeat;
 	}
-	.cptui-table {
-		#description {
-			width: 100%;
-		}
+}
+
+@media #{$max-tablet} {
+  .cptui-table {
+	#description {
+	  width: 100%;
 	}
+  }
 }
