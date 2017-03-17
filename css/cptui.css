@@ -386,4 +386,7 @@ fieldset .cptui-help {
     margin: 0 -5px;
     background: url(../images/cptui-icon-173x173.png) no-repeat;
   }
+  .cptui-table #description {
+    width: 100%;
+  }
 }
