@@ -711,7 +711,7 @@ function cptui_not_new_install( $wp_upgrader, $extras ) {
 	}
 
 	// Was CPTUI updated?
-	if ( ! in_array( 'custom-post-type-ui/custom-post-type-ui.php', $extras['plugins'] ) ) {
+	if ( ! in_array( 'custom-post-type-ui/custom-post-type-ui.php', $extras['plugins'], true ) ) {
 		return;
 	}
 
