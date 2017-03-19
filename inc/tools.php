@@ -184,9 +184,9 @@ function cptui_get_taxonomy_code( $cptui_taxonomies = array(), $single = false )
 	?>
 function <?php echo $callback; ?>() {
 <?php
-	foreach ( $cptui_taxonomies as $tax ) {
-		echo cptui_get_single_taxonomy_registery( $tax );
-	} ?>
+foreach ( $cptui_taxonomies as $tax ) {
+	echo cptui_get_single_taxonomy_registery( $tax );
+} ?>
 }
 
 add_action( 'init', '<?php echo $callback; ?>' );
@@ -264,11 +264,11 @@ function cptui_get_single_taxonomy_registery( $taxonomy = array() ) {
 		"name" => __( '<?php echo $taxonomy['label']; ?>', '<?php echo $textdomain; ?>' ),
 		"singular_name" => __( '<?php echo $taxonomy['singular_label']; ?>', '<?php echo $textdomain; ?>' ),
 <?php
-	foreach ( $taxonomy['labels'] as $key => $label ) {
-		if ( ! empty( $label ) ) {
-			echo "\t\t" . '"' . $key . '" => __( \'' . $label . '\', \'' . $textdomain . '\' ),' . "\n";
-		}
+foreach ( $taxonomy['labels'] as $key => $label ) {
+	if ( ! empty( $label ) ) {
+		echo "\t\t" . '"' . esc_html( $key ) . '" => __( \'' . esc_html( $label ) . '\', \'' . esc_html( $textdomain ) . '\' ),' . "\n";
 	}
+}
 ?>
 	);
 
