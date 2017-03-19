@@ -202,6 +202,7 @@ add_action( 'init', '<?php echo $callback; ?>' );
  * @since 1.0.0
  *
  * @param array $taxonomy Taxonomy data to output. Optional.
+ * @return string
  */
 function cptui_get_single_taxonomy_registery( $taxonomy = array() ) {
 
