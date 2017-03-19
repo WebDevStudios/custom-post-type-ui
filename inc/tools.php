@@ -262,8 +262,8 @@ function cptui_get_single_taxonomy_registery( $taxonomy = array() ) {
 	 */
 
 	$labels = array(
-		"name" => __( '<?php echo $taxonomy['label']; ?>', '<?php echo $textdomain; ?>' ),
-		"singular_name" => __( '<?php echo $taxonomy['singular_label']; ?>', '<?php echo $textdomain; ?>' ),
+		"name" => __( '<?php echo esc_html( $taxonomy['label'] ); ?>', '<?php echo esc_html( $textdomain ); ?>' ),
+		"singular_name" => __( '<?php echo esc_html( $taxonomy['singular_label'] ); ?>', '<?php echo esc_html( $textdomain ); ?>' ),
 <?php
 foreach ( $taxonomy['labels'] as $key => $label ) {
 	if ( ! empty( $label ) ) {
@@ -274,7 +274,7 @@ foreach ( $taxonomy['labels'] as $key => $label ) {
 	);
 
 	$args = array(
-		"label" => __( '<?php echo $taxonomy['label']; ?>', '<?php echo $textdomain; ?>' ),
+		"label" => __( '<?php echo esc_html( $taxonomy['label'] ); ?>', '<?php echo esc_html( $textdomain ); ?>' ),
 		"labels" => $labels,
 		"public" => <?php echo $public; ?>,
 		"hierarchical" => <?php echo $taxonomy['hierarchical']; ?>,
