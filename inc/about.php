@@ -31,7 +31,7 @@ function cptui_settings() {
 		 * @since 1.0.0
 		 */
 		do_action( 'cptui_main_page_start' ); ?>
-		<h1><?php esc_html_e( 'Custom Post Type UI', 'custom-post-type-ui' ); ?> <?php echo CPTUI_VERSION; ?></h1>
+		<h1><?php esc_html_e( 'Custom Post Type UI', 'custom-post-type-ui' ); ?> <?php echo esc_html( CPTUI_VERSION ); ?></h1>
 
 		<?php
 
@@ -56,7 +56,7 @@ function cptui_settings() {
 		 */
 		do_action( 'cptui_main_page_before_changelog' ); ?>
 
-		<h2><?php printf( esc_html__( "What's new in version %s", 'custom-post-type-ui' ), CPTUI_VERSION ); ?></h2>
+		<h2><?php printf( esc_html__( "What's new in version %s", 'custom-post-type-ui' ), esc_html( CPTUI_VERSION ) ); ?></h2>
 		<div class="changelog about-integrations">
 			<div class="cptui-feature feature-section col three-col">
 				<div>
