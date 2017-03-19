@@ -55,7 +55,7 @@ add_action( 'admin_enqueue_scripts', 'cptui_post_type_enqueue_scripts' );
  */
 function cptui_post_type_tabs( $tabs = array(), $current_page = '' ) {
 
-	if ( 'post_types' == $current_page ) {
+	if ( 'post_types' === $current_page ) {
 		$post_types = cptui_get_post_type_data();
 		$classes    = array( 'nav-tab' );
 
@@ -147,7 +147,7 @@ function cptui_manage_post_types() {
 	 */
 	do_action( 'cptui_below_post_type_tab_menu' );
 
-	if ( 'edit' == $tab ) {
+	if ( 'edit' === $tab ) {
 
 		$post_types = cptui_get_post_type_data();
 
@@ -210,7 +210,7 @@ function cptui_manage_post_types() {
 						echo $ui->get_label( 'name', esc_html__( 'Post Type Slug', 'custom-post-type-ui' ) );
 						echo $ui->get_required_span();
 
-						if ( 'edit' == $tab ) {
+						if ( 'edit' === $tab ) {
 							echo '<p id="slugchanged" class="hidemessage">' . esc_html__( 'Slug has changed', 'custom_post_type_ui' ) . '</p>';
 						}
 
@@ -230,7 +230,7 @@ function cptui_manage_post_types() {
 							esc_html_e( 'Slugs should only contain alphanumeric, latin characters. Underscores should be used in place of spaces. Set "Custom Rewrite Slug" field to make slug use dashes for URLs.', 'custom-post-type-ui' );
 						echo '</p>';
 
-						if ( 'edit' == $tab ) {
+						if ( 'edit' === $tab ) {
 							echo '<p>';
 							esc_html_e( 'DO NOT EDIT the post type slug unless also planning to migrate posts. Changing the slug registers a new post type entry.', 'custom-post-type-ui' );
 							echo '</p>';
@@ -274,7 +274,7 @@ function cptui_manage_post_types() {
 				</table>
 						<p class="submit">
 						<?php wp_nonce_field( 'cptui_addedit_post_type_nonce_action', 'cptui_addedit_post_type_nonce_field' );
-						if ( ! empty( $_GET ) && ! empty( $_GET['action'] ) && 'edit' == $_GET['action'] ) { ?>
+						if ( ! empty( $_GET ) && ! empty( $_GET['action'] ) && 'edit' === $_GET['action'] ) { ?>
 						<?php
 
 						/**
