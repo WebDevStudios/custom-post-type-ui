@@ -129,7 +129,7 @@ function cptui_listings() {
 								<?php
 								foreach ( $strings as $key => $value ) {
 									printf( '<strong>%s:</strong> ', esc_html( $key ) );
-									if ( in_array( $value, array( '1', '0' ) ) ) {
+									if ( in_array( $value, array( '1', '0' ), true ) ) {
 										echo esc_html( disp_boolean( $value ) );
 									} else {
 										echo ( ! empty( $value ) ) ? esc_html( $value ) : '""';
@@ -320,7 +320,7 @@ function cptui_listings() {
 									<?php
 									foreach ( $strings as $key => $value ) {
 										printf( '<strong>%s:</strong> ', esc_html( $key ) );
-										if ( in_array( $value, array( '1', '0' ) ) ) {
+										if ( in_array( $value, array( '1', '0' ), true ) ) {
 											echo esc_html( disp_boolean( $value ) );
 										} else {
 											echo ( ! empty( $value ) ) ? esc_html( $value ) : '""';
