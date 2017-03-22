@@ -1129,11 +1129,9 @@ function cptui_update_taxonomy( $data = array() ) {
 	 * @param array  $post_types Array of existing post types from CPTUI.
 	 */
 	$slug_exists = apply_filters( 'cptui_taxonomy_slug_exists', false, $data['cpt_custom_tax']['name'], $taxonomies );
-	if ( 'new' == $data['cpt_tax_status'] ) {
-		if ( true === $slug_exists ) {
-			add_filter( 'cptui_custom_error_message', 'cptui_slug_matches_taxonomy' );
-			return 'error';
-		}
+	if ( true === $slug_exists ) {
+		add_filter( 'cptui_custom_error_message', 'cptui_slug_matches_taxonomy' );
+		return 'error';
 	}
 
 	foreach ( $data['cpt_tax_labels'] as $key => $label ) {
