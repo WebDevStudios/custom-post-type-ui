@@ -963,7 +963,13 @@ function cptui_get_current_taxonomy( $taxonomy_deleted = false ) {
 			$taxonomies = cptui_get_taxonomy_data();
 			$tax = key( $taxonomies );
 		} else if ( isset( $_POST['cpt_custom_tax']['name'] ) ) {
-			$tax = sanitize_text_field( $_POST['cpt_custom_tax']['name'] );
+			// Return the submitted value.
+			if ( ! in_array( $_POST['cpt_custom_tax']['name'], cptui_reserved_taxonomies(), true ) ) {
+				$tax = sanitize_text_field( $_POST['cpt_custom_tax']['name'] );
+			} else {
+				// Return the original value since user tried to submit a reserved term.
+				$tax = sanitize_text_field( $_POST['tax_original'] );
+			}
 		}
 	} else if ( ! empty( $_GET ) && isset( $_GET['cptui_taxonomy'] ) ) {
 		$tax = sanitize_text_field( $_GET['cptui_taxonomy'] );

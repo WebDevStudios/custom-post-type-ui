@@ -1192,7 +1192,13 @@ function cptui_get_current_post_type( $post_type_deleted = false ) {
 			$post_types = cptui_get_post_type_data();
 			$type = key( $post_types );
 		} else if ( isset( $_POST['cpt_custom_post_type']['name'] ) ) {
-			$type = sanitize_text_field( $_POST['cpt_custom_post_type']['name'] );
+			// Return the submitted value.
+			if ( ! in_array( $_POST['cpt_custom_post_type']['name'], cptui_reserved_post_types(), true ) ) {
+				$type = sanitize_text_field( $_POST['cpt_custom_post_type']['name'] );
+			} else {
+				// Return the original value since user tried to submit a reserved term.
+				$type = sanitize_text_field( $_POST['cpt_original'] );
+			}
 		}
 	} else if ( ! empty( $_GET ) && isset( $_GET['cptui_post_type'] ) ) {
 		$type = sanitize_text_field( $_GET['cptui_post_type'] );
