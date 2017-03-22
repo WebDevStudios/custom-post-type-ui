@@ -1683,3 +1683,26 @@ function cptui_do_convert_post_type_posts() {
 	}
 }
 add_action( 'init', 'cptui_do_convert_post_type_posts' );
+
+/**
+ * Handles slug_exist checks for cases of editing an existing post type.
+ *
+ * @since 1.5.3
+ *
+ * @param bool   $slug_exists    Current status for exist checks.
+ * @param string $post_type_slug Post type slug being processed.
+ * @param array  $post_types     CPTUI post types.
+ * @return bool
+ */
+function cptui_updated_post_type_slug_exists( $slug_exists, $post_type_slug = '', $post_types = array() ) {
+	if (
+		( ! empty( $_POST['cpt_type_status'] ) && 'edit' == $_POST['cpt_type_status'] ) &&
+		! in_array( $post_type_slug, cptui_reserved_taxonomies() ) &&
+		( ! empty( $_POST['cpt_original'] ) && $post_type_slug === $_POST['cpt_original'] )
+	)
+		{
+		$slug_exists = false;
+	}
+	return $slug_exists;
+}
+add_filter( 'cptui_post_type_slug_exists', 'cptui_updated_post_type_slug_exists', 11, 3 );

@@ -1479,3 +1479,26 @@ function cptui_do_convert_taxonomy_terms() {
 	}
 }
 add_action( 'init', 'cptui_do_convert_taxonomy_terms' );
+
+/**
+ * Handles slug_exist checks for cases of editing an existing taxonomy.
+ *
+ * @since 1.5.3
+ *
+ * @param bool   $slug_exists   Current status for exist checks.
+ * @param string $taxonomy_slug Taxonomy slug being processed.
+ * @param array  $taxonomies    CPTUI taxonomies.
+ * @return bool
+ */
+function cptui_updated_taxonomy_slug_exists( $slug_exists, $taxonomy_slug = '', $taxonomies = array() ) {
+	if (
+		( ! empty( $_POST['cpt_tax_status'] ) && 'edit' == $_POST['cpt_tax_status'] ) &&
+		! in_array( $taxonomy_slug, cptui_reserved_taxonomies() ) &&
+		( ! empty( $_POST['tax_original'] ) && $taxonomy_slug === $_POST['tax_original'] )
+	)
+		{
+		$slug_exists = false;
+	}
+	return $slug_exists;
+}
+add_filter( 'cptui_taxonomy_slug_exists', 'cptui_updated_taxonomy_slug_exists', 11, 3 );
