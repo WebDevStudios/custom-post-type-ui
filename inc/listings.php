@@ -187,10 +187,10 @@ function cptui_listings() {
 								</p>
 
 								<p><strong><?php esc_html_e( 'Single Posts file name examples.', 'custom-post-type-ui' ); ?></strong><br/>
-								single-<?php echo esc_html( $post_type ); ?>-post_slug.php (WP 4.4+) *<br/>
+								single-<?php echo esc_html( $post_type ); ?>-post_slug.php *<br/>
 								single-<?php echo esc_html( $post_type ); ?>.php<br/>
 								single.php<br/>
-								singular.php (WP 4.3+)<br/>
+								singular.php<br/>
 								index.php
 								</p>
 
