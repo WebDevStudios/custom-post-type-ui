@@ -1505,6 +1505,7 @@ function cptui_reserved_post_types() {
 		'custom_css',
 		'customize_changeset',
 		'author',
+		'post_type',
 	);
 
 	/**
