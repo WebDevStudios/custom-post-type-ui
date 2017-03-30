@@ -963,7 +963,13 @@ function cptui_get_current_taxonomy( $taxonomy_deleted = false ) {
 			$taxonomies = cptui_get_taxonomy_data();
 			$tax = key( $taxonomies );
 		} else if ( isset( $_POST['cpt_custom_tax']['name'] ) ) {
-			$tax = sanitize_text_field( $_POST['cpt_custom_tax']['name'] );
+			// Return the submitted value.
+			if ( ! in_array( $_POST['cpt_custom_tax']['name'], cptui_reserved_taxonomies(), true ) ) {
+				$tax = sanitize_text_field( $_POST['cpt_custom_tax']['name'] );
+			} else {
+				// Return the original value since user tried to submit a reserved term.
+				$tax = sanitize_text_field( $_POST['tax_original'] );
+			}
 		}
 	} else if ( ! empty( $_GET ) && isset( $_GET['cptui_taxonomy'] ) ) {
 		$tax = sanitize_text_field( $_GET['cptui_taxonomy'] );
@@ -1122,11 +1128,9 @@ function cptui_update_taxonomy( $data = array() ) {
 	 * @param array  $post_types Array of existing post types from CPTUI.
 	 */
 	$slug_exists = apply_filters( 'cptui_taxonomy_slug_exists', false, $data['cpt_custom_tax']['name'], $taxonomies );
-	if ( 'new' == $data['cpt_tax_status'] ) {
-		if ( true === $slug_exists ) {
-			add_filter( 'cptui_custom_error_message', 'cptui_slug_matches_taxonomy' );
-			return 'error';
-		}
+	if ( true === $slug_exists ) {
+		add_filter( 'cptui_custom_error_message', 'cptui_slug_matches_taxonomy' );
+		return 'error';
 	}
 
 	foreach ( $data['cpt_tax_labels'] as $key => $label ) {
@@ -1464,3 +1468,26 @@ function cptui_do_convert_taxonomy_terms() {
 	}
 }
 add_action( 'init', 'cptui_do_convert_taxonomy_terms' );
+
+/**
+ * Handles slug_exist checks for cases of editing an existing taxonomy.
+ *
+ * @since 1.5.3
+ *
+ * @param bool   $slug_exists   Current status for exist checks.
+ * @param string $taxonomy_slug Taxonomy slug being processed.
+ * @param array  $taxonomies    CPTUI taxonomies.
+ * @return bool
+ */
+function cptui_updated_taxonomy_slug_exists( $slug_exists, $taxonomy_slug = '', $taxonomies = array() ) {
+	if (
+		( ! empty( $_POST['cpt_tax_status'] ) && 'edit' == $_POST['cpt_tax_status'] ) &&
+		! in_array( $taxonomy_slug, cptui_reserved_taxonomies() ) &&
+		( ! empty( $_POST['tax_original'] ) && $taxonomy_slug === $_POST['tax_original'] )
+	)
+		{
+		$slug_exists = false;
+	}
+	return $slug_exists;
+}
+add_filter( 'cptui_taxonomy_slug_exists', 'cptui_updated_taxonomy_slug_exists', 11, 3 );

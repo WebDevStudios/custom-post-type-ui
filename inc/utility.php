@@ -310,7 +310,7 @@ function cptui_products_sidebar() {
 		}
 		printf(
 			'<p><a href="%s">%s</a></p>',
-			'https://pluginize.com/plugins/custom-post-type-ui-extended/?utm_source=remove_ads&utm_medium=text&utm_campaign=cptui',
+			'https://pluginize.com/plugins/custom-post-type-ui-extended/ref/pluginizeaff/?campaign=cptui-sidebar-remove',
 			esc_html__( 'Remove these ads?', 'custom-post-type-ui' )
 		);
 	}
@@ -398,19 +398,25 @@ function cptui_get_ads() {
  */
 function cptui_default_ads( $ads = array() ) {
 	$ads[] = array(
-		'url'   => 'https://pluginize.com/plugins/custom-post-type-ui-extended/?utm_source=sidebar-v3&utm_medium=banner&utm_campaign=cptui',
-		'image' => plugin_dir_url( dirname( __FILE__ ) ) . 'images/wds_ads/cptuix-ad-3.png',
+		'url'   => 'https://pluginize.com/plugins/custom-post-type-ui-extended/ref/pluginizeaff/?campaign=cptui-sidebar-extended',
+		'image' => plugin_dir_url( dirname( __FILE__ ) ) . 'images/wds_ads/cptui-extended.png',
 		'text'  => 'Custom Post Type UI Extended product ad',
 	);
 
 	$ads[] = array(
-		'url'   => 'https://apppresser.com/?utm_source=pluginize&utm_medium=plugin&utm_campaign=cptui',
-		'image' => plugin_dir_url( dirname( __FILE__ ) ) . 'images/wds_ads/apppresser.png',
-		'text'  => 'AppPresser product ad',
+		'url'   => 'https://pluginize.com/plugins/instago/ref/pluginizeaff/?campaign=cptui-sidebar-ig',
+		'image' => plugin_dir_url( dirname( __FILE__ ) ) . 'images/wds_ads/instago.png',
+		'text'  => 'InstaGo product ad',
 	);
 
 	$ads[] = array(
-		'url'   => 'https://maintainn.com/?utm_source=Pluginize&utm_medium=Plugin-Sidebar&utm_campaign=CPTUI',
+		'url'   => 'https://pluginize.com/plugins/buddypages/ref/pluginizeaff/?campaign=cptui-sidebar-buddypages',
+		'image' => plugin_dir_url( dirname( __FILE__ ) ) . 'images/wds_ads/buddypages.png',
+		'text'  => 'BuddyPages product ad',
+	);
+
+	$ads[] = array(
+		'url'   => 'https://maintainn.com/?utm_source=Pluginize-v2&utm_medium=Plugin-Sidebar&utm_campaign=CPTUI',
 		'image' => plugin_dir_url( dirname( __FILE__ ) ) . 'images/wds_ads/maintainn.png',
 		'text'  => 'Maintainn product ad',
 	);
