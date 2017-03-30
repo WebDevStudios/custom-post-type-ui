@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: custom post types, CPT, CMS, post, types, post type, taxonomy, tax, custom, content types, post types
 Requires at least: 4.6
 Tested up to: 4.7.2
-Stable tag: 1.5.2
+Stable tag: 1.5.3
 License: GPLv2
 
 Admin UI for creating custom post types and custom taxonomies for WordPress
@@ -29,6 +29,12 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 6. Help/support screen.
 
 == Changelog ==
+
+See changelog.txt for older changes.
+
+= 1.5.3 - 2017-03-29 =
+* Fixed: Removed ability to rename post type and taxonomy slugs to reserved slugs after initial saving.
+* Updated: Updated existing and added new, fancier side graphics.
 
 = 1.5.2 - 2017-2-1 =
 * Fixed: Chrome conflicts around the js used to sanitize post type and taxonomy slugs and cursors moving to end of input.
@@ -93,6 +99,10 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 * Updated: Further UI refinements to better match WordPress admin. Adapted styles found from metaboxes, including collapse/expand toggles.
 
 == Upgrade Notice ==
+
+= 1.5.3 - 2017-03-29 =
+* Fixed: Removed ability to rename post type and taxonomy slugs to reserved slugs after initial saving.
+* Updated: Updated existing and added new, fancier side graphics.
 
 = 1.5.2 - 2017-2-1 =
 * Fixed: Chrome conflicts around the js used to sanitize post type and taxonomy slugs and cursors moving to end of input.

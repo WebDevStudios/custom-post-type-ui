@@ -188,7 +188,6 @@ foreach ( $cptui_taxonomies as $tax ) {
 	echo cptui_get_single_taxonomy_registery( $tax );
 } ?>
 }
-
 add_action( 'init', '<?php echo $callback; ?>' );
 <?php
 	} else {
@@ -747,6 +746,8 @@ function cptui_render_getcode_section() {
 	<h1><?php esc_html_e( 'Get Post Type and Taxonomy Code', 'custom-post-type-ui' ); ?></h1>
 
 		<h2><?php esc_html_e( 'All CPT UI Post Types', 'custom-post-type-ui' ); ?></h2>
+
+		<p><?php esc_html_e( 'All of the selectable code snippets below are useful if you wish to migrate away from CPTUI and retain your existing registered post types or taxonomies.', 'custom-post-type-ui' ); ?></p>
 
 		<p><?php esc_html_e( 'All of the selectable code snippets below are useful if you wish to migrate away from CPTUI and retain your existing registered post types or taxonomies.', 'custom-post-type-ui' ); ?></p>
 
