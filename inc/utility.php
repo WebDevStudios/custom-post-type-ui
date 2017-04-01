@@ -356,7 +356,6 @@ add_action( 'cptui_below_taxonomy_tab_menu', 'cptui_products_sidebar' );
 function cptui_newsletter_form() {
 	?>
 <!-- Begin MailChimp Signup Form -->
-<link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
 <div id="mc_embed_signup">
 	<form action="//webdevstudios.us1.list-manage.com/subscribe/post?u=67169b098c99de702c897d63e&amp;id=9cb1c7472e" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
 		<div id="mc_embed_signup_scroll">
@@ -377,17 +376,17 @@ function cptui_newsletter_form() {
 		</div>
 	</form>
 </div>
-<script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
-<script type='text/javascript'>(function ($) {
-		window.fnames = new Array();
-		window.ftypes = new Array();
-		fnames[0] = 'EMAIL';
-		ftypes[0] = 'email';
-	}(jQuery));
-	var $mcj = jQuery.noConflict(true);</script>
 <!--End mc_embed_signup-->
 <?php
 }
+
+function cptui_mailchimp_scripts_styles() {
+	wp_enqueue_style( 'cptui-mailchimp', '//cdn-images.mailchimp.com/embedcode/classic-10_7.css' );
+	wp_enqueue_script( 'cptui-mailchimp-js', '//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js', array(), '', true );
+	wp_add_inline_script( 'cptui-mailchimp-js', '(function ($) {window.fnames = new Array();window.ftypes = new Array();fnames[0] = "EMAIL";ftypes[0] = "email";}(jQuery));var $mcj = jQuery.noConflict(true);' );
+
+}
+add_action( 'admin_enqueue_scripts', 'cptui_mailchimp_scripts_styles' );
 
 /**
  * Fetch all set ads to be displayed.
