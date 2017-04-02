@@ -34,9 +34,16 @@ function cptui_post_type_enqueue_scripts() {
 
 	wp_enqueue_media();
 	wp_enqueue_script( 'cptui' );
+
+	$core                  = get_post_types( array( '_builtin' => true ) );
+	$public                = get_post_types( array( '_builtin' => false, 'public' => true ) );
+	$private               = get_post_types( array( '_builtin' => false, 'public' => false ) );
+	$registered_post_types = array_merge( $core, $public, $private );
+
 	wp_localize_script( 'cptui', 'cptui_type_data',
 		array(
 			'confirm' => esc_html__( 'Are you sure you want to delete this? Deleting will NOT remove created content.', 'custom-post-type-ui' ),
+			'existing_post_types' => $registered_post_types,
 		)
 	);
 }
