@@ -1420,7 +1420,9 @@ function cptui_check_existing_taxonomy_slugs( $slug_exists = false, $taxonomy_sl
 	}
 
 	// Check if other plugins have registered this same slug.
-	$registered_taxonomies = get_post_types( array( '_builtin' => false, 'public' => false ) );
+	$public  = get_taxonomies( array( '_builtin' => false, 'public' => true ) );
+	$private = get_taxonomies( array( '_builtin' => false, 'public' => false ) );
+	$registered_taxonomies = array_merge( $public, $private );
 	if ( in_array( $taxonomy_slug, $registered_taxonomies ) ) {
 		return true;
 	}
