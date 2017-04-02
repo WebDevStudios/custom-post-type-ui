@@ -71,6 +71,22 @@ postboxes.add_postbox_toggles(pagenow);
 				$slugchanged.addClass('hidemessage');
 			}
 		}
+
+		var $slugexists = $('#slugexists');
+		if ( typeof cptui_type_data != 'undefined' ) {
+			if (cptui_type_data.existing_post_types.hasOwnProperty(value) && value !== original_slug) {
+				$slugexists.removeClass('hidemessage');
+			} else {
+				$slugexists.addClass('hidemessage');
+			}
+		}
+		if ( typeof cptui_tax_data != 'undefined' ) {
+			if (cptui_tax_data.existing_taxonomies.hasOwnProperty(value) && value !== original_slug) {
+				$slugexists.removeClass('hidemessage');
+			} else {
+				$slugexists.addClass('hidemessage');
+			}
+		}
 	});
 
 	// Replace diacritic characters with latin characters.
