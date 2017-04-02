@@ -59,12 +59,12 @@
   margin-top: 15px;
 }
 
-.cptui-table #slugchanged {
+.cptui-table #slugchanged, .cptui-table #slugexists {
   color: red;
   font-weight: bold;
 }
 
-.cptui-table #slugchanged.hidemessage {
+.cptui-table #slugchanged.hidemessage, .cptui-table #slugexists.hidemessage {
   display: none;
 }
 
