@@ -220,6 +220,7 @@ function cptui_manage_post_types() {
 						if ( 'edit' === $tab ) {
 							echo '<p id="slugchanged" class="hidemessage">' . esc_html__( 'Slug has changed', 'custom-post-type-ui' ) . '</p>';
 						}
+						echo '<p id="slugexists" class="hidemessage">' . esc_html__( 'Slug already exists', 'custom-post-type-ui' ) . '</p>';
 
 						echo $ui->get_th_end() . $ui->get_td_start();
 
