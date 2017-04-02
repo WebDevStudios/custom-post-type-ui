@@ -218,7 +218,7 @@ function cptui_manage_post_types() {
 						echo $ui->get_required_span();
 
 						if ( 'edit' === $tab ) {
-							echo '<p id="slugchanged" class="hidemessage">' . esc_html__( 'Slug has changed', 'custom_post_type_ui' ) . '</p>';
+							echo '<p id="slugchanged" class="hidemessage">' . esc_html__( 'Slug has changed', 'custom-post-type-ui' ) . '</p>';
 						}
 
 						echo $ui->get_th_end() . $ui->get_td_start();
@@ -885,7 +885,7 @@ function cptui_manage_post_types() {
 
 							echo $ui->get_tr_start() . $ui->get_th_start() . esc_html__( 'Supports', 'custom-post-type-ui' );
 
-							echo $ui->get_p( esc_html__( 'Add support for various available post editor features on the right. A checked value means the post type means the feature is supported.', 'custom_post_type_ui' ) );
+							echo $ui->get_p( esc_html__( 'Add support for various available post editor features on the right. A checked value means the post type means the feature is supported.', 'custom-post-type-ui' ) );
 
 							echo $ui->get_p( esc_html__( 'Use the "None" option to explicitly set "supports" to false.', 'custom-post-type-ui' ) );
 
