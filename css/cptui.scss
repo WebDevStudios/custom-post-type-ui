@@ -52,7 +52,7 @@ $max-tablet: "screen and (max-width: 768px)";
 		margin-top: 15px;
 	}
 
-	#slugchanged {
+	#slugchanged, #slugexists {
 		color: red;
 		font-weight: bold;
 		&.hidemessage {
