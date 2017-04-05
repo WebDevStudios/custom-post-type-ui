@@ -1,3 +1,13 @@
+# Travis CI (MIT License) configuration file for WordPress plugin Custom Post Type UI.
+# @link https://travis-ci.org/
+
+# Ditch sudo and use containers.
+# @link http://docs.travis-ci.com/user/migrating-from-legacy/#Why-migrate-to-container-based-infrastructure%3F
+# @link http://docs.travis-ci.com/user/workers/container-based-infrastructure/#Routing-your-build-to-container-based-infrastructure
+sudo: false
+
+# Declare project language.
+# @link http://about.travis-ci.org/docs/user/languages/php/
 language: php
 
 php:
