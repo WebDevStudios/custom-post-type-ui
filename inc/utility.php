@@ -385,7 +385,8 @@ function cptui_mailchimp_scripts_styles() {
 
 	if ( ! is_object( $current_screen ) ) {
 		return;
-	}// 'toplevel_page_cptui_main_menu' !==
+	}
+
 	$screens = array(
 		'toplevel_page_cptui_main_menu',
 		'cpt-ui_page_cptui_manage_post_types',
