@@ -793,12 +793,17 @@ function cptui_render_getcode_section() {
  * @internal
  */
 function cptui_render_debuginfo_section() {
+
 	$debuginfo = new CPTUI_Debug_Info();
 
 	echo '<form id="cptui_debug_info" method="post">';
 	$debuginfo->tab_site_info();
 
-	if ( ! empty( $_POST ) && isset( $_POST['cptui_debug_info_email'] ) ) {
+	wp_nonce_field( 'cptui_debuginfo_nonce_action', 'cptui_debuginfo_nonce_field' );
+
+	if ( ! empty( $_POST ) && isset( $_POST['cptui_debug_info_email'] ) && isset( $_POST['cptui_debuginfo_nonce_field'] ) ) {
+		wp_verify_nonce( 'cptui_debuginfo_nonce_field', 'cptui_debuginfo_nonce_action' );
+
 		$email_args = array();
 		$email_args['email'] = sanitize_text_field( $_POST['cptui_debug_info_email'] );
 		$debuginfo->send_email( $email_args );
