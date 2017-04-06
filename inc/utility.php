@@ -381,6 +381,25 @@ function cptui_newsletter_form() {
 }
 
 function cptui_mailchimp_scripts_styles() {
+	$current_screen = get_current_screen();
+
+	if ( ! is_object( $current_screen ) ) {
+		return;
+	}// 'toplevel_page_cptui_main_menu' !==
+	$screens = array(
+		'toplevel_page_cptui_main_menu',
+		'cpt-ui_page_cptui_manage_post_types',
+		'cpt-ui_page_cptui_manage_taxonomies',
+	);
+
+	if ( ! in_array( $current_screen->base, $screens, true ) ) {
+		return;
+	}
+
+	if ( ! has_action( 'cptui_below_post_type_tab_menu' ) || ! has_action( 'cptui_below_taxonomy_tab_menu' ) ) {
+		return;
+	}
+
 	wp_enqueue_style( 'cptui-mailchimp', '//cdn-images.mailchimp.com/embedcode/classic-10_7.css' );
 	wp_enqueue_script( 'cptui-mailchimp-js', '//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js', array(), '', true );
 	wp_add_inline_script( 'cptui-mailchimp-js', '(function ($) {window.fnames = new Array();window.ftypes = new Array();fnames[0] = "EMAIL";ftypes[0] = "email";}(jQuery));var $mcj = jQuery.noConflict(true);' );
