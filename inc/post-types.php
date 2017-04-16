@@ -123,8 +123,10 @@ add_filter( 'cptui_get_tabs', 'cptui_post_type_tabs', 10, 2 );
  */
 function cptui_manage_post_types() {
 
-	$tab = ( ! empty( $_GET ) && ! empty( $_GET['action'] ) && 'edit' === $_GET['action'] ) ? 'edit' : 'new';
-	$tab_class = 'cptui-' . $tab; ?>
+	$tab       = ( ! empty( $_GET ) && ! empty( $_GET['action'] ) && 'edit' === $_GET['action'] ) ? 'edit' : 'new';
+	$tab_class = 'cptui-' . $tab;
+	$current   = null;
+	?>
 
 	<div class="wrap <?php echo esc_attr( $tab_class ); ?>">
 
