@@ -411,4 +411,10 @@ fieldset .cptui-help {
   .wdspromos-about p {
     margin: 5px auto;
   }
+  .wdspromos-about p:nth-child(1) {
+    padding-left: 5px;
+  }
+  .wdspromos-about p:nth-child(4) {
+    padding-right: 5px;
+  }
 }
