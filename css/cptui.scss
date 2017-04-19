@@ -345,6 +345,15 @@ $max-tablet: "screen and (max-width: 768px)";
 		-ms-flex-item-align: auto;
 		align-self: auto;
 	}
+	p {
+	  padding: 0 5px;
+	  &:nth-child(1) {
+		padding-left: 0px;
+	  }
+	  &:nth-child(4) {
+		padding-right: 0px;
+	  }
+	}
 }
 .no-js {
 	#cptui_choose_icon {
