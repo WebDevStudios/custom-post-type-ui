@@ -472,6 +472,29 @@ function cptui_default_ads( $ads = array() ) {
 add_filter( 'cptui_ads', 'cptui_default_ads' );
 
 /**
+ * Randomize our array order.
+ * Preserves CPTUI-Extended as the first index. Self promotion, yo.
+ *
+ * @since 1.3.0
+ *
+ * @param array $ads Array of ads to show.
+ * @return array
+ */
+function cptui_randomize_ads( $ads = array() ) {
+	$new_order = array();
+	foreach ( $ads as $key => $ad ) {
+		if ( false !== strpos( $ad['url'], 'custom-post-type-ui-extended' ) ) {
+			$new_order[] = $ad;
+			unset( $ads[ $key ] );
+		}
+	}
+	shuffle( $ads );
+
+	return array_merge( $new_order, $ads );
+}
+add_filter( 'cptui_ads', 'cptui_randomize_ads', 11 );
+
+/**
  * Secondary admin notices function for use with admin_notices hook.
  *
  * Constructs admin notice HTML.
