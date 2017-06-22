@@ -335,6 +335,16 @@ $min-tablet: "screen and (min-width: 768px)";
 		-ms-flex-item-align: auto;
 		align-self: auto;
 	}
+
+	p {
+		padding: 0 5px;
+		&:nth-child(1) {
+		  padding-left: 0px;
+		}
+		&:nth-child(4) {
+		  padding-right: 0px;
+		}
+	}
 }
 .no-js {
 	#cptui_choose_icon {
@@ -372,4 +382,18 @@ $min-tablet: "screen and (min-width: 768px)";
 	    margin: 0 -5px;
 	    background: url(../images/cptui-icon-173x173.png) no-repeat;
 	}
+}
+
+@media #{$max-tablet} {
+  .cptui-table {
+		#description {
+		  width: 100%;
+		}
+  }
+  .wdspromos-about {
+	flex-wrap: wrap;
+	p {
+	  margin: 5px auto;
+	}
+  }
 }

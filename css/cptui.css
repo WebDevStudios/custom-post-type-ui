@@ -349,6 +349,17 @@ fieldset .cptui-help {
   -ms-grid-row-align: auto;
       align-self: auto;
 }
+.wdspromos-about p {
+  padding: 0 5px;
+}
+
+.wdspromos-about p:nth-child(1) {
+  padding-left: 0px;
+}
+
+.wdspromos-about p:nth-child(4) {
+  padding-right: 0px;
+}
 
 .no-js #cptui_choose_icon {
   display: none;
@@ -381,5 +392,28 @@ fieldset .cptui-help {
     text-align: center;
     margin: 0 -5px;
     background: url(../images/cptui-icon-173x173.png) no-repeat;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .cptui-table #description {
+    width: 100%;
+  }
+
+  .wdspromos-about {
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+
+  .wdspromos-about p {
+    margin: 5px auto;
+  }
+
+  .wdspromos-about p:nth-child(1) {
+    padding-left: 5px;
+  }
+
+  .wdspromos-about p:nth-child(4) {
+    padding-right: 5px;
   }
 }
