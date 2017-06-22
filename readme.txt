@@ -3,7 +3,7 @@ Contributors: webdevstudios, pluginize, tw2113, vegasgeek, modemlooper, williams
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3084056
 Tags: custom post types, CPT, CMS, post, types, post type, taxonomy, tax, custom, content types, post types
 Requires at least: 4.6
-Tested up to: 4.8
+Tested up to: 4.8.0
 Stable tag: 1.5.4
 License: GPLv2
 
@@ -32,7 +32,7 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 
 See changelog.txt for older changes.
 
-= 1.5.4 - TBD =
+= 1.5.4 - 2017-06-22 =
 * Fixed: Resolved saving issue around post types tha matched existing page slugs.
 * Fixed: Layout issues on about page.
 
@@ -104,7 +104,7 @@ See changelog.txt for older changes.
 
 == Upgrade Notice ==
 
-= 1.5.4 - TBD =
+= 1.5.4 - 2017-06-22 =
 * Fixed: Resolved saving issue around post types tha matched existing page slugs.
 * Fixed: Layout issues on about page.
 
