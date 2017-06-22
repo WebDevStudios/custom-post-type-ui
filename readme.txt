@@ -32,6 +32,10 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 
 See changelog.txt for older changes.
 
+= 1.5.4 - TBD =
+* Fixed: Resolved saving issue around post types tha matched existing page slugs.
+* Fixed: Layout issues on about page.
+
 = 1.5.3 - 2017-03-29 =
 * Fixed: Removed ability to rename post type and taxonomy slugs to reserved slugs after initial saving.
 * Updated: Updated existing and added new, fancier side graphics.
@@ -99,6 +103,10 @@ See changelog.txt for older changes.
 * Updated: Further UI refinements to better match WordPress admin. Adapted styles found from metaboxes, including collapse/expand toggles.
 
 == Upgrade Notice ==
+
+= 1.5.4 - TBD =
+* Fixed: Resolved saving issue around post types tha matched existing page slugs.
+* Fixed: Layout issues on about page.
 
 = 1.5.3 - 2017-03-29 =
 * Fixed: Removed ability to rename post type and taxonomy slugs to reserved slugs after initial saving.
