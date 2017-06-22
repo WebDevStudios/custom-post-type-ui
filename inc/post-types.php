@@ -1355,14 +1355,17 @@ function cptui_update_post_type( $data = array() ) {
 	 * @param array  $post_types Array of existing post types from CPTUI.
 	 */
 	$slug_exists = apply_filters( 'cptui_post_type_slug_exists', false, $data['cpt_custom_post_type']['name'], $post_types );
-	$slug_as_page = cptui_check_page_slugs( $data['cpt_custom_post_type']['name'] );
 	if ( true === $slug_exists ) {
 		add_filter( 'cptui_custom_error_message', 'cptui_slug_matches_post_type' );
 		return 'error';
 	}
-	if ( true === $slug_as_page ) {
-		add_filter( 'cptui_custom_error_message', 'cptui_slug_matches_page' );
-		return 'error';
+
+	if ( 'new' == $data['cpt_type_status'] ) {
+		$slug_as_page = cptui_check_page_slugs( $data['cpt_custom_post_type']['name'] );
+		if ( true === $slug_as_page ) {
+			add_filter( 'cptui_custom_error_message', 'cptui_slug_matches_page' );
+			return 'error';
+		}
 	}
 
 	if ( empty( $data['cpt_addon_taxes'] ) || ! is_array( $data['cpt_addon_taxes'] ) ) {
