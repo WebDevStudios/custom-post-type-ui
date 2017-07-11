@@ -33,7 +33,7 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 See changelog.txt for older changes.
 
 = 1.5.4 - 2017-06-22 =
-* Fixed: Resolved saving issue around post types tha matched existing page slugs.
+* Fixed: Resolved saving issue around post types that matched existing page slugs.
 * Fixed: Layout issues on about page.
 
 = 1.5.3 - 2017-03-29 =
