@@ -41,6 +41,7 @@ Added: `cptui_get_taxonomy_exists` function to check if a provided taxonomy is r
 Updated: pass the object_type array to `cptui_pre_register_taxonomy` filter as extra parameter.
 Fixed: Invalid JSON error was using success class for its admin notice.
 Fixed: "show in nav menus" missing from tools section for post type section.
+Fixed: Error occurred when attempting to unset post types while editing a taxonomy.
 
 = 1.5.4 - 2017-06-22 =
 * Fixed: Resolved saving issue around post types that matched existing page slugs.
