@@ -32,6 +32,16 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 
 See changelog.txt for older changes.
 
+= 1.6.0 - TBD =
+Added: Dynamically warn about existing slugs.
+Added: "post_type", "custom_css", "customize_changeset", and "author" as reserved post type slugs.
+Added: "delete_with_user" support for post types.
+Added: Filters for post type and taxonomy data right before saving of final data.
+Added: `cptui_get_taxonomy_exists` function to check if a provided taxonomy is registered.
+Updated: pass the object_type array to `cptui_pre_register_taxonomy` filter as extra parameter.
+Fixed: Invalid JSON error was using success class for its admin notice.
+Fixed: "show in nav menus" missing from tools section for post type section.
+
 = 1.5.4 - 2017-06-22 =
 * Fixed: Resolved saving issue around post types that matched existing page slugs.
 * Fixed: Layout issues on about page.
@@ -103,6 +113,16 @@ See changelog.txt for older changes.
 * Updated: Further UI refinements to better match WordPress admin. Adapted styles found from metaboxes, including collapse/expand toggles.
 
 == Upgrade Notice ==
+
+= 1.6.0 - TBD =
+Added: Dynamically warn about existing slugs.
+Added: "post_type", "custom_css", "customize_changeset", and "author" as reserved post type slugs.
+Added: "delete_with_user" support for post types.
+Added: Filters for post type and taxonomy data right before saving of final data.
+Added: `cptui_get_taxonomy_exists` function to check if a provided taxonomy is registered.
+Updated: pass the object_type array to `cptui_pre_register_taxonomy` filter as extra parameter.
+Fixed: Invalid JSON error was using success class for its admin notice.
+Fixed: "show in nav menus" missing from tools section for post type section.
 
 = 1.5.4 - 2017-06-22 =
 * Fixed: Resolved saving issue around post types tha matched existing page slugs.
