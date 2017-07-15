@@ -429,7 +429,7 @@ function cptui_get_single_post_type_registery( $post_type = array() ) {
 
 	$show_in_nav_menus = ( ! empty( $post_type['show_in_nav_menus'] ) && false !== get_disp_boolean( $post_type['show_in_nav_menus'] ) ) ? 'true' : 'false';
 	if ( empty( $post_type['show_in_nav_menus'] ) ) {
-		$show_in_nav_menus = $public;
+		$show_in_nav_menus = disp_boolean( $post_type['public'] );
 	}
 
 	$post_type['description'] = addslashes( $post_type['description'] );
