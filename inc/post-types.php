@@ -593,7 +593,7 @@ function cptui_manage_post_types() {
 								'namearray'  => 'cpt_custom_post_type',
 								'name'       => 'public',
 								'labeltext'  => esc_html__( 'Public', 'custom-post-type-ui' ),
-								'aftertext'  => esc_html__( '(CPTUI default: true) Whether or not posts of this type should be shown in the admin UI and is publicly queryable.', 'custom-post-type-ui' ),
+								'aftertext'  => esc_html__( '(Custom Post Type UI default: true) Whether or not posts of this type should be shown in the admin UI and is publicly queryable.', 'custom-post-type-ui' ),
 								'selections' => $select,
 							) );
 
@@ -641,7 +641,7 @@ function cptui_manage_post_types() {
 								'namearray'  => 'cpt_custom_post_type',
 								'name'       => 'show_in_nav_menus',
 								'labeltext'  => esc_html__( 'Show in Nav Menus', 'custom-post-type-ui' ),
-								'aftertext'  => esc_html__( '(CPTUI default: true) Whether or not this post type is available for selection in navigation menus.', 'custom-post-type-ui' ),
+								'aftertext'  => esc_html__( '(Custom Post Type UI default: true) Whether or not this post type is available for selection in navigation menus.', 'custom-post-type-ui' ),
 								'selections' => $select,
 							) );
 

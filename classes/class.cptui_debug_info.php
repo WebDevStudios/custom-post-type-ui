@@ -229,7 +229,8 @@ class CPTUI_Debug_Info {
 		 * @param string $value Intended email subject.
 		 */
 		$subject = apply_filters( 'cptui_debug_email_subject', sprintf(
-			__( 'CPTUI debug information for %s', 'custom-post-type-ui' ),
+			// translators: Placeholder will hold site home_url.
+			__( 'Custom Post Type UI debug information for %s', 'custom-post-type-ui' ),
 			home_url( '/' )
 		) );
 

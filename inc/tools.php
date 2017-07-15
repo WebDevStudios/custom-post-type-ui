@@ -761,9 +761,9 @@ function cptui_render_getcode_section() {
 ?>
 	<h1><?php esc_html_e( 'Get Post Type and Taxonomy Code', 'custom-post-type-ui' ); ?></h1>
 
-		<h2><?php esc_html_e( 'All CPT UI Post Types', 'custom-post-type-ui' ); ?></h2>
+		<h2><?php esc_html_e( 'All Custom Post Type UI Post Types', 'custom-post-type-ui' ); ?></h2>
 
-		<p><?php esc_html_e( 'All of the selectable code snippets below are useful if you wish to migrate away from CPTUI and retain your existing registered post types or taxonomies.', 'custom-post-type-ui' ); ?></p>
+		<p><?php esc_html_e( 'All of the selectable code snippets below are useful if you wish to migrate away from Custom Post Type UI and retain your existing registered post types or taxonomies.', 'custom-post-type-ui' ); ?></p>
 
 		<?php $cptui_post_types = cptui_get_post_type_data(); ?>
 		<label for="cptui_post_type_get_code"><?php esc_html_e( 'Copy/paste the code below into your functions.php file.', 'custom-post-type-ui' ); ?></label>
@@ -780,7 +780,7 @@ function cptui_render_getcode_section() {
 			<?php }
 		} ?>
 
-		<h2><?php esc_html_e( 'All CPT UI Taxonomies', 'custom-post-type-ui' ); ?></h2>
+		<h2><?php esc_html_e( 'All Custom Post Type UI Taxonomies', 'custom-post-type-ui' ); ?></h2>
 
 		<?php $cptui_taxonomies = cptui_get_taxonomy_data(); ?>
 		<label for="cptui_tax_get_code"><?php esc_html_e( 'Copy/paste the code below into your functions.php file.', 'custom-post-type-ui' ); ?></label>

@@ -41,7 +41,7 @@ function cptui_listings() {
 			<p><?php
 			printf(
 				/* translators: %s: Total count of registered CPTUI post types */
-				esc_html__( 'CPTUI registered post types count total: %d', 'custom-post-type-ui' ),
+				esc_html__( 'Custom Post Type UI registered post types count total: %d', 'custom-post-type-ui' ),
 				count( $post_types )
 			);
 			?>
@@ -254,7 +254,7 @@ function cptui_listings() {
 				<?php
 				printf(
 					/* translators: %s: Total count of CPTUI registered taxonomies */
-					esc_html__( 'CPTUI registered taxonomies count total: %d', 'custom-post-type-ui' ),
+					esc_html__( 'Custom Post Type UI registered taxonomies count total: %d', 'custom-post-type-ui' ),
 					count( $taxonomies )
 				);
 				?>

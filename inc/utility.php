@@ -110,7 +110,15 @@ function cptui_footer( $original = '' ) {
 	) . ' - ' .
 	sprintf(
 		'<a href="https://wordpress.org/plugins/custom-post-type-ui/reviews/" target="_blank">%s</a>',
-		__( 'Review CPTUI', 'custom-post-type-ui' )
+		sprintf(
+			// translators: Placeholder will hold `<abbr>` tag for CPTUI.
+			__( 'Review %s', 'custom-post-type-ui' ),
+			sprintf(
+				'<abbr title="%s">%s</abbr>',
+				esc_attr__( 'Custom Post Type UI', 'custom-post-type-ui' ),
+				'CPTUI'
+			)
+		)
 	) . ' - ' .
 	__( 'Follow on Twitter:', 'custom-post-type-ui' ) .
 	sprintf(
