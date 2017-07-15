@@ -851,6 +851,14 @@ function cptui_manage_taxonomies() {
 								'aftertext'  => esc_html__( '(default: false) Whether to show the taxonomy in the quick/bulk edit panel.', 'custom-post-type-ui' ),
 								'selections' => $select,
 							) );
+
+							echo $ui->get_text_input( array(
+								'namearray' => 'cpt_custom_tax',
+								'name'      => 'meta_box_cb',
+								'textvalue' => ( isset( $current['meta_box_cb'] ) ) ? esc_attr( $current['meta_box_cb'] ) : '',
+								'labeltext' => esc_html__( 'Metabox callback', 'custom-post-type-ui' ),
+								'helptext'  => esc_html__( 'Sets a callback function name for the meta box display. Hierarchical default: post_categories_meta_box, non-hierarchical default: post_tags_meta_box.', 'custom-post-type-ui' ),
+							) );
 							?>
 						</table>
 					</div>
@@ -1172,6 +1180,7 @@ function cptui_update_taxonomy( $data = array() ) {
 	$rewrite_slug = trim( $data['cpt_custom_tax']['rewrite_slug'] );
 	$rest_base = trim( $data['cpt_custom_tax']['rest_base'] );
 	$show_quickpanel_bulk = ( ! empty( $data['cpt_custom_tax']['show_in_quick_edit'] ) ) ? disp_boolean( $data['cpt_custom_tax']['show_in_quick_edit'] ) : '';
+	$meta_box_cb = trim( $data['cpt_custom_tax']['meta_box_cb'] );
 
 	$taxonomies[ $data['cpt_custom_tax']['name'] ] = array(
 		'name'                 => $name,
@@ -1194,6 +1203,7 @@ function cptui_update_taxonomy( $data = array() ) {
 		'show_in_quick_edit'   => $show_quickpanel_bulk,
 		'rest_base'            => $rest_base,
 		'labels'               => $data['cpt_tax_labels'],
+		'meta_box_cb'          => $meta_box_cb,
 	);
 
 	$taxonomies[ $data['cpt_custom_tax']['name'] ]['object_types'] = $data['cpt_post_types'];

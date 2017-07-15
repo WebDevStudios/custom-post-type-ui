@@ -252,6 +252,10 @@ function cptui_get_single_taxonomy_registery( $taxonomy = array() ) {
 		$show_in_nav_menus = $public;
 	}
 
+	if ( ! empty( $taxonomy['meta_box_cb'] ) ) {
+		$meta_box_cb = ( false !== get_disp_boolean( $taxonomy['meta_box_cb'] ) ) ? '"' . $taxonomy['meta_box_cb'] . '"' : 'false';
+	}
+
 	$my_theme = wp_get_theme();
 	$textdomain = $my_theme->get( 'TextDomain' );
 ?>
@@ -287,6 +291,9 @@ foreach ( $taxonomy['labels'] as $key => $label ) {
 		"show_in_rest" => <?php echo disp_boolean( $taxonomy['show_in_rest'] ); ?>,
 		"rest_base" => "<?php echo $taxonomy['rest_base']; ?>",
 		"show_in_quick_edit" => <?php echo $show_in_quick_edit; ?>,
+	<?php if ( ! empty( $meta_box_cb ) ) { ?>
+	"meta_box_cb" => <?php echo $meta_box_cb; ?>,
+	<?php } ?>
 	);
 	register_taxonomy( "<?php echo $taxonomy['name']; ?>", <?php echo $post_types; ?>, $args );
 <?php

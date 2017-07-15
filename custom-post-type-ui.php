@@ -570,6 +570,11 @@ function cptui_register_single_taxonomy( $taxonomy = array() ) {
 		$rest_base = $taxonomy['rest_base'];
 	}
 
+	$meta_box_cb = null;
+	if ( ! empty( $taxonomy['meta_box_cb'] ) ) {
+		$meta_box_cb = ( false !== get_disp_boolean( $taxonomy['meta_box_cb'] ) ) ? $taxonomy['meta_box_cb'] : false;
+	}
+
 	$args = array(
 		'labels'             => $labels,
 		'label'              => $taxonomy['label'],
@@ -585,6 +590,7 @@ function cptui_register_single_taxonomy( $taxonomy = array() ) {
 		'show_in_rest'       => $show_in_rest,
 		'rest_base'          => $rest_base,
 		'show_in_quick_edit' => $show_in_quick_edit,
+		'meta_box_cb'        => $meta_box_cb,
 	);
 
 	$object_type = ( ! empty( $taxonomy['object_types'] ) ) ? $taxonomy['object_types'] : '';
