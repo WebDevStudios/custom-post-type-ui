@@ -418,6 +418,8 @@ function cptui_get_single_post_type_registery( $post_type = array() ) {
 		$post_type['show_in_rest'] = 'false';
 	}
 
+	$delete_with_user = ( ! empty( $post_type['delete_with_user'] ) && false !== get_disp_boolean( $post_type['delete_with_user'] ) ) ? 'true' : 'false';
+
 	$show_in_nav_menus = ( ! empty( $post_type['show_in_nav_menus'] ) && false !== get_disp_boolean( $post_type['show_in_nav_menus'] ) ) ? 'true' : 'false';
 	if ( empty( $post_type['show_in_nav_menus'] ) ) {
 		$show_in_nav_menus = $public;
@@ -457,7 +459,7 @@ function cptui_get_single_post_type_registery( $post_type = array() ) {
 		"public" => <?php echo disp_boolean( $post_type['public'] ); ?>,
 		"publicly_queryable" => <?php echo disp_boolean( $post_type['publicly_queryable'] ); ?>,
 		"show_ui" => <?php echo disp_boolean( $post_type['show_ui'] ); ?>,
-		"delete_with_user" => <?php echo disp_boolean( $post_type['delete_with_user'] ); ?>,
+		"delete_with_user" => <?php echo $delete_with_user; ?>,
 		"show_in_rest" => <?php echo disp_boolean( $post_type['show_in_rest'] ); ?>,
 		"rest_base" => "<?php echo $post_type['rest_base']; ?>",
 		"has_archive" => <?php echo $has_archive; ?>,
