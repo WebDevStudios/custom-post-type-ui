@@ -33,6 +33,7 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 See changelog.txt for older changes.
 
 = 1.6.0 - TBD =
+Added: Support for `meta_box_cb` parameter for `register_taxonomy` and taxonomies.
 Added: Dynamically warn about existing slugs.
 Added: "post_type", "custom_css", "customize_changeset", and "author" as reserved post type slugs.
 Added: "delete_with_user" support for post types.
