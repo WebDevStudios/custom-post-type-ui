@@ -32,6 +32,10 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 
 See changelog.txt for older changes.
 
+= 1.5.5 - 2017-07-27 =
+* Fixed: Prevent possible conflicts with .required css selector by prefixing ours.
+* Fixed: Better accommodate possible labels with apostrophes, in relation to "Get code" functionality.
+
 = 1.5.4 - 2017-06-22 =
 * Fixed: Resolved saving issue around post types tha matched existing page slugs.
 * Fixed: Layout issues on about page.
@@ -103,6 +107,10 @@ See changelog.txt for older changes.
 * Updated: Further UI refinements to better match WordPress admin. Adapted styles found from metaboxes, including collapse/expand toggles.
 
 == Upgrade Notice ==
+
+= 1.5.5 - 2017-07-27 =
+* Fixed: Prevent possible conflicts with .required css selector by prefixing ours.
+* Fixed: Better accommodate possible labels with apostrophes, in relation to "Get code" functionality.
 
 = 1.5.4 - 2017-06-22 =
 * Fixed: Resolved saving issue around post types tha matched existing page slugs.
