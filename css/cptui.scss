@@ -24,6 +24,9 @@ $max-tablet: "screen and (max-width: 768px)";
 	.postbox .hndle {
 		cursor: pointer;
 	}
+	.required {
+		color: rgb(255, 0, 0);
+	}
 }
 .cptui-table {
 	#excerpt {
@@ -86,9 +89,6 @@ $max-tablet: "screen and (max-width: 768px)";
 	li {
 		position: relative;
 	}
-}
-.required {
-	color: rgb(255,0,0);
 }
 .cptui-field-description {
 	font-style: italic;
