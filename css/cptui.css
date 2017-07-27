@@ -28,6 +28,10 @@
   cursor: pointer;
 }
 
+.posttypesui .required, .taxonomiesui .required {
+  color: red;
+}
+
 .cptui-table #excerpt {
   display: inline-block;
   height: 16px;
@@ -96,10 +100,6 @@
 
 .cptui-support #support li {
   position: relative;
-}
-
-.required {
-  color: red;
 }
 
 .cptui-field-description {
@@ -349,6 +349,7 @@ fieldset .cptui-help {
   -ms-grid-row-align: auto;
       align-self: auto;
 }
+
 .wdspromos-about p {
   padding: 0 5px;
 }
@@ -399,20 +400,16 @@ fieldset .cptui-help {
   .cptui-table #description {
     width: 100%;
   }
-
   .wdspromos-about {
     -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
+        flex-wrap: wrap;
   }
-
   .wdspromos-about p {
     margin: 5px auto;
   }
-
   .wdspromos-about p:nth-child(1) {
     padding-left: 5px;
   }
-
   .wdspromos-about p:nth-child(4) {
     padding-right: 5px;
   }
