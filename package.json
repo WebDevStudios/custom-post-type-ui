@@ -41,7 +41,7 @@
     "taxonomies"
   ],
   "author": "WebDevStudios",
-  "license": "GPLv2",
+  "license": "GPL-2.0+",
   "bugs": {
     "url": "https://github.com/WebDevStudios/custom-post-type-ui/issues"
   },
