@@ -28,6 +28,10 @@
   cursor: pointer;
 }
 
+.posttypesui .required, .taxonomiesui .required {
+  color: red;
+}
+
 .cptui-table #excerpt {
   display: inline-block;
   height: 16px;
@@ -100,10 +104,6 @@
 
 .cptui-support #support li {
   position: relative;
-}
-
-.required {
-  color: red;
 }
 
 .cptui-field-description {

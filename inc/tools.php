@@ -265,19 +265,19 @@ function cptui_get_single_taxonomy_registery( $taxonomy = array() ) {
 	 */
 
 	$labels = array(
-		"name" => __( '<?php echo esc_html( $taxonomy['label'] ); ?>', '<?php echo esc_html( $textdomain ); ?>' ),
-		"singular_name" => __( '<?php echo esc_html( $taxonomy['singular_label'] ); ?>', '<?php echo esc_html( $textdomain ); ?>' ),
+		"name" => __( "<?php echo esc_html( $taxonomy['label'] ); ?>", "<?php echo esc_html( $textdomain ); ?>" ),
+		"singular_name" => __( "<?php echo esc_html( $taxonomy['singular_label'] ); ?>", "<?php echo esc_html( $textdomain ); ?>" ),
 <?php
 foreach ( $taxonomy['labels'] as $key => $label ) {
 	if ( ! empty( $label ) ) {
-		echo "\t\t" . '"' . esc_html( $key ) . '" => __( \'' . esc_html( $label ) . '\', \'' . esc_html( $textdomain ) . '\' ),' . "\n";
+		echo "\t\t" . '"' . esc_html( $key ) . '" => __( "' . esc_html( $label ) . '", "' . esc_html( $textdomain ) . '" ),' . "\n";
 	}
 }
 ?>
 	);
 
 	$args = array(
-		"label" => __( '<?php echo esc_html( $taxonomy['label'] ); ?>', '<?php echo esc_html( $textdomain ); ?>' ),
+		"label" => __( "<?php echo $taxonomy['label']; ?>", "<?php echo $textdomain; ?>" ),
 		"labels" => $labels,
 		"public" => <?php echo $public; ?>,
 		"hierarchical" => <?php echo $taxonomy['hierarchical']; ?>,
@@ -443,16 +443,16 @@ function cptui_get_single_post_type_registery( $post_type = array() ) {
 	 */
 
 	$labels = array(
-		"name" => __( '<?php echo $post_type['label']; ?>', '<?php echo $textdomain; ?>' ),
-		"singular_name" => __( '<?php echo $post_type['singular_label']; ?>', '<?php echo $textdomain; ?>' ),
+		"name" => __( "<?php echo $post_type['label']; ?>", "<?php echo $textdomain; ?>" ),
+		"singular_name" => __( "<?php echo $post_type['singular_label']; ?>", "<?php echo $textdomain; ?>" ),
 <?php
 	foreach ( $post_type['labels'] as $key => $label ) {
 		if ( ! empty( $label ) ) {
 			if ( 'parent' === $key ) {
 				// Fix for incorrect label key. See #439.
-				echo "\t\t" . '"' . 'parent_item_colon' . '" => __( \'' . $label . '\', \'' . $textdomain . '\' ),' . "\n";
+				echo "\t\t" . '"' . 'parent_item_colon' . '" => __( "' . $label . '", "' . $textdomain . '" ),' . "\n";
 			} else {
-				echo "\t\t" . '"' . $key . '" => __( \'' . $label . '\', \'' . $textdomain . '\' ),' . "\n";
+				echo "\t\t" . '"' . $key . '" => __( "' . $label . '", "' . $textdomain . '" ),' . "\n";
 			}
 		}
 	}
@@ -460,7 +460,7 @@ function cptui_get_single_post_type_registery( $post_type = array() ) {
 	);
 
 	$args = array(
-		"label" => __( '<?php echo $post_type['label']; ?>', '<?php echo $textdomain; ?>' ),
+		"label" => __( "<?php echo $post_type['label']; ?>", "<?php echo $textdomain; ?>" ),
 		"labels" => $labels,
 		"description" => "<?php echo $post_type['description']; ?>",
 		"public" => <?php echo disp_boolean( $post_type['public'] ); ?>,

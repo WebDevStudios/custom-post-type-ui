@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: custom post types, CPT, CMS, post, types, post type, taxonomy, tax, custom, content types, post types
 Requires at least: 4.6
 Tested up to: 4.8.0
-Stable tag: 1.5.4
+Stable tag: 1.5.5
 License: GPLv2
 
 Admin UI for creating custom post types and custom taxonomies for WordPress
@@ -43,6 +43,10 @@ Updated: pass the object_type array to `cptui_pre_register_taxonomy` filter as e
 Fixed: Invalid JSON error was using success class for its admin notice.
 Fixed: "show in nav menus" missing from tools section for post type section.
 Fixed: Error occurred when attempting to unset post types while editing a taxonomy.
+
+= 1.5.5 - 2017-07-27 =
+* Fixed: Prevent possible conflicts with .required css selector by prefixing ours.
+* Fixed: Better accommodate possible labels with apostrophes, in relation to "Get code" functionality.
 
 = 1.5.4 - 2017-06-22 =
 * Fixed: Resolved saving issue around post types that matched existing page slugs.
@@ -125,6 +129,10 @@ Added: `cptui_get_taxonomy_exists` function to check if a provided taxonomy is r
 Updated: pass the object_type array to `cptui_pre_register_taxonomy` filter as extra parameter.
 Fixed: Invalid JSON error was using success class for its admin notice.
 Fixed: "show in nav menus" missing from tools section for post type section.
+
+= 1.5.5 - 2017-07-27 =
+* Fixed: Prevent possible conflicts with .required css selector by prefixing ours.
+* Fixed: Better accommodate possible labels with apostrophes, in relation to "Get code" functionality.
 
 = 1.5.4 - 2017-06-22 =
 * Fixed: Resolved saving issue around post types tha matched existing page slugs.
