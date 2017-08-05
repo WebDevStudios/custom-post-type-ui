@@ -5,6 +5,9 @@
 	"type": "wordpress-plugin",
 	"keywords": ["custom post types", "CPT", "CMS", "post", "types", "post type", "taxonomy", "tax", "custom"],
 	"license": "GPL-2.0",
+	"require": {
+          "composer/installers": "~1.0"
+        },
 	"authors": [
 		{
 			"name": "WebDevStudios",
