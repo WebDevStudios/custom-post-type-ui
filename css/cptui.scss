@@ -411,4 +411,13 @@ $max-tablet: "screen and (max-width: 768px)";
 	  }
 	}
   }
+  .cptui-table {
+	td.outer {
+	  width: 100%;
+	}
+  }
+  #cptui-audit-textarea,
+  #cptui_debug_info_email {
+	width: 100%;
+  }
 }
