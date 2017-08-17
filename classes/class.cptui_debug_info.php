@@ -145,13 +145,13 @@ class CPTUI_Debug_Info {
 		echo "\n";
 		$cptui_post_types = cptui_get_post_type_data();
 		echo "\t\t" . 'Post Types: ' . "\n";
-		echo "\t\t" . esc_html( json_encode( $cptui_post_types ) ) . "\n";
+		echo "\t\t" . json_encode( $cptui_post_types ) . "\n";
 
 		echo "\n\n";
 
 		$cptui_taxonomies = cptui_get_taxonomy_data();
 		echo "\t\t" . 'Taxonomies: ' . "\n";
-		echo "\t\t" . esc_html( json_encode( $cptui_taxonomies ) ) . "\n";
+		echo "\t\t" . json_encode( $cptui_taxonomies ) . "\n";
 		echo "\n";
 
 		if ( has_action( 'cptui_custom_debug_info' ) ) {
