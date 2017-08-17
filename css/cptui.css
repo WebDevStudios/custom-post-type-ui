@@ -417,4 +417,11 @@ fieldset .cptui-help {
   .wdspromos-about p:nth-child(4) {
     padding-right: 5px;
   }
+  .cptui-table td.outer {
+    width: 100%;
+  }
+  #cptui-audit-textarea,
+  #cptui_debug_info_email {
+    width: 100%;
+  }
 }
