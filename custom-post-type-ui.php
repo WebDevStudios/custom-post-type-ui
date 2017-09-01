@@ -297,6 +297,10 @@ function cptui_register_single_post_type( $post_type = array() ) {
 	 */
 	$post_type['map_meta_cap'] = apply_filters( 'cptui_map_meta_cap', true, $post_type['name'], $post_type );
 
+	if ( empty( $post_type['supports'] ) ) {
+		$post_type['supports'] = array();
+	}
+
 	/**
 	 * Filters custom supports parameters for 3rd party plugins.
 	 *
