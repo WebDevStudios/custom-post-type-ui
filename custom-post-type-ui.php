@@ -352,7 +352,7 @@ function cptui_register_single_post_type( $post_type = array() ) {
 		}
 	}
 
-	$has_archive = get_disp_boolean( $post_type['has_archive'] );
+	$has_archive = ( isset( $post_type['has_archive'] ) ) ? get_disp_boolean( $post_type['has_archive'] ) : false;
 	if ( ! empty( $post_type['has_archive_string'] ) ) {
 		$has_archive = $post_type['has_archive_string'];
 	}
