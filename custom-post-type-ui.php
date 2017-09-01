@@ -329,7 +329,7 @@ function cptui_register_single_post_type( $post_type = array() ) {
 		}
 	}
 
-	if ( in_array( 'none', $post_type['supports'] ) ) {
+	if ( isset( $post_type['supports'] ) && is_array( $post_type['supports'] ) && in_array( 'none', $post_type['supports'] ) ) {
 		$post_type['supports'] = false;
 	}
 
