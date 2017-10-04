@@ -844,30 +844,30 @@ function cptui_get_preserved_label( $type = '', $key = '', $plural = '', $singul
 
 	$preserved_labels = array(
 		'post_types' => array(
-			'add_new_item'       => sprintf( __( 'Add new %s', 'custom-post-type-ui' ), $singular ),
-			'edit_item'          => sprintf( __( 'Edit %s', 'custom-post-type-ui' ), $singular ),
-			'new_item'           => sprintf( __( 'New %s', 'custom-post-type-ui' ), $singular ),
-			'view_item'          => sprintf( __( 'View %s', 'custom-post-type-ui' ), $singular ),
-			'all_items'          => sprintf( __( 'All %s', 'custom-post-type-ui' ), $plural ),
-			'search_items'       => sprintf( __( 'Search %s', 'custom-post-type-ui' ), $plural ),
-			'not_found'          => sprintf( __( 'No %s found.', 'custom-post-type-ui' ), $plural ),
-			'not_found_in_trash' => sprintf( __( 'No %s found in trash.', 'custom-post-type-ui' ), $plural ),
+			'add_new_item'       => array( 'Add new %s', 'custom-post-type-ui', $singular ),
+			'edit_item'          => array( 'Edit %s', 'custom-post-type-ui', $singular ),
+			'new_item'           => array( 'New %s', 'custom-post-type-ui', $singular ),
+			'view_item'          => array( 'View %s', 'custom-post-type-ui', $singular ),
+			'all_items'          => array( 'All %s', 'custom-post-type-ui', $plural ),
+			'search_items'       => array( 'Search %s', 'custom-post-type-ui', $plural ),
+			'not_found'          => array( 'No %s found.', 'custom-post-type-ui', $plural ),
+			'not_found_in_trash' => array( 'No %s found in trash.', 'custom-post-type-ui', $plural ),
 		),
 		'taxonomies' => array(
-			'search_items'               => sprintf( __( 'Search %s', 'custom-post-type-ui' ), $plural ),
-			'popular_items'              => sprintf( __( 'Popular %s', 'custom-post-type-ui' ), $plural ),
-			'all_items'                  => sprintf( __( 'All %s', 'custom-post-type-ui' ), $plural ),
-			'parent_item'                => sprintf( __( 'Parent %s', 'custom-post-type-ui' ), $singular ),
-			'parent_item_colon'          => sprintf( __( 'Parent %s:', 'custom-post-type-ui' ), $singular ),
-			'edit_item'                  => sprintf( __( 'Edit %s', 'custom-post-type-ui' ), $singular ),
-			'update_item'                => sprintf( __( 'Update %s', 'custom-post-type-ui' ), $singular ),
-			'add_new_item'               => sprintf( __( 'Add new %s', 'custom-post-type-ui' ), $singular ),
-			'new_item_name'              => sprintf( __( 'New %s name', 'custom-post-type-ui' ), $singular ),
-			'separate_items_with_commas' => sprintf( __( 'Separate %s with commas', 'custom-post-type-ui' ), $plural ),
-			'add_or_remove_items'        => sprintf( __( 'Add or remove %s', 'custom-post-type-ui' ), $plural ),
-			'choose_from_most_used'      => sprintf( __( 'Choose from the most used %s', 'custom-post-type-ui' ), $plural ),
+			'search_items'               => array( 'Search %s', 'custom-post-type-ui', $plural ),
+			'popular_items'              => array( 'Popular %s', 'custom-post-type-ui', $plural ),
+			'all_items'                  => array( 'All %s', 'custom-post-type-ui', $plural ),
+			'parent_item'                => array( 'Parent %s', 'custom-post-type-ui', $singular ),
+			'parent_item_colon'          => array( 'Parent %s:', 'custom-post-type-ui', $singular ),
+			'edit_item'                  => array( 'Edit %s', 'custom-post-type-ui', $singular ),
+			'update_item'                => array( 'Update %s', 'custom-post-type-ui', $singular ),
+			'add_new_item'               => array( 'Add new %s', 'custom-post-type-ui', $singular ),
+			'new_item_name'              => array( 'New %s name', 'custom-post-type-ui', $singular ),
+			'separate_items_with_commas' => array( 'Separate %s with commas', 'custom-post-type-ui', $plural ),
+			'add_or_remove_items'        => array( 'Add or remove %s', 'custom-post-type-ui', $plural ),
+			'choose_from_most_used'      => array( 'Choose from the most used %s', 'custom-post-type-ui', $plural ),
 		),
 	);
 
-	return $preserved_labels[ $type ][ $key ];
+	return sprintf( __( $preserved_labels[ $type ][ $key ][ 0 ], $preserved_labels[ $type ][ $key ][ 1 ] ), $preserved_labels[ $type ][ $key ][ 2 ] );
 }
