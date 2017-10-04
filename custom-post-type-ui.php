@@ -856,5 +856,5 @@ function cptui_get_preserved_label( $type = '', $key = '', $plural = '', $singul
 
 	$preserved_labels = cptui_get_preserved_labels();
 
-	return sprintf( __( $preserved_labels[ $type ][ $key ][ 0 ], 'custom-post-type-ui' ), $preserved_labels[ $type ][ $key ][ 2 ] ? $singular : $plural );
+	return sprintf( __( $preserved_labels[ $type ][ $key ][ 0 ], 'custom-post-type-ui' ), $preserved_labels[ $type ][ $key ][ 1 ] ? $singular : $plural );
 }
