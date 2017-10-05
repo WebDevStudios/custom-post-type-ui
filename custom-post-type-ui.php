@@ -800,28 +800,68 @@ function cptui_admin_notices( $action = '', $object_type = '', $success = true, 
 function cptui_get_preserved_labels() {
 	return array(
 		'post_types' => array(
-			'add_new_item'       => array( 'Add new %s', true ),
-			'edit_item'          => array( 'Edit %s', true ),
-			'new_item'           => array( 'New %s', true ),
-			'view_item'          => array( 'View %s', true ),
-			'all_items'          => array( 'All %s', false ),
-			'search_items'       => array( 'Search %s', false ),
-			'not_found'          => array( 'No %s found.', false ),
-			'not_found_in_trash' => array( 'No %s found in trash.', false ),
+			'add_new_item'       => function($plural, $singular) {
+				return sprintf( __( 'Add new %s', 'custom-post-type-ui' ), $singular );
+			},
+			'edit_item'          => function($plural, $singular) {
+				return sprintf( __( 'Edit %s', 'custom-post-type-ui' ), $singular );
+			},
+			'new_item'           => function($plural, $singular) {
+				return sprintf( __( 'New %s', 'custom-post-type-ui' ), $singular );
+			},
+			'view_item'          => function($plural, $singular) {
+				return sprintf( __( 'View %s', 'custom-post-type-ui' ), $singular );
+			},
+			'all_items'          => function($plural, $singular) {
+				return sprintf( __( 'All %s', 'custom-post-type-ui' ), $plural );
+			},
+			'search_items'       => function($plural, $singular) {
+				return sprintf( __( 'Search %s', 'custom-post-type-ui' ), $plural );
+			},
+			'not_found'          => function($plural, $singular) {
+				return sprintf( __( 'No %s found.', 'custom-post-type-ui' ), $plural );
+			},
+			'not_found_in_trash' => function($plural, $singular) {
+				return sprintf( __( 'No %s found in trash.', 'custom-post-type-ui' ), $plural );
+			},
 		),
 		'taxonomies' => array(
-			'search_items'               => array( 'Search %s', false ),
-			'popular_items'              => array( 'Popular %s', false ),
-			'all_items'                  => array( 'All %s', false ),
-			'parent_item'                => array( 'Parent %s', true ),
-			'parent_item_colon'          => array( 'Parent %s:', true ),
-			'edit_item'                  => array( 'Edit %s', true ),
-			'update_item'                => array( 'Update %s', true ),
-			'add_new_item'               => array( 'Add new %s', true ),
-			'new_item_name'              => array( 'New %s name', true ),
-			'separate_items_with_commas' => array( 'Separate %s with commas', false ),
-			'add_or_remove_items'        => array( 'Add or remove %s', false ),
-			'choose_from_most_used'      => array( 'Choose from the most used %s', false ),
+			'search_items'               => function($plural, $singular) {
+				return sprintf( __( 'Search %s', 'custom-post-type-ui' ), $plural );
+			},
+			'popular_items'              => function($plural, $singular) {
+				return sprintf( __( 'Popular %s', 'custom-post-type-ui' ), $plural );
+			},
+			'all_items'                  => function($plural, $singular) {
+				return sprintf( __( 'All %s', 'custom-post-type-ui' ), $plural );
+			},
+			'parent_item'                => function($plural, $singular) {
+				return sprintf( __( 'Parent %s', 'custom-post-type-ui' ), $singular );
+			},
+			'parent_item_colon'          => function($plural, $singular) {
+				return sprintf( __( 'Parent %s:', 'custom-post-type-ui' ), $singular );
+			},
+			'edit_item'                  => function($plural, $singular) {
+				return sprintf( __( 'Edit %s', 'custom-post-type-ui' ), $singular );
+			},
+			'update_item'                => function($plural, $singular) {
+				return sprintf( __( 'Update %s', 'custom-post-type-ui' ), $singular );
+			},
+			'add_new_item'               => function($plural, $singular) {
+				return sprintf( __( 'Add new %s', 'custom-post-type-ui' ), $singular );
+			},
+			'new_item_name'              => function($plural, $singular) {
+				return sprintf( __( 'New %s name', 'custom-post-type-ui' ), $singular );
+			},
+			'separate_items_with_commas' => function($plural, $singular) {
+				return sprintf( __( 'Separate %s with commas', 'custom-post-type-ui' ), $plural );
+			},
+			'add_or_remove_items'        => function($plural, $singular) {
+				return sprintf( __( 'Add or remove %s', 'custom-post-type-ui' ), $plural );
+			},
+			'choose_from_most_used'      => function($plural, $singular) {
+				return sprintf( __( 'Choose from the most used %s', 'custom-post-type-ui' ), $plural );
+			},
 		),
 	);
 }
@@ -856,5 +896,5 @@ function cptui_get_preserved_label( $type = '', $key = '', $plural = '', $singul
 
 	$preserved_labels = cptui_get_preserved_labels();
 
-	return sprintf( __( $preserved_labels[ $type ][ $key ][ 0 ], 'custom-post-type-ui' ), $preserved_labels[ $type ][ $key ][ 1 ] ? $singular : $plural );
+	return isset( $preserved_labels[ $type ][ $key ] ) ? $preserved_labels[ $type ][ $key ] ( $plural, $singular ) : '';
 }
