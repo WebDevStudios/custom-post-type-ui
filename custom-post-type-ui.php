@@ -791,82 +791,6 @@ function cptui_admin_notices( $action = '', $object_type = '', $success = true, 
 }
 
 /**
- * Return array of labes needing preserved.
- *
- * @since 1.0.5
- *
- * @return array Array of labels (a pair of label and singular flag) needing preservered
- */
-function cptui_get_preserved_labels() {
-	return array(
-		'post_types' => array(
-			'add_new_item'       => function($plural, $singular) {
-				return sprintf( __( 'Add new %s', 'custom-post-type-ui' ), $singular );
-			},
-			'edit_item'          => function($plural, $singular) {
-				return sprintf( __( 'Edit %s', 'custom-post-type-ui' ), $singular );
-			},
-			'new_item'           => function($plural, $singular) {
-				return sprintf( __( 'New %s', 'custom-post-type-ui' ), $singular );
-			},
-			'view_item'          => function($plural, $singular) {
-				return sprintf( __( 'View %s', 'custom-post-type-ui' ), $singular );
-			},
-			'all_items'          => function($plural, $singular) {
-				return sprintf( __( 'All %s', 'custom-post-type-ui' ), $plural );
-			},
-			'search_items'       => function($plural, $singular) {
-				return sprintf( __( 'Search %s', 'custom-post-type-ui' ), $plural );
-			},
-			'not_found'          => function($plural, $singular) {
-				return sprintf( __( 'No %s found.', 'custom-post-type-ui' ), $plural );
-			},
-			'not_found_in_trash' => function($plural, $singular) {
-				return sprintf( __( 'No %s found in trash.', 'custom-post-type-ui' ), $plural );
-			},
-		),
-		'taxonomies' => array(
-			'search_items'               => function($plural, $singular) {
-				return sprintf( __( 'Search %s', 'custom-post-type-ui' ), $plural );
-			},
-			'popular_items'              => function($plural, $singular) {
-				return sprintf( __( 'Popular %s', 'custom-post-type-ui' ), $plural );
-			},
-			'all_items'                  => function($plural, $singular) {
-				return sprintf( __( 'All %s', 'custom-post-type-ui' ), $plural );
-			},
-			'parent_item'                => function($plural, $singular) {
-				return sprintf( __( 'Parent %s', 'custom-post-type-ui' ), $singular );
-			},
-			'parent_item_colon'          => function($plural, $singular) {
-				return sprintf( __( 'Parent %s:', 'custom-post-type-ui' ), $singular );
-			},
-			'edit_item'                  => function($plural, $singular) {
-				return sprintf( __( 'Edit %s', 'custom-post-type-ui' ), $singular );
-			},
-			'update_item'                => function($plural, $singular) {
-				return sprintf( __( 'Update %s', 'custom-post-type-ui' ), $singular );
-			},
-			'add_new_item'               => function($plural, $singular) {
-				return sprintf( __( 'Add new %s', 'custom-post-type-ui' ), $singular );
-			},
-			'new_item_name'              => function($plural, $singular) {
-				return sprintf( __( 'New %s name', 'custom-post-type-ui' ), $singular );
-			},
-			'separate_items_with_commas' => function($plural, $singular) {
-				return sprintf( __( 'Separate %s with commas', 'custom-post-type-ui' ), $plural );
-			},
-			'add_or_remove_items'        => function($plural, $singular) {
-				return sprintf( __( 'Add or remove %s', 'custom-post-type-ui' ), $plural );
-			},
-			'choose_from_most_used'      => function($plural, $singular) {
-				return sprintf( __( 'Choose from the most used %s', 'custom-post-type-ui' ), $plural );
-			},
-		),
-	);
-}
-
-/**
  * Return array of keys needing preserved.
  *
  * @since 1.0.5
@@ -876,9 +800,33 @@ function cptui_get_preserved_labels() {
  */
 function cptui_get_preserved_keys( $type = '' ) {
 
-	$preserved_labels = cptui_get_preserved_labels();
-
-	return ( ! empty( $type ) && isset( $preserved_labels[ $type ] ) ) ? array_keys( $preserved_labels[ $type ] ) : array();
+	$preserved_labels = array(
+		'post_types' => array(
+			'add_new_item',
+			'edit_item',
+			'new_item',
+			'view_item',
+			'all_items',
+			'search_items',
+			'not_found',
+			'not_found_in_trash',
+		),
+		'taxonomies' => array(
+			'search_items',
+			'popular_items',
+			'all_items',
+			'parent_item',
+			'parent_item_colon',
+			'edit_item',
+			'update_item',
+			'add_new_item',
+			'new_item_name',
+			'separate_items_with_commas',
+			'add_or_remove_items',
+			'choose_from_most_used',
+		),
+	);
+	return ( ! empty( $type ) ) ? $preserved_labels[ $type ] : array();
 }
 
 /**
@@ -894,7 +842,36 @@ function cptui_get_preserved_keys( $type = '' ) {
  */
 function cptui_get_preserved_label( $type = '', $key = '', $plural = '', $singular = '' ) {
 
-	$preserved_labels = cptui_get_preserved_labels();
+	switch ($type) {
+		case 'post_types':
+			switch ($key) {
+				case 'add_new_item':       return sprintf( __( 'Add new %s', 'custom-post-type-ui' ), $singular );
+				case 'edit_item':          return sprintf( __( 'Edit %s', 'custom-post-type-ui' ), $singular );
+				case 'new_item':           return sprintf( __( 'New %s', 'custom-post-type-ui' ), $singular );
+				case 'view_item':          return sprintf( __( 'View %s', 'custom-post-type-ui' ), $singular );
+				case 'all_items':          return sprintf( __( 'All %s', 'custom-post-type-ui' ), $plural );
+				case 'search_items':       return sprintf( __( 'Search %s', 'custom-post-type-ui' ), $plural );
+				case 'not_found':          return sprintf( __( 'No %s found.', 'custom-post-type-ui' ), $plural );
+				case 'not_found_in_trash': return sprintf( __( 'No %s found in trash.', 'custom-post-type-ui' ), $plural );
+			}
+			break;
+		case 'taxonomies':
+			switch ($key) {
+				case 'search_items':               return sprintf( __( 'Search %s', 'custom-post-type-ui' ), $plural );
+				case 'popular_items':              return sprintf( __( 'Popular %s', 'custom-post-type-ui' ), $plural );
+				case 'all_items':                  return sprintf( __( 'All %s', 'custom-post-type-ui' ), $plural );
+				case 'parent_item':                return sprintf( __( 'Parent %s', 'custom-post-type-ui' ), $singular );
+				case 'parent_item_colon':          return sprintf( __( 'Parent %s:', 'custom-post-type-ui' ), $singular );
+				case 'edit_item':                  return sprintf( __( 'Edit %s', 'custom-post-type-ui' ), $singular );
+				case 'update_item':                return sprintf( __( 'Update %s', 'custom-post-type-ui' ), $singular );
+				case 'add_new_item':               return sprintf( __( 'Add new %s', 'custom-post-type-ui' ), $singular );
+				case 'new_item_name':              return sprintf( __( 'New %s name', 'custom-post-type-ui' ), $singular );
+				case 'separate_items_with_commas': return sprintf( __( 'Separate %s with commas', 'custom-post-type-ui' ), $plural );
+				case 'add_or_remove_items':        return sprintf( __( 'Add or remove %s', 'custom-post-type-ui' ), $plural );
+				case 'choose_from_most_used':      return sprintf( __( 'Choose from the most used %s', 'custom-post-type-ui' ), $plural );
+			}
+			break;
+	}
 
-	return isset( $preserved_labels[ $type ][ $key ] ) ? $preserved_labels[ $type ][ $key ] ( $plural, $singular ) : '';
+	return '';
 }
