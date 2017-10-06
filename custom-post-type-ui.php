@@ -343,6 +343,7 @@ function cptui_register_single_post_type( $post_type = array() ) {
 	);
 
 	$preserved = cptui_get_preserved_keys( 'post_types' );
+	$preserved_labels = cptui_get_preserved_label_second();
 	foreach ( $post_type['labels'] as $key => $label ) {
 
 		if ( ! empty( $label ) ) {
@@ -352,7 +353,9 @@ function cptui_register_single_post_type( $post_type = array() ) {
 				$labels[ $key ] = $label;
 			}
 		} elseif ( empty( $label ) && in_array( $key, $preserved ) ) {
-			$labels[ $key ] = cptui_get_preserved_label( 'post_types', $key, $post_type['label'], $post_type['singular_label'] );
+			$singular_or_plural = ( in_array( $key, array_keys( $preserved_labels['post_types']['plural'] ) ) ) ? 'plural' : 'singular';
+			$label_plurality = ( 'plural' === $singular_or_plural ) ? $post_type['label'] : $post_type['singular_label'];
+			$labels[ $key ] = sprintf( $preserved_labels['post_types'][ $singular_or_plural ][ $key ], $label_plurality );
 		}
 	}
 
@@ -870,4 +873,42 @@ function cptui_get_preserved_label( $type = '', $key = '', $plural = '', $singul
 	);
 
 	return $preserved_labels[ $type ][ $key ];
+}
+
+function cptui_get_preserved_label_second() {
+
+	return array(
+		'post_types' => array(
+			'singular' => array(
+				'add_new_item' => __( 'Add new %s', 'custom-post-type-ui' ),
+				'edit_item'    => __( 'Edit %s', 'custom-post-type-ui' ),
+				'new_item'     => __( 'New %s', 'custom-post-type-ui' ),
+				'view_item'    => __( 'View %s', 'custom-post-type-ui' ),
+			),
+			'plural' => array(
+				'all_items'          => __( 'All %s', 'custom-post-type-ui' ),
+				'search_items'       => __( 'Search %s', 'custom-post-type-ui' ),
+				'not_found'          => __( 'No %s found.', 'custom-post-type-ui' ),
+				'not_found_in_trash' => __( 'No %s found in trash.', 'custom-post-type-ui' ),
+			),
+		),
+		'taxonomies' => array(
+			'singular' => array(
+				'parent_item'       => __( 'Parent %s', 'custom-post-type-ui' ),
+				'parent_item_colon' => __( 'Parent %s:', 'custom-post-type-ui' ),
+				'edit_item'         => __( 'Edit %s', 'custom-post-type-ui' ),
+				'update_item'       => __( 'Update %s', 'custom-post-type-ui' ),
+				'add_new_item'      => __( 'Add new %s', 'custom-post-type-ui' ),
+				'new_item_name'     => __( 'New %s name', 'custom-post-type-ui' ),
+			),
+			'plural' => array(
+				'search_items'               => __( 'Search %s', 'custom-post-type-ui' ),
+				'popular_items'              => __( 'Popular %s', 'custom-post-type-ui' ),
+				'all_items'                  => __( 'All %s', 'custom-post-type-ui' ),
+				'separate_items_with_commas' => __( 'Separate %s with commas', 'custom-post-type-ui' ),
+				'add_or_remove_items'        => __( 'Add or remove %s', 'custom-post-type-ui' ),
+				'choose_from_most_used'      => __( 'Choose from the most used %s', 'custom-post-type-ui' ),
+			)
+		),
+	);
 }
