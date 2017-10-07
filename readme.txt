@@ -30,8 +30,6 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 
 == Changelog ==
 
-See changelog.txt for older changes.
-
 = 1.5.5 - 2017-07-27 =
 * Fixed: Prevent possible conflicts with .required css selector by prefixing ours.
 * Fixed: Better accommodate possible labels with apostrophes, in relation to "Get code" functionality.
