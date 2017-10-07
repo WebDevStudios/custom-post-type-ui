@@ -343,7 +343,7 @@ function cptui_register_single_post_type( $post_type = array() ) {
 	);
 
 	$preserved = cptui_get_preserved_keys( 'post_types' );
-	$preserved_labels = cptui_get_preserved_label_second();
+	$preserved_labels = cptui_get_preserved_labels();
 	foreach ( $post_type['labels'] as $key => $label ) {
 
 		if ( ! empty( $label ) ) {
@@ -875,8 +875,16 @@ function cptui_get_preserved_label( $type = '', $key = '', $plural = '', $singul
 	return $preserved_labels[ $type ][ $key ];
 }
 
-function cptui_get_preserved_label_second() {
-
+/**
+ * Returns an array of translated labels, ready for use with sprintf().
+ *
+ * Replacement for cptui_get_preserved_label for the sake of performance.
+ *
+ * @since 1.6.0
+ *
+ * @return array
+ */
+function cptui_get_preserved_labels() {
 	return array(
 		'post_types' => array(
 			'singular' => array(
