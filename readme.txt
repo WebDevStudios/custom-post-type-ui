@@ -30,8 +30,6 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 
 == Changelog ==
 
-See changelog.txt for older changes.
-
 = 1.6.0 - TBD =
 Added: Support for `meta_box_cb` parameter for `register_taxonomy` and taxonomies.
 Added: Dynamically warn about existing slugs.
