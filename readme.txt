@@ -40,7 +40,7 @@ Added: "delete_with_user" support for post types.
 Added: Filters for post type and taxonomy data right before saving of final data.
 Added: `cptui_get_taxonomy_exists` function to check if a provided taxonomy is registered.
 Updated: pass the object_type array to `cptui_pre_register_taxonomy` filter as extra parameter.
-Updated: Adjusted preserved label handling to aid with plugin performance.
+Updated: Adjusted preserved label handling to aid with plugin performance. Props alex-solovyev
 Fixed: Invalid JSON error was using success class for its admin notice.
 Fixed: "show in nav menus" missing from tools section for post type section.
 Fixed: Error occurred when attempting to unset post types while editing a taxonomy.
