@@ -840,6 +840,8 @@ function cptui_get_preserved_keys( $type = '' ) {
  *
  * @since 1.0.5
  *
+ * @deprecated
+ *
  * @param string $type Type to return. Either 'post_types' or 'taxonomies'. Optional. Default empty string.
  * @param string $key Requested label key. Optional. Default empty string.
  * @param string $plural Plural verbiage for the requested label and type. Optional. Default empty string.
