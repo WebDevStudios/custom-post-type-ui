@@ -3,8 +3,8 @@ Contributors: webdevstudios, pluginize, tw2113, vegasgeek, modemlooper, williams
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3084056
 Tags: custom post types, CPT, CMS, post, types, post type, taxonomy, tax, custom, content types, post types
 Requires at least: 4.6
-Tested up to: 4.8.0
-Stable tag: 1.5.5
+Tested up to: 4.9.0
+Stable tag: 1.5.6
 License: GPLv2
 
 Admin UI for creating custom post types and custom taxonomies for WordPress
@@ -33,15 +33,17 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 = 1.6.0 - TBD =
 Added: Support for `meta_box_cb` parameter for `register_taxonomy` and taxonomies.
 Added: Dynamically warn about existing slugs.
-Added: "post_type", "custom_css", "customize_changeset", and "author" as reserved post type slugs.
 Added: "delete_with_user" support for post types.
 Added: Filters for post type and taxonomy data right before saving of final data.
 Added: `cptui_get_taxonomy_exists` function to check if a provided taxonomy is registered.
 Updated: pass the object_type array to `cptui_pre_register_taxonomy` filter as extra parameter.
 Updated: Adjusted preserved label handling to aid with plugin performance. Props alex-solovyev
-Fixed: Invalid JSON error was using success class for its admin notice.
 Fixed: "show in nav menus" missing from tools section for post type section.
 Fixed: Error occurred when attempting to unset post types while editing a taxonomy.
+
+= 1.5.6 - 2017-11-09 =
+* Added: Added "custom_css", "customize_changeset", "author", and "post_type" as reserved post_types.
+* Fixed: The "Invalid JSON" error message was receiving the wrong color indicator for for the admin notice.
 
 = 1.5.5 - 2017-07-27 =
 * Fixed: Prevent possible conflicts with .required css selector by prefixing ours.
@@ -121,14 +123,16 @@ Fixed: Error occurred when attempting to unset post types while editing a taxono
 
 = 1.6.0 - TBD =
 Added: Dynamically warn about existing slugs.
-Added: "post_type", "custom_css", "customize_changeset", and "author" as reserved post type slugs.
 Added: "delete_with_user" support for post types.
 Added: Filters for post type and taxonomy data right before saving of final data.
 Added: `cptui_get_taxonomy_exists` function to check if a provided taxonomy is registered.
 Updated: pass the object_type array to `cptui_pre_register_taxonomy` filter as extra parameter.
 Updated: Adjusted preserved label handling to aid with plugin performance.
-Fixed: Invalid JSON error was using success class for its admin notice.
 Fixed: "show in nav menus" missing from tools section for post type section.
+
+= 1.5.6 - 2017-11-09 =
+* Added: Added "custom_css", "customize_changeset", "author", and "post_type" as reserved post_types.
+* Fixed: The "Invalid JSON" error message was receiving the wrong color indicator for for the admin notice.
 
 = 1.5.5 - 2017-07-27 =
 * Fixed: Prevent possible conflicts with .required css selector by prefixing ours.
