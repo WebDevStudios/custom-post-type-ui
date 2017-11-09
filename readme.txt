@@ -30,6 +30,10 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 
 == Changelog ==
 
+= 1.5.6 - 2017-11-09 =
+* Fixed: Added "custom_css", "customize_changeset", "author", and "post_type" as reserved post_types.
+* Fixed: The "Invalid JSON" error message was receiving the wrong color indicator for for the admin notice.
+
 = 1.5.5 - 2017-07-27 =
 * Fixed: Prevent possible conflicts with .required css selector by prefixing ours.
 * Fixed: Better accommodate possible labels with apostrophes, in relation to "Get code" functionality.
@@ -105,6 +109,10 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 * Updated: Further UI refinements to better match WordPress admin. Adapted styles found from metaboxes, including collapse/expand toggles.
 
 == Upgrade Notice ==
+
+= 1.5.6 - 2017-11-09 =
+* Fixed: Added "custom_css", "customize_changeset", "author", and "post_type" as reserved post_types.
+* Fixed: The "Invalid JSON" error message was receiving the wrong color indicator for for the admin notice.
 
 = 1.5.5 - 2017-07-27 =
 * Fixed: Prevent possible conflicts with .required css selector by prefixing ours.
