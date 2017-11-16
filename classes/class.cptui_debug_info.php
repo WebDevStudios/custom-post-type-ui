@@ -6,6 +6,7 @@
  * @subpackage Debugging
  * @author WebDevStudios
  * @since 1.2.0
+ * @license GPL-2.0+
  */
 
 /**

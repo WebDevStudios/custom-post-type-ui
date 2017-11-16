@@ -6,6 +6,7 @@
  * @subpackage Listings
  * @author WebDevStudios
  * @since 1.1.0
+ * @license GPL-2.0+
  */
 
 // Exit if accessed directly.
