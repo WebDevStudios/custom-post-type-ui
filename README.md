@@ -255,3 +255,6 @@ Import/Export functionality amended from original contribution by [Ben Allfree](
 
 ### Outside contributors that we wish to thank
 [brandondove](https://github.com/brandondove)
+
+## Licensing
+The code in this project is licensed under [GPL v2 or later](LICENSE).
