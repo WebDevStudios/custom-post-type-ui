@@ -1,33 +1,30 @@
 {
-	"name": "WebDevStudios/wp-custom-post-type-ui",
-	"description": "Custom Post Type UI Plugin for Wordpress found at https://wordpress.org/plugins/custom-post-type-ui/ ",
-	"homepage": "https://github.com/WebDevStudios/custom-post-type-ui",
-	"type": "wordpress-plugin",
-	"keywords": ["custom post types", "CPT", "CMS", "post", "types", "post type", "taxonomy", "tax", "custom"],
-	"license": "GPL-2.0+",
-	"require": {
-          "composer/installers": "~1.0",
-          "php": "^5.2|^7"
-        },
-	"authors": [
-		{
-			"name": "WebDevStudios",
-			"email": "contact@webdevstudios.com",
-			"homepage": "https://github.com/WebDevStudios/custom-post-type-ui"
-		}
-	],
-	"support": {
-		"issues": "https://github.com/WebDevStudios/custom-post-type-ui",
-		"forum": "https://wordpress.org/support/plugin/custom-post-type-ui"
-	},
-	"minimum-stability": "dev",
-		"require": {
-		"php": ">=5.2.0"
-	},
-	"autoload": {
-		"psr-0": { "CPT": "src/" }
-	},
-	"require-dev": {
-		"johnbillion/php-docs-standards": "~1.0"
-	}
+  "name": "WebDevStudios/wp-custom-post-type-ui",
+  "description": "Custom Post Type UI Plugin for Wordpress found at https://wordpress.org/plugins/custom-post-type-ui/ ",
+  "homepage": "https://github.com/WebDevStudios/custom-post-type-ui",
+  "type": "wordpress-plugin",
+  "keywords": ["custom post types", "CPT", "CMS", "post", "types", "post type", "taxonomy", "tax", "custom"],
+  "license": "GPL-2.0+",
+  "require": {
+    "composer/installers": "~1.0",
+    "php": "^5.2|^7"
+  },
+  "require-dev": {
+    "johnbillion/php-docs-standards": "~1.0"
+  },
+  "authors": [
+    {
+      "name": "WebDevStudios",
+      "email": "contact@webdevstudios.com",
+      "homepage": "https://github.com/WebDevStudios/custom-post-type-ui"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/WebDevStudios/custom-post-type-ui",
+    "forum": "https://wordpress.org/support/plugin/custom-post-type-ui"
+  },
+  "minimum-stability": "dev",
+  "autoload": {
+    "psr-0": { "CPT": "src/" }
+  }
 }
