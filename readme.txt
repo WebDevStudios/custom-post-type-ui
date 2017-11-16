@@ -6,6 +6,7 @@ Requires at least: 4.6
 Tested up to: 4.9.0
 Stable tag: 1.5.6
 License: GPL-2.0+
+Requires PHP: 5.2
 
 Admin UI for creating custom post types and custom taxonomies for WordPress
 
