@@ -7,4 +7,5 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Johnbillion\\DocsStandards\\' => array($vendorDir . '/johnbillion/php-docs-standards/src'),
+    'Composer\\Installers\\' => array($vendorDir . '/composer/installers/src/Composer/Installers'),
 );
