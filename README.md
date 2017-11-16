@@ -16,6 +16,59 @@ CPTUI does NOT handle display of registered post types or taxonomies in your cur
 
 ## Changelog
 
+**1.5.6 - 2017-11-09**
+* Added: Added "custom_css", "customize_changeset", "author", and "post_type" as reserved post_types.
+* Fixed: The "Invalid JSON" error message was receiving the wrong color indicator for for the admin notice.
+
+**1.5.5 - 2017-07-27**
+* Fixed: Prevent possible conflicts with .required css selector by prefixing ours.
+* Fixed: Better accommodate possible labels with apostrophes, in relation to "Get code" functionality.
+
+**1.5.4 - 2017-06-22**
+* Fixed: Resolved saving issue around post types that matched existing page slugs.
+* Fixed: Layout issues on about page.
+
+**1.5.3 - 2017-03-29**
+* Fixed: Removed ability to rename post type and taxonomy slugs to reserved slugs after initial saving.
+* Updated: Updated existing and added new, fancier side graphics.
+
+**1.5.2 - 2017-2-1**
+* Fixed: Chrome conflicts around the js used to sanitize post type and taxonomy slugs and cursors moving to end of input.
+* Fixed: Further hardened undefined index notices and instance checks in our cptui_not_new_install() callback.
+* Updated: Help text for post type and taxonomy slugs around the use of dashes. See http://docs.pluginize.com/article/135-dashes-in-post-type-taxonomy-slugs-for-url-seo
+* Added: Clarification text regarding what the "Get code" section is useful for.
+
+**1.5.1 - 2017-1-17**
+* Fixed: Undefined index notice during update process for themes or plugins.
+* Fixed: Blacklisted the word "include" from allowed taxonomy slugs. Causes menus to not show in WP Admin.
+* Fixed: Blacklisted the word "fields" from allowed post type slugs. Causes pages to not show in WP Admin.
+* Updated: Replaced hardcoded "manage_options" reference in our menu setup with variable holding filtered capability.
+
+**1.5.0 - 2017-1-10**
+* Added: Helper functions to grab individual post types or taxonomies from CPTUI options, function to check for support for custom saved values.
+* Added: Helper functions to mark and check if a new CPTUI install.
+* Added: FAQ clarifying why post type/taxonomy slugs are forced to underscores. We mean well, I assure you.
+* Added: Conversion from Cyrillic characters to latin equivalents.
+* Fixed: Parameter handling for get_terms() to match WordPress 4.5.
+* Fixed: Added "action" as a reserved taxonomy name.
+* Fixed: PHP Notices for rewrite array index, present since version 1.0.6
+* Fixed: Prevent triggering post type/taxonomy slug convert when navigating screen via tab key.
+* Fixed: Provide empty quote indicator in Registered Post Types and Taxonomies screen for empty values.
+* Fixed: Post types and taxonomies no longer need extra page refresh to be registered after an import.
+* Updated: Further evolved Registered Post Types and Taxonomies screen to better match list table styles.
+* Updated: Bumped minimum required WordPress version to 4.6.
+* Updated: Clarified what checking a checkbox does in regards to "Supports" area of post type settings.
+* Updated: Changed appropriate help/support links to docs.pluginize.com.
+* Updated: Added filter to tab collection for the tools section. You can now add your own tabs.
+
+**1.4.3 - 2016-10-17**
+* Fixed: issue with post types and taxonomies trying to be converted before registration. Prevented full success of process.
+* Fixed: Prevent trying to convert taxonomy terms if no terms exist. Taxonomy will still be deleted from CPTUI list.
+* Fixed: Prevent trying to redirect on activation if being network-activated.
+
+**1.4.2 - 2016-10-03**
+* Fixed: Responsiveness of sections and "ad" space when creating post types or taxonomies on smaller screens. Props @thecxguy
+
 **1.4.1**
 * Fixed: issue with default values for new parameters regarding menu/nav menu display for taxonomies.
 * Fixed: typo in support area.
