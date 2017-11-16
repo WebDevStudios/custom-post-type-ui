@@ -1,6 +1,9 @@
 <?php
 namespace Johnbillion\DocsStandards;
 
+/**
+ * @requires PHP 5.4
+ */
 abstract class TestCase extends \PHPUnit_Framework_TestCase {
 
 	public static $docblock_missing                  = 'The docblock for `%s` should not be missing.';
@@ -126,7 +129,22 @@ abstract class TestCase extends \PHPUnit_Framework_TestCase {
 	 */
 	protected static function getParameterClassName( \ReflectionParameter $param ) {
 		preg_match( '/\[\s\<\w+?>\s([a-zA-Z0-9_\\\\]+)/s', $param->__toString(), $matches );
-		return isset( $matches[1] ) ? $matches[1] : null;
+		if ( ! isset( $matches[1] ) ) {
+			return '';
+		}
+
+		switch ( $matches[1] ) {
+			// Allows the shorthand 'bool' type hint:
+			case 'boolean':
+				return 'bool';
+				break;
+			// Allows the shorthand 'int' type hint:
+			case 'integer':
+				return 'int';
+				break;
+		}
+
+		return $matches[1];
 	}
 
 	/**
@@ -145,7 +163,8 @@ abstract class TestCase extends \PHPUnit_Framework_TestCase {
 		}
 
 		if ( empty( $this->method_params ) ) {
-			$this->markTestSkipped( 'No method params to test' );
+			$this->assertEmpty( $this->doc_params );
+			return;
 		}
 
 		foreach ( $this->method_params as $i => $param ) {
@@ -179,7 +198,7 @@ abstract class TestCase extends \PHPUnit_Framework_TestCase {
 			) );
 
 			if ( $param->isArray() ) {
-				$this->assertNotFalse( strpos( $param_doc_type, 'array' ), sprintf(
+				$this->assertRegexp( '/(array|\[\])/', $param_doc_type, sprintf(
 					self::$param_type_hint_accept_array,
 					$param_doc->getVariableName(),
 					$this->function_name
@@ -259,7 +278,7 @@ abstract class TestCase extends \PHPUnit_Framework_TestCase {
 
 		foreach ( $this->getTestClasses() as $class ) {
 
-			if ( ! class_exists( $class ) ) {
+			if ( ! class_exists( $class, true ) && ! trait_exists( $class, true ) ) {
 				$this->fail( sprintf( 'Class `%s` does not exist.', $class ) );
 			}
 

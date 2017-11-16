@@ -28,6 +28,7 @@ class Dogfood extends \Johnbillion\DocsStandards\TestCase {
 		return array(
 			'\Johnbillion\DocsStandards\TestCase',
 			'\Johnbillion\DocsStandards\Tests\TestCase',
+			__NAMESPACE__ . '\Classes',
 			__NAMESPACE__ . '\Docblock',
 			__NAMESPACE__ . '\Params',
 			__NAMESPACE__ . '\Dogfood',

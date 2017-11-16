@@ -8,11 +8,15 @@ notifications:
     on_failure: always
 
 php:
+    - 7.1
     - 7.0
     - 5.6
 
 install:
     - composer install --dev
+
+before_script:
+    - phpenv config-rm xdebug.ini
 
 script:
     - ./vendor/bin/phpunit -v
