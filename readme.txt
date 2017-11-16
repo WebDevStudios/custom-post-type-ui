@@ -5,7 +5,7 @@ Tags: custom post types, CPT, CMS, post, types, post type, taxonomy, tax, custom
 Requires at least: 4.6
 Tested up to: 4.9.0
 Stable tag: 1.5.6
-License: GPLv2
+License: GPL-2.0+
 
 Admin UI for creating custom post types and custom taxonomies for WordPress
 

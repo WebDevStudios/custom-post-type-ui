@@ -19,7 +19,7 @@ Version: 1.5.6
 Author URI: https://webdevstudios.com/
 Text Domain: custom-post-type-ui
 Domain Path: /languages
-License: GPLv2
+License: GPL-2.0+
 */
 
 // Exit if accessed directly.
