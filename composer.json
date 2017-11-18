@@ -1,5 +1,5 @@
 {
-  "name": "WebDevStudios/wp-custom-post-type-ui",
+  "name": "webdevstudios/custom-post-type-ui",
   "description": "Custom Post Type UI Plugin for Wordpress found at https://wordpress.org/plugins/custom-post-type-ui/ ",
   "homepage": "https://github.com/WebDevStudios/custom-post-type-ui",
   "type": "wordpress-plugin",
