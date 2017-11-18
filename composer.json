@@ -24,7 +24,8 @@
   ],
   "support": {
     "issues": "https://github.com/WebDevStudios/custom-post-type-ui",
-    "forum": "https://wordpress.org/support/plugin/custom-post-type-ui"
+    "forum": "https://wordpress.org/support/plugin/custom-post-type-ui",
+    "docs": "http://docs.pluginize.com/"
   },
   "minimum-stability": "dev",
   "autoload": {
