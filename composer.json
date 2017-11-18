@@ -28,7 +28,4 @@
     "docs": "http://docs.pluginize.com/"
   },
   "minimum-stability": "dev",
-  "autoload": {
-    "psr-0": { "CPT": "src/" }
-  }
 }
