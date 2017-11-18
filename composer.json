@@ -27,5 +27,5 @@
     "forum": "https://wordpress.org/support/plugin/custom-post-type-ui",
     "docs": "http://docs.pluginize.com/"
   },
-  "minimum-stability": "dev",
+  "minimum-stability": "dev"
 }
