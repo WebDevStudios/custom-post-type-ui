@@ -3,7 +3,7 @@
   "description": "Custom Post Type UI Plugin for Wordpress found at https://wordpress.org/plugins/custom-post-type-ui/ ",
   "homepage": "https://github.com/WebDevStudios/custom-post-type-ui",
   "type": "wordpress-plugin",
-  "keywords": ["custom post types", "CPT", "CMS", "post", "types", "post type", "taxonomy", "tax", "custom"],
+  "keywords": ["custom post types", "taxonomies", "CPT", "CMS", "post type", "custom-post-type", "taxonomy", "tax"],
   "license": "GPL-2.0+",
   "require": {
     "composer/installers": "~1.0",
