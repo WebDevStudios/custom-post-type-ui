@@ -21,6 +21,7 @@
     "sort-order": true
   },
   "minimum-stability": "dev",
+  "prefer-stable": true,
   "require": {
     "php": "^5.2|^7",
     "composer/installers": "~1.0"
