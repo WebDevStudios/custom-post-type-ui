@@ -1,5 +1,7 @@
 <?php
-require_once( 'CPTUI-Base-Tests.php' );
+use Brain\Monkey;
+
+require_once 'CPTUI-Base-Tests.php';
 
 /**
  * An example test case.
@@ -8,9 +10,11 @@ class CPTUI_Admin_UI_Core extends CPTUI_Base_Tests {
 
 	public function setUp() {
 		parent::setUp();
+		Monkey\setUp();
 	}
 
 	public function tearDown() {
+		Monkey\tearDown();
 		parent::tearDown();
 	}
 
