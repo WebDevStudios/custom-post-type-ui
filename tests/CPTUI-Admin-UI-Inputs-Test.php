@@ -1,4 +1,6 @@
 <?php
+use Brain\Monkey;
+
 require_once( 'CPTUI-Base-Tests.php' );
 
 /**
@@ -14,11 +16,13 @@ class CPTUI_Admin_UI_Inputs_Test extends CPTUI_Base_Tests {
 
 	public function setUp() {
 		parent::setUp();
+		Monkey\setUp();
 
 		$this->ui = new cptui_admin_ui();
 	}
 
 	public function tearDown() {
+		Monkey\tearDown();
 		parent::tearDown();
 	}
 
