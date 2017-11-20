@@ -134,7 +134,7 @@ class CPTUI_Admin_UI_Inputs_Test extends CPTUI_Base_Tests {
 			'cols' => '40',
 			'textvalue' => 'saved value',
 			'labeltext' => 'Description',
-			'helptext' => 'Helper text.'
+			'helptext' => 'Helper text.',
 		);
 
 		$this->assertHTMLstringsAreEqual( $expected, $this->ui->get_textarea_input( $args ) );
@@ -162,7 +162,7 @@ class CPTUI_Admin_UI_Inputs_Test extends CPTUI_Base_Tests {
 			'cols' => '40',
 			'textvalue' => 'saved value',
 			'labeltext' => 'Description',
-			'helptext' => 'Helper text.'
+			'helptext' => 'Helper text.',
 		);
 
 		$this->assertHTMLstringsAreEqual( $expected, $this->ui->get_text_input( $args ) );
@@ -178,8 +178,8 @@ class CPTUI_Admin_UI_Inputs_Test extends CPTUI_Base_Tests {
 		$select = array(
 			'options' => array(
 				array( 'attr' => '0', 'text' => __( 'False', 'cpt-plugin' ) ),
-				array( 'attr' => '1', 'text' => __( 'True', 'cpt-plugin' ), 'default' => 'true' )
-			)
+				array( 'attr' => '1', 'text' => __( 'True', 'cpt-plugin' ), 'default' => 'true' ),
+			),
 		);
 
 		$select['selected'] = '';
@@ -189,7 +189,7 @@ class CPTUI_Admin_UI_Inputs_Test extends CPTUI_Base_Tests {
 			'labeltext'     => __( 'Public', 'cpt-plugin' ),
 			'aftertext'     => __( '(default: True)', 'cpt-plugin' ),
 			'helptext'      => esc_attr__( 'Whether posts of this type should be shown in the admin UI', 'cpt-plugin' ),
-			'selections'    => $select
+			'selections'    => $select,
 		);
 
 		$expected = '<tr valign="top">
@@ -219,8 +219,8 @@ class CPTUI_Admin_UI_Inputs_Test extends CPTUI_Base_Tests {
 		$select = array(
 			'options' => array(
 				array( 'attr' => '0', 'text' => __( 'False', 'cpt-plugin' ) ),
-				array( 'attr' => '1', 'text' => __( 'True', 'cpt-plugin' ), 'default' => 'true' )
-			)
+				array( 'attr' => '1', 'text' => __( 'True', 'cpt-plugin' ), 'default' => 'true' ),
+			),
 		);
 
 		$select['selected'] = '';
@@ -231,7 +231,7 @@ class CPTUI_Admin_UI_Inputs_Test extends CPTUI_Base_Tests {
 			'aftertext'     => __( '(default: True)', 'cpt-plugin' ),
 			'helptext'      => esc_attr__( 'Whether posts of this type should be shown in the admin UI', 'cpt-plugin' ),
 			'selections'    => $select,
-			'required'      => true
+			'required'      => true,
 		);
 
 		$expected = '<tr valign="top">
@@ -261,8 +261,8 @@ class CPTUI_Admin_UI_Inputs_Test extends CPTUI_Base_Tests {
 		$select = array(
 			'options' => array(
 				array( 'attr' => '0', 'text' => __( 'False', 'cpt-plugin' ) ),
-				array( 'attr' => '1', 'text' => __( 'True', 'cpt-plugin' ), 'default' => 'true' )
-			)
+				array( 'attr' => '1', 'text' => __( 'True', 'cpt-plugin' ), 'default' => 'true' ),
+			),
 		);
 
 		$select['selected'] = '1';
@@ -302,8 +302,8 @@ class CPTUI_Admin_UI_Inputs_Test extends CPTUI_Base_Tests {
 		$select = array(
 			'options' => array(
 				array( 'attr' => '0', 'text' => __( 'False', 'cpt-plugin' ) ),
-				array( 'attr' => '1', 'text' => __( 'True', 'cpt-plugin' ), 'default' => 'true' )
-			)
+				array( 'attr' => '1', 'text' => __( 'True', 'cpt-plugin' ), 'default' => 'true' ),
+			),
 		);
 
 		$select['selected'] = '0';
@@ -350,7 +350,7 @@ class CPTUI_Admin_UI_Inputs_Test extends CPTUI_Base_Tests {
 			'namearray'     => 'cptui_selected_post_type',
 			'name'          => 'post_type',
 			'selections'    => $select,
-			'wrap'          => false
+			'wrap'          => false,
 		);
 
 		$expected = '<select id="post_type" name="cptui_selected_post_type[post_type]">
@@ -379,7 +379,7 @@ class CPTUI_Admin_UI_Inputs_Test extends CPTUI_Base_Tests {
 			'namearray'     => 'cptui_selected_post_type',
 			'name'          => 'post_type',
 			'selections'    => $select,
-			'wrap'          => false
+			'wrap'          => false,
 		);
 
 		$expected = '<select id="post_type" name="cptui_selected_post_type[post_type]">
@@ -408,7 +408,7 @@ class CPTUI_Admin_UI_Inputs_Test extends CPTUI_Base_Tests {
 			'namearray'     => 'cptui_selected_post_type',
 			'name'          => 'post_type',
 			'selections'    => $select,
-			'wrap'          => false
+			'wrap'          => false,
 		);
 
 		$expected = '<select id="post_type" name="cptui_selected_post_type[post_type]">
