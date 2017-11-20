@@ -1,9 +1,27 @@
 <?php
+use Brain\Monkey;
+use Brain\Monkey\Functions;
 
-abstract class CPTUI_Base_Tests extends WP_UnitTestCase {
+abstract class CPTUI_Base_Tests extends PHPUnit_Framework_TestCase {
 
 	public function setUp() {
 		parent::setUp();
+
+		// Given functions will return the first argument they will receive,
+		// just like `when( $function_name )->justReturnArg()` was used for all of them.
+		Functions\stubs(
+			[
+				'esc_attr',
+				'esc_attr__',
+				'esc_html',
+				'esc_textarea',
+				'__',
+				'_x',
+				'esc_html__',
+				'esc_html_x',
+				'esc_attr_x',
+			]
+		);
 	}
 
 	public function tearDown() {
