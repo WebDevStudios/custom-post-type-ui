@@ -5,16 +5,6 @@
   "type": "wordpress-plugin",
   "keywords": ["custom post types", "taxonomies", "CPT", "CMS", "post type", "custom-post-type", "taxonomy", "tax"],
   "license": "GPL-2.0+",
-  "require": {
-    "composer/installers": "~1.0",
-    "php": "^5.2|^7"
-  },
-  "require-dev": {
-    "php" : "^5.6 || ^7.0",
-    "johnbillion/php-docs-standards": "~1.0",
-    "brain/monkey": "^2.0",
-    "phpunit/phpunit": "^5.7"
-  },
   "authors": [
     {
       "name": "WebDevStudios",
@@ -27,5 +17,24 @@
     "forum": "https://wordpress.org/support/plugin/custom-post-type-ui",
     "docs": "http://docs.pluginize.com/"
   },
-  "minimum-stability": "dev"
+  "config": {
+    "sort-order": true
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "require": {
+    "php": "^5.2|^7",
+    "composer/installers": "~1.0",
+    "roave/security-advisories": "dev-master"
+  },
+  "require-dev": {
+    "php": "^5.6|^7.0",
+    "brain/monkey": "^2.0",
+    "dealerdirect/phpcodesniffer-composer-installer": "^0.4.3",
+    "johnbillion/php-docs-standards": "~1.0",
+    "phpunit/phpunit": "^5.7",
+    "sirbrillig/phpcs-variable-analysis": "^2.0",
+    "wimg/php-compatibility": "^8.0.1",
+    "wp-coding-standards/wpcs": "^0.14.0"
+  }
 }
