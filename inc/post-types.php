@@ -780,7 +780,7 @@ function cptui_manage_post_types() {
 								'namearray'  => 'cpt_custom_post_type',
 								'name'       => 'rewrite_withfront',
 								'labeltext'  => esc_html__( 'With Front', 'custom-post-type-ui' ),
-								'aftertext'  => esc_html__( '(default: true) Should the permastruct be prepended with the front base.', 'custom-post-type-ui' ),
+								'aftertext'  => esc_html__( '(default: true) Should the permalink structure be prepended with the front base. (example: if your permalink structure is /blog/, then your links will be: false->/news/, true->/blog/news/).', 'custom-post-type-ui' ),
 								'selections' => $select,
 							) );
 
