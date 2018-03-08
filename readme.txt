@@ -31,6 +31,12 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 
 == Changelog ==
 
+= 1.5.7 - 2018-03-07 =
+* Added: "output" added to blacklisted taxonomy slug list.
+* Fixed: Prevent potential fatal error with customized links in plugin list page.
+* Updated: Text at top of help area and readme description to promote available layouts in CPTUI-Extended.
+* Updated: Things have been tested on the latest WordPress. You're in good hands.
+
 = 1.5.6 - 2017-11-09 =
 * Added: Added "custom_css", "customize_changeset", "author", and "post_type" as reserved post_types.
 * Fixed: The "Invalid JSON" error message was receiving the wrong color indicator for for the admin notice.
@@ -110,6 +116,12 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 * Updated: Further UI refinements to better match WordPress admin. Adapted styles found from metaboxes, including collapse/expand toggles.
 
 == Upgrade Notice ==
+
+= 1.5.7 - 2018-03-07 =
+* Added: "output" added to blacklisted taxonomy slug list.
+* Fixed: Prevent potential fatal error with customized links in plugin list page.
+* Updated: Text at top of help area and readme description to promote available layouts in CPTUI-Extended.
+* Updated: Things have been tested on the latest WordPress. You're in good hands.
 
 = 1.5.6 - 2017-11-09 =
 * Added: Added "custom_css", "customize_changeset", "author", and "post_type" as reserved post_types.
