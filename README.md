@@ -5,6 +5,7 @@ Admin UI for creating custom post types and custom taxonomies for WordPress
 Core Developers:
 
 * [Michael Beckwith](http://github.com/tw2113/)
+* [John Hawkins](https://github.com/vegasgeek)
 * [Brad Williams](https://github.com/williamsba)
 * [WebDevStudios](https://github.com/webdevstudios)
 
