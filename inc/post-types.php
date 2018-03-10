@@ -1176,7 +1176,7 @@ function cptui_post_types_dropdown( $post_types = array() ) {
 
 		/**
 		 * Filters the post type dropdown options before rendering.
-		 * @since 1.3.2
+		 * @since 1.6.0
 		 *
 		 * @param array $select     Array of options for the dropdown.
 		 * @param array $post_types Array of original passed in post types.

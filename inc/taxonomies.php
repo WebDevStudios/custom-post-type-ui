@@ -956,7 +956,7 @@ function cptui_taxonomies_dropdown( $taxonomies = array() ) {
 		/**
 		 * Filters the taxonomy dropdown options before rendering.
 		 *
-		 * @since 1.3.2
+		 * @since 1.6.0
 		 *
 		 * @param array $select     Array of options for the dropdown.
 		 * @param array $taxonomies Array of original passed in post types.
