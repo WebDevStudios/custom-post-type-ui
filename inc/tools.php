@@ -253,7 +253,10 @@ function cptui_get_single_taxonomy_registery( $taxonomy = array() ) {
 		$show_in_nav_menus = $public;
 	}
 
-	$my_theme = wp_get_theme();
+	$show_in_rest = ( ! empty( $taxonomy['show_in_rest'] ) && false !== get_disp_boolean( $taxonomy['show_in_rest'] ) ) ? 'true' : 'false';
+	$rest_base    = ( ! empty( $taxonomy['rest_base'] ) ) ? $taxonomy['rest_base'] : $taxonomy['name'];
+
+	$my_theme   = wp_get_theme();
 	$textdomain = $my_theme->get( 'TextDomain' );
 ?>
 
@@ -285,8 +288,8 @@ function cptui_get_single_taxonomy_registery( $taxonomy = array() ) {
 		"query_var" => <?php echo disp_boolean( $taxonomy['query_var'] );?>,
 		"rewrite" => <?php echo $rewrite; ?>,
 		"show_admin_column" => <?php echo $taxonomy['show_admin_column']; ?>,
-		"show_in_rest" => <?php echo disp_boolean( $taxonomy['show_in_rest'] ); ?>,
-		"rest_base" => "<?php echo $taxonomy['rest_base']; ?>",
+		"show_in_rest" => <?php echo $show_in_rest; ?>,
+		"rest_base" => "<?php echo $rest_base; ?>",
 		"show_in_quick_edit" => <?php echo $show_in_quick_edit; ?>,
 	);
 	register_taxonomy( "<?php echo $taxonomy['name']; ?>", <?php echo $post_types; ?>, $args );
