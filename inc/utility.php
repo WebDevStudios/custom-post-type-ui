@@ -793,3 +793,23 @@ function cptui_post_type_supports( $post_type, $feature ) {
 
 	return false;
 }
+
+/**
+ * Add missing post_format taxonomy support for CPTUI post types.
+ *
+ * Addresses bug wih previewing changes for published posts with post types that
+ * have post-formats support.
+ *
+ * @since 1.5.8
+ *
+ * @param array $post_types Array of CPTUI post types.
+ */
+function cptui_published_post_format_fix( $post_types ) {
+	foreach ( $post_types as $type ) {
+		if ( in_array( 'post-formats', $type['supports'], true ) ) {
+			add_post_type_support( $type['name'], 'post-formats' );
+			register_taxonomy_for_object_type( 'post_format', $type['name'] );
+		}
+	}
+}
+add_action( 'cptui_post_register_post_types', 'cptui_published_post_format_fix' );
