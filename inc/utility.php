@@ -401,19 +401,19 @@ function cptui_get_ads() {
  */
 function cptui_default_ads( $ads = array() ) {
 	$ads[] = array(
-		'url'   => 'https://pluginize.com/plugins/custom-post-type-ui-extended/ref/pluginizeaff/?campaign=cptui-sidebar-extended',
+		'url'   => 'https://pluginize.com/plugins/custom-post-type-ui-extended/?utm_source=cptui-sidebar&utm_medium=text&utm_campaign=cptui',
 		'image' => plugin_dir_url( dirname( __FILE__ ) ) . 'images/wds_ads/cptui-extended.png',
 		'text'  => 'Custom Post Type UI Extended product ad',
 	);
 
 	$ads[] = array(
-		'url'   => 'https://pluginize.com/plugins/instago/ref/pluginizeaff/?campaign=cptui-sidebar-ig',
+		'url'   => 'https://pluginize.com/plugins/instago/?utm_source=cptui-sidebar&utm_medium=text&utm_campaign=instago',
 		'image' => plugin_dir_url( dirname( __FILE__ ) ) . 'images/wds_ads/instago.png',
 		'text'  => 'InstaGo product ad',
 	);
 
 	$ads[] = array(
-		'url'   => 'https://pluginize.com/plugins/buddypages/ref/pluginizeaff/?campaign=cptui-sidebar-buddypages',
+		'url'   => 'https://pluginize.com/plugins/buddypages/?utm_source=cptui-sidebar&utm_medium=text&utm_campaign=buddypages',
 		'image' => plugin_dir_url( dirname( __FILE__ ) ) . 'images/wds_ads/buddypages.png',
 		'text'  => 'BuddyPages product ad',
 	);
