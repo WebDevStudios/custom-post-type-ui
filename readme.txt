@@ -31,6 +31,14 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 
 == Changelog ==
 
+= 1.5.8 - TBD =
+* Fixed: Corrected issue with "Get Code" area regarding post types and "show in menu" field values.
+* Fixed: Add post_format taxonomy support for CPTUI post types that declare post formats support. This primarily addresses issues with previewing changes for existing post type posts with post_format support.
+* Fixed: Add "show_in_nav_menus" settings/output to tools section.
+* Fixed: "Undefined index" notices for show_in_rest and rest_base settings.
+* Updated: Change how we hide submit button when editing exisitng post types or taxes so switching is available if a javascript error occurs.
+* Updated sidebar links for Pluginize products.
+
 = 1.5.7 - 2018-03-07 =
 * Added: "output" added to blacklisted taxonomy slug list.
 * Fixed: Prevent potential fatal error with customized links in plugin list page.
@@ -116,6 +124,14 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 * Updated: Further UI refinements to better match WordPress admin. Adapted styles found from metaboxes, including collapse/expand toggles.
 
 == Upgrade Notice ==
+
+= 1.5.8 - TBD =
+* Fixed: Corrected issue with "Get Code" area regarding post types and "show in menu" field values.
+* Fixed: Add post_format taxonomy support for CPTUI post types that declare post formats support. This primarily addresses issues with previewing changes for existing post type posts with post_format support.
+* Fixed: Add "show_in_nav_menus" settings/output to tools section.
+* Fixed: "Undefined index" notices for show_in_rest and rest_base settings.
+* Updated: Change how we hide submit button when editing exisitng post types or taxes so switching is available if a javascript error occurs.
+* Updated sidebar links for Pluginize products.
 
 = 1.5.7 - 2018-03-07 =
 * Added: "output" added to blacklisted taxonomy slug list.
