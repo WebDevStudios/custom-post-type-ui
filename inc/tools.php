@@ -253,11 +253,14 @@ function cptui_get_single_taxonomy_registery( $taxonomy = array() ) {
 		$show_in_nav_menus = $public;
 	}
 
+	$show_in_rest = ( ! empty( $taxonomy['show_in_rest'] ) && false !== get_disp_boolean( $taxonomy['show_in_rest'] ) ) ? 'true' : 'false';
+	$rest_base    = ( ! empty( $taxonomy['rest_base'] ) ) ? $taxonomy['rest_base'] : $taxonomy['name'];
+
 	if ( ! empty( $taxonomy['meta_box_cb'] ) ) {
 		$meta_box_cb = ( false !== get_disp_boolean( $taxonomy['meta_box_cb'] ) ) ? '"' . $taxonomy['meta_box_cb'] . '"' : 'false';
 	}
 
-	$my_theme = wp_get_theme();
+	$my_theme   = wp_get_theme();
 	$textdomain = $my_theme->get( 'TextDomain' );
 ?>
 
@@ -289,8 +292,8 @@ foreach ( $taxonomy['labels'] as $key => $label ) {
 		"query_var" => <?php echo disp_boolean( $taxonomy['query_var'] );?>,
 		"rewrite" => <?php echo $rewrite; ?>,
 		"show_admin_column" => <?php echo $taxonomy['show_admin_column']; ?>,
-		"show_in_rest" => <?php echo disp_boolean( $taxonomy['show_in_rest'] ); ?>,
-		"rest_base" => "<?php echo $taxonomy['rest_base']; ?>",
+		"show_in_rest" => <?php echo $show_in_rest; ?>,
+		"rest_base" => "<?php echo $rest_base; ?>",
 		"show_in_quick_edit" => <?php echo $show_in_quick_edit; ?>,
 	<?php if ( ! empty( $meta_box_cb ) ) { ?>
 	"meta_box_cb" => <?php echo $meta_box_cb; ?>,
@@ -428,9 +431,20 @@ function cptui_get_single_post_type_registery( $post_type = array() ) {
 
 	$delete_with_user = ( ! empty( $post_type['delete_with_user'] ) && false !== get_disp_boolean( $post_type['delete_with_user'] ) ) ? 'true' : 'false';
 
+	$show_in_menu = get_disp_boolean( $post_type['show_in_menu'] );
+	if ( false !== $show_in_menu ) {
+		$show_in_menu = disp_boolean( $post_type['show_in_menu'] );
+		if ( ! empty( $post_type['show_in_menu_string'] ) ) {
+			$show_in_menu = '"' . $post_type['show_in_menu_string'] . '"';
+		}
+	} else {
+		$show_in_menu = disp_boolean( $post_type['show_in_menu'] );
+	}
+
+	$public = ( isset( $post_type['public'] ) ) ? disp_boolean( $post_type['public'] ) : 'true';
 	$show_in_nav_menus = ( ! empty( $post_type['show_in_nav_menus'] ) && false !== get_disp_boolean( $post_type['show_in_nav_menus'] ) ) ? 'true' : 'false';
 	if ( empty( $post_type['show_in_nav_menus'] ) ) {
-		$show_in_nav_menus = disp_boolean( $post_type['public'] );
+		$show_in_nav_menus = $public;
 	}
 
 	$post_type['description'] = addslashes( $post_type['description'] );
@@ -471,10 +485,7 @@ function cptui_get_single_post_type_registery( $post_type = array() ) {
 		"show_in_rest" => <?php echo disp_boolean( $post_type['show_in_rest'] ); ?>,
 		"rest_base" => "<?php echo $post_type['rest_base']; ?>",
 		"has_archive" => <?php echo $has_archive; ?>,
-		"show_in_menu" => <?php echo disp_boolean( $post_type['show_in_menu'] ); ?>,
-<?php if ( ! empty( $post_type['show_in_menu_string'] ) ) { ?>
-		"show_in_menu_string" => "<?php echo $post_type['show_in_menu_string']; ?>",
-<?php } ?>
+		"show_in_menu" => <?php echo $show_in_menu; ?>,
 		"show_in_nav_menus" => <?php echo $show_in_nav_menus; ?>,
 		"exclude_from_search" => <?php echo disp_boolean( $post_type['exclude_from_search'] ); ?>,
 		"capability_type" => "<?php echo $post_type['capability_type']; ?>",
