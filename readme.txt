@@ -31,7 +31,7 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 
 == Changelog ==
 
-= 1.5.8 - TBD =
+= 1.5.8 - 2018-04-16 =
 * Fixed: Corrected issue with "Get Code" area regarding post types and "show in menu" field values.
 * Fixed: Add post_format taxonomy support for CPTUI post types that declare post formats support. This primarily addresses issues with previewing changes for existing post type posts with post_format support.
 * Fixed: Add "show_in_nav_menus" settings/output to tools section.
@@ -125,7 +125,7 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 
 == Upgrade Notice ==
 
-= 1.5.8 - TBD =
+= 1.5.8 - 2018-04-16 =
 * Fixed: Corrected issue with "Get Code" area regarding post types and "show in menu" field values.
 * Fixed: Add post_format taxonomy support for CPTUI post types that declare post formats support. This primarily addresses issues with previewing changes for existing post type posts with post_format support.
 * Fixed: Add "show_in_nav_menus" settings/output to tools section.
