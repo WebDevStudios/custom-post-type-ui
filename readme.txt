@@ -47,7 +47,7 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 
 = 1.5.6 - 2017-11-09 =
 * Added: Added "custom_css", "customize_changeset", "author", and "post_type" as reserved post_types.
-* Fixed: The "Invalid JSON" error message was receiving the wrong color indicator for for the admin notice.
+* Fixed: The "Invalid JSON" error message was receiving the wrong color indicator for the admin notice.
 
 = 1.5.5 - 2017-07-27 =
 * Fixed: Prevent possible conflicts with .required css selector by prefixing ours.
@@ -141,7 +141,7 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 
 = 1.5.6 - 2017-11-09 =
 * Added: Added "custom_css", "customize_changeset", "author", and "post_type" as reserved post_types.
-* Fixed: The "Invalid JSON" error message was receiving the wrong color indicator for for the admin notice.
+* Fixed: The "Invalid JSON" error message was receiving the wrong color indicator for the admin notice.
 
 = 1.5.5 - 2017-07-27 =
 * Fixed: Prevent possible conflicts with .required css selector by prefixing ours.
