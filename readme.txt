@@ -50,7 +50,7 @@ Fixed: Error occurred when attempting to unset post types while editing a taxono
 
 = 1.5.6 - 2017-11-09 =
 * Added: Added "custom_css", "customize_changeset", "author", and "post_type" as reserved post_types.
-* Fixed: The "Invalid JSON" error message was receiving the wrong color indicator for for the admin notice.
+* Fixed: The "Invalid JSON" error message was receiving the wrong color indicator for the admin notice.
 
 = 1.5.5 - 2017-07-27 =
 * Fixed: Prevent possible conflicts with .required css selector by prefixing ours.
@@ -145,7 +145,7 @@ Fixed: "show in nav menus" missing from tools section for post type section.
 
 = 1.5.6 - 2017-11-09 =
 * Added: Added "custom_css", "customize_changeset", "author", and "post_type" as reserved post_types.
-* Fixed: The "Invalid JSON" error message was receiving the wrong color indicator for for the admin notice.
+* Fixed: The "Invalid JSON" error message was receiving the wrong color indicator for the admin notice.
 
 = 1.5.5 - 2017-07-27 =
 * Fixed: Prevent possible conflicts with .required css selector by prefixing ours.
