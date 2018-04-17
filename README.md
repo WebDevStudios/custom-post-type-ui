@@ -9,6 +9,8 @@ Core Developers:
 * [Brad Williams](https://github.com/williamsba)
 * [WebDevStudios](https://github.com/webdevstudios)
 
+<a href="https://webdevstudios.com/contact/"><img src="https://webdevstudios.com/wp-content/uploads/2018/04/wds-github-banner.png" alt="WebDevStudios. WordPress for big brands."></a>
+
 ## Description
 
 Custom Post Type UI (CPTUI) provides an easy to use interface to create and administer custom post types and taxonomies for WordPress.
