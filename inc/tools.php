@@ -703,7 +703,7 @@ function cptui_render_posttypes_taxonomies_section() {
 				</form>
 			</td>
 			<td class="outer">
-				<h2><label for="cptui_post_export"><?php esc_html_e( 'Export Post Types', 'custom-post-type-ui' ); ?></label></h2>
+				<h2><label for="cptui_post_export"><?php esc_html_e( 'Export Post Types settings', 'custom-post-type-ui' ); ?></label></h2>
 				<?php
 				$cptui_post_types = cptui_get_post_type_data();
 				if ( ! empty( $cptui_post_types ) ) {
@@ -741,7 +741,7 @@ function cptui_render_posttypes_taxonomies_section() {
 				</form>
 			</td>
 			<td class="outer">
-				<h2><label for="cptui_tax_export"><?php esc_html_e( 'Export Taxonomies', 'custom-post-type-ui' ); ?></label></h2>
+				<h2><label for="cptui_tax_export"><?php esc_html_e( 'Export Taxonomies settings', 'custom-post-type-ui' ); ?></label></h2>
 				<?php
 				$cptui_taxonomies = cptui_get_taxonomy_data();
 				if ( ! empty( $cptui_taxonomies ) ) {
