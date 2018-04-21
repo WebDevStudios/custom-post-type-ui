@@ -1074,7 +1074,15 @@ function cptui_manage_post_types() {
 								$args = array( 'public' => true );
 							}
 
-							$add_taxes = get_taxonomies( $args, 'objects' );
+							/**
+							 * Filters the results returned to display for available taxonomies for post type.
+							 *
+							 * @since 1.6.0
+							 *
+							 * @param array  $value  Array of taxonomy objects.
+							 * @param array  $args   Array of arguments for the taxonomies query.
+							 */
+							$add_taxes = apply_filters( 'cptui_get_taxonomies_for_post_types', get_taxonomies( $args, 'objects' ), $args );
 							unset( $add_taxes['nav_menu'] ); unset( $add_taxes['post_format'] );
 							foreach ( $add_taxes as $add_tax ) {
 
