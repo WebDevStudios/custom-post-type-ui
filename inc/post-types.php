@@ -1679,8 +1679,11 @@ function cptui_process_post_type() {
 			add_filter( 'cptui_post_type_deleted', '__return_true' );
 		}
 
+		// @TODO Utilize anonymous function to admin_notice `$result` if it happens to error.
 		if ( $result ) {
-			add_action( 'admin_notices', "cptui_{$result}_admin_notice" );
+			if ( is_callable( "cptui_{$result}_admin_notice" ) ) {
+				add_action( 'admin_notices', "cptui_{$result}_admin_notice" );
+			}
 		}
 	}
 }
