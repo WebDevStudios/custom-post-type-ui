@@ -225,7 +225,7 @@ add_action( 'init', 'cptui_init' );
  * @internal
  */
 function cptui_add_styles() {
-	if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
+	if ( wp_doing_ajax() ) {
 		return;
 	}
 
@@ -677,7 +677,7 @@ function cptui_settings_tab_menu( $page = 'post_types' ) {
  */
 function cptui_convert_settings() {
 
-	if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
+	if ( wp_doing_ajax() ) {
 		return;
 	}
 

@@ -29,7 +29,7 @@ function cptui_taxonomies_enqueue_scripts() {
 		return;
 	}
 
-	if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
+	if ( wp_doing_ajax() ) {
 		return;
 	}
 
@@ -1464,7 +1464,7 @@ add_filter( 'cptui_taxonomy_slug_exists', 'cptui_check_existing_taxonomy_slugs',
  */
 function cptui_process_taxonomy() {
 
-	if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
+	if ( wp_doing_ajax() ) {
 		return;
 	}
 

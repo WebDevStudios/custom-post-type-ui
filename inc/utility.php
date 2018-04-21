@@ -139,7 +139,7 @@ add_filter( 'admin_footer_text', 'cptui_footer' );
  */
 function cptui_flush_rewrite_rules() {
 
-	if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
+	if ( wp_doing_ajax() ) {
 		return;
 	}
 

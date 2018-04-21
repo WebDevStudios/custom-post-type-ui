@@ -29,7 +29,7 @@ function cptui_post_type_enqueue_scripts() {
 		return;
 	}
 
-	if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
+	if ( wp_doing_ajax() ) {
 		return;
 	}
 
@@ -1656,7 +1656,7 @@ function cptui_check_page_slugs( $post_type_slug = '' ) {
  */
 function cptui_process_post_type() {
 
-	if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
+	if ( wp_doing_ajax() ) {
 		return;
 	}
 

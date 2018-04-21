@@ -29,7 +29,7 @@ function cptui_support_enqueue_scripts() {
 		return;
 	}
 
-	if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
+	if ( wp_doing_ajax() ) {
 		return;
 	}
 
