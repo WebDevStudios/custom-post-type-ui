@@ -102,39 +102,6 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 * Updated: Changed appropriate help/support links to docs.pluginize.com.
 * Updated: Added filter to tab collection for the tools section. You can now add your own tabs.
 
-= 1.4.3 - 2016-10-17 =
-* Fixed: issue with post types and taxonomies trying to be converted before registration. Prevented full success of process.
-* Fixed: Prevent trying to convert taxonomy terms if no terms exist. Taxonomy will still be deleted from CPTUI list.
-* Fixed: Prevent trying to redirect on activation if being network-activated.
-
-= 1.4.2 - 2016-10-03 =
-* Fixed: Responsiveness of sections and "ad" space when creating post types or taxonomies on smaller screens. Props @thecxguy
-
-= 1.4.1 - 2016-8-25 =
-* Fixed: issue with default values for new parameters regarding menu/nav menu display for taxonomies.
-* Fixed: typo in support area.
-
-= 1.4.0 - 2016-8-22 =
-* Added: "Export" tab on editor screens for quick access to post type or taxonomy export pages.
-* Added: CPTUI notices are now dismissable via a button on the right side.
-* Added: "Get code" link to registered post types and registered taxonomies listings.
-* Added: More amending of incorrect characters in post type and taxonomy slugs. Latin standard alphabet only. Sorry.
-* Added: New post type template stack reference from recent WordPress versions.
-* Added: Side warning notification if post type or taxonomy slug has been edited.
-* Added: Display About page upon activation of plugin.
-* Added: Link below ads regarding getting them removed via purchase of CPTUI Extended.
-* Added: No need to refresh page after initial save to see post types and taxonomies in menu.
-* Added: Taxonomy support for show_in_menu and show_in_nav_menus.
-* Fixed: Further improved labels for information text on inputs.
-* Fixed: Hide "choose icon" button for non-js users.
-* Fixed: Issue with misused "parent" label key that should be parent_item_colon.
-* Fixed: Missed show_in_menu_string parameter for "get code" area.
-* Fixed: Make sure taxonomies have required post type associated.
-* Fixed: "Edit" links in listings area now account for network-admin when needed, with CPTUI Extended.
-* Updated: Switch to dedicated dashicon for color consistency between applied admin color schemes.
-* Updated: Updated about page.
-* Updated: Further UI refinements to better match WordPress admin. Adapted styles found from metaboxes, including collapse/expand toggles.
-
 == Upgrade Notice ==
 
 = 1.6.0 - TBD =
@@ -206,39 +173,6 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 * Updated: Clarified what checking a checkbox does in regards to "Supports" area of post type settings.
 * Updated: Changed appropriate help/support links to docs.pluginize.com.
 * Updated: Added filter to tab collection for the tools section. You can now add your own tabs.
-
-= 1.4.3 - 2016-10-17 =
-* Fixed: issue with post types and taxonomies trying to be converted before registration. Prevented full success of process.
-* Fixed: Prevent trying to convert taxonomy terms if no terms exist. Taxonomy will still be deleted from CPTUI list.
-* Fixed: Prevent trying to redirect on activation if being network-activated.
-
-= 1.4.2 - 2016-10-03 =
-* Fixed: Responsiveness of sections and "ad" space when creating post types or taxonomies on smaller screens. Props @thecxguy
-
-= 1.4.1 - 2016-8-25 =
-* Fixed: issue with default values for new parameters regarding menu/nav menu display for taxonomies.
-* Fixed: typo in support area.
-
-= 1.4.0 - 2016-8-22 =
-* Added: "Export" tab on editor screens for quick access to post type or taxonomy export pages.
-* Added: CPTUI notices are now dismissable via a button on the right side.
-* Added: "Get code" link to registered post types and registered taxonomies listings.
-* Added: More amending of incorrect characters in post type and taxonomy slugs. Latin standard alphabet only. Sorry.
-* Added: New post type template stack reference from recent WordPress versions.
-* Added: Side warning notification if post type or taxonomy slug has been edited.
-* Added: Display About page upon activation of plugin.
-* Added: Link below ads regarding getting them removed via purchase of CPTUI Extended.
-* Added: No need to refresh page after initial save to see post types and taxonomies in menu.
-* Added: Taxonomy support for show_in_menu and show_in_nav_menus.
-* Fixed: Further improved labels for information text on inputs.
-* Fixed: Hide "choose icon" button for non-js users.
-* Fixed: Issue with misused "parent" label key that should be parent_item_colon.
-* Fixed: Missed show_in_menu_string parameter for "get code" area.
-* Fixed: Make sure taxonomies have required post type associated.
-* Fixed: "Edit" links in listings area now account for network-admin when needed, with CPTUI Extended.
-* Updated: Switch to dedicated dashicon for color consistency between applied admin color schemes.
-* Updated: Updated about page.
-* Updated: Further UI refinements to better match WordPress admin. Adapted styles found from metaboxes, including collapse/expand toggles.
 
 == Installation ==
 
