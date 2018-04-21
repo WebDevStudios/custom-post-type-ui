@@ -37,9 +37,11 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 * Added: "delete_with_user" support for post types.
 * Added: Filters for post type and taxonomy data right before saving of final data.
 * Added: `cptui_get_taxonomy_exists` function to check if a provided taxonomy is registered.
+* Added: Required PHP version to readme.txt
 * Updated: pass the object_type array to `cptui_pre_register_taxonomy` filter as extra parameter.
 * Updated: Adjusted preserved label handling to aid with plugin performance. Props alex-solovyev
 * Fixed: Error occurred when attempting to unset post types while editing a taxonomy.
+* Fixed: Prevent errors from non-existant callback functions during post type or taxonomy processing.
 
 = 1.5.8 - 2018-04-16 =
 * Fixed: Corrected issue with "Get Code" area regarding post types and "show in menu" field values.
@@ -141,9 +143,11 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 * Added: "delete_with_user" support for post types.
 * Added: Filters for post type and taxonomy data right before saving of final data.
 * Added: `cptui_get_taxonomy_exists` function to check if a provided taxonomy is registered.
+* Added: Required PHP version to readme.txt
 * Updated: pass the object_type array to `cptui_pre_register_taxonomy` filter as extra parameter.
 * Updated: Adjusted preserved label handling to aid with plugin performance. Props alex-solovyev
 * Fixed: Error occurred when attempting to unset post types while editing a taxonomy.
+* Fixed: Prevent errors from non-existant callback functions during post type or taxonomy processing.
 
 = 1.5.8 - 2018-04-16 =
 * Fixed: Corrected issue with "Get Code" area regarding post types and "show in menu" field values.
