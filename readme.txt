@@ -38,8 +38,10 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 * Added: Filters for post type and taxonomy data right before saving of final data.
 * Added: `cptui_get_taxonomy_exists` function to check if a provided taxonomy is registered.
 * Added: Required PHP version to readme.txt
+* Updated: Bump minimum WordPress version to 4.7.
 * Updated: pass the object_type array to `cptui_pre_register_taxonomy` filter as extra parameter.
 * Updated: Adjusted preserved label handling to aid with plugin performance. Props alex-solovyev
+* Updated: Utilize `wp_doing_ajax()` function for our AJAX checks.
 * Fixed: Error occurred when attempting to unset post types while editing a taxonomy.
 * Fixed: Prevent errors from non-existant callback functions during post type or taxonomy processing.
 
@@ -111,8 +113,10 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 * Added: Filters for post type and taxonomy data right before saving of final data.
 * Added: `cptui_get_taxonomy_exists` function to check if a provided taxonomy is registered.
 * Added: Required PHP version to readme.txt
+* Updated: Bump minimum WordPress version to 4.7.
 * Updated: pass the object_type array to `cptui_pre_register_taxonomy` filter as extra parameter.
 * Updated: Adjusted preserved label handling to aid with plugin performance. Props alex-solovyev
+* Updated: Utilize `wp_doing_ajax()` function for our AJAX checks.
 * Fixed: Error occurred when attempting to unset post types while editing a taxonomy.
 * Fixed: Prevent errors from non-existant callback functions during post type or taxonomy processing.
 
