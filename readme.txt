@@ -42,6 +42,7 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 * Updated: pass the object_type array to `cptui_pre_register_taxonomy` filter as extra parameter.
 * Updated: Adjusted preserved label handling to aid with plugin performance. Props alex-solovyev
 * Updated: Utilize `wp_doing_ajax()` function for our AJAX checks.
+* Updated: Clarify what is exported with the Post Types and Taxonomies spots for the Tools section.
 * Fixed: Error occurred when attempting to unset post types while editing a taxonomy.
 * Fixed: Prevent errors from non-existant callback functions during post type or taxonomy processing.
 
@@ -117,6 +118,7 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 * Updated: pass the object_type array to `cptui_pre_register_taxonomy` filter as extra parameter.
 * Updated: Adjusted preserved label handling to aid with plugin performance. Props alex-solovyev
 * Updated: Utilize `wp_doing_ajax()` function for our AJAX checks.
+* Updated: Clarify what is exported with the Post Types and Taxonomies spots for the Tools section.
 * Fixed: Error occurred when attempting to unset post types while editing a taxonomy.
 * Fixed: Prevent errors from non-existant callback functions during post type or taxonomy processing.
 
