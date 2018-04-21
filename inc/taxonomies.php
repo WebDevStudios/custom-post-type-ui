@@ -221,9 +221,9 @@ function cptui_manage_taxonomies() {
 							echo $ui->get_label( 'name', esc_html__( 'Taxonomy Slug', 'custom-post-type-ui' ) ) . $ui->get_required_span();
 
 							if ( 'edit' == $tab ) {
-								echo '<p id="slugchanged" class="hidemessage">' . esc_html__( 'Slug has changed', 'custom-post-type-ui' ) . '</p>';
+								echo '<p id="slugchanged" class="hidemessage">' . esc_html__( 'Slug has changed', 'custom-post-type-ui' ) . '<span class="dashicons dashicons-warning"></span></p>';
 							}
-							echo '<p id="slugexists" class="hidemessage">' . esc_html__( 'Slug already exists', 'custom-post-type-ui' ) . '</p>';
+							echo '<p id="slugexists" class="hidemessage">' . esc_html__( 'Slug already exists', 'custom-post-type-ui' ) . '<span class="dashicons dashicons-warning"></span></p>';
 
 							echo $ui->get_th_end() . $ui->get_td_start();
 
