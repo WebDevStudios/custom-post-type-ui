@@ -845,6 +845,14 @@ function cptui_manage_taxonomies() {
 								'textvalue' => ( isset( $current['rest_base'] ) ) ? esc_attr( $current['rest_base'] ) : '',
 							) );
 
+							echo $ui->get_text_input( array(
+								'namearray' => 'cpt_custom_tax',
+								'name'      => 'rest_controller_class',
+								'labeltext' => esc_html__( 'REST API controller class', 'custom-post-type-ui' ),
+								'aftertext' => esc_attr__( '(default: WP_REST_Terms_Controller) Custom controller to use instead of WP_REST_Terms_Controller.', 'custom-post-type-ui' ),
+								'textvalue' => ( isset( $current['rest_controller_class'] ) ) ? esc_attr( $current['rest_controller_class'] ) : '',
+							) );
+
 							$select             = array(
 								'options' => array(
 									array(
@@ -1199,36 +1207,38 @@ function cptui_update_taxonomy( $data = array() ) {
 		$singular_label = str_replace( '"', '', htmlspecialchars_decode( $data['cpt_custom_tax']['singular_label'] ) );
 		$singular_label = htmlspecialchars( stripslashes( $singular_label ) );
 	}
-	$description = stripslashes_deep( $data['cpt_custom_tax']['description'] );
-	$query_var_slug = trim( $data['cpt_custom_tax']['query_var_slug'] );
-	$rewrite_slug = trim( $data['cpt_custom_tax']['rewrite_slug'] );
-	$rest_base = trim( $data['cpt_custom_tax']['rest_base'] );
-	$show_quickpanel_bulk = ( ! empty( $data['cpt_custom_tax']['show_in_quick_edit'] ) ) ? disp_boolean( $data['cpt_custom_tax']['show_in_quick_edit'] ) : '';
-	$meta_box_cb = trim( $data['cpt_custom_tax']['meta_box_cb'] );
+	$description           = stripslashes_deep( $data['cpt_custom_tax']['description'] );
+	$query_var_slug        = trim( $data['cpt_custom_tax']['query_var_slug'] );
+	$rewrite_slug          = trim( $data['cpt_custom_tax']['rewrite_slug'] );
+	$rest_base             = trim( $data['cpt_custom_tax']['rest_base'] );
+	$rest_controller_class = trim( $data['cpt_custom_tax']['rest_controller_class'] );
+	$show_quickpanel_bulk  = ( ! empty( $data['cpt_custom_tax']['show_in_quick_edit'] ) ) ? disp_boolean( $data['cpt_custom_tax']['show_in_quick_edit'] ) : '';
+	$meta_box_cb           = trim( $data['cpt_custom_tax']['meta_box_cb'] );
 
 	$taxonomies[ $data['cpt_custom_tax']['name'] ] = array(
-		'name'                 => $name,
-		'label'                => $label,
-		'singular_label'       => $singular_label,
-		'description'          => $description,
-		'public'               => disp_boolean( $data['cpt_custom_tax']['public'] ),
-		'publicly_queryable'   => disp_boolean( $data['cpt_custom_tax']['publicly_queryable'] ),
-		'hierarchical'         => disp_boolean( $data['cpt_custom_tax']['hierarchical'] ),
-		'show_ui'              => disp_boolean( $data['cpt_custom_tax']['show_ui'] ),
-		'show_in_menu'         => disp_boolean( $data['cpt_custom_tax']['show_in_menu'] ),
-		'show_in_nav_menus'    => disp_boolean( $data['cpt_custom_tax']['show_in_nav_menus'] ),
-		'query_var'            => disp_boolean( $data['cpt_custom_tax']['query_var'] ),
-		'query_var_slug'       => $query_var_slug,
-		'rewrite'              => disp_boolean( $data['cpt_custom_tax']['rewrite'] ),
-		'rewrite_slug'         => $rewrite_slug,
-		'rewrite_withfront'    => $data['cpt_custom_tax']['rewrite_withfront'],
-		'rewrite_hierarchical' => $data['cpt_custom_tax']['rewrite_hierarchical'],
-		'show_admin_column'    => disp_boolean( $data['cpt_custom_tax']['show_admin_column'] ),
-		'show_in_rest'         => disp_boolean( $data['cpt_custom_tax']['show_in_rest'] ),
-		'show_in_quick_edit'   => $show_quickpanel_bulk,
-		'rest_base'            => $rest_base,
-		'labels'               => $data['cpt_tax_labels'],
-		'meta_box_cb'          => $meta_box_cb,
+		'name'                  => $name,
+		'label'                 => $label,
+		'singular_label'        => $singular_label,
+		'description'           => $description,
+		'public'                => disp_boolean( $data['cpt_custom_tax']['public'] ),
+		'publicly_queryable'    => disp_boolean( $data['cpt_custom_tax']['publicly_queryable'] ),
+		'hierarchical'          => disp_boolean( $data['cpt_custom_tax']['hierarchical'] ),
+		'show_ui'               => disp_boolean( $data['cpt_custom_tax']['show_ui'] ),
+		'show_in_menu'          => disp_boolean( $data['cpt_custom_tax']['show_in_menu'] ),
+		'show_in_nav_menus'     => disp_boolean( $data['cpt_custom_tax']['show_in_nav_menus'] ),
+		'query_var'             => disp_boolean( $data['cpt_custom_tax']['query_var'] ),
+		'query_var_slug'        => $query_var_slug,
+		'rewrite'               => disp_boolean( $data['cpt_custom_tax']['rewrite'] ),
+		'rewrite_slug'          => $rewrite_slug,
+		'rewrite_withfront'     => $data['cpt_custom_tax']['rewrite_withfront'],
+		'rewrite_hierarchical'  => $data['cpt_custom_tax']['rewrite_hierarchical'],
+		'show_admin_column'     => disp_boolean( $data['cpt_custom_tax']['show_admin_column'] ),
+		'show_in_rest'          => disp_boolean( $data['cpt_custom_tax']['show_in_rest'] ),
+		'show_in_quick_edit'    => $show_quickpanel_bulk,
+		'rest_base'             => $rest_base,
+		'rest_controller_class' => $rest_controller_class,
+		'labels'                => $data['cpt_tax_labels'],
+		'meta_box_cb'           => $meta_box_cb,
 	);
 
 	$taxonomies[ $data['cpt_custom_tax']['name'] ]['object_types'] = $data['cpt_post_types'];

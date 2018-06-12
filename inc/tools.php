@@ -254,8 +254,9 @@ function cptui_get_single_taxonomy_registery( $taxonomy = array() ) {
 		$show_in_nav_menus = $public;
 	}
 
-	$show_in_rest = ( ! empty( $taxonomy['show_in_rest'] ) && false !== get_disp_boolean( $taxonomy['show_in_rest'] ) ) ? 'true' : 'false';
-	$rest_base    = ( ! empty( $taxonomy['rest_base'] ) ) ? $taxonomy['rest_base'] : $taxonomy['name'];
+	$show_in_rest          = ( ! empty( $taxonomy['show_in_rest'] ) && false !== get_disp_boolean( $taxonomy['show_in_rest'] ) ) ? 'true' : 'false';
+	$rest_base             = ( ! empty( $taxonomy['rest_base'] ) ) ? $taxonomy['rest_base'] : $taxonomy['name'];
+	$rest_controller_class = ( ! empty( $taxonomy['rest_controller_class'] ) ) ? $taxonomy['rest_controller_class'] : 'WP_REST_Terms_Controller';
 
 	if ( ! empty( $taxonomy['meta_box_cb'] ) ) {
 		$meta_box_cb = ( false !== get_disp_boolean( $taxonomy['meta_box_cb'] ) ) ? '"' . $taxonomy['meta_box_cb'] . '"' : 'false';
@@ -296,6 +297,7 @@ foreach ( $taxonomy['labels'] as $key => $label ) {
 		"show_admin_column" => <?php echo $taxonomy['show_admin_column']; ?>,
 		"show_in_rest" => <?php echo $show_in_rest; ?>,
 		"rest_base" => "<?php echo $rest_base; ?>",
+		"rest_controller_class" => "<?php echo $rest_controller_class; ?>",
 		"show_in_quick_edit" => <?php echo $show_in_quick_edit; ?>,
 	<?php if ( ! empty( $meta_box_cb ) ) { ?>
 	"meta_box_cb" => <?php echo $meta_box_cb; ?>,

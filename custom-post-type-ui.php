@@ -593,28 +593,34 @@ function cptui_register_single_taxonomy( $taxonomy = array() ) {
 		$rest_base = $taxonomy['rest_base'];
 	}
 
+	$rest_controller_class = null;
+	if ( ! empty( $post_type['rest_controller_class'] ) ) {
+		$rest_controller_class = $post_type['rest_controller_class'];
+	}
+
 	$meta_box_cb = null;
 	if ( ! empty( $taxonomy['meta_box_cb'] ) ) {
 		$meta_box_cb = ( false !== get_disp_boolean( $taxonomy['meta_box_cb'] ) ) ? $taxonomy['meta_box_cb'] : false;
 	}
 
 	$args = array(
-		'labels'             => $labels,
-		'label'              => $taxonomy['label'],
-		'description'        => $description,
-		'public'             => $public,
-		'publicly_queryable' => $publicly_queryable,
-		'hierarchical'       => get_disp_boolean( $taxonomy['hierarchical'] ),
-		'show_ui'            => get_disp_boolean( $taxonomy['show_ui'] ),
-		'show_in_menu'       => $show_in_menu,
-		'show_in_nav_menus'  => $show_in_nav_menus,
-		'query_var'          => $taxonomy['query_var'],
-		'rewrite'            => $rewrite,
-		'show_admin_column'  => $show_admin_column,
-		'show_in_rest'       => $show_in_rest,
-		'rest_base'          => $rest_base,
-		'show_in_quick_edit' => $show_in_quick_edit,
-		'meta_box_cb'        => $meta_box_cb,
+		'labels'                => $labels,
+		'label'                 => $taxonomy['label'],
+		'description'           => $description,
+		'public'                => $public,
+		'publicly_queryable'    => $publicly_queryable,
+		'hierarchical'          => get_disp_boolean( $taxonomy['hierarchical'] ),
+		'show_ui'               => get_disp_boolean( $taxonomy['show_ui'] ),
+		'show_in_menu'          => $show_in_menu,
+		'show_in_nav_menus'     => $show_in_nav_menus,
+		'query_var'             => $taxonomy['query_var'],
+		'rewrite'               => $rewrite,
+		'show_admin_column'     => $show_admin_column,
+		'show_in_rest'          => $show_in_rest,
+		'rest_base'             => $rest_base,
+		'rest_controller_class' => $rest_controller_class,
+		'show_in_quick_edit'    => $show_in_quick_edit,
+		'meta_box_cb'           => $meta_box_cb,
 	);
 
 	$object_type = ( ! empty( $taxonomy['object_types'] ) ) ? $taxonomy['object_types'] : '';
