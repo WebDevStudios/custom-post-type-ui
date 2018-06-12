@@ -421,27 +421,33 @@ function cptui_register_single_post_type( $post_type = array() ) {
 		$rest_base = $post_type['rest_base'];
 	}
 
+	$rest_controller_class = null;
+	if ( ! empty( $post_type['rest_controller_class'] ) ) {
+		$rest_controller_class = $post_type['rest_controller_class'];
+	}
+
 	$args = array(
-		'labels'              => $labels,
-		'description'         => $post_type['description'],
-		'public'              => get_disp_boolean( $post_type['public'] ),
-		'publicly_queryable'  => $queryable,
-		'show_ui'             => get_disp_boolean( $post_type['show_ui'] ),
-		'show_in_nav_menus'   => get_disp_boolean( $post_type['show_in_nav_menus'] ),
-		'has_archive'         => $has_archive,
-		'show_in_menu'        => $show_in_menu,
-		'show_in_rest'        => get_disp_boolean( $post_type['show_in_rest'] ),
-		'rest_base'           => $rest_base,
-		'exclude_from_search' => $exclude_from_search,
-		'capability_type'     => $capability_type,
-		'map_meta_cap'        => $post_type['map_meta_cap'],
-		'hierarchical'        => get_disp_boolean( $post_type['hierarchical'] ),
-		'rewrite'             => $rewrite,
-		'menu_position'       => $menu_position,
-		'menu_icon'           => $menu_icon,
-		'query_var'           => $post_type['query_var'],
-		'supports'            => $post_type['supports'],
-		'taxonomies'          => $post_type['taxonomies'],
+		'labels'                => $labels,
+		'description'           => $post_type['description'],
+		'public'                => get_disp_boolean( $post_type['public'] ),
+		'publicly_queryable'    => $queryable,
+		'show_ui'               => get_disp_boolean( $post_type['show_ui'] ),
+		'show_in_nav_menus'     => get_disp_boolean( $post_type['show_in_nav_menus'] ),
+		'has_archive'           => $has_archive,
+		'show_in_menu'          => $show_in_menu,
+		'show_in_rest'          => get_disp_boolean( $post_type['show_in_rest'] ),
+		'rest_base'             => $rest_base,
+		'rest_controller_class' => $rest_controller_class,
+		'exclude_from_search'   => $exclude_from_search,
+		'capability_type'       => $capability_type,
+		'map_meta_cap'          => $post_type['map_meta_cap'],
+		'hierarchical'          => get_disp_boolean( $post_type['hierarchical'] ),
+		'rewrite'               => $rewrite,
+		'menu_position'         => $menu_position,
+		'menu_icon'             => $menu_icon,
+		'query_var'             => $post_type['query_var'],
+		'supports'              => $post_type['supports'],
+		'taxonomies'            => $post_type['taxonomies'],
 	);
 
 	if ( true === $yarpp ) {

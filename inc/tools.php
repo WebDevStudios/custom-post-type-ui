@@ -430,6 +430,7 @@ function cptui_get_single_post_type_registery( $post_type = array() ) {
 	if ( empty( $post_type['show_in_rest'] ) ) {
 		$post_type['show_in_rest'] = 'false';
 	}
+	$rest_controller_class = ( ! empty( $post_type['rest_controller_class'] ) ) ? $post_type['rest_controller_class'] : 'WP_REST_Posts_Controller';
 
 	$delete_with_user = ( ! empty( $post_type['delete_with_user'] ) && false !== get_disp_boolean( $post_type['delete_with_user'] ) ) ? 'true' : 'false';
 
@@ -486,6 +487,7 @@ function cptui_get_single_post_type_registery( $post_type = array() ) {
 		"delete_with_user" => <?php echo $delete_with_user; ?>,
 		"show_in_rest" => <?php echo disp_boolean( $post_type['show_in_rest'] ); ?>,
 		"rest_base" => "<?php echo $post_type['rest_base']; ?>",
+		"rest_controller_class" => "<?php echo $rest_controller_class; ?>",
 		"has_archive" => <?php echo $has_archive; ?>,
 		"show_in_menu" => <?php echo $show_in_menu; ?>,
 		"show_in_nav_menus" => <?php echo $show_in_nav_menus; ?>,
