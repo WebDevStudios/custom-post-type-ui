@@ -31,7 +31,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 define( 'CPT_VERSION', '1.5.8' ); // Left for legacy purposes.
 define( 'CPTUI_VERSION', '1.5.8' );
 define( 'CPTUI_WP_VERSION', get_bloginfo( 'version' ) );
-define( 'CPTUI_THEME_TEXTDOMAIN', wp_get_theme()->get( 'TextDomain' ) );
+
+
 
 /**
  * Load our Admin UI class that powers our form inputs.
@@ -117,6 +118,25 @@ function cptui_load_textdomain() {
 	load_plugin_textdomain( 'custom-post-type-ui' );
 }
 add_action( 'plugins_loaded', 'cptui_load_textdomain' );
+
+/**
+ * Get textdomain used for translation of the labels
+ *
+ * @since 1.6.0
+ *
+ * @internal
+ */
+function cptui_get_textdomain() {
+
+  /**
+   * Filters the textdomain handle
+   *
+   * @since 1.6.0
+   *
+   * @param string  $textdomain     Current theme textdomain handle
+   */
+  return apply_filters( 'cptui_textdomain', wp_get_theme()->get( 'TextDomain' ) );
+}
 
 /**
  * Load our main menu.
@@ -339,9 +359,11 @@ function cptui_register_single_post_type( $post_type = array() ) {
 		$post_type['supports'] = false;
 	}
 
+  $text_domain = cptui_get_textdomain();
+
 	$labels = array(
-		'name'               => __( $post_type['label'], CPTUI_THEME_TEXTDOMAIN ),
-		'singular_name'      => __( $post_type['singular_label'], CPTUI_THEME_TEXTDOMAIN ),
+		'name'               => __( $post_type['label'], $text_domain ),
+		'singular_name'      => __( $post_type['singular_label'], $text_domain ),
 	);
 
 	$preserved = cptui_get_preserved_keys( 'post_types' );
@@ -350,9 +372,9 @@ function cptui_register_single_post_type( $post_type = array() ) {
 
 		if ( ! empty( $label ) ) {
 			if ( 'parent' === $key ) {
-				$labels['parent_item_colon'] = __( $label, CPTUI_THEME_TEXTDOMAIN );
+				$labels['parent_item_colon'] = __( $label, $text_domain );
 			} else {
-				$labels[ $key ] = __( $label, CPTUI_THEME_TEXTDOMAIN );
+				$labels[ $key ] = __( $label, $text_domain );
 			}
 		} elseif ( empty( $label ) && in_array( $key, $preserved ) ) {
 			$singular_or_plural = ( in_array( $key, array_keys( $preserved_labels['post_types']['plural'] ) ) ) ? 'plural' : 'singular';
@@ -424,7 +446,7 @@ function cptui_register_single_post_type( $post_type = array() ) {
 
 	$args = array(
 		'labels'              => $labels,
-		'description'         => __( $post_type['description'], CPTUI_THEME_TEXTDOMAIN ),
+		'description'         => __( $post_type['description'], $text_domain ),
 		'public'              => get_disp_boolean( $post_type['public'] ),
 		'publicly_queryable'  => $queryable,
 		'show_ui'             => get_disp_boolean( $post_type['show_ui'] ),
@@ -516,14 +538,16 @@ add_action( 'init', 'cptui_create_custom_taxonomies', 9 );  // Leave on standard
  */
 function cptui_register_single_taxonomy( $taxonomy = array() ) {
 
+  $text_domain = cptui_get_textdomain();
+
 	$labels = array(
-		'name'               => __( $taxonomy['label'], CPTUI_THEME_TEXTDOMAIN ),
-		'singular_name'      => __( $taxonomy['singular_label'], CPTUI_THEME_TEXTDOMAIN ),
+		'name'               => __( $taxonomy['label'], $text_domain ),
+		'singular_name'      => __( $taxonomy['singular_label'], $text_domain ),
 	);
 
 	$description = '';
 	if ( ! empty( $taxonomy['description'] ) ) {
-		$description = __( $taxonomy['description'], CPTUI_THEME_TEXTDOMAIN );
+		$description = __( $taxonomy['description'], $text_domain );
 	}
 
 	$preserved = cptui_get_preserved_keys( 'taxonomies' );
@@ -591,7 +615,7 @@ function cptui_register_single_taxonomy( $taxonomy = array() ) {
 
 	$args = array(
 		'labels'             => $labels,
-		'label'              => __( $taxonomy['label'], CPTUI_THEME_TEXTDOMAIN ),
+		'label'              => __( $taxonomy['label'], $text_domain ),
 		'description'        => $description,
 		'public'             => $public,
 		'hierarchical'       => get_disp_boolean( $taxonomy['hierarchical'] ),
@@ -852,30 +876,32 @@ function cptui_get_preserved_keys( $type = '' ) {
  */
 function cptui_get_preserved_label( $type = '', $key = '', $plural = '', $singular = '' ) {
 
+  $text_domain = cptui_get_textdomain();
+
 	$preserved_labels = array(
 		'post_types' => array(
-			'add_new_item'       => sprintf( __( 'Add new %s', CPTUI_THEME_TEXTDOMAIN ), $singular ),
-			'edit_item'          => sprintf( __( 'Edit %s', CPTUI_THEME_TEXTDOMAIN ), $singular ),
-			'new_item'           => sprintf( __( 'New %s', CPTUI_THEME_TEXTDOMAIN ), $singular ),
-			'view_item'          => sprintf( __( 'View %s', CPTUI_THEME_TEXTDOMAIN ), $singular ),
-			'all_items'          => sprintf( __( 'All %s', CPTUI_THEME_TEXTDOMAIN ), $plural ),
-			'search_items'       => sprintf( __( 'Search %s', CPTUI_THEME_TEXTDOMAIN ), $plural ),
-			'not_found'          => sprintf( __( 'No %s found.', CPTUI_THEME_TEXTDOMAIN ), $plural ),
-			'not_found_in_trash' => sprintf( __( 'No %s found in trash.', CPTUI_THEME_TEXTDOMAIN ), $plural ),
+			'add_new_item'       => sprintf( __( 'Add new %s', $text_domain ), $singular ),
+			'edit_item'          => sprintf( __( 'Edit %s', $text_domain ), $singular ),
+			'new_item'           => sprintf( __( 'New %s', $text_domain ), $singular ),
+			'view_item'          => sprintf( __( 'View %s', $text_domain ), $singular ),
+			'all_items'          => sprintf( __( 'All %s', $text_domain ), $plural ),
+			'search_items'       => sprintf( __( 'Search %s', $text_domain ), $plural ),
+			'not_found'          => sprintf( __( 'No %s found.', $text_domain ), $plural ),
+			'not_found_in_trash' => sprintf( __( 'No %s found in trash.', $text_domain ), $plural ),
 		),
 		'taxonomies' => array(
-			'search_items'               => sprintf( __( 'Search %s', CPTUI_THEME_TEXTDOMAIN ), $plural ),
-			'popular_items'              => sprintf( __( 'Popular %s', CPTUI_THEME_TEXTDOMAIN ), $plural ),
-			'all_items'                  => sprintf( __( 'All %s', CPTUI_THEME_TEXTDOMAIN ), $plural ),
-			'parent_item'                => sprintf( __( 'Parent %s', CPTUI_THEME_TEXTDOMAIN ), $singular ),
-			'parent_item_colon'          => sprintf( __( 'Parent %s:', CPTUI_THEME_TEXTDOMAIN ), $singular ),
-			'edit_item'                  => sprintf( __( 'Edit %s', CPTUI_THEME_TEXTDOMAIN ), $singular ),
-			'update_item'                => sprintf( __( 'Update %s', CPTUI_THEME_TEXTDOMAIN ), $singular ),
-			'add_new_item'               => sprintf( __( 'Add new %s', CPTUI_THEME_TEXTDOMAIN ), $singular ),
-			'new_item_name'              => sprintf( __( 'New %s name', CPTUI_THEME_TEXTDOMAIN ), $singular ),
-			'separate_items_with_commas' => sprintf( __( 'Separate %s with commas', CPTUI_THEME_TEXTDOMAIN ), $plural ),
-			'add_or_remove_items'        => sprintf( __( 'Add or remove %s', CPTUI_THEME_TEXTDOMAIN ), $plural ),
-			'choose_from_most_used'      => sprintf( __( 'Choose from the most used %s', CPTUI_THEME_TEXTDOMAIN ), $plural ),
+			'search_items'               => sprintf( __( 'Search %s', $text_domain ), $plural ),
+			'popular_items'              => sprintf( __( 'Popular %s', $text_domain ), $plural ),
+			'all_items'                  => sprintf( __( 'All %s', $text_domain ), $plural ),
+			'parent_item'                => sprintf( __( 'Parent %s', $text_domain ), $singular ),
+			'parent_item_colon'          => sprintf( __( 'Parent %s:', $text_domain ), $singular ),
+			'edit_item'                  => sprintf( __( 'Edit %s', $text_domain ), $singular ),
+			'update_item'                => sprintf( __( 'Update %s', $text_domain ), $singular ),
+			'add_new_item'               => sprintf( __( 'Add new %s', $text_domain ), $singular ),
+			'new_item_name'              => sprintf( __( 'New %s name', $text_domain ), $singular ),
+			'separate_items_with_commas' => sprintf( __( 'Separate %s with commas', $text_domain ), $plural ),
+			'add_or_remove_items'        => sprintf( __( 'Add or remove %s', $text_domain ), $plural ),
+			'choose_from_most_used'      => sprintf( __( 'Choose from the most used %s', $text_domain ), $plural ),
 		),
 	);
 
@@ -892,37 +918,39 @@ function cptui_get_preserved_label( $type = '', $key = '', $plural = '', $singul
  * @return array
  */
 function cptui_get_preserved_labels() {
+  $text_domain = cptui_get_textdomain();
+
 	return array(
 		'post_types' => array(
 			'singular' => array(
-				'add_new_item' => __( 'Add new %s', CPTUI_THEME_TEXTDOMAIN ),
-				'edit_item'    => __( 'Edit %s', CPTUI_THEME_TEXTDOMAIN ),
-				'new_item'     => __( 'New %s', CPTUI_THEME_TEXTDOMAIN ),
-				'view_item'    => __( 'View %s', CPTUI_THEME_TEXTDOMAIN ),
+				'add_new_item' => __( 'Add new %s', $text_domain ),
+				'edit_item'    => __( 'Edit %s', $text_domain ),
+				'new_item'     => __( 'New %s', $text_domain ),
+				'view_item'    => __( 'View %s', $text_domain ),
 			),
 			'plural' => array(
-				'all_items'          => __( 'All %s', CPTUI_THEME_TEXTDOMAIN ),
-				'search_items'       => __( 'Search %s', CPTUI_THEME_TEXTDOMAIN ),
-				'not_found'          => __( 'No %s found.', CPTUI_THEME_TEXTDOMAIN ),
-				'not_found_in_trash' => __( 'No %s found in trash.', CPTUI_THEME_TEXTDOMAIN ),
+				'all_items'          => __( 'All %s', $text_domain ),
+				'search_items'       => __( 'Search %s', $text_domain ),
+				'not_found'          => __( 'No %s found.', $text_domain ),
+				'not_found_in_trash' => __( 'No %s found in trash.', $text_domain ),
 			),
 		),
 		'taxonomies' => array(
 			'singular' => array(
-				'parent_item'       => __( 'Parent %s', CPTUI_THEME_TEXTDOMAIN ),
-				'parent_item_colon' => __( 'Parent %s:', CPTUI_THEME_TEXTDOMAIN ),
-				'edit_item'         => __( 'Edit %s', CPTUI_THEME_TEXTDOMAIN ),
-				'update_item'       => __( 'Update %s', CPTUI_THEME_TEXTDOMAIN ),
-				'add_new_item'      => __( 'Add new %s', CPTUI_THEME_TEXTDOMAIN ),
-				'new_item_name'     => __( 'New %s name', CPTUI_THEME_TEXTDOMAIN ),
+				'parent_item'       => __( 'Parent %s', $text_domain ),
+				'parent_item_colon' => __( 'Parent %s:', $text_domain ),
+				'edit_item'         => __( 'Edit %s', $text_domain ),
+				'update_item'       => __( 'Update %s', $text_domain ),
+				'add_new_item'      => __( 'Add new %s', $text_domain ),
+				'new_item_name'     => __( 'New %s name', $text_domain ),
 			),
 			'plural' => array(
-				'search_items'               => __( 'Search %s', CPTUI_THEME_TEXTDOMAIN ),
-				'popular_items'              => __( 'Popular %s', CPTUI_THEME_TEXTDOMAIN ),
-				'all_items'                  => __( 'All %s', CPTUI_THEME_TEXTDOMAIN ),
-				'separate_items_with_commas' => __( 'Separate %s with commas', CPTUI_THEME_TEXTDOMAIN ),
-				'add_or_remove_items'        => __( 'Add or remove %s', CPTUI_THEME_TEXTDOMAIN ),
-				'choose_from_most_used'      => __( 'Choose from the most used %s', CPTUI_THEME_TEXTDOMAIN ),
+				'search_items'               => __( 'Search %s', $text_domain ),
+				'popular_items'              => __( 'Popular %s', $text_domain ),
+				'all_items'                  => __( 'All %s', $text_domain ),
+				'separate_items_with_commas' => __( 'Separate %s with commas', $text_domain ),
+				'add_or_remove_items'        => __( 'Add or remove %s', $text_domain ),
+				'choose_from_most_used'      => __( 'Choose from the most used %s', $text_domain ),
 			)
 		),
 	);
