@@ -1732,7 +1732,7 @@ add_action( 'init', 'cptui_do_convert_post_type_posts' );
 function cptui_updated_post_type_slug_exists( $slug_exists, $post_type_slug = '', $post_types = array() ) {
 	if (
 		( ! empty( $_POST['cpt_type_status'] ) && 'edit' == $_POST['cpt_type_status'] ) &&
-		! in_array( $post_type_slug, cptui_reserved_taxonomies() ) &&
+		! in_array( $post_type_slug, cptui_reserved_post_types() ) &&
 		( ! empty( $_POST['cpt_original'] ) && $post_type_slug === $_POST['cpt_original'] )
 	)
 		{
