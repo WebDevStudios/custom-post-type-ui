@@ -40,6 +40,7 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 * Added: Required PHP version to readme.txt
 * Added: Filter on taxonomies to be listed as available for association with a post type.
 * Added: Warning indicators to our "Slug changed" and "Slug exists" warnings for post types and taxonomies.
+* Added: Support for "publicly_queryable" parameter for taxonomies.
 * Updated: Bump minimum WordPress version to 4.7.
 * Updated: pass the object_type array to `cptui_pre_register_taxonomy` filter as extra parameter.
 * Updated: Adjusted preserved label handling to aid with plugin performance. Props alex-solovyev
@@ -119,6 +120,7 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 * Added: Required PHP version to readme.txt
 * Added: Filter on taxonomies to be listed as available for association with a post type.
 * Added: Warning indicators to our "Slug changed" and "Slug exists" warnings for post types and taxonomies.
+* Added: Support for "publicly_queryable" parameter for taxonomies.
 * Updated: Bump minimum WordPress version to 4.7.
 * Updated: pass the object_type array to `cptui_pre_register_taxonomy` filter as extra parameter.
 * Updated: Adjusted preserved label handling to aid with plugin performance. Props alex-solovyev

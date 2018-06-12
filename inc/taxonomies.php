@@ -590,11 +590,7 @@ function cptui_manage_taxonomies() {
 							$select             = array(
 								'options' => array(
 									array( 'attr' => '0', 'text' => esc_attr__( 'False', 'custom-post-type-ui' ) ),
-									array(
-										'attr'    => '1',
-										'text'    => esc_attr__( 'True', 'custom-post-type-ui' ),
-										'default' => 'true'
-									),
+									array( 'attr' => '1', 'text' => esc_attr__( 'True', 'custom-post-type-ui' ), 'default' => 'true' ),
 								),
 							);
 							$selected           = ( isset( $current ) ) ? disp_boolean( $current['public'] ) : '';
@@ -603,7 +599,23 @@ function cptui_manage_taxonomies() {
 								'namearray'  => 'cpt_custom_tax',
 								'name'       => 'public',
 								'labeltext'  => esc_html__( 'Public', 'custom-post-type-ui' ),
-								'aftertext'  => esc_html__( '(default: true) Whether or not the taxonomy should be publicly queryable.', 'custom-post-type-ui' ),
+								'aftertext'  => esc_html__( '(default: true) Whether a taxonomy is intended for use publicly either via the admin interface or by front-end users.', 'custom-post-type-ui' ),
+								'selections' => $select,
+							) );
+
+							$select             = array(
+								'options' => array(
+									array( 'attr' => '0', 'text' => esc_attr__( 'False', 'custom-post-type-ui' ) ),
+									array( 'attr' => '1', 'text' => esc_attr__( 'True', 'custom-post-type-ui' ), 'default' => 'true' ),
+								),
+							);
+							$selected           = ( isset( $current ) ) ? disp_boolean( $current['publicly_queryable'] ) : '';
+							$select['selected'] = ( ! empty( $selected ) ) ? $current['publicly_queryable'] : '';
+							echo $ui->get_select_input( array(
+								'namearray'  => 'cpt_custom_tax',
+								'name'       => 'publicly_queryable',
+								'labeltext'  => esc_html__( 'Public Queryable', 'custom-post-type-ui' ),
+								'aftertext'  => esc_html__( '(default: value of "public" setting) Whether or not the taxonomy should be publicly queryable.', 'custom-post-type-ui' ),
 								'selections' => $select,
 							) );
 
@@ -1200,6 +1212,7 @@ function cptui_update_taxonomy( $data = array() ) {
 		'singular_label'       => $singular_label,
 		'description'          => $description,
 		'public'               => disp_boolean( $data['cpt_custom_tax']['public'] ),
+		'publicly_queryable'   => disp_boolean( $data['cpt_custom_tax']['publicly_queryable'] ),
 		'hierarchical'         => disp_boolean( $data['cpt_custom_tax']['hierarchical'] ),
 		'show_ui'              => disp_boolean( $data['cpt_custom_tax']['show_ui'] ),
 		'show_in_menu'         => disp_boolean( $data['cpt_custom_tax']['show_in_menu'] ),
