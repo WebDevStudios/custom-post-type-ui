@@ -31,6 +31,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 define( 'CPT_VERSION', '1.5.8' ); // Left for legacy purposes.
 define( 'CPTUI_VERSION', '1.5.8' );
 define( 'CPTUI_WP_VERSION', get_bloginfo( 'version' ) );
+define( 'CPTUI_THEME_TEXTDOMAIN', wp_get_theme()->get( 'TextDomain' ) );
 
 /**
  * Load our Admin UI class that powers our form inputs.
@@ -339,8 +340,8 @@ function cptui_register_single_post_type( $post_type = array() ) {
 	}
 
 	$labels = array(
-		'name'               => $post_type['label'],
-		'singular_name'      => $post_type['singular_label'],
+		'name'               => __( $post_type['label'], CPTUI_THEME_TEXTDOMAIN ),
+		'singular_name'      => __( $post_type['singular_label'], CPTUI_THEME_TEXTDOMAIN ),
 	);
 
 	$preserved = cptui_get_preserved_keys( 'post_types' );
@@ -349,13 +350,13 @@ function cptui_register_single_post_type( $post_type = array() ) {
 
 		if ( ! empty( $label ) ) {
 			if ( 'parent' === $key ) {
-				$labels['parent_item_colon'] = $label;
+				$labels['parent_item_colon'] = __( $label, CPTUI_THEME_TEXTDOMAIN );
 			} else {
-				$labels[ $key ] = $label;
+				$labels[ $key ] = __( $label, CPTUI_THEME_TEXTDOMAIN );
 			}
 		} elseif ( empty( $label ) && in_array( $key, $preserved ) ) {
 			$singular_or_plural = ( in_array( $key, array_keys( $preserved_labels['post_types']['plural'] ) ) ) ? 'plural' : 'singular';
-			$label_plurality = ( 'plural' === $singular_or_plural ) ? $post_type['label'] : $post_type['singular_label'];
+			$label_plurality = ( 'plural' === $singular_or_plural ) ? $labels['name'] : $labels['singular_name'];
 			$labels[ $key ] = sprintf( $preserved_labels['post_types'][ $singular_or_plural ][ $key ], $label_plurality );
 		}
 	}
@@ -423,7 +424,7 @@ function cptui_register_single_post_type( $post_type = array() ) {
 
 	$args = array(
 		'labels'              => $labels,
-		'description'         => $post_type['description'],
+		'description'         => __( $post_type['description'], CPTUI_THEME_TEXTDOMAIN ),
 		'public'              => get_disp_boolean( $post_type['public'] ),
 		'publicly_queryable'  => $queryable,
 		'show_ui'             => get_disp_boolean( $post_type['show_ui'] ),
@@ -516,13 +517,13 @@ add_action( 'init', 'cptui_create_custom_taxonomies', 9 );  // Leave on standard
 function cptui_register_single_taxonomy( $taxonomy = array() ) {
 
 	$labels = array(
-		'name'               => $taxonomy['label'],
-		'singular_name'      => $taxonomy['singular_label'],
+		'name'               => __( $taxonomy['label'], CPTUI_THEME_TEXTDOMAIN ),
+		'singular_name'      => __( $taxonomy['singular_label'], CPTUI_THEME_TEXTDOMAIN ),
 	);
 
 	$description = '';
 	if ( ! empty( $taxonomy['description'] ) ) {
-		$description = $taxonomy['description'];
+		$description = __( $taxonomy['description'], CPTUI_THEME_TEXTDOMAIN );
 	}
 
 	$preserved = cptui_get_preserved_keys( 'taxonomies' );
@@ -533,7 +534,7 @@ function cptui_register_single_taxonomy( $taxonomy = array() ) {
 			$labels[ $key ] = $label;
 		} elseif ( empty( $label ) && in_array( $key, $preserved ) ) {
 			$singular_or_plural = ( in_array( $key, array_keys( $preserved_labels['taxonomies']['plural'] ) ) ) ? 'plural' : 'singular';
-			$label_plurality = ( 'plural' === $singular_or_plural ) ? $taxonomy['label'] : $taxonomy['singular_label'];
+			$label_plurality = ( 'plural' === $singular_or_plural ) ? $labels['name'] : $labels['singular_name'];
 			$labels[ $key ] = sprintf( $preserved_labels['taxonomies'][ $singular_or_plural ][ $key ], $label_plurality );
 		}
 	}
@@ -590,7 +591,7 @@ function cptui_register_single_taxonomy( $taxonomy = array() ) {
 
 	$args = array(
 		'labels'             => $labels,
-		'label'              => $taxonomy['label'],
+		'label'              => __( $taxonomy['label'], CPTUI_THEME_TEXTDOMAIN ),
 		'description'        => $description,
 		'public'             => $public,
 		'hierarchical'       => get_disp_boolean( $taxonomy['hierarchical'] ),
@@ -894,34 +895,34 @@ function cptui_get_preserved_labels() {
 	return array(
 		'post_types' => array(
 			'singular' => array(
-				'add_new_item' => __( 'Add new %s', 'custom-post-type-ui' ),
-				'edit_item'    => __( 'Edit %s', 'custom-post-type-ui' ),
-				'new_item'     => __( 'New %s', 'custom-post-type-ui' ),
-				'view_item'    => __( 'View %s', 'custom-post-type-ui' ),
+				'add_new_item' => __( 'Add new %s', CPTUI_THEME_TEXTDOMAIN ),
+				'edit_item'    => __( 'Edit %s', CPTUI_THEME_TEXTDOMAIN ),
+				'new_item'     => __( 'New %s', CPTUI_THEME_TEXTDOMAIN ),
+				'view_item'    => __( 'View %s', CPTUI_THEME_TEXTDOMAIN ),
 			),
 			'plural' => array(
-				'all_items'          => __( 'All %s', 'custom-post-type-ui' ),
-				'search_items'       => __( 'Search %s', 'custom-post-type-ui' ),
-				'not_found'          => __( 'No %s found.', 'custom-post-type-ui' ),
-				'not_found_in_trash' => __( 'No %s found in trash.', 'custom-post-type-ui' ),
+				'all_items'          => __( 'All %s', CPTUI_THEME_TEXTDOMAIN ),
+				'search_items'       => __( 'Search %s', CPTUI_THEME_TEXTDOMAIN ),
+				'not_found'          => __( 'No %s found.', CPTUI_THEME_TEXTDOMAIN ),
+				'not_found_in_trash' => __( 'No %s found in trash.', CPTUI_THEME_TEXTDOMAIN ),
 			),
 		),
 		'taxonomies' => array(
 			'singular' => array(
-				'parent_item'       => __( 'Parent %s', 'custom-post-type-ui' ),
-				'parent_item_colon' => __( 'Parent %s:', 'custom-post-type-ui' ),
-				'edit_item'         => __( 'Edit %s', 'custom-post-type-ui' ),
-				'update_item'       => __( 'Update %s', 'custom-post-type-ui' ),
-				'add_new_item'      => __( 'Add new %s', 'custom-post-type-ui' ),
-				'new_item_name'     => __( 'New %s name', 'custom-post-type-ui' ),
+				'parent_item'       => __( 'Parent %s', CPTUI_THEME_TEXTDOMAIN ),
+				'parent_item_colon' => __( 'Parent %s:', CPTUI_THEME_TEXTDOMAIN ),
+				'edit_item'         => __( 'Edit %s', CPTUI_THEME_TEXTDOMAIN ),
+				'update_item'       => __( 'Update %s', CPTUI_THEME_TEXTDOMAIN ),
+				'add_new_item'      => __( 'Add new %s', CPTUI_THEME_TEXTDOMAIN ),
+				'new_item_name'     => __( 'New %s name', CPTUI_THEME_TEXTDOMAIN ),
 			),
 			'plural' => array(
-				'search_items'               => __( 'Search %s', 'custom-post-type-ui' ),
-				'popular_items'              => __( 'Popular %s', 'custom-post-type-ui' ),
-				'all_items'                  => __( 'All %s', 'custom-post-type-ui' ),
-				'separate_items_with_commas' => __( 'Separate %s with commas', 'custom-post-type-ui' ),
-				'add_or_remove_items'        => __( 'Add or remove %s', 'custom-post-type-ui' ),
-				'choose_from_most_used'      => __( 'Choose from the most used %s', 'custom-post-type-ui' ),
+				'search_items'               => __( 'Search %s', CPTUI_THEME_TEXTDOMAIN ),
+				'popular_items'              => __( 'Popular %s', CPTUI_THEME_TEXTDOMAIN ),
+				'all_items'                  => __( 'All %s', CPTUI_THEME_TEXTDOMAIN ),
+				'separate_items_with_commas' => __( 'Separate %s with commas', CPTUI_THEME_TEXTDOMAIN ),
+				'add_or_remove_items'        => __( 'Add or remove %s', CPTUI_THEME_TEXTDOMAIN ),
+				'choose_from_most_used'      => __( 'Choose from the most used %s', CPTUI_THEME_TEXTDOMAIN ),
 			)
 		),
 	);
