@@ -49,6 +49,7 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 * Fixed: Only register archive slug if has_archive is set to true.
 * Fixed: Error occurred when attempting to unset post types while editing a taxonomy.
 * Fixed: Prevent errors from non-existant callback functions during post type or taxonomy processing.
+* Fixed: Incorrect use of reserved taxonomy slugs function in a check for reserved post types.
 
 = 1.5.8 - 2018-04-16 =
 * Fixed: Corrected issue with "Get Code" area regarding post types and "show in menu" field values.
@@ -129,6 +130,7 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 * Fixed: Only register archive slug if has_archive is set to true.
 * Fixed: Error occurred when attempting to unset post types while editing a taxonomy.
 * Fixed: Prevent errors from non-existant callback functions during post type or taxonomy processing.
+* Fixed: Incorrect use of reserved taxonomy slugs function in a check for reserved post types.
 
 = 1.5.8 - 2018-04-16 =
 * Fixed: Corrected issue with "Get Code" area regarding post types and "show in menu" field values.
