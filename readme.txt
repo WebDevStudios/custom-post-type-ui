@@ -47,10 +47,12 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 * Updated: Adjusted preserved label handling to aid with plugin performance. Props alex-solovyev
 * Updated: Utilize `wp_doing_ajax()` function for our AJAX checks.
 * Updated: Clarify what is exported with the Post Types and Taxonomies spots for the Tools section.
+* Updated: Clarify that the listed post types to associate to a CPTUI taxonomy are public post types by default.
 * Fixed: Only register archive slug if has_archive is set to true.
 * Fixed: Error occurred when attempting to unset post types while editing a taxonomy.
 * Fixed: Prevent errors from non-existant callback functions during post type or taxonomy processing.
 * Fixed: Incorrect use of reserved taxonomy slugs function in a check for reserved post types.
+* Fixed: Make sure "No post type selected" alert trigger from both buttons on the taxonomy settings edit screen.
 
 = 1.5.8 - 2018-04-16 =
 * Fixed: Corrected issue with "Get Code" area regarding post types and "show in menu" field values.
@@ -129,10 +131,12 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 * Updated: Adjusted preserved label handling to aid with plugin performance. Props alex-solovyev
 * Updated: Utilize `wp_doing_ajax()` function for our AJAX checks.
 * Updated: Clarify what is exported with the Post Types and Taxonomies spots for the Tools section.
+* Updated: Clarify that the listed post types to associate to a CPTUI taxonomy are public post types by default.
 * Fixed: Only register archive slug if has_archive is set to true.
 * Fixed: Error occurred when attempting to unset post types while editing a taxonomy.
 * Fixed: Prevent errors from non-existant callback functions during post type or taxonomy processing.
 * Fixed: Incorrect use of reserved taxonomy slugs function in a check for reserved post types.
+* Fixed: Make sure "No post type selected" alert trigger from both buttons on the taxonomy settings edit screen.
 
 = 1.5.8 - 2018-04-16 =
 * Fixed: Corrected issue with "Get Code" area regarding post types and "show in menu" field values.
