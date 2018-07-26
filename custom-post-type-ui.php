@@ -196,6 +196,10 @@ function cptui_create_submenus() {
 	require_once( plugin_dir_path( __FILE__ ) . 'inc/listings.php' );
 	require_once( plugin_dir_path( __FILE__ ) . 'inc/tools.php' );
 	require_once( plugin_dir_path( __FILE__ ) . 'inc/support.php' );
+
+	if ( defined( 'WP_CLI' ) && WP_CLI ) {
+		require_once( plugin_dir_path( __FILE__ ) . 'inc/wp-cli.php' );
+	}
 }
 add_action( 'cptui_loaded', 'cptui_create_submenus' );
 
