@@ -180,6 +180,8 @@ function cptui_manage_taxonomies() {
 			<?php
 			cptui_taxonomies_dropdown( $taxonomies );
 
+			wp_nonce_field( 'cptui_select_taxonomy_nonce_action', 'cptui_select_taxonomy_nonce_field' );
+
 			/**
 			 * Filters the text value to use on the select taxonomy button.
 			 *
@@ -1007,6 +1009,7 @@ function cptui_get_current_taxonomy( $taxonomy_deleted = false ) {
 	$tax = false;
 
 	if ( ! empty( $_POST ) ) {
+		check_admin_referer( 'cptui_select_taxonomy_nonce_action', 'cptui_select_taxonomy_nonce_field' );
 		if ( isset( $_POST['cptui_selected_taxonomy']['taxonomy'] ) ) {
 			$tax = sanitize_text_field( $_POST['cptui_selected_taxonomy']['taxonomy'] );
 		} else if ( $taxonomy_deleted ) {
@@ -1537,6 +1540,8 @@ function cptui_do_convert_taxonomy_terms() {
 	 * @param bool $value Whether or not to convert.
 	 */
 	if ( apply_filters( 'cptui_convert_taxonomy_terms', false ) ) {
+		check_admin_referer( 'cptui_addedit_taxonomy_nonce_action', 'cptui_addedit_taxonomy_nonce_field' );
+
 		cptui_convert_taxonomy_terms( sanitize_text_field( $_POST['tax_original'] ), sanitize_text_field( $_POST['cpt_custom_tax']['name'] ) );
 	}
 }
