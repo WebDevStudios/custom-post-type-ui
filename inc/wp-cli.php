@@ -1,4 +1,8 @@
 <?php
+
+/**
+ * Imports and exports Custom Post Type UI setting data.
+ */
 class CPTUI_Import_JSON extends WP_CLI_Command {
 
 	public $args;
@@ -13,10 +17,12 @@ class CPTUI_Import_JSON extends WP_CLI_Command {
 	 * Imports and parses JSON into CPTUI settings.
 	 *
 	 * ## Options
-	 * [--type]
+	 *
+	 * [--type=<type>]
 	 * : What type of import this is. Available options are `post_type` and `taxonomy`.
-	 * [--data-path]
-	 * : The path to the file holding JSON data to import. Relative to PWD.
+	 *
+	 * [--data-path=<path>]
+	 * : The server path to the file holding JSON data to import. Relative to PWD.
 	 */
 	public function import( $args, $assoc_args ) {
 		$this->args       = $args;
@@ -57,10 +63,13 @@ class CPTUI_Import_JSON extends WP_CLI_Command {
 
 	/**
 	 * Export CPTUI settings to file.
+	 *
 	 * ## Options
-	 * [--type]
+	 *
+	 * [--type=<type>]
 	 * : Which settings to export. Available options are `post_type` and `taxonomy`.
-	 * [--dest-path]
+	 *
+	 * [--dest-path=<path>]
 	 * : The path and file to export to. Relative to PWD.
 	 */
 	public function export( $args, $assoc_args ) {
