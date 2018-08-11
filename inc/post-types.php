@@ -35,6 +35,7 @@ function cptui_post_type_enqueue_scripts() {
 
 	wp_enqueue_media();
 	wp_enqueue_script( 'cptui' );
+	wp_enqueue_style( 'cptui-css' );
 
 	$core                  = get_post_types( array( '_builtin' => true ) );
 	$public                = get_post_types( array( '_builtin' => false, 'public' => true ) );

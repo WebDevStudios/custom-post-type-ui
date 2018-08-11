@@ -34,6 +34,7 @@ function cptui_taxonomies_enqueue_scripts() {
 	}
 
 	wp_enqueue_script( 'cptui' );
+	wp_enqueue_style( 'cptui-css' );
 
 	$core    = get_taxonomies( array( '_builtin' => true ) );
 	$public  = get_taxonomies( array( '_builtin' => false, 'public' => true ) );

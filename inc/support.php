@@ -34,6 +34,7 @@ function cptui_support_enqueue_scripts() {
 	}
 
 	wp_enqueue_script( 'cptui' );
+	wp_enqueue_style( 'cptui-css' );
 }
 add_action( 'admin_enqueue_scripts', 'cptui_support_enqueue_scripts' );
 
