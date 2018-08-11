@@ -15,6 +15,26 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
+ * Enqueue our Custom Post Type UI assets.
+ *
+ * @since 1.6.0
+ */
+function cptui_about_assets() {
+	$current_screen = get_current_screen();
+
+	if ( ! is_object( $current_screen ) || 'toplevel_page_cptui_main_menu' !== $current_screen->base ) {
+		return;
+	}
+
+	if ( wp_doing_ajax() ) {
+		return;
+	}
+
+	wp_enqueue_style( 'cptui-css' );
+}
+add_action( 'admin_enqueue_scripts', 'cptui_about_assets' );
+
+/**
  * Display our primary menu page.
  *
  * @since 0.3.0
