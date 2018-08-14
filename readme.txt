@@ -43,6 +43,7 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 * Added: Support for "publicly_queryable" parameter for taxonomies.
 * Added: Support for "rest_controller_class" parameters for both post types and taxonomies.
 * Added: Some initial WP-CLI support for importing and exporting CPTUI settings.
+* Added: `name_admin_bar` support in post type labels.
 * Updated: Bump minimum WordPress version to 4.7.
 * Updated: pass the object_type array to `cptui_pre_register_taxonomy` filter as extra parameter.
 * Updated: Adjusted preserved label handling to aid with plugin performance. Props alex-solovyev
@@ -129,6 +130,7 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 * Added: Support for "publicly_queryable" parameter for taxonomies.
 * Added: Support for "rest_controller_class" parameters for both post types and taxonomies.
 * Added: Some initial WP-CLI support for importing and exporting CPTUI settings.
+* Added: `name_admin_bar` support in post type labels.
 * Updated: Bump minimum WordPress version to 4.7.
 * Updated: pass the object_type array to `cptui_pre_register_taxonomy` filter as extra parameter.
 * Updated: Adjusted preserved label handling to aid with plugin performance. Props alex-solovyev
