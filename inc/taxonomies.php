@@ -150,7 +150,7 @@ function cptui_manage_taxonomies() {
 	$taxonomy_deleted = apply_filters( 'cptui_taxonomy_deleted', false );
 
 	// Create our tabs.
-	cptui_settings_tab_menu( $page = 'taxonomies' );
+	cptui_settings_tab_menu( 'taxonomies' );
 
 	/**
 	 * Fires below the output for the tab menu on the taxonomy add/edit screen.

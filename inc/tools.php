@@ -156,7 +156,7 @@ function cptui_tools() {
 	do_action( 'cptui_inside_tools_wrap' );
 
 	// Create our tabs.
-	cptui_settings_tab_menu( $page = 'tools' );
+	cptui_settings_tab_menu( 'tools' );
 
 	/**
 	 * Fires inside the markup for the import/export section.
