@@ -568,6 +568,16 @@ function cptui_manage_post_types() {
 									'textvalue' => ( isset( $current['labels']['attributes'] ) ) ? esc_attr( $current['labels']['attributes'] ) : '',
 									'aftertext' => esc_html__( '(e.g. Movies Attributes)', 'custom-post-type-ui' ),
 								) );
+
+								echo $ui->get_text_input( array(
+									'labeltext' => esc_html__( '"New" menu in admin bar', 'custom-post-type-ui' ),
+									'helptext'  => esc_html__( 'Used in New in Admin menu bar. Default "singular name" label.', 'custom-post-type-ui' ),
+									'namearray' => 'cpt_labels',
+									'name'      => 'name_admin_bar',
+									'textvalue' => ( isset( $current['labels']['name_admin_bar'] ) ) ? esc_attr( $current['labels']['name_admin_bar'] ) : '',
+									'aftertext' => esc_html__( '(e.g. Movie)', 'custom-post-type-ui' ),
+								) );
+
 							?>
 						</table>
 					</div>
