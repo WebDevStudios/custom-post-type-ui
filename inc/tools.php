@@ -222,7 +222,6 @@ add_action( 'init', '<?php echo $callback; ?>' );
  * @since 1.0.0
  *
  * @param array $taxonomy Taxonomy data to output. Optional.
- * @return string
  */
 function cptui_get_single_taxonomy_registery( $taxonomy = array() ) {
 
@@ -261,7 +260,7 @@ function cptui_get_single_taxonomy_registery( $taxonomy = array() ) {
 		$rewrite = disp_boolean( $taxonomy['rewrite'] );
 	}
 	$public             = ( isset( $taxonomy['public'] ) ) ? disp_boolean( $taxonomy['public'] ) : 'true';
-	$publicly_queryable = ( isset( $taxonomy['publicly_queryable'] ) ) ? disp_boolean( $taxonomy['publicly_queryable'] ) : disp_boolean( $taxonomy['public'] ) ;
+	$publicly_queryable = ( isset( $taxonomy['publicly_queryable'] ) ) ? disp_boolean( $taxonomy['publicly_queryable'] ) : disp_boolean( $taxonomy['public'] );
 	$show_in_quick_edit = ( isset( $taxonomy['show_in_quick_edit'] ) ) ? disp_boolean( $taxonomy['show_in_quick_edit'] ) : disp_boolean( $taxonomy['show_ui'] );
 
 	$show_in_menu = ( ! empty( $taxonomy['show_in_menu'] ) && false !== get_disp_boolean( $taxonomy['show_in_menu'] ) ) ? 'true' : 'false';
