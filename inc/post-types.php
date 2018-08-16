@@ -1236,8 +1236,9 @@ function cptui_get_current_post_type( $post_type_deleted = false ) {
 	$type = false;
 
 	if ( ! empty( $_POST ) ) {
-		check_admin_referer( 'cptui_select_post_type_nonce_action', 'cptui_select_post_type_nonce_field' );
-
+		if ( ! empty( $_POST['cptui_select_post_type_nonce_field'] ) ) {
+			check_admin_referer( 'cptui_select_post_type_nonce_action', 'cptui_select_post_type_nonce_field' );
+		}
 		if ( isset( $_POST['cptui_selected_post_type']['post_type'] ) ) {
 			$type = sanitize_text_field( $_POST['cptui_selected_post_type']['post_type'] );
 		} else if ( $post_type_deleted ) {

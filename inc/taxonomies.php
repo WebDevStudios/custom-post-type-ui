@@ -1010,7 +1010,9 @@ function cptui_get_current_taxonomy( $taxonomy_deleted = false ) {
 	$tax = false;
 
 	if ( ! empty( $_POST ) ) {
-		check_admin_referer( 'cptui_select_taxonomy_nonce_action', 'cptui_select_taxonomy_nonce_field' );
+		if ( ! empty( $_POST['cptui_select_taxonomy_nonce_field'] ) ) {
+			check_admin_referer( 'cptui_select_taxonomy_nonce_action', 'cptui_select_taxonomy_nonce_field' );
+		}
 		if ( isset( $_POST['cptui_selected_taxonomy']['taxonomy'] ) ) {
 			$tax = sanitize_text_field( $_POST['cptui_selected_taxonomy']['taxonomy'] );
 		} else if ( $taxonomy_deleted ) {
