@@ -307,7 +307,6 @@ foreach ( $taxonomy['labels'] as $key => $label ) {
 		"public" => <?php echo $public; ?>,
 		"publicly_queryable => <?php echo $publicly_queryable; ?>,
 		"hierarchical" => <?php echo $taxonomy['hierarchical']; ?>,
-		"label" => "<?php echo $taxonomy['label']; ?>",
 		"show_ui" => <?php echo disp_boolean( $taxonomy['show_ui'] ); ?>,
 		"show_in_menu" => <?php echo $show_in_menu; ?>,
 		"show_in_nav_menus" => <?php echo $show_in_nav_menus; ?>,
