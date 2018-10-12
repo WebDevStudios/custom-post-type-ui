@@ -255,6 +255,13 @@ function cptui_support() {
 add_filter( 'enter_title_here', 'my_custom_title_text' );
 </code></pre></div>
 						</li>
+						<li>
+							<span tabindex="0" class="question" aria-controls="q23" aria-expanded="false"><?php esc_html_e( 'Any help with customizing capabilities?', 'custom-post-type-ui' ); ?></span>
+							<div class="answer" id="q23">
+								<p><?php printf( esc_html__( 'We recommend %s for some extended customization and addition of extra fields regarding roles and capabilities.', 'custom-post-type-ui' ),
+									'<a href="https://github.com/tw2113/custom-post-type-ui-capabilities" target="_blank">Custom Post Type UI Capabilities on GitHub</a>' ); ?></p>
+							</div>
+						</li>
 					</ol>
 				</td>
 				<td class="outer">
