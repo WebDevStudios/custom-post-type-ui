@@ -50,6 +50,7 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 * Updated: Utilize `wp_doing_ajax()` function for our AJAX checks.
 * Updated: Clarify what is exported with the Post Types and Taxonomies spots for the Tools section.
 * Updated: Clarify that the listed post types to associate to a CPTUI taxonomy are public post types by default.
+* Updated: Make "Show In Rest" setting default to true for sake of easier Gutenberg integration in the future.
 * Fixed: Only register archive slug if has_archive is set to true.
 * Fixed: Error occurred when attempting to unset post types while editing a taxonomy.
 * Fixed: Prevent errors from non-existant callback functions during post type or taxonomy processing.
@@ -137,6 +138,7 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 * Updated: Utilize `wp_doing_ajax()` function for our AJAX checks.
 * Updated: Clarify what is exported with the Post Types and Taxonomies spots for the Tools section.
 * Updated: Clarify that the listed post types to associate to a CPTUI taxonomy are public post types by default.
+* Updated: Make "Show In Rest" setting default to true for sake of easier Gutenberg integration in the future.
 * Fixed: Only register archive slug if has_archive is set to true.
 * Fixed: Error occurred when attempting to unset post types while editing a taxonomy.
 * Fixed: Prevent errors from non-existant callback functions during post type or taxonomy processing.
