@@ -81,16 +81,16 @@ function cptui_settings() {
 		<div class="changelog about-integrations">
 			<div class="cptui-feature feature-section col three-col">
 				<div class="col">
-					<h2><?php esc_html_e( 'Renamed the Import/Export menu.', 'custom-post-type-ui' ); ?></h2>
-					<p><?php esc_html_e( 'As Custom Post Type UI has evolved, we have found need to rename one of the menus. The Import/Export menu has now been renamed "Tools" to better reflect the utilities provided there.', 'custom-post-type-ui' ); ?></p>
+					<h2><?php esc_html_e( 'Taxonomy support for meta_box_cb parameter', 'custom-post-type-ui' ); ?></h2>
+					<p><?php esc_html_e( 'We have added a field to provide a function callback to use for the metabox for your taxonomies. This allows you to customize and provide your own metabox output instead of using the default.', 'custom-post-type-ui' ); ?></p>
 				</div>
 				<div class="col">
-					<h2><?php esc_html_e( 'Eliminated page refresh need for importing.', 'custom-post-type-ui' ); ?></h2>
-					<p><?php esc_html_e( 'Previously we eliminated page refresh need while creating new post types and taxonomies. We noticed this did not apply when importing settings. With this latest release, we have amended the issue.', 'custom-post-type-ui' ); ?></p>
+					<h2><?php esc_html_e( 'WP-CLI Support', 'custom-post-type-ui' ); ?></h2>
+					<p><?php esc_html_e( 'We have added some initial WP-CLI support around importing and exporting your Custom Post Type UI settings. This will help with setting up your websites and provide some possible automation tools.', 'custom-post-type-ui' ); ?></p>
 				</div>
 				<div class="col last-feature">
-					<h2><?php esc_html_e( 'Multiple issue fixes.', 'custom-post-type-ui' ); ?></h2>
-					<p><?php esc_html_e( 'We have fixed the following issues in this version. Added "action" as a reserved taxonomy name. Updated `get_terms()` handling for WordPress 4.5. Fixed PHP notices related to rewrite indexes, that were present since version 1.0.6. Prevented triggering a slug conversion when tabbing through the edit screen.', 'custom-post-type-ui' ) ?></p>
+					<h2><?php esc_html_e( 'Adjusted default "Show in REST" paramter.', 'custom-post-type-ui' ); ?></h2>
+					<p><?php esc_html_e( 'Gutenberg is coming with WordPress 5.0. For post types to have "Gutenberg" support, the "Show in REST" parameter needs to be set to true. We are changing this to help ease users into better integration.', 'custom-post-type-ui' ) ?></p>
 				</div>
 			</div>
 		</div>
