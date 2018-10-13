@@ -745,7 +745,7 @@ function cptui_manage_post_types() {
 								'name'      => 'capability_type',
 								'textvalue' => ( isset( $current['capability_type'] ) ) ? esc_attr( $current['capability_type'] ) : 'post',
 								'labeltext' => esc_html__( 'Capability Type', 'custom-post-type-ui' ),
-								'helptext'  => esc_html__( 'The post type to use for checking read, edit, and delete capabilities.', 'custom-post-type-ui' ),
+								'helptext'  => esc_html__( 'The post type to use for checking read, edit, and delete capabilities. A comma-separated second value can be used for plural version.', 'custom-post-type-ui' ),
 							) );
 
 							$select = array(
