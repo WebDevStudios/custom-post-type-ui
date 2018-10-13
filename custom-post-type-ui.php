@@ -400,7 +400,17 @@ function cptui_register_single_post_type( $post_type = array() ) {
 		$menu_position = (int) $post_type['menu_position'];
 	}
 
-	$capability_type = ( ! empty( $post_type['capability_type'] ) ) ? $post_type['capability_type'] : 'post';
+	$capability_type = 'post';
+	if ( ! empty( $post_type['capability_type'] ) ) {
+		$capability_type = $post_type['capability_type'];
+		if ( false !== strpos( $post_type['capability_type'], ',' ) ) {
+			$caps = array_map( 'trim', explode( ',', $post_type['capability_type'] ) );
+			if ( count( $caps ) > 2 ) {
+				$caps = array_slice( $caps, 0, 2 );
+			}
+			$capability_type = $caps;
+		}
+	}
 
 	$public = get_disp_boolean( $post_type['public'] );
 	if ( ! empty( $post_type['exclude_from_search'] ) ) {
