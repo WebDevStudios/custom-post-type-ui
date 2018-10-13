@@ -470,6 +470,18 @@ function cptui_get_single_post_type_registery( $post_type = array() ) {
 		$show_in_nav_menus = $public;
 	}
 
+	$capability_type = '"post"';
+	if ( ! empty( $post_type['capability_type'] ) ) {
+		$capability_type = '"' . $post_type['capability_type'] . '"';
+		if ( false !== strpos( $post_type['capability_type'], ',' ) ) {
+			$caps = array_map( 'trim', explode( ',', $post_type['capability_type'] ) );
+			if ( count( $caps ) > 2 ) {
+				$caps = array_slice( $caps, 0, 2 );
+			}
+			$capability_type = 'array( "' . $caps[0] . '", "' . $caps[1] . '" )';
+		}
+	}
+
 	$post_type['description'] = addslashes( $post_type['description'] );
 
 	$my_theme = wp_get_theme();
@@ -512,7 +524,7 @@ function cptui_get_single_post_type_registery( $post_type = array() ) {
 		"show_in_menu" => <?php echo $show_in_menu; ?>,
 		"show_in_nav_menus" => <?php echo $show_in_nav_menus; ?>,
 		"exclude_from_search" => <?php echo disp_boolean( $post_type['exclude_from_search'] ); ?>,
-		"capability_type" => "<?php echo $post_type['capability_type']; ?>",
+		"capability_type" => <?php echo $capability_type; ?>,
 		"map_meta_cap" => <?php echo disp_boolean( $post_type['map_meta_cap'] ); ?>,
 		"hierarchical" => <?php echo disp_boolean( $post_type['hierarchical'] ); ?>,
 		"rewrite" => <?php echo $rewrite; ?>,
