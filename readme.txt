@@ -44,8 +44,9 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 * Added: Support for "rest_controller_class" parameters for both post types and taxonomies.
 * Added: Some initial WP-CLI support for importing and exporting CPTUI settings.
 * Added: `name_admin_bar` support in post type labels.
+* Added: Handling of array versions for "capability_type" field.
 * Updated: Bump minimum WordPress version to 4.7.
-* Updated: pass the object_type array to `cptui_pre_register_taxonomy` filter as extra parameter.
+* Updated: Pass the object_type array to `cptui_pre_register_taxonomy` filter as extra parameter.
 * Updated: Adjusted preserved label handling to aid with plugin performance. Props alex-solovyev
 * Updated: Utilize `wp_doing_ajax()` function for our AJAX checks.
 * Updated: Clarify what is exported with the Post Types and Taxonomies spots for the Tools section.
@@ -57,6 +58,7 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 * Fixed: Incorrect use of reserved taxonomy slugs function in a check for reserved post types.
 * Fixed: Make sure "No post type selected" alert trigger from both buttons on the taxonomy settings edit screen.
 * Fixed: Add our stylesheet only on our CPTUI pages. Fixes responsive bug on post editor screen.
+* Fixed: Removed duplicate "label" in taxonomy "get code" section.
 
 = 1.5.8 - 2018-04-16 =
 * Fixed: Corrected issue with "Get Code" area regarding post types and "show in menu" field values.
@@ -132,8 +134,9 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 * Added: Support for "rest_controller_class" parameters for both post types and taxonomies.
 * Added: Some initial WP-CLI support for importing and exporting CPTUI settings.
 * Added: `name_admin_bar` support in post type labels.
+* Added: Handling of array versions for "capability_type" field.
 * Updated: Bump minimum WordPress version to 4.7.
-* Updated: pass the object_type array to `cptui_pre_register_taxonomy` filter as extra parameter.
+* Updated: Pass the object_type array to `cptui_pre_register_taxonomy` filter as extra parameter.
 * Updated: Adjusted preserved label handling to aid with plugin performance. Props alex-solovyev
 * Updated: Utilize `wp_doing_ajax()` function for our AJAX checks.
 * Updated: Clarify what is exported with the Post Types and Taxonomies spots for the Tools section.
@@ -145,6 +148,7 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 * Fixed: Incorrect use of reserved taxonomy slugs function in a check for reserved post types.
 * Fixed: Make sure "No post type selected" alert trigger from both buttons on the taxonomy settings edit screen.
 * Fixed: Add our stylesheet only on our CPTUI pages. Fixes responsive bug on post editor screen.
+* Fixed: Removed duplicate "label" in taxonomy "get code" section.
 
 = 1.5.8 - 2018-04-16 =
 * Fixed: Corrected issue with "Get Code" area regarding post types and "show in menu" field values.
