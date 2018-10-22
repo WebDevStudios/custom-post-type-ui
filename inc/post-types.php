@@ -29,12 +29,13 @@ function cptui_post_type_enqueue_scripts() {
 		return;
 	}
 
-	if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
+	if ( wp_doing_ajax() ) {
 		return;
 	}
 
 	wp_enqueue_media();
 	wp_enqueue_script( 'cptui' );
+	wp_enqueue_style( 'cptui-css' );
 
 	$core                  = get_post_types( array( '_builtin' => true ) );
 	$public                = get_post_types( array( '_builtin' => false, 'public' => true ) );
@@ -179,6 +180,8 @@ function cptui_manage_post_types() {
 			<?php
 			cptui_post_types_dropdown( $post_types );
 
+			wp_nonce_field( 'cptui_select_post_type_nonce_action', 'cptui_select_post_type_nonce_field' );
+
 			/**
 			 * Filters the text value to use on the select post type button.
 			 *
@@ -221,9 +224,9 @@ function cptui_manage_post_types() {
 						echo $ui->get_required_span();
 
 						if ( 'edit' === $tab ) {
-							echo '<p id="slugchanged" class="hidemessage">' . esc_html__( 'Slug has changed', 'custom-post-type-ui' ) . '</p>';
+							echo '<p id="slugchanged" class="hidemessage">' . esc_html__( 'Slug has changed', 'custom-post-type-ui' ) . '<span class="dashicons dashicons-warning"></span></p>';
 						}
-						echo '<p id="slugexists" class="hidemessage">' . esc_html__( 'Slug already exists', 'custom-post-type-ui' ) . '</p>';
+						echo '<p id="slugexists" class="hidemessage">' . esc_html__( 'Slug already exists', 'custom-post-type-ui' ) . '<span class="dashicons dashicons-warning"></span></p>';
 
 						echo $ui->get_th_end() . $ui->get_td_start();
 
@@ -565,6 +568,16 @@ function cptui_manage_post_types() {
 									'textvalue' => ( isset( $current['labels']['attributes'] ) ) ? esc_attr( $current['labels']['attributes'] ) : '',
 									'aftertext' => esc_html__( '(e.g. Movies Attributes)', 'custom-post-type-ui' ),
 								) );
+
+								echo $ui->get_text_input( array(
+									'labeltext' => esc_html__( '"New" menu in admin bar', 'custom-post-type-ui' ),
+									'helptext'  => esc_html__( 'Used in New in Admin menu bar. Default "singular name" label.', 'custom-post-type-ui' ),
+									'namearray' => 'cpt_labels',
+									'name'      => 'name_admin_bar',
+									'textvalue' => ( isset( $current['labels']['name_admin_bar'] ) ) ? esc_attr( $current['labels']['name_admin_bar'] ) : '',
+									'aftertext' => esc_html__( '(e.g. Movie)', 'custom-post-type-ui' ),
+								) );
+
 							?>
 						</table>
 					</div>
@@ -648,8 +661,8 @@ function cptui_manage_post_types() {
 
 							$select = array(
 								'options' => array(
-									array( 'attr' => '0', 'text' => esc_attr__( 'False', 'custom-post-type-ui' ), 'default' => 'false' ),
-									array( 'attr' => '1', 'text' => esc_attr__( 'True', 'custom-post-type-ui' ) ),
+									array( 'attr' => '0', 'text' => esc_attr__( 'False', 'custom-post-type-ui' ) ),
+									array( 'attr' => '1', 'text' => esc_attr__( 'True', 'custom-post-type-ui' ), 'default' => 'false' ),
 								),
 							);
 							$selected = ( isset( $current ) && ! empty( $current['show_in_rest'] ) ) ? disp_boolean( $current['show_in_rest'] ) : '';
@@ -658,7 +671,7 @@ function cptui_manage_post_types() {
 								'namearray'  => 'cpt_custom_post_type',
 								'name'       => 'show_in_rest',
 								'labeltext'  => esc_html__( 'Show in REST API', 'custom-post-type-ui' ),
-								'aftertext'  => esc_html__( '(default: false) Whether or not to show this post type data in the WP REST API.', 'custom-post-type-ui' ),
+								'aftertext'  => esc_html__( '(Custom Post Type UI default: true) Whether or not to show this post type data in the WP REST API.', 'custom-post-type-ui' ),
 								'selections' => $select,
 							) );
 
@@ -668,6 +681,14 @@ function cptui_manage_post_types() {
 								'labeltext' => esc_html__( 'REST API base slug', 'custom-post-type-ui' ),
 								'aftertext' => esc_attr__( 'Slug to use in REST API URLs.', 'custom-post-type-ui' ),
 								'textvalue' => ( isset( $current['rest_base'] ) ) ? esc_attr( $current['rest_base'] ) : '',
+							) );
+
+							echo $ui->get_text_input( array(
+								'namearray' => 'cpt_custom_post_type',
+								'name'      => 'rest_controller_class',
+								'labeltext' => esc_html__( 'REST API controller class', 'custom-post-type-ui' ),
+								'aftertext' => esc_attr__( '(default: WP_REST_Posts_Controller) Custom controller to use instead of WP_REST_Posts_Controller.', 'custom-post-type-ui' ),
+								'textvalue' => ( isset( $current['rest_controller_class'] ) ) ? esc_attr( $current['rest_controller_class'] ) : '',
 							) );
 
 							echo $ui->get_tr_start() . $ui->get_th_start();
@@ -724,7 +745,7 @@ function cptui_manage_post_types() {
 								'name'      => 'capability_type',
 								'textvalue' => ( isset( $current['capability_type'] ) ) ? esc_attr( $current['capability_type'] ) : 'post',
 								'labeltext' => esc_html__( 'Capability Type', 'custom-post-type-ui' ),
-								'helptext'  => esc_html__( 'The post type to use for checking read, edit, and delete capabilities.', 'custom-post-type-ui' ),
+								'helptext'  => esc_html__( 'The post type to use for checking read, edit, and delete capabilities. A comma-separated second value can be used for plural version.', 'custom-post-type-ui' ),
 							) );
 
 							$select = array(
@@ -1074,7 +1095,15 @@ function cptui_manage_post_types() {
 								$args = array( 'public' => true );
 							}
 
-							$add_taxes = get_taxonomies( $args, 'objects' );
+							/**
+							 * Filters the results returned to display for available taxonomies for post type.
+							 *
+							 * @since 1.6.0
+							 *
+							 * @param array  $value  Array of taxonomy objects.
+							 * @param array  $args   Array of arguments for the taxonomies query.
+							 */
+							$add_taxes = apply_filters( 'cptui_get_taxonomies_for_post_types', get_taxonomies( $args, 'objects' ), $args );
 							unset( $add_taxes['nav_menu'] ); unset( $add_taxes['post_format'] );
 							foreach ( $add_taxes as $add_tax ) {
 
@@ -1207,6 +1236,9 @@ function cptui_get_current_post_type( $post_type_deleted = false ) {
 	$type = false;
 
 	if ( ! empty( $_POST ) ) {
+		if ( ! empty( $_POST['cptui_select_post_type_nonce_field'] ) ) {
+			check_admin_referer( 'cptui_select_post_type_nonce_action', 'cptui_select_post_type_nonce_field' );
+		}
 		if ( isset( $_POST['cptui_selected_post_type']['post_type'] ) ) {
 			$type = sanitize_text_field( $_POST['cptui_selected_post_type']['post_type'] );
 		} else if ( $post_type_deleted ) {
@@ -1427,47 +1459,49 @@ function cptui_update_post_type( $data = array() ) {
 		$singular_label = htmlspecialchars( stripslashes( $singular_label ), ENT_QUOTES );
 	}
 
-	$name                = trim( $data['cpt_custom_post_type']['name'] );
-	$description         = stripslashes_deep( $data['cpt_custom_post_type']['description'] );
-	$rest_base           = trim( $data['cpt_custom_post_type']['rest_base'] );
-	$has_archive_string  = trim( $data['cpt_custom_post_type']['has_archive_string'] );
-	$capability_type     = trim( $data['cpt_custom_post_type']['capability_type'] );
-	$rewrite_slug        = trim( $data['cpt_custom_post_type']['rewrite_slug'] );
-	$query_var_slug      = trim( $data['cpt_custom_post_type']['query_var_slug'] );
-	$menu_position       = trim( $data['cpt_custom_post_type']['menu_position'] );
-	$show_in_menu_string = trim( $data['cpt_custom_post_type']['show_in_menu_string'] );
-	$menu_icon           = trim( $data['cpt_custom_post_type']['menu_icon'] );
-	$custom_supports     = trim( $data['cpt_custom_post_type']['custom_supports'] );
+	$name                  = trim( $data['cpt_custom_post_type']['name'] );
+	$description           = stripslashes_deep( $data['cpt_custom_post_type']['description'] );
+	$rest_base             = trim( $data['cpt_custom_post_type']['rest_base'] );
+	$rest_controller_class = trim( $data['cpt_custom_post_type']['rest_controller_class'] );
+	$has_archive_string    = trim( $data['cpt_custom_post_type']['has_archive_string'] );
+	$capability_type       = trim( $data['cpt_custom_post_type']['capability_type'] );
+	$rewrite_slug          = trim( $data['cpt_custom_post_type']['rewrite_slug'] );
+	$query_var_slug        = trim( $data['cpt_custom_post_type']['query_var_slug'] );
+	$menu_position         = trim( $data['cpt_custom_post_type']['menu_position'] );
+	$show_in_menu_string   = trim( $data['cpt_custom_post_type']['show_in_menu_string'] );
+	$menu_icon             = trim( $data['cpt_custom_post_type']['menu_icon'] );
+	$custom_supports       = trim( $data['cpt_custom_post_type']['custom_supports'] );
 
 	$post_types[ $data['cpt_custom_post_type']['name'] ] = array(
-		'name'                => $name,
-		'label'               => $label,
-		'singular_label'      => $singular_label,
-		'description'         => $description,
-		'public'              => disp_boolean( $data['cpt_custom_post_type']['public'] ),
-		'publicly_queryable'  => disp_boolean( $data['cpt_custom_post_type']['publicly_queryable'] ),
-		'show_ui'             => disp_boolean( $data['cpt_custom_post_type']['show_ui'] ),
-		'show_in_nav_menus'   => disp_boolean( $data['cpt_custom_post_type']['show_in_nav_menus'] ),
-		'show_in_rest'        => disp_boolean( $data['cpt_custom_post_type']['show_in_rest'] ),
-		'rest_base'           => $rest_base,
-		'has_archive'         => disp_boolean( $data['cpt_custom_post_type']['has_archive'] ),
-		'has_archive_string'  => $has_archive_string,
-		'exclude_from_search' => disp_boolean( $data['cpt_custom_post_type']['exclude_from_search'] ),
-		'capability_type'     => $capability_type,
-		'hierarchical'        => disp_boolean( $data['cpt_custom_post_type']['hierarchical'] ),
-		'rewrite'             => disp_boolean( $data['cpt_custom_post_type']['rewrite'] ),
-		'rewrite_slug'        => $rewrite_slug,
-		'rewrite_withfront'   => disp_boolean( $data['cpt_custom_post_type']['rewrite_withfront'] ),
-		'query_var'           => disp_boolean( $data['cpt_custom_post_type']['query_var'] ),
-		'query_var_slug'      => $query_var_slug,
-		'menu_position'       => $menu_position,
-		'show_in_menu'        => disp_boolean( $data['cpt_custom_post_type']['show_in_menu'] ),
-		'show_in_menu_string' => $show_in_menu_string,
-		'menu_icon'           => $menu_icon,
-		'supports'            => $data['cpt_supports'],
-		'taxonomies'          => $data['cpt_addon_taxes'],
-		'labels'              => $data['cpt_labels'],
-		'custom_supports'     => $custom_supports,
+		'name'                  => $name,
+		'label'                 => $label,
+		'singular_label'        => $singular_label,
+		'description'           => $description,
+		'public'                => disp_boolean( $data['cpt_custom_post_type']['public'] ),
+		'publicly_queryable'    => disp_boolean( $data['cpt_custom_post_type']['publicly_queryable'] ),
+		'show_ui'               => disp_boolean( $data['cpt_custom_post_type']['show_ui'] ),
+		'show_in_nav_menus'     => disp_boolean( $data['cpt_custom_post_type']['show_in_nav_menus'] ),
+		'show_in_rest'          => disp_boolean( $data['cpt_custom_post_type']['show_in_rest'] ),
+		'rest_base'             => $rest_base,
+		'rest_controller_class' => $rest_controller_class,
+		'has_archive'           => disp_boolean( $data['cpt_custom_post_type']['has_archive'] ),
+		'has_archive_string'    => $has_archive_string,
+		'exclude_from_search'   => disp_boolean( $data['cpt_custom_post_type']['exclude_from_search'] ),
+		'capability_type'       => $capability_type,
+		'hierarchical'          => disp_boolean( $data['cpt_custom_post_type']['hierarchical'] ),
+		'rewrite'               => disp_boolean( $data['cpt_custom_post_type']['rewrite'] ),
+		'rewrite_slug'          => $rewrite_slug,
+		'rewrite_withfront'     => disp_boolean( $data['cpt_custom_post_type']['rewrite_withfront'] ),
+		'query_var'             => disp_boolean( $data['cpt_custom_post_type']['query_var'] ),
+		'query_var_slug'        => $query_var_slug,
+		'menu_position'         => $menu_position,
+		'show_in_menu'          => disp_boolean( $data['cpt_custom_post_type']['show_in_menu'] ),
+		'show_in_menu_string'   => $show_in_menu_string,
+		'menu_icon'             => $menu_icon,
+		'supports'              => $data['cpt_supports'],
+		'taxonomies'            => $data['cpt_addon_taxes'],
+		'labels'                => $data['cpt_labels'],
+		'custom_supports'       => $custom_supports,
 	);
 
 	/**
@@ -1656,7 +1690,7 @@ function cptui_check_page_slugs( $post_type_slug = '' ) {
  */
 function cptui_process_post_type() {
 
-	if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
+	if ( wp_doing_ajax() ) {
 		return;
 	}
 
@@ -1679,8 +1713,11 @@ function cptui_process_post_type() {
 			add_filter( 'cptui_post_type_deleted', '__return_true' );
 		}
 
+		// @TODO Utilize anonymous function to admin_notice `$result` if it happens to error.
 		if ( $result ) {
-			add_action( 'admin_notices', "cptui_{$result}_admin_notice" );
+			if ( is_callable( "cptui_{$result}_admin_notice" ) ) {
+				add_action( 'admin_notices', "cptui_{$result}_admin_notice" );
+			}
 		}
 	}
 }
@@ -1703,6 +1740,8 @@ function cptui_do_convert_post_type_posts() {
 	 * @param bool $value Whether or not to convert.
 	 */
 	if ( apply_filters( 'cptui_convert_post_type_posts', false ) ) {
+		check_admin_referer( 'cptui_addedit_post_type_nonce_action', 'cptui_addedit_post_type_nonce_field' );
+
 		cptui_convert_post_type_posts( sanitize_text_field( $_POST['cpt_original'] ), sanitize_text_field( $_POST['cpt_custom_post_type']['name'] ) );
 	}
 }
@@ -1721,7 +1760,7 @@ add_action( 'init', 'cptui_do_convert_post_type_posts' );
 function cptui_updated_post_type_slug_exists( $slug_exists, $post_type_slug = '', $post_types = array() ) {
 	if (
 		( ! empty( $_POST['cpt_type_status'] ) && 'edit' == $_POST['cpt_type_status'] ) &&
-		! in_array( $post_type_slug, cptui_reserved_taxonomies() ) &&
+		! in_array( $post_type_slug, cptui_reserved_post_types() ) &&
 		( ! empty( $_POST['cpt_original'] ) && $post_type_slug === $_POST['cpt_original'] )
 	)
 		{

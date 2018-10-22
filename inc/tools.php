@@ -15,6 +15,26 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
+ * Enqueue our Custom Post Type UI assets.
+ *
+ * @since 1.6.0
+ */
+function cptui_tools_assets() {
+	$current_screen = get_current_screen();
+
+	if ( ! is_object( $current_screen ) || 'cpt-ui_page_cptui_tools' !== $current_screen->base ) {
+		return;
+	}
+
+	if ( wp_doing_ajax() ) {
+		return;
+	}
+
+	wp_enqueue_style( 'cptui-css' );
+}
+add_action( 'admin_enqueue_scripts', 'cptui_tools_assets' );
+
+/**
  * Register our tabs for the Tools screen.
  *
  * @since 1.3.0
@@ -136,7 +156,7 @@ function cptui_tools() {
 	do_action( 'cptui_inside_tools_wrap' );
 
 	// Create our tabs.
-	cptui_settings_tab_menu( $page = 'tools' );
+	cptui_settings_tab_menu( 'tools' );
 
 	/**
 	 * Fires inside the markup for the import/export section.
@@ -202,7 +222,6 @@ add_action( 'init', '<?php echo $callback; ?>' );
  * @since 1.0.0
  *
  * @param array $taxonomy Taxonomy data to output. Optional.
- * @return string
  */
 function cptui_get_single_taxonomy_registery( $taxonomy = array() ) {
 
@@ -240,7 +259,8 @@ function cptui_get_single_taxonomy_registery( $taxonomy = array() ) {
 	} else {
 		$rewrite = disp_boolean( $taxonomy['rewrite'] );
 	}
-	$public = ( isset( $taxonomy['public'] ) ) ? disp_boolean( $taxonomy['public'] ) : 'true';
+	$public             = ( isset( $taxonomy['public'] ) ) ? disp_boolean( $taxonomy['public'] ) : 'true';
+	$publicly_queryable = ( isset( $taxonomy['publicly_queryable'] ) ) ? disp_boolean( $taxonomy['publicly_queryable'] ) : disp_boolean( $taxonomy['public'] );
 	$show_in_quick_edit = ( isset( $taxonomy['show_in_quick_edit'] ) ) ? disp_boolean( $taxonomy['show_in_quick_edit'] ) : disp_boolean( $taxonomy['show_ui'] );
 
 	$show_in_menu = ( ! empty( $taxonomy['show_in_menu'] ) && false !== get_disp_boolean( $taxonomy['show_in_menu'] ) ) ? 'true' : 'false';
@@ -253,8 +273,9 @@ function cptui_get_single_taxonomy_registery( $taxonomy = array() ) {
 		$show_in_nav_menus = $public;
 	}
 
-	$show_in_rest = ( ! empty( $taxonomy['show_in_rest'] ) && false !== get_disp_boolean( $taxonomy['show_in_rest'] ) ) ? 'true' : 'false';
-	$rest_base    = ( ! empty( $taxonomy['rest_base'] ) ) ? $taxonomy['rest_base'] : $taxonomy['name'];
+	$show_in_rest          = ( ! empty( $taxonomy['show_in_rest'] ) && false !== get_disp_boolean( $taxonomy['show_in_rest'] ) ) ? 'true' : 'false';
+	$rest_base             = ( ! empty( $taxonomy['rest_base'] ) ) ? $taxonomy['rest_base'] : $taxonomy['name'];
+	$rest_controller_class = ( ! empty( $taxonomy['rest_controller_class'] ) ) ? $taxonomy['rest_controller_class'] : 'WP_REST_Terms_Controller';
 
 	if ( ! empty( $taxonomy['meta_box_cb'] ) ) {
 		$meta_box_cb = ( false !== get_disp_boolean( $taxonomy['meta_box_cb'] ) ) ? '"' . $taxonomy['meta_box_cb'] . '"' : 'false';
@@ -284,8 +305,8 @@ foreach ( $taxonomy['labels'] as $key => $label ) {
 		"label" => __( "<?php echo $taxonomy['label']; ?>", "<?php echo $textdomain; ?>" ),
 		"labels" => $labels,
 		"public" => <?php echo $public; ?>,
+		"publicly_queryable => <?php echo $publicly_queryable; ?>,
 		"hierarchical" => <?php echo $taxonomy['hierarchical']; ?>,
-		"label" => "<?php echo $taxonomy['label']; ?>",
 		"show_ui" => <?php echo disp_boolean( $taxonomy['show_ui'] ); ?>,
 		"show_in_menu" => <?php echo $show_in_menu; ?>,
 		"show_in_nav_menus" => <?php echo $show_in_nav_menus; ?>,
@@ -294,6 +315,7 @@ foreach ( $taxonomy['labels'] as $key => $label ) {
 		"show_admin_column" => <?php echo $taxonomy['show_admin_column']; ?>,
 		"show_in_rest" => <?php echo $show_in_rest; ?>,
 		"rest_base" => "<?php echo $rest_base; ?>",
+		"rest_controller_class" => "<?php echo $rest_controller_class; ?>",
 		"show_in_quick_edit" => <?php echo $show_in_quick_edit; ?>,
 	<?php if ( ! empty( $meta_box_cb ) ) { ?>
 	"meta_box_cb" => <?php echo $meta_box_cb; ?>,
@@ -428,6 +450,7 @@ function cptui_get_single_post_type_registery( $post_type = array() ) {
 	if ( empty( $post_type['show_in_rest'] ) ) {
 		$post_type['show_in_rest'] = 'false';
 	}
+	$rest_controller_class = ( ! empty( $post_type['rest_controller_class'] ) ) ? $post_type['rest_controller_class'] : 'WP_REST_Posts_Controller';
 
 	$delete_with_user = ( ! empty( $post_type['delete_with_user'] ) && false !== get_disp_boolean( $post_type['delete_with_user'] ) ) ? 'true' : 'false';
 
@@ -445,6 +468,18 @@ function cptui_get_single_post_type_registery( $post_type = array() ) {
 	$show_in_nav_menus = ( ! empty( $post_type['show_in_nav_menus'] ) && false !== get_disp_boolean( $post_type['show_in_nav_menus'] ) ) ? 'true' : 'false';
 	if ( empty( $post_type['show_in_nav_menus'] ) ) {
 		$show_in_nav_menus = $public;
+	}
+
+	$capability_type = '"post"';
+	if ( ! empty( $post_type['capability_type'] ) ) {
+		$capability_type = '"' . $post_type['capability_type'] . '"';
+		if ( false !== strpos( $post_type['capability_type'], ',' ) ) {
+			$caps = array_map( 'trim', explode( ',', $post_type['capability_type'] ) );
+			if ( count( $caps ) > 2 ) {
+				$caps = array_slice( $caps, 0, 2 );
+			}
+			$capability_type = 'array( "' . $caps[0] . '", "' . $caps[1] . '" )';
+		}
 	}
 
 	$post_type['description'] = addslashes( $post_type['description'] );
@@ -484,11 +519,12 @@ function cptui_get_single_post_type_registery( $post_type = array() ) {
 		"delete_with_user" => <?php echo $delete_with_user; ?>,
 		"show_in_rest" => <?php echo disp_boolean( $post_type['show_in_rest'] ); ?>,
 		"rest_base" => "<?php echo $post_type['rest_base']; ?>",
+		"rest_controller_class" => "<?php echo $rest_controller_class; ?>",
 		"has_archive" => <?php echo $has_archive; ?>,
 		"show_in_menu" => <?php echo $show_in_menu; ?>,
 		"show_in_nav_menus" => <?php echo $show_in_nav_menus; ?>,
 		"exclude_from_search" => <?php echo disp_boolean( $post_type['exclude_from_search'] ); ?>,
-		"capability_type" => "<?php echo $post_type['capability_type']; ?>",
+		"capability_type" => <?php echo $capability_type; ?>,
 		"map_meta_cap" => <?php echo disp_boolean( $post_type['map_meta_cap'] ); ?>,
 		"hierarchical" => <?php echo disp_boolean( $post_type['hierarchical'] ); ?>,
 		"rewrite" => <?php echo $rewrite; ?>,
@@ -703,7 +739,7 @@ function cptui_render_posttypes_taxonomies_section() {
 				</form>
 			</td>
 			<td class="outer">
-				<h2><label for="cptui_post_export"><?php esc_html_e( 'Export Post Types', 'custom-post-type-ui' ); ?></label></h2>
+				<h2><label for="cptui_post_export"><?php esc_html_e( 'Export Post Types settings', 'custom-post-type-ui' ); ?></label></h2>
 				<?php
 				$cptui_post_types = cptui_get_post_type_data();
 				if ( ! empty( $cptui_post_types ) ) {
@@ -741,7 +777,7 @@ function cptui_render_posttypes_taxonomies_section() {
 				</form>
 			</td>
 			<td class="outer">
-				<h2><label for="cptui_tax_export"><?php esc_html_e( 'Export Taxonomies', 'custom-post-type-ui' ); ?></label></h2>
+				<h2><label for="cptui_tax_export"><?php esc_html_e( 'Export Taxonomies settings', 'custom-post-type-ui' ); ?></label></h2>
 				<?php
 				$cptui_taxonomies = cptui_get_taxonomy_data();
 				if ( ! empty( $cptui_taxonomies ) ) {

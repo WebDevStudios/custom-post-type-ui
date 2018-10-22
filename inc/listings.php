@@ -15,6 +15,26 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
+ * Enqueue our Custom Post Type UI assets.
+ *
+ * @since 1.6.0
+ */
+function cptui_listings_assets() {
+	$current_screen = get_current_screen();
+
+	if ( ! is_object( $current_screen ) || 'cpt-ui_page_cptui_listings' !== $current_screen->base ) {
+		return;
+	}
+
+	if ( wp_doing_ajax() ) {
+		return;
+	}
+
+	wp_enqueue_style( 'cptui-css' );
+}
+add_action( 'admin_enqueue_scripts', 'cptui_listings_assets' );
+
+/**
  * Output the content for the "Registered Types/Taxes" page.
  *
  * @since 1.1.0

@@ -9,6 +9,28 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - Not documented.
 
+## [1.5.8] - 2018-04-16
+### Fixed
+- Corrected issue with `Get Code` area regarding post types and `show in menu` field values.
+- Add post_format taxonomy support for CPTUI post types that declare post formats support. This primarily addresses issues with previewing changes for existing post type posts with post_format support.
+- Add `show_in_nav_menus` settings/output to tools section.
+- `Undefined index` notices for show_in_rest and rest_base settings.
+
+### Updated
+- Change how we hide submit button when editing existing post types or taxes so switching is available if a javascript error occurs.
+- Updated sidebar links for Pluginize products.
+
+## [1.5.7] - 2018-03-07
+### Added
+- `output` added to blacklisted taxonomy slug list.
+
+### Fixed
+- Prevent potential fatal error with customized links in plugin list page.
+
+### Updated
+- Text at top of help area and readme description to promote available layouts in CPTUI-Extended.
+- Things have been tested on the latest WordPress. You're in good hands.
+
 ## [1.5.6] - 2017-11-09
 ### Added
 - `custom_css`, `customize_changeset`, `author`, and `post_type` as reserved post_types.
@@ -364,7 +386,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 [Gary Jones]: https://github.com/GaryJones
 
-[Unreleased]: https://github.com/WebDevStudios/custom-post-type-ui/compare/1.5.6...HEAD
+[Unreleased]: https://github.com/WebDevStudios/custom-post-type-ui/compare/1.5.8...HEAD
+[1.5.8]: https://github.com/WebDevStudios/custom-post-type-ui/compare/1.5.7...1.5.8
+[1.5.7]: https://github.com/WebDevStudios/custom-post-type-ui/compare/1.5.6...1.5.7
 [1.5.6]: https://github.com/WebDevStudios/custom-post-type-ui/compare/1.5.5...1.5.6
 [1.5.5]: https://github.com/WebDevStudios/custom-post-type-ui/compare/1.5.4...1.5.5
 [1.5.4]: https://github.com/WebDevStudios/custom-post-type-ui/compare/1.5.3...1.5.4
