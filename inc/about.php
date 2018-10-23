@@ -89,7 +89,7 @@ function cptui_settings() {
 					<p><?php esc_html_e( 'We have added some initial WP-CLI support around importing and exporting your Custom Post Type UI settings. This will help with setting up your websites and provide some possible automation tools.', 'custom-post-type-ui' ); ?></p>
 				</div>
 				<div class="col last-feature">
-					<h2><?php esc_html_e( 'Adjusted default "Show in REST" paramter.', 'custom-post-type-ui' ); ?></h2>
+					<h2><?php esc_html_e( 'Adjusted default "Show in REST" parameter.', 'custom-post-type-ui' ); ?></h2>
 					<p><?php esc_html_e( 'Gutenberg is coming with WordPress 5.0. For post types to have "Gutenberg" support, the "Show in REST" parameter needs to be set to true. We are changing this to help ease users into better integration.', 'custom-post-type-ui' ) ?></p>
 				</div>
 			</div>
