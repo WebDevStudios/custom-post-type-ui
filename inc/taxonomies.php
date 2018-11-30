@@ -825,9 +825,12 @@ function cptui_manage_taxonomies() {
 									array(
 										'attr'    => '0',
 										'text'    => esc_attr__( 'False', 'custom-post-type-ui' ),
-										'default' => 'false'
 									),
-									array( 'attr' => '1', 'text' => esc_attr__( 'True', 'custom-post-type-ui' ) ),
+									array(
+										'attr'    => '1',
+										'text'    => esc_attr__( 'True', 'custom-post-type-ui' ),
+										'default' => 'true',
+									),
 								),
 							);
 							$selected           = ( isset( $current ) ) ? disp_boolean( $current['show_in_rest'] ) : '';
@@ -836,7 +839,7 @@ function cptui_manage_taxonomies() {
 								'namearray'  => 'cpt_custom_tax',
 								'name'       => 'show_in_rest',
 								'labeltext'  => esc_html__( 'Show in REST API', 'custom-post-type-ui' ),
-								'aftertext'  => esc_html__( '(default: false) Whether to show this taxonomy data in the WP REST API.', 'custom-post-type-ui' ),
+								'aftertext'  => esc_html__( '(Custom Post Type UI default: true) Whether to show this taxonomy data in the WP REST API.', 'custom-post-type-ui' ),
 								'selections' => $select,
 							) );
 
