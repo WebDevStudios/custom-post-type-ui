@@ -31,6 +31,9 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 
 == Changelog ==
 
+= 1.6.1 - TBD =
+* Updated: Make "Show In Rest" setting default to true taxonomies for sake of easier Gutenberg integration in the future. 1.6.0 had just post types doing this.
+
 = 1.6.0 - 2018-10-22 =
 * Added: Support for `meta_box_cb` parameter for `register_taxonomy` and taxonomies.
 * Added: Dynamically warn about existing slugs.
@@ -121,7 +124,10 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 
 == Upgrade Notice ==
 
-= 1.6.0 - TBD =
+= 1.6.1 - TBD =
+* Updated: Make "Show In Rest" setting default to true taxonomies for sake of easier Gutenberg integration in the future. 1.6.0 had just post types doing this.
+
+= 1.6.0 - 2018-10-22 =
 * Added: Support for `meta_box_cb` parameter for `register_taxonomy` and taxonomies.
 * Added: Dynamically warn about existing slugs.
 * Added: "delete_with_user" support for post types.
