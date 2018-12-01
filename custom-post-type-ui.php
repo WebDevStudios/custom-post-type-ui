@@ -135,7 +135,7 @@ function cptui_plugin_menu() {
 	 *
 	 * @param string $value Capability required.
 	 */
-	$capability = apply_filters( 'cptui_required_capabilities', 'manage_options' );
+	$capability  = apply_filters( 'cptui_required_capabilities', 'manage_options' );
 	$parent_slug = 'cptui_main_menu';
 
 	add_menu_page( __( 'Custom Post Types', 'custom-post-type-ui' ), __( 'CPT UI', 'custom-post-type-ui' ), $capability, $parent_slug, 'cptui_settings', cptui_menu_icon() );
@@ -343,8 +343,8 @@ function cptui_register_single_post_type( $post_type = array() ) {
 	}
 
 	$labels = array(
-		'name'               => $post_type['label'],
-		'singular_name'      => $post_type['singular_label'],
+		'name'          => $post_type['label'],
+		'singular_name' => $post_type['singular_label'],
 	);
 
 	$preserved = cptui_get_preserved_keys( 'post_types' );
