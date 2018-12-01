@@ -32,6 +32,10 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 == Changelog ==
 
 = 1.6.1 - TBD =
+* Fixed: Missed quote for "publicly_queryable" in taxonomy "get code" output.
+* Fixed: Adjusted handling of capitalization on the word "false" when being used to disable a taxonomy metabox via the "metabox callback" setting. The word "false" needs to be all lowercase to disable.
+* Updated: Added note about ability to pass "false" for the "metabox callback" setting to disable the metabox.
+* Updated: Fall back to "custom-post-type-ui" textdomain in "get code" output if theme does not have their own.
 * Updated: Make "Show In Rest" setting default to true taxonomies for sake of easier Gutenberg integration in the future. 1.6.0 had just post types doing this.
 
 = 1.6.0 - 2018-10-22 =
@@ -125,6 +129,10 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 == Upgrade Notice ==
 
 = 1.6.1 - TBD =
+* Fixed: Missed quote for "publicly_queryable" in taxonomy "get code" output.
+* Fixed: Adjusted handling of capitalization on the word "false" when being used to disable a taxonomy metabox via the "metabox callback" setting. The word "false" needs to be all lowercase to disable.
+* Updated: Added note about ability to pass "false" for the "metabox callback" setting to disable the metabox.
+* Updated: Fall back to "custom-post-type-ui" textdomain in "get code" output if theme does not have their own.
 * Updated: Make "Show In Rest" setting default to true taxonomies for sake of easier Gutenberg integration in the future. 1.6.0 had just post types doing this.
 
 = 1.6.0 - 2018-10-22 =
