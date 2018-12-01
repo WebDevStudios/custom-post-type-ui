@@ -1222,7 +1222,13 @@ function cptui_update_taxonomy( $data = array() ) {
 	$rest_base             = trim( $data['cpt_custom_tax']['rest_base'] );
 	$rest_controller_class = trim( $data['cpt_custom_tax']['rest_controller_class'] );
 	$show_quickpanel_bulk  = ( ! empty( $data['cpt_custom_tax']['show_in_quick_edit'] ) ) ? disp_boolean( $data['cpt_custom_tax']['show_in_quick_edit'] ) : '';
-	$meta_box_cb           = trim( $data['cpt_custom_tax']['meta_box_cb'] );
+
+	$meta_box_cb = trim( $data['cpt_custom_tax']['meta_box_cb'] );
+	// We may or may not need to force a boolean false keyword
+	$maybe_false = strtolower( trim( $data['cpt_custom_tax']['meta_box_cb'] ) );
+	if ( 'false' === $maybe_false ) {
+		$meta_box_cb = $maybe_false;
+	}
 
 	$taxonomies[ $data['cpt_custom_tax']['name'] ] = array(
 		'name'                  => $name,
