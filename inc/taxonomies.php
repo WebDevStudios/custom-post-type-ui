@@ -884,7 +884,7 @@ function cptui_manage_taxonomies() {
 								'name'      => 'meta_box_cb',
 								'textvalue' => ( isset( $current['meta_box_cb'] ) ) ? esc_attr( $current['meta_box_cb'] ) : '',
 								'labeltext' => esc_html__( 'Metabox callback', 'custom-post-type-ui' ),
-								'helptext'  => esc_html__( 'Sets a callback function name for the meta box display. Hierarchical default: post_categories_meta_box, non-hierarchical default: post_tags_meta_box.', 'custom-post-type-ui' ),
+								'helptext'  => esc_html__( 'Sets a callback function name for the meta box display. Hierarchical default: post_categories_meta_box, non-hierarchical default: post_tags_meta_box. To remove the metabox completely, use "false".', 'custom-post-type-ui' ),
 							) );
 							?>
 						</table>
