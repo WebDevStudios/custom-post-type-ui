@@ -283,6 +283,9 @@ function cptui_get_single_taxonomy_registery( $taxonomy = array() ) {
 
 	$my_theme   = wp_get_theme();
 	$textdomain = $my_theme->get( 'TextDomain' );
+	if ( empty( $textdomain ) ) {
+		$textdomain = 'custom-post-type-ui';
+	}
 ?>
 
 	/**
@@ -486,6 +489,9 @@ function cptui_get_single_post_type_registery( $post_type = array() ) {
 
 	$my_theme = wp_get_theme();
 	$textdomain = $my_theme->get( 'TextDomain' );
+	if ( empty( $textdomain ) ) {
+		$textdomain = 'custom-post-type-ui';
+	}
 ?>
 
 	/**
