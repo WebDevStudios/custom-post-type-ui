@@ -1,5 +1,5 @@
 .DS_Store
-cptui-docs
-node_modules
-vendor
+/cptui-docs
+/node_modules
+/vendor
 /composer.lock

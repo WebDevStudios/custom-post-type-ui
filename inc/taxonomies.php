@@ -825,9 +825,12 @@ function cptui_manage_taxonomies() {
 									array(
 										'attr'    => '0',
 										'text'    => esc_attr__( 'False', 'custom-post-type-ui' ),
-										'default' => 'false'
 									),
-									array( 'attr' => '1', 'text' => esc_attr__( 'True', 'custom-post-type-ui' ) ),
+									array(
+										'attr'    => '1',
+										'text'    => esc_attr__( 'True', 'custom-post-type-ui' ),
+										'default' => 'true',
+									),
 								),
 							);
 							$selected           = ( isset( $current ) ) ? disp_boolean( $current['show_in_rest'] ) : '';
@@ -836,7 +839,7 @@ function cptui_manage_taxonomies() {
 								'namearray'  => 'cpt_custom_tax',
 								'name'       => 'show_in_rest',
 								'labeltext'  => esc_html__( 'Show in REST API', 'custom-post-type-ui' ),
-								'aftertext'  => esc_html__( '(default: false) Whether to show this taxonomy data in the WP REST API.', 'custom-post-type-ui' ),
+								'aftertext'  => esc_html__( '(Custom Post Type UI default: true) Whether to show this taxonomy data in the WP REST API.', 'custom-post-type-ui' ),
 								'selections' => $select,
 							) );
 
@@ -881,7 +884,7 @@ function cptui_manage_taxonomies() {
 								'name'      => 'meta_box_cb',
 								'textvalue' => ( isset( $current['meta_box_cb'] ) ) ? esc_attr( $current['meta_box_cb'] ) : '',
 								'labeltext' => esc_html__( 'Metabox callback', 'custom-post-type-ui' ),
-								'helptext'  => esc_html__( 'Sets a callback function name for the meta box display. Hierarchical default: post_categories_meta_box, non-hierarchical default: post_tags_meta_box.', 'custom-post-type-ui' ),
+								'helptext'  => esc_html__( 'Sets a callback function name for the meta box display. Hierarchical default: post_categories_meta_box, non-hierarchical default: post_tags_meta_box. To remove the metabox completely, use "false".', 'custom-post-type-ui' ),
 							) );
 							?>
 						</table>
@@ -1219,7 +1222,13 @@ function cptui_update_taxonomy( $data = array() ) {
 	$rest_base             = trim( $data['cpt_custom_tax']['rest_base'] );
 	$rest_controller_class = trim( $data['cpt_custom_tax']['rest_controller_class'] );
 	$show_quickpanel_bulk  = ( ! empty( $data['cpt_custom_tax']['show_in_quick_edit'] ) ) ? disp_boolean( $data['cpt_custom_tax']['show_in_quick_edit'] ) : '';
-	$meta_box_cb           = trim( $data['cpt_custom_tax']['meta_box_cb'] );
+
+	$meta_box_cb = trim( $data['cpt_custom_tax']['meta_box_cb'] );
+	// We may or may not need to force a boolean false keyword
+	$maybe_false = strtolower( trim( $data['cpt_custom_tax']['meta_box_cb'] ) );
+	if ( 'false' === $maybe_false ) {
+		$meta_box_cb = $maybe_false;
+	}
 
 	$taxonomies[ $data['cpt_custom_tax']['name'] ] = array(
 		'name'                  => $name,

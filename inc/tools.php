@@ -283,6 +283,9 @@ function cptui_get_single_taxonomy_registery( $taxonomy = array() ) {
 
 	$my_theme   = wp_get_theme();
 	$textdomain = $my_theme->get( 'TextDomain' );
+	if ( empty( $textdomain ) ) {
+		$textdomain = 'custom-post-type-ui';
+	}
 ?>
 
 	/**
@@ -305,7 +308,7 @@ foreach ( $taxonomy['labels'] as $key => $label ) {
 		"label" => __( "<?php echo $taxonomy['label']; ?>", "<?php echo $textdomain; ?>" ),
 		"labels" => $labels,
 		"public" => <?php echo $public; ?>,
-		"publicly_queryable => <?php echo $publicly_queryable; ?>,
+		"publicly_queryable" => <?php echo $publicly_queryable; ?>,
 		"hierarchical" => <?php echo $taxonomy['hierarchical']; ?>,
 		"show_ui" => <?php echo disp_boolean( $taxonomy['show_ui'] ); ?>,
 		"show_in_menu" => <?php echo $show_in_menu; ?>,
@@ -486,6 +489,9 @@ function cptui_get_single_post_type_registery( $post_type = array() ) {
 
 	$my_theme = wp_get_theme();
 	$textdomain = $my_theme->get( 'TextDomain' );
+	if ( empty( $textdomain ) ) {
+		$textdomain = 'custom-post-type-ui';
+	}
 ?>
 
 	/**
