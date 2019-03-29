@@ -377,7 +377,7 @@ function cptui_register_single_post_type( $post_type = array() ) {
 	$rewrite = get_disp_boolean( $post_type['rewrite'] );
 	if ( false !== $rewrite ) {
 		// Core converts to an empty array anyway, so safe to leave this instead of passing in boolean true.
-		$rewrite = array();
+		$rewrite         = array();
 		$rewrite['slug'] = ( ! empty( $post_type['rewrite_slug'] ) ) ? $post_type['rewrite_slug'] : $post_type['name'];
 
 		$rewrite['with_front'] = true; // Default value.
@@ -536,8 +536,8 @@ add_action( 'init', 'cptui_create_custom_taxonomies', 9 );  // Leave on standard
 function cptui_register_single_taxonomy( $taxonomy = array() ) {
 
 	$labels = array(
-		'name'               => $taxonomy['label'],
-		'singular_name'      => $taxonomy['singular_label'],
+		'name'          => $taxonomy['label'],
+		'singular_name' => $taxonomy['singular_label'],
 	);
 
 	$description = '';
@@ -545,7 +545,7 @@ function cptui_register_single_taxonomy( $taxonomy = array() ) {
 		$description = $taxonomy['description'];
 	}
 
-	$preserved = cptui_get_preserved_keys( 'taxonomies' );
+	$preserved        = cptui_get_preserved_keys( 'taxonomies' );
 	$preserved_labels = cptui_get_preserved_labels();
 	foreach ( $taxonomy['labels'] as $key => $label ) {
 
@@ -553,15 +553,15 @@ function cptui_register_single_taxonomy( $taxonomy = array() ) {
 			$labels[ $key ] = $label;
 		} elseif ( empty( $label ) && in_array( $key, $preserved ) ) {
 			$singular_or_plural = ( in_array( $key, array_keys( $preserved_labels['taxonomies']['plural'] ) ) ) ? 'plural' : 'singular';
-			$label_plurality = ( 'plural' === $singular_or_plural ) ? $taxonomy['label'] : $taxonomy['singular_label'];
-			$labels[ $key ] = sprintf( $preserved_labels['taxonomies'][ $singular_or_plural ][ $key ], $label_plurality );
+			$label_plurality    = ( 'plural' === $singular_or_plural ) ? $taxonomy['label'] : $taxonomy['singular_label'];
+			$labels[ $key ]     = sprintf( $preserved_labels['taxonomies'][ $singular_or_plural ][ $key ], $label_plurality );
 		}
 	}
 
 	$rewrite = get_disp_boolean( $taxonomy['rewrite'] );
 	if ( false !== get_disp_boolean( $taxonomy['rewrite'] ) ) {
-		$rewrite = array();
-		$rewrite['slug'] = ( ! empty( $taxonomy['rewrite_slug'] ) ) ? $taxonomy['rewrite_slug'] : $taxonomy['name'];
+		$rewrite               = array();
+		$rewrite['slug']       = ( ! empty( $taxonomy['rewrite_slug'] ) ) ? $taxonomy['rewrite_slug'] : $taxonomy['name'];
 		$rewrite['with_front'] = true;
 		if ( isset( $taxonomy['rewrite_withfront'] ) ) {
 			$rewrite['with_front'] = ( 'false' === disp_boolean( $taxonomy['rewrite_withfront'] ) ) ? false : true;
@@ -718,10 +718,10 @@ function cptui_convert_settings() {
 
 		$new_post_types = array();
 		foreach ( $post_types as $type ) {
-			$new_post_types[ $type['name'] ]                = $type; // This one assigns the # indexes. Named arrays are our friend.
-			$new_post_types[ $type['name'] ]['supports']    = ( ! empty( $type[0] ) ) ? $type[0] : array(); // Especially for multidimensional arrays.
-			$new_post_types[ $type['name'] ]['taxonomies']  = ( ! empty( $type[1] ) ) ? $type[1] : array();
-			$new_post_types[ $type['name'] ]['labels']      = ( ! empty( $type[2] ) ) ? $type[2] : array();
+			$new_post_types[ $type['name'] ]               = $type; // This one assigns the # indexes. Named arrays are our friend.
+			$new_post_types[ $type['name'] ]['supports']   = ( ! empty( $type[0] ) ) ? $type[0] : array(); // Especially for multidimensional arrays.
+			$new_post_types[ $type['name'] ]['taxonomies'] = ( ! empty( $type[1] ) ) ? $type[1] : array();
+			$new_post_types[ $type['name'] ]['labels']     = ( ! empty( $type[2] ) ) ? $type[2] : array();
 			unset(
 				$new_post_types[ $type['name'] ][0],
 				$new_post_types[ $type['name'] ][1],
@@ -737,7 +737,7 @@ function cptui_convert_settings() {
 		$new_taxonomies = array();
 		foreach ( $taxonomies as $tax ) {
 			$new_taxonomies[ $tax['name'] ]                 = $tax;    // Yep, still our friend.
-			$new_taxonomies[ $tax['name'] ]['labels']       = $tax[0]; // Taxonomies are the only thing with
+			$new_taxonomies[ $tax['name'] ]['labels']       = $tax[0]; // Taxonomies are the only thing with.
 			$new_taxonomies[ $tax['name'] ]['object_types'] = $tax[1]; // "tax" in the name that I like.
 			unset(
 				$new_taxonomies[ $tax['name'] ][0],
