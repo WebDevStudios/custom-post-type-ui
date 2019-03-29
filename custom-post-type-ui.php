@@ -40,8 +40,8 @@ define( 'CPTUI_WP_VERSION', get_bloginfo( 'version' ) );
  * @internal
  */
 function cptui_load_ui_class() {
-	require_once( plugin_dir_path( __FILE__ ) . 'classes/class.cptui_admin_ui.php' );
-	require_once( plugin_dir_path( __FILE__ ) . 'classes/class.cptui_debug_info.php' );
+	require_once plugin_dir_path( __FILE__ ) . 'classes/class.cptui_admin_ui.php';
+	require_once plugin_dir_path( __FILE__ ) . 'classes/class.cptui_debug_info.php';
 }
 add_action( 'init', 'cptui_load_ui_class' );
 
@@ -189,16 +189,16 @@ add_action( 'plugins_loaded', 'cptui_loaded' );
  * @internal
  */
 function cptui_create_submenus() {
-	require_once( plugin_dir_path( __FILE__ ) . 'inc/about.php' );
-	require_once( plugin_dir_path( __FILE__ ) . 'inc/utility.php' );
-	require_once( plugin_dir_path( __FILE__ ) . 'inc/post-types.php' );
-	require_once( plugin_dir_path( __FILE__ ) . 'inc/taxonomies.php' );
-	require_once( plugin_dir_path( __FILE__ ) . 'inc/listings.php' );
-	require_once( plugin_dir_path( __FILE__ ) . 'inc/tools.php' );
-	require_once( plugin_dir_path( __FILE__ ) . 'inc/support.php' );
+	require_once plugin_dir_path( __FILE__ ) . 'inc/about.php';
+	require_once plugin_dir_path( __FILE__ ) . 'inc/utility.php';
+	require_once plugin_dir_path( __FILE__ ) . 'inc/post-types.php';
+	require_once plugin_dir_path( __FILE__ ) . 'inc/taxonomies.php';
+	require_once plugin_dir_path( __FILE__ ) . 'inc/listings.php';
+	require_once plugin_dir_path( __FILE__ ) . 'inc/tools.php';
+	require_once plugin_dir_path( __FILE__ ) . 'inc/support.php';
 
 	if ( defined( 'WP_CLI' ) && WP_CLI ) {
-		require_once( plugin_dir_path( __FILE__ ) . 'inc/wp-cli.php' );
+		require_once plugin_dir_path( __FILE__ ) . 'inc/wp-cli.php';
 	}
 }
 add_action( 'cptui_loaded', 'cptui_create_submenus' );
