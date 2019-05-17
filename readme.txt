@@ -3,8 +3,8 @@ Contributors: webdevstudios, pluginize, tw2113, vegasgeek, modemlooper, williams
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3084056
 Tags: custom post types, CPT, CMS, post, types, post type, taxonomy, tax, custom, content types, post types
 Requires at least: 4.6
-Tested up to: 4.9.8
-Stable tag: 1.6.1
+Tested up to: 5.2
+Stable tag: 1.6.2
 License: GPL-2.0+
 Requires PHP: 5.2
 
@@ -31,7 +31,11 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 
 == Changelog ==
 
-= 1.6.1 - TBD =
+= 1.6.2 - 2019-05-20 =
+* Added: "themes" is now a reserved post type slug due to conflicts with WordPress internally.
+* Fixed: Updated wording around "Supports" section of post type settings screen.
+
+= 1.6.1 - 2018-12-03 =
 * Fixed: Missed quote for "publicly_queryable" in taxonomy "get code" output.
 * Fixed: Adjusted handling of capitalization on the word "false" when being used to disable a taxonomy metabox via the "metabox callback" setting. The word "false" needs to be all lowercase to disable.
 * Updated: Added note about ability to pass "false" for the "metabox callback" setting to disable the metabox.
@@ -128,7 +132,11 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 
 == Upgrade Notice ==
 
-= 1.6.1 - TBD =
+= 1.6.2 - 2019-05-20 =
+* Added: "themes" is now a reserved post type slug due to conflicts with WordPress internally.
+* Fixed: Updated wording around "Supports" section of post type settings screen.
+
+= 1.6.1 - 2018-12-03 =
 * Fixed: Missed quote for "publicly_queryable" in taxonomy "get code" output.
 * Fixed: Adjusted handling of capitalization on the word "false" when being used to disable a taxonomy metabox via the "metabox callback" setting. The word "false" needs to be all lowercase to disable.
 * Updated: Added note about ability to pass "false" for the "metabox callback" setting to disable the metabox.
