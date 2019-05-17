@@ -1565,6 +1565,7 @@ function cptui_reserved_post_types() {
 		'action',
 		'order',
 		'theme',
+		'themes',
 		'fields',
 		'custom_css',
 		'customize_changeset',
