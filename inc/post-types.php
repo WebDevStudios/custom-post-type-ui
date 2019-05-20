@@ -910,7 +910,7 @@ function cptui_manage_post_types() {
 
 							echo $ui->get_tr_start() . $ui->get_th_start() . esc_html__( 'Supports', 'custom-post-type-ui' );
 
-							echo $ui->get_p( esc_html__( 'Add support for various available post editor features on the right. A checked value means the post type means the feature is supported.', 'custom-post-type-ui' ) );
+							echo $ui->get_p( esc_html__( 'Add support for various available post editor features on the right. A checked value means the post type feature is supported.', 'custom-post-type-ui' ) );
 
 							echo $ui->get_p( esc_html__( 'Use the "None" option to explicitly set "supports" to false.', 'custom-post-type-ui' ) );
 
@@ -1565,6 +1565,7 @@ function cptui_reserved_post_types() {
 		'action',
 		'order',
 		'theme',
+		'themes',
 		'fields',
 		'custom_css',
 		'customize_changeset',
