@@ -1,0 +1,33 @@
+includes:
+    - phar://phpstan.phar/conf/bleedingEdge.neon
+    - vendor/szepeviktor/phpstan-wordpress/extension.neon
+parameters:
+#    level: max
+    level: 4
+    inferPrivatePropertyTypeFromConstructor: true
+    paths:
+        - %currentWorkingDirectory%/custom-post-type-ui.php
+        - %currentWorkingDirectory%/classes/
+        - %currentWorkingDirectory%/inc/
+    excludes_analyse:
+        - %currentWorkingDirectory%/inc/wp-cli.php
+    autoload_files:
+        - %currentWorkingDirectory%/tests/static-analysis/bootstrap.php
+        - %currentWorkingDirectory%/custom-post-type-ui.php
+        - %currentWorkingDirectory%/inc/about.php
+        - %currentWorkingDirectory%/inc/listings.php
+        - %currentWorkingDirectory%/inc/post-types.php
+        - %currentWorkingDirectory%/inc/support.php
+        - %currentWorkingDirectory%/inc/taxonomies.php
+        - %currentWorkingDirectory%/inc/tools.php
+        - %currentWorkingDirectory%/inc/utility.php
+#        - %currentWorkingDirectory%/inc/wp-cli.php
+    autoload_directories:
+        - %currentWorkingDirectory%/classes/
+    ignoreErrors:
+        # Uses func_get_args()
+        - '#^Function apply_filters invoked with [34567] parameters, 2 required\.$#'
+        - '#^Function do_action invoked with [3456] parameters, 1-2 required\.$#'
+        - '#^Function add_query_arg invoked with [123] parameters?, 0 required\.$#'
+        # WP-CLI accepts a class as callable
+#        - '/^Parameter #2 \$callable of static method WP_CLI::add_command\(\) expects callable\(\): mixed, \S+ given\.$/'

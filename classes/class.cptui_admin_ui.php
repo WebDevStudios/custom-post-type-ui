@@ -216,7 +216,7 @@ class cptui_admin_ui {
 	 * @since 1.0.0
 	 *
 	 * @param string $help_text Text to use in the title attribute.
-	 * @return string <a> tag with filled out parts.
+	 * @return string An <a> tag with filled out parts.
 	 */
 	public function get_help( $help_text = '' ) {
 		return '<a href="#" class="cptui-help dashicons-before dashicons-editor-help" title="' . esc_attr( $help_text ) . '"></a>';

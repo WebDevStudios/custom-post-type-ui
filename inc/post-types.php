@@ -1280,7 +1280,7 @@ function cptui_get_current_post_type( $post_type_deleted = false ) {
  *
  * @internal
  *
- * @param array $data $_POST values. Optional.
+ * @param array|string $data $_POST values. Optional.
  * @return bool|string False on failure, string on success.
  */
 function cptui_delete_post_type( $data = array() ) {
