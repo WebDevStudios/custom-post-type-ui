@@ -11,8 +11,8 @@ sudo: false
 language: php
 
 php:
+    - 5.6
     - 7.0
-    - nightly
 
 env:
     - WP_VERSION=4.7 WP_MULTISITE=0
@@ -23,7 +23,14 @@ env:
 matrix:
   fast_finish: true
   allow_failures:
-      php: nightly
+      - php: nightly
+        env: WP_VERSION=4.7 WP_MULTISITE=0
+      - php: nightly
+        env: WP_VERSION=4.7 WP_MULTISITE=1
+      - php: nightly
+        env: WP_VERSION=4.9 WP_MULTISITE=0
+      - php: nightly
+        env: WP_VERSION=4.9 WP_MULTISITE=1
 
 before_install: composer self-update
 install: composer install
@@ -36,7 +43,7 @@ before_script:
     else
       composer global require "phpunit/phpunit=4.8.*"
     fi
-  - bash tests/bin/install-wp-tests.sh wordpress_test root '' localhost $WP_VERSION
+  - bash tests/bin/install-wp-tests.sh wordpress_test root "" localhost $WP_VERSION
   - phpunit --version
 
 branches:
