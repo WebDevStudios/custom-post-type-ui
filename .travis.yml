@@ -11,31 +11,29 @@ sudo: false
 language: php
 
 php:
-    - 5.6
-    - 7.0
+  - 5.6
+  - 7.0
 
 env:
-    - WP_VERSION=4.7 WP_MULTISITE=0
-    - WP_VERSION=4.7 WP_MULTISITE=1
-    - WP_VERSION=4.9 WP_MULTISITE=0
-    - WP_VERSION=4.9 WP_MULTISITE=1
+  - WP_VERSION=4.7 WP_MULTISITE=0
+  - WP_VERSION=4.7 WP_MULTISITE=1
+  - WP_VERSION=4.9 WP_MULTISITE=0
+  - WP_VERSION=4.9 WP_MULTISITE=1
 
 matrix:
   fast_finish: true
   allow_failures:
-      - php: nightly
-        env: WP_VERSION=4.7 WP_MULTISITE=0
-      - php: nightly
-        env: WP_VERSION=4.7 WP_MULTISITE=1
-      - php: nightly
-        env: WP_VERSION=4.9 WP_MULTISITE=0
-      - php: nightly
-        env: WP_VERSION=4.9 WP_MULTISITE=1
+    - php: nightly
+      env: WP_VERSION=4.7 WP_MULTISITE=0
+    - php: nightly
+      env: WP_VERSION=4.7 WP_MULTISITE=1
+    - php: nightly
+      env: WP_VERSION=4.9 WP_MULTISITE=0
+    - php: nightly
+      env: WP_VERSION=4.9 WP_MULTISITE=1
 
-before_install: composer self-update
-install: composer install
-
-before_script:
+install:
+  - composer install
   - export PATH="$HOME/.composer/vendor/bin:$PATH"
   - |
     if [[ ${TRAVIS_PHP_VERSION:0:2} == "7." ]]; then
@@ -44,6 +42,8 @@ before_script:
       composer global require "phpunit/phpunit=4.8.*"
     fi
   - bash tests/bin/install-wp-tests.sh wordpress_test root "" localhost $WP_VERSION
+
+script:
   - phpunit --version
 
 branches:
