@@ -44,7 +44,7 @@ class CPTUI_Debug_Info {
 		global $wpdb;
 
 		$theme_data = wp_get_theme();
-		$theme = $theme_data->Name . ' ' . $theme_data->Version;
+		$theme = $theme_data->name . ' ' . $theme_data->version;
 
 		ob_start();
 		?>
@@ -180,12 +180,12 @@ class CPTUI_Debug_Info {
 	 * @since 1.2.0
 	 * @access public
 	 *
-	 * @param mixed $v Value.
+	 * @param int|string $v Value.
 	 * @return int
 	 */
 	public function num_convt( $v ) {
 		$l   = substr( $v, - 1 );
-		$ret = substr( $v, 0, - 1 );
+		$ret = (int) substr( $v, 0, - 1 );
 
 		switch ( strtoupper( $l ) ) {
 			case 'P': // Fall-through.

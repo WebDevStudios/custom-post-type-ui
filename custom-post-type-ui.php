@@ -287,7 +287,7 @@ add_action( 'init', 'cptui_create_custom_post_types', 10 ); // Leave on standard
  * @internal
  *
  * @param array $post_type Post type array to register. Optional.
- * @return null Result of register_post_type.
+ * @return \WP_Error|\WP_Post_Type Result of register_post_type.
  */
 function cptui_register_single_post_type( $post_type = array() ) {
 
@@ -531,7 +531,6 @@ add_action( 'init', 'cptui_create_custom_taxonomies', 9 );  // Leave on standard
  * @internal
  *
  * @param array $taxonomy Taxonomy array to register. Optional.
- * @return null Result of register_taxonomy.
  */
 function cptui_register_single_taxonomy( $taxonomy = array() ) {
 
@@ -653,7 +652,7 @@ function cptui_register_single_taxonomy( $taxonomy = array() ) {
 	 */
 	$args = apply_filters( 'cptui_pre_register_taxonomy', $args, $taxonomy['name'], $taxonomy, $object_type );
 
-	return register_taxonomy( $taxonomy['name'], $object_type, $args );
+	register_taxonomy( $taxonomy['name'], $object_type, $args );
 }
 
 /**
@@ -709,7 +708,7 @@ function cptui_settings_tab_menu( $page = 'post_types' ) {
 function cptui_convert_settings() {
 
 	if ( wp_doing_ajax() ) {
-		return;
+		return false;
 	}
 
 	$retval = '';

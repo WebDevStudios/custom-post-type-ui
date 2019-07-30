@@ -73,7 +73,7 @@ function get_disp_boolean( $bool_text ) {
  * @since 0.1.0
  *
  * @param string $bool_text String boolean value.
- * @return string standardized boolean text.
+ * @return string Standardized boolean text.
  */
 function disp_boolean( $bool_text ) {
 	$bool_text = (string) $bool_text;
@@ -872,15 +872,16 @@ function cptui_post_type_supports( $post_type, $feature ) {
 
 	$object = cptui_get_cptui_post_type_object( $post_type );
 
-	if ( ! empty( $object ) ) {
-		if ( array_key_exists( $feature, $object ) && ! empty( $object[ $feature ] ) ) {
-			return true;
-		}
-
+	if ( '' === $object ) {
 		return false;
 	}
 
+	if ( array_key_exists( $feature, $object ) && ! empty( $object[ $feature ] ) ) {
+		return true;
+	}
+
 	return false;
+
 }
 
 /**

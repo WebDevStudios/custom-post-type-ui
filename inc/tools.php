@@ -250,7 +250,7 @@ function cptui_get_single_taxonomy_registery( $taxonomy = array() ) {
 			$rewrite_hierarchcial = ' \'hierarchical\' => ' . $hierarchical . ', ';
 		}
 
-		if ( ! empty( $taxonomy['rewrite_slug'] ) || false !== disp_boolean( $taxonomy['rewrite_withfront'] ) ) {
+		if ( ! empty( $taxonomy['rewrite_slug'] ) || 'false' !== disp_boolean( $taxonomy['rewrite_withfront'] ) ) {
 			$rewrite_start = 'array(';
 			$rewrite_end   = ')';
 
@@ -906,19 +906,21 @@ function cptui_render_debuginfo_section() {
  *
  * @param string $tab Current tab to display.
  */
-function cptui_render_tools( $tab ) {
-	if ( isset( $tab ) ) {
-		if ( 'post_types' == $tab || 'taxonomies' == $tab ) {
-			cptui_render_posttypes_taxonomies_section();
-		}
+function cptui_render_tools( $tab = '' ) {
+	if ( '' === $tab ) {
+		return;
+	}
 
-		if ( 'get_code' == $tab ) {
-			cptui_render_getcode_section();
-		}
+	if ( 'post_types' == $tab || 'taxonomies' == $tab ) {
+		cptui_render_posttypes_taxonomies_section();
+	}
 
-		if ( 'debuginfo' == $tab ) {
-			cptui_render_debuginfo_section();
-		}
+	if ( 'get_code' == $tab ) {
+		cptui_render_getcode_section();
+	}
+
+	if ( 'debuginfo' == $tab ) {
+		cptui_render_debuginfo_section();
 	}
 }
 add_action( 'cptui_tools_sections', 'cptui_render_tools' );
