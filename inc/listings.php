@@ -142,7 +142,8 @@ function cptui_listings() {
 									esc_attr( $post_type_link_url ),
 									sprintf(
 										/* translators: %s: Post type slug */
-										esc_html__( 'Edit %s', 'custom-post-type-ui' ),
+										esc_html__( 'Edit %s (%s)', 'custom-post-type-ui' ),
+										esc_html( $post_type_settings['label'] ),
 										esc_html( $post_type )
 									),
 									esc_attr( admin_url( 'admin.php?page=cptui_tools&action=get_code#' . $post_type ) ),
@@ -347,7 +348,8 @@ function cptui_listings() {
 										esc_attr( $taxonomy_link_url ),
 										sprintf(
 											/* translators: %s: Taxonomy slug */
-											esc_html__( 'Edit %s', 'custom-post-type-ui' ),
+											esc_html__( 'Edit %s (%s)', 'custom-post-type-ui' ),
+											esc_html( $taxonomy_settings['label'] ),
 											esc_html( $taxonomy )
 										),
 										esc_attr( admin_url( 'admin.php?page=cptui_tools&action=get_code#' . $taxonomy ) ),

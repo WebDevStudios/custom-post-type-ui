@@ -16,7 +16,7 @@ Plugin Name: Custom Post Type UI
 Plugin URI: https://github.com/WebDevStudios/custom-post-type-ui/
 Description: Admin panel for creating custom post types and custom taxonomies in WordPress
 Author: WebDevStudios
-Version: 1.6.2
+Version: 1.7.0
 Author URI: https://webdevstudios.com/
 Text Domain: custom-post-type-ui
 Domain Path: /languages
@@ -28,8 +28,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'CPT_VERSION', '1.6.2' ); // Left for legacy purposes.
-define( 'CPTUI_VERSION', '1.6.2' );
+define( 'CPT_VERSION', '1.7.0' ); // Left for legacy purposes.
+define( 'CPTUI_VERSION', '1.7.0' );
 define( 'CPTUI_WP_VERSION', get_bloginfo( 'version' ) );
 
 /**
@@ -40,8 +40,8 @@ define( 'CPTUI_WP_VERSION', get_bloginfo( 'version' ) );
  * @internal
  */
 function cptui_load_ui_class() {
-	require_once( plugin_dir_path( __FILE__ ) . 'classes/class.cptui_admin_ui.php' );
-	require_once( plugin_dir_path( __FILE__ ) . 'classes/class.cptui_debug_info.php' );
+	require_once plugin_dir_path( __FILE__ ) . 'classes/class.cptui_admin_ui.php';
+	require_once plugin_dir_path( __FILE__ ) . 'classes/class.cptui_debug_info.php';
 }
 add_action( 'init', 'cptui_load_ui_class' );
 
@@ -189,16 +189,16 @@ add_action( 'plugins_loaded', 'cptui_loaded' );
  * @internal
  */
 function cptui_create_submenus() {
-	require_once( plugin_dir_path( __FILE__ ) . 'inc/about.php' );
-	require_once( plugin_dir_path( __FILE__ ) . 'inc/utility.php' );
-	require_once( plugin_dir_path( __FILE__ ) . 'inc/post-types.php' );
-	require_once( plugin_dir_path( __FILE__ ) . 'inc/taxonomies.php' );
-	require_once( plugin_dir_path( __FILE__ ) . 'inc/listings.php' );
-	require_once( plugin_dir_path( __FILE__ ) . 'inc/tools.php' );
-	require_once( plugin_dir_path( __FILE__ ) . 'inc/support.php' );
+	require_once plugin_dir_path( __FILE__ ) . 'inc/about.php';
+	require_once plugin_dir_path( __FILE__ ) . 'inc/utility.php';
+	require_once plugin_dir_path( __FILE__ ) . 'inc/post-types.php';
+	require_once plugin_dir_path( __FILE__ ) . 'inc/taxonomies.php';
+	require_once plugin_dir_path( __FILE__ ) . 'inc/listings.php';
+	require_once plugin_dir_path( __FILE__ ) . 'inc/tools.php';
+	require_once plugin_dir_path( __FILE__ ) . 'inc/support.php';
 
 	if ( defined( 'WP_CLI' ) && WP_CLI ) {
-		require_once( plugin_dir_path( __FILE__ ) . 'inc/wp-cli.php' );
+		require_once plugin_dir_path( __FILE__ ) . 'inc/wp-cli.php';
 	}
 }
 add_action( 'cptui_loaded', 'cptui_create_submenus' );
@@ -377,7 +377,7 @@ function cptui_register_single_post_type( $post_type = array() ) {
 	$rewrite = get_disp_boolean( $post_type['rewrite'] );
 	if ( false !== $rewrite ) {
 		// Core converts to an empty array anyway, so safe to leave this instead of passing in boolean true.
-		$rewrite = array();
+		$rewrite         = array();
 		$rewrite['slug'] = ( ! empty( $post_type['rewrite_slug'] ) ) ? $post_type['rewrite_slug'] : $post_type['name'];
 
 		$rewrite['with_front'] = true; // Default value.
@@ -535,8 +535,8 @@ add_action( 'init', 'cptui_create_custom_taxonomies', 9 );  // Leave on standard
 function cptui_register_single_taxonomy( $taxonomy = array() ) {
 
 	$labels = array(
-		'name'               => $taxonomy['label'],
-		'singular_name'      => $taxonomy['singular_label'],
+		'name'          => $taxonomy['label'],
+		'singular_name' => $taxonomy['singular_label'],
 	);
 
 	$description = '';
@@ -544,7 +544,7 @@ function cptui_register_single_taxonomy( $taxonomy = array() ) {
 		$description = $taxonomy['description'];
 	}
 
-	$preserved = cptui_get_preserved_keys( 'taxonomies' );
+	$preserved        = cptui_get_preserved_keys( 'taxonomies' );
 	$preserved_labels = cptui_get_preserved_labels();
 	foreach ( $taxonomy['labels'] as $key => $label ) {
 
@@ -552,15 +552,15 @@ function cptui_register_single_taxonomy( $taxonomy = array() ) {
 			$labels[ $key ] = $label;
 		} elseif ( empty( $label ) && in_array( $key, $preserved ) ) {
 			$singular_or_plural = ( in_array( $key, array_keys( $preserved_labels['taxonomies']['plural'] ) ) ) ? 'plural' : 'singular';
-			$label_plurality = ( 'plural' === $singular_or_plural ) ? $taxonomy['label'] : $taxonomy['singular_label'];
-			$labels[ $key ] = sprintf( $preserved_labels['taxonomies'][ $singular_or_plural ][ $key ], $label_plurality );
+			$label_plurality    = ( 'plural' === $singular_or_plural ) ? $taxonomy['label'] : $taxonomy['singular_label'];
+			$labels[ $key ]     = sprintf( $preserved_labels['taxonomies'][ $singular_or_plural ][ $key ], $label_plurality );
 		}
 	}
 
 	$rewrite = get_disp_boolean( $taxonomy['rewrite'] );
 	if ( false !== get_disp_boolean( $taxonomy['rewrite'] ) ) {
-		$rewrite = array();
-		$rewrite['slug'] = ( ! empty( $taxonomy['rewrite_slug'] ) ) ? $taxonomy['rewrite_slug'] : $taxonomy['name'];
+		$rewrite               = array();
+		$rewrite['slug']       = ( ! empty( $taxonomy['rewrite_slug'] ) ) ? $taxonomy['rewrite_slug'] : $taxonomy['name'];
 		$rewrite['with_front'] = true;
 		if ( isset( $taxonomy['rewrite_withfront'] ) ) {
 			$rewrite['with_front'] = ( 'false' === disp_boolean( $taxonomy['rewrite_withfront'] ) ) ? false : true;
@@ -717,10 +717,10 @@ function cptui_convert_settings() {
 
 		$new_post_types = array();
 		foreach ( $post_types as $type ) {
-			$new_post_types[ $type['name'] ]                = $type; // This one assigns the # indexes. Named arrays are our friend.
-			$new_post_types[ $type['name'] ]['supports']    = ( ! empty( $type[0] ) ) ? $type[0] : array(); // Especially for multidimensional arrays.
-			$new_post_types[ $type['name'] ]['taxonomies']  = ( ! empty( $type[1] ) ) ? $type[1] : array();
-			$new_post_types[ $type['name'] ]['labels']      = ( ! empty( $type[2] ) ) ? $type[2] : array();
+			$new_post_types[ $type['name'] ]               = $type; // This one assigns the # indexes. Named arrays are our friend.
+			$new_post_types[ $type['name'] ]['supports']   = ( ! empty( $type[0] ) ) ? $type[0] : array(); // Especially for multidimensional arrays.
+			$new_post_types[ $type['name'] ]['taxonomies'] = ( ! empty( $type[1] ) ) ? $type[1] : array();
+			$new_post_types[ $type['name'] ]['labels']     = ( ! empty( $type[2] ) ) ? $type[2] : array();
 			unset(
 				$new_post_types[ $type['name'] ][0],
 				$new_post_types[ $type['name'] ][1],
@@ -736,7 +736,7 @@ function cptui_convert_settings() {
 		$new_taxonomies = array();
 		foreach ( $taxonomies as $tax ) {
 			$new_taxonomies[ $tax['name'] ]                 = $tax;    // Yep, still our friend.
-			$new_taxonomies[ $tax['name'] ]['labels']       = $tax[0]; // Taxonomies are the only thing with
+			$new_taxonomies[ $tax['name'] ]['labels']       = $tax[0]; // Taxonomies are the only thing with.
 			$new_taxonomies[ $tax['name'] ]['object_types'] = $tax[1]; // "tax" in the name that I like.
 			unset(
 				$new_taxonomies[ $tax['name'] ][0],

@@ -889,12 +889,17 @@ function cptui_manage_post_types() {
 							echo $ui->get_td_end() . $ui->get_tr_end();
 
 							echo $ui->get_tr_start() . $ui->get_th_start() . '<label for="menu_icon">' . __( 'Menu Icon', 'custom-post-type-ui' ) . '</label>' . $ui->get_th_end() . $ui->get_td_start();
+
 							echo $ui->get_text_input( array(
 								'namearray' => 'cpt_custom_post_type',
 								'name'      => 'menu_icon',
 								'textvalue' => ( isset( $current['menu_icon'] ) ) ? esc_attr( $current['menu_icon'] ) : '',
 								'aftertext' => esc_attr__( '(Full URL for icon or Dashicon class)', 'custom-post-type-ui' ),
-								'helptext'  => esc_html__( 'Image URL or Dashicon class name to use for icon. Custom image should be 20px by 20px.', 'custom-post-type-ui' ),
+								'helptext'  => sprintf(
+									esc_html__( 'Image URL or %sDashicon class name%s to use for icon. Custom image should be 20px by 20px.', 'custom-post-type-ui' ),
+									'<a href="https://developer.wordpress.org/resource/dashicons/" target="_blank">',
+									'</a>'
+								),
 								'wrap'      => false,
 							) );
 

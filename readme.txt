@@ -3,8 +3,8 @@ Contributors: webdevstudios, pluginize, tw2113, vegasgeek, modemlooper, williams
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3084056
 Tags: custom post types, CPT, CMS, post, types, post type, taxonomy, tax, custom, content types, post types
 Requires at least: 4.7
-Tested up to: 5.2
-Stable tag: 1.6.2
+Tested up to: 5.0.2
+Stable tag: 1.7.0
 License: GPL-2.0+
 Requires PHP: 5.2
 
@@ -31,9 +31,9 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 
 == Changelog ==
 
-= 1.6.2 - 2019-05-20 =
-* Added: "themes" is now a reserved post type slug due to conflicts with WordPress internally.
-* Fixed: Updated wording around "Supports" section of post type settings screen.
+= 1.7.0 - TBD =
+* Updated: Added post type templates documentation to help section.
+* Misc: Added code of conduct file to github repo. Props GaryJones
 
 = 1.6.1 - 2018-12-03 =
 * Fixed: Missed quote for "publicly_queryable" in taxonomy "get code" output.
@@ -132,9 +132,9 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 
 == Upgrade Notice ==
 
-= 1.6.2 - 2019-05-20 =
-* Added: "themes" is now a reserved post type slug due to conflicts with WordPress internally.
-* Fixed: Updated wording around "Supports" section of post type settings screen.
+= 1.7.0 - TBD =
+* Updated: Added post type templates documentation to help section.
+* Misc: Added code of conduct file to github repo. Props GaryJones
 
 = 1.6.1 - 2018-12-03 =
 * Fixed: Missed quote for "publicly_queryable" in taxonomy "get code" output.
