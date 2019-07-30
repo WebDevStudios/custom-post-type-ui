@@ -831,7 +831,7 @@ function cptui_set_not_new_install() {
  * @since 1.5.0
  *
  * @param string $post_type Post type to retrieve CPTUI object for.
- * @return string
+ * @return string|array
  */
 function cptui_get_cptui_post_type_object( $post_type = '' ) {
 	$post_types = get_option( 'cptui_post_types' );
@@ -876,7 +876,7 @@ function cptui_post_type_supports( $post_type, $feature ) {
 		return false;
 	}
 
-	if ( array_key_exists( $feature, $object ) && ! empty( $object[ $feature ] ) ) {
+	if ( is_array( $object ) && array_key_exists( $feature, $object ) && ! empty( $object[ $feature ] ) ) {
 		return true;
 	}
 
