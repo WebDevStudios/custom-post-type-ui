@@ -144,7 +144,7 @@ function cptui_listings() {
 									esc_attr( $post_type_link_url ),
 									sprintf(
 										/* translators: %s: Post type slug */
-										esc_html__( 'Edit %s (%s)', 'custom-post-type-ui' ),
+										esc_html__( 'Edit %1$s (%2$s)', 'custom-post-type-ui' ),
 										esc_html( $post_type_settings['label'] ),
 										esc_html( $post_type )
 									),
@@ -350,7 +350,7 @@ function cptui_listings() {
 										esc_attr( $taxonomy_link_url ),
 										sprintf(
 											/* translators: %s: Taxonomy slug */
-											esc_html__( 'Edit %s (%s)', 'custom-post-type-ui' ),
+											esc_html__( 'Edit %1$s (%2$s)', 'custom-post-type-ui' ),
 											esc_html( $taxonomy_settings['label'] ),
 											esc_html( $taxonomy )
 										),
