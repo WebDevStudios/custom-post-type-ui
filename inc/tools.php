@@ -504,7 +504,7 @@ function cptui_get_single_post_type_registery( $post_type = array() ) {
 <?php
 	foreach ( $post_type['labels'] as $key => $label ) {
 		if ( ! empty( $label ) ) {
-			if ( 'parent' === $key ) {
+			if ( 'parent' === $key && ! array_key_exists( 'parent_item_colon', $post_type['labels'] ) ) {
 				// Fix for incorrect label key. See #439.
 				echo "\t\t" . '"' . 'parent_item_colon' . '" => __( "' . $label . '", "' . $textdomain . '" ),' . "\n";
 			} else {
