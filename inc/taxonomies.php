@@ -315,11 +315,11 @@ function cptui_manage_taxonomies() {
 							$post_types = apply_filters( 'cptui_get_post_types_for_taxonomies', get_post_types( $args, $output ), $args, $output );
 
 							foreach ( $post_types as $post_type ) {
-								$core_label = ( in_array( $post_type->name, array(
+								$core_label = in_array( $post_type->name, array(
 									'post',
 									'page',
 									'attachment',
-								) ) ) ? esc_html__( '(WP Core)', 'custom-post-type-ui' ) : '';
+								) ) ? esc_html__( '(WP Core)', 'custom-post-type-ui' ) : '';
 								echo $ui->get_check_input( array(
 									'checkvalue' => $post_type->name,
 									'checked'    => ( ! empty( $current['object_types'] ) && is_array( $current['object_types'] ) && in_array( $post_type->name, $current['object_types'] ) ) ? 'true' : 'false',
@@ -691,7 +691,7 @@ function cptui_manage_taxonomies() {
 								),
 							);
 							$selected           = ( isset( $current ) && ! empty( $current['show_in_nav_menus'] ) ) ? disp_boolean( $current['show_in_nav_menus'] ) : '';
-							$select['selected'] = ( ! empty( $selected ) ) ? $current['show_in_nav_menus'] : '';
+							$select['selected'] = ! empty( $selected ) ? $current['show_in_nav_menus'] : '';
 							echo $ui->get_select_input( array(
 								'namearray'  => 'cpt_custom_tax',
 								'name'       => 'show_in_nav_menus',
