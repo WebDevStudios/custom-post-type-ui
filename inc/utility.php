@@ -440,8 +440,7 @@ function cptui_get_ads() {
 	 *
 	 * @param array $value Array of ads to iterate over. Default empty.
 	 */
-	$ads = (array) apply_filters( 'cptui_ads', array() );
-	return $ads;
+	return (array) apply_filters( 'cptui_ads', array() );
 }
 
 /**
@@ -457,25 +456,25 @@ function cptui_get_ads() {
 function cptui_default_ads( $ads = array() ) {
 	$ads[] = array(
 		'url'   => 'https://pluginize.com/plugins/custom-post-type-ui-extended/?utm_source=cptui-sidebar&utm_medium=text&utm_campaign=cptui',
-		'image' => plugin_dir_url( dirname( __FILE__ ) ) . 'images/wds_ads/cptui-extended.png',
+		'image' => plugin_dir_url( __DIR__ ) . 'images/wds_ads/cptui-extended.png',
 		'text'  => 'Custom Post Type UI Extended product ad',
 	);
 
 	$ads[] = array(
 		'url'   => 'https://pluginize.com/plugins/instago/?utm_source=cptui-sidebar&utm_medium=text&utm_campaign=instago',
-		'image' => plugin_dir_url( dirname( __FILE__ ) ) . 'images/wds_ads/instago.png',
+		'image' => plugin_dir_url( __DIR__ ) . 'images/wds_ads/instago.png',
 		'text'  => 'InstaGo product ad',
 	);
 
 	$ads[] = array(
 		'url'   => 'https://pluginize.com/plugins/buddypages/?utm_source=cptui-sidebar&utm_medium=text&utm_campaign=buddypages',
-		'image' => plugin_dir_url( dirname( __FILE__ ) ) . 'images/wds_ads/buddypages.png',
+		'image' => plugin_dir_url( __DIR__ ) . 'images/wds_ads/buddypages.png',
 		'text'  => 'BuddyPages product ad',
 	);
 
 	$ads[] = array(
 		'url'   => 'https://maintainn.com/?utm_source=Pluginize-v2&utm_medium=Plugin-Sidebar&utm_campaign=CPTUI',
-		'image' => plugin_dir_url( dirname( __FILE__ ) ) . 'images/wds_ads/maintainn.png',
+		'image' => plugin_dir_url( __DIR__ ) . 'images/wds_ads/maintainn.png',
 		'text'  => 'Maintainn product ad',
 	);
 
