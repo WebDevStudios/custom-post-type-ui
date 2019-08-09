@@ -1013,7 +1013,7 @@ function cptui_get_preserved_labels() {
 				'separate_items_with_commas' => __( 'Separate %s with commas', 'custom-post-type-ui' ),
 				'add_or_remove_items'        => __( 'Add or remove %s', 'custom-post-type-ui' ),
 				'choose_from_most_used'      => __( 'Choose from the most used %s', 'custom-post-type-ui' ),
-			)
+			),
 		),
 	);
 }
