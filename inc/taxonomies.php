@@ -92,7 +92,7 @@ function cptui_taxonomy_tabs( $tabs = array(), $current_page = '' ) {
 				'text'          => esc_html__( 'Edit Taxonomies', 'custom-post-type-ui' ),
 				'classes'       => $classes,
 				'url'           => esc_url( add_query_arg( array( 'action' => 'edit' ), cptui_admin_url( 'admin.php?page=cptui_manage_' . $current_page ) ) ),
-				'aria-selected' => ( ! empty( $action ) ) ? 'true' : 'false',
+				'aria-selected' => ! empty( $action ) ? 'true' : 'false',
 			);
 
 			$tabs['tabs']['view'] = array(
@@ -233,7 +233,7 @@ function cptui_manage_taxonomies() {
 							echo $ui->get_text_input( array(
 								'namearray'   => 'cpt_custom_tax',
 								'name'        => 'name',
-								'textvalue'   => ( isset( $current['name'] ) ) ? esc_attr( $current['name'] ) : '',
+								'textvalue'   => isset( $current['name'] ) ? esc_attr( $current['name'] ) : '',
 								'maxlength'   => '32',
 								'helptext'    => esc_attr__( 'The taxonomy name/slug. Used for various queries for taxonomy content.', 'custom-post-type-ui' ),
 								'required'    => true,
@@ -267,7 +267,7 @@ function cptui_manage_taxonomies() {
 							echo $ui->get_text_input( array(
 								'namearray' => 'cpt_custom_tax',
 								'name'      => 'label',
-								'textvalue' => ( isset( $current['label'] ) ) ? esc_attr( $current['label'] ) : '',
+								'textvalue' => isset( $current['label'] ) ? esc_attr( $current['label'] ) : '',
 								'aftertext' => esc_html__( '(e.g. Actors)', 'custom-post-type-ui' ),
 								'labeltext' => esc_html__( 'Plural Label', 'custom-post-type-ui' ),
 								'helptext'  => esc_attr__( 'Used for the taxonomy admin menu item.', 'custom-post-type-ui' ),
@@ -277,7 +277,7 @@ function cptui_manage_taxonomies() {
 							echo $ui->get_text_input( array(
 								'namearray' => 'cpt_custom_tax',
 								'name'      => 'singular_label',
-								'textvalue' => ( isset( $current['singular_label'] ) ) ? esc_attr( $current['singular_label'] ) : '',
+								'textvalue' => isset( $current['singular_label'] ) ? esc_attr( $current['singular_label'] ) : '',
 								'aftertext' => esc_html__( '(e.g. Actor)', 'custom-post-type-ui' ),
 								'labeltext' => esc_html__( 'Singular Label', 'custom-post-type-ui' ),
 								'helptext'  => esc_attr__( 'Used when a singular label is needed.', 'custom-post-type-ui' ),
@@ -406,7 +406,7 @@ function cptui_manage_taxonomies() {
 								'name'      => 'description',
 								'rows'      => '4',
 								'cols'      => '40',
-								'textvalue' => ( isset( $current['description'] ) ) ? esc_textarea( $current['description'] ) : '',
+								'textvalue' => isset( $current['description'] ) ? esc_textarea( $current['description'] ) : '',
 								'labeltext' => esc_html__( 'Description', 'custom-post-type-ui' ),
 								'helptext'  => esc_attr__( 'Describe what your taxonomy is used for.', 'custom-post-type-ui' ),
 							) );
@@ -414,7 +414,7 @@ function cptui_manage_taxonomies() {
 							echo $ui->get_text_input( array(
 								'namearray' => 'cpt_tax_labels',
 								'name'      => 'menu_name',
-								'textvalue' => ( isset( $current['labels']['menu_name'] ) ) ? esc_attr( $current['labels']['menu_name'] ) : '',
+								'textvalue' => isset( $current['labels']['menu_name'] ) ? esc_attr( $current['labels']['menu_name'] ) : '',
 								'aftertext' => esc_attr__( '(e.g. Actors)', 'custom-post-type-ui' ),
 								'labeltext' => esc_html__( 'Menu Name', 'custom-post-type-ui' ),
 								'helptext'  => esc_html__( 'Custom admin menu name for your taxonomy.', 'custom-post-type-ui' ),
@@ -423,7 +423,7 @@ function cptui_manage_taxonomies() {
 							echo $ui->get_text_input( array(
 								'namearray' => 'cpt_tax_labels',
 								'name'      => 'all_items',
-								'textvalue' => ( isset( $current['labels']['all_items'] ) ) ? esc_attr( $current['labels']['all_items'] ) : '',
+								'textvalue' => isset( $current['labels']['all_items'] ) ? esc_attr( $current['labels']['all_items'] ) : '',
 								'aftertext' => esc_attr__( '(e.g. All Actors)', 'custom-post-type-ui' ),
 								'labeltext' => esc_html__( 'All Items', 'custom-post-type-ui' ),
 								'helptext'  => esc_html__( 'Used as tab text when showing all terms for hierarchical taxonomy while editing post.', 'custom-post-type-ui' ),
@@ -432,7 +432,7 @@ function cptui_manage_taxonomies() {
 							echo $ui->get_text_input( array(
 								'namearray' => 'cpt_tax_labels',
 								'name'      => 'edit_item',
-								'textvalue' => ( isset( $current['labels']['edit_item'] ) ) ? esc_attr( $current['labels']['edit_item'] ) : '',
+								'textvalue' => isset( $current['labels']['edit_item'] ) ? esc_attr( $current['labels']['edit_item'] ) : '',
 								'aftertext' => esc_attr__( '(e.g. Edit Actor)', 'custom-post-type-ui' ),
 								'labeltext' => esc_html__( 'Edit Item', 'custom-post-type-ui' ),
 								'helptext'  => esc_html__( 'Used at the top of the term editor screen for an existing taxonomy term.', 'custom-post-type-ui' ),
@@ -441,7 +441,7 @@ function cptui_manage_taxonomies() {
 							echo $ui->get_text_input( array(
 								'namearray' => 'cpt_tax_labels',
 								'name'      => 'view_item',
-								'textvalue' => ( isset( $current['labels']['view_item'] ) ) ? esc_attr( $current['labels']['view_item'] ) : '',
+								'textvalue' => isset( $current['labels']['view_item'] ) ? esc_attr( $current['labels']['view_item'] ) : '',
 								'aftertext' => esc_attr__( '(e.g. View Actor)', 'custom-post-type-ui' ),
 								'labeltext' => esc_html__( 'View Item', 'custom-post-type-ui' ),
 								'helptext'  => esc_html__( 'Used in the admin bar when viewing editor screen for an existing taxonomy term.', 'custom-post-type-ui' ),
@@ -450,7 +450,7 @@ function cptui_manage_taxonomies() {
 							echo $ui->get_text_input( array(
 								'namearray' => 'cpt_tax_labels',
 								'name'      => 'update_item',
-								'textvalue' => ( isset( $current['labels']['update_item'] ) ) ? esc_attr( $current['labels']['update_item'] ) : '',
+								'textvalue' => isset( $current['labels']['update_item'] ) ? esc_attr( $current['labels']['update_item'] ) : '',
 								'aftertext' => esc_attr__( '(e.g. Update Actor Name)', 'custom-post-type-ui' ),
 								'labeltext' => esc_html__( 'Update Item Name', 'custom-post-type-ui' ),
 								'helptext'  => esc_html__( 'Custom taxonomy label. Used in the admin menu for displaying taxonomies.', 'custom-post-type-ui' ),
@@ -459,7 +459,7 @@ function cptui_manage_taxonomies() {
 							echo $ui->get_text_input( array(
 								'namearray' => 'cpt_tax_labels',
 								'name'      => 'add_new_item',
-								'textvalue' => ( isset( $current['labels']['add_new_item'] ) ) ? esc_attr( $current['labels']['add_new_item'] ) : '',
+								'textvalue' => isset( $current['labels']['add_new_item'] ) ? esc_attr( $current['labels']['add_new_item'] ) : '',
 								'aftertext' => esc_attr__( '(e.g. Add New Actor)', 'custom-post-type-ui' ),
 								'labeltext' => esc_html__( 'Add New Item', 'custom-post-type-ui' ),
 								'helptext'  => esc_html__( 'Used at the top of the term editor screen and button text for a new taxonomy term.', 'custom-post-type-ui' ),
@@ -468,7 +468,7 @@ function cptui_manage_taxonomies() {
 							echo $ui->get_text_input( array(
 								'namearray' => 'cpt_tax_labels',
 								'name'      => 'new_item_name',
-								'textvalue' => ( isset( $current['labels']['new_item_name'] ) ) ? esc_attr( $current['labels']['new_item_name'] ) : '',
+								'textvalue' => isset( $current['labels']['new_item_name'] ) ? esc_attr( $current['labels']['new_item_name'] ) : '',
 								'aftertext' => esc_attr__( '(e.g. New Actor Name)', 'custom-post-type-ui' ),
 								'labeltext' => esc_html__( 'New Item Name', 'custom-post-type-ui' ),
 								'helptext'  => esc_html__( 'Custom taxonomy label. Used in the admin menu for displaying taxonomies.', 'custom-post-type-ui' ),
@@ -477,7 +477,7 @@ function cptui_manage_taxonomies() {
 							echo $ui->get_text_input( array(
 								'namearray' => 'cpt_tax_labels',
 								'name'      => 'parent_item',
-								'textvalue' => ( isset( $current['labels']['parent_item'] ) ) ? esc_attr( $current['labels']['parent_item'] ) : '',
+								'textvalue' => isset( $current['labels']['parent_item'] ) ? esc_attr( $current['labels']['parent_item'] ) : '',
 								'aftertext' => esc_attr__( '(e.g. Parent Actor)', 'custom-post-type-ui' ),
 								'labeltext' => esc_html__( 'Parent Item', 'custom-post-type-ui' ),
 								'helptext'  => esc_html__( 'Custom taxonomy label. Used in the admin menu for displaying taxonomies.', 'custom-post-type-ui' ),
@@ -486,7 +486,7 @@ function cptui_manage_taxonomies() {
 							echo $ui->get_text_input( array(
 								'namearray' => 'cpt_tax_labels',
 								'name'      => 'parent_item_colon',
-								'textvalue' => ( isset( $current['labels']['parent_item_colon'] ) ) ? esc_attr( $current['labels']['parent_item_colon'] ) : '',
+								'textvalue' => isset( $current['labels']['parent_item_colon'] ) ? esc_attr( $current['labels']['parent_item_colon'] ) : '',
 								'aftertext' => esc_attr__( '(e.g. Parent Actor:)', 'custom-post-type-ui' ),
 								'labeltext' => esc_html__( 'Parent Item Colon', 'custom-post-type-ui' ),
 								'helptext'  => esc_html__( 'Custom taxonomy label. Used in the admin menu for displaying taxonomies.', 'custom-post-type-ui' ),
@@ -495,7 +495,7 @@ function cptui_manage_taxonomies() {
 							echo $ui->get_text_input( array(
 								'namearray' => 'cpt_tax_labels',
 								'name'      => 'search_items',
-								'textvalue' => ( isset( $current['labels']['search_items'] ) ) ? esc_attr( $current['labels']['search_items'] ) : '',
+								'textvalue' => isset( $current['labels']['search_items'] ) ? esc_attr( $current['labels']['search_items'] ) : '',
 								'aftertext' => esc_attr__( '(e.g. Search Actors)', 'custom-post-type-ui' ),
 								'labeltext' => esc_html__( 'Search Items', 'custom-post-type-ui' ),
 								'helptext'  => esc_html__( 'Custom taxonomy label. Used in the admin menu for displaying taxonomies.', 'custom-post-type-ui' ),
@@ -504,7 +504,7 @@ function cptui_manage_taxonomies() {
 							echo $ui->get_text_input( array(
 								'namearray' => 'cpt_tax_labels',
 								'name'      => 'popular_items',
-								'textvalue' => ( isset( $current['labels']['popular_items'] ) ) ? esc_attr( $current['labels']['popular_items'] ) : null,
+								'textvalue' => isset( $current['labels']['popular_items'] ) ? esc_attr( $current['labels']['popular_items'] ) : null,
 								'aftertext' => esc_attr__( '(e.g. Popular Actors)', 'custom-post-type-ui' ),
 								'labeltext' => esc_html__( 'Popular Items', 'custom-post-type-ui' ),
 								'helptext'  => esc_html__( 'Custom taxonomy label. Used in the admin menu for displaying taxonomies.', 'custom-post-type-ui' ),
@@ -513,7 +513,7 @@ function cptui_manage_taxonomies() {
 							echo $ui->get_text_input( array(
 								'namearray' => 'cpt_tax_labels',
 								'name'      => 'separate_items_with_commas',
-								'textvalue' => ( isset( $current['labels']['separate_items_with_commas'] ) ) ? esc_attr( $current['labels']['separate_items_with_commas'] ) : null,
+								'textvalue' => isset( $current['labels']['separate_items_with_commas'] ) ? esc_attr( $current['labels']['separate_items_with_commas'] ) : null,
 								'aftertext' => esc_attr__( '(e.g. Separate Actors with commas)', 'custom-post-type-ui' ),
 								'labeltext' => esc_html__( 'Separate Items with Commas', 'custom-post-type-ui' ),
 								'helptext'  => esc_html__( 'Custom taxonomy label. Used in the admin menu for displaying taxonomies.', 'custom-post-type-ui' ),
@@ -522,7 +522,7 @@ function cptui_manage_taxonomies() {
 							echo $ui->get_text_input( array(
 								'namearray' => 'cpt_tax_labels',
 								'name'      => 'add_or_remove_items',
-								'textvalue' => ( isset( $current['labels']['add_or_remove_items'] ) ) ? esc_attr( $current['labels']['add_or_remove_items'] ) : null,
+								'textvalue' => isset( $current['labels']['add_or_remove_items'] ) ? esc_attr( $current['labels']['add_or_remove_items'] ) : null,
 								'aftertext' => esc_attr__( '(e.g. Add or remove Actors)', 'custom-post-type-ui' ),
 								'labeltext' => esc_html__( 'Add or Remove Items', 'custom-post-type-ui' ),
 								'helptext'  => esc_html__( 'Custom taxonomy label. Used in the admin menu for displaying taxonomies.', 'custom-post-type-ui' ),
@@ -531,7 +531,7 @@ function cptui_manage_taxonomies() {
 							echo $ui->get_text_input( array(
 								'namearray' => 'cpt_tax_labels',
 								'name'      => 'choose_from_most_used',
-								'textvalue' => ( isset( $current['labels']['choose_from_most_used'] ) ) ? esc_attr( $current['labels']['choose_from_most_used'] ) : null,
+								'textvalue' => isset( $current['labels']['choose_from_most_used'] ) ? esc_attr( $current['labels']['choose_from_most_used'] ) : null,
 								'aftertext' => esc_attr__( '(e.g. Choose from the most used Actors)', 'custom-post-type-ui' ),
 								'labeltext' => esc_html__( 'Choose From Most Used', 'custom-post-type-ui' ),
 								'helptext'  => esc_html__( 'Custom taxonomy label. Used in the admin menu for displaying taxonomies.', 'custom-post-type-ui' ),
@@ -540,7 +540,7 @@ function cptui_manage_taxonomies() {
 							echo $ui->get_text_input( array(
 								'namearray' => 'cpt_tax_labels',
 								'name'      => 'not_found',
-								'textvalue' => ( isset( $current['labels']['not_found'] ) ) ? esc_attr( $current['labels']['not_found'] ) : null,
+								'textvalue' => isset( $current['labels']['not_found'] ) ? esc_attr( $current['labels']['not_found'] ) : null,
 								'aftertext' => esc_attr__( '(e.g. No Actors found)', 'custom-post-type-ui' ),
 								'labeltext' => esc_html__( 'Not found', 'custom-post-type-ui' ),
 								'helptext'  => esc_html__( 'Custom taxonomy label. Used in the admin menu for displaying taxonomies.', 'custom-post-type-ui' ),
@@ -549,7 +549,7 @@ function cptui_manage_taxonomies() {
 							echo $ui->get_text_input( array(
 								'namearray' => 'cpt_tax_labels',
 								'name'      => 'no_terms',
-								'textvalue' => ( isset( $current['labels']['no_terms'] ) ) ? esc_attr( $current['labels']['no_terms'] ) : null,
+								'textvalue' => isset( $current['labels']['no_terms'] ) ? esc_attr( $current['labels']['no_terms'] ) : null,
 								'aftertext' => esc_html__( '(e.g. No actors)', 'custom-post-type-ui' ),
 								'labeltext' => esc_html__( 'No terms', 'custom-post-type-ui' ),
 								'helptext'  => esc_attr__( 'Used when indicating that there are no terms in the given taxonomy associated with an object.', 'custom-post-type-ui' ),
@@ -558,7 +558,7 @@ function cptui_manage_taxonomies() {
 							echo $ui->get_text_input( array(
 								'namearray' => 'cpt_tax_labels',
 								'name'      => 'items_list_navigation',
-								'textvalue' => ( isset( $current['labels']['items_list_navigation'] ) ) ? esc_attr( $current['labels']['items_list_navigation'] ) : null,
+								'textvalue' => isset( $current['labels']['items_list_navigation'] ) ? esc_attr( $current['labels']['items_list_navigation'] ) : null,
 								'aftertext' => esc_html__( '(e.g. Actors list navigation)', 'custom-post-type-ui' ),
 								'labeltext' => esc_html__( 'Items List Navigation', 'custom-post-type-ui' ),
 								'helptext'  => esc_attr__( 'Screen reader text for the pagination heading on the term listing screen.', 'custom-post-type-ui' ),
@@ -567,7 +567,7 @@ function cptui_manage_taxonomies() {
 							echo $ui->get_text_input( array(
 								'namearray' => 'cpt_tax_labels',
 								'name'      => 'items_list',
-								'textvalue' => ( isset( $current['labels']['items_list'] ) ) ? esc_attr( $current['labels']['items_list'] ) : null,
+								'textvalue' => isset( $current['labels']['items_list'] ) ? esc_attr( $current['labels']['items_list'] ) : null,
 								'aftertext' => esc_html__( '(e.g. Actors list)', 'custom-post-type-ui' ),
 								'labeltext' => esc_html__( 'Items List', 'custom-post-type-ui' ),
 								'helptext'  => esc_attr__( 'Screen reader text for the items list heading on the term listing screen.', 'custom-post-type-ui' ),
@@ -596,8 +596,8 @@ function cptui_manage_taxonomies() {
 									array( 'attr' => '1', 'text' => esc_attr__( 'True', 'custom-post-type-ui' ), 'default' => 'true' ),
 								),
 							);
-							$selected           = ( isset( $current ) ) ? disp_boolean( $current['public'] ) : '';
-							$select['selected'] = ( ! empty( $selected ) ) ? $current['public'] : '';
+							$selected           = isset( $current ) ? disp_boolean( $current['public'] ) : '';
+							$select['selected'] = ! empty( $selected ) ? $current['public'] : '';
 							echo $ui->get_select_input( array(
 								'namearray'  => 'cpt_custom_tax',
 								'name'       => 'public',
@@ -612,8 +612,8 @@ function cptui_manage_taxonomies() {
 									array( 'attr' => '1', 'text' => esc_attr__( 'True', 'custom-post-type-ui' ), 'default' => 'true' ),
 								),
 							);
-							$selected           = ( isset( $current ) ) ? disp_boolean( $current['publicly_queryable'] ) : '';
-							$select['selected'] = ( ! empty( $selected ) ) ? $current['publicly_queryable'] : '';
+							$selected           = isset( $current ) ? disp_boolean( $current['publicly_queryable'] ) : '';
+							$select['selected'] = ! empty( $selected ) ? $current['publicly_queryable'] : '';
 							echo $ui->get_select_input( array(
 								'namearray'  => 'cpt_custom_tax',
 								'name'       => 'publicly_queryable',
@@ -632,8 +632,8 @@ function cptui_manage_taxonomies() {
 									array( 'attr' => '1', 'text' => esc_attr__( 'True', 'custom-post-type-ui' ) ),
 								),
 							);
-							$selected           = ( isset( $current ) ) ? disp_boolean( $current['hierarchical'] ) : '';
-							$select['selected'] = ( ! empty( $selected ) ) ? $current['hierarchical'] : '';
+							$selected           = isset( $current ) ? disp_boolean( $current['hierarchical'] ) : '';
+							$select['selected'] = ! empty( $selected ) ? $current['hierarchical'] : '';
 							echo $ui->get_select_input( array(
 								'namearray'  => 'cpt_custom_tax',
 								'name'       => 'hierarchical',
@@ -652,8 +652,8 @@ function cptui_manage_taxonomies() {
 									),
 								),
 							);
-							$selected           = ( isset( $current ) ) ? disp_boolean( $current['show_ui'] ) : '';
-							$select['selected'] = ( ! empty( $selected ) ) ? $current['show_ui'] : '';
+							$selected           = isset( $current ) ? disp_boolean( $current['show_ui'] ) : '';
+							$select['selected'] = ! empty( $selected ) ? $current['show_ui'] : '';
 							echo $ui->get_select_input( array(
 								'namearray'  => 'cpt_custom_tax',
 								'name'       => 'show_ui',
@@ -672,8 +672,8 @@ function cptui_manage_taxonomies() {
 									),
 								),
 							);
-							$selected           = ( isset( $current ) ) ? disp_boolean( $current['show_in_menu'] ) : '';
-							$select['selected'] = ( ! empty( $selected ) ) ? $current['show_in_menu'] : '';
+							$selected           = isset( $current ) ? disp_boolean( $current['show_in_menu'] ) : '';
+							$select['selected'] = ! empty( $selected ) ? $current['show_in_menu'] : '';
 							echo $ui->get_select_input( array(
 								'namearray'  => 'cpt_custom_tax',
 								'name'       => 'show_in_menu',
@@ -712,8 +712,8 @@ function cptui_manage_taxonomies() {
 									),
 								),
 							);
-							$selected           = ( isset( $current ) ) ? disp_boolean( $current['query_var'] ) : '';
-							$select['selected'] = ( ! empty( $selected ) ) ? $current['query_var'] : '';
+							$selected           = isset( $current ) ? disp_boolean( $current['query_var'] ) : '';
+							$select['selected'] = ! empty( $selected ) ? $current['query_var'] : '';
 							echo $ui->get_select_input( array(
 								'namearray'  => 'cpt_custom_tax',
 								'name'       => 'query_var',
@@ -725,7 +725,7 @@ function cptui_manage_taxonomies() {
 							echo $ui->get_text_input( array(
 								'namearray' => 'cpt_custom_tax',
 								'name'      => 'query_var_slug',
-								'textvalue' => ( isset( $current['query_var_slug'] ) ) ? esc_attr( $current['query_var_slug'] ) : '',
+								'textvalue' => isset( $current['query_var_slug'] ) ? esc_attr( $current['query_var_slug'] ) : '',
 								'aftertext' => esc_attr__( '(default: taxonomy slug). Query var needs to be true to use.', 'custom-post-type-ui' ),
 								'labeltext' => esc_html__( 'Custom Query Var String', 'custom-post-type-ui' ),
 								'helptext'  => esc_html__( 'Sets a custom query_var slug for this taxonomy.', 'custom-post-type-ui' ),
@@ -741,8 +741,8 @@ function cptui_manage_taxonomies() {
 									),
 								),
 							);
-							$selected           = ( isset( $current ) ) ? disp_boolean( $current['rewrite'] ) : '';
-							$select['selected'] = ( ! empty( $selected ) ) ? $current['rewrite'] : '';
+							$selected           = isset( $current ) ? disp_boolean( $current['rewrite'] ) : '';
+							$select['selected'] = ! empty( $selected ) ? $current['rewrite'] : '';
 							echo $ui->get_select_input( array(
 								'namearray'  => 'cpt_custom_tax',
 								'name'       => 'rewrite',
@@ -754,7 +754,7 @@ function cptui_manage_taxonomies() {
 							echo $ui->get_text_input( array(
 								'namearray' => 'cpt_custom_tax',
 								'name'      => 'rewrite_slug',
-								'textvalue' => ( isset( $current['rewrite_slug'] ) ) ? esc_attr( $current['rewrite_slug'] ) : '',
+								'textvalue' => isset( $current['rewrite_slug'] ) ? esc_attr( $current['rewrite_slug'] ) : '',
 								'aftertext' => esc_attr__( '(default: taxonomy name)', 'custom-post-type-ui' ),
 								'labeltext' => esc_html__( 'Custom Rewrite Slug', 'custom-post-type-ui' ),
 								'helptext'  => esc_html__( 'Custom taxonomy rewrite slug.', 'custom-post-type-ui' ),
@@ -770,8 +770,8 @@ function cptui_manage_taxonomies() {
 									),
 								),
 							);
-							$selected           = ( isset( $current ) ) ? disp_boolean( $current['rewrite_withfront'] ) : '';
-							$select['selected'] = ( ! empty( $selected ) ) ? $current['rewrite_withfront'] : '';
+							$selected           = isset( $current ) ? disp_boolean( $current['rewrite_withfront'] ) : '';
+							$select['selected'] = ! empty( $selected ) ? $current['rewrite_withfront'] : '';
 							echo $ui->get_select_input( array(
 								'namearray'  => 'cpt_custom_tax',
 								'name'       => 'rewrite_withfront',
@@ -790,8 +790,8 @@ function cptui_manage_taxonomies() {
 									array( 'attr' => '1', 'text' => esc_attr__( 'True', 'custom-post-type-ui' ) ),
 								),
 							);
-							$selected           = ( isset( $current ) ) ? disp_boolean( $current['rewrite_hierarchical'] ) : '';
-							$select['selected'] = ( ! empty( $selected ) ) ? $current['rewrite_hierarchical'] : '';
+							$selected           = isset( $current ) ? disp_boolean( $current['rewrite_hierarchical'] ) : '';
+							$select['selected'] = ! empty( $selected ) ? $current['rewrite_hierarchical'] : '';
 							echo $ui->get_select_input( array(
 								'namearray'  => 'cpt_custom_tax',
 								'name'       => 'rewrite_hierarchical',
@@ -810,8 +810,8 @@ function cptui_manage_taxonomies() {
 									array( 'attr' => '1', 'text' => esc_attr__( 'True', 'custom-post-type-ui' ) ),
 								),
 							);
-							$selected           = ( isset( $current ) ) ? disp_boolean( $current['show_admin_column'] ) : '';
-							$select['selected'] = ( ! empty( $selected ) ) ? $current['show_admin_column'] : '';
+							$selected           = isset( $current ) ? disp_boolean( $current['show_admin_column'] ) : '';
+							$select['selected'] = ! empty( $selected ) ? $current['show_admin_column'] : '';
 							echo $ui->get_select_input( array(
 								'namearray'  => 'cpt_custom_tax',
 								'name'       => 'show_admin_column',
@@ -833,8 +833,8 @@ function cptui_manage_taxonomies() {
 									),
 								),
 							);
-							$selected           = ( isset( $current ) ) ? disp_boolean( $current['show_in_rest'] ) : '';
-							$select['selected'] = ( ! empty( $selected ) ) ? $current['show_in_rest'] : '';
+							$selected           = isset( $current ) ? disp_boolean( $current['show_in_rest'] ) : '';
+							$select['selected'] = ! empty( $selected ) ? $current['show_in_rest'] : '';
 							echo $ui->get_select_input( array(
 								'namearray'  => 'cpt_custom_tax',
 								'name'       => 'show_in_rest',
@@ -848,7 +848,7 @@ function cptui_manage_taxonomies() {
 								'name'      => 'rest_base',
 								'labeltext' => esc_html__( 'REST API base slug', 'custom-post-type-ui' ),
 								'helptext'  => esc_attr__( 'Slug to use in REST API URLs.', 'custom-post-type-ui' ),
-								'textvalue' => ( isset( $current['rest_base'] ) ) ? esc_attr( $current['rest_base'] ) : '',
+								'textvalue' => isset( $current['rest_base'] ) ? esc_attr( $current['rest_base'] ) : '',
 							) );
 
 							echo $ui->get_text_input( array(
@@ -856,7 +856,7 @@ function cptui_manage_taxonomies() {
 								'name'      => 'rest_controller_class',
 								'labeltext' => esc_html__( 'REST API controller class', 'custom-post-type-ui' ),
 								'aftertext' => esc_attr__( '(default: WP_REST_Terms_Controller) Custom controller to use instead of WP_REST_Terms_Controller.', 'custom-post-type-ui' ),
-								'textvalue' => ( isset( $current['rest_controller_class'] ) ) ? esc_attr( $current['rest_controller_class'] ) : '',
+								'textvalue' => isset( $current['rest_controller_class'] ) ? esc_attr( $current['rest_controller_class'] ) : '',
 							) );
 
 							$select             = array(
@@ -870,7 +870,7 @@ function cptui_manage_taxonomies() {
 								),
 							);
 							$selected           = ( isset( $current ) && ! empty( $current['show_in_quick_edit'] ) ) ? disp_boolean( $current['show_in_quick_edit'] ) : '';
-							$select['selected'] = ( ! empty( $selected ) ) ? $current['show_in_quick_edit'] : '';
+							$select['selected'] = ! empty( $selected ) ? $current['show_in_quick_edit'] : '';
 							echo $ui->get_select_input( array(
 								'namearray'  => 'cpt_custom_tax',
 								'name'       => 'show_in_quick_edit',
@@ -882,7 +882,7 @@ function cptui_manage_taxonomies() {
 							echo $ui->get_text_input( array(
 								'namearray' => 'cpt_custom_tax',
 								'name'      => 'meta_box_cb',
-								'textvalue' => ( isset( $current['meta_box_cb'] ) ) ? esc_attr( $current['meta_box_cb'] ) : '',
+								'textvalue' => isset( $current['meta_box_cb'] ) ? esc_attr( $current['meta_box_cb'] ) : '',
 								'labeltext' => esc_html__( 'Metabox callback', 'custom-post-type-ui' ),
 								'helptext'  => esc_html__( 'Sets a callback function name for the meta box display. Hierarchical default: post_categories_meta_box, non-hierarchical default: post_tags_meta_box. To remove the metabox completely, use "false".', 'custom-post-type-ui' ),
 							) );
@@ -971,7 +971,7 @@ function cptui_taxonomies_dropdown( $taxonomies = array() ) {
 		$select['options'] = array();
 
 		foreach ( $taxonomies as $tax ) {
-			$text = ( ! empty( $tax['label'] ) ) ? $tax['label'] : $tax['name'];
+			$text = ! empty( $tax['label'] ) ? $tax['label'] : $tax['name'];
 			$select['options'][] = array( 'attr' => $tax['name'], 'text' => $text );
 		}
 
@@ -1221,7 +1221,7 @@ function cptui_update_taxonomy( $data = array() ) {
 	$rewrite_slug          = trim( $data['cpt_custom_tax']['rewrite_slug'] );
 	$rest_base             = trim( $data['cpt_custom_tax']['rest_base'] );
 	$rest_controller_class = trim( $data['cpt_custom_tax']['rest_controller_class'] );
-	$show_quickpanel_bulk  = ( ! empty( $data['cpt_custom_tax']['show_in_quick_edit'] ) ) ? disp_boolean( $data['cpt_custom_tax']['show_in_quick_edit'] ) : '';
+	$show_quickpanel_bulk  = ! empty( $data['cpt_custom_tax']['show_in_quick_edit'] ) ? disp_boolean( $data['cpt_custom_tax']['show_in_quick_edit'] ) : '';
 
 	$meta_box_cb = trim( $data['cpt_custom_tax']['meta_box_cb'] );
 	// We may or may not need to force a boolean false keyword
