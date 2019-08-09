@@ -266,6 +266,13 @@ function cptui_create_custom_post_types() {
 
 	if ( is_array( $cpts ) ) {
 		foreach ( $cpts as $post_type ) {
+			if ( (bool) apply_filters( "cptui_disable_{$post_type['name']}_cpt", false, $post_type ) ) {
+				continue;
+			}
+			if ( (bool) apply_filters( 'cptui_disable_cpt', false, $post_type ) ) {
+				continue;
+			}
+
 			cptui_register_single_post_type( $post_type );
 		}
 	}
@@ -510,6 +517,13 @@ function cptui_create_custom_taxonomies() {
 
 	if ( is_array( $taxes ) ) {
 		foreach ( $taxes as $tax ) {
+			if ( (bool) apply_filters( "cptui_disable_{$tax['name']}_tax", false, $tax ) ) {
+				continue;
+			}
+			if ( (bool) apply_filters( 'cptui_disable_tax', false, $tax ) ) {
+				continue;
+			}
+
 			cptui_register_single_taxonomy( $tax );
 		}
 	}
