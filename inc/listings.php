@@ -135,7 +135,7 @@ function cptui_listings() {
 						<tr class="<?php echo esc_attr( $rowclass ); ?>">
 							<?php
 							$edit_path          = 'admin.php?page=cptui_manage_post_types&action=edit&cptui_post_type=' . $post_type;
-							$post_type_link_url = ( is_network_admin() ) ? network_admin_url( $edit_path ) : admin_url( $edit_path ); ?>
+							$post_type_link_url = is_network_admin() ? network_admin_url( $edit_path ) : admin_url( $edit_path ); ?>
 							<td>
 								<?php
 								printf(
@@ -164,7 +164,7 @@ function cptui_listings() {
 									if ( in_array( $value, array( '1', '0' ), true ) ) {
 										echo esc_html( disp_boolean( $value ) );
 									} else {
-										echo ( ! empty( $value ) ) ? esc_html( $value ) : '""';
+										echo ! empty( $value ) ? esc_html( $value ) : '""';
 									}
 									echo '<br/>';
 								} ?>
@@ -342,7 +342,7 @@ function cptui_listings() {
 							<tr class="<?php echo esc_attr( $rowclass ); ?>">
 								<?php
 								$edit_path          = 'admin.php?page=cptui_manage_taxonomies&action=edit&cptui_taxonomy=' . $taxonomy;
-								$taxonomy_link_url  = ( is_network_admin() ) ? network_admin_url( $edit_path ) : admin_url( $edit_path ); ?>
+								$taxonomy_link_url  = is_network_admin() ? network_admin_url( $edit_path ) : admin_url( $edit_path ); ?>
 								<td>
 									<?php printf(
 										'<a href="%s">%s</a><br/>
@@ -365,7 +365,7 @@ function cptui_listings() {
 										if ( in_array( $value, array( '1', '0' ), true ) ) {
 											echo esc_html( disp_boolean( $value ) );
 										} else {
-											echo ( ! empty( $value ) ) ? esc_html( $value ) : '""';
+											echo ! empty( $value ) ? esc_html( $value ) : '""';
 										}
 										echo '<br/>';
 									} ?>
