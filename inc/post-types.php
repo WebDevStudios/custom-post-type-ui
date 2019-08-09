@@ -164,10 +164,8 @@ function cptui_manage_post_types() {
 
 		$selected_post_type = cptui_get_current_post_type( $post_type_deleted );
 
-		if ( $selected_post_type ) {
-			if ( array_key_exists( $selected_post_type, $post_types ) ) {
-				$current = $post_types[ $selected_post_type ];
-			}
+		if ( $selected_post_type && array_key_exists( $selected_post_type, $post_types ) ) {
+			$current = $post_types[ $selected_post_type ];
 		}
 	}
 
@@ -1188,7 +1186,7 @@ function cptui_manage_post_types() {
 
 			<p>
 			<?php
-				if ( ! empty( $_GET ) && ! empty( $_GET['action'] ) && 'edit' == $_GET['action'] ) {
+				if ( ! empty( $_GET ) && ! empty( $_GET['action'] ) && 'edit' === $_GET['action'] ) {
 					/**
 					 * Filters the text value to use on the button when editing.
 					 *
@@ -1462,7 +1460,7 @@ function cptui_update_post_type( $data = array() ) {
 		add_filter( 'cptui_custom_error_message', 'cptui_slug_matches_post_type' );
 		return 'error';
 	}
-	if ( 'new' == $data['cpt_type_status'] ) {
+	if ( 'new' === $data['cpt_type_status'] ) {
 		$slug_as_page = cptui_check_page_slugs( $data['cpt_custom_post_type']['name'] );
 		if ( true === $slug_as_page ) {
 			add_filter( 'cptui_custom_error_message', 'cptui_slug_matches_page' );
@@ -1589,10 +1587,8 @@ function cptui_update_post_type( $data = array() ) {
 	// Used to help flush rewrite rules on init.
 	set_transient( 'cptui_flush_rewrite_rules', 'true', 5 * 60 );
 
-	if ( isset( $success ) ) {
-		if ( 'new' == $data['cpt_type_status'] ) {
-			return 'add_success';
-		}
+	if ( isset( $success ) && 'new' === $data['cpt_type_status'] ) {
+		return 'add_success';
 	}
 	return 'update_success';
 }
