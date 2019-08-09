@@ -159,16 +159,14 @@ function cptui_manage_taxonomies() {
 	 */
 	do_action( 'cptui_below_taxonomy_tab_menu' );
 
-	if ( 'edit' == $tab ) {
+	if ( 'edit' === $tab ) {
 
 		$taxonomies = cptui_get_taxonomy_data();
 
 		$selected_taxonomy = cptui_get_current_taxonomy( $taxonomy_deleted );
 
-		if ( $selected_taxonomy ) {
-			if ( array_key_exists( $selected_taxonomy, $taxonomies ) ) {
-				$current = $taxonomies[ $selected_taxonomy ];
-			}
+		if ( $selected_taxonomy && array_key_exists( $selected_taxonomy, $taxonomies ) ) {
+			$current = $taxonomies[ $selected_taxonomy ];
 		}
 	}
 
@@ -223,7 +221,7 @@ function cptui_manage_taxonomies() {
 							echo $ui->get_tr_start() . $ui->get_th_start();
 							echo $ui->get_label( 'name', esc_html__( 'Taxonomy Slug', 'custom-post-type-ui' ) ) . $ui->get_required_span();
 
-							if ( 'edit' == $tab ) {
+							if ( 'edit' === $tab ) {
 								echo '<p id="slugchanged" class="hidemessage">' . esc_html__( 'Slug has changed', 'custom-post-type-ui' ) . '<span class="dashicons dashicons-warning"></span></p>';
 							}
 							echo '<p id="slugexists" class="hidemessage">' . esc_html__( 'Slug already exists', 'custom-post-type-ui' ) . '<span class="dashicons dashicons-warning"></span></p>';
@@ -245,7 +243,7 @@ function cptui_manage_taxonomies() {
 							esc_html_e( 'Slugs should only contain alphanumeric, latin characters. Underscores should be used in place of spaces. Set "Custom Rewrite Slug" field to make slug use dashes for URLs.', 'custom-post-type-ui' );
 							echo '</p>';
 
-							if ( 'edit' == $tab ) {
+							if ( 'edit' === $tab ) {
 								echo '<p>';
 								esc_html_e( 'DO NOT EDIT the taxonomy slug unless also planning to migrate terms. Changing the slug registers a new taxonomy entry.', 'custom-post-type-ui' );
 								echo '</p>';
@@ -904,7 +902,7 @@ function cptui_manage_taxonomies() {
 
 			<p class="submit">
 				<?php wp_nonce_field( 'cptui_addedit_taxonomy_nonce_action', 'cptui_addedit_taxonomy_nonce_field' );
-				if ( ! empty( $_GET ) && ! empty( $_GET['action'] ) && 'edit' == $_GET['action'] ) { ?>
+				if ( ! empty( $_GET ) && ! empty( $_GET['action'] ) && 'edit' === $_GET['action'] ) { ?>
 					<?php
 
 					/**
@@ -1293,10 +1291,8 @@ function cptui_update_taxonomy( $data = array() ) {
 	// Used to help flush rewrite rules on init.
 	set_transient( 'cptui_flush_rewrite_rules', 'true', 5 * 60 );
 
-	if ( isset( $success ) ) {
-		if ( 'new' == $data['cpt_tax_status'] ) {
-			return 'add_success';
-		}
+	if ( isset( $success ) && 'new' === $data['cpt_tax_status'] ) {
+		return 'add_success';
 	}
 
 	return 'update_success';
@@ -1526,10 +1522,8 @@ function cptui_process_taxonomy() {
 		}
 
 		// @TODO Utilize anonymous function to admin_notice `$result` if it happens to error.
-		if ( $result ) {
-			if ( is_callable( "cptui_{$result}_admin_notice" ) ) {
-				add_action( 'admin_notices', "cptui_{$result}_admin_notice" );
-			}
+		if ( $result && is_callable( "cptui_{$result}_admin_notice" ) ) {
+			add_action( 'admin_notices', "cptui_{$result}_admin_notice" );
 		}
 
 		if ( empty( cptui_get_taxonomy_slugs() ) ) {
