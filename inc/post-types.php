@@ -44,7 +44,7 @@ function cptui_post_type_enqueue_scripts() {
 
 	wp_localize_script( 'cptui', 'cptui_type_data',
 		array(
-			'confirm' => esc_html__( 'Are you sure you want to delete this? Deleting will NOT remove created content.', 'custom-post-type-ui' ),
+			'confirm'             => esc_html__( 'Are you sure you want to delete this? Deleting will NOT remove created content.', 'custom-post-type-ui' ),
 			'existing_post_types' => $registered_post_types,
 		)
 	);
@@ -69,7 +69,7 @@ function cptui_post_type_tabs( $tabs = array(), $current_page = '' ) {
 		$classes    = array( 'nav-tab' );
 
 		$tabs['page_title'] = get_admin_page_title();
-		$tabs['tabs'] = array();
+		$tabs['tabs']       = array();
 		// Start out with our basic "Add new" tab.
 		$tabs['tabs']['add'] = array(
 			'text'          => __( 'Add New Post Type', 'custom-post-type-ui' ),
@@ -80,7 +80,7 @@ function cptui_post_type_tabs( $tabs = array(), $current_page = '' ) {
 
 		$action = cptui_get_current_action();
 		if ( empty( $action ) ) {
-			$tabs['tabs']['add']['classes'][] = 'nav-tab-active';
+			$tabs['tabs']['add']['classes'][]     = 'nav-tab-active';
 			$tabs['tabs']['add']['aria-selected'] = 'true';
 		}
 
@@ -229,14 +229,14 @@ function cptui_manage_post_types() {
 						echo $ui->get_th_end() . $ui->get_td_start();
 
 						echo $ui->get_text_input( array(
-							'namearray'     => 'cpt_custom_post_type',
-							'name'          => 'name',
-							'textvalue'     => isset( $current['name'] ) ? esc_attr( $current['name'] ) : '',
-							'maxlength'     => '20',
-							'helptext'      => esc_html__( 'The post type name/slug. Used for various queries for post type content.', 'custom-post-type-ui' ),
-							'required'      => true,
-							'placeholder'   => false,
-							'wrap'          => false,
+							'namearray'   => 'cpt_custom_post_type',
+							'name'        => 'name',
+							'textvalue'   => isset( $current['name'] ) ? esc_attr( $current['name'] ) : '',
+							'maxlength'   => '20',
+							'helptext'    => esc_html__( 'The post type name/slug. Used for various queries for post type content.', 'custom-post-type-ui' ),
+							'required'    => true,
+							'placeholder' => false,
+							'wrap'        => false,
 						) );
 						echo '<p class="cptui-slug-details">';
 							esc_html_e( 'Slugs should only contain alphanumeric, latin characters. Underscores should be used in place of spaces. Set "Custom Rewrite Slug" field to make slug use dashes for URLs.', 'custom-post-type-ui' );
@@ -965,7 +965,7 @@ function cptui_manage_post_types() {
 							echo $ui->get_th_end() . $ui->get_td_start() . $ui->get_fieldset_start();
 
 							$title_checked = ( ! empty( $current['supports'] ) && is_array( $current['supports'] ) && in_array( 'title', $current['supports'] ) ) ? 'true' : 'false';
-							if ( 'new' == $tab ) {
+							if ( 'new' === $tab ) {
 								$title_checked = 'true';
 							}
 							echo $ui->get_check_input( array(
@@ -980,7 +980,7 @@ function cptui_manage_post_types() {
 							) );
 
 							$editor_checked = ( ! empty( $current['supports'] ) && is_array( $current['supports'] ) && in_array( 'editor', $current['supports'] ) ) ? 'true' : 'false';
-							if ( 'new' == $tab ) {
+							if ( 'new' === $tab ) {
 								$editor_checked = 'true';
 							}
 							echo $ui->get_check_input( array(
@@ -995,7 +995,7 @@ function cptui_manage_post_types() {
 							) );
 
 							$thumb_checked = ( ! empty( $current['supports'] ) && is_array( $current['supports'] ) && in_array( 'thumbnail', $current['supports'] ) ) ? 'true' : 'false';
-							if ( 'new' == $tab ) {
+							if ( 'new' === $tab ) {
 								$thumb_checked = 'true';
 							}
 							echo $ui->get_check_input( array(
@@ -1813,7 +1813,7 @@ add_action( 'init', 'cptui_do_convert_post_type_posts' );
  */
 function cptui_updated_post_type_slug_exists( $slug_exists, $post_type_slug = '', $post_types = array() ) {
 	if (
-		( ! empty( $_POST['cpt_type_status'] ) && 'edit' == $_POST['cpt_type_status'] ) &&
+		( ! empty( $_POST['cpt_type_status'] ) && 'edit' === $_POST['cpt_type_status'] ) &&
 		! in_array( $post_type_slug, cptui_reserved_post_types() ) &&
 		( ! empty( $_POST['cpt_original'] ) && $post_type_slug === $_POST['cpt_original'] )
 	)
