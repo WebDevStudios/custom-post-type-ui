@@ -675,15 +675,15 @@ function cptui_settings_tab_menu( $page = 'post_types' ) {
 	 */
 	$tabs = (array) apply_filters( 'cptui_get_tabs', array(), $page );
 
-	if ( ! empty( $tabs['page_title'] ) ) {
-		printf(
-			'<h1>%s</h1><h2 class="nav-tab-wrapper">',
-			$tabs['page_title']
-		);
+	if ( empty( $tabs['page_title'] ) ) {
+		return '';
 	}
 
+	$tmpl = '<h1>%s</h1><nav class="nav-tab-wrapper wp-clearfix" aria-label="Secondary menu">%s</nav>';
+
+	$tab_output = '';
 	foreach ( $tabs['tabs'] as $tab ) {
-		printf(
+		$tab_output .= sprintf(
 			'<a class="%s" href="%s" aria-selected="%s">%s</a>',
 			implode( ' ', $tab['classes'] ),
 			$tab['url'],
@@ -692,7 +692,11 @@ function cptui_settings_tab_menu( $page = 'post_types' ) {
 		);
 	}
 
-	echo '</h2>';
+	printf(
+		$tmpl,
+		$tabs['page_title'],
+		$tab_output
+	);
 }
 
 /**
