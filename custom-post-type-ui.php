@@ -266,9 +266,29 @@ function cptui_create_custom_post_types() {
 
 	if ( is_array( $cpts ) ) {
 		foreach ( $cpts as $post_type ) {
+
+			/**
+			 * Filters whether or not to skip registration of the current iterated post type.
+			 *
+			 * Dynamic part of the filter name is the chosen post type slug.
+			 *
+			 * @since 1.7.0
+			 *
+			 * @param bool  $value     Whether or not to skip the post type.
+			 * @param array $post_type Current post type being registered.
+			 */
 			if ( (bool) apply_filters( "cptui_disable_{$post_type['name']}_cpt", false, $post_type ) ) {
 				continue;
 			}
+
+			/**
+			 * Filters whether or not to skip registration of the current iterated post type.
+			 *
+			 * @since 1.7.0
+			 *
+			 * @param bool  $value     Whether or not to skip the post type.
+			 * @param array $post_type Current post type being registered.
+			 */
 			if ( (bool) apply_filters( 'cptui_disable_cpt', false, $post_type ) ) {
 				continue;
 			}
@@ -517,9 +537,28 @@ function cptui_create_custom_taxonomies() {
 
 	if ( is_array( $taxes ) ) {
 		foreach ( $taxes as $tax ) {
+			/**
+			 * Filters whether or not to skip registration of the current iterated taxonomy.
+			 *
+			 * Dynamic part of the filter name is the chosen taxonomy slug.
+			 *
+			 * @since 1.7.0
+			 *
+			 * @param bool  $value Whether or not to skip the taxonomy.
+			 * @param array $tax   Current taxonomy being registered.
+			 */
 			if ( (bool) apply_filters( "cptui_disable_{$tax['name']}_tax", false, $tax ) ) {
 				continue;
 			}
+
+			/**
+			 * Filters whether or not to skip registration of the current iterated taxonomy.
+			 *
+			 * @since 1.7.0
+			 *
+			 * @param bool  $value Whether or not to skip the taxonomy.
+			 * @param array $tax   Current taxonomy being registered.
+			 */
 			if ( (bool) apply_filters( 'cptui_disable_tax', false, $tax ) ) {
 				continue;
 			}
