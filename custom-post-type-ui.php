@@ -664,6 +664,7 @@ function cptui_register_single_taxonomy( $taxonomy = array() ) {
  * @since 1.0.0
  *
  * @param string $page Whether it's the CPT or Taxonomy page. Optional. Default "post_types".
+ * @return string
  */
 function cptui_settings_tab_menu( $page = 'post_types' ) {
 
@@ -785,31 +786,31 @@ function cptui_admin_notices( $action = '', $object_type = '', $success = true, 
 
 	$messagewrapend = '</p></div>';
 
-	if ( 'add' == $action ) {
+	if ( 'add' === $action ) {
 		if ( $success ) {
 			$message .= sprintf( __( '%s has been successfully added', 'custom-post-type-ui' ), $object_type );
 		} else {
 			$message .= sprintf( __( '%s has failed to be added', 'custom-post-type-ui' ), $object_type );
 		}
-	} elseif ( 'update' == $action ) {
+	} elseif ( 'update' === $action ) {
 		if ( $success ) {
 			$message .= sprintf( __( '%s has been successfully updated', 'custom-post-type-ui' ), $object_type );
 		} else {
 			$message .= sprintf( __( '%s has failed to be updated', 'custom-post-type-ui' ), $object_type );
 		}
-	} elseif ( 'delete' == $action ) {
+	} elseif ( 'delete' === $action ) {
 		if ( $success ) {
 			$message .= sprintf( __( '%s has been successfully deleted', 'custom-post-type-ui' ), $object_type );
 		} else {
 			$message .= sprintf( __( '%s has failed to be deleted', 'custom-post-type-ui' ), $object_type );
 		}
-	} elseif ( 'import' == $action ) {
+	} elseif ( 'import' === $action ) {
 		if ( $success ) {
 			$message .= sprintf( __( '%s has been successfully imported', 'custom-post-type-ui' ), $object_type );
 		} else {
 			$message .= sprintf( __( '%s has failed to be imported', 'custom-post-type-ui' ), $object_type );
 		}
-	} elseif ( 'error' == $action ) {
+	} elseif ( 'error' === $action ) {
 		if ( ! empty( $custom ) ) {
 			$message = $custom;
 		}
