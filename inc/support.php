@@ -9,6 +9,8 @@
  * @license GPL-2.0+
  */
 
+// phpcs:disable WebDevStudios.All.RequireAuthor
+
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
