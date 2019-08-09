@@ -366,7 +366,7 @@ function cptui_register_single_post_type( $post_type = array() ) {
 		}
 	}
 
-	$has_archive = ( isset( $post_type['has_archive'] ) ) ? get_disp_boolean( $post_type['has_archive'] ) : false;
+	$has_archive = isset( $post_type['has_archive'] ) ? get_disp_boolean( $post_type['has_archive'] ) : false;
 	if ( $has_archive && ! empty( $post_type['has_archive_string'] ) ) {
 		$has_archive = $post_type['has_archive_string'];
 	}
@@ -380,15 +380,15 @@ function cptui_register_single_post_type( $post_type = array() ) {
 	if ( false !== $rewrite ) {
 		// Core converts to an empty array anyway, so safe to leave this instead of passing in boolean true.
 		$rewrite         = array();
-		$rewrite['slug'] = ( ! empty( $post_type['rewrite_slug'] ) ) ? $post_type['rewrite_slug'] : $post_type['name'];
+		$rewrite['slug'] = ! empty( $post_type['rewrite_slug'] ) ? $post_type['rewrite_slug'] : $post_type['name'];
 
 		$rewrite['with_front'] = true; // Default value.
 		if ( isset( $post_type['rewrite_withfront'] ) ) {
-			$rewrite['with_front'] = ( 'false' === disp_boolean( $post_type['rewrite_withfront'] ) ) ? false : true;
+			$rewrite['with_front'] = 'false' === disp_boolean( $post_type['rewrite_withfront'] ) ? false : true;
 		}
 	}
 
-	$menu_icon = ( ! empty( $post_type['menu_icon'] ) ) ? $post_type['menu_icon'] : null;
+	$menu_icon = ! empty( $post_type['menu_icon'] ) ? $post_type['menu_icon'] : null;
 
 	if ( in_array( $post_type['query_var'], array( 'true', 'false', '0', '1' ) ) ) {
 		$post_type['query_var'] = get_disp_boolean( $post_type['query_var'] );
@@ -563,7 +563,7 @@ function cptui_register_single_taxonomy( $taxonomy = array() ) {
 	$rewrite = get_disp_boolean( $taxonomy['rewrite'] );
 	if ( false !== get_disp_boolean( $taxonomy['rewrite'] ) ) {
 		$rewrite               = array();
-		$rewrite['slug']       = ( ! empty( $taxonomy['rewrite_slug'] ) ) ? $taxonomy['rewrite_slug'] : $taxonomy['name'];
+		$rewrite['slug']       = ! empty( $taxonomy['rewrite_slug'] ) ? $taxonomy['rewrite_slug'] : $taxonomy['name'];
 		$rewrite['with_front'] = true;
 		if ( isset( $taxonomy['rewrite_withfront'] ) ) {
 			$rewrite['with_front'] = ( 'false' === disp_boolean( $taxonomy['rewrite_withfront'] ) ) ? false : true;
@@ -639,7 +639,7 @@ function cptui_register_single_taxonomy( $taxonomy = array() ) {
 		'meta_box_cb'           => $meta_box_cb,
 	);
 
-	$object_type = ( ! empty( $taxonomy['object_types'] ) ) ? $taxonomy['object_types'] : '';
+	$object_type = ! empty( $taxonomy['object_types'] ) ? $taxonomy['object_types'] : '';
 
 	/**
 	 * Filters the arguments used for a taxonomy right before registering.
@@ -725,9 +725,9 @@ function cptui_convert_settings() {
 		$new_post_types = array();
 		foreach ( $post_types as $type ) {
 			$new_post_types[ $type['name'] ]               = $type; // This one assigns the # indexes. Named arrays are our friend.
-			$new_post_types[ $type['name'] ]['supports']   = ( ! empty( $type[0] ) ) ? $type[0] : array(); // Especially for multidimensional arrays.
-			$new_post_types[ $type['name'] ]['taxonomies'] = ( ! empty( $type[1] ) ) ? $type[1] : array();
-			$new_post_types[ $type['name'] ]['labels']     = ( ! empty( $type[2] ) ) ? $type[2] : array();
+			$new_post_types[ $type['name'] ]['supports']   = ! empty( $type[0] ) ? $type[0] : array(); // Especially for multidimensional arrays.
+			$new_post_types[ $type['name'] ]['taxonomies'] = ! empty( $type[1] ) ? $type[1] : array();
+			$new_post_types[ $type['name'] ]['labels']     = ! empty( $type[2] ) ? $type[2] : array();
 			unset(
 				$new_post_types[ $type['name'] ][0],
 				$new_post_types[ $type['name'] ][1],
@@ -776,7 +776,7 @@ add_action( 'admin_init', 'cptui_convert_settings' );
 function cptui_admin_notices( $action = '', $object_type = '', $success = true, $custom = '' ) {
 
 	$class = array();
-	$class[] = ( $success ) ? 'updated' : 'error';
+	$class[] = $success ? 'updated' : 'error';
 	$class[] = 'notice is-dismissible';
 	$object_type = esc_attr( $object_type );
 
@@ -870,7 +870,7 @@ function cptui_get_preserved_keys( $type = '' ) {
 			'choose_from_most_used',
 		),
 	);
-	return ( ! empty( $type ) ) ? $preserved_labels[ $type ] : array();
+	return ! empty( $type ) ? $preserved_labels[ $type ] : array();
 }
 
 /**
