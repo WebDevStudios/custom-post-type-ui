@@ -32,8 +32,13 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 == Changelog ==
 
 = 1.7.0 - TBD =
+* Added: New post type labels introduced in WordPress 5.0.0.
+* Added: Link to Dashicon documentation for when editing menu icon. Props @juliekuehl
 * Updated: Added post type templates documentation to help section.
-* Misc: Added code of conduct file to github repo. Props GaryJones
+* Updated: Redirect user to the "add" tab if deleting the last post type or taxonomy created.
+* Updated: Touched up tab markup to match semantic improvements provided by WordPress 5.2.0.
+* Fixed: potential duplicate output of "parent_item_colon" with "Get Code" output.
+* Misc: Added code of conduct file to github repo. Props GaryJones.
 
 = 1.6.1 - 2018-12-03 =
 * Fixed: Missed quote for "publicly_queryable" in taxonomy "get code" output.
@@ -133,8 +138,13 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 == Upgrade Notice ==
 
 = 1.7.0 - TBD =
+* Added: New post type labels introduced in WordPress 5.0.0.
+* Added: Link to Dashicon documentation for when editing menu icon. Props @juliekuehl
 * Updated: Added post type templates documentation to help section.
-* Misc: Added code of conduct file to github repo. Props GaryJones
+* Updated: Redirect user to the "add" tab if deleting the last post type or taxonomy created.
+* Updated: Touched up tab markup to match semantic improvements provided by WordPress 5.2.0.
+* Fixed: potential duplicate output of "parent_item_colon" with "Get Code" output.
+* Misc: Added code of conduct file to github repo. Props GaryJones.
 
 = 1.6.1 - 2018-12-03 =
 * Fixed: Missed quote for "publicly_queryable" in taxonomy "get code" output.
