@@ -612,7 +612,7 @@ function cptui_import_types_taxes_settings( $postdata = array() ) {
 
 		// Add support to delete settings outright, without accessing database.
 		// Doing double check to protect.
-		if ( is_null( $settings ) && '{""}' === $cpt_data ) {
+		if ( null === $settings && '{""}' === $cpt_data ) {
 
 			/**
 			 * Filters whether or not 3rd party options were deleted successfully within post type import.
@@ -659,7 +659,7 @@ function cptui_import_types_taxes_settings( $postdata = array() ) {
 
 		// Add support to delete settings outright, without accessing database.
 		// Doing double check to protect.
-		if ( is_null( $settings ) && '{""}' === $tax_data ) {
+		if ( null === $settings && '{""}' === $tax_data ) {
 
 			/**
 			 * Filters whether or not 3rd party options were deleted successfully within taxonomy import.
@@ -910,15 +910,15 @@ function cptui_render_debuginfo_section() {
  */
 function cptui_render_tools( $tab ) {
 	if ( isset( $tab ) ) {
-		if ( 'post_types' == $tab || 'taxonomies' == $tab ) {
+		if ( 'post_types' === $tab || 'taxonomies' === $tab ) {
 			cptui_render_posttypes_taxonomies_section();
 		}
 
-		if ( 'get_code' == $tab ) {
+		if ( 'get_code' === $tab ) {
 			cptui_render_getcode_section();
 		}
 
-		if ( 'debuginfo' == $tab ) {
+		if ( 'debuginfo' === $tab ) {
 			cptui_render_debuginfo_section();
 		}
 	}
