@@ -32,6 +32,7 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 == Changelog ==
 
 = 1.7.0 - TBD =
+* Added: Ability to disable registration of post types or taxonomies without deleting them completely from settings.
 * Added: New post type labels introduced in WordPress 5.0.0.
 * Added: Link to Dashicon documentation for when editing menu icon. Props @juliekuehl
 * Updated: Added post type templates documentation to help section.
@@ -138,6 +139,7 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 == Upgrade Notice ==
 
 = 1.7.0 - TBD =
+* Added: Ability to disable registration of post types or taxonomies without deleting them completely from settings.
 * Added: New post type labels introduced in WordPress 5.0.0.
 * Added: Link to Dashicon documentation for when editing menu icon. Props @juliekuehl
 * Updated: Added post type templates documentation to help section.
