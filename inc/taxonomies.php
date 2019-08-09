@@ -1531,6 +1531,15 @@ function cptui_process_taxonomy() {
 				add_action( 'admin_notices', "cptui_{$result}_admin_notice" );
 			}
 		}
+
+		if ( empty( cptui_get_taxonomy_slugs() ) ) {
+			wp_safe_redirect(
+				add_query_arg(
+					array( 'page' => 'cptui_manage_taxonomies' ),
+					cptui_admin_url( 'admin.php?page=cptui_manage_taxonomies' )
+				)
+			);
+		}
 	}
 }
 add_action( 'init', 'cptui_process_taxonomy', 8 );
