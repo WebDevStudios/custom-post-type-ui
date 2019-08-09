@@ -519,7 +519,7 @@ add_filter( 'cptui_ads', 'cptui_randomize_ads', 11 );
 function cptui_admin_notices_helper( $message = '', $success = true ) {
 
 	$class       = array();
-	$class[]     = ( $success ) ? 'updated' : 'error';
+	$class[]     = $success ? 'updated' : 'error';
 	$class[]     = 'notice is-dismissible';
 
 	$messagewrapstart = '<div id="message" class="' . implode( ' ', $class ) . '"><p>';
@@ -765,7 +765,7 @@ function cptui_error_admin_notice() {
  */
 function cptui_not_new_install( $wp_upgrader, $extras ) {
 
-	if ( ! is_a( $wp_upgrader, 'Plugin_Upgrader' ) ) {
+	if ( $wp_upgrader instanceof \Plugin_Upgrader ) {
 		return;
 	}
 
