@@ -1152,7 +1152,7 @@ function cptui_manage_post_types() {
 							 * @param array  $args   Array of arguments for the taxonomies query.
 							 */
 							$add_taxes = apply_filters( 'cptui_get_taxonomies_for_post_types', get_taxonomies( $args, 'objects' ), $args );
-							unset( $add_taxes['nav_menu'] ); unset( $add_taxes['post_format'] );
+							unset( $add_taxes['nav_menu'], $add_taxes['post_format'] );
 							foreach ( $add_taxes as $add_tax ) {
 
 								$core_label = in_array( $add_tax->name, array( 'category', 'post_tag' ) ) ? __( '(WP Core)', 'custom-post-type-ui' ) : '';
@@ -1718,7 +1718,7 @@ add_filter( 'cptui_post_type_slug_exists', 'cptui_check_existing_post_type_slugs
 function cptui_check_page_slugs( $post_type_slug = '' ) {
 	$page = get_page_by_path( $post_type_slug );
 
-	if ( is_null( $page ) ) {
+	if ( null === $page ) {
 		return false;
 	}
 
