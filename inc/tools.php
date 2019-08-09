@@ -261,9 +261,9 @@ function cptui_get_single_taxonomy_registery( $taxonomy = array() ) {
 	} else {
 		$rewrite = disp_boolean( $taxonomy['rewrite'] );
 	}
-	$public             = ( isset( $taxonomy['public'] ) ) ? disp_boolean( $taxonomy['public'] ) : 'true';
-	$publicly_queryable = ( isset( $taxonomy['publicly_queryable'] ) ) ? disp_boolean( $taxonomy['publicly_queryable'] ) : disp_boolean( $taxonomy['public'] );
-	$show_in_quick_edit = ( isset( $taxonomy['show_in_quick_edit'] ) ) ? disp_boolean( $taxonomy['show_in_quick_edit'] ) : disp_boolean( $taxonomy['show_ui'] );
+	$public             = isset( $taxonomy['public'] ) ? disp_boolean( $taxonomy['public'] ) : 'true';
+	$publicly_queryable = isset( $taxonomy['publicly_queryable'] ) ? disp_boolean( $taxonomy['publicly_queryable'] ) : disp_boolean( $taxonomy['public'] );
+	$show_in_quick_edit = isset( $taxonomy['show_in_quick_edit'] ) ? disp_boolean( $taxonomy['show_in_quick_edit'] ) : disp_boolean( $taxonomy['show_ui'] );
 
 	$show_in_menu = ( ! empty( $taxonomy['show_in_menu'] ) && false !== get_disp_boolean( $taxonomy['show_in_menu'] ) ) ? 'true' : 'false';
 	if ( empty( $taxonomy['show_in_menu'] ) ) {
@@ -276,8 +276,8 @@ function cptui_get_single_taxonomy_registery( $taxonomy = array() ) {
 	}
 
 	$show_in_rest          = ( ! empty( $taxonomy['show_in_rest'] ) && false !== get_disp_boolean( $taxonomy['show_in_rest'] ) ) ? 'true' : 'false';
-	$rest_base             = ( ! empty( $taxonomy['rest_base'] ) ) ? $taxonomy['rest_base'] : $taxonomy['name'];
-	$rest_controller_class = ( ! empty( $taxonomy['rest_controller_class'] ) ) ? $taxonomy['rest_controller_class'] : 'WP_REST_Terms_Controller';
+	$rest_base             = ! empty( $taxonomy['rest_base'] ) ? $taxonomy['rest_base'] : $taxonomy['name'];
+	$rest_controller_class = ! empty( $taxonomy['rest_controller_class'] ) ? $taxonomy['rest_controller_class'] : 'WP_REST_Terms_Controller';
 
 	if ( ! empty( $taxonomy['meta_box_cb'] ) ) {
 		$meta_box_cb = ( false !== get_disp_boolean( $taxonomy['meta_box_cb'] ) ) ? '"' . $taxonomy['meta_box_cb'] . '"' : 'false';
@@ -455,7 +455,7 @@ function cptui_get_single_post_type_registery( $post_type = array() ) {
 	if ( empty( $post_type['show_in_rest'] ) ) {
 		$post_type['show_in_rest'] = 'false';
 	}
-	$rest_controller_class = ( ! empty( $post_type['rest_controller_class'] ) ) ? $post_type['rest_controller_class'] : 'WP_REST_Posts_Controller';
+	$rest_controller_class = ! empty( $post_type['rest_controller_class'] ) ? $post_type['rest_controller_class'] : 'WP_REST_Posts_Controller';
 
 	$delete_with_user = ( ! empty( $post_type['delete_with_user'] ) && false !== get_disp_boolean( $post_type['delete_with_user'] ) ) ? 'true' : 'false';
 
@@ -829,7 +829,7 @@ function cptui_render_getcode_section() {
 		if ( ! empty( $cptui_post_types ) ) {
 			foreach ( $cptui_post_types as $post_type ) { ?>
 				<h2 id="<?php echo esc_attr( $post_type['name'] ); ?>"><?php
-					$type = ( ! empty( $post_type['label'] ) ) ? $post_type['label'] : $post_type['name'];
+					$type = ! empty( $post_type['label'] ) ? $post_type['label'] : $post_type['name'];
 					printf( esc_html__( '%s Post Type', 'custom-post-type-ui' ), esc_html( $type ) ); ?></h2>
 				<label for="cptui_post_type_get_code_<?php echo esc_attr( $post_type['name'] ); ?>"><?php esc_html_e( 'Copy/paste the code below into your functions.php file.', 'custom-post-type-ui' ); ?></label>
 				<textarea name="cptui_post_type_get_code_<?php echo esc_attr( $post_type['name'] ); ?>" id="cptui_post_type_get_code_<?php echo esc_attr( $post_type['name'] ); ?>" class="cptui_post_type_get_code" onclick="this.focus();this.select()" onfocus="this.focus();this.select();" readonly="readonly" aria-readonly="true"><?php cptui_get_post_type_code( array( $post_type ), true ); ?></textarea>
@@ -846,7 +846,7 @@ function cptui_render_getcode_section() {
 		if ( ! empty( $cptui_taxonomies ) ) {
 			foreach ( $cptui_taxonomies as $taxonomy ) { ?>
 				<h2 id="<?php echo esc_attr( $taxonomy['name'] ); ?>"><?php
-					$tax = ( ! empty( $taxonomy['label'] ) ) ? $taxonomy['label'] : $taxonomy['name'];
+					$tax = ! empty( $taxonomy['label'] ) ? $taxonomy['label'] : $taxonomy['name'];
 					printf( esc_html__( '%s Taxonomy', 'custom-post-type-ui' ), esc_html( $tax ) ); ?></h2>
 				<label for="cptui_tax_get_code_<?php echo esc_attr( $taxonomy['name'] ); ?>"><?php esc_html_e( 'Copy/paste the code below into your functions.php file.', 'custom-post-type-ui' ); ?></label>
 				<textarea name="cptui_tax_get_code_<?php echo esc_attr( $taxonomy['name'] ); ?>" id="cptui_tax_get_code_<?php echo esc_attr( $taxonomy['name'] ); ?>" class="cptui_tax_get_code" onclick="this.focus();this.select()" onfocus="this.focus();this.select();" readonly="readonly" aria-readonly="true"><?php cptui_get_taxonomy_code( array( $taxonomy ), true ); ?></textarea>
