@@ -578,6 +578,51 @@ function cptui_manage_post_types() {
 									'aftertext' => esc_html__( '(e.g. Movie)', 'custom-post-type-ui' ),
 								) );
 
+								echo $ui->get_text_input( [
+									'labeltext' => esc_html__( 'Item Published', 'custom-post-type-ui' ),
+									'helptext'  => esc_html__( 'Used in the editor notice after publishing a post. Default "Post published." / "Page published."', 'custom-post-type-ui' ),
+									'namearray' => 'cpt_labels',
+									'name'      => 'item_published',
+									'textvalue' => isset( $current['labels']['item_published'] ) ? esc_attr( $current['labels']['item_published'] ) : '',
+									'aftertext' => esc_html__( '(e.g. Movie published)', 'custom-post-type-ui' ),
+								] );
+
+								echo $ui->get_text_input( [
+									'labeltext' => esc_html__( 'Item Published Privately', 'custom-post-type-ui' ),
+									'helptext'  => esc_html__( 'Used in the editor notice after publishing a private post. Default "Post published privately." / "Page published privately."', 'custom-post-type-ui' ),
+									'namearray' => 'cpt_labels',
+									'name'      => 'item_published_privately',
+									'textvalue' => isset( $current['labels']['item_published_privately'] ) ? esc_attr( $current['labels']['item_published_privately'] ) : '',
+									'aftertext' => esc_html__( '(e.g. Movie published privately.)', 'custom-post-type-ui' ),
+								] );
+
+								echo $ui->get_text_input( [
+									'labeltext' => esc_html__( 'Item Reverted To Draft', 'custom-post-type-ui' ),
+									'helptext'  => esc_html__( 'Used in the editor notice after reverting a post to draft. Default "Post reverted to draft." / "Page reverted to draft."', 'custom-post-type-ui' ),
+									'namearray' => 'cpt_labels',
+									'name'      => 'item_reverted_to_draft',
+									'textvalue' => isset( $current['labels']['item_reverted_to_draft'] ) ? esc_attr( $current['labels']['item_reverted_to_draft'] ) : '',
+									'aftertext' => esc_html__( '(e.g. Movie reverted to draft)', 'custom-post-type-ui' ),
+								] );
+
+								echo $ui->get_text_input( [
+									'labeltext' => esc_html__( 'Item Scheduled', 'custom-post-type-ui' ),
+									'helptext'  => esc_html__( 'Used in the editor notice after scheduling a post to be published at a later date. Default "Post scheduled." / "Page scheduled."', 'custom-post-type-ui' ),
+									'namearray' => 'cpt_labels',
+									'name'      => 'item_scheduled',
+									'textvalue' => isset( $current['labels']['item_scheduled'] ) ? esc_attr( $current['labels']['item_scheduled'] ) : '',
+									'aftertext' => esc_html__( '(e.g. Movie scheduled)', 'custom-post-type-ui' ),
+								] );
+
+								echo $ui->get_text_input( [
+									'labeltext' => esc_html__( 'Item Updated', 'custom-post-type-ui' ),
+									'helptext'  => esc_html__( 'Used in the editor notice after updating a post. Default "Post updated." / "Page updated."', 'custom-post-type-ui' ),
+									'namearray' => 'cpt_labels',
+									'name'      => 'item_updated',
+									'textvalue' => isset( $current['labels']['item_updated'] ) ? esc_attr( $current['labels']['item_updated'] ) : '',
+									'aftertext' => esc_html__( '(e.g. Movie updated)', 'custom-post-type-ui' ),
+								] );
+
 							?>
 						</table>
 					</div>
