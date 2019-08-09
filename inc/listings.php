@@ -104,10 +104,10 @@ function cptui_listings() {
 
 					$rowclass = ( 0 === $counter % 2 ) ? '' : 'alternate';
 
-					$strings = array();
-					$supports = array();
+					$strings    = array();
+					$supports   = array();
 					$taxonomies = array();
-					$archive = '';
+					$archive    = '';
 					foreach ( $post_type_settings as $settings_key => $settings_value ) {
 						if ( 'labels' === $settings_key ) {
 							continue;
@@ -317,7 +317,7 @@ function cptui_listings() {
 
 						$rowclass = ( 0 === $counter % 2 ) ? '' : 'alternate';
 
-						$strings = array();
+						$strings      = array();
 						$object_types = array();
 						foreach ( $taxonomy_settings as $settings_key => $settings_value ) {
 							if ( 'labels' === $settings_key ) {
@@ -332,7 +332,7 @@ function cptui_listings() {
 
 									// In case they are not associated from the post type settings.
 									if ( empty( $object_types['object_types'] ) ) {
-										$types = get_taxonomy( $taxonomy );
+										$types                        = get_taxonomy( $taxonomy );
 										$object_types['object_types'] = $types->object_type;
 									}
 								}
