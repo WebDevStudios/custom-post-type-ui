@@ -9,6 +9,8 @@
  * @license GPL-2.0+
  */
 
+// phpcs:disable WebDevStudios.All.RequireAuthor
+
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -37,7 +39,7 @@ function cptui_edit_plugin_list_links( $links ) {
 		'<a href="' . admin_url( 'admin.php?page=cptui_support' ) . '">' . __( 'Help', 'custom-post-type-ui' ) . '</a>',
 	), $links );
 }
-add_filter( 'plugin_action_links_' . plugin_basename( dirname( dirname( __FILE__ ) ) ) . '/custom-post-type-ui.php', 'cptui_edit_plugin_list_links' );
+add_filter( 'plugin_action_links_' . plugin_basename( dirname( __DIR__ ) ) . '/custom-post-type-ui.php', 'cptui_edit_plugin_list_links' );
 
 /**
  * Returns SVG icon for custom menu icon
@@ -440,8 +442,7 @@ function cptui_get_ads() {
 	 *
 	 * @param array $value Array of ads to iterate over. Default empty.
 	 */
-	$ads = (array) apply_filters( 'cptui_ads', array() );
-	return $ads;
+	return (array) apply_filters( 'cptui_ads', array() );
 }
 
 /**
@@ -457,25 +458,25 @@ function cptui_get_ads() {
 function cptui_default_ads( $ads = array() ) {
 	$ads[] = array(
 		'url'   => 'https://pluginize.com/plugins/custom-post-type-ui-extended/?utm_source=cptui-sidebar&utm_medium=text&utm_campaign=cptui',
-		'image' => plugin_dir_url( dirname( __FILE__ ) ) . 'images/wds_ads/cptui-extended.png',
+		'image' => plugin_dir_url( __DIR__ ) . 'images/wds_ads/cptui-extended.png',
 		'text'  => 'Custom Post Type UI Extended product ad',
 	);
 
 	$ads[] = array(
 		'url'   => 'https://pluginize.com/plugins/instago/?utm_source=cptui-sidebar&utm_medium=text&utm_campaign=instago',
-		'image' => plugin_dir_url( dirname( __FILE__ ) ) . 'images/wds_ads/instago.png',
+		'image' => plugin_dir_url( __DIR__ ) . 'images/wds_ads/instago.png',
 		'text'  => 'InstaGo product ad',
 	);
 
 	$ads[] = array(
 		'url'   => 'https://pluginize.com/plugins/buddypages/?utm_source=cptui-sidebar&utm_medium=text&utm_campaign=buddypages',
-		'image' => plugin_dir_url( dirname( __FILE__ ) ) . 'images/wds_ads/buddypages.png',
+		'image' => plugin_dir_url( __DIR__ ) . 'images/wds_ads/buddypages.png',
 		'text'  => 'BuddyPages product ad',
 	);
 
 	$ads[] = array(
 		'url'   => 'https://maintainn.com/?utm_source=Pluginize-v2&utm_medium=Plugin-Sidebar&utm_campaign=CPTUI',
-		'image' => plugin_dir_url( dirname( __FILE__ ) ) . 'images/wds_ads/maintainn.png',
+		'image' => plugin_dir_url( __DIR__ ) . 'images/wds_ads/maintainn.png',
 		'text'  => 'Maintainn product ad',
 	);
 
@@ -520,7 +521,7 @@ add_filter( 'cptui_ads', 'cptui_randomize_ads', 11 );
 function cptui_admin_notices_helper( $message = '', $success = true ) {
 
 	$class       = array();
-	$class[]     = ( $success ) ? 'updated' : 'error';
+	$class[]     = $success ? 'updated' : 'error';
 	$class[]     = 'notice is-dismissible';
 
 	$messagewrapstart = '<div id="message" class="' . implode( ' ', $class ) . '"><p>';
@@ -766,7 +767,7 @@ function cptui_error_admin_notice() {
  */
 function cptui_not_new_install( $wp_upgrader, $extras ) {
 
-	if ( ! is_a( $wp_upgrader, 'Plugin_Upgrader' ) ) {
+	if ( $wp_upgrader instanceof \Plugin_Upgrader ) {
 		return;
 	}
 

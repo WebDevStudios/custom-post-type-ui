@@ -9,6 +9,8 @@
  * @license GPL-2.0+
  */
 
+// phpcs:disable WebDevStudios.All.RequireAuthor
+
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -102,10 +104,10 @@ function cptui_listings() {
 
 					$rowclass = ( 0 === $counter % 2 ) ? '' : 'alternate';
 
-					$strings = array();
-					$supports = array();
+					$strings    = array();
+					$supports   = array();
 					$taxonomies = array();
-					$archive = '';
+					$archive    = '';
 					foreach ( $post_type_settings as $settings_key => $settings_value ) {
 						if ( 'labels' === $settings_key ) {
 							continue;
@@ -133,7 +135,7 @@ function cptui_listings() {
 						<tr class="<?php echo esc_attr( $rowclass ); ?>">
 							<?php
 							$edit_path          = 'admin.php?page=cptui_manage_post_types&action=edit&cptui_post_type=' . $post_type;
-							$post_type_link_url = ( is_network_admin() ) ? network_admin_url( $edit_path ) : admin_url( $edit_path ); ?>
+							$post_type_link_url = is_network_admin() ? network_admin_url( $edit_path ) : admin_url( $edit_path ); ?>
 							<td>
 								<?php
 								printf(
@@ -142,7 +144,8 @@ function cptui_listings() {
 									esc_attr( $post_type_link_url ),
 									sprintf(
 										/* translators: %s: Post type slug */
-										esc_html__( 'Edit %s', 'custom-post-type-ui' ),
+										esc_html__( 'Edit %1$s (%2$s)', 'custom-post-type-ui' ),
+										esc_html( $post_type_settings['label'] ),
 										esc_html( $post_type )
 									),
 									esc_attr( admin_url( 'admin.php?page=cptui_tools&action=get_code#' . $post_type ) ),
@@ -161,7 +164,7 @@ function cptui_listings() {
 									if ( in_array( $value, array( '1', '0' ), true ) ) {
 										echo esc_html( disp_boolean( $value ) );
 									} else {
-										echo ( ! empty( $value ) ) ? esc_html( $value ) : '""';
+										echo ! empty( $value ) ? esc_html( $value ) : '""';
 									}
 									echo '<br/>';
 								} ?>
@@ -314,7 +317,7 @@ function cptui_listings() {
 
 						$rowclass = ( 0 === $counter % 2 ) ? '' : 'alternate';
 
-						$strings = array();
+						$strings      = array();
 						$object_types = array();
 						foreach ( $taxonomy_settings as $settings_key => $settings_value ) {
 							if ( 'labels' === $settings_key ) {
@@ -329,7 +332,7 @@ function cptui_listings() {
 
 									// In case they are not associated from the post type settings.
 									if ( empty( $object_types['object_types'] ) ) {
-										$types = get_taxonomy( $taxonomy );
+										$types                        = get_taxonomy( $taxonomy );
 										$object_types['object_types'] = $types->object_type;
 									}
 								}
@@ -339,7 +342,7 @@ function cptui_listings() {
 							<tr class="<?php echo esc_attr( $rowclass ); ?>">
 								<?php
 								$edit_path          = 'admin.php?page=cptui_manage_taxonomies&action=edit&cptui_taxonomy=' . $taxonomy;
-								$taxonomy_link_url  = ( is_network_admin() ) ? network_admin_url( $edit_path ) : admin_url( $edit_path ); ?>
+								$taxonomy_link_url  = is_network_admin() ? network_admin_url( $edit_path ) : admin_url( $edit_path ); ?>
 								<td>
 									<?php printf(
 										'<a href="%s">%s</a><br/>
@@ -347,7 +350,8 @@ function cptui_listings() {
 										esc_attr( $taxonomy_link_url ),
 										sprintf(
 											/* translators: %s: Taxonomy slug */
-											esc_html__( 'Edit %s', 'custom-post-type-ui' ),
+											esc_html__( 'Edit %1$s (%2$s)', 'custom-post-type-ui' ),
+											esc_html( $taxonomy_settings['label'] ),
 											esc_html( $taxonomy )
 										),
 										esc_attr( admin_url( 'admin.php?page=cptui_tools&action=get_code#' . $taxonomy ) ),
@@ -361,7 +365,7 @@ function cptui_listings() {
 										if ( in_array( $value, array( '1', '0' ), true ) ) {
 											echo esc_html( disp_boolean( $value ) );
 										} else {
-											echo ( ! empty( $value ) ) ? esc_html( $value ) : '""';
+											echo ! empty( $value ) ? esc_html( $value ) : '""';
 										}
 										echo '<br/>';
 									} ?>
