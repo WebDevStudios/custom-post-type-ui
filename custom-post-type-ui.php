@@ -904,6 +904,7 @@ function cptui_get_preserved_keys( $type = '' ) {
 			'edit_item',
 			'new_item',
 			'view_item',
+			'view_items',
 			'all_items',
 			'search_items',
 			'not_found',
@@ -948,6 +949,7 @@ function cptui_get_preserved_label( $type = '', $key = '', $plural = '', $singul
 			'edit_item'          => sprintf( __( 'Edit %s', 'custom-post-type-ui' ), $singular ),
 			'new_item'           => sprintf( __( 'New %s', 'custom-post-type-ui' ), $singular ),
 			'view_item'          => sprintf( __( 'View %s', 'custom-post-type-ui' ), $singular ),
+			'view_items'         => sprintf( __( 'View %s', 'custom-post-type-ui' ), $plural ),
 			'all_items'          => sprintf( __( 'All %s', 'custom-post-type-ui' ), $plural ),
 			'search_items'       => sprintf( __( 'Search %s', 'custom-post-type-ui' ), $plural ),
 			'not_found'          => sprintf( __( 'No %s found.', 'custom-post-type-ui' ), $plural ),
@@ -991,6 +993,7 @@ function cptui_get_preserved_labels() {
 				'view_item'    => __( 'View %s', 'custom-post-type-ui' ),
 			),
 			'plural' => array(
+				'view_items'         => __( 'View %s', 'custom-post-type-ui' ),
 				'all_items'          => __( 'All %s', 'custom-post-type-ui' ),
 				'search_items'       => __( 'Search %s', 'custom-post-type-ui' ),
 				'not_found'          => __( 'No %s found.', 'custom-post-type-ui' ),

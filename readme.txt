@@ -41,6 +41,10 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 * Fixed: potential duplicate output of "parent_item_colon" with "Get Code" output.
 * Misc: Added code of conduct file to github repo. Props GaryJones.
 
+= 1.6.2 - 2019-05-20 =
+* Added: "themes" is now a reserved post type slug due to conflicts with WordPress internally.
+* Fixed: Updated wording around "Supports" section of post type settings screen.
+
 = 1.6.1 - 2018-12-03 =
 * Fixed: Missed quote for "publicly_queryable" in taxonomy "get code" output.
 * Fixed: Adjusted handling of capitalization on the word "false" when being used to disable a taxonomy metabox via the "metabox callback" setting. The word "false" needs to be all lowercase to disable.
@@ -147,6 +151,10 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 * Updated: Touched up tab markup to match semantic improvements provided by WordPress 5.2.0.
 * Fixed: potential duplicate output of "parent_item_colon" with "Get Code" output.
 * Misc: Added code of conduct file to github repo. Props GaryJones.
+
+= 1.6.2 - 2019-05-20 =
+* Added: "themes" is now a reserved post type slug due to conflicts with WordPress internally.
+* Fixed: Updated wording around "Supports" section of post type settings screen.
 
 = 1.6.1 - 2018-12-03 =
 * Fixed: Missed quote for "publicly_queryable" in taxonomy "get code" output.
