@@ -290,6 +290,8 @@ function cptui_manage_taxonomies() {
 							echo $ui->get_p( esc_html__( 'Add support for available registered post types. At least one is required. Only public post types listed by default.', 'custom-post-type-ui' ) );
 							echo $ui->get_th_end() . $ui->get_td_start() . $ui->get_fieldset_start();
 
+							echo $ui->get_legend_start() . esc_html__( 'Post type options', 'custom-post-type-ui' ) . $ui->get_legend_end();
+
 							/**
 							 * Filters the arguments for post types to list for taxonomy association.
 							 *

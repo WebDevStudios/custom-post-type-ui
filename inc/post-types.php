@@ -966,6 +966,8 @@ function cptui_manage_post_types() {
 
 							echo $ui->get_th_end() . $ui->get_td_start() . $ui->get_fieldset_start();
 
+							echo $ui->get_legend_start() . esc_html__( 'Post type options', 'custom-post-type-ui' ) . $ui->get_legend_end();
+
 							$title_checked = ( ! empty( $current['supports'] ) && is_array( $current['supports'] ) && in_array( 'title', $current['supports'] ) ) ? 'true' : 'false';
 							if ( 'new' === $tab ) {
 								$title_checked = 'true';
@@ -1125,12 +1127,13 @@ function cptui_manage_post_types() {
 							) );
 							echo $ui->get_td_end() . $ui->get_tr_end();
 
-							echo $ui->get_tr_start() . $ui->get_th_start() . esc_html__( 'Built-in Taxonomies', 'custom-post-type-ui' );
+							echo $ui->get_tr_start() . $ui->get_th_start() . esc_html__( 'Taxonomies', 'custom-post-type-ui' );
 
 							echo $ui->get_p( esc_html__( 'Add support for available registered taxonomies.', 'custom-post-type-ui' ) );
 
 							echo $ui->get_th_end() . $ui->get_td_start() . $ui->get_fieldset_start();
 
+							echo $ui->get_legend_start() . esc_html__( 'Taxonomy options', 'custom-post-type-ui' ) . $ui->get_legend_end();
 							/**
 							 * Filters the arguments for taxonomies to list for post type association.
 							 *
