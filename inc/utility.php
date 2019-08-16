@@ -678,6 +678,13 @@ function cptui_import_fail_admin_notice() {
 	);
 }
 
+function cptui_import_clash_admin_notice() {
+	echo cptui_admin_notices_helper(
+		esc_html__( 'Imported content clashes with already existing content types.', 'custom-post-type-ui' ),
+		false
+	);
+}
+
 /**
  * Returns error message for if trying to register existing post type.
  *

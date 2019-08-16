@@ -647,7 +647,18 @@ function cptui_import_types_taxes_settings( $postdata = [] ) {
 			 * @param array $postdata Post type data.
 			 */
 			if ( false === ( $success = apply_filters( 'cptui_post_type_import_update_save', false, $postdata ) ) ) {
-				$success = update_option( 'cptui_post_types', $settings );
+				$imported_slugs = array_keys( $settings );
+				$do_update      = true;
+				foreach ( $imported_slugs as $slug ) {
+					if ( post_type_exists( $slug ) ) {
+						$do_update = false;
+						$status    = 'import_clash';
+						break;
+					}
+				}
+				if ( $do_update ) {
+					$success = update_option( 'cptui_post_types', $settings );
+				}
 			}
 		}
 		// Used to help flush rewrite rules on init.
@@ -693,7 +704,18 @@ function cptui_import_types_taxes_settings( $postdata = [] ) {
 			 * @param array $postdata Taxonomy data.
 			 */
 			if ( false === ( $success = apply_filters( 'cptui_taxonomy_import_update_save', false, $postdata ) ) ) {
-				$success = update_option( 'cptui_taxonomies', $settings );
+				$imported_slugs = array_keys( $settings );
+				$do_update      = true;
+				foreach ( $imported_slugs as $slug ) {
+					if ( taxonomy_exists( $slug ) ) {
+						$do_update = false;
+						$status    = 'import_clash';
+						break;
+					}
+				}
+				if ( $do_update ) {
+					$success = update_option( 'cptui_taxonomies', $settings );
+				}
 			}
 		}
 		// Used to help flush rewrite rules on init.
