@@ -286,6 +286,15 @@ function cptui_manage_post_types() {
 						] );
 					?>
 				</table>
+						<?php
+						if ( 'new' === $tab ) {
+							?>
+							<div class="cptui-spacer">
+								<a href="#" id="auto-populate"><?php esc_html_e( 'Click to populate the additional labels based on your chosen slug.', 'custom-post-type-ui' ); ?></a>
+							</div>
+							<?php
+						}
+						?>
 						<p class="submit">
 						<?php wp_nonce_field( 'cptui_addedit_post_type_nonce_action', 'cptui_addedit_post_type_nonce_field' );
 						if ( ! empty( $_GET ) && ! empty( $_GET['action'] ) && 'edit' === $_GET['action'] ) { ?>
