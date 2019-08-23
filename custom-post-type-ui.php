@@ -904,8 +904,8 @@ function cptui_admin_notices( $action = '', $object_type = '', $success = true, 
  */
 function cptui_get_preserved_keys( $type = '' ) {
 
-	$preserved_labels = array(
-		'post_types' => array(
+	$preserved_labels = [
+		'post_types' => [
 			'add_new_item',
 			'edit_item',
 			'new_item',
@@ -915,8 +915,8 @@ function cptui_get_preserved_keys( $type = '' ) {
 			'search_items',
 			'not_found',
 			'not_found_in_trash',
-		),
-		'taxonomies' => array(
+		],
+		'taxonomies' => [
 			'search_items',
 			'popular_items',
 			'all_items',
@@ -929,8 +929,8 @@ function cptui_get_preserved_keys( $type = '' ) {
 			'separate_items_with_commas',
 			'add_or_remove_items',
 			'choose_from_most_used',
-		),
-	);
+		],
+	];
 	return ! empty( $type ) ? $preserved_labels[ $type ] : [];
 }
 
