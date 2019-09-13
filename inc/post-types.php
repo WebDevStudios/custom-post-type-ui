@@ -291,7 +291,7 @@ function cptui_manage_post_types() {
 						if ( 'new' === $tab ) {
 							?>
 							<div class="cptui-spacer">
-								<a href="#" id="auto-populate"><?php esc_html_e( 'Click to populate the additional labels based on your chosen slug.', 'custom-post-type-ui' ); ?></a>
+								<a href="#" id="auto-populate"><?php esc_html_e( 'Populate the additional labels based on your chosen labels.', 'custom-post-type-ui' ); ?></a>
 							</div>
 							<?php
 						}
