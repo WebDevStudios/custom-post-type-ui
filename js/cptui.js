@@ -217,15 +217,22 @@ postboxes.add_postbox_toggles(pagenow);
 	$('#auto-populate').on( 'click tap', function(e){
 		e.preventDefault();
 
-		let name = $('#name').val();
+		let labels   = window.cptui_type_data.label_data;
+		let slug     = $('#name').val();
+		let plural   = $('#label').val();
+		let singular = $('#singular_label').val();
 
-		if ( '' === name ) {
+		if ( '' === slug ) {
 			return;
+		}
+		if ( '' === plural ) {
+			plural = slug;
+		}
+		if ( '' === singular ) {
+			singular = slug;
 		}
 
 		let ucname = uppercaseFirstLetter( name );
-
-		$('#label,#singular_label').val( ucname );
 
 	});
 
