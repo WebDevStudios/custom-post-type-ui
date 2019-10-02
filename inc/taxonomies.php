@@ -256,7 +256,7 @@ function cptui_manage_taxonomies() {
 									'checked'    => 'false',
 									'name'       => 'update_taxonomy',
 									'namearray'  => 'update_taxonomy',
-									'labeltext'  => esc_html__( 'Migrate terms to newly renamed taxonomy?', 'custom-post-type-ui' ),
+									'labeltext'  => esc_html__( 'Migrate terms to newly renamed taxonomy? Note: Leaving unchecked will duplicate the Taxonomy.', 'custom-post-type-ui' ),
 									'helptext'   => '',
 									'default'    => false,
 									'wrap'       => false,
