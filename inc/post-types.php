@@ -255,7 +255,7 @@ function cptui_manage_post_types() {
 								'checked'    => 'false',
 								'name'       => 'update_post_types',
 								'namearray'  => 'update_post_types',
-								'labeltext'  => esc_html__( 'Migrate posts to newly renamed post type?', 'custom-post-type-ui' ),
+								'labeltext'  => esc_html__( 'Migrate posts to newly renamed post type? Note: Leaving unchecked will duplicate the Post Type.', 'custom-post-type-ui' ),
 								'helptext'   => false,
 								'default'    => false,
 								'wrap'       => false,
