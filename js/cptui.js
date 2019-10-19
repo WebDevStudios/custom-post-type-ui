@@ -217,10 +217,10 @@ postboxes.add_postbox_toggles(pagenow);
 	$('#auto-populate').on( 'click tap', function(e){
 		e.preventDefault();
 
-		let labels   = window.cptui_type_data.label_data;
 		let slug     = $('#name').val();
 		let plural   = $('#label').val();
 		let singular = $('#singular_label').val();
+		let fields   = $('.cptui-labels input[type="text"]');
 
 		if ( '' === slug ) {
 			return;
@@ -232,8 +232,22 @@ postboxes.add_postbox_toggles(pagenow);
 			singular = slug;
 		}
 
-		let ucname = uppercaseFirstLetter( name );
+		let ucplural   = uppercaseFirstLetter( plural );
+		let ucsingular = uppercaseFirstLetter( singular );
 
+		$(fields).each( function( i, el ) {
+			let newval = $( el ).data( 'label' );
+			let plurality = $( el ).data( 'plurality' );
+			if ( undefined !== newval ) {
+				// "slug" is our placeholder from the labels.
+				if ( 'plural' === plurality ) {
+					newval = newval.replace(/item/gi, ucplural);
+				} else {
+					newval = newval.replace(/item/gi, ucsingular);
+				}
+				$( el ).val( newval );
+			}
+		} );
 	});
 
 })(jQuery);
