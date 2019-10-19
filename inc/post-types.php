@@ -345,7 +345,7 @@ function cptui_manage_post_types() {
 					</div>
 				</div>
 			</div>
-			<div class="cptui-section postbox">
+			<div class="cptui-section cptui-labels postbox">
 				<button type="button" class="handlediv button-link" aria-expanded="true">
 					<span class="screen-reader-text"><?php esc_html_e( 'Toggle panel: Additional labels', 'custom-post-type-ui' ); ?></span>
 					<span class="toggle-indicator" aria-hidden="true"></span>
@@ -378,6 +378,11 @@ function cptui_manage_post_types() {
 									'name'      => 'menu_name',
 									'textvalue' => isset( $current['labels']['menu_name'] ) ? esc_attr( $current['labels']['menu_name'] ) : '',
 									'aftertext' => esc_html__( '(e.g. My Movies)', 'custom-post-type-ui' ),
+									'data'      => [
+										/* translators: Used for autofill */
+										'label'     => sprintf( esc_attr__( 'My %s', 'custom-post-type-ui' ), 'item' ),
+										'plurality' => 'plural',
+									],
 								] );
 
 								echo $ui->get_text_input( [
@@ -387,6 +392,11 @@ function cptui_manage_post_types() {
 									'name'      => 'all_items',
 									'textvalue' => isset( $current['labels']['all_items'] ) ? esc_attr( $current['labels']['all_items'] ) : '',
 									'aftertext' => esc_html__( '(e.g. All Movies)', 'custom-post-type-ui' ),
+									'data'      => [
+										/* translators: Used for autofill */
+										'label'     => sprintf( esc_attr__( 'All %s', 'custom-post-type-ui' ), 'item' ),
+										'plurality' => 'plural',
+									],
 								] );
 
 								echo $ui->get_text_input( [
@@ -396,6 +406,11 @@ function cptui_manage_post_types() {
 									'name'      => 'add_new',
 									'textvalue' => isset( $current['labels']['add_new'] ) ? esc_attr( $current['labels']['add_new'] ) : '',
 									'aftertext' => esc_html__( '(e.g. Add New)', 'custom-post-type-ui' ),
+									'data'      => [
+										/* translators: Used for autofill */
+										'label'     => esc_attr__( 'Add New', 'custom-post-type-ui' ),
+										'plurality' => 'plural',
+									],
 								] );
 
 								echo $ui->get_text_input( [
@@ -405,6 +420,11 @@ function cptui_manage_post_types() {
 									'name'      => 'add_new_item',
 									'textvalue' => isset( $current['labels']['add_new_item'] ) ? esc_attr( $current['labels']['add_new_item'] ) : '',
 									'aftertext' => esc_html__( '(e.g. Add New Movie)', 'custom-post-type-ui' ),
+									'data'      => [
+										/* translators: Used for autofill */
+										'label'     => sprintf( esc_attr__( 'Add new %s', 'custom-post-type-ui' ), 'item' ),
+										'plurality' => 'singular',
+									],
 								] );
 
 								echo $ui->get_text_input( array(
@@ -414,6 +434,11 @@ function cptui_manage_post_types() {
 									'name'      => 'edit_item',
 									'textvalue' => isset( $current['labels']['edit_item'] ) ? esc_attr( $current['labels']['edit_item'] ) : '',
 									'aftertext' => esc_html__( '(e.g. Edit Movie)', 'custom-post-type-ui' ),
+									'data'      => [
+										/* translators: Used for autofill */
+										'label'     => sprintf( esc_attr__( 'Edit %s', 'custom-post-type-ui' ), 'item' ),
+										'plurality' => 'singular',
+									],
 								) );
 
 								echo $ui->get_text_input( array(
@@ -423,6 +448,11 @@ function cptui_manage_post_types() {
 									'name'      => 'new_item',
 									'textvalue' => isset( $current['labels']['new_item'] ) ? esc_attr( $current['labels']['new_item'] ) : '',
 									'aftertext' => esc_html__( '(e.g. New Movie)', 'custom-post-type-ui' ),
+									'data'      => [
+										/* translators: Used for autofill */
+										'label'     => sprintf( esc_attr__( 'New %s', 'custom-post-type-ui' ), 'item' ),
+										'plurality' => 'singular',
+									],
 								) );
 
 								echo $ui->get_text_input( array(
@@ -432,6 +462,11 @@ function cptui_manage_post_types() {
 									'name'      => 'view_item',
 									'textvalue' => isset( $current['labels']['view_item'] ) ? esc_attr( $current['labels']['view_item'] ) : '',
 									'aftertext' => esc_html__( '(e.g. View Movie)', 'custom-post-type-ui' ),
+									'data'      => [
+										/* translators: Used for autofill */
+										'label'     => sprintf( esc_attr__( 'View %s', 'custom-post-type-ui' ), 'item' ),
+										'plurality' => 'singular',
+									],
 								) );
 
 								echo $ui->get_text_input( array(
@@ -441,6 +476,11 @@ function cptui_manage_post_types() {
 									'name'      => 'view_items',
 									'textvalue' => isset( $current['labels']['view_items'] ) ? esc_attr( $current['labels']['view_items'] ) : '',
 									'aftertext' => esc_html__( '(e.g. View Movies)', 'custom-post-type-ui' ),
+									'data'      => [
+										/* translators: Used for autofill */
+										'label'     => sprintf( esc_attr__( 'View %s', 'custom-post-type-ui' ), 'item' ),
+										'plurality' => 'plural',
+									],
 								) );
 
 								echo $ui->get_text_input( array(
@@ -449,7 +489,12 @@ function cptui_manage_post_types() {
 									'namearray' => 'cpt_labels',
 									'name'      => 'search_items',
 									'textvalue' => isset( $current['labels']['search_items'] ) ? esc_attr( $current['labels']['search_items'] ) : '',
-									'aftertext' => esc_html__( '(e.g. Search Movie)', 'custom-post-type-ui' ),
+									'aftertext' => esc_html__( '(e.g. Search Movies)', 'custom-post-type-ui' ),
+									'data'      => [
+										/* translators: Used for autofill */
+										'label'     => sprintf( esc_attr__( 'Search %s', 'custom-post-type-ui' ), 'item' ),
+										'plurality' => 'plural',
+									],
 								) );
 
 								echo $ui->get_text_input( array(
@@ -459,6 +504,11 @@ function cptui_manage_post_types() {
 									'name'      => 'not_found',
 									'textvalue' => isset( $current['labels']['not_found'] ) ? esc_attr( $current['labels']['not_found'] ) : '',
 									'aftertext' => esc_html__( '(e.g. No Movies found)', 'custom-post-type-ui' ),
+									'data'      => [
+										/* translators: Used for autofill */
+										'label'     => sprintf( esc_attr__( 'No %s found', 'custom-post-type-ui' ), 'item' ),
+										'plurality' => 'plural',
+									],
 								) );
 
 								echo $ui->get_text_input( array(
@@ -468,6 +518,11 @@ function cptui_manage_post_types() {
 									'name'      => 'not_found_in_trash',
 									'textvalue' => isset( $current['labels']['not_found_in_trash'] ) ? esc_attr( $current['labels']['not_found_in_trash'] ) : '',
 									'aftertext' => esc_html__( '(e.g. No Movies found in Trash)', 'custom-post-type-ui' ),
+									'data' => [
+										/* translators: Used for autofill */
+										'label'     => sprintf( esc_attr__( 'No %s found in trash', 'custom-post-type-ui' ), 'item' ),
+										'plurality' => 'plural',
+									],
 								) );
 
 								// As of 1.4.0, this will register into `parent_item_colon` paramter upon registration and export.
@@ -478,6 +533,11 @@ function cptui_manage_post_types() {
 									'name'      => 'parent',
 									'textvalue' => isset( $current['labels']['parent'] ) ? esc_attr( $current['labels']['parent'] ) : '',
 									'aftertext' => esc_html__( '(e.g. Parent Movie:)', 'custom-post-type-ui' ),
+									'data' => [
+										/* translators: Used for autofill */
+										'label'     => sprintf( esc_attr__( 'Parent %s:', 'custom-post-type-ui' ), 'item' ),
+										'plurality' => 'singular',
+									],
 								) );
 
 								echo $ui->get_text_input( array(
@@ -487,6 +547,11 @@ function cptui_manage_post_types() {
 									'name'      => 'featured_image',
 									'textvalue' => isset( $current['labels']['featured_image'] ) ? esc_attr( $current['labels']['featured_image'] ) : '',
 									'aftertext' => esc_html__( '(e.g. Featured image for this movie)', 'custom-post-type-ui' ),
+									'data' => [
+										/* translators: Used for autofill */
+										'label'     => sprintf( esc_attr__( 'Featured image for this %s', 'custom-post-type-ui' ), 'item' ),
+										'plurality' => 'singular',
+									],
 								) );
 
 								echo $ui->get_text_input( array(
@@ -496,6 +561,11 @@ function cptui_manage_post_types() {
 									'name'      => 'set_featured_image',
 									'textvalue' => isset( $current['labels']['set_featured_image'] ) ? esc_attr( $current['labels']['set_featured_image'] ) : '',
 									'aftertext' => esc_html__( '(e.g. Set featured image for this movie)', 'custom-post-type-ui' ),
+									'data' => [
+										/* translators: Used for autofill */
+										'label'     => sprintf( esc_attr__( 'Set featured image for this %s', 'custom-post-type-ui' ), 'item' ),
+										'plurality' => 'singular',
+									],
 								) );
 
 								echo $ui->get_text_input( array(
@@ -505,6 +575,11 @@ function cptui_manage_post_types() {
 									'name'      => 'remove_featured_image',
 									'textvalue' => isset( $current['labels']['remove_featured_image'] ) ? esc_attr( $current['labels']['remove_featured_image'] ) : '',
 									'aftertext' => esc_html__( '(e.g. Remove featured image for this movie)', 'custom-post-type-ui' ),
+									'data' => [
+										/* translators: Used for autofill */
+										'label'     => sprintf( esc_attr__( 'Remove featured image for this %s', 'custom-post-type-ui' ), 'item' ),
+										'plurality' => 'singular',
+									],
 								) );
 
 								echo $ui->get_text_input( array(
@@ -514,6 +589,11 @@ function cptui_manage_post_types() {
 									'name'      => 'use_featured_image',
 									'textvalue' => isset( $current['labels']['use_featured_image'] ) ? esc_attr( $current['labels']['use_featured_image'] ) : '',
 									'aftertext' => esc_html__( '(e.g. Use as featured image for this movie)', 'custom-post-type-ui' ),
+									'data' => [
+										/* translators: Used for autofill */
+										'label'     => sprintf( esc_attr__( 'Use as featured image for this %s', 'custom-post-type-ui' ), 'item' ),
+										'plurality' => 'singular',
+									],
 								) );
 
 								echo $ui->get_text_input( array(
@@ -523,6 +603,11 @@ function cptui_manage_post_types() {
 									'name'      => 'archives',
 									'textvalue' => isset( $current['labels']['archives'] ) ? esc_attr( $current['labels']['archives'] ) : '',
 									'aftertext' => esc_html__( '(e.g. Movie archives)', 'custom-post-type-ui' ),
+									'data' => [
+										/* translators: Used for autofill */
+										'label'     => sprintf( esc_attr__( '%s archives', 'custom-post-type-ui' ), 'item' ),
+										'plurality' => 'singular',
+									],
 								) );
 
 								echo $ui->get_text_input( array(
@@ -532,6 +617,11 @@ function cptui_manage_post_types() {
 									'name'      => 'insert_into_item',
 									'textvalue' => isset( $current['labels']['insert_into_item'] ) ? esc_attr( $current['labels']['insert_into_item'] ) : '',
 									'aftertext' => esc_html__( '(e.g. Insert into movie)', 'custom-post-type-ui' ),
+									'data' => [
+										/* translators: Used for autofill */
+										'label'     => sprintf( esc_attr__( 'Insert into %s', 'custom-post-type-ui' ), 'item' ),
+										'plurality' => 'singular',
+									],
 								) );
 
 								echo $ui->get_text_input( array(
@@ -541,6 +631,11 @@ function cptui_manage_post_types() {
 									'name'      => 'uploaded_to_this_item',
 									'textvalue' => isset( $current['labels']['uploaded_to_this_item'] ) ? esc_attr( $current['labels']['uploaded_to_this_item'] ) : '',
 									'aftertext' => esc_html__( '(e.g. Uploaded to this movie)', 'custom-post-type-ui' ),
+									'data' => [
+										/* translators: Used for autofill */
+										'label'     => sprintf( esc_attr__( 'Upload to this %s', 'custom-post-type-ui' ), 'item' ),
+										'plurality' => 'singular',
+									],
 								) );
 
 								echo $ui->get_text_input( array(
@@ -550,6 +645,11 @@ function cptui_manage_post_types() {
 									'name'      => 'filter_items_list',
 									'textvalue' => isset( $current['labels']['filter_items_list'] ) ? esc_attr( $current['labels']['filter_items_list'] ) : '',
 									'aftertext' => esc_html__( '(e.g. Filter movies list)', 'custom-post-type-ui' ),
+									'data' => [
+										/* translators: Used for autofill */
+										'label'     => sprintf( esc_attr__( 'Filter %s list', 'custom-post-type-ui' ), 'item' ),
+										'plurality' => 'plural',
+									],
 								) );
 
 								echo $ui->get_text_input( array(
@@ -559,6 +659,11 @@ function cptui_manage_post_types() {
 									'name'      => 'items_list_navigation',
 									'textvalue' => isset( $current['labels']['items_list_navigation'] ) ? esc_attr( $current['labels']['items_list_navigation'] ) : '',
 									'aftertext' => esc_html__( '(e.g. Movies list navigation)', 'custom-post-type-ui' ),
+									'data' => [
+										/* translators: Used for autofill */
+										'label'     => sprintf( esc_attr__( '%s list navigation', 'custom-post-type-ui' ), 'item' ),
+										'plurality' => 'plural',
+									],
 								) );
 
 								echo $ui->get_text_input( array(
@@ -568,6 +673,11 @@ function cptui_manage_post_types() {
 									'name'      => 'items_list',
 									'textvalue' => isset( $current['labels']['items_list'] ) ? esc_attr( $current['labels']['items_list'] ) : '',
 									'aftertext' => esc_html__( '(e.g. Movies list)', 'custom-post-type-ui' ),
+									'data' => [
+										/* translators: Used for autofill */
+										'label'     => sprintf( esc_attr__( '%s list', 'custom-post-type-ui' ), 'item' ),
+										'plurality' => 'plural',
+									],
 								) );
 
 								echo $ui->get_text_input( array(
@@ -577,6 +687,11 @@ function cptui_manage_post_types() {
 									'name'      => 'attributes',
 									'textvalue' => isset( $current['labels']['attributes'] ) ? esc_attr( $current['labels']['attributes'] ) : '',
 									'aftertext' => esc_html__( '(e.g. Movies Attributes)', 'custom-post-type-ui' ),
+									'data' => [
+										/* translators: Used for autofill */
+										'label'     => sprintf( esc_attr__( '%s attributes', 'custom-post-type-ui' ), 'item' ),
+										'plurality' => 'plural',
+									],
 								) );
 
 								echo $ui->get_text_input( array(
@@ -586,6 +701,11 @@ function cptui_manage_post_types() {
 									'name'      => 'name_admin_bar',
 									'textvalue' => isset( $current['labels']['name_admin_bar'] ) ? esc_attr( $current['labels']['name_admin_bar'] ) : '',
 									'aftertext' => esc_html__( '(e.g. Movie)', 'custom-post-type-ui' ),
+									'data' => [
+										/* translators: Used for autofill */
+										'label'     => 'item', // not localizing because it's so isolated.
+										'plurality' => 'singular',
+									],
 								) );
 
 								echo $ui->get_text_input( [
@@ -595,6 +715,11 @@ function cptui_manage_post_types() {
 									'name'      => 'item_published',
 									'textvalue' => isset( $current['labels']['item_published'] ) ? esc_attr( $current['labels']['item_published'] ) : '',
 									'aftertext' => esc_html__( '(e.g. Movie published)', 'custom-post-type-ui' ),
+									'data' => [
+										/* translators: Used for autofill */
+										'label'     => sprintf( esc_attr__( '%s published', 'custom-post-type-ui' ), 'item' ),
+										'plurality' => 'singular',
+									],
 								] );
 
 								echo $ui->get_text_input( [
@@ -604,6 +729,11 @@ function cptui_manage_post_types() {
 									'name'      => 'item_published_privately',
 									'textvalue' => isset( $current['labels']['item_published_privately'] ) ? esc_attr( $current['labels']['item_published_privately'] ) : '',
 									'aftertext' => esc_html__( '(e.g. Movie published privately.)', 'custom-post-type-ui' ),
+									'data' => [
+										/* translators: Used for autofill */
+										'label'     => sprintf( esc_attr__( '%s published privately.', 'custom-post-type-ui' ), 'item' ),
+										'plurality' => 'singular',
+									],
 								] );
 
 								echo $ui->get_text_input( [
@@ -613,6 +743,11 @@ function cptui_manage_post_types() {
 									'name'      => 'item_reverted_to_draft',
 									'textvalue' => isset( $current['labels']['item_reverted_to_draft'] ) ? esc_attr( $current['labels']['item_reverted_to_draft'] ) : '',
 									'aftertext' => esc_html__( '(e.g. Movie reverted to draft)', 'custom-post-type-ui' ),
+									'data' => [
+										/* translators: Used for autofill */
+										'label'     => sprintf( esc_attr__( '%s reverted to draft.', 'custom-post-type-ui' ), 'item' ),
+										'plurality' => 'singular',
+									],
 								] );
 
 								echo $ui->get_text_input( [
@@ -622,6 +757,11 @@ function cptui_manage_post_types() {
 									'name'      => 'item_scheduled',
 									'textvalue' => isset( $current['labels']['item_scheduled'] ) ? esc_attr( $current['labels']['item_scheduled'] ) : '',
 									'aftertext' => esc_html__( '(e.g. Movie scheduled)', 'custom-post-type-ui' ),
+									'data' => [
+										/* translators: Used for autofill */
+										'label'     => sprintf( esc_attr__( '%s scheduled', 'custom-post-type-ui' ), 'item' ),
+										'plurality' => 'singular',
+									],
 								] );
 
 								echo $ui->get_text_input( [
@@ -631,6 +771,11 @@ function cptui_manage_post_types() {
 									'name'      => 'item_updated',
 									'textvalue' => isset( $current['labels']['item_updated'] ) ? esc_attr( $current['labels']['item_updated'] ) : '',
 									'aftertext' => esc_html__( '(e.g. Movie updated)', 'custom-post-type-ui' ),
+									'data' => [
+										/* translators: Used for autofill */
+										'label'     => sprintf( esc_attr__( '%s updated.', 'custom-post-type-ui' ), 'item' ),
+										'plurality' => 'singular',
+									],
 								] );
 
 							?>
@@ -638,7 +783,7 @@ function cptui_manage_post_types() {
 					</div>
 				</div>
 			</div>
-			<div class="cptui-section postbox">
+			<div class="cptui-section cptui-settings postbox">
 				<button type="button" class="handlediv button-link" aria-expanded="true">
 					<span class="screen-reader-text"><?php esc_html_e( 'Toggle panel: Settings', 'custom-post-type-ui' ); ?></span>
 					<span class="toggle-indicator" aria-hidden="true"></span>
