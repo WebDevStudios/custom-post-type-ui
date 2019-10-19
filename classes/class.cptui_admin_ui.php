@@ -406,6 +406,12 @@ class cptui_admin_ui {
 			}
 		}
 
+		if ( ! empty( $args['data'] ) ) {
+			foreach ( $args['data'] as $dkey => $dvalue ) {
+				$value .= " data-{$dkey}=\"{$dvalue}\"";
+			}
+		}
+
 		$value .= ' />';
 
 		if ( ! empty( $args['aftertext'] ) ) {
