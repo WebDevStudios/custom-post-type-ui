@@ -345,6 +345,15 @@ function cptui_manage_taxonomies() {
 							echo $ui->get_fieldset_end() . $ui->get_td_end() . $ui->get_tr_end();
 							?>
 						</table>
+						<?php
+						if ( 'new' === $tab ) {
+							?>
+							<div class="cptui-spacer">
+								<a href="#" id="auto-populate"><?php esc_html_e( 'Populate the additional labels based on your chosen labels.', 'custom-post-type-ui' ); ?></a>
+							</div>
+							<?php
+						}
+						?>
 						<p class="submit">
 							<?php
 							wp_nonce_field( 'cptui_addedit_taxonomy_nonce_action', 'cptui_addedit_taxonomy_nonce_field' );
@@ -396,7 +405,7 @@ function cptui_manage_taxonomies() {
 					</div>
 				</div>
 			</div>
-			<div class="cptui-section postbox">
+			<div class="cptui-section cptui-labels postbox">
 				<button type="button" class="handlediv button-link" aria-expanded="true">
 					<span class="screen-reader-text"><?php esc_html_e( 'Toggle panel: Additional labels', 'custom-post-type-ui' ); ?></span>
 					<span class="toggle-indicator" aria-hidden="true"></span>
