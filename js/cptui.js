@@ -10,7 +10,7 @@ postboxes.add_postbox_toggles(pagenow);
 
 	$('#cptui_select_post_type_submit').hide();
 	$('#cptui_select_taxonomy_submit').hide();
-
+	
 	if ('edit' === getParameterByName('action')) {
 		// Store our original slug on page load for edit checking.
 		var original_slug = $('#name').val();
@@ -186,7 +186,17 @@ postboxes.add_postbox_toggles(pagenow);
 	$('.cptui-taxonomy-submit').on('click',function(e){
 		if ( $('.cptui-table :checkbox:checked').length == 0 ) {
 			e.preventDefault();
-			alert( cptui_tax_data.no_associated_type );
+			var no_associated_type_warning = $('<div class="cptui-taxonomy-empty-types-dialog">' + cptui_tax_data.no_associated_type + '</div>').appendTo('#poststuff').dialog({                   
+				'dialogClass'   : 'wp-dialog',           
+				'modal'         : true,
+				'autoOpen'      : false, 
+				'buttons'       : {
+					"OK": function() {
+						$(this).dialog('close');
+					}
+				}
+			});				
+			no_associated_type_warning.dialog('open');
 		}
 	});
 })(jQuery);
