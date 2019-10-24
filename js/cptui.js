@@ -200,14 +200,13 @@ postboxes.add_postbox_toggles(pagenow);
 			var no_associated_type_warning = $('<div class="cptui-taxonomy-empty-types-dialog">' + cptui_tax_data.no_associated_type + '</div>').appendTo('#poststuff').dialog({                   
 				'dialogClass'   : 'wp-dialog',           
 				'modal'         : true,
-				'autoOpen'      : false, 
+				'autoOpen'      : true, 
 				'buttons'       : {
 					"OK": function() {
 						$(this).dialog('close');
 					}
 				}
 			});				
-			no_associated_type_warning.dialog('open');
 		}
 	});
 })(jQuery);
