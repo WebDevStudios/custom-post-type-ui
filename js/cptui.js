@@ -10,7 +10,7 @@ postboxes.add_postbox_toggles(pagenow);
 
 	$('#cptui_select_post_type_submit').hide();
 	$('#cptui_select_taxonomy_submit').hide();
-
+	
 	if ('edit' === getParameterByName('action')) {
 		// Store our original slug on page load for edit checking.
 		var original_slug = $('#name').val();
@@ -26,11 +26,22 @@ postboxes.add_postbox_toggles(pagenow);
 	});
 
 	// Confirm our deletions
-	$('#cpt_submit_delete').on('click',function() {
-		if ( confirm( cptui_type_data.confirm ) ) {
-			return true;
-		}
-		return false;
+	$('#cpt_submit_delete').on('click',function(e) {
+		e.preventDefault();
+		var submit_delete_warning = $('<div class="cptui-submit-delete-dialog">' + cptui_type_data.confirm + '</div>').appendTo('#poststuff').dialog({                   
+			'dialogClass'   : 'wp-dialog',           
+			'modal'         : true,
+			'autoOpen'      : true, 
+			'buttons'       : {
+				"OK": function() {
+					var form = $(e.target).closest('form');
+					$(e.target).unbind('click').click();
+				},
+				"Cancel": function() {
+					$(this).dialog('close');
+				}				
+			}
+		});
 	});
 
 	// Toggles help/support accordions.
@@ -186,7 +197,16 @@ postboxes.add_postbox_toggles(pagenow);
 	$('.cptui-taxonomy-submit').on('click',function(e){
 		if ( $('.cptui-table :checkbox:checked').length == 0 ) {
 			e.preventDefault();
-			alert( cptui_tax_data.no_associated_type );
+			var no_associated_type_warning = $('<div class="cptui-taxonomy-empty-types-dialog">' + cptui_tax_data.no_associated_type + '</div>').appendTo('#poststuff').dialog({                   
+				'dialogClass'   : 'wp-dialog',           
+				'modal'         : true,
+				'autoOpen'      : true, 
+				'buttons'       : {
+					"OK": function() {
+						$(this).dialog('close');
+					}
+				}
+			});				
 		}
 	});
 })(jQuery);
