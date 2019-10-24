@@ -9,6 +9,8 @@
  * @license GPL-2.0+
  */
 
+// phpcs:disable WebDevStudios.All.RequireAuthor
+
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -51,7 +53,8 @@ function cptui_settings() {
 		 *
 		 * @since 1.0.0
 		 */
-		do_action( 'cptui_main_page_start' ); ?>
+		do_action( 'cptui_main_page_start' );
+		?>
 		<h1><?php esc_html_e( 'Custom Post Type UI', 'custom-post-type-ui' ); ?> <?php echo esc_html( CPTUI_VERSION ); ?></h1>
 
 		<?php
@@ -75,22 +78,23 @@ function cptui_settings() {
 		 *
 		 * @since 1.4.0
 		 */
-		do_action( 'cptui_main_page_before_changelog' ); ?>
+		do_action( 'cptui_main_page_before_changelog' );
+		?>
 
 		<h2><?php printf( esc_html__( "What's new in version %s", 'custom-post-type-ui' ), CPTUI_VERSION ); ?></h2>
 		<div class="changelog about-integrations">
 			<div class="cptui-feature feature-section col three-col">
 				<div class="col">
-					<h2><?php esc_html_e( 'Taxonomy support for meta_box_cb parameter', 'custom-post-type-ui' ); ?></h2>
-					<p><?php esc_html_e( 'We have added a field to provide a function callback to use for the metabox for your taxonomies. This allows you to customize and provide your own metabox output instead of using the default.', 'custom-post-type-ui' ); ?></p>
+					<h2><?php esc_html_e( 'Ability to temporarily disable content types without deleting them.', 'custom-post-type-ui' ); ?></h2>
+					<p><?php esc_html_e( 'Have you ever wanted to temporarily disable things without removing their settings, as you continue developing the site? Custom Post Type UI now has the ability to skip content types with a WordPress filter. UI options to toggle will be in a later version.', 'custom-post-type-ui' ); ?></p>
 				</div>
 				<div class="col">
-					<h2><?php esc_html_e( 'WP-CLI Support', 'custom-post-type-ui' ); ?></h2>
-					<p><?php esc_html_e( 'We have added some initial WP-CLI support around importing and exporting your Custom Post Type UI settings. This will help with setting up your websites and provide some possible automation tools.', 'custom-post-type-ui' ); ?></p>
+					<h2><?php esc_html_e( 'New post type labels introduced in WordPress 5.0', 'custom-post-type-ui' ); ?></h2>
+					<p><?php esc_html_e( 'We have increased our minimum supported WordPress version and with that, we now support the newest available label options. You now have even finer control over your admin UI wording.', 'custom-post-type-ui' ); ?></p>
 				</div>
 				<div class="col last-feature">
-					<h2><?php esc_html_e( 'Adjusted default "Show in REST" parameter.', 'custom-post-type-ui' ); ?></h2>
-					<p><?php esc_html_e( 'Gutenberg is coming with WordPress 5.0. For post types to have "Gutenberg" support, the "Show in REST" parameter needs to be set to true. We are changing this to help ease users into better integration.', 'custom-post-type-ui' ) ?></p>
+					<h2></h2>
+					<p></p>
 				</div>
 			</div>
 		</div>
@@ -103,7 +107,8 @@ function cptui_settings() {
 			 *
 			 * @since 1.3.0
 			 */
-			do_action( 'cptui_main_page_extra_notes' ); ?>
+			do_action( 'cptui_main_page_extra_notes' );
+			?>
 		</div>
 	</div>
 	<?php

@@ -2,11 +2,11 @@
 Contributors: webdevstudios, pluginize, tw2113, vegasgeek, modemlooper, williamsba1
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3084056
 Tags: custom post types, CPT, CMS, post, types, post type, taxonomy, tax, custom, content types, post types
-Requires at least: 4.7
-Tested up to: 5.2
-Stable tag: 1.6.2
+Requires at least: 5.2
+Tested up to: 5.2.2
+Stable tag: 1.7.0
 License: GPL-2.0+
-Requires PHP: 5.2
+Requires PHP: 5.6
 
 Admin UI for creating custom post types and custom taxonomies for WordPress
 
@@ -30,6 +30,17 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 6. Help/support screen.
 
 == Changelog ==
+
+= 1.7.0 - TBD =
+* Actually added this time: Delete with user support for post types. Managed to miss the code with 1.6.0 which was a long time ago.
+* Added: Ability to disable registration of post types or taxonomies without deleting them completely from settings.
+* Added: New post type labels introduced in WordPress 5.0.0.
+* Added: Link to Dashicon documentation for when editing menu icon. Props @juliekuehl
+* Updated: Added post type templates documentation to help section.
+* Updated: Redirect user to the "add" tab if deleting the last post type or taxonomy created.
+* Updated: Touched up tab markup to match semantic improvements provided by WordPress 5.2.0.
+* Fixed: potential duplicate output of "parent_item_colon" with "Get Code" output.
+* Misc: Added code of conduct file to github repo. Props GaryJones.
 
 = 1.6.2 - 2019-05-20 =
 * Added: "themes" is now a reserved post type slug due to conflicts with WordPress internally.
@@ -131,6 +142,17 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 * Updated: Added filter to tab collection for the tools section. You can now add your own tabs.
 
 == Upgrade Notice ==
+
+= 1.7.0 - TBD =
+* Actually added this time: Delete with user support for post types. Managed to miss the code with 1.6.0 which was a long time ago.
+* Added: Ability to disable registration of post types or taxonomies without deleting them completely from settings.
+* Added: New post type labels introduced in WordPress 5.0.0.
+* Added: Link to Dashicon documentation for when editing menu icon. Props @juliekuehl
+* Updated: Added post type templates documentation to help section.
+* Updated: Redirect user to the "add" tab if deleting the last post type or taxonomy created.
+* Updated: Touched up tab markup to match semantic improvements provided by WordPress 5.2.0.
+* Fixed: potential duplicate output of "parent_item_colon" with "Get Code" output.
+* Misc: Added code of conduct file to github repo. Props GaryJones.
 
 = 1.6.2 - 2019-05-20 =
 * Added: "themes" is now a reserved post type slug due to conflicts with WordPress internally.
