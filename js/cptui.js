@@ -26,11 +26,22 @@ postboxes.add_postbox_toggles(pagenow);
 	});
 
 	// Confirm our deletions
-	$('#cpt_submit_delete').on('click',function() {
-		if ( confirm( cptui_type_data.confirm ) ) {
-			return true;
-		}
-		return false;
+	$('#cpt_submit_delete').on('click',function(e) {
+		e.preventDefault();
+		var submit_delete_warning = $('<div class="cptui-submit-delete-dialog">' + cptui_type_data.confirm + '</div>').appendTo('#poststuff').dialog({                   
+			'dialogClass'   : 'wp-dialog',           
+			'modal'         : true,
+			'autoOpen'      : true, 
+			'buttons'       : {
+				"OK": function() {
+					var form = $(e.target).closest('form');
+					$(e.target).unbind('click').click();
+				},
+				"Cancel": function() {
+					$(this).dialog('close');
+				}				
+			}
+		});
 	});
 
 	// Toggles help/support accordions.
