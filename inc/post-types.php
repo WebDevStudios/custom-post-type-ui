@@ -408,7 +408,7 @@ function cptui_manage_post_types() {
 									'aftertext' => esc_html__( '(e.g. Add New)', 'custom-post-type-ui' ),
 									'data'      => [
 										/* translators: Used for autofill */
-										'label'     => esc_attr__( 'Add New', 'custom-post-type-ui' ),
+										'label'     => esc_attr__( 'Add new', 'custom-post-type-ui' ),
 										'plurality' => 'plural',
 									],
 								] );
