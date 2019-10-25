@@ -217,10 +217,10 @@ postboxes.add_postbox_toggles(pagenow);
 	$('#auto-populate').on( 'click tap', function(e){
 		e.preventDefault();
 
-		let slug     = $('#name').val();
-		let plural   = $('#label').val();
-		let singular = $('#singular_label').val();
-		let fields   = $('.cptui-labels input[type="text"]');
+		var slug     = $('#name').val();
+		var plural   = $('#label').val();
+		var singular = $('#singular_label').val();
+		var fields   = $('.cptui-labels input[type="text"]');
 
 		if ( '' === slug ) {
 			return;
@@ -236,8 +236,8 @@ postboxes.add_postbox_toggles(pagenow);
 		//let ucsingular = uppercaseFirstLetter( singular );
 
 		$(fields).each( function( i, el ) {
-			let newval = $( el ).data( 'label' );
-			let plurality = $( el ).data( 'plurality' );
+			var newval = $( el ).data( 'label' );
+			var plurality = $( el ).data( 'plurality' );
 			if ( undefined !== newval ) {
 				// "slug" is our placeholder from the labels.
 				if ( 'plural' === plurality ) {
