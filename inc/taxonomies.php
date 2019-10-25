@@ -438,6 +438,10 @@ function cptui_manage_taxonomies() {
 								'aftertext' => esc_attr__( '(e.g. Actors)', 'custom-post-type-ui' ),
 								'labeltext' => esc_html__( 'Menu Name', 'custom-post-type-ui' ),
 								'helptext'  => esc_html__( 'Custom admin menu name for your taxonomy.', 'custom-post-type-ui' ),
+								'data' => [
+									'label'     => 'item', // Not localizing because it's isolated.
+									'plurality' => 'plural',
+								],
 							] );
 
 							echo $ui->get_text_input( [
@@ -447,6 +451,11 @@ function cptui_manage_taxonomies() {
 								'aftertext' => esc_attr__( '(e.g. All Actors)', 'custom-post-type-ui' ),
 								'labeltext' => esc_html__( 'All Items', 'custom-post-type-ui' ),
 								'helptext'  => esc_html__( 'Used as tab text when showing all terms for hierarchical taxonomy while editing post.', 'custom-post-type-ui' ),
+								'data' => [
+									/* translators: Used for autofill */
+									'label'     => sprintf( esc_attr__( 'All %s', 'custom-post-type-ui' ), 'item' ),
+									'plurality' => 'plural',
+								],
 							] );
 
 							echo $ui->get_text_input( [
@@ -456,6 +465,11 @@ function cptui_manage_taxonomies() {
 								'aftertext' => esc_attr__( '(e.g. Edit Actor)', 'custom-post-type-ui' ),
 								'labeltext' => esc_html__( 'Edit Item', 'custom-post-type-ui' ),
 								'helptext'  => esc_html__( 'Used at the top of the term editor screen for an existing taxonomy term.', 'custom-post-type-ui' ),
+								'data' => [
+									/* translators: Used for autofill */
+									'label'     => sprintf( esc_attr__( 'Edit %s', 'custom-post-type-ui' ), 'item' ),
+									'plurality' => 'singular',
+								],
 							] );
 
 							echo $ui->get_text_input( [
@@ -465,6 +479,11 @@ function cptui_manage_taxonomies() {
 								'aftertext' => esc_attr__( '(e.g. View Actor)', 'custom-post-type-ui' ),
 								'labeltext' => esc_html__( 'View Item', 'custom-post-type-ui' ),
 								'helptext'  => esc_html__( 'Used in the admin bar when viewing editor screen for an existing taxonomy term.', 'custom-post-type-ui' ),
+								'data' => [
+									/* translators: Used for autofill */
+									'label'     => sprintf( esc_attr__( 'View %s', 'custom-post-type-ui' ), 'item' ),
+									'plurality' => 'singular',
+								],
 							] );
 
 							echo $ui->get_text_input( [
@@ -474,6 +493,11 @@ function cptui_manage_taxonomies() {
 								'aftertext' => esc_attr__( '(e.g. Update Actor Name)', 'custom-post-type-ui' ),
 								'labeltext' => esc_html__( 'Update Item Name', 'custom-post-type-ui' ),
 								'helptext'  => esc_html__( 'Custom taxonomy label. Used in the admin menu for displaying taxonomies.', 'custom-post-type-ui' ),
+								'data' => [
+									/* translators: Used for autofill */
+									'label'     => sprintf( esc_attr__( 'Update %s name', 'custom-post-type-ui' ), 'item' ),
+									'plurality' => 'singular',
+								],
 							] );
 
 							echo $ui->get_text_input( [
@@ -483,6 +507,11 @@ function cptui_manage_taxonomies() {
 								'aftertext' => esc_attr__( '(e.g. Add New Actor)', 'custom-post-type-ui' ),
 								'labeltext' => esc_html__( 'Add New Item', 'custom-post-type-ui' ),
 								'helptext'  => esc_html__( 'Used at the top of the term editor screen and button text for a new taxonomy term.', 'custom-post-type-ui' ),
+								'data' => [
+									/* translators: Used for autofill */
+									'label'     => sprintf( esc_attr__( 'Add new %s', 'custom-post-type-ui' ), 'item' ),
+									'plurality' => 'singular',
+								],
 							] );
 
 							echo $ui->get_text_input( [
@@ -492,6 +521,11 @@ function cptui_manage_taxonomies() {
 								'aftertext' => esc_attr__( '(e.g. New Actor Name)', 'custom-post-type-ui' ),
 								'labeltext' => esc_html__( 'New Item Name', 'custom-post-type-ui' ),
 								'helptext'  => esc_html__( 'Custom taxonomy label. Used in the admin menu for displaying taxonomies.', 'custom-post-type-ui' ),
+								'data' => [
+									/* translators: Used for autofill */
+									'label'     => sprintf( esc_attr__( 'New %s name', 'custom-post-type-ui' ), 'item' ),
+									'plurality' => 'singular',
+								],
 							] );
 
 							echo $ui->get_text_input( [
@@ -501,6 +535,11 @@ function cptui_manage_taxonomies() {
 								'aftertext' => esc_attr__( '(e.g. Parent Actor)', 'custom-post-type-ui' ),
 								'labeltext' => esc_html__( 'Parent Item', 'custom-post-type-ui' ),
 								'helptext'  => esc_html__( 'Custom taxonomy label. Used in the admin menu for displaying taxonomies.', 'custom-post-type-ui' ),
+								'data' => [
+									/* translators: Used for autofill */
+									'label'     => sprintf( esc_attr__( 'Parent %s', 'custom-post-type-ui' ), 'item' ),
+									'plurality' => 'singular',
+								],
 							] );
 
 							echo $ui->get_text_input( [
@@ -510,6 +549,11 @@ function cptui_manage_taxonomies() {
 								'aftertext' => esc_attr__( '(e.g. Parent Actor:)', 'custom-post-type-ui' ),
 								'labeltext' => esc_html__( 'Parent Item Colon', 'custom-post-type-ui' ),
 								'helptext'  => esc_html__( 'Custom taxonomy label. Used in the admin menu for displaying taxonomies.', 'custom-post-type-ui' ),
+								'data' => [
+									/* translators: Used for autofill */
+									'label'     => sprintf( esc_attr__( 'Parent %s:', 'custom-post-type-ui' ), 'item' ),
+									'plurality' => 'singular',
+								],
 							] );
 
 							echo $ui->get_text_input( [
@@ -519,6 +563,11 @@ function cptui_manage_taxonomies() {
 								'aftertext' => esc_attr__( '(e.g. Search Actors)', 'custom-post-type-ui' ),
 								'labeltext' => esc_html__( 'Search Items', 'custom-post-type-ui' ),
 								'helptext'  => esc_html__( 'Custom taxonomy label. Used in the admin menu for displaying taxonomies.', 'custom-post-type-ui' ),
+								'data' => [
+									/* translators: Used for autofill */
+									'label'     => sprintf( esc_attr__( 'Search %s', 'custom-post-type-ui' ), 'item' ),
+									'plurality' => 'plural',
+								],
 							] );
 
 							echo $ui->get_text_input( [
@@ -528,6 +577,11 @@ function cptui_manage_taxonomies() {
 								'aftertext' => esc_attr__( '(e.g. Popular Actors)', 'custom-post-type-ui' ),
 								'labeltext' => esc_html__( 'Popular Items', 'custom-post-type-ui' ),
 								'helptext'  => esc_html__( 'Custom taxonomy label. Used in the admin menu for displaying taxonomies.', 'custom-post-type-ui' ),
+								'data' => [
+									/* translators: Used for autofill */
+									'label'     => sprintf( esc_attr__( 'Popular %s', 'custom-post-type-ui' ), 'item' ),
+									'plurality' => 'plural',
+								],
 							] );
 
 							echo $ui->get_text_input( [
@@ -537,6 +591,11 @@ function cptui_manage_taxonomies() {
 								'aftertext' => esc_attr__( '(e.g. Separate Actors with commas)', 'custom-post-type-ui' ),
 								'labeltext' => esc_html__( 'Separate Items with Commas', 'custom-post-type-ui' ),
 								'helptext'  => esc_html__( 'Custom taxonomy label. Used in the admin menu for displaying taxonomies.', 'custom-post-type-ui' ),
+								'data' => [
+									/* translators: Used for autofill */
+									'label'     => sprintf( esc_attr__( 'Separate %s with commas', 'custom-post-type-ui' ), 'item' ),
+									'plurality' => 'plural',
+								],
 							] );
 
 							echo $ui->get_text_input( [
@@ -546,6 +605,11 @@ function cptui_manage_taxonomies() {
 								'aftertext' => esc_attr__( '(e.g. Add or remove Actors)', 'custom-post-type-ui' ),
 								'labeltext' => esc_html__( 'Add or Remove Items', 'custom-post-type-ui' ),
 								'helptext'  => esc_html__( 'Custom taxonomy label. Used in the admin menu for displaying taxonomies.', 'custom-post-type-ui' ),
+								'data' => [
+									/* translators: Used for autofill */
+									'label'     => sprintf( esc_attr__( 'Add or remove %s', 'custom-post-type-ui' ), 'item' ),
+									'plurality' => 'plural',
+								],
 							] );
 
 							echo $ui->get_text_input( [
@@ -555,6 +619,11 @@ function cptui_manage_taxonomies() {
 								'aftertext' => esc_attr__( '(e.g. Choose from the most used Actors)', 'custom-post-type-ui' ),
 								'labeltext' => esc_html__( 'Choose From Most Used', 'custom-post-type-ui' ),
 								'helptext'  => esc_html__( 'Custom taxonomy label. Used in the admin menu for displaying taxonomies.', 'custom-post-type-ui' ),
+								'data' => [
+									/* translators: Used for autofill */
+									'label'     => sprintf( esc_attr__( 'Choose from the most used %s', 'custom-post-type-ui' ), 'item' ),
+									'plurality' => 'plural',
+								],
 							] );
 
 							echo $ui->get_text_input( [
@@ -564,6 +633,11 @@ function cptui_manage_taxonomies() {
 								'aftertext' => esc_attr__( '(e.g. No Actors found)', 'custom-post-type-ui' ),
 								'labeltext' => esc_html__( 'Not found', 'custom-post-type-ui' ),
 								'helptext'  => esc_html__( 'Custom taxonomy label. Used in the admin menu for displaying taxonomies.', 'custom-post-type-ui' ),
+								'data' => [
+									/* translators: Used for autofill */
+									'label'     => sprintf( esc_attr__( 'No %s found', 'custom-post-type-ui' ), 'item' ),
+									'plurality' => 'plural',
+								],
 							] );
 
 							echo $ui->get_text_input( [
@@ -573,6 +647,11 @@ function cptui_manage_taxonomies() {
 								'aftertext' => esc_html__( '(e.g. No actors)', 'custom-post-type-ui' ),
 								'labeltext' => esc_html__( 'No terms', 'custom-post-type-ui' ),
 								'helptext'  => esc_attr__( 'Used when indicating that there are no terms in the given taxonomy associated with an object.', 'custom-post-type-ui' ),
+								'data' => [
+									/* translators: Used for autofill */
+									'label'     => sprintf( esc_attr__( 'No %s', 'custom-post-type-ui' ), 'item' ),
+									'plurality' => 'plural',
+								],
 							] );
 
 							echo $ui->get_text_input( [
@@ -582,6 +661,11 @@ function cptui_manage_taxonomies() {
 								'aftertext' => esc_html__( '(e.g. Actors list navigation)', 'custom-post-type-ui' ),
 								'labeltext' => esc_html__( 'Items List Navigation', 'custom-post-type-ui' ),
 								'helptext'  => esc_attr__( 'Screen reader text for the pagination heading on the term listing screen.', 'custom-post-type-ui' ),
+								'data' => [
+									/* translators: Used for autofill */
+									'label'     => sprintf( esc_attr__( '%s list navigation', 'custom-post-type-ui' ), 'item' ),
+									'plurality' => 'plural',
+								],
 							] );
 
 							echo $ui->get_text_input( [
@@ -591,6 +675,11 @@ function cptui_manage_taxonomies() {
 								'aftertext' => esc_html__( '(e.g. Actors list)', 'custom-post-type-ui' ),
 								'labeltext' => esc_html__( 'Items List', 'custom-post-type-ui' ),
 								'helptext'  => esc_attr__( 'Screen reader text for the items list heading on the term listing screen.', 'custom-post-type-ui' ),
+								'data' => [
+									/* translators: Used for autofill */
+									'label'     => sprintf( esc_attr__( '%s list', 'custom-post-type-ui' ), 'item' ),
+									'plurality' => 'plural',
+								],
 							] );
 							?>
 						</table>
