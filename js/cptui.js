@@ -232,8 +232,8 @@ postboxes.add_postbox_toggles(pagenow);
 			singular = slug;
 		}
 
-		let ucplural   = uppercaseFirstLetter( plural );
-		let ucsingular = uppercaseFirstLetter( singular );
+		//let ucplural   = uppercaseFirstLetter( plural );
+		//let ucsingular = uppercaseFirstLetter( singular );
 
 		$(fields).each( function( i, el ) {
 			let newval = $( el ).data( 'label' );
@@ -241,9 +241,9 @@ postboxes.add_postbox_toggles(pagenow);
 			if ( undefined !== newval ) {
 				// "slug" is our placeholder from the labels.
 				if ( 'plural' === plurality ) {
-					newval = newval.replace(/item/gi, ucplural);
+					newval = newval.replace(/item/gi, plural);
 				} else {
-					newval = newval.replace(/item/gi, ucsingular);
+					newval = newval.replace(/item/gi, singular);
 				}
 				$( el ).val( newval );
 			}
