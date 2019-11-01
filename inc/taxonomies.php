@@ -290,8 +290,21 @@ function cptui_manage_taxonomies() {
 								'helptext'  => esc_attr__( 'Used when a singular label is needed.', 'custom-post-type-ui' ),
 								'required'  => true,
 							] );
+							echo $ui->get_td_end() . $ui->get_tr_end();
+
+							if ( 'new' === $tab ) {
+							echo $ui->get_tr_end();
+							echo $ui->get_th_start() . esc_html__( 'Auto-populate labels', 'custom-post-type-ui' ) . $ui->get_th_end();
+							echo $ui->get_td_start();
+
+								?>
+								<a href="#" id="auto-populate"><?php esc_html_e( 'Populate additional labels based on chosen labels.', 'custom-post-type-ui' ); ?></a>
+								<?php
 
 							echo $ui->get_td_end() . $ui->get_tr_end();
+							}
+
+
 
 							echo $ui->get_tr_start() . $ui->get_th_start() . esc_html__( 'Attach to Post Type', 'custom-post-type-ui' ) . $ui->get_required_span();
 							echo $ui->get_p( esc_html__( 'Add support for available registered post types. At least one is required. Only public post types listed by default.', 'custom-post-type-ui' ) );
@@ -345,15 +358,6 @@ function cptui_manage_taxonomies() {
 							echo $ui->get_fieldset_end() . $ui->get_td_end() . $ui->get_tr_end();
 							?>
 						</table>
-						<?php
-						if ( 'new' === $tab ) {
-							?>
-							<div class="cptui-spacer">
-								<a href="#" id="auto-populate"><?php esc_html_e( 'Populate the additional labels based on your chosen labels.', 'custom-post-type-ui' ); ?></a>
-							</div>
-							<?php
-						}
-						?>
 						<p class="submit">
 							<?php
 							wp_nonce_field( 'cptui_addedit_taxonomy_nonce_action', 'cptui_addedit_taxonomy_nonce_field' );

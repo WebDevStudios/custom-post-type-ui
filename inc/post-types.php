@@ -285,17 +285,18 @@ function cptui_manage_post_types() {
 							'helptext'  => esc_html__( 'Used when a singular label is needed.', 'custom-post-type-ui' ),
 							'required'  => true,
 						] );
-					?>
-				</table>
-						<?php
+
 						if ( 'new' === $tab ) {
-							?>
-							<div class="cptui-spacer">
-								<a href="#" id="auto-populate"><?php esc_html_e( 'Populate the additional labels based on your chosen labels.', 'custom-post-type-ui' ); ?></a>
-							</div>
-							<?php
+							echo $ui->get_tr_end();
+							echo $ui->get_th_start() . esc_html__( 'Auto-populate labels', 'custom-post-type-ui' ) . $ui->get_th_end();
+							echo $ui->get_td_start();
+								?>
+									<a href="#" id="auto-populate"><?php esc_html_e( 'Populate additional labels based on chosen labels.', 'custom-post-type-ui' ); ?></a>
+								<?php
+							echo $ui->get_td_end() . $ui->get_tr_end();
 						}
 						?>
+						</table>
 						<p class="submit">
 						<?php wp_nonce_field( 'cptui_addedit_post_type_nonce_action', 'cptui_addedit_post_type_nonce_field' );
 						if ( ! empty( $_GET ) && ! empty( $_GET['action'] ) && 'edit' === $_GET['action'] ) { ?>
