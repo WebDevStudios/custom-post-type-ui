@@ -245,7 +245,9 @@ postboxes.add_postbox_toggles(pagenow);
 				} else {
 					newval = newval.replace(/item/gi, singular);
 				}
-				$( el ).val( newval );
+				if ( $( el ).val() === '' ) {
+					$(el).val(newval);
+				}
 			}
 		} );
 	});
