@@ -43,7 +43,6 @@ function cptui_post_type_enqueue_scripts() {
 	$public                = get_post_types( [ '_builtin' => false, 'public' => true ] );
 	$private               = get_post_types( [ '_builtin' => false, 'public' => false ] );
 	$registered_post_types = array_merge( $core, $public, $private );
-	$label_data            = cptui_get_all_labels();
 
 	wp_localize_script( 'cptui', 'cptui_type_data',
 		[
