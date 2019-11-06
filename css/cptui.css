@@ -127,7 +127,6 @@
 .cptui_tax_get_code {
   height: 300px;
   resize: vertical;
-  width: 100%;
 }
 
 .about-wrap .cptui-feature {
@@ -313,7 +312,7 @@ fieldset .cptui-help {
   -ms-flex-pack: justify;
   justify-content: space-between;
   -ms-flex-line-pack: stretch;
-  align-content: stretch;
+      align-content: stretch;
   -ms-flex-align: start;
   align-items: flex-start;
   margin: 20px 0;
@@ -325,7 +324,7 @@ fieldset .cptui-help {
   -ms-flex: 0 1 auto;
   flex: 0 1 auto;
   -ms-flex-item-align: auto;
-  -ms-grid-row-align: auto;
+      -ms-grid-row-align: auto;
       align-self: auto;
 }
 
@@ -335,7 +334,7 @@ fieldset .cptui-help {
   -ms-flex: 0 1 auto;
   flex: 0 1 auto;
   -ms-flex-item-align: auto;
-  -ms-grid-row-align: auto;
+      -ms-grid-row-align: auto;
       align-self: auto;
 }
 
@@ -345,7 +344,7 @@ fieldset .cptui-help {
   -ms-flex: 0 1 auto;
   flex: 0 1 auto;
   -ms-flex-item-align: auto;
-  -ms-grid-row-align: auto;
+      -ms-grid-row-align: auto;
       align-self: auto;
 }
 
@@ -354,11 +353,11 @@ fieldset .cptui-help {
 }
 
 .wdspromos-about p:nth-child(1) {
-  padding-left: 0px;
+  padding-left: 0;
 }
 
 .wdspromos-about p:nth-child(4) {
-  padding-right: 0px;
+  padding-right: 0;
 }
 
 .no-js #cptui_choose_icon {
@@ -415,7 +414,6 @@ fieldset .cptui-help {
   .cptui-table td.outer {
     width: 100%;
   }
-  #cptui-audit-textarea,
   #cptui_debug_info_email {
     width: 100%;
   }

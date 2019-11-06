@@ -117,7 +117,6 @@ $max-tablet: "screen and (max-width: 768px)";
 .cptui_tax_get_code {
 	height: 300px;
 	resize: vertical;
-	width: 100%;
 }
 .about-wrap {
 	.cptui-feature {
@@ -297,7 +296,6 @@ $max-tablet: "screen and (max-width: 768px)";
 	-ms-flex-pack: justify;
 	justify-content: space-between;
 	-webkit-align-content: stretch;
-	-ms-flex-line-pack: stretch;
 	align-content: stretch;
 	-webkit-align-items: flex-start;
 	-ms-flex-align: start;
@@ -305,47 +303,41 @@ $max-tablet: "screen and (max-width: 768px)";
 	margin: 20px 0;
 
 	a:nth-child(1) {
-		-webkit-order: 0;
 		-ms-flex-order: 0;
 		order: 0;
 		-webkit-flex: 0 1 auto;
 		-ms-flex: 0 1 auto;
 		flex: 0 1 auto;
 		-webkit-align-self: auto;
-		-ms-flex-item-align: auto;
 		align-self: auto;
 	}
 
 	a:nth-child(2) {
-		-webkit-order: 0;
 		-ms-flex-order: 0;
 		order: 0;
 		-webkit-flex: 0 1 auto;
 		-ms-flex: 0 1 auto;
 		flex: 0 1 auto;
 		-webkit-align-self: auto;
-		-ms-flex-item-align: auto;
 		align-self: auto;
 	}
 
 	a:nth-child(3) {
-		-webkit-order: 0;
 		-ms-flex-order: 0;
 		order: 0;
 		-webkit-flex: 0 1 auto;
 		-ms-flex: 0 1 auto;
 		flex: 0 1 auto;
 		-webkit-align-self: auto;
-		-ms-flex-item-align: auto;
 		align-self: auto;
 	}
 	p {
 	  padding: 0 5px;
 	  &:nth-child(1) {
-		padding-left: 0px;
+		padding-left: 0;
 	  }
 	  &:nth-child(4) {
-		padding-right: 0px;
+		padding-right: 0;
 	  }
 	}
 }
@@ -410,7 +402,7 @@ $max-tablet: "screen and (max-width: 768px)";
 	  width: 100%;
 	}
   }
-  #cptui-audit-textarea,
+
   #cptui_debug_info_email {
 	width: 100%;
   }

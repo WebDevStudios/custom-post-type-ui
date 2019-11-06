@@ -23,7 +23,7 @@ class CPTUI_Debug_Info {
 		?>
 		<p><?php _e( 'If you have sought support for Custom Post Type UI on the forums, you may be requested to send the information below to the plugin developer. Simply insert the email they provided in the input field at the bottom and click the "Send debug info" button. Only the data below will be sent to them.', 'custom-post-type-ui' ); ?></p>
 		<label for="cptui_audit_textarea">
-		<textarea readonly="readonly" aria-readonly="true" id="cptui-audit-textarea" name="cptui_audit_textarea" rows="20" cols="100">
+		<textarea readonly="readonly" aria-readonly="true" id="cptui-audit-textarea" name="cptui_audit_textarea" rows="20" cols="100" class="large-text code">
 			<?php echo $this->system_status(); ?>
 		</textarea></label>
 		<?php
@@ -92,7 +92,7 @@ class CPTUI_Debug_Info {
 		// Standard plugins - active.
 		echo "\n";
 
-		$active   = get_option( 'active_plugins', array() );
+		$active   = get_option( 'active_plugins', [] );
 		$ac_count = count( $active );
 		$ic_count = $pg_count - $ac_count;
 
@@ -123,7 +123,7 @@ class CPTUI_Debug_Info {
 		if ( is_multisite() ) :
 
 			$net_plugins = wp_get_active_network_plugins();
-			$net_active  = get_site_option( 'active_sitewide_plugins', array() );
+			$net_active  = get_site_option( 'active_sitewide_plugins', [] );
 
 			echo "\n";
 			echo 'NETWORK ACTIVE PLUGINS: (' . count( $net_plugins ) . ')' . "\n\n";
@@ -210,7 +210,7 @@ class CPTUI_Debug_Info {
 	 * @param array $args Array of arguments for the method. Optional.
 	 * @return bool
 	 */
-	public function send_email( $args = array() ) {
+	public function send_email( $args = [] ) {
 
 		if ( ! isset( $args['email'] ) || ! is_email( $args['email'] ) ) {
 			return false;

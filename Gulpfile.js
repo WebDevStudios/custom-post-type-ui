@@ -12,6 +12,7 @@ var sass = require('gulp-sass');
 var sort = require('gulp-sort');
 var uglify = require('gulp-uglify');
 var shell = require('gulp-shell');
+var log = require('fancy-log');
 
 //set assets paths.
 var paths = {
@@ -114,6 +115,7 @@ gulp.task('uglify', ['clean:scripts'], function() {
 	.pipe(uglify({
 		mangle: false
 	}))
+	.on('error', function (err) {log(err.toString());})
 	.pipe(concat('cptui.min.js'))
 	.pipe(gulp.dest('js'))
 });

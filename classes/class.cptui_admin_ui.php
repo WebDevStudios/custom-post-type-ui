@@ -7,6 +7,8 @@
  * @author WebDevStudios
  * @since 1.0.0
  * @license GPL-2.0+
+ *
+ * phpcs:disable WebDevStudios.All.RequireAuthor
  */
 
 /**
@@ -91,7 +93,7 @@ class cptui_admin_ui {
 	 * @param array $args Array of arguments.
 	 * @return string $value Opening `<fieldset>` tag.
 	 */
-	public function get_fieldset_start( $args = array() ) {
+	public function get_fieldset_start( $args = [] ) {
 		$fieldset = '<fieldset';
 
 		if ( ! empty( $args['id'] ) ) {
@@ -99,7 +101,7 @@ class cptui_admin_ui {
 		}
 
 		if ( ! empty( $args['classes'] ) ) {
-			$classes = 'class="' . implode( ' ', $args['classes'] ) . '"';
+			$classes   = 'class="' . implode( ' ', $args['classes'] ) . '"';
 			$fieldset .= ' ' . $classes;
 		}
 
@@ -167,7 +169,7 @@ class cptui_admin_ui {
 	 * @return string $value `<label>` tag with filled out parts.
 	 */
 	public function get_label( $label_for = '', $label_text = '' ) {
-		return '<label for="' . esc_attr( $label_for ) . '">' . strip_tags( $label_text ) . '</label>';
+		return '<label for="' . esc_attr( $label_for ) . '">' . wp_strip_all_tags( $label_text ) . '</label>';
 	}
 
 	/**
@@ -206,7 +208,7 @@ class cptui_admin_ui {
 	 * @return string Aria required attribute
 	 */
 	public function get_aria_required( $required = false ) {
-		$attr = ( $required ) ? 'true' : 'false';
+		$attr = $required ? 'true' : 'false';
 		return 'aria-required="' . $attr . '"';
 	}
 
@@ -290,9 +292,9 @@ class cptui_admin_ui {
 	 * @param array $args Arguments to use with the `<select>` input.
 	 * @return string $value Complete <select> input with options and selected attribute.
 	 */
-	public function get_select_input( $args = array() ) {
+	public function get_select_input( $args = [] ) {
 		$defaults = $this->get_default_input_parameters(
-			array( 'selections' => array() )
+			[ 'selections' => [] ]
 		);
 
 		$args = wp_parse_args( $args, $defaults );
@@ -302,8 +304,12 @@ class cptui_admin_ui {
 			$value  = $this->get_tr_start();
 			$value .= $this->get_th_start();
 			$value .= $this->get_label( $args['name'], $args['labeltext'] );
-			if ( $args['required'] ) { $value .= $this->get_required_span(); }
-			if ( ! empty( $args['helptext'] ) ) { $value .= $this->get_help( $args['helptext'] ); }
+			if ( $args['required'] ) {
+				$value .= $this->get_required_span();
+			}
+			if ( ! empty( $args['helptext'] ) ) {
+				$value .= $this->get_help( $args['helptext'] );
+			}
 			$value .= $this->get_th_end();
 			$value .= $this->get_td_start();
 		}
@@ -312,15 +318,15 @@ class cptui_admin_ui {
 		if ( ! empty( $args['selections']['options'] ) && is_array( $args['selections']['options'] ) ) {
 			foreach ( $args['selections']['options'] as $val ) {
 				$result = '';
-				$bool = disp_boolean( $val['attr'] );
+				$bool   = disp_boolean( $val['attr'] );
 
 				if ( is_numeric( $args['selections']['selected'] ) ) {
 					$selected = disp_boolean( $args['selections']['selected'] );
-				} elseif ( in_array( $args['selections']['selected'], array( 'true', 'false' ) ) ) {
+				} elseif ( in_array( $args['selections']['selected'], [ 'true', 'false' ], true ) ) {
 					$selected = $args['selections']['selected'];
 				}
 
-				if ( ( ! empty( $selected ) ) && $selected === $bool ) {
+				if ( ! empty( $selected ) && $selected === $bool ) {
 					$result = ' selected="selected"';
 				} else {
 					if ( array_key_exists( 'default', $val ) && ! empty( $val['default'] ) ) {
@@ -359,21 +365,23 @@ class cptui_admin_ui {
 	 * @param array $args Arguments to use with the text input.
 	 * @return string Complete text `<input>` with proper attributes.
 	 */
-	public function get_text_input( $args = array() ) {
+	public function get_text_input( $args = [] ) {
 		$defaults = $this->get_default_input_parameters(
-			array(
-				'maxlength'     => '',
-				'onblur'        => '',
-			)
+			[
+				'maxlength' => '',
+				'onblur'    => '',
+			]
 		);
-		$args = wp_parse_args( $args, $defaults );
+		$args     = wp_parse_args( $args, $defaults );
 
 		$value = '';
 		if ( $args['wrap'] ) {
 			$value .= $this->get_tr_start();
 			$value .= $this->get_th_start();
 			$value .= $this->get_label( $args['name'], $args['labeltext'] );
-			if ( $args['required'] ) { $value .= $this->get_required_span(); }
+			if ( $args['required'] ) {
+				$value .= $this->get_required_span();
+			}
 			$value .= $this->get_th_end();
 			$value .= $this->get_td_start();
 		}
@@ -395,6 +403,12 @@ class cptui_admin_ui {
 		if ( ! empty( $args['aftertext'] ) ) {
 			if ( $args['placeholder'] ) {
 				$value .= ' ' . $this->get_placeholder( $args['aftertext'] );
+			}
+		}
+
+		if ( ! empty( $args['data'] ) ) {
+			foreach ( $args['data'] as $dkey => $dvalue ) {
+				$value .= " data-{$dkey}=\"{$dvalue}\"";
 			}
 		}
 
@@ -424,14 +438,14 @@ class cptui_admin_ui {
 	 * @param array $args Arguments to use with the textarea input.
 	 * @return string $value Complete <textarea> input with proper attributes.
 	 */
-	public function get_textarea_input( $args = array() ) {
+	public function get_textarea_input( $args = [] ) {
 		$defaults = $this->get_default_input_parameters(
-			array(
+			[
 				'rows' => '',
 				'cols' => '',
-			)
+			]
 		);
-		$args = wp_parse_args( $args, $defaults );
+		$args     = wp_parse_args( $args, $defaults );
 
 		$value = '';
 
@@ -439,7 +453,9 @@ class cptui_admin_ui {
 			$value .= $this->get_tr_start();
 			$value .= $this->get_th_start();
 			$value .= $this->get_label( $args['name'], $args['labeltext'] );
-			if ( $args['required'] ) { $value .= $this->get_required_span(); }
+			if ( $args['required'] ) {
+				$value .= $this->get_required_span();
+			}
 			$value .= $this->get_th_end();
 			$value .= $this->get_td_start();
 		}
@@ -470,24 +486,25 @@ class cptui_admin_ui {
 	 * @param array $args Arguments to use with the checkbox input.
 	 * @return string $value Complete checkbox `<input>` with proper attributes.
 	 */
-	public function get_check_input( $args = array() ) {
+	public function get_check_input( $args = [] ) {
 		$defaults = $this->get_default_input_parameters(
-			array(
-				'checkvalue'        => '',
-				'checked'           => 'true',
-				'checklisttext'     => '',
-				'default'           => false,
-			)
+			[
+				'checkvalue'    => '',
+				'checked'       => 'true',
+				'checklisttext' => '',
+				'default'       => false,
+			]
 		);
-
-		$args = wp_parse_args( $args, $defaults );
+		$args     = wp_parse_args( $args, $defaults );
 
 		$value = '';
 		if ( $args['wrap'] ) {
 			$value .= $this->get_tr_start();
 			$value .= $this->get_th_start();
 			$value .= $args['checklisttext'];
-			if ( $args['required'] ) { $value .= $this->get_required_span(); }
+			if ( $args['required'] ) {
+				$value .= $this->get_required_span();
+			}
 			$value .= $this->get_th_end();
 			$value .= $this->get_td_start();
 		}
@@ -516,8 +533,8 @@ class cptui_admin_ui {
 	 * @param array $args Arguments to use with the button input.
 	 * @return string Complete button `<input>`.
 	 */
-	public function get_button( $args = array() ) {
-		$value = '';
+	public function get_button( $args = [] ) {
+		$value  = '';
 		$value .= '<input id="' . $args['id'] . '" class="button" type="button" value="' . $args['textvalue'] . '" />';
 
 		return $value;
@@ -531,9 +548,9 @@ class cptui_admin_ui {
 	 * @param array $additions Arguments array to merge with our defaults.
 	 * @return array $value Merged arrays for our default parameters.
 	 */
-	public function get_default_input_parameters( $additions = array() ) {
+	public function get_default_input_parameters( $additions = [] ) {
 		return array_merge(
-			array(
+			[
 				'namearray'      => '',
 				'name'           => '',
 				'textvalue'      => '',
@@ -544,7 +561,7 @@ class cptui_admin_ui {
 				'required'       => false,
 				'wrap'           => true,
 				'placeholder'    => true,
-			),
+			],
 			(array) $additions
 		);
 	}

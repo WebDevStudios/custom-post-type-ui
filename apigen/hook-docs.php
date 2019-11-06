@@ -6,10 +6,10 @@
  */
 class CPTUI_HookFinder {
 	private static $current_file           = '';
-	private static $files_to_scan          = array();
+	private static $files_to_scan          = [];
 	private static $pattern_custom_actions = '/do_action(.*?);/i';
 	private static $pattern_custom_filters = '/apply_filters(.*?);/i';
-	private static $found_files            = array();
+	private static $found_files            = [];
 	private static $custom_hooks_found     = '';
 
 	private static function get_files( $pattern, $flags = 0, $path = '' ) {
@@ -27,7 +27,7 @@ class CPTUI_HookFinder {
 
 	    if ( is_array( $paths ) ) {
 		    foreach ( $paths as $p ) {
-			    $found_files = array();
+			    $found_files = [];
 		   		$retrieved_files = (array) self::get_files( $pattern, $flags, $p . '/' );
 		   		foreach ( $retrieved_files as $file ) {
 			   		if ( ! in_array( $file, self::$found_files ) )
@@ -45,7 +45,7 @@ class CPTUI_HookFinder {
 	    return $files;
     }
 
-	private static function get_hook_link( $hook, $details = array() ) {
+	private static function get_hook_link( $hook, $details = [] ) {
 		if ( ! empty( $details['class'] ) ) {
 			// $link = 'http://docs.woothemes.com/wc-apidocs/source-class-' . $details['class'] . '.html#' . $details['line'];
 		} elseif ( ! empty( $details['function'] ) ) {
@@ -63,17 +63,17 @@ class CPTUI_HookFinder {
 		// If we have one, get the PHP files from it.
 		$inc_files   = self::get_files( '*.php', GLOB_MARK, 'inc/' );
 		$class_files = self::get_files( '*.php', GLOB_MARK, 'classes/' );
-		$other_files = array(
+		$other_files = [
 			'custom-post-type-ui.php'
-		);
+		];
 
-		self::$files_to_scan = array(
+		self::$files_to_scan = [
 			'Function Hooks'  => $inc_files,
 			'Class Hooks' => $class_files,
 			'Other Hooks' => $other_files,
-		);
+		];
 
-		$scanned = array();
+		$scanned = [];
 
 		ob_start();
 
@@ -81,7 +81,7 @@ class CPTUI_HookFinder {
 		echo '<h1>Action and Filter Hook Reference</h1>';
 
 		foreach ( self::$files_to_scan as $heading => $files ) {
-			self::$custom_hooks_found = array();
+			self::$custom_hooks_found = [];
 
 			foreach ( $files as $f ) {
 				self::$current_file = basename( $f );
@@ -127,14 +127,14 @@ class CPTUI_HookFinder {
 											$loop ++;
 											$next_hook  = trim( trim( is_string( $tokens[ $index + $loop ] ) ? $tokens[ $index + $loop ] : $tokens[ $index + $loop ][1], '"' ), "'" );
 
-											if ( in_array( $next_hook, array( '.', '{', '}', '"', "'", ' ' ) ) ) {
+											if ( in_array( $next_hook, [ '.', '{', '}', '"', "'", ' ' ] ) ) {
 												continue;
 											}
 
 											$hook_first = substr( $next_hook, 0, 1 );
 											$hook_last  = substr( $next_hook, -1, 1 );
 
-											if ( in_array( $next_hook, array( ',', ';' ) ) ) {
+											if ( in_array( $next_hook, [ ',', ';' ] ) ) {
 												if ( $open ) {
 													$hook .= '}';
 													$open = false;
@@ -159,13 +159,13 @@ class CPTUI_HookFinder {
 									if ( isset( self::$custom_hooks_found[ $hook ] ) ) {
 										self::$custom_hooks_found[ $hook ]['file'][] = self::$current_file;
 									} else {
-    									self::$custom_hooks_found[ $hook ] = array(
+    									self::$custom_hooks_found[ $hook ] = [
 											'line'     => $token[2],
 											'class'    => $current_class,
 											'function' => $current_function,
-											'file'     => array( self::$current_file ),
+											'file'     => [ self::$current_file ],
 											'type'     => $token_type
-										);
+										];
 									}
 								break;
 							}
