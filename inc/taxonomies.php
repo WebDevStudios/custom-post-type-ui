@@ -1691,7 +1691,7 @@ function cptui_process_taxonomy() {
 			add_action( 'admin_notices', "cptui_{$result}_admin_notice" );
 		}
 
-		if ( empty( cptui_get_taxonomy_slugs() ) ) {
+		if ( isset( $_POST['cpt_delete'] ) && empty( cptui_get_taxonomy_slugs() ) ) {
 			wp_safe_redirect(
 				add_query_arg(
 					[ 'page' => 'cptui_manage_taxonomies' ],

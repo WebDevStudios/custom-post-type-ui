@@ -28,7 +28,13 @@ postboxes.add_postbox_toggles(pagenow);
 	// Confirm our deletions
 	$('#cpt_submit_delete').on('click',function(e) {
 		e.preventDefault();
-		var submit_delete_warning = $('<div class="cptui-submit-delete-dialog">' + cptui_type_data.confirm + '</div>').appendTo('#poststuff').dialog({
+		var msg = '';
+		if (typeof cptui_type_data !== 'undefined') {
+			msg = cptui_type_data.confirm;
+		} else if (typeof cptui_tax_data !== 'undefined') {
+			msg = cptui_tax_data.confirm;
+		}
+		var submit_delete_warning = $('<div class="cptui-submit-delete-dialog">' + msg + '</div>').appendTo('#poststuff').dialog({
 			'dialogClass'   : 'wp-dialog',
 			'modal'         : true,
 			'autoOpen'      : true,
@@ -77,7 +83,7 @@ postboxes.add_postbox_toggles(pagenow);
 		}
 
 		//Displays a message if slug changes.
-		if(undefined != original_slug) {
+		if(typeof original_slug !== 'undefined') {
 			var $slugchanged = $('#slugchanged');
 			if(value != original_slug) {
 				$slugchanged.removeClass('hidemessage');
@@ -231,7 +237,7 @@ postboxes.add_postbox_toggles(pagenow);
 		$(fields).each( function( i, el ) {
 			var newval = $( el ).data( 'label' );
 			var plurality = $( el ).data( 'plurality' );
-			if ( undefined !== newval ) {
+			if ( 'undefined' !== newval ) {
 				// "slug" is our placeholder from the labels.
 				if ( 'plural' === plurality ) {
 					newval = newval.replace(/item/gi, plural);

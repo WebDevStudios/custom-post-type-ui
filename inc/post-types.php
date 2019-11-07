@@ -1945,7 +1945,7 @@ function cptui_process_post_type() {
 				add_action( 'admin_notices', "cptui_{$result}_admin_notice" );
 			}
 		}
-		if ( empty( cptui_get_post_type_slugs() ) ) {
+		if ( isset( $_POST['cpt_delete'] ) && empty( cptui_get_post_type_slugs() ) ) {
 			wp_safe_redirect(
 				add_query_arg(
 					[ 'page' => 'cptui_manage_post_types' ],
