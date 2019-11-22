@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: custom post types, CPT, CMS, post, types, post type, taxonomy, tax, custom, content types, post types
 Requires at least: 5.2
 Tested up to: 5.3
-Stable tag: 1.7.1
+Stable tag: 1.7.2
 License: GPL-2.0+
 Requires PHP: 5.6
 
@@ -30,6 +30,10 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 6. Help/support screen.
 
 == Changelog ==
+
+= 1.7.2 - TBD =
+* Fixed: Duplicate entries for "delete_with_user" in get code.
+* Fixed: Delete button for post types and taxonomies at bottom of page did not trigger dialog prompt.
 
 = 1.7.1 - 2019-11-06 =
 * Fixed: Random-ish redirects to the "Add new" tab for post types or taxonomies
@@ -147,6 +151,10 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 * Updated: Added filter to tab collection for the tools section. You can now add your own tabs.
 
 == Upgrade Notice ==
+
+= 1.7.2 - TBD =
+* Fixed: Duplicate entries for "delete_with_user" in get code.
+* Fixed: Delete button for post types and taxonomies at bottom of page did not trigger dialog prompt.
 
 = 1.7.1 - 2019-11-06 =
 * Fixed: Random-ish redirects to the "Add new" tab for post types or taxonomies
