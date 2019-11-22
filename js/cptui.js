@@ -26,7 +26,7 @@ postboxes.add_postbox_toggles(pagenow);
 	});
 
 	// Confirm our deletions
-	$('#cpt_submit_delete').on('click',function(e) {
+	$('.cptui-delete-top, .cptui-delete-bottom').on('click',function(e) {
 		e.preventDefault();
 		var msg = '';
 		if (typeof cptui_type_data !== 'undefined') {
