@@ -170,7 +170,7 @@ postboxes.add_postbox_toggles(pagenow);
 		_custom_media = true;
 		wp.media.editor.send.attachment = function (props, attachment) {
 			if (_custom_media) {
-				$("#" + id).val(attachment.url);
+				$("#" + id).val(attachment.url).change();
 			} else {
 				return _orig_send_attachment.apply(this, [props, attachment]);
 			}
@@ -179,6 +179,22 @@ postboxes.add_postbox_toggles(pagenow);
 		wp.media.editor.open(button);
 		return false;
 	});
+
+	$('#menu_icon').on('change', function() {
+		var value = $(this).val().trim();
+		$('#menu_icon_preview').html( composePreviewContent( value ) );
+	});
+
+	function composePreviewContent( value ) {
+		if ( ! value ) {
+			return '';
+		} else if ( 0 === value.indexOf('dashicons-') ) {
+			return $('<div class="dashicons-before"><br></div>').addClass( value );
+		}
+		else {
+			return $('<img />').attr( 'src', value );
+		}
+	}
 
 	$('#togglelabels').on('click',function(e){
 		e.preventDefault();
