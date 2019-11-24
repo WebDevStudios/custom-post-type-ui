@@ -541,6 +541,29 @@ class cptui_admin_ui {
 	}
 
 	/**
+	 * Returns an HTML block for previewing the menu icon.
+	 *
+	 * @since 1.7.2
+	 *
+	 * @param string $menu_icon URL or a name of the dashicons class.
+	 * @return string $value HTML block with a layout of the menu icon preview.
+	 */
+	public function get_menu_icon_preview( $menu_icon = '' ) {
+		$value  = '';
+		$value .= '<div id="menu_icon_preview">';
+		if ( ! empty( $menu_icon ) ) {
+			if ( 0 === strpos( $menu_icon, 'dashicons-' ) ) {
+				$value .= '<div class="dashicons-before ' . $menu_icon . '"><br></div>';
+			}
+			else {
+				$value .= '<img src="' . $menu_icon . '">';
+			}
+		}
+		$value .= '</div>';
+		return $value;
+	}
+
+	/**
 	 * Return some array_merged default arguments for all input types.
 	 *
 	 * @since 1.0.0
