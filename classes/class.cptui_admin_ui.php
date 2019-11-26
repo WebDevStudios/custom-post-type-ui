@@ -549,18 +549,14 @@ class cptui_admin_ui {
 	 * @return string $value HTML block with a layout of the menu icon preview.
 	 */
 	public function get_menu_icon_preview( $menu_icon = '' ) {
-		$value  = '';
-		$value .= '<div id="menu_icon_preview">';
+		$content = '';
 		if ( ! empty( $menu_icon ) ) {
+			$content = '<img src="' . $menu_icon . '">';
 			if ( 0 === strpos( $menu_icon, 'dashicons-' ) ) {
-				$value .= '<div class="dashicons-before ' . $menu_icon . '"><br></div>';
-			}
-			else {
-				$value .= '<img src="' . $menu_icon . '">';
+				$content = '<div class="dashicons-before ' . $menu_icon . '"></div>';
 			}
 		}
-		$value .= '</div>';
-		return $value;
+		return '<div id="menu_icon_preview">' . $content . '</div>';
 	}
 
 	/**
