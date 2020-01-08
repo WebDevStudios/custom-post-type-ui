@@ -31,7 +31,7 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 
 == Changelog ==
 
-= 1.7.2 - TBD =
+= 1.7.2 - 2020-01-08 =
 * Fixed: Duplicate entries for "delete_with_user" in get code.
 * Fixed: Delete button for post types and taxonomies at bottom of page did not trigger dialog prompt.
 
@@ -94,7 +94,7 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 
 == Upgrade Notice ==
 
-= 1.7.2 - TBD =
+= 1.7.2 - 2020-01-08 =
 * Fixed: Duplicate entries for "delete_with_user" in get code.
 * Fixed: Delete button for post types and taxonomies at bottom of page did not trigger dialog prompt.
 
