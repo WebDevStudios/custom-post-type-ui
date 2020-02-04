@@ -66,12 +66,12 @@ function cptui_settings() {
 		 */
 		do_action( 'cptui_main_page_after_header' );
 		?>
-
-		<div class="about-text cptui-about-text">
-			<?php esc_html_e( 'Thank you for choosing Custom Post Type UI! We hope that your experience with our plugin makes creating post types and taxonomies and organizing your content quick and easy.', 'custom-post-type-ui' ); ?>
+		<div class="cptui-intro-devblock">
+			<p class="about-text cptui-about-text">
+				<?php esc_html_e( 'Thank you for choosing Custom Post Type UI! We hope that your experience with our plugin makes creating post types and taxonomies and organizing your content quick and easy.', 'custom-post-type-ui' ); ?>
+			</p>
+			<div class="cptui-badge"></div>
 		</div>
-		<div class="cptui-badge"></div>
-
 		<?php
 		/**
 		 * Fires before the About Page changelog.
@@ -157,9 +157,13 @@ function cptui_about_page_newsletter() {
 	}
 
 	?>
-	<h3><?php esc_html_e( 'Stay informed', 'custom-post-type-ui' ); ?></h3>
+	<div class='wdsoctosignup'>
+		<?php
+		cptui_newsletter_form();
+		?>
+	</div>
+
 	<?php
-	cptui_newsletter_form();
 
 	return '';
 }
