@@ -383,7 +383,7 @@ function cptui_newsletter_form() {
         
         <div class="email-octopus-form-row">
             <label for="field_0">Email address</label>
-            <input id="field_0" name="field_0" type="email" placeholder="">
+            <input id="field_0" name="field_0" type="email" placeholder="email@domain.com" style="max-width:100%;">
         </div>
 
         <div class="email-octopus-form-row-hp" aria-hidden="true">
