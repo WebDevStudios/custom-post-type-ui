@@ -383,6 +383,7 @@ $max-tablet: "screen and (max-width: 768px)";
 
 @media #{$min-tablet} {
 	.cptui-badge {
+		margin-top: -42px;
 	    height: 173px;
 	    width: 173px;
 	    color: #fafafa;

@@ -400,6 +400,7 @@ fieldset .cptui-help {
 
 @media screen and (min-width: 769px) {
   .cptui-badge {
+    margin-top: -42px;
     height: 173px;
     width: 173px;
     color: #fafafa;
