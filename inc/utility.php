@@ -371,7 +371,7 @@ function cptui_newsletter_form() {
 	?>
 
 <div class="email-octopus-form-wrapper">
-    <h2 class="email-octopus-heading">Subscribe to Pluginize.com</h2>
+    <p><strong>Get email updates from pluginize.com about Custom Post Type UI</strong></p>
     <p class="email-octopus-success-message"></p>
     <p class="email-octopus-error-message"></p>
 
