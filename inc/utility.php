@@ -378,9 +378,7 @@ function cptui_newsletter_form() {
     <form method="post"
       action="https://emailoctopus.com/lists/2039e001-4775-11ea-be00-06b4694bee2a/members/embedded/1.3/add"
       class="email-octopus-form"
-      data-sitekey="6LdYsmsUAAAAAPXVTt-ovRsPIJ_IVhvYBBhGvRV6"
-    >
-        
+      data-sitekey="6LdYsmsUAAAAAPXVTt-ovRsPIJ_IVhvYBBhGvRV6">
         <div class="email-octopus-form-row">
             <label for="field_0">Email address</label>
             <input id="field_0" name="field_0" type="email" placeholder="email@domain.com" style="max-width:100%;">
@@ -400,8 +398,6 @@ function cptui_newsletter_form() {
             <button type="submit">Subscribe</button>
         </div>
     </form>
-
-    
 </div>
 
 <?php
