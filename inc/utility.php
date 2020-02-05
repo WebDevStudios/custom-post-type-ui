@@ -433,7 +433,7 @@ function enqueue_email_octopus_assets() {
 
 	wp_enqueue_style( 'cptui-emailoctopus', 'https://emailoctopus.com/bundles/emailoctopuslist/css/formEmbed.css' );
 
-	wp_enqueue_script( 'cptui-emailoctopus-js', 'https://emailoctopus.com/bundles/emailoctopuslist/js/1.4/formEmbed.js', array( 'jquery' ), '', true );
+	wp_enqueue_script( 'cptui-emailoctopus-js', 'https://emailoctopus.com/bundles/emailoctopuslist/js/1.4/formEmbed.js', [ 'jquery' ], '', true );
 
 }
 add_action( 'admin_enqueue_scripts', 'enqueue_email_octopus_assets' );
