@@ -210,12 +210,23 @@
 
 .about-wrap .cptui-about-text {
   margin-bottom: 1em !important;
+  margin-right: 0px;
+  max-width: calc(100% - 173px);
 }
 
-.about-wrap .cptui-badge {
-  position: absolute;
-  top: 0;
-  right: 0;
+.email-octopus-form-row input:-ms-input-placeholder {
+  color: #cccccc;
+}
+
+.email-octopus-form-row input::placeholder {
+  color: #cccccc;
+}
+
+.cptui-intro-devblock {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+      flex-direction: row;
 }
 
 #togglelabels {
@@ -263,29 +274,23 @@ fieldset .cptui-help {
   overflow: hidden;
 }
 
-.cptui-section fieldset {
-  border: solid #cccccc 1px;
-  display: block;
-  margin-bottom: 30px;
-  padding: 10px;
-  overflow: hidden;
-}
-
-.js .cptui-section fieldset.toggledclosed {
-  height: 1px;
-}
-
-.cptui-section legend {
-  border: solid #cccccc 1px;
-  border-bottom: 0;
-  font-size: 14px;
-  font-weight: bold;
-  padding: 5px;
-}
-
 .cptui-spacer {
   display: block;
   margin-top: 25px;
+}
+
+.email-octopus-form-wrapper {
+  background: #fff;
+  margin-bottom: 10px;
+  padding: 20px;
+}
+
+.email-octopus-form-wrapper label {
+  margin-bottom: 10px;
+}
+
+.wdsoctosignup h2 {
+  text-align: left;
 }
 
 .wdspromos {
@@ -293,13 +298,6 @@ fieldset .cptui-help {
   margin-left: 20px;
   margin-top: 10px;
   width: 275px;
-}
-
-.wdspromos #mc_embed_signup {
-  background: #fff;
-  border: solid #cccccc 1px;
-  clear: left;
-  margin-bottom: 10px;
 }
 
 .wdspromos-about {
@@ -382,14 +380,14 @@ fieldset .cptui-help {
 
 @media screen and (min-width: 769px) {
   .cptui-badge {
-    padding-top: 142px;
-    height: 50px;
+    margin-top: -42px;
+    height: 173px;
     width: 173px;
     color: #fafafa;
     font-weight: bold;
     font-size: 14px;
     text-align: center;
-    margin: 0 -5px;
+    margin-bottom: 10px;
     background: url(../images/cptui-icon-173x173.png) no-repeat;
   }
 }

@@ -369,37 +369,48 @@ add_action( 'cptui_below_taxonomy_tab_menu', 'cptui_products_sidebar' );
  */
 function cptui_newsletter_form() {
 	?>
-<!-- Begin MailChimp Signup Form -->
-<div id="mc_embed_signup">
-	<form action="//webdevstudios.us1.list-manage.com/subscribe/post?u=67169b098c99de702c897d63e&amp;id=9cb1c7472e" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-		<div id="mc_embed_signup_scroll">
-			<p><strong><?php esc_html_e( 'Get email updates from pluginize.com about Custom Post Type UI', 'custom-post-type-ui' ); ?></strong></p>
-			<div class="mc-field-group">
-				<label for="mce-EMAIL"><?php esc_html_e( 'Email Address', 'custom-post-type-ui' ); ?></label>
-				<input tabindex="-1" type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
-			</div>
-			<div id="mce-responses" class="clear">
-				<div class="response" id="mce-error-response" style="display:none"></div>
-				<div class="response" id="mce-success-response" style="display:none"></div>
-			</div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-			<div style="position: absolute; left: -5000px;" aria-hidden="true">
-				<input type="text" name="b_67169b098c99de702c897d63e_9cb1c7472e" tabindex="-1" value=""></div>
-			<div class="clear">
-				<input type="submit" value="<?php esc_attr_e( 'Subscribe', 'custom-post-type-ui' ); ?>" name="subscribe" id="mc-embedded-subscribe" class="button" tabindex="-1">
-			</div>
-		</div>
-	</form>
+
+<div class="email-octopus-form-wrapper">
+    <p><strong>Get email updates from pluginize.com about Custom Post Type UI</strong></p>
+    <p class="email-octopus-success-message"></p>
+    <p class="email-octopus-error-message"></p>
+
+    <form method="post"
+      action="https://emailoctopus.com/lists/2039e001-4775-11ea-be00-06b4694bee2a/members/embedded/1.3/add"
+      class="email-octopus-form"
+      data-sitekey="6LdYsmsUAAAAAPXVTt-ovRsPIJ_IVhvYBBhGvRV6">
+        <div class="email-octopus-form-row">
+            <label for="field_0">Email address</label>
+            <input id="field_0" name="field_0" type="email" placeholder="email@domain.com" style="max-width:100%;">
+        </div>
+
+        <div class="email-octopus-form-row-hp" aria-hidden="true">
+            <!-- Do not remove this field, otherwise you risk bot sign-ups -->
+            <input type="text" name="hp2039e001-4775-11ea-be00-06b4694bee2a"
+               tabindex="-1"
+               autocomplete="nope">
+        </div>
+
+        <div class="email-octopus-form-row-subscribe">
+            <input type="hidden"
+               name="successRedirectUrl"
+               value="">
+            <button type="submit">Subscribe</button>
+        </div>
+    </form>
 </div>
-<!--End mc_embed_signup-->
+
 <?php
 }
 
 /**
- * Add our mailchimp scripts and stylesheet.
+ * Add our Email Octopus scripts and stylesheet.
  *
- * @since unsure
+ * @author Scott Anderson <scott.anderson@webdevstudios.com>
+ * @since  NEXT
  */
-function cptui_mailchimp_scripts_styles() {
+function enqueue_email_octopus_assets() {
+
 	$current_screen = get_current_screen();
 
 	if ( ! is_object( $current_screen ) ) {
@@ -420,12 +431,12 @@ function cptui_mailchimp_scripts_styles() {
 		return;
 	}
 
-	wp_enqueue_style( 'cptui-mailchimp', '//cdn-images.mailchimp.com/embedcode/classic-10_7.css' );
-	wp_enqueue_script( 'cptui-mailchimp-js', '//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js', [], '', true );
-	wp_add_inline_script( 'cptui-mailchimp-js', '(function ($) {window.fnames = new Array();window.ftypes = new Array();fnames[0] = "EMAIL";ftypes[0] = "email";}(jQuery));var $mcj = jQuery.noConflict(true);' );
+	wp_enqueue_style( 'cptui-emailoctopus', 'https://emailoctopus.com/bundles/emailoctopuslist/css/formEmbed.css' );
+
+	wp_enqueue_script( 'cptui-emailoctopus-js', 'https://emailoctopus.com/bundles/emailoctopuslist/js/1.4/formEmbed.js', [ 'jquery' ], '', true );
 
 }
-add_action( 'admin_enqueue_scripts', 'cptui_mailchimp_scripts_styles' );
+add_action( 'admin_enqueue_scripts', 'enqueue_email_octopus_assets' );
 
 /**
  * Fetch all set ads to be displayed.
