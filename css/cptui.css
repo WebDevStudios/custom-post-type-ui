@@ -274,26 +274,6 @@ fieldset .cptui-help {
   overflow: hidden;
 }
 
-.cptui-section fieldset {
-  border: solid #cccccc 1px;
-  display: block;
-  margin-bottom: 30px;
-  padding: 10px;
-  overflow: hidden;
-}
-
-.js .cptui-section fieldset.toggledclosed {
-  height: 1px;
-}
-
-.cptui-section legend {
-  border: solid #cccccc 1px;
-  border-bottom: 0;
-  font-size: 14px;
-  font-weight: bold;
-  padding: 5px;
-}
-
 .cptui-spacer {
   display: block;
   margin-top: 25px;
