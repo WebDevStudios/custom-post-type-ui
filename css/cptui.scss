@@ -200,7 +200,7 @@ $max-tablet: "screen and (max-width: 768px)";
   	}
 	.cptui-about-text {
 		margin-bottom: 1em !important;
-		margin-right: 0px;
+		margin-right: 0;
 		max-width: calc(100% - 173px);
 	}
 }
@@ -252,25 +252,6 @@ $max-tablet: "screen and (max-width: 768px)";
 	width: 1px;
 	height: 1px;
 	overflow: hidden;
-}
-.cptui-section {
-	fieldset {
-		border: solid rgb(204, 204, 204) 1px;
-		display: block;
-		margin-bottom: 30px;
-		padding: 10px;
-		overflow: hidden;
-		.js &.toggledclosed {
-			height: 1px;
-		}
-	}
-	legend {
-		border: solid rgb(204, 204, 204) 1px;
-		border-bottom: 0;
-		font-size: 14px;
-		font-weight: bold;
-		padding: 5px;
-	}
 }
 .cptui-spacer {
 	display: block;
