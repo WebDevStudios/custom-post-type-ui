@@ -31,7 +31,7 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 
 == Changelog ==
 
-= 1.7.3 - 2020-XX-XX =
+= 1.7.3 - 2020-02-05 =
 * Updated: styles and appearance to better match WordPress core.
 * Updated: Change newsletter service integration. Hey, sign up for our newsletter! Props @Oceas
 
@@ -98,7 +98,7 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 
 == Upgrade Notice ==
 
-= 1.7.3 - 2020-XX-XX =
+= 1.7.3 - 2020-02-05 =
 * Updated: styles and appearance to better match WordPress core.
 * Updated: Change newsletter service integration. Hey, sign up for our newsletter! Props @Oceas
 
