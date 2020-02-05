@@ -133,7 +133,7 @@ class cptui_admin_ui {
 	 * @return string
 	 */
 	public function get_legend_start() {
-		return '<legend>';
+		return '<legend class="screen-reader-text">';
 	}
 
 	/**
@@ -233,7 +233,7 @@ class cptui_admin_ui {
 	 * @return string
 	 */
 	public function get_description( $help_text = '' ) {
-		return '<span class="cptui-field-description">' . $help_text . '</span>';
+		return '<p class="cptui-field-description description">' . $help_text . '</p>';
 	}
 
 	/**
