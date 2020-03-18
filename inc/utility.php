@@ -691,6 +691,13 @@ function cptui_import_fail_admin_notice() {
 	);
 }
 
+function cptui_nonce_fail_admin_notice() {
+	echo cptui_admin_notices_helper(
+		esc_html__( 'Nonce failed verification', 'custom-post-type-ui' ),
+		false
+	);
+}
+
 /**
  * Returns error message for if trying to register existing post type.
  *

@@ -1132,7 +1132,7 @@ function cptui_taxonomies_dropdown( $taxonomies = [] ) {
 		$select['options'] = [];
 
 		foreach ( $taxonomies as $tax ) {
-			$text                = ! empty( $tax['label'] ) ? $tax['label'] : $tax['name'];
+			$text                = ! empty( $tax['label'] ) ? esc_html( $tax['label'] ) : esc_html( $tax['name'] );
 			$select['options'][] = [
 				'attr' => $tax['name'],
 				'text' => $text,
