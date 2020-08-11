@@ -208,13 +208,17 @@ function cptui_manage_post_types() {
 		<div class="postbox-container">
 		<div id="poststuff">
 			<div class="cptui-section postbox">
-				<button type="button" class="handlediv button-link" aria-expanded="true">
-					<span class="screen-reader-text"><?php esc_html_e( 'Toggle panel: Basic settings', 'custom-post-type-ui' ); ?></span>
-					<span class="toggle-indicator" aria-hidden="true"></span>
-				</button>
-				<h2 class="hndle">
-					<span><?php esc_html_e( 'Basic settings', 'custom-post-type-ui' ); ?></span>
-				</h2>
+				<div class="postbox-header">
+					<h2 class="hndle ui-sortable-handle">
+						<span><?php esc_html_e( 'Basic settings', 'custom-post-type-ui' ); ?></span>
+					</h2>
+					<div class="handle-actions hide-if-no-js">
+						<button type="button" class="handlediv" aria-expanded="true">
+							<span class="screen-reader-text"><?php esc_html_e( 'Toggle panel: Basic settings', 'custom-post-type-ui' ); ?></span>
+							<span class="toggle-indicator" aria-hidden="true"></span>
+						</button>
+					</div>
+				</div>
 				<div class="inside">
 					<div class="main">
 						<table class="form-table cptui-table">
@@ -348,13 +352,17 @@ function cptui_manage_post_types() {
 				</div>
 			</div>
 			<div class="cptui-section cptui-labels postbox">
-				<button type="button" class="handlediv button-link" aria-expanded="true">
-					<span class="screen-reader-text"><?php esc_html_e( 'Toggle panel: Additional labels', 'custom-post-type-ui' ); ?></span>
-					<span class="toggle-indicator" aria-hidden="true"></span>
-				</button>
-				<h2 class="hndle">
-					<span><?php esc_html_e( 'Additional labels', 'custom-post-type-ui' ); ?></span>
-				</h2>
+				<div class="postbox-header">
+					<h2 class="hndle ui-sortable-handle">
+						<span><?php esc_html_e( 'Additional labels', 'custom-post-type-ui' ); ?></span>
+					</h2>
+					<div class="handle-actions hide-if-no-js">
+						<button type="button" class="handlediv" aria-expanded="true">
+							<span class="screen-reader-text"><?php esc_html_e( 'Toggle panel: Basic settings', 'custom-post-type-ui' ); ?></span>
+							<span class="toggle-indicator" aria-hidden="true"></span>
+						</button>
+					</div>
+				</div>
 				<div class="inside">
 					<div class="main">
 						<table class="form-table cptui-table">
@@ -786,13 +794,17 @@ function cptui_manage_post_types() {
 				</div>
 			</div>
 			<div class="cptui-section cptui-settings postbox">
-				<button type="button" class="handlediv button-link" aria-expanded="true">
-					<span class="screen-reader-text"><?php esc_html_e( 'Toggle panel: Settings', 'custom-post-type-ui' ); ?></span>
-					<span class="toggle-indicator" aria-hidden="true"></span>
-				</button>
-				<h2 class="hndle">
-					<span><?php esc_html_e( 'Settings', 'custom-post-type-ui' ); ?></span>
-				</h2>
+				<div class="postbox-header">
+					<h2 class="hndle ui-sortable-handle">
+						<span><?php esc_html_e( 'Settings', 'custom-post-type-ui' ); ?></span>
+					</h2>
+					<div class="handle-actions hide-if-no-js">
+						<button type="button" class="handlediv" aria-expanded="true">
+							<span class="screen-reader-text"><?php esc_html_e( 'Toggle panel: Basic settings', 'custom-post-type-ui' ); ?></span>
+							<span class="toggle-indicator" aria-hidden="true"></span>
+						</button>
+					</div>
+				</div>
 				<div class="inside">
 					<div class="main">
 						<table class="form-table cptui-table">
