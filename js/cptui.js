@@ -78,7 +78,7 @@ postboxes.add_postbox_toggles(pagenow);
 			value = transliterate(value);
 			value = replaceSpecialCharacters(value);
 			if ( value !== original_value ) {
-				$(this).attr('value', value);
+				$(this).prop('value', value);
 			}
 		}
 
@@ -131,8 +131,11 @@ postboxes.add_postbox_toggles(pagenow);
 	}
 
 	function replaceSpecialCharacters(s) {
-
-		s = s.replace(/[^a-z0-9\s]/gi, '_');
+		if ( 'cpt-ui_page_cptui_manage_post_types' === window.pagenow ) {
+			s = s.replace(/[^a-z0-9\s-]/gi, '_');
+		} else {
+			s = s.replace(/[^a-z0-9\s]/gi, '_');
+		}
 
 		return s;
 	}
@@ -180,22 +183,6 @@ postboxes.add_postbox_toggles(pagenow);
 		return false;
 	});
 
-	$('#togglelabels').on('click',function(e){
-		e.preventDefault();
-		$('#labels_expand').toggleClass('toggledclosed');
-	});
-	$('#togglesettings').on('click',function(e) {
-		e.preventDefault();
-		$('#settings_expand').toggleClass('toggledclosed');
-	});
-	$('#labels_expand,#settings_expand').on('focus',function(e) {
-		if ( $(this).hasClass('toggledclosed') ) {
-			$(this).toggleClass('toggledclosed');
-		}
-	});
-	$('#labels_expand legend,#settings_expand legend').on('click',function(e){
-		$(this).parent().toggleClass('toggledclosed');
-	});
 	$('.cptui-help').on('click',function(e){
 		e.preventDefault();
 	});

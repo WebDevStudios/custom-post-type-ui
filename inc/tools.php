@@ -285,6 +285,24 @@ function cptui_get_single_taxonomy_registery( $taxonomy = [] ) {
 		$meta_box_cb = ( false !== get_disp_boolean( $taxonomy['meta_box_cb'] ) ) ? '"' . $taxonomy['meta_box_cb'] . '"' : 'false';
 	}
 
+	$default_term = '';
+	if ( ! empty( $taxonomy['default_term'] ) ) {
+		$term_parts = explode( ',', $taxonomy['default_term'] );
+		$default_term_start = '[';
+		$default_term_end   = ']';
+		if ( ! empty( $term_parts[0] ) ) {
+			$default_term .= "'name' => '" . trim( $term_parts[0] ) . "'";
+		}
+		if ( ! empty( $term_parts[1] ) ) {
+			$default_term .= ", 'slug' => '" . trim( $term_parts[1] ) . "'";
+		}
+		if ( ! empty( $term_parts[2] ) ) {
+			$default_term .= ", 'description' => '" . trim( $term_parts[2] ) . "'";
+		}
+
+		$default_term = $default_term_start . $default_term . $default_term_end;
+	}
+
 	$my_theme   = wp_get_theme();
 	$textdomain = $my_theme->get( 'TextDomain' );
 	if ( empty( $textdomain ) ) {
@@ -326,6 +344,9 @@ foreach ( $taxonomy['labels'] as $key => $label ) {
 		"show_in_quick_edit" => <?php echo $show_in_quick_edit; ?>,
 	<?php if ( ! empty( $meta_box_cb ) ) { ?>
 	"meta_box_cb" => <?php echo $meta_box_cb; ?>,
+	<?php } ?>
+	<?php if ( ! empty( $default_term ) ) { ?>
+	"default_term" => <?php echo $default_term; ?>,
 	<?php } ?>
 	];
 	register_taxonomy( "<?php echo esc_html( $taxonomy['name'] ); ?>", <?php echo $post_types; ?>, $args );

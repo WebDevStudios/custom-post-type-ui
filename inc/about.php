@@ -85,16 +85,12 @@ function cptui_settings() {
 		<div class="changelog about-integrations">
 			<div class="cptui-feature feature-section col three-col">
 				<div class="col">
-					<h2><?php esc_html_e( 'Ability to temporarily disable content types without deleting them.', 'custom-post-type-ui' ); ?></h2>
-					<p><?php esc_html_e( 'Have you ever wanted to temporarily disable things without removing their settings, as you continue developing the site? Custom Post Type UI now has the ability to skip content types with a WordPress filter. UI options to toggle will be in a later version.', 'custom-post-type-ui' ); ?></p>
-				</div>
-				<div class="col">
-					<h2><?php esc_html_e( 'New post type labels introduced in WordPress 5.0', 'custom-post-type-ui' ); ?></h2>
-					<p><?php esc_html_e( 'We have increased our minimum supported WordPress version and with that, we now support the newest available label options. You now have even finer control over your admin UI wording.', 'custom-post-type-ui' ); ?></p>
+					<h2><?php esc_html_e( 'Ability to set a default term for a custom taxonomy.', 'custom-post-type-ui' ); ?></h2>
+					<p><?php esc_html_e( 'WordPress 5.5 added the ability to set a default term to your custom taxonomy, and now you do not have to worry about extra coding for that with Custom Post Type UI.', 'custom-post-type-ui' ); ?></p>
 				</div>
 				<div class="col last-feature">
-					<h2></h2>
-					<p></p>
+					<h2><?php esc_html_e( 'Removed forced underscores for post type slugs.', 'custom-post-type-ui' ); ?></h2>
+					<p><?php esc_html_e( 'Post types are actually able to have dashes in their slug/name value, so we have removed the forcing of underscores for them. Taxonomies do still need underscores, until told otherwise.', 'custom-post-type-ui' ); ?></p>
 				</div>
 			</div>
 		</div>

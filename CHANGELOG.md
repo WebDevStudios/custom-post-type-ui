@@ -9,6 +9,57 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - Not documented.
 
+## [1.6.2] - 2019-05-20
+### Added
+- "themes" is now a reserved post type slug due to conflicts with WordPress internally.
+
+### Fixed
+- Updated wording around "Supports" section of post type settings screen.
+
+## [1.6.1] - 2018-12-03
+### Fixed
+- Missed quote for "publicly_queryable" in taxonomy "get code" output.
+- Adjusted handling of capitalization on the word "false" when being used to disable a taxonomy metabox via the "metabox callback" setting. The word "false" needs to be all lowercase to disable.
+
+### Updated
+- Added note about ability to pass "false" for the "metabox callback" setting to disable the metabox.
+- Fall back to "custom-post-type-ui" textdomain in "get code" output if theme does not have their own.
+- Make "Show In Rest" setting default to true taxonomies for sake of easier Gutenberg integration in the future. 1.6.0 had just post types doing this.
+
+## [1.6.0] - 2018-10-22
+### Added
+- Support for `meta_box_cb` parameter for `register_taxonomy` and taxonomies.
+- Dynamically warn about existing slugs.
+- "delete_with_user" support for post types.
+- Filters for post type and taxonomy data right before saving of final data.
+- `cptui_get_taxonomy_exists` function to check if a provided taxonomy is registered.
+- Required PHP version to readme.txt
+- Filter on taxonomies to be listed as available for association with a post type.
+- Warning indicators to our "Slug changed" and "Slug exists" warnings for post types and taxonomies.
+- Support for "publicly_queryable" parameter for taxonomies.
+- Support for "rest_controller_class" parameters for both post types and taxonomies.
+- Some initial WP-CLI support for importing and exporting CPTUI settings.
+- `name_admin_bar` support in post type labels.
+- Handling of array versions for "capability_type" field.
+
+### Updated
+- Bump minimum WordPress version to 4.7.
+- Pass the object_type array to `cptui_pre_register_taxonomy` filter as extra parameter.
+- Adjusted preserved label handling to aid with plugin performance. Props alex-solovyev
+- Utilize `wp_doing_ajax()` function for our AJAX checks.
+- Clarify what is exported with the Post Types and Taxonomies spots for the Tools section.
+- Clarify that the listed post types to associate to a CPTUI taxonomy are public post types by default.
+- Make "Show In Rest" setting default to true for sake of easier Gutenberg integration in the future.
+
+### Fixed
+- Only register archive slug if has_archive is set to true.
+- Error occurred when attempting to unset post types while editing a taxonomy.
+- Prevent errors from non-existant callback functions during post type or taxonomy processing.
+- Incorrect use of reserved taxonomy slugs function in a check for reserved post types.
+- Make sure "No post type selected" alert trigger from both buttons on the taxonomy settings edit screen.
+- Add our stylesheet only on our CPTUI pages. Fixes responsive bug on post editor screen.
+- Removed duplicate "label" in taxonomy "get code" section.
+
 ## [1.5.8] - 2018-04-16
 ### Fixed
 - Corrected issue with `Get Code` area regarding post types and `show in menu` field values.
@@ -386,7 +437,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 [Gary Jones]: https://github.com/GaryJones
 
-[Unreleased]: https://github.com/WebDevStudios/custom-post-type-ui/compare/1.5.8...HEAD
+[Unreleased]: https://github.com/WebDevStudios/custom-post-type-ui/compare/1.6.2...HEAD
+[1.6.2]: https://github.com/WebDevStudios/custom-post-type-ui/compare/1.6.1...1.6.2
+[1.6.1]: https://github.com/WebDevStudios/custom-post-type-ui/compare/1.6.0...1.6.1
+[1.6.0]: https://github.com/WebDevStudios/custom-post-type-ui/compare/1.5.8...1.6.0
 [1.5.8]: https://github.com/WebDevStudios/custom-post-type-ui/compare/1.5.7...1.5.8
 [1.5.7]: https://github.com/WebDevStudios/custom-post-type-ui/compare/1.5.6...1.5.7
 [1.5.6]: https://github.com/WebDevStudios/custom-post-type-ui/compare/1.5.5...1.5.6

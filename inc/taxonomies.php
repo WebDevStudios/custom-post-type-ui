@@ -1055,6 +1055,14 @@ function cptui_manage_taxonomies() {
 								'labeltext' => esc_html__( 'Metabox callback', 'custom-post-type-ui' ),
 								'helptext'  => esc_html__( 'Sets a callback function name for the meta box display. Hierarchical default: post_categories_meta_box, non-hierarchical default: post_tags_meta_box. To remove the metabox completely, use "false".', 'custom-post-type-ui' ),
 							] );
+
+							echo $ui->get_text_input( [
+								'namearray' => 'cpt_custom_tax',
+								'name'      => 'default_term',
+								'textvalue' => isset( $current['default_term'] ) ? esc_attr( $current['default_term'] ) : '',
+								'labeltext' => esc_html__( 'Default Term', 'custom-post-type-ui' ),
+								'helptext'  => esc_html__( 'Set a default term for the taxonomy. Able to set a name, slug, and description. Only a name is required if setting a default, others are optional. Set values in the following order, separated by comma. Example: name, slug, description', 'custom-post-type-ui' ),
+							] );
 							?>
 						</table>
 					</div>
@@ -1278,6 +1286,7 @@ function cptui_delete_taxonomy( $data = [] ) {
 			$success = update_option( 'cptui_taxonomies', $taxonomies );
 		}
 	}
+	delete_option( "default_term_{$data['cpt_custom_tax']['name']}" );
 
 	/**
 	 * Fires after a taxonomy is deleted from our saved options.
@@ -1322,6 +1331,9 @@ function cptui_update_taxonomy( $data = [] ) {
 	if ( empty( $data['cpt_custom_tax']['name'] ) ) {
 		return cptui_admin_notices( 'error', '', false, esc_html__( 'Please provide a taxonomy name', 'custom-post-type-ui' ) );
 	}
+
+	// Maybe a little harsh, but we shouldn't be saving THAT frequently.
+	delete_option( "default_term_{$data['cpt_custom_tax']['name']}" );
 
 	if ( empty( $data['cpt_post_types'] ) ) {
 		add_filter( 'cptui_custom_error_message', 'cptui_empty_cpt_on_taxonomy' );
@@ -1397,6 +1409,7 @@ function cptui_update_taxonomy( $data = [] ) {
 	$rest_base             = trim( $data['cpt_custom_tax']['rest_base'] );
 	$rest_controller_class = trim( $data['cpt_custom_tax']['rest_controller_class'] );
 	$show_quickpanel_bulk  = ! empty( $data['cpt_custom_tax']['show_in_quick_edit'] ) ? disp_boolean( $data['cpt_custom_tax']['show_in_quick_edit'] ) : '';
+	$default_term          = trim( $data['cpt_custom_tax']['default_term'] );
 
 	$meta_box_cb = trim( $data['cpt_custom_tax']['meta_box_cb'] );
 	// We may or may not need to force a boolean false keyword.
@@ -1429,6 +1442,7 @@ function cptui_update_taxonomy( $data = [] ) {
 		'rest_controller_class' => $rest_controller_class,
 		'labels'                => $data['cpt_tax_labels'],
 		'meta_box_cb'           => $meta_box_cb,
+		'default_term'          => $default_term,
 	];
 
 	$taxonomies[ $data['cpt_custom_tax']['name'] ]['object_types'] = $data['cpt_post_types'];
