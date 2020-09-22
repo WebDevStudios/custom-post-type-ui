@@ -600,7 +600,8 @@ function cptui_import_types_taxes_settings( $postdata = [] ) {
 		return false;
 	}
 
-	if ( ! check_admin_referer( 'cptui_typetaximport_nonce_action', 'cptui_typetaximport_nonce_field' ) ) {
+	$doing_wp_cli = ( defined( 'WP_CLI' ) && WP_CLI );
+	if ( ! $doing_wp_cli && ! check_admin_referer( 'cptui_typetaximport_nonce_action', 'cptui_typetaximport_nonce_field' ) ) {
 		return 'nonce_fail';
 	}
 
