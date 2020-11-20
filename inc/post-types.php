@@ -1069,7 +1069,7 @@ function cptui_manage_post_types() {
 										'custom-post-type-ui'
 									),
 									sprintf(
-										'<a href="http://codex.wordpress.org/Function_Reference/register_post_type#Parameters" target="_blank">%s</a>',
+										'<a href="https://developer.wordpress.org/reference/functions/register_post_type/#menu_position" target="_blank">%s</a>',
 										esc_html__( 'Available options', 'custom-post-type-ui' )
 									)
 								)
