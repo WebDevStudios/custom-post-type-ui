@@ -3,8 +3,8 @@ Contributors: webdevstudios, pluginize, tw2113, vegasgeek, modemlooper, williams
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3084056
 Tags: custom post types, CPT, CMS, post, types, post type, taxonomy, tax, custom, content types, post types
 Requires at least: 5.5
-Tested up to: 5.5.1
-Stable tag: 1.8.1
+Tested up to: 5.6.0
+Stable tag: 1.8.2
 License: GPL-2.0+
 Requires PHP: 5.6
 
@@ -30,6 +30,11 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 6. Help/support screen.
 
 == Changelog ==
+
+= 1.8.2 - 2020-12-29 =
+* Fixed: Addressed some missing available labels for taxonomies.
+* Updated: Provide page slug and link to page if a post type slug is matching an existing page.
+* Updated: Support link was pointed to legacy WordPress Codex but had been moved to Developer Portal. Props @robwent
 
 = 1.8.1 - 2020-09-21 =
 * Fixed: Issues with WP-CLI importing.
@@ -73,6 +78,11 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 * Misc: Added code of conduct file to github repo. Props GaryJones.
 
 == Upgrade Notice ==
+
+= 1.8.2 - 2020-12-29 =
+* Fixed: Addressed some missing available labels for taxonomies.
+* Updated: Provide page slug and link to page if a post type slug is matching an existing page.
+* Updated: Support link was pointed to legacy WordPress Codex but had been moved to Developer Portal. Props @robwent
 
 = 1.8.1 - 2020-09-21 =
 * Fixed: Issues with WP-CLI importing.

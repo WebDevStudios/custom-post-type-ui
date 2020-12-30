@@ -693,6 +693,34 @@ function cptui_manage_taxonomies() {
 									'plurality' => 'plural',
 								],
 							] );
+
+							echo $ui->get_text_input( [
+								'namearray' => 'cpt_tax_labels',
+								'name'      => 'not_found',
+								'textvalue' => isset( $current['labels']['not_found'] ) ? esc_attr( $current['labels']['not_found'] ) : null,
+								'aftertext' => esc_html__( '(e.g. No actors found)', 'custom-post-type-ui' ),
+								'labeltext' => esc_html__( 'Not Found', 'custom-post-type-ui' ),
+								'helptext'  => esc_attr__( 'The text displayed via clicking ‘Choose from the most used items’ in the taxonomy meta box when no items are available.', 'custom-post-type-ui' ),
+								'data'      => [
+									/* translators: Used for autofill */
+									'label'     => sprintf( esc_attr__( 'No %s found', 'custom-post-type-ui' ), 'item' ),
+									'plurality' => 'plural',
+								],
+							] );
+
+							echo $ui->get_text_input( [
+								'namearray' => 'cpt_tax_labels',
+								'name'      => 'back_to_items',
+								'textvalue' => isset( $current['labels']['back_to_items'] ) ? esc_attr( $current['labels']['back_to_items'] ) : null,
+								'aftertext' => esc_html__( '(e.g. &larr; Back to actors', 'custom-post-type-ui' ),
+								'labeltext' => esc_html__( 'Back to Items', 'custom-post-type-ui' ),
+								'helptext'  => esc_attr__( 'The text displayed after a term has been updated for a link back to main index.', 'custom-post-type-ui' ),
+								'data'      => [
+									/* translators: Used for autofill */
+									'label'     => sprintf( esc_attr__( 'Back to %s', 'custom-post-type-ui' ), 'item' ),
+									'plurality' => 'plural',
+								],
+							] );
 							?>
 						</table>
 					</div>
