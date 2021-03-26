@@ -172,6 +172,10 @@ add_action( 'admin_menu', 'cptui_plugin_menu' );
  */
 function cptui_loaded() {
 
+	if ( class_exists( 'WPGraphQL' ) ) {
+		require_once plugin_dir_path( __FILE__ ) . 'external/wpgraphql.php';
+	}
+
 	/**
 	 * Fires upon plugins_loaded WordPress hook.
 	 *
