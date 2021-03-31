@@ -29,19 +29,11 @@ $max-tablet: "screen and (max-width: 768px)";
 	}
 }
 .cptui-table {
-	#excerpt {
-		display: inline-block;
-		height: 16px;
-		margin: 12px 4px 12px 0;
-		width: auto;
-	}
 	td.outer {
 		vertical-align: top;
 		width: 50%;
 	}
-	input[type="text"],
-	.cptui-new & textarea,
-	.cptui-edit & textarea {
+	input[type="text"] {
 		width: 75%;
 	}
 	.question:hover {
@@ -60,15 +52,6 @@ $max-tablet: "screen and (max-width: 768px)";
 		font-weight: bold;
 		&.hidemessage {
 			display: none;
-		}
-	}
-}
-.cpt-ui_page_cptui_tools {
-	.cptui-table {
-		.outer {
-			p {
-				padding: 0 4px;
-			}
 		}
 	}
 }
@@ -173,20 +156,6 @@ $max-tablet: "screen and (max-width: 768px)";
 		}
 	}
 }
-.rtl {
-	.about-wrap {
-		.feature-rest div {
-			padding-left: 100px;
-		}
-		.feature-rest div.last-feature {
-			padding-right: 100px;
-			padding-left: 0;
-		}
-		.feature-rest div.icon:before {
-			margin: 0 -100px 0 0;
-		}
-	}
-}
 .about-wrap {
 	.about-integrations {
 		background: #fff;
@@ -209,17 +178,14 @@ $max-tablet: "screen and (max-width: 768px)";
 		color: #cccccc;
 	}
 }
+.email-octopus-form-row-hp {
+	visibility: hidden;
+}
 .cptui-intro-devblock{
     display: flex;
     flex-direction: row;
 }
 
-#togglelabels {
-	display: none;
-	.js & {
-		display: inline-block;
-	}
-}
 .cptui-help {
 	color: #424242;
 	margin-left: 4px;
@@ -248,13 +214,7 @@ $max-tablet: "screen and (max-width: 768px)";
 		width: 20px;
 	}
 }
-#toplevel_page_cptui_main_menu {
-	img {
-		height: 20px;
-		margin-top: -2px;
-		width: 20px;
-	}
-}
+
 .visuallyhidden {
 	position: absolute;
 	left: -10000px;

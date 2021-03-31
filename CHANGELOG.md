@@ -9,6 +9,49 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - Not documented.
 
+## [1.7.5] - 2020-08-11
+### Updated
+- Addressed UI issues with WordPress 5.5.0
+- Updated: Moved required minimum WordPress version to 5.5.0
+
+## [1.7.4] - 2020-03-17
+### Added
+- Nonce admin verification for import functionality.
+- Added: Extra escaping of markup and output for "Get Code" areas.
+
+## [1.7.3] - 2020-02-05
+### Updated
+- styles and appearance to better match WordPress core.
+- Updated: Change newsletter service integration. Hey, sign up for our newsletter! Props @Oceas
+
+## [1.7.2] - 2020-01-08
+### Fixed
+- Duplicate entries for "delete_with_user" in get code.
+- Fixed: Delete button for post types and taxonomies at bottom of page did not trigger dialog prompt.
+
+## [1.7.1] - 2019-11-06
+### Fixed
+- Random-ish redirects to the "Add new" tab for post types or taxonomies
+- Fixed: JavaScript error when trying to delete a taxonomy.
+
+## [1.7.0] - 2019-11-06
+### Added
+- Actually added this time: Delete with user support for post types. Managed to miss the code with 1.6.0 which was a
+  long time ago.
+- Added: Ability to disable registration of post types or taxonomies, via code filter, without deleting them completely
+  from settings.
+- Added: New post type labels introduced in WordPress 5.0.0.
+- Added: Link to Dashicon documentation for when editing menu icon. Props @juliekuehl
+- Added: Ability to automatically fill in additional labels based on chosen plural and singular label text.
+### Updated
+-Updated: Added post type templates documentation to help section.
+-Updated: Redirect user to the "add" tab if deleting the last post type or taxonomy created.
+-Updated: Touched up tab markup to match semantic improvements provided by WordPress 5.2.0.
+### Fixed
+- Fixed: potential duplicate output of "parent_item_colon" with "Get Code" output.
+### Misc
+- Misc: Added code of conduct file to github repo. Props GaryJones.
+
 ## [1.6.2] - 2019-05-20
 ### Added
 - "themes" is now a reserved post type slug due to conflicts with WordPress internally.
@@ -437,7 +480,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 [Gary Jones]: https://github.com/GaryJones
 
-[Unreleased]: https://github.com/WebDevStudios/custom-post-type-ui/compare/1.6.2...HEAD
+[Unreleased]: https://github.com/WebDevStudios/custom-post-type-ui/compare/1.7.5...HEAD
+[1.7.5]: https://github.com/WebDevStudios/custom-post-type-ui/compare/1.7.4...1.7.5
+[1.7.4]: https://github.com/WebDevStudios/custom-post-type-ui/compare/1.7.3...1.7.4
+[1.7.3]: https://github.com/WebDevStudios/custom-post-type-ui/compare/1.7.2...1.7.3
+[1.7.2]: https://github.com/WebDevStudios/custom-post-type-ui/compare/1.7.1...1.7.2
+[1.7.1]: https://github.com/WebDevStudios/custom-post-type-ui/compare/1.7.0...1.7.1
+[1.7.0]: https://github.com/WebDevStudios/custom-post-type-ui/compare/1.6.2...1.7.0
 [1.6.2]: https://github.com/WebDevStudios/custom-post-type-ui/compare/1.6.1...1.6.2
 [1.6.1]: https://github.com/WebDevStudios/custom-post-type-ui/compare/1.6.0...1.6.1
 [1.6.0]: https://github.com/WebDevStudios/custom-post-type-ui/compare/1.5.8...1.6.0

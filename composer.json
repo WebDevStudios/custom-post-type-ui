@@ -23,7 +23,7 @@
   "minimum-stability": "dev",
   "prefer-stable": true,
   "require": {
-    "php": "^5.2|^7",
+    "php": "^5.6|^7",
     "composer/installers": "~1.0",
     "roave/security-advisories": "dev-master"
   },
@@ -35,6 +35,6 @@
     "phpunit/phpunit": "^5.7",
     "sirbrillig/phpcs-variable-analysis": "^2.0",
     "wimg/php-compatibility": "^8.0.1",
-    "wp-coding-standards/wpcs": "^0.14.0"
+    "wp-coding-standards/wpcs": "^2.3.0"
   }
 }

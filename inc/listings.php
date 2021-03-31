@@ -234,7 +234,7 @@ function cptui_listings() {
 								</p>
 
 								<p>
-									<?php esc_html_e( '*Replace "post_slug" with the slug of the actual post slug.', 'custom-post-type-ui' ); ?>
+									<?php esc_html_e( '*Replace "post_slug" with the slug of the actual post.', 'custom-post-type-ui' ); ?>
 								</p>
 
 								<p>
