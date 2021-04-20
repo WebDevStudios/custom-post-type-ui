@@ -990,7 +990,7 @@ function cptui_manage_post_types() {
 								'namearray'  => 'cpt_custom_post_type',
 								'name'       => 'hierarchical',
 								'labeltext'  => esc_html__( 'Hierarchical', 'custom-post-type-ui' ),
-								'aftertext'  => esc_html__( '(default: false) Whether or not the post type can have parent-child relationships.', 'custom-post-type-ui' ),
+								'aftertext'  => esc_html__( '(default: false) Whether or not the post type can have parent-child relationships. At least one published content item is needed in order to select a parent.', 'custom-post-type-ui' ),
 								'selections' => $select,
 							] );
 

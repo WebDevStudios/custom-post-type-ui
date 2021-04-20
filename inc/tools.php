@@ -326,6 +326,10 @@ foreach ( $taxonomy['labels'] as $key => $label ) {
 ?>
 	];
 
+	<?php
+	$show_graphql = isset( $taxonomy['show_in_graphql'] ) ? (bool) $taxonomy['show_in_graphql'] : false;
+	?>
+
 	$args = [
 		"label" => __( "<?php echo $taxonomy['label']; ?>", "<?php echo $textdomain; ?>" ),
 		"labels" => $labels,
@@ -342,12 +346,19 @@ foreach ( $taxonomy['labels'] as $key => $label ) {
 		"rest_base" => "<?php echo $rest_base; ?>",
 		"rest_controller_class" => "<?php echo $rest_controller_class; ?>",
 		"show_in_quick_edit" => <?php echo $show_in_quick_edit; ?>,
-	<?php if ( ! empty( $meta_box_cb ) ) { ?>
-	"meta_box_cb" => <?php echo $meta_box_cb; ?>,
-	<?php } ?>
-	<?php if ( ! empty( $default_term ) ) { ?>
-	"default_term" => <?php echo $default_term; ?>,
-	<?php } ?>
+<?php if ( $show_graphql ) : ?>
+		"show_in_graphql" => <?php echo disp_boolean( $taxonomy['show_in_graphql'] ); ?>,
+		"graphql_single_name" => "<?php echo esc_html( $taxonomy['graphql_single_name'] ); ?>",
+		"show_in_graphql" => "<?php echo esc_html( $taxonomy['graphql_plural_name'] ); ?>",
+<?php else: ?>
+		"show_in_graphql" => <?php echo disp_boolean( false ); ?>,
+<?php endif; ?>
+<?php if ( ! empty( $meta_box_cb ) ) { ?>
+		"meta_box_cb" => <?php echo $meta_box_cb; ?>,
+<?php } ?>
+<?php if ( ! empty( $default_term ) ) { ?>
+		"default_term" => <?php echo $default_term; ?>,
+<?php } ?>
 	];
 	register_taxonomy( "<?php echo esc_html( $taxonomy['name'] ); ?>", <?php echo $post_types; ?>, $args );
 <?php
@@ -419,6 +430,9 @@ function cptui_get_single_post_type_registery( $post_type = [] ) {
 			$post_type['supports'][] = $part;
 		}
 	}
+
+
+	$show_graphql = isset( $post_type['show_in_graphql'] ) ? (bool) $post_type['show_in_graphql'] : false;
 
 	$rewrite_withfront = '';
 	$rewrite           = get_disp_boolean( $post_type['rewrite'] );
@@ -579,6 +593,13 @@ function cptui_get_single_post_type_registery( $post_type = [] ) {
 <?php if ( true === $yarpp ) { ?>
 		"yarpp_support" => <?php echo disp_boolean( $yarpp ); ?>,
 <?php } ?>
+<?php if ( $show_graphql ) : ?>
+		"show_in_graphql" => <?php echo disp_boolean( $post_type['show_in_graphql'] ); ?>,
+		"graphql_single_name" => "<?php echo esc_html( $post_type['graphql_single_name'] ); ?>",
+		"show_in_graphql" => "<?php echo esc_html( $post_type['graphql_plural_name'] ); ?>",
+<?php else: ?>
+		"show_in_graphql" => <?php echo disp_boolean( false ); ?>,
+<?php endif; ?>
 	];
 
 	register_post_type( "<?php echo esc_html( $post_type['name'] ); ?>", $args );

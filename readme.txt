@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: custom post types, CPT, CMS, post, types, post type, taxonomy, tax, custom, content types, post types
 Requires at least: 5.5
 Tested up to: 5.7.0
-Stable tag: 1.9.0
+Stable tag: 1.9.1
 License: GPL-2.0+
 Requires PHP: 5.6
 
@@ -31,6 +31,10 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 
 == Changelog ==
 
+= 1.9.1 - 2021-04-19 =
+* Fixed: missed WPGraphQL settings in our Get Tools/Export functionality.
+* Updated: note about needing a published item to set parent/child relationships in post types.
+
 = 1.9.0 - 2021-03-30 =
 * Added: WPGraphQL Support when WPGraphQL is installed and active.
 * Fixed: Better handling of code in post_format based helper functions.
@@ -53,6 +57,10 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 * Fixed: jQuery compatibility issue with WordPress 5.5.0
 
 == Upgrade Notice ==
+
+= 1.9.1 - 2021-04-19 =
+* Fixed: missed WPGraphQL settings in our Get Tools/Export functionality.
+* Updated: note about needing a published item to set parent/child relationships in post types.
 
 = 1.9.0 - 2021-03-30 =
 * Added: WPGraphQL Support when WPGraphQL is installed and active.
