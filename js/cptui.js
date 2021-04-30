@@ -11,6 +11,8 @@ postboxes.add_postbox_toggles(pagenow);
 	$('#cptui_select_post_type_submit').hide();
 	$('#cptui_select_taxonomy_submit').hide();
 	$('#cptui_select_lang_submit').hide();
+	$('.cptui-i18n-type-select').hide();
+	$('.cptui-i18n-tax-select').hide();
 
 	if ('edit' === getParameterByName('action')) {
 		// Store our original slug on page load for edit checking.
@@ -26,8 +28,27 @@ postboxes.add_postbox_toggles(pagenow);
 		$('#cptui_select_taxonomy').submit();
 	});
 
-	$('#cptui-i10n').on('change',function(){
-		$('#cptui_select_i10n').submit();
+	$('#cptui_i18n_lang').on('change',function(){
+		$('#cptui_select_i18n').submit();
+	});
+
+	$('#cptui_select_i18n #type_tax').on('change',function(){
+		if ('taxonomy' === $(this).val()) {
+			$('.cptui-i18n-type-select').hide();
+			$('.cptui-i18n-tax-select').show();
+			$('.cptui-i18n-type-select select').attr('disabled', 'disabled');
+			$('.cptui-i18n-tax-select select').removeAttr('disabled');
+		} else if ('post_type' === $(this).val()) {
+			$('.cptui-i18n-type-select').show();
+			$('.cptui-i18n-tax-select').hide();
+			$('.cptui-i18n-type-select select').removeAttr('disabled');
+			$('.cptui-i18n-tax-select select').attr('disabled', 'disabled');
+		} else {
+			$('.cptui-i18n-type-select').hide();
+			$('.cptui-i18n-tax-select').hide();
+			$('.cptui-i18n-type-select select').attr('disabled', 'disabled');
+			$('.cptui-i18n-tax-select select').attr('disabled', 'disabled');
+		}
 	});
 
 	// Confirm our deletions
