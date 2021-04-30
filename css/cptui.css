@@ -1,16 +1,16 @@
-.posttypesui, .taxonomiesui {
+.posttypesui, .taxonomiesui, .langsui {
   width: calc(100% - 300px);
 }
 
-.posttypesui .cptui-section:first-child, .taxonomiesui .cptui-section:first-child {
+.posttypesui .cptui-section:first-child, .taxonomiesui .cptui-section:first-child, .langsui .cptui-section:first-child {
   margin-top: 30px;
 }
 
-.posttypesui .postbox-container, .taxonomiesui .postbox-container {
+.posttypesui .postbox-container, .taxonomiesui .postbox-container, .langsui .postbox-container {
   width: 100%;
 }
 
-.posttypesui .postbox .toggle-indicator:before, .taxonomiesui .postbox .toggle-indicator:before {
+.posttypesui .postbox .toggle-indicator:before, .taxonomiesui .postbox .toggle-indicator:before, .langsui .postbox .toggle-indicator:before {
   content: "\f142";
   display: inline-block;
   font: normal 20px/1 dashicons;
@@ -20,16 +20,20 @@
   text-decoration: none !important;
 }
 
-.posttypesui .postbox.closed .handlediv .toggle-indicator::before, .taxonomiesui .postbox.closed .handlediv .toggle-indicator::before {
+.posttypesui .postbox.closed .handlediv .toggle-indicator::before, .taxonomiesui .postbox.closed .handlediv .toggle-indicator::before, .langsui .postbox.closed .handlediv .toggle-indicator::before {
   content: "\f140";
 }
 
-.posttypesui .postbox .hndle, .taxonomiesui .postbox .hndle {
+.posttypesui .postbox .hndle, .taxonomiesui .postbox .hndle, .langsui .postbox .hndle {
   cursor: pointer;
 }
 
-.posttypesui .required, .taxonomiesui .required {
+.posttypesui .required, .taxonomiesui .required, .langsui .required {
   color: red;
+}
+
+.langsui .postbox-container {
+  width: 100%;
 }
 
 .cptui-table td.outer {
@@ -349,7 +353,7 @@ fieldset .cptui-help {
   width: 20%;
 }
 
-#poststuff {
+.posttypesui #poststuff, .taxonomiesui #poststuff {
   min-width: 463px;
 }
 

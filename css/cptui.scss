@@ -1,7 +1,7 @@
 $min-tablet: "screen and (min-width: 769px)";
 $max-tablet: "screen and (max-width: 768px)";
 
-.posttypesui, .taxonomiesui {
+.posttypesui, .taxonomiesui, .langsui {
 	.cptui-section:first-child {
 		margin-top: 30px;
 	}
@@ -26,6 +26,11 @@ $max-tablet: "screen and (max-width: 768px)";
 	}
 	.required {
 		color: rgb(255, 0, 0);
+	}
+}
+.langsui {
+	.postbox-container {
+		width: 100%;
 	}
 }
 .cptui-table {
@@ -181,7 +186,7 @@ $max-tablet: "screen and (max-width: 768px)";
 .email-octopus-form-row-hp {
 	visibility: hidden;
 }
-.cptui-intro-devblock{
+.cptui-intro-devblock {
     display: flex;
     flex-direction: row;
 }
@@ -328,8 +333,11 @@ $max-tablet: "screen and (max-width: 768px)";
 		}
 	}
 }
-#poststuff {
-	min-width: 463px;
+
+.posttypesui, .taxonomiesui {
+	#poststuff {
+		min-width: 463px;
+	}
 }
 
 @media #{$min-tablet} {
