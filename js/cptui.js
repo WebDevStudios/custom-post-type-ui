@@ -10,6 +10,7 @@ postboxes.add_postbox_toggles(pagenow);
 
 	$('#cptui_select_post_type_submit').hide();
 	$('#cptui_select_taxonomy_submit').hide();
+	$('#cptui_select_lang_submit').hide();
 
 	if ('edit' === getParameterByName('action')) {
 		// Store our original slug on page load for edit checking.
@@ -22,7 +23,11 @@ postboxes.add_postbox_toggles(pagenow);
 	});
 
 	$('#taxonomy').on('change',function(){
-		$( '#cptui_select_taxonomy' ).submit();
+		$('#cptui_select_taxonomy').submit();
+	});
+
+	$('#cptui-i10n').on('change',function(){
+		$('#cptui_select_i10n').submit();
 	});
 
 	// Confirm our deletions
