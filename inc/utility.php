@@ -955,3 +955,22 @@ function cptui_get_add_new_link( $content_type = '' ) {
 
 	return cptui_admin_url( 'admin.php?page=cptui_manage_' . $content_type );
 }
+
+function cptui_site_translated() {
+	$is_translated = false;
+	$translated = get_available_languages();
+
+	if ( ! empty( $translated ) ) {
+		$is_translated = true;
+	}
+
+	if ( function_exists( 'loco_plugin_file' ) ) {
+		$is_translated = true;
+	}
+
+	if ( defined( 'ICL_SITEPRESS_VERSION' ) ) {
+		$is_translated = true;
+	}
+
+	return $is_translated;
+}
