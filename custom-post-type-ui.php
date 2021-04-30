@@ -145,6 +145,10 @@ function cptui_plugin_menu() {
 	add_submenu_page( $parent_slug, __( 'Add/Edit Taxonomies', 'custom-post-type-ui' ), __( 'Add/Edit Taxonomies', 'custom-post-type-ui' ), $capability, 'cptui_manage_taxonomies', 'cptui_manage_taxonomies' );
 	add_submenu_page( $parent_slug, __( 'Registered Types and Taxes', 'custom-post-type-ui' ), __( 'Registered Types/Taxes', 'custom-post-type-ui' ), $capability, 'cptui_listings', 'cptui_listings' );
 	add_submenu_page( $parent_slug, __( 'Custom Post Type UI Tools', 'custom-post-type-ui' ), __( 'Tools', 'custom-post-type-ui' ), $capability, 'cptui_tools', 'cptui_tools' );
+
+	if ( cptui_site_translated() ) {
+		add_submenu_page( $parent_slug, __( 'CPTUI Translations', 'custom-post-type-ui' ), __( 'Translations', 'custom-post-type-ui' ), $capability, 'cptui_translations', 'CPTUI\cptui_langs_settings_page' );
+	}
 	add_submenu_page( $parent_slug, __( 'Help/Support', 'custom-post-type-ui' ), __( 'Help/Support', 'custom-post-type-ui' ), $capability, 'cptui_support', 'cptui_support' );
 
 	/**
@@ -202,6 +206,10 @@ function cptui_create_submenus() {
 	require_once plugin_dir_path( __FILE__ ) . 'inc/listings.php';
 	require_once plugin_dir_path( __FILE__ ) . 'inc/tools.php';
 	require_once plugin_dir_path( __FILE__ ) . 'inc/support.php';
+
+	if ( cptui_site_translated() ) {
+		require_once plugin_dir_path( __FILE__ ) . 'inc/internationalization.php';
+	}
 
 	if ( defined( 'WP_CLI' ) && WP_CLI ) {
 		require_once plugin_dir_path( __FILE__ ) . 'inc/wp-cli.php';
