@@ -640,20 +640,6 @@ function cptui_manage_taxonomies() {
 
 							echo $ui->get_text_input( [
 								'namearray' => 'cpt_tax_labels',
-								'name'      => 'not_found',
-								'textvalue' => isset( $current['labels']['not_found'] ) ? esc_attr( $current['labels']['not_found'] ) : null,
-								'aftertext' => esc_attr__( '(e.g. No Actors found)', 'custom-post-type-ui' ),
-								'labeltext' => esc_html__( 'Not found', 'custom-post-type-ui' ),
-								'helptext'  => esc_html__( 'Custom taxonomy label. Used in the admin menu for displaying taxonomies.', 'custom-post-type-ui' ),
-								'data' => [
-									/* translators: Used for autofill */
-									'label'     => sprintf( esc_attr__( 'No %s found', 'custom-post-type-ui' ), 'item' ),
-									'plurality' => 'plural',
-								],
-							] );
-
-							echo $ui->get_text_input( [
-								'namearray' => 'cpt_tax_labels',
 								'name'      => 'no_terms',
 								'textvalue' => isset( $current['labels']['no_terms'] ) ? esc_attr( $current['labels']['no_terms'] ) : null,
 								'aftertext' => esc_html__( '(e.g. No actors)', 'custom-post-type-ui' ),
