@@ -55,60 +55,33 @@ function set_cptui_taxonomy_lang_for_user( $args, $taxonomy_slug, $taxonomy_args
 
 function cptui_langs_settings_page() {
 
-	$tab = ( ! empty( $_GET ) && ! empty( $_GET['action'] ) && 'edit' === $_GET['action'] ) ? 'edit' : 'new';
-	$type_tax = (
-		! empty( $_GET ) &&
-		! empty( $_GET['type_tax'] ) ) ?
-		sanitize_text_field( $_GET['type_tax'] ) :
-		'';
-	if ( empty( $type_tax ) ) {
-		$type_tax = (
-			! empty( $_POST ) &&
-			! empty( $_POST['cptui_i18n_type_tax']['type_tax'] ) ) ?
-			sanitize_text_field( $_POST['cptui_i18n_type_tax']['type_tax'] ) :
-			'';
-	}
-	$selected_type = (
-		! empty( $_GET ) &&
-		! empty( $_GET['selected_type'] ) ) ?
-		sanitize_text_field( $_GET['selected_type'] ) :
-		'';
-	if ( empty( $selected_type ) ) {
-		$selected_type = (
-			! empty( $_POST ) &&
-			! empty( $_POST['cptui_selected_post_type']['post_type'] ) ) ?
-			sanitize_text_field( $_POST['cptui_selected_post_type']['post_type'] ) :
-			'';
-	}
-	$selected_tax = (
-		! empty( $_GET ) &&
-		! empty( $_GET['selected_tax'] ) ) ?
-		sanitize_text_field( $_GET['selected_tax'] ) :
-		'';
-	if ( empty( $selected_tax ) ) {
-		$selected_tax = (
-			! empty( $_POST ) &&
-			! empty( $_POST['cptui_selected_taxonomy']['taxonomy'] ) ) ?
-			sanitize_text_field( $_POST['cptui_selected_taxonomy']['taxonomy'] ) :
-			'';
-	}
+	$tab = ( ! empty( $_GET ) && ! empty( $_GET['action'] ) && 'edit' === $_GET['action'] ) ? 'edit' : '';
+	$type_tax      = cptui_i18n_get_type_tax();
+	$selected_type = cptui_i18n_get_type();
+	$selected_tax  = cptui_i18n_get_tax();
+	$selected_lang = cptui_i18n_get_lang();
+
 	$ui  = new \cptui_admin_ui();
 	?>
 	<div class="wrap cptui-i18n">
 		<h1 class="wp-heading-inline"><?php echo get_admin_page_title(); ?></h1>
 
-		<p><?php esc_html_e( 'Select language to translate Custom Post Type UI for', 'custom-post-type-ui' ); ?></p>
 		<?php
-			//$form_args['action'] = 'edit';
+			$form_args['action'] = 'edit';
 			if ( ! empty( $type_tax ) ) {
 				$form_args['type_tax'] = $type_tax;
 			}
 			if ( ! empty( $selected_type ) ) {
-				$form_args['selected_type'] = $selected_type;
+				$form_args['cptui_type'] = $selected_type;
 			}
 			if ( ! empty( $selected_tax ) ) {
-				$form_args['selected_type'] = $selected_tax;
+				$form_args['cptui_tax'] = $selected_tax;
 			}
+
+			if ( ! empty( $selected_tax ) ) {
+				$form_args['cptui_lang'] = $selected_lang;
+			}
+
 		?>
 		<form id="cptui_select_i18n" method="post" action="<?php echo add_query_arg(
 			$form_args,
@@ -117,49 +90,51 @@ function cptui_langs_settings_page() {
 			<?php
 			wp_nonce_field( 'cptui_select_i18n_nonce_action', 'cptui_select_i18n_nonce_field' );
 
-			echo '<div class="cptui-i18n-content-select">';
-			esc_html_e( 'Content type: ', 'custom-post-type-ui' );
-			$selections['options'][] = [ 'attr' => esc_html( 'none' ), 'text' => 'None' ];
-			$selections['options'][] = [ 'attr' => esc_html( 'post_type' ), 'text' => 'Post Type' ];
-			$selections['options'][] = [ 'attr' => esc_html( 'taxonomy' ), 'text' => 'Taxonomy' ];
-			$selections['selected'] = $type_tax;
-			echo $ui->get_select_input( [
-				'namearray'  => 'cptui_i18n_type_tax',
-				'name'       => 'type_tax',
-				'selections' => $selections,
-				'wrap'       => false,
-			] );
-			echo '</div>';
+			echo '<div class="cptui-i18n-selects-wrap">';
+				echo '<div class="cptui-i18n-content-select">';
+					esc_html_e( 'Post type or taxonomy: ', 'custom-post-type-ui' );
+					$selections['options'][] = [ 'attr' => esc_html( 'post_type' ), 'text' => 'Post Type' ];
+					$selections['options'][] = [ 'attr' => esc_html( 'taxonomy' ), 'text' => 'Taxonomy' ];
+					$selections['selected'] = $type_tax;
+					echo $ui->get_select_input( [
+						'namearray'  => 'cptui_i18n_type_tax',
+						'name'       => 'type_tax',
+						'selections' => $selections,
+						'wrap'       => false,
+					] );
+				echo '</div>';
 
-			echo '<div class="cptui-i18n-type-select">';
-			esc_html_e( 'Post types: ', 'custom-post-type-ui' );
-			$post_types = cptui_get_post_type_data();
-			cptui_post_types_dropdown( $post_types );
-			echo '</div>';
-			?>
-			STILL NEED TO PASS IN FOUND/$_GET PARAMS FOR CURRENT SELECTED TYPE OR TAX TO DROPDOWN GENERATORS.<br/>
-			<?php
+				$content_type_string = esc_html__( 'Content type: ', 'custom-post-type-ui' );
 
-			echo '<div class="cptui-i18n-tax-select">';
-			esc_html_e( 'Taxonomies: ', 'custom-post-type-ui' );
-			$taxonomies = cptui_get_taxonomy_data();
-			cptui_taxonomies_dropdown( $taxonomies );
-			echo '</div>';
-			?>
-STILL NEED TO FIGURE OUT SAVING AS A WHOLE AND DELETING AND FILTERING IN.
-			<div class="cptui-i18n-lang-select">
-			<label for="cptui-i18n"><?php _e( 'Language' ); ?>
-				<span class="dashicons dashicons-translation" aria-hidden="true"></span></label>
-			<?php
-			cptui_langs_dropdown();
-			?></div>
-			<input class="button-secondary" name="cptui_select_lang_submit" id="cptui_select_lang_submit" type="submit" value="<?php esc_attr_e( 'Select language', 'custom-post-type-ui' ); ?>" />
+				echo '<div class="cptui-i18n-type-select">';
+					echo $content_type_string;
+					$post_types = cptui_get_post_type_data();
+					cptui_post_types_dropdown( $post_types );
+				echo '</div>';
+
+
+				echo '<div class="cptui-i18n-tax-select">';
+					echo $content_type_string;
+					$taxonomies = cptui_get_taxonomy_data();
+					cptui_taxonomies_dropdown( $taxonomies );
+				echo '</div>';
+				?>
+				<div class="cptui-i18n-lang-select">
+					<label for="cptui-i18n"><?php _e( 'Language' ); ?>
+						<span class="dashicons dashicons-translation" aria-hidden="true"></span></label>
+					<?php
+					cptui_langs_dropdown();
+					?>
+				</div>
+
+				<input class="button-secondary" name="cptui_select_lang_submit" id="cptui_select_lang_submit" type="submit" value="<?php esc_attr_e( 'Select language', 'custom-post-type-ui' ); ?>" />
+			</div>
 		</form>
+
+		STILL NEED TO PASS IN FOUND/$_GET PARAMS FOR CURRENT SELECTED TYPE OR TAX TO DROPDOWN GENERATORS.<br />
+		STILL NEED TO FIGURE OUT SAVING AS A WHOLE AND DELETING AND FILTERING IN.
 			<?php
 			if ( 'edit' === $tab ) {
-
-
-
 			?>
 
 			<form class="langsui" method="post" action="">
@@ -204,6 +179,7 @@ STILL NEED TO FIGURE OUT SAVING AS A WHOLE AND DELETING AND FILTERING IN.
 								<input type="submit" class="button-primary cptui-i18n-submit" name="cpt_submit" value="<?php echo esc_attr( apply_filters( 'cptui_i18n_submit_add', esc_attr__( 'Add Translation', 'custom-post-type-ui' ) ) ); ?>" />
 							<?php } ?>
 						</p>
+						<?php if ( 'post_type' === $type_tax ) { ?>
 						<div class="cptui-section cptui-labels postbox">
 							<div class="postbox-header">
 								<h2 class="hndle ui-sortable-handle">
@@ -666,6 +642,7 @@ STILL NEED TO FIGURE OUT SAVING AS A WHOLE AND DELETING AND FILTERING IN.
 								</div>
 							</div>
 						</div>
+						<?php } else { ?>
 						<div class="cptui-section cptui-labels postbox">
 							<div class="postbox-header">
 								<h2 class="hndle ui-sortable-handle">
@@ -1001,7 +978,9 @@ STILL NEED TO FIGURE OUT SAVING AS A WHOLE AND DELETING AND FILTERING IN.
 							</div>
 						</div>
 
-
+						<?php
+						}
+						?>
 
 						<p class="submit">
 							<?php
@@ -1100,7 +1079,7 @@ add_action( 'init', __NAMESPACE__ . '\cptui_process_lang' );
 
 function cptui_langs_dropdown() {
 	$current_langs = get_available_languages();
-	$selected_lang = cptui_get_current_lang( $current_langs );
+	$selected_lang = cptui_get_current_lang();
 
 	wp_dropdown_languages(
 		[
@@ -1116,15 +1095,100 @@ function cptui_langs_dropdown() {
 	);
 }
 
-function cptui_get_current_lang( $available ) {
+function cptui_get_current_lang() {
 	$lang = '';
 	if ( ! empty( $_POST ) ) {
-		if ( ! empty( $_POST['cptui-i18n'] ) ) {
+		if ( ! empty( $_POST['cptui_i18n_lang'] ) ) {
 			check_admin_referer( 'cptui_select_i18n_nonce_action', 'cptui_select_i18n_nonce_field' );
 		}
-		if ( isset( $_POST['cptui-i18n'] ) ) {
-			$lang = sanitize_text_field( $_POST['cptui-i18n'] );
+		if ( isset( $_POST['cptui_i18n_lang'] ) ) {
+			$lang = sanitize_text_field( $_POST['cptui_i18n_lang'] );
 		}
 	}
+	return $lang;
+}
+
+function cptui_i18n_get_type_tax() {
+	$type_tax = 'post_type';
+	if (
+		! empty( $_POST ) &&
+		! empty( $_POST['cptui_i18n_type_tax']['type_tax'] ) )
+	{
+		$type_tax = sanitize_text_field( $_POST['cptui_i18n_type_tax']['type_tax'] );
+	}
+
+	if (
+		empty( $type_tax ) &&
+		(
+			! empty( $_GET ) &&
+			! empty( $_GET['type_tax'] )
+		)
+	) {
+		$type_tax = sanitize_text_field( $_GET['type_tax'] );
+	}
+	return $type_tax;
+}
+
+function cptui_i18n_get_type() {
+	$type = '';
+	if (
+		! empty( $_POST ) &&
+		! empty( $_POST['cptui_selected_post_type']['post_type'] ) )
+	{
+		$type = sanitize_text_field( $_POST['cptui_selected_post_type']['post_type'] );
+	}
+	if (
+		empty( $type ) &&
+		(
+			! empty( $_GET ) &&
+			! empty( $_GET['cptui_type'] )
+		)
+	) {
+		$type = sanitize_text_field( $_GET['cptui_type'] );
+	}
+
+	return $type;
+}
+
+function cptui_i18n_get_tax() {
+	$tax = '';
+	if (
+		! empty( $_POST ) &&
+		! empty( $_POST['cptui_selected_taxonomy']['taxonomy'] ) )
+	{
+		$tax = sanitize_text_field( $_POST['cptui_selected_taxonomy']['taxonomy'] );
+	}
+
+	if (
+		empty( $tax ) &&
+		(
+			! empty( $_GET ) &&
+			! empty( $_GET['cptui_tax'] )
+		)
+	) {
+		$tax = sanitize_text_field( $_GET['cptui_tax'] );
+	}
+
+	return $tax;
+}
+
+function cptui_i18n_get_lang() {
+	$lang = '';
+	if (
+		! empty( $_POST ) &&
+		! empty( $_POST['cptui_i18n_lang'] ) ) {
+		$lang = sanitize_text_field( $_POST['cptui_i18n_lang'] );
+	}
+
+	if (
+		empty( $lang ) &&
+		(
+			! empty( $_GET ) &&
+			! empty( $_GET['cptui_lang'] )
+		)
+	) {
+		$lang = sanitize_text_field( $_GET['cptui_lang'] );
+	}
+
 	return $lang;
 }

@@ -382,9 +382,14 @@ $max-tablet: "screen and (max-width: 768px)";
 	width: 100%;
   }
 }
+.cptui-i18n-selects-wrap {
+	display: flex;
+	justify-content: flex-start;
+}
 .cptui-i18n-content-select,
 .cptui-i18n-type-select,
 .cptui-i18n-tax-select,
 .cptui-i18n-lang-select {
-	display: block;
+	/*display: block;*/
+	margin-right: 15px;
 }
