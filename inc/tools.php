@@ -349,7 +349,7 @@ foreach ( $taxonomy['labels'] as $key => $label ) {
 <?php if ( $show_graphql ) : ?>
 		"show_in_graphql" => <?php echo disp_boolean( $taxonomy['show_in_graphql'] ); ?>,
 		"graphql_single_name" => "<?php echo esc_html( $taxonomy['graphql_single_name'] ); ?>",
-		"show_in_graphql" => "<?php echo esc_html( $taxonomy['graphql_plural_name'] ); ?>",
+		"graphql_plural_name" => "<?php echo esc_html( $taxonomy['graphql_plural_name'] ); ?>",
 <?php else: ?>
 		"show_in_graphql" => <?php echo disp_boolean( false ); ?>,
 <?php endif; ?>
@@ -596,7 +596,7 @@ function cptui_get_single_post_type_registery( $post_type = [] ) {
 <?php if ( $show_graphql ) : ?>
 		"show_in_graphql" => <?php echo disp_boolean( $post_type['show_in_graphql'] ); ?>,
 		"graphql_single_name" => "<?php echo esc_html( $post_type['graphql_single_name'] ); ?>",
-		"show_in_graphql" => "<?php echo esc_html( $post_type['graphql_plural_name'] ); ?>",
+		"graphql_plural_name" => "<?php echo esc_html( $post_type['graphql_plural_name'] ); ?>",
 <?php else: ?>
 		"show_in_graphql" => <?php echo disp_boolean( false ); ?>,
 <?php endif; ?>
