@@ -630,7 +630,7 @@ function cptui_manage_taxonomies() {
 								'textvalue' => isset( $current['labels']['choose_from_most_used'] ) ? esc_attr( $current['labels']['choose_from_most_used'] ) : null,
 								'aftertext' => esc_attr__( '(e.g. Choose from the most used Actors)', 'custom-post-type-ui' ),
 								'labeltext' => esc_html__( 'Choose From Most Used', 'custom-post-type-ui' ),
-								'helptext'  => esc_html__( 'Custom taxonomy label. Used in the admin menu for displaying taxonomies.', 'custom-post-type-ui' ),
+								'helptext'  => esc_attr__( 'The text displayed via clicking ‘Choose from the most used items’ in the taxonomy meta box when no items are available.', 'custom-post-type-ui' ),
 								'data' => [
 									/* translators: Used for autofill */
 									'label'     => sprintf( esc_attr__( 'Choose from the most used %s', 'custom-post-type-ui' ), 'item' ),
@@ -644,7 +644,7 @@ function cptui_manage_taxonomies() {
 								'textvalue' => isset( $current['labels']['not_found'] ) ? esc_attr( $current['labels']['not_found'] ) : null,
 								'aftertext' => esc_attr__( '(e.g. No Actors found)', 'custom-post-type-ui' ),
 								'labeltext' => esc_html__( 'Not found', 'custom-post-type-ui' ),
-								'helptext'  => esc_html__( 'Custom taxonomy label. Used in the admin menu for displaying taxonomies.', 'custom-post-type-ui' ),
+								'helptext'  => esc_html__( 'Used when indicating that there are no terms in the given taxonomy within the meta box and taxonomy list table.', 'custom-post-type-ui' ),
 								'data' => [
 									/* translators: Used for autofill */
 									'label'     => sprintf( esc_attr__( 'No %s found', 'custom-post-type-ui' ), 'item' ),
@@ -690,20 +690,6 @@ function cptui_manage_taxonomies() {
 								'data' => [
 									/* translators: Used for autofill */
 									'label'     => sprintf( esc_attr__( '%s list', 'custom-post-type-ui' ), 'item' ),
-									'plurality' => 'plural',
-								],
-							] );
-
-							echo $ui->get_text_input( [
-								'namearray' => 'cpt_tax_labels',
-								'name'      => 'not_found',
-								'textvalue' => isset( $current['labels']['not_found'] ) ? esc_attr( $current['labels']['not_found'] ) : null,
-								'aftertext' => esc_html__( '(e.g. No actors found)', 'custom-post-type-ui' ),
-								'labeltext' => esc_html__( 'Not Found', 'custom-post-type-ui' ),
-								'helptext'  => esc_attr__( 'The text displayed via clicking ‘Choose from the most used items’ in the taxonomy meta box when no items are available.', 'custom-post-type-ui' ),
-								'data'      => [
-									/* translators: Used for autofill */
-									'label'     => sprintf( esc_attr__( 'No %s found', 'custom-post-type-ui' ), 'item' ),
 									'plurality' => 'plural',
 								],
 							] );
@@ -1545,6 +1531,7 @@ function cptui_reserved_taxonomies() {
 		'customized',
 		'cpage',
 		'day',
+		'date',
 		'debug',
 		'error',
 		'exact',
