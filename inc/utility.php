@@ -906,7 +906,7 @@ function cptui_post_type_supports( $post_type, $feature ) {
 	$object = cptui_get_cptui_post_type_object( $post_type );
 
 	if ( ! empty( $object ) ) {
-		if ( array_key_exists( $feature, $object ) && ! empty( $object[ $feature ] ) ) {
+		if ( array_key_exists( $feature, (array) $object ) && ! empty( $object[ $feature ] ) ) {
 			return true;
 		}
 
