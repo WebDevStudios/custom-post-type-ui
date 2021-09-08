@@ -672,11 +672,6 @@ function cptui_register_single_taxonomy( $taxonomy = [] ) {
 		$rest_base = $taxonomy['rest_base'];
 	}
 
-	$rest_controller_class = null;
-	if ( ! empty( $post_type['rest_controller_class'] ) ) {
-		$rest_controller_class = $post_type['rest_controller_class'];
-	}
-
 	$meta_box_cb = null;
 	if ( ! empty( $taxonomy['meta_box_cb'] ) ) {
 		$meta_box_cb = ( false !== get_disp_boolean( $taxonomy['meta_box_cb'] ) ) ? $taxonomy['meta_box_cb'] : false;
