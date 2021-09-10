@@ -357,7 +357,7 @@
 				$( 'a', list ).on( 'click', function ( e ) {
 					e.preventDefault();
 					var title = $( this ).attr( 'title' );
-					target.val( 'dashicons-' + title );
+					target.val( 'dashicons-' + title ).change();
 					preview
 						.prop('class', 'dashicons')
 						.addClass( 'dashicons-' + title );
