@@ -37,6 +37,7 @@ function cptui_post_type_enqueue_scripts() {
 
 	wp_enqueue_media();
 	wp_enqueue_script( 'cptui' );
+	wp_enqueue_script( 'dashicons-picker' );
 	wp_enqueue_style( 'cptui-css' );
 
 	$core                  = get_post_types( [ '_builtin' => true ] );
@@ -1135,6 +1136,14 @@ function cptui_manage_post_types() {
 									'</a>'
 								),
 								'wrap'      => false,
+							] );
+
+							echo '<div class="cptui-spacer">';
+
+							echo $ui->get_button( [
+								'id'      => 'cptui_choose_dashicon',
+								'classes' => 'dashicons-picker',
+								'textvalue' => esc_attr__( 'Choose dashicon', 'custom-post-type-ui' ),
 							] );
 
 							echo '<div class="cptui-spacer">';
