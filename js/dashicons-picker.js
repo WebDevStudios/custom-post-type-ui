@@ -320,10 +320,7 @@
 			'superhero-alt',
 			'edit-page',
 			'fullscreen-alt',
-			'fullscreen-exit-alt',
-			'',
-			'',
-			''
+			'fullscreen-exit-alt'
 		];
 
 		return this.each( function () {

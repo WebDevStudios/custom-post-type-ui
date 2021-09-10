@@ -241,7 +241,7 @@ function cptui_add_styles() {
 
 	$min = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 	wp_register_script( 'cptui', plugins_url( "js/cptui{$min}.js", __FILE__ ), [ 'jquery', 'jquery-ui-dialog', 'postbox' ], CPTUI_VERSION, true );
-	wp_register_script( 'dashicons-picker', plugins_url( "js/dashicons-picker.js", __FILE__ ), [ 'jquery'], '1.0.0', true );
+	wp_register_script( 'dashicons-picker', plugins_url( "js/dashicons-picker{$min}.js", __FILE__ ), [ 'jquery'], '1.0.0', true );
 	wp_register_style( 'cptui-css', plugins_url( "css/cptui{$min}.css", __FILE__ ), [ 'wp-jquery-ui-dialog' ], CPTUI_VERSION );
 }
 add_action( 'admin_enqueue_scripts', 'cptui_add_styles' );
@@ -673,6 +673,10 @@ function cptui_register_single_taxonomy( $taxonomy = [] ) {
 		$rest_base = $taxonomy['rest_base'];
 	}
 
+	if ( ! empty( $post_type['rest_controller_class'] ) ) {
+		$rest_controller_class = $post_type['rest_controller_class'];
+	}
+	
 	$meta_box_cb = null;
 	if ( ! empty( $taxonomy['meta_box_cb'] ) ) {
 		$meta_box_cb = ( false !== get_disp_boolean( $taxonomy['meta_box_cb'] ) ) ? $taxonomy['meta_box_cb'] : false;
