@@ -332,6 +332,69 @@ $max-tablet: "screen and (max-width: 768px)";
 	min-width: 463px;
 }
 
+.dashicon-picker-container {
+	position: absolute;
+	width: 220px;
+	height: 252px;
+	font-size: 14px;
+	background-color: #fff;
+	box-shadow: -1px 2px 5px 3px rgba(0, 0, 0, 0.41);
+	overflow: hidden;
+	padding: 5px;
+	box-sizing: border-box;
+
+	ul {
+		margin: 0 0 10px;
+		padding: 0;
+
+		.dashicons {
+			width: 20px;
+			height: 20px;
+			font-size: 20px;
+		}
+
+		li {
+			display: inline-block;
+			margin: 5px;
+			float: left;
+
+			a {
+				display: block;
+				text-decoration: none;
+				color: #373737;
+				padding: 5px 5px;
+				border: 1px solid #dfdfdf;
+
+				&:hover {
+					border-color: #999;
+					background: #efefef;
+				}
+			}
+		}
+	}
+}
+
+.dashicon-picker-control {
+	height: 32px;
+
+	a {
+		padding: 5px;
+		text-decoration: none;
+		line-height: 32px;
+		width: 25px;
+
+		span {
+			display: inline;
+			vertical-align: middle;
+		}
+	}
+
+	input {
+		font-size: 12px;
+		width: 140px;
+	}
+}
+
 @media #{$min-tablet} {
 	.cptui-badge {
 		margin-top: -42px;

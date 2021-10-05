@@ -16,7 +16,7 @@
  * Plugin URI: https://github.com/WebDevStudios/custom-post-type-ui/
  * Description: Admin panel for creating custom post types and custom taxonomies in WordPress
  * Author: WebDevStudios
- * Version: 1.9.2
+ * Version: 1.10.0
  * Author URI: https://webdevstudios.com/
  * Text Domain: custom-post-type-ui
  * Domain Path: /languages
@@ -30,8 +30,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'CPT_VERSION', '1.9.2' ); // Left for legacy purposes.
-define( 'CPTUI_VERSION', '1.9.2' );
+define( 'CPT_VERSION', '1.10.0' ); // Left for legacy purposes.
+define( 'CPTUI_VERSION', '1.10.0' );
 define( 'CPTUI_WP_VERSION', get_bloginfo( 'version' ) );
 
 /**
@@ -241,6 +241,7 @@ function cptui_add_styles() {
 
 	$min = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 	wp_register_script( 'cptui', plugins_url( "js/cptui{$min}.js", __FILE__ ), [ 'jquery', 'jquery-ui-dialog', 'postbox' ], CPTUI_VERSION, true );
+	wp_register_script( 'dashicons-picker', plugins_url( "js/dashicons-picker{$min}.js", __FILE__ ), [ 'jquery'], '1.0.0', true );
 	wp_register_style( 'cptui-css', plugins_url( "css/cptui{$min}.css", __FILE__ ), [ 'wp-jquery-ui-dialog' ], CPTUI_VERSION );
 }
 add_action( 'admin_enqueue_scripts', 'cptui_add_styles' );
@@ -253,10 +254,23 @@ add_action( 'admin_enqueue_scripts', 'cptui_add_styles' );
  * @internal
  */
 function cptui_create_custom_post_types() {
-	$cpts = get_option( 'cptui_post_types' );
+	$cpts = get_option( 'cptui_post_types', [] );
+	/**
+	 * Filters an override array of post type data to be registered instead of our saved option.
+	 *
+	 * @since 1.10.0
+	 *
+	 * @param array $value Default override value.
+	 */
+	$cpts_override = apply_filters( 'cptui_post_types_override', [] );
 
-	if ( empty( $cpts ) ) {
+	if ( empty( $cpts ) && empty( $cpts_override ) ) {
 		return;
+	}
+
+	// Assume good intent, and we're also not wrecking the option so things are always reversable.
+	if ( is_array( $cpts_override ) && ! empty( $cpts_override ) ) {
+		$cpts = $cpts_override;
 	}
 
 	/**
@@ -530,10 +544,23 @@ function cptui_register_single_post_type( $post_type = [] ) {
  * @internal
  */
 function cptui_create_custom_taxonomies() {
-	$taxes = get_option( 'cptui_taxonomies' );
+	$taxes = get_option( 'cptui_taxonomies', [] );
+	/**
+	 * Filters an override array of taxonomy data to be registered instead of our saved option.
+	 *
+	 * @since 1.10.0
+	 *
+	 * @param array $value Default override value.
+	 */
+	$taxes_override = apply_filters( 'cptui_taxonomies_override', [] );
 
-	if ( empty( $taxes ) ) {
+	if ( empty( $taxes ) && empty( $taxes_override ) ) {
 		return;
+	}
+
+	// Assume good intent, and we're also not wrecking the option so things are always reversable.
+	if ( is_array( $taxes_override ) && ! empty( $taxes_override ) ) {
+		$taxes = $taxes_override;
 	}
 
 	/**
@@ -663,6 +690,11 @@ function cptui_register_single_taxonomy( $taxonomy = [] ) {
 		$show_in_nav_menus = $public;
 	}
 
+	$show_tagcloud = ( ! empty( $taxonomy['show_tagcloud'] ) && false !== get_disp_boolean( $taxonomy['show_tagcloud'] ) ) ? true : false;
+	if ( empty( $taxonomy['show_tagcloud'] ) ) {
+		$show_tagcloud = get_disp_boolean( $taxonomy['show_ui'] );
+	}
+
 	$show_in_rest = ( ! empty( $taxonomy['show_in_rest'] ) && false !== get_disp_boolean( $taxonomy['show_in_rest'] ) ) ? true : false;
 
 	$show_in_quick_edit = ( ! empty( $taxonomy['show_in_quick_edit'] ) && false !== get_disp_boolean( $taxonomy['show_in_quick_edit'] ) ) ? true : false;
@@ -673,8 +705,8 @@ function cptui_register_single_taxonomy( $taxonomy = [] ) {
 	}
 
 	$rest_controller_class = null;
-	if ( ! empty( $post_type['rest_controller_class'] ) ) {
-		$rest_controller_class = $post_type['rest_controller_class'];
+	if ( ! empty( $taxonomy['rest_controller_class'] ) ) {
+		$rest_controller_class = $taxonomy['rest_controller_class'];
 	}
 
 	$meta_box_cb = null;
@@ -705,6 +737,7 @@ function cptui_register_single_taxonomy( $taxonomy = [] ) {
 		'show_ui'               => get_disp_boolean( $taxonomy['show_ui'] ),
 		'show_in_menu'          => $show_in_menu,
 		'show_in_nav_menus'     => $show_in_nav_menus,
+		'show_tagcloud'         => $show_tagcloud,
 		'query_var'             => $taxonomy['query_var'],
 		'rewrite'               => $rewrite,
 		'show_admin_column'     => $show_admin_column,

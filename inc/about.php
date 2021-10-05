@@ -85,13 +85,8 @@ function cptui_settings() {
 		<div class="changelog about-integrations">
 			<div class="cptui-feature feature-section col three-col">
 				<div class="col">
-					<h2><?php esc_html_e( 'Built-in WPGraphQL support options.', 'custom-post-type-ui' ); ?></h2>
-					<p><?php esc_html_e( 'If you have the WPGraphQL plugin installed and active, you will no longer need their Custom Post Type UI extension to register GraphQL support with your post types and taxonomies.', 'custom-post-type-ui' ); ?></p>
-					<p><?php printf(
-							esc_html__( 'Visit the %1$sWPGraphQL plugin page%2$s to acquire your own copy.', 'custom-post-type-ui' ),
-							sprintf( '<a href="%s">', esc_url( 'https://wordpress.org/plugins/wp-graphql/' ) ),
-							'</a>'
-						); ?></p>
+					<h2><?php esc_html_e( 'Dashicon Picker UI', 'custom-post-type-ui' ); ?></h2>
+					<p><?php esc_html_e( 'You no longer have to know the Dashicon class values ahead of time or look them up in the WordPress Developer Documentation. We now provide a visual picker that shows them all for you. All you have to do is choose one.', 'custom-post-type-ui' ); ?></p>
 				</div>
 			</div>
 		</div>

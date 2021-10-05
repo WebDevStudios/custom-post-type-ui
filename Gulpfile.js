@@ -100,7 +100,7 @@ gulp.task('cssnano', ['postcss'], function() {
  * Delete scripts before we concat and minify
  */
 gulp.task('clean:scripts', function() {
-	return del(['js/cptui.min.js']);
+	return del(['js/cptui.min.js', 'js/dashicons-picker.min.js']);
 });
 
 /**
@@ -116,7 +116,7 @@ gulp.task('uglify', ['clean:scripts'], function() {
 		mangle: false
 	}))
 	.on('error', function (err) {log(err.toString());})
-	.pipe(concat('cptui.min.js'))
+	.pipe(rename({suffix: '.min'}))
 	.pipe(gulp.dest('js'))
 });
 

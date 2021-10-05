@@ -41,7 +41,7 @@ postboxes.add_postbox_toggles(pagenow);
 			'buttons'       : {
 				"OK": function() {
 					var form = $(e.target).closest('form');
-					$(e.target).unbind('click').click();
+					$(e.target).off('click').click();
 				},
 				"Cancel": function() {
 					$(this).dialog('close');
@@ -141,13 +141,26 @@ postboxes.add_postbox_toggles(pagenow);
 	}
 
 	function composePreviewContent(value) {
+
+		var re = /(http|https):\/\/[\w-]+(\.[\w-]+)+([\w.,@?^=%&:\/~+#-]*[\w@?^=%&\/~+#-])?/;
+		var is_url = re.test(value);
+
 		if (!value) {
 			return '';
 		} else if (0 === value.indexOf('dashicons-')) {
-			return $('<div class="dashicons-before"><br></div>').addClass(value);
-		} else {
-			return $('<img />').attr('src', value);
+			return $('<div class="dashicons-before"><br></div>').addClass(htmlEncode(value));
+		} else if ( is_url ) {
+			var imgsrc = encodeURI(value);
+			var theimg = document.createElement('IMG');
+			theimg.src = imgsrc;
+			return theimg;
 		}
+	}
+
+	function htmlEncode(str) {
+		return String(str).replace(/[^-\w. ]/gi, function (c) {
+			return '&#' + c.charCodeAt(0) + ';';
+		});
 	}
 
 	var cyrillic = {
@@ -194,7 +207,8 @@ postboxes.add_postbox_toggles(pagenow);
 	});
 
 	$('#menu_icon').on('change', function () {
-		var value = $(this).val().trim();
+		var value = $(this).val();
+		value = value.trim();
 		$('#menu_icon_preview').html(composePreviewContent(value));
 	});
 
@@ -251,6 +265,16 @@ postboxes.add_postbox_toggles(pagenow);
 				}
 			}
 		} );
+	});
+
+	$('#auto-clear').on( 'click tap', function(e) {
+		e.preventDefault();
+
+		var fields = $('.cptui-labels input[type="text"]');
+
+		$(fields).each( function( i, el ) {
+			$(el).val('');
+		});
 	});
 
 })(jQuery);

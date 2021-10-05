@@ -3,8 +3,8 @@ Contributors: webdevstudios, pluginize, tw2113, vegasgeek, modemlooper, williams
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3084056
 Tags: custom post types, CPT, CMS, post, types, post type, taxonomy, tax, custom, content types, post types
 Requires at least: 5.5
-Tested up to: 5.7.2
-Stable tag: 1.9.2
+Tested up to: 5.8.1
+Stable tag: 1.10.0
 License: GPL-2.0+
 Requires PHP: 5.6
 
@@ -31,6 +31,14 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 
 == Changelog ==
 
+= 1.10.0 - TBD =
+* Added: Dashicon picker with popup. - Props arshidkv12
+* Added: Tag Cloud widget support for custom taxonomies.
+* Added: Filters that allow developers to override the data fetched from our options, if they choose to.
+* Added: Ability to clear all filled in label values.
+* Fixed: Hardened up various parts of our code to ensure security.
+* Fixed: Incorrectly referenced variable from post types instead of taxonomies, for the rest_controller_class property.
+
 = 1.9.2 - 2021-06-16 =
 * Added: "date" as a reserved taxonomy slug.
 * Fixed: duplicate "show_in_graphql" attribute output in "Get Code" output.
@@ -47,23 +55,17 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 * Updated: Cleaned up unused CSS.
 * Updated: Added `types` to disallowed taxonomy slugs.
 * Updated: Amended some helper text on the listings page regarding templates. Props @tarecord
-
-= 1.8.2 - 2020-12-29 =
-* Fixed: Addressed some missing available labels for taxonomies.
-* Updated: Provide page slug and link to page if a post type slug is matching an existing page.
-* Updated: Support link was pointed to legacy WordPress Codex but had been moved to Developer Portal. Props @robwent
-
-= 1.8.1 - 2020-09-21 =
-* Fixed: Issues with WP-CLI importing.
-* Added: Menu icon preview that should have been in 1.8.0, but was missed. Props @glebkema
-
-= 1.8.0 - 2020-08-14 =
-* Added: support for default terms with a custom taxonomy.
-* Updated: Removed the forcing of underscores for post type slugs. Taxonomies are still forced.
-* Fixed: jQuery compatibility issue with WordPress 5.5.0
 
 == Upgrade Notice ==
 
+= 1.10.0 - TBD =
+* Added: Dashicon picker with popup. - Props arshidkv12
+* Added: Tag Cloud widget support for custom taxonomies.
+* Added: Filters that allow developers to override the data fetched from our options, if they choose to.
+* Added: Ability to clear all filled in label values.
+* Fixed: Hardened up various parts of our code to ensure security.
+* Fixed: Incorrectly referenced variable from post types instead of taxonomies, for the rest_controller_class property.
+
 = 1.9.2 - 2021-06-16 =
 * Added: "date" as a reserved taxonomy slug.
 * Fixed: duplicate "show_in_graphql" attribute output in "Get Code" output.
@@ -80,20 +82,6 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 * Updated: Cleaned up unused CSS.
 * Updated: Added `types` to disallowed taxonomy slugs.
 * Updated: Amended some helper text on the listings page regarding templates. Props @tarecord
-
-= 1.8.2 - 2020-12-29 =
-* Fixed: Addressed some missing available labels for taxonomies.
-* Updated: Provide page slug and link to page if a post type slug is matching an existing page.
-* Updated: Support link was pointed to legacy WordPress Codex but had been moved to Developer Portal. Props @robwent
-
-= 1.8.1 - 2020-09-21 =
-* Fixed: Issues with WP-CLI importing.
-* Added: Menu icon preview that should have been in 1.8.0, but was missed. Props @glebkema
-
-= 1.8.0 - 2020-08-14 =
-* Added: support for default terms with a custom taxonomy.
-* Updated: Removed the forcing of underscores for post type slugs. Taxonomies are still forced.
-* Fixed: jQuery compatibility issue with WordPress 5.5.0
 
 == Installation ==
 

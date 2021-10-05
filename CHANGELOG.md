@@ -9,6 +9,27 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - Not documented.
 
+## [1.8.2] - 2020-12-29
+### Fixed
+- Addressed some missing available labels for taxonomies.
+### Updated
+- Provide page slug and link to page if a post type slug is matching an existing page.
+- Support link was pointed to legacy WordPress Codex but had been moved to Developer Portal. Props @robwent
+
+## [1.8.1] - 2020-09-21
+### Fixed
+- Issues with WP-CLI importing.
+### Added
+- Menu icon preview that should have been in 1.8.0, but was missed. Props @glebkema
+
+## [1.8.0] - 2020-08-14
+### Added
+- support for default terms with a custom taxonomy.
+### Updated
+- Removed the forcing of underscores for post type slugs. Taxonomies are still forced.
+### Fixed
+- jQuery compatibility issue with WordPress 5.5.0
+
 ## [1.7.5] - 2020-08-11
 ### Updated
 - Addressed UI issues with WordPress 5.5.0
