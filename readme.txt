@@ -31,7 +31,7 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 
 == Changelog ==
 
-= 1.10.0 - TBD =
+= 1.10.0 - 2021-10-04 =
 * Added: Dashicon picker with popup. - Props arshidkv12
 * Added: Tag Cloud widget support for custom taxonomies.
 * Added: Filters that allow developers to override the data fetched from our options, if they choose to.
@@ -58,7 +58,7 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 
 == Upgrade Notice ==
 
-= 1.10.0 - TBD =
+= 1.10.0 - 2021-10-04 =
 * Added: Dashicon picker with popup. - Props arshidkv12
 * Added: Tag Cloud widget support for custom taxonomies.
 * Added: Filters that allow developers to override the data fetched from our options, if they choose to.
