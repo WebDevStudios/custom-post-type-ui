@@ -346,6 +346,7 @@ foreach ( $taxonomy['labels'] as $key => $label ) {
 		"rest_base" => "<?php echo $rest_base; ?>",
 		"rest_controller_class" => "<?php echo $rest_controller_class; ?>",
 		"show_in_quick_edit" => <?php echo $show_in_quick_edit; ?>,
+		"sort" => <?php echo disp_boolean( $taxonomy['sort'] ); ?>,
 <?php if ( $show_graphql ) : ?>
 		"show_in_graphql" => <?php echo disp_boolean( $taxonomy['show_in_graphql'] ); ?>,
 		"graphql_single_name" => "<?php echo esc_html( $taxonomy['graphql_single_name'] ); ?>",
@@ -576,6 +577,7 @@ function cptui_get_single_post_type_registery( $post_type = [] ) {
 		"capability_type" => <?php echo $capability_type; ?>,
 		"map_meta_cap" => <?php echo disp_boolean( $post_type['map_meta_cap'] ); ?>,
 		"hierarchical" => <?php echo disp_boolean( $post_type['hierarchical'] ); ?>,
+		"can_export" => <?php echo disp_boolean( $post_type['can_export'] ); ?>,
 		"rewrite" => <?php echo $rewrite; ?>,
 		"query_var" => <?php echo $post_type['query_var']; ?>,
 <?php if ( ! empty( $post_type['menu_position'] ) ) { ?>

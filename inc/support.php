@@ -213,14 +213,21 @@ function cptui_support() {
 								); ?>
 							</div>
 						</li>
+						<li>
+							<span tabindex="0" class="question" aria-controls="q19" aria-expanded="false"><?php esc_html_e( 'Why are my post types not showing in taxonomy term archives?', 'custom-post-type-ui' ); ?></span>
+							<div class="answer" id="q19">
+								<?php esc_html_e( 'If you have set "exclude from search" to True for the pot type, this would be why. If you need the post types in the archives, but still want to exclude them from search, it is recommended to use the "pre_get_posts" hook to unset the post type from considered types.', 'custom-post-type-ui' );
+								?>
+							</div>
+						</li>
 					</ol>
 				</td>
 				<td class="outer">
 					<h2><?php esc_html_e( 'Advanced', 'custom-post-type-ui' ); ?></h2>
 					<ol id="questions_advanced">
 						<li>
-							<span tabindex="0" class="question" aria-controls="q19" aria-expanded="false"><?php esc_html_e( 'How do I add custom metaboxes to my post type?', 'custom-post-type-ui' ); ?></span>
-							<div class="answer" id="q19">
+							<span tabindex="0" class="question" aria-controls="q20" aria-expanded="false"><?php esc_html_e( 'How do I add custom metaboxes to my post type?', 'custom-post-type-ui' ); ?></span>
+							<div class="answer" id="q20">
 								<?php
 								printf(
 									esc_html__( 'We recommend checking out %s, the latest iteration of "CMB2". Both are supported by WebDevStudios.', 'custom-post-type-ui' ),
@@ -229,8 +236,8 @@ function cptui_support() {
 							</div>
 						</li>
 						<li>
-							<span tabindex="0" class="question" aria-controls="q20" aria-expanded="false"><?php esc_html_e( 'How do I add a newly registered taxonomy to a post type that already exists?', 'custom-post-type-ui' ); ?></span>
-							<div class="answer" id="q20">
+							<span tabindex="0" class="question" aria-controls="q21" aria-expanded="false"><?php esc_html_e( 'How do I add a newly registered taxonomy to a post type that already exists?', 'custom-post-type-ui' ); ?></span>
+							<div class="answer" id="q21">
 								<?php
 								printf(
 									esc_html__( 'Check out the %s function for documentation and usage examples.', 'custom-post-type-ui' ),
@@ -239,8 +246,8 @@ function cptui_support() {
 							</div>
 						</li>
 						<li>
-							<span tabindex="0" class="question" aria-controls="q21" aria-expanded="false"><?php esc_html_e( 'Post relationships?', 'custom-post-type-ui' ); ?></span>
-							<div class="answer" id="q21">
+							<span tabindex="0" class="question" aria-controls="q22" aria-expanded="false"><?php esc_html_e( 'Post relationships?', 'custom-post-type-ui' ); ?></span>
+							<div class="answer" id="q22">
 								<?php
 								printf(
 									esc_html__( '%s has an excellent %spost%s introducing users to the %sPosts 2 Posts%s plugin that should be a good start.', 'custom-post-type-ui' ),
@@ -252,13 +259,13 @@ function cptui_support() {
 								); ?></div>
 						</li>
 						<li>
-							<span tabindex="0" class="question" aria-controls="q22" aria-expanded="false"><?php esc_html_e( 'Is there any function reference list?', 'custom-post-type-ui' ); ?></span>
-							<div class="answer" id="q22"><?php printf( esc_html__( '%s has compiled a nice list of functions used by our plugin. Note not all will be useful as they are attached to hooks.', 'custom-post-type-ui' ),
+							<span tabindex="0" class="question" aria-controls="q23" aria-expanded="false"><?php esc_html_e( 'Is there any function reference list?', 'custom-post-type-ui' ); ?></span>
+							<div class="answer" id="q23"><?php printf( esc_html__( '%s has compiled a nice list of functions used by our plugin. Note not all will be useful as they are attached to hooks.', 'custom-post-type-ui' ),
 							'<a href="http://hookr.io/plugins/custom-post-type-ui/" target="_blank" rel="noopener">Hookr.io</a>' ); ?></div>
 						</li>
 						<li>
-							<span tabindex="0" class="question" aria-controls="q23" aria-expanded="false"><?php esc_html_e( 'How do I filter the "enter title here" text in the post editor screen?', 'custom-post-type-ui' ); ?></span>
-							<div class="answer" id="q23"><p><?php esc_html_e( 'Change text inside the post/page editor title field. Should be able to adapt as necessary.', 'custom-post-type-ui' ); ?></p>
+							<span tabindex="0" class="question" aria-controls="q24" aria-expanded="false"><?php esc_html_e( 'How do I filter the "enter title here" text in the post editor screen?', 'custom-post-type-ui' ); ?></span>
+							<div class="answer" id="q24"><p><?php esc_html_e( 'Change text inside the post/page editor title field. Should be able to adapt as necessary.', 'custom-post-type-ui' ); ?></p>
 <pre><code>function my_custom_title_text( $title ){
 	global $post;
 	if ( 'ENTER POST TYPE SLUG HERE' == $post->post_type )
@@ -269,8 +276,8 @@ add_filter( 'enter_title_here', 'my_custom_title_text' );
 </code></pre></div>
 						</li>
 						<li>
-							<span tabindex="0" class="question" aria-controls="q24" aria-expanded="false"><?php esc_html_e( 'Any help with customizing capabilities?', 'custom-post-type-ui' ); ?></span>
-							<div class="answer" id="q24">
+							<span tabindex="0" class="question" aria-controls="q25" aria-expanded="false"><?php esc_html_e( 'Any help with customizing capabilities?', 'custom-post-type-ui' ); ?></span>
+							<div class="answer" id="q25">
 								<p><?php printf( esc_html__( 'We recommend %s for some extended customization and addition of extra fields regarding roles and capabilities.', 'custom-post-type-ui' ),
 									'<a href="https://github.com/tw2113/custom-post-type-ui-capabilities" target="_blank" rel="noopener">Custom Post Type UI Capabilities on GitHub</a>' ); ?></p>
 							</div>

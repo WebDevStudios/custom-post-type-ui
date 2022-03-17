@@ -2,9 +2,9 @@
 Contributors: webdevstudios, pluginize, tw2113, vegasgeek, modemlooper, williamsba1
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3084056
 Tags: custom post types, CPT, CMS, post, types, post type, taxonomy, tax, custom, content types, post types
-Requires at least: 5.5
+Requires at least: 5.9
 Tested up to: 5.9.0
-Stable tag: 1.10.2
+Stable tag: 1.11.0
 License: GPL-2.0+
 Requires PHP: 5.6
 
@@ -30,6 +30,16 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 6. Help/support screen.
 
 == Changelog ==
+
+= 1.11.0 - 2022-03-17 =
+* Added: "sort" argument for taxonomies.
+* Added: "can export" argument for post types
+* Added: New taxonomy labels from WordPress 5.9
+* Added: Custom option to set "Enter title here" value for post types.
+* Added: Notes around "exclude from search" argument for post types and taxonomy term archives.
+* Added: Notes around taxonomy "hierarchical" option regarding category vs tag behavior.
+* Updated: Reserved post type slugs from recent WordPress releases.
+* Fixed: PHP warnings around foreach loops in cptui_published_post_format_fix()
 
 = 1.10.2 - 2022-01-28 =
 * Updated: Confirmed compatibility with WordPress 5.9
@@ -63,6 +73,16 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 * Updated: Amended some helper text on the listings page regarding templates. Props @tarecord
 
 == Upgrade Notice ==
+
+= 1.11.0 - 2022-03-17 =
+* Added: "sort" argument for taxonomies.
+* Added: "can export" argument for post types
+* Added: New taxonomy labels from WordPress 5.9
+* Added: Custom option to set "Enter title here" value for post types.
+* Added: Notes around "exclude from search" argument for post types and taxonomy term archives.
+* Added: Notes around taxonomy "hierarchical" option regarding category vs tag behavior.
+* Updated: Reserved post type slugs from recent WordPress releases.
+* Fixed: PHP warnings around foreach loops in cptui_published_post_format_fix()
 
 = 1.10.2 - 2022-01-28 =
 * Updated: Confirmed compatibility with WordPress 5.9

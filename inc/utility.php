@@ -938,6 +938,10 @@ function cptui_published_post_format_fix( $post_types ) {
 	}
 
 	foreach ( $post_types as $type ) {
+		if ( ! is_array( $type['supports'] ) ) {
+			continue;
+		}
+
 		if ( in_array( 'post-formats', $type['supports'], true ) ) {
 			add_post_type_support( $type['name'], 'post-formats' );
 			register_taxonomy_for_object_type( 'post_format', $type['name'] );
