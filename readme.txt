@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: custom post types, CPT, CMS, post, types, post type, taxonomy, tax, custom, content types, post types
 Requires at least: 5.9
 Tested up to: 5.9.0
-Stable tag: 1.11.0
+Stable tag: 1.11.1
 License: GPL-2.0+
 Requires PHP: 5.6
 
@@ -30,6 +30,9 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 6. Help/support screen.
 
 == Changelog ==
+
+= 1.11.1 - 2022 03-18 =
+* Fixed: Errors and warnings around array_key_exists() and bool values
 
 = 1.11.0 - 2022-03-17 =
 * Added: "sort" argument for taxonomies.
@@ -73,6 +76,9 @@ Official development of Custom Post Type UI is on GitHub, with official stable r
 * Updated: Amended some helper text on the listings page regarding templates. Props @tarecord
 
 == Upgrade Notice ==
+
+= 1.11.1 - 2022 03-18 =
+* Fixed: Errors and warnings around array_key_exists() and bool values
 
 = 1.11.0 - 2022-03-17 =
 * Added: "sort" argument for taxonomies.
