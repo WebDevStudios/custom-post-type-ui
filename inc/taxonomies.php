@@ -1155,7 +1155,7 @@ function cptui_manage_taxonomies() {
 									],
 								],
 							];
-							$selected           = isset( $current ) ? disp_boolean( $current['sort'] ) : '';
+							$selected           = ( isset( $current ) && ! empty( $current['sort'] ) ) ? disp_boolean( $current['sort'] ) : '';
 							$select['selected'] = ! empty( $selected ) ? $current['sort'] : '';
 							echo $ui->get_select_input( [
 								'namearray'  => 'cpt_custom_tax',
