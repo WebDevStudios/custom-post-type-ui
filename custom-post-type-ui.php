@@ -494,7 +494,7 @@ function cptui_register_single_post_type( $post_type = [] ) {
 
 	$can_export = null;
 	if ( ! empty( $post_type['can_export'] ) ) {
-		$delete_with_user = get_disp_boolean( $post_type['can_export'] );
+		$can_export = get_disp_boolean( $post_type['can_export'] );
 	}
 
 	$args = [
