@@ -511,6 +511,11 @@ function cptui_get_single_post_type_registery( $post_type = [] ) {
 		$delete_with_user = disp_boolean( $post_type['delete_with_user'] );
 	}
 
+	$can_export = 'true';
+	if ( isset( $post_type['can_export'] ) ) {
+		$can_export = disp_boolean( $post_type['can_export'] );
+	}
+
 	$public            = isset( $post_type['public'] ) ? disp_boolean( $post_type['public'] ) : 'true';
 	$show_in_nav_menus = ( ! empty( $post_type['show_in_nav_menus'] ) && false !== get_disp_boolean( $post_type['show_in_nav_menus'] ) ) ? 'true' : 'false';
 	if ( empty( $post_type['show_in_nav_menus'] ) ) {
@@ -577,7 +582,7 @@ function cptui_get_single_post_type_registery( $post_type = [] ) {
 		"capability_type" => <?php echo $capability_type; ?>,
 		"map_meta_cap" => <?php echo disp_boolean( $post_type['map_meta_cap'] ); ?>,
 		"hierarchical" => <?php echo disp_boolean( $post_type['hierarchical'] ); ?>,
-		"can_export" => <?php echo disp_boolean( $post_type['can_export'] ); ?>,
+		"can_export" => <?php echo $can_export; ?>,
 		"rewrite" => <?php echo $rewrite; ?>,
 		"query_var" => <?php echo $post_type['query_var']; ?>,
 <?php if ( ! empty( $post_type['menu_position'] ) ) { ?>
