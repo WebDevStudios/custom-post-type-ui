@@ -279,6 +279,7 @@ function cptui_get_single_taxonomy_registery( $taxonomy = [] ) {
 	$show_in_rest          = ( ! empty( $taxonomy['show_in_rest'] ) && false !== get_disp_boolean( $taxonomy['show_in_rest'] ) ) ? 'true' : 'false';
 	$rest_base             = ! empty( $taxonomy['rest_base'] ) ? $taxonomy['rest_base'] : $taxonomy['name'];
 	$rest_controller_class = ! empty( $taxonomy['rest_controller_class'] ) ? $taxonomy['rest_controller_class'] : 'WP_REST_Terms_Controller';
+	$rest_namespace        = ! empty( $taxonomy['rest_namespace'] ) ? $taxonomy['rest_namespace'] : 'wp/v2';
 
 	if ( ! empty( $taxonomy['meta_box_cb'] ) ) {
 		$meta_box_cb = ( false !== get_disp_boolean( $taxonomy['meta_box_cb'] ) ) ? '"' . $taxonomy['meta_box_cb'] . '"' : 'false';
@@ -345,6 +346,7 @@ foreach ( $taxonomy['labels'] as $key => $label ) {
 		"show_tagcloud" => <?php echo $show_tagcloud; ?>,
 		"rest_base" => "<?php echo $rest_base; ?>",
 		"rest_controller_class" => "<?php echo $rest_controller_class; ?>",
+		"rest_namespace" => "<?php echo $rest_namespace; ?>",
 		"show_in_quick_edit" => <?php echo $show_in_quick_edit; ?>,
 		"sort" => <?php echo disp_boolean( $taxonomy['sort'] ); ?>,
 <?php if ( $show_graphql ) : ?>
@@ -495,6 +497,7 @@ function cptui_get_single_post_type_registery( $post_type = [] ) {
 		$post_type['show_in_rest'] = 'false';
 	}
 	$rest_controller_class = ! empty( $post_type['rest_controller_class'] ) ? $post_type['rest_controller_class'] : 'WP_REST_Posts_Controller';
+	$rest_namespace = ! empty( $post_type['rest_namespace'] ) ? $post_type['rest_namespace'] : 'wp/v2';
 
 	$show_in_menu = get_disp_boolean( $post_type['show_in_menu'] );
 	if ( false !== $show_in_menu ) {
@@ -574,6 +577,7 @@ function cptui_get_single_post_type_registery( $post_type = [] ) {
 		"show_in_rest" => <?php echo disp_boolean( $post_type['show_in_rest'] ); ?>,
 		"rest_base" => "<?php echo $post_type['rest_base']; ?>",
 		"rest_controller_class" => "<?php echo $rest_controller_class; ?>",
+		"rest_namespace" => "<?php echo $rest_namespace; ?>",
 		"has_archive" => <?php echo $has_archive; ?>,
 		"show_in_menu" => <?php echo $show_in_menu; ?>,
 		"show_in_nav_menus" => <?php echo $show_in_nav_menus; ?>,
@@ -590,6 +594,9 @@ function cptui_get_single_post_type_registery( $post_type = [] ) {
 <?php } ?>
 <?php if ( ! empty( $post_type['menu_icon'] ) ) { ?>
 		"menu_icon" => "<?php echo $post_type['menu_icon']; ?>",
+<?php } ?>
+<?php if ( ! empty( $post_type['register_meta_box_cb'] ) ) { ?>
+		"register_meta_box_cb" => "<?php echo $post_type['register_meta_box_cb']; ?>",
 <?php } ?>
 <?php if ( ! empty( $supports ) ) { ?>
 		"supports" => <?php echo $supports; ?>,
