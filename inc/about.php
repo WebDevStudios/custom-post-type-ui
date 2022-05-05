@@ -85,8 +85,10 @@ function cptui_settings() {
 		<div class="changelog about-integrations">
 			<div class="cptui-feature feature-section col three-col">
 				<div class="col">
-					<h2><?php esc_html_e( 'Dashicon Picker UI', 'custom-post-type-ui' ); ?></h2>
-					<p><?php esc_html_e( 'You no longer have to know the Dashicon class values ahead of time or look them up in the WordPress Developer Documentation. We now provide a visual picker that shows them all for you. All you have to do is choose one.', 'custom-post-type-ui' ); ?></p>
+					<h2><?php esc_html_e( 'Auto-selection of "page attributes" for post types', 'custom-post-type-ui' ); ?></h2>
+					<p><?php esc_html_e( 'When setting a post type to be hierarchical, you also want to make sure you have `page_attributes` selected in the "Supports" section to set hierarchy. We do not force this, if you want to still turn it off, but this helps prevent potentially missing this setting.', 'custom-post-type-ui' ); ?></p>
+					<h2><?php esc_html_e( 'More post type and taxonomy settings', 'custom-post-type-ui' ); ?></h2>
+					<p><?php esc_html_e( 'We have updated the available settings to include the `rest_namespace` field as well as `register_meta_box_cb` for post types.', 'custom-post-type-ui' ); ?></p>
 				</div>
 			</div>
 		</div>
