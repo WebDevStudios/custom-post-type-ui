@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: custom post types, CPT, CMS, post, types, post type, taxonomy, tax, custom, content types, post types
 Requires at least: 5.9
 Tested up to: 6.0
-Stable tag: 1.11.2
+Stable tag: 1.12.0
 License: GPL-2.0+
 Requires PHP: 5.6
 
@@ -31,9 +31,8 @@ Custom Post Type UI development is managed on GitHub, with official releases pub
 1. Add new post type screen and tab.
 2. Add new taxonomy screen and tab.
 3. Registered post types and taxonomies from CPTUI
-4. Import/Export Post Types screen.
-5. Get Code screen.
-6. Help/support screen.
+4. Tools screen.
+5. Help/support screen.
 
 == Changelog ==
 
