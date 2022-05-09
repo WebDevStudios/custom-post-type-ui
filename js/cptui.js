@@ -16,6 +16,17 @@ postboxes.add_postbox_toggles(pagenow);
 		var original_slug = $('#name').val();
 	}
 
+	// Automatically toggle the "page attributes" checkbox if
+	// setting a hierarchical post type.
+	$('#hierarchical').on('change', function() {
+		var hierarchical = $(this).val();
+		if ('1' === hierarchical) {
+			$('#page-attributes').prop('checked', true);
+		} else {
+			$('#page-attributes').prop('checked', false);
+		}
+	});
+
 	// Switch to newly selected post type or taxonomy automatically.
 	$('#post_type').on('change',function(){
 		$('#cptui_select_post_type').submit();

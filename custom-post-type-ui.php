@@ -16,7 +16,7 @@
  * Plugin URI: https://github.com/WebDevStudios/custom-post-type-ui/
  * Description: Admin panel for creating custom post types and custom taxonomies in WordPress
  * Author: WebDevStudios
- * Version: 1.11.2
+ * Version: 1.12.0
  * Author URI: https://webdevstudios.com/
  * Text Domain: custom-post-type-ui
  * Domain Path: /languages
@@ -30,8 +30,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'CPT_VERSION', '1.11.2' ); // Left for legacy purposes.
-define( 'CPTUI_VERSION', '1.11.2' );
+define( 'CPT_VERSION', '1.12.0' ); // Left for legacy purposes.
+define( 'CPTUI_VERSION', '1.12.0' );
 define( 'CPTUI_WP_VERSION', get_bloginfo( 'version' ) );
 
 /**
@@ -434,6 +434,7 @@ function cptui_register_single_post_type( $post_type = [] ) {
 	}
 
 	$menu_icon = ! empty( $post_type['menu_icon'] ) ? $post_type['menu_icon'] : null;
+	$register_meta_box_cb = ! empty( $post_type['register_meta_box_cb'] ) ? $post_type['register_meta_box_cb'] : null;
 
 	if ( in_array( $post_type['query_var'], [ 'true', 'false', '0', '1' ], true ) ) {
 		$post_type['query_var'] = get_disp_boolean( $post_type['query_var'] );
@@ -492,6 +493,11 @@ function cptui_register_single_post_type( $post_type = [] ) {
 		$rest_controller_class = $post_type['rest_controller_class'];
 	}
 
+	$rest_namespace = null;
+	if ( ! empty( $post_type['rest_namespace'] ) ) {
+		$rest_namespace = $post_type['rest_namespace'];
+	}
+
 	$can_export = null;
 	if ( ! empty( $post_type['can_export'] ) ) {
 		$can_export = get_disp_boolean( $post_type['can_export'] );
@@ -510,6 +516,7 @@ function cptui_register_single_post_type( $post_type = [] ) {
 		'show_in_rest'          => get_disp_boolean( $post_type['show_in_rest'] ),
 		'rest_base'             => $rest_base,
 		'rest_controller_class' => $rest_controller_class,
+		'rest_namespace'        => $rest_namespace,
 		'exclude_from_search'   => $exclude_from_search,
 		'capability_type'       => $capability_type,
 		'map_meta_cap'          => $post_type['map_meta_cap'],
@@ -518,6 +525,7 @@ function cptui_register_single_post_type( $post_type = [] ) {
 		'rewrite'               => $rewrite,
 		'menu_position'         => $menu_position,
 		'menu_icon'             => $menu_icon,
+		'register_meta_box_cb'  => $register_meta_box_cb,
 		'query_var'             => $post_type['query_var'],
 		'supports'              => $post_type['supports'],
 		'taxonomies'            => $post_type['taxonomies'],
@@ -717,6 +725,11 @@ function cptui_register_single_taxonomy( $taxonomy = [] ) {
 		$rest_controller_class = $taxonomy['rest_controller_class'];
 	}
 
+	$rest_namespace = null;
+	if ( ! empty( $taxonomy['rest_namespace'] ) ) {
+		$rest_namespace = $taxonomy['rest_namespace'];
+	}
+
 	$meta_box_cb = null;
 	if ( ! empty( $taxonomy['meta_box_cb'] ) ) {
 		$meta_box_cb = ( false !== get_disp_boolean( $taxonomy['meta_box_cb'] ) ) ? $taxonomy['meta_box_cb'] : false;
@@ -752,6 +765,7 @@ function cptui_register_single_taxonomy( $taxonomy = [] ) {
 		'show_in_rest'          => $show_in_rest,
 		'rest_base'             => $rest_base,
 		'rest_controller_class' => $rest_controller_class,
+		'rest_namespace'        => $rest_namespace,
 		'show_in_quick_edit'    => $show_in_quick_edit,
 		'sort'                  => $sort,
 		'meta_box_cb'           => $meta_box_cb,

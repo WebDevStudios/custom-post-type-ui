@@ -7,7 +7,30 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
-- Not documented.
+## [1.9.2] - 2021-06-16 =
+### Added
+- Added: "date" as a reserved taxonomy slug.
+### Fixed
+- Fixed: duplicate "show_in_graphql" attribute output in "Get Code" output.
+### Updated
+- Updated: image optimization for smaller file sizes.
+- Updated: removed duplicate taxonomy labels.
+
+## [1.9.1] - 2021-04-19 =
+### Fixed
+- Fixed: missed WPGraphQL settings in our Get Tools/Export functionality.
+### Updated
+- Updated: note about needing a published item to set parent/child relationships in post types.
+
+## [1.9.0] - 2021-03-30 =
+### Added
+- Added: WPGraphQL Support when WPGraphQL is installed and active.
+### Fixed
+- Fixed: Better handling of code in post_format based helper functions.
+### Updated
+- Updated: Cleaned up unused CSS.
+- Updated: Added `types` to disallowed taxonomy slugs.
+- Updated: Amended some helper text on the listings page regarding templates. Props @tarecord
 
 ## [1.8.2] - 2020-12-29
 ### Fixed

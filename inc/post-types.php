@@ -937,6 +937,14 @@ function cptui_manage_post_types() {
 								'textvalue' => isset( $current['rest_controller_class'] ) ? esc_attr( $current['rest_controller_class'] ) : '',
 							] );
 
+							echo $ui->get_text_input( [
+								'namearray' => 'cpt_custom_post_type',
+								'name'      => 'rest_namespace',
+								'labeltext' => esc_html__( 'REST API namespace', 'custom-post-type-ui' ),
+								'aftertext' => esc_attr__( '(default: wp/v2) To change the namespace URL of REST API route.', 'custom-post-type-ui' ),
+								'textvalue' => isset( $current['rest_namespace'] ) ? esc_attr( $current['rest_namespace'] ) : '',
+							] );
+
 							echo $ui->get_tr_start() . $ui->get_th_start();
 							echo $ui->get_label( 'has_archive', esc_html__( 'Has Archive', 'custom-post-type-ui' ) );
 							echo $ui->get_p( esc_html__( 'If left blank, the archive slug will default to the post type slug.', 'custom-post-type-ui' ) );
@@ -1186,6 +1194,14 @@ function cptui_manage_post_types() {
 							echo '</div>';
 
 							echo $ui->get_td_end() . $ui->get_tr_end();
+
+							echo $ui->get_text_input( [
+								'namearray' => 'cpt_custom_post_type',
+								'name'      => 'register_meta_box_cb',
+								'textvalue' => isset( $current['register_meta_box_cb'] ) ? esc_attr( $current['register_meta_box_cb'] ) : '',
+								'labeltext' => esc_html__( 'Metabox callback', 'custom-post-type-ui' ),
+								'helptext'  => esc_html__( 'Provide a callback function that sets up the meta boxes for the edit form. Do `remove_meta_box()` and `add_meta_box()` calls in the callback. Default null.', 'custom-post-type-ui' ),
+							] );
 
 							echo $ui->get_tr_start() . $ui->get_th_start() . esc_html__( 'Supports', 'custom-post-type-ui' );
 
@@ -1727,6 +1743,11 @@ function cptui_update_post_type( $data = [] ) {
 		$data['cpt_custom_post_type']['menu_icon'] = null;
 	}
 
+	$register_meta_box_cb = trim( $data['cpt_custom_post_type']['register_meta_box_cb'] );
+	if ( empty( $register_meta_box_cb ) ) {
+		$register_meta_box_cb = null;
+	}
+
 	$label = ucwords( str_replace( '_', ' ', $data['cpt_custom_post_type']['name'] ) );
 	if ( ! empty( $data['cpt_custom_post_type']['label'] ) ) {
 		$label = str_replace( '"', '', htmlspecialchars_decode( $data['cpt_custom_post_type']['label'] ) );
@@ -1743,6 +1764,7 @@ function cptui_update_post_type( $data = [] ) {
 	$description           = stripslashes_deep( $data['cpt_custom_post_type']['description'] );
 	$rest_base             = trim( $data['cpt_custom_post_type']['rest_base'] );
 	$rest_controller_class = trim( $data['cpt_custom_post_type']['rest_controller_class'] );
+	$rest_namespace        = trim( $data['cpt_custom_post_type']['rest_namespace'] );
 	$has_archive_string    = trim( $data['cpt_custom_post_type']['has_archive_string'] );
 	$capability_type       = trim( $data['cpt_custom_post_type']['capability_type'] );
 	$rewrite_slug          = trim( $data['cpt_custom_post_type']['rewrite_slug'] );
@@ -1766,6 +1788,7 @@ function cptui_update_post_type( $data = [] ) {
 		'show_in_rest'          => disp_boolean( $data['cpt_custom_post_type']['show_in_rest'] ),
 		'rest_base'             => $rest_base,
 		'rest_controller_class' => $rest_controller_class,
+		'rest_namespace'        => $rest_namespace,
 		'has_archive'           => disp_boolean( $data['cpt_custom_post_type']['has_archive'] ),
 		'has_archive_string'    => $has_archive_string,
 		'exclude_from_search'   => disp_boolean( $data['cpt_custom_post_type']['exclude_from_search'] ),
@@ -1781,6 +1804,7 @@ function cptui_update_post_type( $data = [] ) {
 		'show_in_menu'          => disp_boolean( $data['cpt_custom_post_type']['show_in_menu'] ),
 		'show_in_menu_string'   => $show_in_menu_string,
 		'menu_icon'             => $menu_icon,
+		'register_meta_box_cb'  => $register_meta_box_cb,
 		'supports'              => $data['cpt_supports'],
 		'taxonomies'            => $data['cpt_addon_taxes'],
 		'labels'                => $data['cpt_labels'],

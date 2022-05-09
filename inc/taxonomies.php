@@ -1096,6 +1096,14 @@ function cptui_manage_taxonomies() {
 								'textvalue' => isset( $current['rest_controller_class'] ) ? esc_attr( $current['rest_controller_class'] ) : '',
 							] );
 
+							echo $ui->get_text_input( [
+								'namearray' => 'cpt_custom_tax',
+								'name'      => 'rest_namespace',
+								'labeltext' => esc_html__( 'REST API namespace', 'custom-post-type-ui' ),
+								'aftertext' => esc_attr__( '(default: wp/v2) To change the namespace URL of REST API route.', 'custom-post-type-ui' ),
+								'textvalue' => isset( $current['rest_namespace'] ) ? esc_attr( $current['rest_namespace'] ) : '',
+							] );
+
 							$select             = [
 								'options' => [
 									[
@@ -1523,6 +1531,7 @@ function cptui_update_taxonomy( $data = [] ) {
 	$rewrite_slug          = trim( $data['cpt_custom_tax']['rewrite_slug'] );
 	$rest_base             = trim( $data['cpt_custom_tax']['rest_base'] );
 	$rest_controller_class = trim( $data['cpt_custom_tax']['rest_controller_class'] );
+	$rest_namespace        = trim( $data['cpt_custom_tax']['rest_namespace'] );
 	$show_quickpanel_bulk  = ! empty( $data['cpt_custom_tax']['show_in_quick_edit'] ) ? disp_boolean( $data['cpt_custom_tax']['show_in_quick_edit'] ) : '';
 	$default_term          = trim( $data['cpt_custom_tax']['default_term'] );
 
@@ -1557,6 +1566,7 @@ function cptui_update_taxonomy( $data = [] ) {
 		'show_in_quick_edit'    => $show_quickpanel_bulk,
 		'rest_base'             => $rest_base,
 		'rest_controller_class' => $rest_controller_class,
+		'rest_namespace'        => $rest_namespace,
 		'labels'                => $data['cpt_tax_labels'],
 		'meta_box_cb'           => $meta_box_cb,
 		'default_term'          => $default_term,
@@ -1630,12 +1640,14 @@ function cptui_reserved_taxonomies() {
 		'category_name',
 		'comments_per_page',
 		'comments_popup',
+		'cpage',
+		'custom',
 		'customize_messenger_channel',
 		'customized',
-		'cpage',
-		'day',
 		'date',
+		'day',
 		'debug',
+		'embed',
 		'error',
 		'exact',
 		'feed',
@@ -1654,6 +1666,7 @@ function cptui_reserved_taxonomies() {
 		'offset',
 		'order',
 		'orderby',
+		'output',
 		'p',
 		'page',
 		'page_id',
@@ -1680,6 +1693,7 @@ function cptui_reserved_taxonomies() {
 		'sentence',
 		'showposts',
 		'static',
+		'status',
 		'subpost',
 		'subpost_id',
 		'tag',
@@ -1692,14 +1706,15 @@ function cptui_reserved_taxonomies() {
 		'taxonomy',
 		'tb',
 		'term',
+		'terms',
 		'theme',
+		'title',
 		'type',
 		'types',
 		'w',
 		'withcomments',
 		'withoutcomments',
 		'year',
-		'output',
 	];
 
 	/**
