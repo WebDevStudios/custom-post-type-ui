@@ -26,7 +26,7 @@ class cptui_admin_ui {
 	 * @return string $value Opening `<tr>` tag with attributes.
 	 */
 	public function get_tr_start() {
-		return '<tr valign="top">';
+		return '<tr>';
 	}
 
 	/**
