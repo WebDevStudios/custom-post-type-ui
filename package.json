@@ -17,8 +17,8 @@
     "lint:php": "./vendor/bin/phpcs --standard=./.phpcs.xml.dist --extensions=php ./ --ignore='./build/*,./node_modules/*,./vendor/*'",
     "packages-update": "wp-scripts packages-update",
     "styles": "run-s styles:compile styles:compress",
-    "styles:compile": "node-sass assets/sass/style.scss -o assets/css/ --source-map true",
-    "styles:compress": "node-sass assets/css/style.css assets/css/style.min.css --output-style compressed",
+    "styles:compile": "node-sass css/cptui.scss -o css/ --source-map true",
+    "styles:compress": "node-sass css/style.css css/style.min.css --output-style compressed",
     "uglify": "uglifyjs js/cptui.js -m -c --source-map -o js/cptui.min.js && uglifyjs js/dashicons-picker.js -m -c --source-map -o js/dashicons-picker.min.js",
     "create:release": "mkdirp release-build/custom-post-type-ui && cp -R classes css external images inc js readme.txt LICENSE custom-post-type-ui.php release-build/custom-post-type-ui"
   },
