@@ -3,3 +3,4 @@
 /node_modules
 /vendor
 /composer.lock
+/release-build/custom-post-type-ui
