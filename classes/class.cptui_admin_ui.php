@@ -586,4 +586,23 @@ class cptui_admin_ui {
 			(array) $additions
 		);
 	}
+
+	/**
+	 * Return combined attributes string.
+	 *
+	 * @param array $attributes Array of attributes to combine.
+	 *
+	 * @return string
+	 * @since NEXT
+	 */
+	public function get_custom_attributes( $attributes = [] ) {
+		$formatted = [];
+		if ( ! empty( $attributes ) ) {
+			foreach ( $attributes as $key => $attribute ) {
+				$formatted[] = "$key=\"$attribute\"";
+			}
+		}
+
+		return implode( ' ', $formatted );
+	}
 }
