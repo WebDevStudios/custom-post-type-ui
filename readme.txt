@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: custom post types, CPT, CMS, post, types, post type, taxonomy, tax, custom, content types, post types
 Requires at least: 5.9
 Tested up to: 6.0
-Stable tag: 1.12.0
+Stable tag: 1.12.1
 License: GPL-2.0+
 Requires PHP: 5.6
 
@@ -35,6 +35,9 @@ Custom Post Type UI development is managed on GitHub, with official releases pub
 5. Help/support screen.
 
 == Changelog ==
+
+= 1.12.1 - 2022-05-16 =
+* Fixed: JSON decoding issues around WP-CLI import.
 
 = 1.12.0 - 2022-05-09 =
 * Added: Tested on WordPress 6.0.
@@ -77,6 +80,9 @@ Custom Post Type UI development is managed on GitHub, with official releases pub
 * Fixed: Incorrectly referenced variable from post types instead of taxonomies, for the rest_controller_class property.
 
 == Upgrade Notice ==
+
+= 1.12.1 - 2022-05-16 =
+* Fixed: JSON decoding issues around WP-CLI import.
 
 = 1.12.0 - 2022-05-09 =
 * Added: Tested on WordPress 6.0.
