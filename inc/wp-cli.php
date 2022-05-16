@@ -57,11 +57,11 @@ class CPTUI_Import_JSON extends WP_CLI_Command {
 		}
 
 		if ( 'post_type' === $this->type ) {
-			$this->data['cptui_post_import'] = $json;
+			$this->data['cptui_post_import'] = json_decode( stripslashes_deep( trim( $json ) ), true );
 		}
 
 		if ( 'taxonomy' === $this->type ) {
-			$this->data['cptui_tax_import'] = $json;
+			$this->data['cptui_tax_import'] = json_decode( stripslashes_deep( trim( $json ) ), true );
 		}
 
 		$result = cptui_import_types_taxes_settings( $this->data );
