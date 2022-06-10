@@ -16,8 +16,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-global $errors;
-
 /**
  * Enqueue our Custom Post Type UI assets.
  *
@@ -215,7 +213,6 @@ foreach ( $cptui_taxonomies as $tax ) {
 	if ( ! is_wp_error( $single_tax_reg ) ){
 		echo $single_tax_reg;
 	}else{
-		var_dump('HOOOOOLAAAAAAAAAAAA');
 		if ( str_contains($single_tax_reg->get_error_message(), 'undefined index') ){
 			add_action( 'admin_notices', function() {
 				$class = 'notice notice-error';
