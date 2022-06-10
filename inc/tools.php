@@ -240,6 +240,21 @@ add_action( 'init', '<?php echo esc_html( $callback ); ?>' );
  */
 function cptui_get_single_taxonomy_registery( $taxonomy = [] ) {
 
+	// Check if all array keys that will be called exist
+	$must_have_keys = ['object_types', 'rewrite', 'rewrite_slug', 'name',
+	'rewrite_withfront', 'rewrite_hierarchical', 'public', 'publicly_queryable',
+	'show_in_quick_edit', 'show_tagcloud', 'show_in_menu', 'show_ui', 'rest_base',
+	'show_in_nav_menus', 'show_in_rest', 'rest_controller_class', 'label',
+	'labels', 'singular_label', 'meta_box_cb', 'default_term', 'singular_label',
+	'show_in_graphql', 'sort', 'query_var', 'show_ui', 'show_admin_column',
+	'hierarchical', 'graphql_single_name', 'graphql_plural_name'];
+	// If not exist give a default value
+	foreach( $must_have_keys as $key ) {
+		if ( array_key_exists($key, $must_have_keys) ){
+			$taxonomy[$key] = '';
+		}
+	}
+
 	$post_types = "''";
 	if ( is_array( $taxonomy['object_types'] ) ) {
 		$post_types = '[ "' . implode( '", "', $taxonomy['object_types'] ) . '" ]';
