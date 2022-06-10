@@ -16,6 +16,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+global $errors;
+
 /**
  * Enqueue our Custom Post Type UI assets.
  *
@@ -208,7 +210,21 @@ function cptui_get_taxonomy_code( $cptui_taxonomies = [], $single = false ) {
 function <?php echo esc_html( $callback ); ?>() {
 <?php
 foreach ( $cptui_taxonomies as $tax ) {
-	echo cptui_get_single_taxonomy_registery( $tax );
+	$single_tax_reg = cptui_get_single_taxonomy_registery( $tax );
+
+	if ( ! is_wp_error( $single_tax_reg ) ){
+		echo $single_tax_reg;
+	}else{
+		var_dump('HOOOOOLAAAAAAAAAAAA');
+		if ( str_contains($single_tax_reg->get_error_message(), 'undefined index') ){
+			add_action( 'admin_notices', function() {
+				$class = 'notice notice-error';
+				$message = __( 'You may need to re-save.', 're-save-notice' );
+
+				printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr( $class ), esc_html( $message ) );
+			});
+		}
+	}
 } ?>
 }
 add_action( 'init', '<?php echo esc_html( $callback ); ?>' );
@@ -261,6 +277,7 @@ function cptui_get_single_taxonomy_registery( $taxonomy = [] ) {
 	} else {
 		$rewrite = disp_boolean( $taxonomy['rewrite'] );
 	}
+
 	$public             = isset( $taxonomy['public'] ) ? disp_boolean( $taxonomy['public'] ) : 'true';
 	$publicly_queryable = isset( $taxonomy['publicly_queryable'] ) ? disp_boolean( $taxonomy['publicly_queryable'] ) : disp_boolean( $taxonomy['public'] );
 	$show_in_quick_edit = isset( $taxonomy['show_in_quick_edit'] ) ? disp_boolean( $taxonomy['show_in_quick_edit'] ) : disp_boolean( $taxonomy['show_ui'] );
@@ -311,23 +328,25 @@ function cptui_get_single_taxonomy_registery( $taxonomy = [] ) {
 ?>
 
 	/**
-	 * Taxonomy: <?php echo esc_html( $taxonomy['label'] ); ?>.
-	 */
+	* Taxonomy: <?php echo esc_html( $taxonomy['label'] ); ?>.
+	*/
 
 	$labels = [
 		"name" => __( "<?php echo esc_html( $taxonomy['label'] ); ?>", "<?php echo esc_html( $textdomain ); ?>" ),
 		"singular_name" => __( "<?php echo esc_html( $taxonomy['singular_label'] ); ?>", "<?php echo esc_html( $textdomain ); ?>" ),
 <?php
-foreach ( $taxonomy['labels'] as $key => $label ) {
-	if ( ! empty( $label ) ) {
-		echo "\t\t" . '"' . esc_html( $key ) . '" => __( "' . esc_html( $label ) . '", "' . esc_html( $textdomain ) . '" ),' . "\n";
-	}
-}
+		foreach ( $taxonomy['labels'] as $key => $label ) {
+			if ( ! empty( $label ) ) {
+				echo "\t\t" . '"' . esc_html( $key ) . '" => __( "' . esc_html( $label ) . '", "' . esc_html( $textdomain ) . '" ),' . "\n";
+			}
+		}
 ?>
 	];
 
 	<?php
-	$show_graphql = isset( $taxonomy['show_in_graphql'] ) ? (bool) $taxonomy['show_in_graphql'] : false;
+		$show_graphql = isset( $taxonomy['show_in_graphql'] ) ? (bool) $taxonomy['show_in_graphql'] : false;
+		$sort = array_key_exists('sort', $taxonomy) ? (bool) $taxonomy['sort'] : false;
+		$queryvar = array_key_exists('query_var', $taxonomy) ? (bool) $taxonomy['query_var'] : false;
 	?>
 
 	$args = [
@@ -339,7 +358,7 @@ foreach ( $taxonomy['labels'] as $key => $label ) {
 		"show_ui" => <?php echo disp_boolean( $taxonomy['show_ui'] ); ?>,
 		"show_in_menu" => <?php echo $show_in_menu; ?>,
 		"show_in_nav_menus" => <?php echo $show_in_nav_menus; ?>,
-		"query_var" => <?php echo disp_boolean( $taxonomy['query_var'] );?>,
+		"query_var" => <?php echo disp_boolean( $queryvar );?>,
 		"rewrite" => <?php echo $rewrite; ?>,
 		"show_admin_column" => <?php echo $taxonomy['show_admin_column']; ?>,
 		"show_in_rest" => <?php echo $show_in_rest; ?>,
@@ -348,7 +367,7 @@ foreach ( $taxonomy['labels'] as $key => $label ) {
 		"rest_controller_class" => "<?php echo $rest_controller_class; ?>",
 		"rest_namespace" => "<?php echo $rest_namespace; ?>",
 		"show_in_quick_edit" => <?php echo $show_in_quick_edit; ?>,
-		"sort" => <?php echo disp_boolean( $taxonomy['sort'] ); ?>,
+		"sort" => <?php echo disp_boolean( $sort ); ?>,
 <?php if ( $show_graphql ) : ?>
 		"show_in_graphql" => <?php echo disp_boolean( $taxonomy['show_in_graphql'] ); ?>,
 		"graphql_single_name" => "<?php echo esc_html( $taxonomy['graphql_single_name'] ); ?>",
