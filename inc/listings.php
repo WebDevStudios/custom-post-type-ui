@@ -75,14 +75,14 @@ function cptui_listings() {
 
 				<?php
 
-				$post_type_table_heads = [
+				$post_type_table_heads = array(
 					esc_html__( 'Post Type', 'custom-post-type-ui' ),
 					esc_html__( 'Settings', 'custom-post-type-ui' ),
 					esc_html__( 'Supports', 'custom-post-type-ui' ),
 					esc_html__( 'Taxonomies', 'custom-post-type-ui' ),
 					esc_html__( 'Labels', 'custom-post-type-ui' ),
 					esc_html__( 'Template Hierarchy', 'custom-post-type-ui' ),
-				];
+				);
 
 				/**
 				 * Fires before the listing of registered post type data.
@@ -108,9 +108,9 @@ function cptui_listings() {
 
 					$rowclass = ( 0 === $counter % 2 ) ? '' : 'alternate';
 
-					$strings    = [];
-					$supports   = [];
-					$taxonomies = [];
+					$strings    = array();
+					$supports   = array();
+					$taxonomies = array();
 					$archive    = '';
 					foreach ( $post_type_settings as $settings_key => $settings_value ) {
 						if ( 'labels' === $settings_key ) {
@@ -166,7 +166,7 @@ function cptui_listings() {
 								<?php
 								foreach ( $strings as $key => $value ) {
 									printf( '<strong>%s:</strong> ', esc_html( $key ) );
-									if ( in_array( $value, [ '1', '0' ], true ) ) {
+									if ( in_array( $value, array( '1', '0' ), true ) ) {
 										echo esc_html( disp_boolean( $value ) );
 									} else {
 										echo ! empty( $value ) ? esc_html( $value ) : '""';
@@ -296,13 +296,13 @@ function cptui_listings() {
 
 				<?php
 
-				$taxonomy_table_heads = [
+				$taxonomy_table_heads = array(
 					esc_html__( 'Taxonomy', 'custom-post-type-ui' ),
 					esc_html__( 'Settings', 'custom-post-type-ui' ),
 					esc_html__( 'Post Types', 'custom-post-type-ui' ),
 					esc_html__( 'Labels', 'custom-post-type-ui' ),
 					esc_html__( 'Template Hierarchy', 'custom-post-type-ui' ),
-				];
+				);
 
 				/**
 				 * Fires before the listing of registered taxonomy data.
@@ -328,8 +328,8 @@ function cptui_listings() {
 
 						$rowclass = ( 0 === $counter % 2 ) ? '' : 'alternate';
 
-						$strings      = [];
-						$object_types = [];
+						$strings      = array();
+						$object_types = array();
 						foreach ( $taxonomy_settings as $settings_key => $settings_value ) {
 							if ( 'labels' === $settings_key ) {
 								continue;
@@ -376,7 +376,7 @@ function cptui_listings() {
 									<?php
 									foreach ( $strings as $key => $value ) {
 										printf( '<strong>%s:</strong> ', esc_html( $key ) );
-										if ( in_array( $value, [ '1', '0' ], true ) ) {
+										if ( in_array( $value, array( '1', '0' ), true ) ) {
 											echo esc_html( disp_boolean( $value ) );
 										} else {
 											echo ! empty( $value ) ? esc_html( $value ) : '""';

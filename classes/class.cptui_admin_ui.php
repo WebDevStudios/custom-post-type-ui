@@ -536,7 +536,7 @@ class cptui_admin_ui {
 	public function get_button( $args = [] ) {
 		$value   = '';
 		$classes = isset( $args['classes'] ) ? $args['classes'] : '';
-		$value .= '<input id="' . $args['id'] . '" class="button ' . $classes . '" type="button" value="' . $args['textvalue'] . '" />';
+		$value  .= '<input id="' . $args['id'] . '" class="button ' . $classes . '" type="button" value="' . $args['textvalue'] . '" />';
 
 		return $value;
 	}
