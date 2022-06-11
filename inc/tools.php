@@ -345,19 +345,19 @@ function cptui_get_single_taxonomy_registery( $taxonomy = [] ) {
 	$labels = [
 		"name" => __( "<?php echo esc_html( $taxonomy['label'] ); ?>", "<?php echo esc_html( $textdomain ); ?>" ),
 		"singular_name" => __( "<?php echo esc_html( $taxonomy['singular_label'] ); ?>", "<?php echo esc_html( $textdomain ); ?>" ),
-<?php
+	<?php
 		foreach ( $taxonomy['labels'] as $key => $label ) {
 			if ( ! empty( $label ) ) {
 				echo "\t\t" . '"' . esc_html( $key ) . '" => __( "' . esc_html( $label ) . '", "' . esc_html( $textdomain ) . '" ),' . "\n";
 			}
 		}
-?>
+	?>
 	];
 
 	<?php
 		$show_graphql = isset( $taxonomy['show_in_graphql'] ) ? (bool) $taxonomy['show_in_graphql'] : false;
-		$sort = array_key_exists('sort', $taxonomy) ? (bool) $taxonomy['sort'] : false;
-		$queryvar = array_key_exists('query_var', $taxonomy) ? (bool) $taxonomy['query_var'] : false;
+		$sort = isset( $taxonomy['sort'] ) ? (bool) $taxonomy['sort'] : false;
+		$queryvar = isset( $taxonomy['query_var'] ) ? (bool) $taxonomy['query_var'] : false;
 	?>
 
 	$args = [
