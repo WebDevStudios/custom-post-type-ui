@@ -1682,30 +1682,6 @@ function cptui_update_post_type( $data = [] ) {
 		}
 	}
 
-	// Check if all keys are present, initialize if not
-	$cpt_obj_keys = ['name', 'menu_icon', 'register_meta_box_cb',
-	'label', 'singular_label', 'description', 'rest_base',
-	'rest_controller_class', 'rest_namespace', 'has_archive_string',
-	'capability_type', 'rewrite_slug', 'query_var_slug', 'menu_position',
-	'show_in_menu_string', 'menu_icon', 'custom_supports', 'enter_title_here',
-	'public', 'publicly_queryable', 'show_ui', 'show_in_nav_menus',
-	'delete_with_user', 'show_in_rest', 'has_archive', 'exclude_from_search',
-	'hierarchical', 'can_export', 'rewrite', 'rewrite_withfront', 'query_var',
-	'show_in_menu'];
-	$data_keys = ['cpt_addon_taxes', 'cpt_supports', 'cpt_labels'];
-
-	foreach( $cpt_obj_keys as $key ) {
-		if ( array_key_exists($key, $data['cpt_custom_post_type']) ){
-			$data['cpt_custom_post_type'][$key] = '';
-		}
-	}
-
-	foreach( $data_keys as $key ) {
-		if ( array_key_exists($key, $data) ){
-			$data[$key] = '';
-		}
-	}
-
 	// Check if they didn't put quotes in the name or rewrite slug.
 	if ( false !== strpos( $data['cpt_custom_post_type']['name'], '\'' ) ||
 		 false !== strpos( $data['cpt_custom_post_type']['name'], '\"' ) ||
@@ -1746,6 +1722,10 @@ function cptui_update_post_type( $data = [] ) {
 
 	if ( empty( $data['cpt_supports'] ) || ! is_array( $data['cpt_supports'] ) ) {
 		$data['cpt_supports'] = [];
+	}
+
+	if ( empty( $data['cpt_labels'] ) || ! is_array( $data['cpt_labels'] ) ) {
+		$data['cpt_labels'] = [];
 	}
 
 	foreach ( $data['cpt_labels'] as $key => $label ) {

@@ -208,20 +208,7 @@ function cptui_get_taxonomy_code( $cptui_taxonomies = [], $single = false ) {
 function <?php echo esc_html( $callback ); ?>() {
 <?php
 foreach ( $cptui_taxonomies as $tax ) {
-	$single_tax_reg = cptui_get_single_taxonomy_registery( $tax );
-
-	if ( ! is_wp_error( $single_tax_reg ) ){
-		echo $single_tax_reg;
-	}else{
-		if ( str_contains($single_tax_reg->get_error_message(), 'undefined index') ){
-			add_action( 'admin_notices', function() {
-				$class = 'notice notice-error';
-				$message = __( 'You may need to re-save.', 're-save-notice' );
-
-				printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr( $class ), esc_html( $message ) );
-			});
-		}
-	}
+	echo cptui_get_single_taxonomy_registery( $tax );
 } ?>
 }
 add_action( 'init', '<?php echo esc_html( $callback ); ?>' );
@@ -240,18 +227,28 @@ add_action( 'init', '<?php echo esc_html( $callback ); ?>' );
  */
 function cptui_get_single_taxonomy_registery( $taxonomy = [] ) {
 
+	$might_need_to_resave = false;
+
 	$must_have_keys = ['object_types', 'rewrite', 'rewrite_slug', 'name',
 	'rewrite_withfront', 'rewrite_hierarchical', 'public', 'publicly_queryable',
 	'show_in_quick_edit', 'show_tagcloud', 'show_in_menu', 'show_ui', 'rest_base',
 	'show_in_nav_menus', 'show_in_rest', 'rest_controller_class', 'label',
-	'labels', 'singular_label', 'meta_box_cb', 'default_term', 'singular_label',
+	'singular_label', 'meta_box_cb', 'default_term', 'singular_label',
 	'show_in_graphql', 'sort', 'query_var', 'show_ui', 'show_admin_column',
 	'hierarchical', 'graphql_single_name', 'graphql_plural_name'];
 
 	foreach( $must_have_keys as $key ) {
 		if ( ! array_key_exists($key, $taxonomy) ){
 			$taxonomy[$key] = '';
+
+			if ( $might_need_to_resave == false){
+				$might_need_to_resave = true;
+			}
 		}
+	}
+
+	if ( ! array_key_exists('labels', $taxonomy) ){
+		$taxonomy['labels'] = [];
 	}
 
 	$post_types = "''";
@@ -395,6 +392,11 @@ function cptui_get_single_taxonomy_registery( $taxonomy = [] ) {
 	];
 	register_taxonomy( "<?php echo esc_html( $taxonomy['name'] ); ?>", <?php echo $post_types; ?>, $args );
 <?php
+	if ($might_need_to_resave == true) { ?>
+
+		/** Might need to re-save taxonomy. **/
+
+	<?php }
 }
 
 /**
@@ -441,6 +443,23 @@ add_action( 'init', '<?php echo esc_html( $callback ); ?>' );
  * @param array $post_type Post type data to output. Optional.
  */
 function cptui_get_single_post_type_registery( $post_type = [] ) {
+
+	// Check if all keys are present, initialize if not
+	$cpt_obj_keys = ['name', 'menu_icon', 'register_meta_box_cb',
+	'label', 'singular_label', 'description', 'rest_base',
+	'rest_controller_class', 'rest_namespace', 'has_archive_string',
+	'capability_type', 'rewrite_slug', 'query_var_slug', 'menu_position',
+	'show_in_menu_string', 'menu_icon', 'custom_supports', 'enter_title_here',
+	'public', 'publicly_queryable', 'show_ui', 'show_in_nav_menus',
+	'delete_with_user', 'show_in_rest', 'has_archive', 'exclude_from_search',
+	'hierarchical', 'can_export', 'rewrite', 'rewrite_withfront', 'query_var',
+	'show_in_menu'];
+
+	foreach( $cpt_obj_keys as $key ) {
+		if ( array_key_exists($key, $post_type) ){
+			$post_type[$key] = '';
+		}
+	}
 
 	/* This filter is documented in custom-post-type-ui/custom-post-type-ui.php */
 	$post_type['map_meta_cap'] = apply_filters( 'cptui_map_meta_cap', 'true', $post_type['name'], $post_type );
