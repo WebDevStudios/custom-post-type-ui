@@ -1503,6 +1503,20 @@ function cptui_update_taxonomy( $data = [] ) {
 		return 'error';
 	}
 
+	$must_have_keys = ['object_types', 'rewrite', 'rewrite_slug', 'name',
+	'rewrite_withfront', 'rewrite_hierarchical', 'public', 'publicly_queryable',
+	'show_in_quick_edit', 'show_tagcloud', 'show_in_menu', 'show_ui', 'rest_base',
+	'show_in_nav_menus', 'show_in_rest', 'rest_controller_class', 'label',
+	'labels', 'singular_label', 'meta_box_cb', 'default_term', 'singular_label',
+	'show_in_graphql', 'sort', 'query_var', 'show_ui', 'show_admin_column',
+	'hierarchical', 'graphql_single_name', 'graphql_plural_name'];
+
+	foreach( $must_have_keys as $key ) {
+		if ( ! array_key_exists($key, $data['cpt_custom_tax']) ){
+			$data['cpt_custom_tax'][$key] = '';
+		}
+	}
+
 	foreach ( $data['cpt_tax_labels'] as $key => $label ) {
 		if ( empty( $label ) ) {
 			unset( $data['cpt_tax_labels'][ $key ] );

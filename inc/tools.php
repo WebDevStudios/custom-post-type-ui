@@ -249,7 +249,7 @@ function cptui_get_single_taxonomy_registery( $taxonomy = [] ) {
 	'hierarchical', 'graphql_single_name', 'graphql_plural_name'];
 
 	foreach( $must_have_keys as $key ) {
-		if ( array_key_exists($key, $must_have_keys) ){
+		if ( ! array_key_exists($key, $taxonomy) ){
 			$taxonomy[$key] = '';
 		}
 	}
