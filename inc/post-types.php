@@ -496,7 +496,7 @@ function cptui_manage_post_types() {
 								] );
 
 								echo $ui->get_text_input( [
-									'labeltext' => esc_html__( 'Search Item', 'custom-post-type-ui' ),
+									'labeltext' => esc_html__( 'Search Items', 'custom-post-type-ui' ),
 									'helptext'  => esc_html__( 'Used as the text for the search button on post type list screen.', 'custom-post-type-ui' ),
 									'namearray' => 'cpt_labels',
 									'name'      => 'search_items',
