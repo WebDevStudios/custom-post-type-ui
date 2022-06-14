@@ -342,20 +342,14 @@ function cptui_get_single_taxonomy_registery( $taxonomy = [] ) {
 	$labels = [
 		"name" => __( "<?php echo esc_html( $taxonomy['label'] ); ?>", "<?php echo esc_html( $textdomain ); ?>" ),
 		"singular_name" => __( "<?php echo esc_html( $taxonomy['singular_label'] ); ?>", "<?php echo esc_html( $textdomain ); ?>" ),
-	<?php
-		foreach ( $taxonomy['labels'] as $key => $label ) {
-			if ( ! empty( $label ) ) {
-				echo "\t\t" . '"' . esc_html( $key ) . '" => __( "' . esc_html( $label ) . '", "' . esc_html( $textdomain ) . '" ),' . "\n";
-			}
+<?php
+	foreach ( $taxonomy['labels'] as $key => $label ) {
+		if ( ! empty( $label ) ) {
+			echo "\t\t" . '"' . esc_html( $key ) . '" => __( "' . esc_html( $label ) . '", "' . esc_html( $textdomain ) . '" ),' . "\n";
 		}
-	?>
+	}
+?>
 	];
-
-	<?php
-		$show_graphql = isset( $taxonomy['show_in_graphql'] ) ? (bool) $taxonomy['show_in_graphql'] : false;
-		$sort = isset( $taxonomy['sort'] ) ? (bool) $taxonomy['sort'] : false;
-		$queryvar = isset( $taxonomy['query_var'] ) ? (bool) $taxonomy['query_var'] : false;
-	?>
 
 	$args = [
 		"label" => __( "<?php echo $taxonomy['label']; ?>", "<?php echo $textdomain; ?>" ),
@@ -366,7 +360,7 @@ function cptui_get_single_taxonomy_registery( $taxonomy = [] ) {
 		"show_ui" => <?php echo disp_boolean( $taxonomy['show_ui'] ); ?>,
 		"show_in_menu" => <?php echo $show_in_menu; ?>,
 		"show_in_nav_menus" => <?php echo $show_in_nav_menus; ?>,
-		"query_var" => <?php echo disp_boolean( $queryvar );?>,
+		"query_var" => <?php echo disp_boolean( $taxonomy['query_var'] );?>,
 		"rewrite" => <?php echo $rewrite; ?>,
 		"show_admin_column" => <?php echo $taxonomy['show_admin_column']; ?>,
 		"show_in_rest" => <?php echo $show_in_rest; ?>,
@@ -375,8 +369,8 @@ function cptui_get_single_taxonomy_registery( $taxonomy = [] ) {
 		"rest_controller_class" => "<?php echo $rest_controller_class; ?>",
 		"rest_namespace" => "<?php echo $rest_namespace; ?>",
 		"show_in_quick_edit" => <?php echo $show_in_quick_edit; ?>,
-		"sort" => <?php echo disp_boolean( $sort ); ?>,
-<?php if ( $show_graphql ) : ?>
+		"sort" => <?php echo disp_boolean( $taxonomy['sort'] ); ?>,
+<?php if ( $taxonomy['show_in_graphql'] ) : ?>
 		"show_in_graphql" => <?php echo disp_boolean( $taxonomy['show_in_graphql'] ); ?>,
 		"graphql_single_name" => "<?php echo esc_html( $taxonomy['graphql_single_name'] ); ?>",
 		"graphql_plural_name" => "<?php echo esc_html( $taxonomy['graphql_plural_name'] ); ?>",
@@ -392,11 +386,6 @@ function cptui_get_single_taxonomy_registery( $taxonomy = [] ) {
 	];
 	register_taxonomy( "<?php echo esc_html( $taxonomy['name'] ); ?>", <?php echo $post_types; ?>, $args );
 <?php
-	if ($might_need_to_resave == true) { ?>
-
-		/** Might need to re-save taxonomy. **/
-
-	<?php }
 }
 
 /**
