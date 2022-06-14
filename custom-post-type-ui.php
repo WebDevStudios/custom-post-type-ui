@@ -268,12 +268,16 @@ function cptui_create_custom_post_types() {
 		return;
 	}
 
-	// Check if old cpts and new cpts are not empty
-	// Get keys of both new cpts and old cpts
-	// Compare if they don't have any missing or difference in keys
-	if ( (is_array($cpts) && !empty($cpts)) &&
-		(is_array($cpts_override) && !empty($cpts_override)) &&
-		( array_diff( array_keys($cpts), array_keys($cpts_override) ) )) {
+	/**
+	* Check if old cpts and new cpts are not empty
+	* Get keys of both new cpts and old cpts
+	* Compare if they don't have any missing or difference in keys
+	*/
+	if (
+		( is_array($cpts) && !empty($cpts) ) &&
+		( is_array($cpts_override) && !empty($cpts_override) ) &&
+		( array_diff( array_keys($cpts), array_keys($cpts_override) ) )
+	) {
 		add_action( 'admin_notices', 'cptui_undefined_index_notice' );
 	}
 
