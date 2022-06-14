@@ -965,3 +965,15 @@ function cptui_get_add_new_link( $content_type = '' ) {
 
 	return cptui_admin_url( 'admin.php?page=cptui_manage_' . $content_type );
 }
+
+/**
+ * Return a notice when undefined indexes are detected
+ *
+ * @internal
+ */
+function cptui_undefined_index_notice() {
+	$class = 'notice notice-warning';
+    $message = __( 'Custom Post Type UI added new parameters. Please consider reviewing your post types or taxonomies and consider clicking to save them again.', 'custom-post-type-ui' );
+
+    printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr( $class ), esc_html( $message ) );
+}

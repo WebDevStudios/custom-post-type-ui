@@ -227,23 +227,9 @@ add_action( 'init', '<?php echo esc_html( $callback ); ?>' );
  */
 function cptui_get_single_taxonomy_registery( $taxonomy = [] ) {
 
-	$might_need_to_resave = false;
-
-	$must_have_keys = ['object_types', 'rewrite', 'rewrite_slug', 'name',
-	'rewrite_withfront', 'rewrite_hierarchical', 'public', 'publicly_queryable',
-	'show_in_quick_edit', 'show_tagcloud', 'show_in_menu', 'show_ui', 'rest_base',
-	'show_in_nav_menus', 'show_in_rest', 'rest_controller_class', 'label',
-	'singular_label', 'meta_box_cb', 'default_term', 'singular_label',
-	'show_in_graphql', 'sort', 'query_var', 'show_ui', 'show_admin_column',
-	'hierarchical', 'graphql_single_name', 'graphql_plural_name'];
-
-	foreach( $must_have_keys as $key ) {
+	foreach( cptui_required_indexes() as $key ) {
 		if ( ! array_key_exists($key, $taxonomy) ){
 			$taxonomy[$key] = '';
-
-			if ( $might_need_to_resave == false){
-				$might_need_to_resave = true;
-			}
 		}
 	}
 
@@ -351,6 +337,12 @@ function cptui_get_single_taxonomy_registery( $taxonomy = [] ) {
 ?>
 	];
 
+	<?php
+
+	$show_graphql = isset( $taxonomy['show_in_graphql'] ) ? (bool) $taxonomy['show_in_graphql'] : false;
+
+	?>
+
 	$args = [
 		"label" => __( "<?php echo $taxonomy['label']; ?>", "<?php echo $textdomain; ?>" ),
 		"labels" => $labels,
@@ -370,7 +362,7 @@ function cptui_get_single_taxonomy_registery( $taxonomy = [] ) {
 		"rest_namespace" => "<?php echo $rest_namespace; ?>",
 		"show_in_quick_edit" => <?php echo $show_in_quick_edit; ?>,
 		"sort" => <?php echo disp_boolean( $taxonomy['sort'] ); ?>,
-<?php if ( $taxonomy['show_in_graphql'] ) : ?>
+<?php if ( $show_graphql ) : ?>
 		"show_in_graphql" => <?php echo disp_boolean( $taxonomy['show_in_graphql'] ); ?>,
 		"graphql_single_name" => "<?php echo esc_html( $taxonomy['graphql_single_name'] ); ?>",
 		"graphql_plural_name" => "<?php echo esc_html( $taxonomy['graphql_plural_name'] ); ?>",
@@ -433,18 +425,8 @@ add_action( 'init', '<?php echo esc_html( $callback ); ?>' );
  */
 function cptui_get_single_post_type_registery( $post_type = [] ) {
 
-	// Check if all keys are present, initialize if not
-	$cpt_obj_keys = ['name', 'menu_icon', 'register_meta_box_cb',
-	'label', 'singular_label', 'description', 'rest_base',
-	'rest_controller_class', 'rest_namespace', 'has_archive_string',
-	'capability_type', 'rewrite_slug', 'query_var_slug', 'menu_position',
-	'show_in_menu_string', 'menu_icon', 'custom_supports', 'enter_title_here',
-	'public', 'publicly_queryable', 'show_ui', 'show_in_nav_menus',
-	'delete_with_user', 'show_in_rest', 'has_archive', 'exclude_from_search',
-	'hierarchical', 'can_export', 'rewrite', 'rewrite_withfront', 'query_var',
-	'show_in_menu'];
-
-	foreach( $cpt_obj_keys as $key ) {
+	/* Check if all keys are present, initialize if not */
+	foreach( cptui_required_indexes_cpts() as $key ) {
 		if ( array_key_exists($key, $post_type) ){
 			$post_type[$key] = '';
 		}

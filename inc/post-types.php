@@ -2172,3 +2172,46 @@ function cptui_custom_enter_title_here( $text, $post ) {
 	return $cptui_obj['enter_title_here'];
 }
 add_filter( 'enter_title_here', 'cptui_custom_enter_title_here', 10, 2 );
+
+/**
+ * Cpts indexes in use
+ * Update as new indexes are added
+ *
+ * @return array
+ */
+function cptui_required_indexes_cpts() {
+	return [
+		'name',
+		'menu_icon',
+		'register_meta_box_cb',
+		'label',
+		'singular_label',
+		'description',
+		'rest_base',
+		'rest_controller_class',
+		'rest_namespace',
+		'has_archive_string',
+		'capability_type',
+		'rewrite_slug',
+		'query_var_slug',
+		'menu_position',
+		'show_in_menu_string',
+		'menu_icon',
+		'custom_supports',
+		'enter_title_here',
+		'public',
+		'publicly_queryable',
+		'show_ui',
+		'show_in_nav_menus',
+		'delete_with_user',
+		'show_in_rest',
+		'has_archive',
+		'exclude_from_search',
+		'hierarchical',
+		'can_export',
+		'rewrite',
+		'rewrite_withfront',
+		'query_var',
+		'show_in_menu'
+	];
+}

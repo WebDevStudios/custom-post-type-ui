@@ -1753,6 +1753,47 @@ function cptui_reserved_taxonomies() {
 }
 
 /**
+ * Required Indexes in use
+ * Update as new indexes are added
+ *
+ * @internal
+ * @return array
+ */
+function cptui_required_indexes() {
+	return [
+		'object_types',
+		'rewrite',
+		'rewrite_slug',
+		'name',
+		'rewrite_withfront',
+		'rewrite_hierarchical',
+		'public',
+		'publicly_queryable',
+		'show_in_quick_edit',
+		'show_tagcloud',
+		'show_in_menu',
+		'show_ui',
+		'rest_base',
+		'show_in_nav_menus',
+		'show_in_rest',
+		'rest_controller_class',
+		'label',
+		'singular_label',
+		'meta_box_cb',
+		'default_term',
+		'singular_label',
+		'show_in_graphql',
+		'sort',
+		'query_var',
+		'show_ui',
+		'show_admin_column',
+		'hierarchical',
+		'graphql_single_name',
+		'graphql_plural_name'
+	];
+}
+
+/**
  * Convert taxonomies.
  *
  * @since 1.3.0

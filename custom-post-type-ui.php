@@ -268,21 +268,13 @@ function cptui_create_custom_post_types() {
 		return;
 	}
 
-	function sample_admin_notice__warning() {
-		?>
-		<div class="notice notice-warning">
-			<p>There's some missing indexes. You might need to re-save.</p>
-		</div>
-		<?php
-	}
-
 	// Check if old cpts and new cpts are not empty
 	// Get keys of both new cpts and old cpts
 	// Compare if they don't have any missing or difference in keys
 	if ( (is_array($cpts) && !empty($cpts)) &&
 		(is_array($cpts_override) && !empty($cpts_override)) &&
 		( array_diff( array_keys($cpts), array_keys($cpts_override) ) )) {
-		add_action( 'admin_notices', 'sample_admin_notice__warning' );
+		add_action( 'admin_notices', 'cptui_undefined_index_notice' );
 	}
 
 	// Assume good intent, and we're also not wrecking the option so things are always reversable.
