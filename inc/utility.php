@@ -176,7 +176,7 @@ add_action( 'admin_init', 'cptui_flush_rewrite_rules' );
 function cptui_get_current_action() {
 	$current_action = '';
 	if ( ! empty( $_GET ) && isset( $_GET['action'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification
-		$current_action .= esc_textarea( wp_unslash( $_GET['action'] ) );
+		$current_action .= esc_textarea( wp_unslash( $_GET['action'] ) ); // phpcs:ignore
 	}
 
 	return $current_action;
@@ -429,9 +429,9 @@ function enqueue_email_octopus_assets() {
 		return;
 	}
 
-	wp_enqueue_style( 'cptui-emailoctopus', 'https://emailoctopus.com/bundles/emailoctopuslist/css/formEmbed.css' );
+	wp_enqueue_style( 'cptui-emailoctopus', 'https://emailoctopus.com/bundles/emailoctopuslist/css/formEmbed.css' ); // phpcs:ignore
 
-	wp_enqueue_script( 'cptui-emailoctopus-js', 'https://emailoctopus.com/bundles/emailoctopuslist/js/1.4/formEmbed.js', array( 'jquery' ), '', true );
+	wp_enqueue_script( 'cptui-emailoctopus-js', 'https://emailoctopus.com/bundles/emailoctopuslist/js/1.4/formEmbed.js', array( 'jquery' ), '', true ); // phpcs:ignore
 
 }
 add_action( 'admin_enqueue_scripts', 'enqueue_email_octopus_assets' );

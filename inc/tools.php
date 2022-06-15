@@ -130,11 +130,11 @@ function cptui_tools() {
 
 	$tab = 'post_types';
 	if ( ! empty( $_GET ) ) { // phpcs:ignore WordPress.Security.NonceVerification
-		if ( ! empty( $_GET['action'] ) && 'taxonomies' === $_GET['action'] ) {
+		if ( ! empty( $_GET['action'] ) && 'taxonomies' === $_GET['action'] ) { // phpcs:ignore WordPress.Security.NonceVerification
 			$tab = 'taxonomies';
-		} elseif ( ! empty( $_GET['action'] ) && 'get_code' === $_GET['action'] ) {
+		} elseif ( ! empty( $_GET['action'] ) && 'get_code' === $_GET['action'] ) { // phpcs:ignore WordPress.Security.NonceVerification
 			$tab = 'get_code';
-		} elseif ( ! empty( $_GET['action'] ) && 'debuginfo' === $_GET['action'] ) {
+		} elseif ( ! empty( $_GET['action'] ) && 'debuginfo' === $_GET['action'] ) { // phpcs:ignore WordPress.Security.NonceVerification
 			$tab = 'debuginfo';
 		}
 	}
@@ -332,39 +332,39 @@ function cptui_get_single_taxonomy_registery( $taxonomy = array() ) {
 	?>
 
 	$args = [
-		"label" => __( "<?php echo $taxonomy['label']; ?>", "<?php echo $textdomain; ?>" ),
+		"label" => __( "<?php echo esc_html( $taxonomy['label'] ); ?>", "<?php echo esc_html( $textdomain ); ?>" ),
 		"labels" => $labels,
-		"public" => <?php echo $public; ?>,
-		"publicly_queryable" => <?php echo $publicly_queryable; ?>,
-		"hierarchical" => <?php echo $taxonomy['hierarchical']; ?>,
-		"show_ui" => <?php echo disp_boolean( $taxonomy['show_ui'] ); ?>,
-		"show_in_menu" => <?php echo $show_in_menu; ?>,
-		"show_in_nav_menus" => <?php echo $show_in_nav_menus; ?>,
-		"query_var" => <?php echo disp_boolean( $taxonomy['query_var'] ); ?>,
-		"rewrite" => <?php echo $rewrite; ?>,
-		"show_admin_column" => <?php echo $taxonomy['show_admin_column']; ?>,
-		"show_in_rest" => <?php echo $show_in_rest; ?>,
-		"show_tagcloud" => <?php echo $show_tagcloud; ?>,
-		"rest_base" => "<?php echo $rest_base; ?>",
-		"rest_controller_class" => "<?php echo $rest_controller_class; ?>",
-		"rest_namespace" => "<?php echo $rest_namespace; ?>",
-		"show_in_quick_edit" => <?php echo $show_in_quick_edit; ?>,
-		"sort" => <?php echo disp_boolean( $taxonomy['sort'] ); ?>,
+		"public" => <?php echo esc_html( $public ); ?>,
+		"publicly_queryable" => <?php echo esc_html( $publicly_queryable ); ?>,
+		"hierarchical" => <?php echo esc_html( $taxonomy['hierarchical'] ); ?>,
+		"show_ui" => <?php echo esc_html( disp_boolean( $taxonomy['show_ui'] ) ); ?>,
+		"show_in_menu" => <?php echo esc_html( $show_in_menu ); ?>,
+		"show_in_nav_menus" => <?php echo esc_html( $show_in_nav_menus ); ?>,
+		"query_var" => <?php echo esc_html( disp_boolean( $taxonomy['query_var'] ) ); ?>,
+		"rewrite" => <?php echo $rewrite; // phpcs:ignore. ?>,
+		"show_admin_column" => <?php echo esc_html( $taxonomy['show_admin_column'] ); ?>,
+		"show_in_rest" => <?php echo esc_html( $show_in_rest ); ?>,
+		"show_tagcloud" => <?php echo esc_html( $show_tagcloud ); ?>,
+		"rest_base" => "<?php echo esc_html( $rest_base ); ?>",
+		"rest_controller_class" => "<?php echo esc_html( $rest_controller_class ); ?>",
+		"rest_namespace" => "<?php echo $rest_namespace; // phpcs:ignore. ?>",
+		"show_in_quick_edit" => <?php echo esc_html( $show_in_quick_edit ); ?>,
+		"sort" => <?php echo esc_html( disp_boolean( $taxonomy['sort'] ) ); ?>,
 	<?php if ( $show_graphql ) : ?>
-		"show_in_graphql" => <?php echo disp_boolean( $taxonomy['show_in_graphql'] ); ?>,
+		"show_in_graphql" => <?php echo esc_html( disp_boolean( $taxonomy['show_in_graphql'] ) ); ?>,
 		"graphql_single_name" => "<?php echo esc_html( $taxonomy['graphql_single_name'] ); ?>",
 		"graphql_plural_name" => "<?php echo esc_html( $taxonomy['graphql_plural_name'] ); ?>",
 <?php else : ?>
-		"show_in_graphql" => <?php echo disp_boolean( false ); ?>,
+		"show_in_graphql" => <?php echo esc_html( disp_boolean( false ) ); ?>,
 <?php endif; ?>
 	<?php if ( ! empty( $meta_box_cb ) ) { ?>
-		"meta_box_cb" => <?php echo $meta_box_cb; ?>,
+		"meta_box_cb" => <?php echo $meta_box_cb; // phpcs:ignore. ?>,
 <?php } ?>
 	<?php if ( ! empty( $default_term ) ) { ?>
-		"default_term" => <?php echo $default_term; ?>,
+		"default_term" => <?php echo $default_term; // phpcs:ignore. ?>,
 <?php } ?>
 	];
-	register_taxonomy( "<?php echo esc_html( $taxonomy['name'] ); ?>", <?php echo $post_types; ?>, $args );
+	register_taxonomy( "<?php echo esc_html( $taxonomy['name'] ); ?>", <?php echo $post_types; // phpcs:ignore. ?>, $args );
 	<?php
 }
 
@@ -378,7 +378,7 @@ function cptui_get_single_taxonomy_registery( $taxonomy = array() ) {
  * @param array $cptui_post_types Array of post types to render. Optional.
  * @param bool  $single           Whether or not we are rendering a single post type. Optional. Default false.
  */
-function cptui_get_post_type_code( $cptui_post_types = [], $single = false ) {
+function cptui_get_post_type_code( $cptui_post_types = array(), $single = false ) {
 	// Whitespace very much matters here, thus why it's all flush against the left side.
 	if ( ! empty( $cptui_post_types ) ) {
 		$callback = 'cptui_register_my_cpts';
@@ -392,7 +392,7 @@ function <?php echo esc_html( $callback ); ?>() {
 		<?php
 		// Space before this line reflects in textarea.
 		foreach ( $cptui_post_types as $type ) {
-			echo cptui_get_single_post_type_registery( $type );
+			echo cptui_get_single_post_type_registery( $type ); // phpcs:ignore.
 		}
 		?>
 }
@@ -411,13 +411,13 @@ add_action( 'init', '<?php echo esc_html( $callback ); ?>' );
  *
  * @param array $post_type Post type data to output. Optional.
  */
-function cptui_get_single_post_type_registery( $post_type = [] ) {
+function cptui_get_single_post_type_registery( $post_type = array() ) {
 
 	/* This filter is documented in custom-post-type-ui/custom-post-type-ui.php */
 	$post_type['map_meta_cap'] = apply_filters( 'cptui_map_meta_cap', 'true', $post_type['name'], $post_type );
 
 	/* This filter is documented in custom-post-type-ui/custom-post-type-ui.php */
-	$user_supports_params = apply_filters( 'cptui_user_supports_params', [], $post_type['name'], $post_type );
+	$user_supports_params = apply_filters( 'cptui_user_supports_params', array(), $post_type['name'], $post_type );
 	if ( is_array( $user_supports_params ) ) {
 		$post_type['supports'] = array_merge( $post_type['supports'], $user_supports_params );
 	}
@@ -427,7 +427,7 @@ function cptui_get_single_post_type_registery( $post_type = [] ) {
 		$custom = explode( ',', $post_type['custom_supports'] );
 		foreach ( $custom as $part ) {
 			// We'll handle YARPP separately.
-			if ( in_array( $part, [ 'YARPP', 'yarpp' ], true ) ) {
+			if ( in_array( $part, array( 'YARPP', 'yarpp' ), true ) ) {
 				$yarpp = true;
 				continue;
 			}
@@ -486,7 +486,7 @@ function cptui_get_single_post_type_registery( $post_type = [] ) {
 		$taxonomies = '[ "' . implode( '", "', $post_type['taxonomies'] ) . '" ]';
 	}
 
-	if ( in_array( $post_type['query_var'], [ 'true', 'false', '0', '1' ], true ) ) {
+	if ( in_array( $post_type['query_var'], array( 'true', 'false', '0', '1' ), true ) ) {
 		$post_type['query_var'] = disp_boolean( $post_type['query_var'] );
 	}
 	if ( ! empty( $post_type['query_var_slug'] ) ) {
@@ -547,20 +547,20 @@ function cptui_get_single_post_type_registery( $post_type = [] ) {
 	?>
 
 	/**
-	 * Post Type: <?php echo $post_type['label']; ?>.
+	 * Post Type: <?php echo esc_html( $post_type['label'] ); ?>.
 	 */
 
 	$labels = [
-		"name" => __( "<?php echo $post_type['label']; ?>", "<?php echo $textdomain; ?>" ),
-		"singular_name" => __( "<?php echo $post_type['singular_label']; ?>", "<?php echo $textdomain; ?>" ),
+		"name" => __( "<?php echo esc_html( $post_type['label'] ); ?>", "<?php echo esc_html( $textdomain ); ?>" ),
+		"singular_name" => __( "<?php echo esc_html( $post_type['singular_label'] ); ?>", "<?php echo esc_html( $textdomain ); ?>" ),
 	<?php
 	foreach ( $post_type['labels'] as $key => $label ) {
 		if ( ! empty( $label ) ) {
 			if ( 'parent' === $key && ! array_key_exists( 'parent_item_colon', $post_type['labels'] ) ) {
 				// Fix for incorrect label key. See #439.
-				echo "\t\t" . '"' . 'parent_item_colon' . '" => __( "' . $label . '", "' . $textdomain . '" ),' . "\n";
+				echo "\t\t" . '"' . 'parent_item_colon' . '" => __( "' . $label . '", "' . $textdomain . '" ),' . "\n"; // phpcs:ignore.
 			} else {
-				echo "\t\t" . '"' . $key . '" => __( "' . $label . '", "' . $textdomain . '" ),' . "\n";
+				echo "\t\t" . '"' . $key . '" => __( "' . $label . '", "' . $textdomain . '" ),' . "\n"; // phpcs:ignore.
 			}
 		}
 	}
@@ -568,51 +568,51 @@ function cptui_get_single_post_type_registery( $post_type = [] ) {
 	];
 
 	$args = [
-		"label" => __( "<?php echo $post_type['label']; ?>", "<?php echo $textdomain; ?>" ),
+		"label" => __( "<?php echo esc_html( $post_type['label'] ); ?>", "<?php echo esc_html( $textdomain ); ?>" ),
 		"labels" => $labels,
-		"description" => "<?php echo $post_type['description']; ?>",
-		"public" => <?php echo disp_boolean( $post_type['public'] ); ?>,
-		"publicly_queryable" => <?php echo disp_boolean( $post_type['publicly_queryable'] ); ?>,
-		"show_ui" => <?php echo disp_boolean( $post_type['show_ui'] ); ?>,
-		"show_in_rest" => <?php echo disp_boolean( $post_type['show_in_rest'] ); ?>,
-		"rest_base" => "<?php echo $post_type['rest_base']; ?>",
-		"rest_controller_class" => "<?php echo $rest_controller_class; ?>",
-		"rest_namespace" => "<?php echo $rest_namespace; ?>",
-		"has_archive" => <?php echo $has_archive; ?>,
-		"show_in_menu" => <?php echo $show_in_menu; ?>,
-		"show_in_nav_menus" => <?php echo $show_in_nav_menus; ?>,
-		"delete_with_user" => <?php echo $delete_with_user; ?>,
-		"exclude_from_search" => <?php echo disp_boolean( $post_type['exclude_from_search'] ); ?>,
-		"capability_type" => <?php echo $capability_type; ?>,
-		"map_meta_cap" => <?php echo disp_boolean( $post_type['map_meta_cap'] ); ?>,
-		"hierarchical" => <?php echo disp_boolean( $post_type['hierarchical'] ); ?>,
-		"can_export" => <?php echo $can_export; ?>,
-		"rewrite" => <?php echo $rewrite; ?>,
-		"query_var" => <?php echo $post_type['query_var']; ?>,
+		"description" => "<?php echo esc_html( $post_type['description'] ); ?>",
+		"public" => <?php echo esc_html( disp_boolean( $post_type['public'] ) ); ?>,
+		"publicly_queryable" => <?php echo esc_html( disp_boolean( $post_type['publicly_queryable'] ) ); ?>,
+		"show_ui" => <?php echo esc_html( disp_boolean( $post_type['show_ui'] ) ); ?>,
+		"show_in_rest" => <?php echo esc_html( disp_boolean( $post_type['show_in_rest'] ) ); ?>,
+		"rest_base" => "<?php echo esc_html( $post_type['rest_base'] ); ?>",
+		"rest_controller_class" => "<?php echo $rest_controller_class; // phpcs:ignore. ?>",
+		"rest_namespace" => "<?php echo $rest_namespace; // phpcs:ignore. ?>",
+		"has_archive" => <?php echo esc_html( $has_archive ); ?>,
+		"show_in_menu" => <?php echo esc_html( $show_in_menu ); ?>,
+		"show_in_nav_menus" => <?php echo esc_html( $show_in_nav_menus ); ?>,
+		"delete_with_user" => <?php echo esc_html( $delete_with_user ); ?>,
+		"exclude_from_search" => <?php echo esc_html( disp_boolean( $post_type['exclude_from_search'] ) ); ?>,
+		"capability_type" => <?php echo esc_html( $capability_type ); ?>,
+		"map_meta_cap" => <?php echo esc_html( disp_boolean( $post_type['map_meta_cap'] ) ); ?>,
+		"hierarchical" => <?php echo esc_html( disp_boolean( $post_type['hierarchical'] ) ); ?>,
+		"can_export" => <?php echo esc_html( $can_export ); ?>,
+		"rewrite" => <?php echo $rewrite; // phpcs:ignore. ?>,
+		"query_var" => <?php echo esc_html( $post_type['query_var'] ); ?>,
 	<?php if ( ! empty( $post_type['menu_position'] ) ) { ?>
-		"menu_position" => <?php echo $post_type['menu_position']; ?>,
+		"menu_position" => <?php echo $post_type['menu_position']; // phpcs:ignore. ?>,
 <?php } ?>
 	<?php if ( ! empty( $post_type['menu_icon'] ) ) { ?>
-		"menu_icon" => "<?php echo $post_type['menu_icon']; ?>",
+		"menu_icon" => "<?php echo esc_html( $post_type['menu_icon'] ); ?>",
 <?php } ?>
 	<?php if ( ! empty( $post_type['register_meta_box_cb'] ) ) { ?>
-		"register_meta_box_cb" => "<?php echo $post_type['register_meta_box_cb']; ?>",
+		"register_meta_box_cb" => "<?php echo $post_type['register_meta_box_cb']; // phpcs:ignore. ?>",
 <?php } ?>
 	<?php if ( ! empty( $supports ) ) { ?>
-		"supports" => <?php echo $supports; ?>,
+		"supports" => <?php echo $supports; // phpcs:ignore. ?>,
 <?php } ?>
 	<?php if ( ! empty( $taxonomies ) ) { ?>
-		"taxonomies" => <?php echo $taxonomies; ?>,
+		"taxonomies" => <?php echo $taxonomies; // phpcs:ignore. ?>,
 <?php } ?>
 	<?php if ( true === $yarpp ) { ?>
-		"yarpp_support" => <?php echo disp_boolean( $yarpp ); ?>,
+		"yarpp_support" => <?php echo disp_boolean( $yarpp ); // phpcs:ignore. ?>,
 <?php } ?>
 	<?php if ( $show_graphql ) : ?>
-		"show_in_graphql" => <?php echo disp_boolean( $post_type['show_in_graphql'] ); ?>,
+		"show_in_graphql" => <?php echo esc_html( disp_boolean( $post_type['show_in_graphql'] ) ); ?>,
 		"graphql_single_name" => "<?php echo esc_html( $post_type['graphql_single_name'] ); ?>",
 		"graphql_plural_name" => "<?php echo esc_html( $post_type['graphql_plural_name'] ); ?>",
 	<?php else : ?>
-		"show_in_graphql" => <?php echo disp_boolean( false ); ?>,
+		"show_in_graphql" => <?php echo disp_boolean( false ); // phpcs:ignore. ?>,
 <?php endif; ?>
 	];
 
@@ -630,7 +630,7 @@ function cptui_get_single_post_type_registery( $post_type = [] ) {
  * @param array $postdata $_POST data as json. Optional.
  * @return mixed false on nothing to do, otherwise void.
  */
-function cptui_import_types_taxes_settings( $postdata = [] ) {
+function cptui_import_types_taxes_settings( $postdata = array() ) {
 	if ( ! isset( $postdata['cptui_post_import'] ) && ! isset( $postdata['cptui_tax_import'] ) && ! array_key_exists( 'delete', $postdata ) ) {
 		return false;
 	}
@@ -691,7 +691,7 @@ function cptui_import_types_taxes_settings( $postdata = [] ) {
 			 * @param bool  $value    Whether or not someone else deleted successfully. Default false.
 			 * @param array $postdata Post type data.
 			 */
-			if ( false === ( $success = apply_filters( 'cptui_post_type_import_delete_save', false, $postdata ) ) ) {
+			if ( false === ( $success = apply_filters( 'cptui_post_type_import_delete_save', false, $postdata ) ) ) { // phpcs:ignore.
 				$success = delete_option( 'cptui_post_types' );
 			}
 		}
@@ -699,7 +699,7 @@ function cptui_import_types_taxes_settings( $postdata = [] ) {
 		if ( $settings ) {
 			if ( false !== cptui_get_post_type_data() ) {
 				/** This filter is documented in /inc/import-export.php */
-				if ( false === ( $success = apply_filters( 'cptui_post_type_import_delete_save', false, $postdata ) ) ) {
+				if ( false === ( $success = apply_filters( 'cptui_post_type_import_delete_save', false, $postdata ) ) ) { // phpcs:ignore.
 					delete_option( 'cptui_post_types' );
 				}
 			}
@@ -712,7 +712,7 @@ function cptui_import_types_taxes_settings( $postdata = [] ) {
 			 * @param bool  $value    Whether or not someone else updated successfully. Default false.
 			 * @param array $postdata Post type data.
 			 */
-			if ( false === ( $success = apply_filters( 'cptui_post_type_import_update_save', false, $postdata ) ) ) {
+			if ( false === ( $success = apply_filters( 'cptui_post_type_import_update_save', false, $postdata ) ) ) { // phpcs:ignore.
 				$success = update_option( 'cptui_post_types', $settings );
 			}
 		}
@@ -740,7 +740,7 @@ function cptui_import_types_taxes_settings( $postdata = [] ) {
 			 * @param bool  $value    Whether or not someone else deleted successfully. Default false.
 			 * @param array $postdata Taxonomy data
 			 */
-			if ( false === ( $success = apply_filters( 'cptui_taxonomy_import_delete_save', false, $postdata ) ) ) {
+			if ( false === ( $success = apply_filters( 'cptui_taxonomy_import_delete_save', false, $postdata ) ) ) { // phpcs:ignore.
 				$success = delete_option( 'cptui_taxonomies' );
 			}
 		}
@@ -748,7 +748,7 @@ function cptui_import_types_taxes_settings( $postdata = [] ) {
 		if ( $settings ) {
 			if ( false !== cptui_get_taxonomy_data() ) {
 				/** This filter is documented in /inc/import-export.php */
-				if ( false === ( $success = apply_filters( 'cptui_taxonomy_import_delete_save', false, $postdata ) ) ) {
+				if ( false === ( $success = apply_filters( 'cptui_taxonomy_import_delete_save', false, $postdata ) ) ) { // phpcs:ignore.
 					delete_option( 'cptui_taxonomies' );
 				}
 			}
@@ -760,7 +760,7 @@ function cptui_import_types_taxes_settings( $postdata = [] ) {
 			 * @param bool  $value    Whether or not someone else updated successfully. Default false.
 			 * @param array $postdata Taxonomy data.
 			 */
-			if ( false === ( $success = apply_filters( 'cptui_taxonomy_import_update_save', false, $postdata ) ) ) {
+			if ( false === ( $success = apply_filters( 'cptui_taxonomy_import_update_save', false, $postdata ) ) ) { // phpcs:ignore.
 				$success = update_option( 'cptui_taxonomies', $settings );
 			}
 		}
@@ -796,7 +796,7 @@ function cptui_render_posttypes_taxonomies_section() {
 		?>
 	</p>
 	<table class="form-table cptui-table">
-		<?php if ( ! empty( $_GET ) && empty( $_GET['action'] ) ) { ?>
+		<?php if ( ! empty( $_GET ) && empty( $_GET['action'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification ?>
 			<tr>
 				<td class="outer">
 					<h2><label for="cptui_post_import"><?php esc_html_e( 'Import Post Types', 'custom-post-type-ui' ); ?></label></h2>
@@ -828,7 +828,7 @@ function cptui_render_posttypes_taxonomies_section() {
 						$content = esc_html__( 'No post types registered yet.', 'custom-post-type-ui' );
 					}
 					?>
-					<textarea title="<?php esc_attr_e( 'To copy the system info, click below then press Ctrl + C (PC) or Cmd + C (Mac).', 'custom-post-type-ui' ); ?>" onclick="this.focus();this.select();" onfocus="this.focus();this.select();" readonly="readonly" aria-readonly="true" class="cptui_post_import" id="cptui_post_export" name="cptui_post_export"><?php echo $content; // WPCS: XSS ok, sanitization ok. ?></textarea>
+					<textarea title="<?php esc_attr_e( 'To copy the system info, click below then press Ctrl + C (PC) or Cmd + C (Mac).', 'custom-post-type-ui' ); ?>" onclick="this.focus();this.select();" onfocus="this.focus();this.select();" readonly="readonly" aria-readonly="true" class="cptui_post_import" id="cptui_post_export" name="cptui_post_export"><?php echo $content; // phpcs:ignore. ?></textarea>
 
 					<p>
 						<strong><?php esc_html_e( 'Use the content above to import current post types into a different WordPress site. You can also use this to simply back up your post type settings.', 'custom-post-type-ui' ); ?></strong>
@@ -1022,30 +1022,30 @@ add_action( 'cptui_tools_sections', 'cptui_render_tools' );
  * @since 1.5.0
  */
 function cptui_do_import_types_taxes() {
-	 // phpcs:ignore
-	if ( ! empty( $_POST ) &&
-		( ! empty( $_POST['cptui_post_import'] ) && isset( $_POST['cptui_post_import'] ) ) ||
-		( ! empty( $_POST['cptui_tax_import'] ) && isset( $_POST['cptui_tax_import'] ) )
+	 // phpcs:ignore.
+	if ( ! empty( $_POST ) && // phpcs:ignore WordPress.Security.NonceVerification
+		( ! empty( $_POST['cptui_post_import'] ) && isset( $_POST['cptui_post_import'] ) ) || // phpcs:ignore WordPress.Security.NonceVerification
+		( ! empty( $_POST['cptui_tax_import'] ) && isset( $_POST['cptui_tax_import'] ) ) // phpcs:ignore WordPress.Security.NonceVerification
 	) {
 		$data              = array();
 		$decoded_post_data = null;
 		$decoded_tax_data  = null;
-		if ( ! empty( $_POST['cptui_post_import'] ) ) {  // phpcs:ignore
-			$decoded_post_data = json_decode( stripslashes_deep( trim( $_POST['cptui_post_import'] ) ), true ); // phpcs:ignore
+		if ( ! empty( $_POST['cptui_post_import'] ) ) {  // phpcs:ignore.
+			$decoded_post_data = json_decode( stripslashes_deep( trim( $_POST['cptui_post_import'] ) ), true ); // phpcs:ignore.
 		}
 
-		if ( ! empty( $_POST['cptui_tax_import'] ) ) {  // phpcs:ignore
-			$decoded_tax_data = json_decode( stripslashes_deep( trim( $_POST['cptui_tax_import'] ) ), true ); // phpcs:ignore
+		if ( ! empty( $_POST['cptui_tax_import'] ) ) {  // phpcs:ignore.
+			$decoded_tax_data = json_decode( stripslashes_deep( trim( $_POST['cptui_tax_import'] ) ), true ); // phpcs:ignore.
 		}
 
 		if (
 			empty( $decoded_post_data ) &&
 			empty( $decoded_tax_data ) &&
 			(
-				! empty( $_POST['cptui_post_import'] ) && '{""}' !== stripslashes_deep( trim( $_POST['cptui_post_import'] ) ) // phpcs:ignore
+				! empty( $_POST['cptui_post_import'] ) && '{""}' !== stripslashes_deep( trim( $_POST['cptui_post_import'] ) ) // phpcs:ignore.
 			) &&
 			(
-				! empty( $_POST['cptui_tax_import'] ) && '{""}' !== stripslashes_deep( trim( $_POST['cptui_tax_import'] ) ) // phpcs:ignore
+				! empty( $_POST['cptui_tax_import'] ) && '{""}' !== stripslashes_deep( trim( $_POST['cptui_tax_import'] ) ) // phpcs:ignore.
 			)
 		) {
 			return;
@@ -1056,10 +1056,10 @@ function cptui_do_import_types_taxes() {
 		if ( null !== $decoded_tax_data ) {
 			$data['cptui_tax_import'] = $decoded_tax_data;
 		}
-		if ( ! empty( $_POST['cptui_post_import'] ) && '{""}' === stripslashes_deep( trim( $_POST['cptui_post_import'] ) ) ) { // phpcs:ignore
+		if ( ! empty( $_POST['cptui_post_import'] ) && '{""}' === stripslashes_deep( trim( $_POST['cptui_post_import'] ) ) ) { // phpcs:ignore.
 			$data['delete'] = 'type_true';
 		}
-		if ( ! empty( $_POST['cptui_tax_import'] ) && '{""}' === stripslashes_deep( trim( $_POST['cptui_tax_import'] ) ) ) { // phpcs:ignore
+		if ( ! empty( $_POST['cptui_tax_import'] ) && '{""}' === stripslashes_deep( trim( $_POST['cptui_tax_import'] ) ) ) { // phpcs:ignore.
 			$data['delete'] = 'tax_true';
 		}
 		$success = cptui_import_types_taxes_settings( $data );

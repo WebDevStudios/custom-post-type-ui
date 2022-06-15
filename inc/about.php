@@ -140,7 +140,7 @@ function cptui_pluginize_content() {
 			printf(
 				'<p><a href="%s">%s</a></p>',
 				esc_url( $ad['url'] ),
-				$the_ad
+				$the_ad // phpcs:ignore
 			);
 		}
 	}
