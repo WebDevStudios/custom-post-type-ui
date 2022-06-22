@@ -93,7 +93,7 @@ class cptui_admin_ui {
 	 * @param array $args Array of arguments.
 	 * @return string $value Opening `<fieldset>` tag.
 	 */
-	public function get_fieldset_start( $args = array() ) {
+	public function get_fieldset_start( $args = [] ) {
 		$fieldset = '<fieldset';
 
 		if ( ! empty( $args['id'] ) ) {
@@ -292,11 +292,11 @@ class cptui_admin_ui {
 	 * @param array $args Arguments to use with the `<select>` input.
 	 * @return string $value Complete <select> input with options and selected attribute.
 	 */
-	public function get_select_input( $args = array() ) {
+	public function get_select_input( $args = [] ) {
 		$defaults = $this->get_default_input_parameters(
-			array(
-				'selections' => array(),
-			)
+			[
+				'selections' => [],
+			]
 		);
 
 		$args = wp_parse_args( $args, $defaults );
@@ -324,7 +324,7 @@ class cptui_admin_ui {
 
 				if ( is_numeric( $args['selections']['selected'] ) ) {
 					$selected = disp_boolean( $args['selections']['selected'] );
-				} elseif ( in_array( $args['selections']['selected'], array( 'true', 'false' ), true ) ) {
+				} elseif ( in_array( $args['selections']['selected'], [ 'true', 'false' ], true ) ) {
 					$selected = $args['selections']['selected'];
 				}
 
@@ -367,12 +367,12 @@ class cptui_admin_ui {
 	 * @param array $args Arguments to use with the text input.
 	 * @return string Complete text `<input>` with proper attributes.
 	 */
-	public function get_text_input( $args = array() ) {
+	public function get_text_input( $args = [] ) {
 		$defaults = $this->get_default_input_parameters(
-			array(
+			[
 				'maxlength' => '',
 				'onblur'    => '',
-			)
+			]
 		);
 		$args     = wp_parse_args( $args, $defaults );
 
@@ -440,12 +440,12 @@ class cptui_admin_ui {
 	 * @param array $args Arguments to use with the textarea input.
 	 * @return string $value Complete <textarea> input with proper attributes.
 	 */
-	public function get_textarea_input( $args = array() ) {
+	public function get_textarea_input( $args = [] ) {
 		$defaults = $this->get_default_input_parameters(
-			array(
+			[
 				'rows' => '',
 				'cols' => '',
-			)
+			]
 		);
 		$args     = wp_parse_args( $args, $defaults );
 
@@ -488,14 +488,14 @@ class cptui_admin_ui {
 	 * @param array $args Arguments to use with the checkbox input.
 	 * @return string $value Complete checkbox `<input>` with proper attributes.
 	 */
-	public function get_check_input( $args = array() ) {
+	public function get_check_input( $args = [] ) {
 		$defaults = $this->get_default_input_parameters(
-			array(
+			[
 				'checkvalue'    => '',
 				'checked'       => 'true',
 				'checklisttext' => '',
 				'default'       => false,
-			)
+			]
 		);
 		$args     = wp_parse_args( $args, $defaults );
 
@@ -535,7 +535,7 @@ class cptui_admin_ui {
 	 * @param array $args Arguments to use with the button input.
 	 * @return string Complete button `<input>`.
 	 */
-	public function get_button( $args = array() ) {
+	public function get_button( $args = [] ) {
 		$value   = '';
 		$classes = isset( $args['classes'] ) ? $args['classes'] : '';
 		$value  .= '<input id="' . $args['id'] . '" class="button ' . $classes . '" type="button" value="' . $args['textvalue'] . '" />';
@@ -571,9 +571,9 @@ class cptui_admin_ui {
 	 * @param array $additions Arguments array to merge with our defaults.
 	 * @return array $value Merged arrays for our default parameters.
 	 */
-	public function get_default_input_parameters( $additions = array() ) {
+	public function get_default_input_parameters( $additions = [] ) {
 		return array_merge(
-			array(
+			[
 				'namearray'      => '',
 				'name'           => '',
 				'textvalue'      => '',
@@ -584,7 +584,7 @@ class cptui_admin_ui {
 				'required'       => false,
 				'wrap'           => true,
 				'placeholder'    => true,
-			),
+			],
 			(array) $additions
 		);
 	}

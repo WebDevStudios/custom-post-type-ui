@@ -22,7 +22,7 @@ class CPTUI_Import_JSON extends WP_CLI_Command {
 
 	public $type;
 
-	public $data = array();
+	public $data = [];
 
 	/**
 	 * Imports and parses JSON into CPTUI settings.

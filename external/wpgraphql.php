@@ -32,16 +32,16 @@ class CPTUI_GraphQL {
 	public function init() {
 
 		// Post Types.
-		add_action( 'cptui_post_type_after_fieldsets', array( $this, 'add_graphql_post_type_settings' ), 10, 1 );
-		add_filter( 'cptui_before_update_post_type', array( $this, 'before_update_post_type' ), 10, 2 );
-		add_filter( 'cptui_pre_register_post_type', array( $this, 'add_graphql_settings_to_registry' ), 10, 3 );
-		add_filter( 'cptui_pre_save_post_type', array( $this, 'save_graphql_settings' ), 10, 2 );
+		add_action( 'cptui_post_type_after_fieldsets', [ $this, 'add_graphql_post_type_settings' ], 10, 1 );
+		add_filter( 'cptui_before_update_post_type', [ $this, 'before_update_post_type' ], 10, 2 );
+		add_filter( 'cptui_pre_register_post_type', [ $this, 'add_graphql_settings_to_registry' ], 10, 3 );
+		add_filter( 'cptui_pre_save_post_type', [ $this, 'save_graphql_settings' ], 10, 2 );
 
 		// Taxonomies.
-		add_action( 'cptui_taxonomy_after_fieldsets', array( $this, 'add_taxonomy_graphql_settings' ), 10, 1 );
-		add_filter( 'cptui_before_update_taxonomy', array( $this, 'before_update_taxonomy' ), 10, 2 );
-		add_filter( 'cptui_pre_register_taxonomy', array( $this, 'add_graphql_settings_to_registry' ), 10, 3 );
-		add_filter( 'cptui_pre_save_taxonomy', array( $this, 'save_graphql_settings' ), 10, 2 );
+		add_action( 'cptui_taxonomy_after_fieldsets', [ $this, 'add_taxonomy_graphql_settings' ], 10, 1 );
+		add_filter( 'cptui_before_update_taxonomy', [ $this, 'before_update_taxonomy' ], 10, 2 );
+		add_filter( 'cptui_pre_register_taxonomy', [ $this, 'add_graphql_settings_to_registry' ], 10, 3 );
+		add_filter( 'cptui_pre_save_taxonomy', [ $this, 'save_graphql_settings' ], 10, 2 );
 	}
 
 	/**
@@ -140,7 +140,7 @@ class CPTUI_GraphQL {
 	 */
 	public function add_graphql_post_type_settings( $ui ) {
 		$tab        = ( ! empty( $_GET ) && ! empty( $_GET['action'] ) && 'edit' === $_GET['action'] ) ? 'edit' : 'new'; // phpcs:ignore WordPress.Security.NonceVerification
-		$current    = array();
+		$current    = [];
 		$name_array = 'cpt_custom_post_type';
 		if ( 'edit' === $tab ) {
 			$post_types         = cptui_get_post_type_data();
@@ -162,7 +162,7 @@ class CPTUI_GraphQL {
 	public function add_taxonomy_graphql_settings( $ui ) {
 		$tab        = ( ! empty( $_GET ) && ! empty( $_GET['action'] ) && 'edit' === $_GET['action'] ) ? 'edit' : 'new'; // phpcs:ignore WordPress.Security.NonceVerification
 		$name_array = 'cpt_custom_tax';
-		$current    = array();
+		$current    = [];
 		if ( 'edit' === $tab ) {
 			$taxonomies        = cptui_get_taxonomy_data();
 			$selected_taxonomy = cptui_get_current_taxonomy( false );
@@ -202,24 +202,24 @@ class CPTUI_GraphQL {
 					<table class="form-table cptui-table">
 						<?php
 
-						$selections = array(
-							'options' => array(
-								array(
+						$selections = [
+							'options' => [
+								[
 									'attr' => '0',
 									'text' => esc_attr__( 'False', 'wp-graphql-custom-post-type-ui' ),
-								),
-								array(
+								],
+								[
 									'attr' => '1',
 									'text' => esc_attr__( 'True', 'wp-graphql-custom-post-type-ui' ),
-								),
-							),
-						);
+								],
+							],
+						];
 
 						$selected               = ( isset( $current ) && ! empty( $current['show_in_graphql'] ) ) ? disp_boolean( $current['show_in_graphql'] ) : '';
 						$selections['selected'] = ( ! empty( $selected ) && ! empty( $current['show_in_graphql'] ) ) ? $current['show_in_graphql'] : '0';
 
 						echo $ui->get_select_input( // phpcs:ignore.
-							array(
+							[
 								'namearray'  => $name_array,
 								'name'       => 'show_in_graphql',
 								'labeltext'  => esc_html__( 'Show in GraphQL', 'wp-graphql-custom-post-type-ui' ),
@@ -227,29 +227,29 @@ class CPTUI_GraphQL {
 								'selections' => $selections, // phpcs:ignore.
 								'default'    => false,
 								'required'   => true,
-							)
+							]
 						);
 
 						echo $ui->get_text_input( // phpcs:ignore.
-							array(
+							[
 								'namearray' => $name_array,
 								'name'      => 'graphql_single_name',
 								'labeltext' => esc_html__( 'GraphQL Single Name', 'wp-graphql-custom-post-type-ui' ),
 								'aftertext' => esc_attr__( 'Singular name for reference in the GraphQL API.', 'wp-graphql-custom-post-type-ui' ),
 								'textvalue' => ( isset( $current['graphql_single_name'] ) ) ? esc_attr( $current['graphql_single_name'] ) : '', // phpcs:ignore.
 								'required'  => true,
-							)
+							]
 						);
 
 						echo $ui->get_text_input( // phpcs:ignore.
-							array(
+							[
 								'namearray' => $name_array,
 								'name'      => 'graphql_plural_name',
 								'labeltext' => esc_html__( 'GraphQL Plural Name', 'wp-graphql-custom-post-type-ui' ),
 								'aftertext' => esc_attr__( 'Plural name for reference in the GraphQL API.', 'wp-graphql-custom-post-type-ui' ),
 								'textvalue' => ( isset( $current['graphql_plural_name'] ) ) ? esc_attr( $current['graphql_plural_name'] ) : '', // phpcs:ignore.
 								'required'  => true,
-							)
+							]
 						);
 						?>
 					</table>

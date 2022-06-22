@@ -92,7 +92,7 @@ class CPTUI_Debug_Info {
 		// Standard plugins - active.
 		echo "\n";
 
-		$active   = get_option( 'active_plugins', array() );
+		$active   = get_option( 'active_plugins', [] );
 		$ac_count = count( $active );
 		$ic_count = $pg_count - $ac_count;
 
@@ -123,7 +123,7 @@ class CPTUI_Debug_Info {
 		if ( is_multisite() ) :
 
 			$net_plugins = wp_get_active_network_plugins();
-			$net_active  = get_site_option( 'active_sitewide_plugins', array() );
+			$net_active  = get_site_option( 'active_sitewide_plugins', [] );
 
 			echo "\n";
 			echo 'NETWORK ACTIVE PLUGINS: (' . count( $net_plugins ) . ')' . "\n\n";
@@ -210,7 +210,7 @@ class CPTUI_Debug_Info {
 	 * @param array $args Array of arguments for the method. Optional.
 	 * @return bool
 	 */
-	public function send_email( $args = array() ) {
+	public function send_email( $args = [] ) {
 
 		if ( ! isset( $args['email'] ) || ! is_email( $args['email'] ) ) {
 			return false;

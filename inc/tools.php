@@ -50,40 +50,40 @@ add_action( 'admin_enqueue_scripts', 'cptui_tools_assets' );
  * @param string $current_page Current page being shown. Optional. Default empty string.
  * @return array Amended array of tabs to show.
  */
-function cptui_tools_tabs( $tabs = array(), $current_page = '' ) {
+function cptui_tools_tabs( $tabs = [], $current_page = '' ) {
 
 	if ( 'tools' === $current_page ) {
-		$classes = array( 'nav-tab' );
+		$classes = [ 'nav-tab' ];
 
 		$tabs['page_title']         = get_admin_page_title();
-		$tabs['tabs']               = array();
-		$tabs['tabs']['post_types'] = array(
+		$tabs['tabs']               = [];
+		$tabs['tabs']['post_types'] = [
 			'text'          => __( 'Post Types', 'custom-post-type-ui' ),
 			'classes'       => $classes,
 			'url'           => cptui_admin_url( 'admin.php?page=cptui_' . $current_page ),
 			'aria-selected' => 'false',
-		);
+		];
 
-		$tabs['tabs']['taxonomies'] = array(
+		$tabs['tabs']['taxonomies'] = [
 			'text'          => __( 'Taxonomies', 'custom-post-type-ui' ),
 			'classes'       => $classes,
-			'url'           => esc_url( add_query_arg( array( 'action' => 'taxonomies' ), cptui_admin_url( 'admin.php?page=cptui_' . $current_page ) ) ),
+			'url'           => esc_url( add_query_arg( [ 'action' => 'taxonomies' ], cptui_admin_url( 'admin.php?page=cptui_' . $current_page ) ) ),
 			'aria-selected' => 'false',
-		);
+		];
 
-		$tabs['tabs']['get_code'] = array(
+		$tabs['tabs']['get_code'] = [
 			'text'          => __( 'Get Code', 'custom-post-type-ui' ),
 			'classes'       => $classes,
-			'url'           => esc_url( add_query_arg( array( 'action' => 'get_code' ), cptui_admin_url( 'admin.php?page=cptui_' . $current_page ) ) ),
+			'url'           => esc_url( add_query_arg( [ 'action' => 'get_code' ], cptui_admin_url( 'admin.php?page=cptui_' . $current_page ) ) ),
 			'aria-selected' => 'false',
-		);
+		];
 
-		$tabs['tabs']['debuginfo'] = array(
+		$tabs['tabs']['debuginfo'] = [
 			'text'          => __( 'Debug Info', 'custom-post-type-ui' ),
 			'classes'       => $classes,
-			'url'           => esc_url( add_query_arg( array( 'action' => 'debuginfo' ), cptui_admin_url( 'admin.php?page=cptui_' . $current_page ) ) ),
+			'url'           => esc_url( add_query_arg( [ 'action' => 'debuginfo' ], cptui_admin_url( 'admin.php?page=cptui_' . $current_page ) ) ),
 			'aria-selected' => 'false',
-		);
+		];
 
 		$active_class = 'nav-tab-active';
 		$action       = cptui_get_current_action();
@@ -148,7 +148,7 @@ function cptui_tools() {
 	 *
 	 * @deprecated 1.5.0
 	 */
-	do_action_deprecated( 'cptui_inside_importexport_wrap', array(), '1.5.0', 'cptui_inside_tools_wrap' );
+	do_action_deprecated( 'cptui_inside_importexport_wrap', [], '1.5.0', 'cptui_inside_tools_wrap' );
 
 	/**
 	 * Fires right inside the wrap div for the tools pages.
@@ -171,7 +171,7 @@ function cptui_tools() {
 	 *
 	 * @param string $tab Current tab being displayed.
 	 */
-	do_action_deprecated( 'cptui_import_export_sections', array( $tab ), '1.5.0', 'cptui_tools_sections' );
+	do_action_deprecated( 'cptui_import_export_sections', [ $tab ], '1.5.0', 'cptui_tools_sections' );
 
 	/**
 	 * Fires inside the markup for the tools section.
@@ -197,7 +197,7 @@ function cptui_tools() {
  * @param array $cptui_taxonomies Array of taxonomies to render. Optional.
  * @param bool  $single           Whether or not we are rendering a single taxonomy. Optional. Default false.
  */
-function cptui_get_taxonomy_code( $cptui_taxonomies = array(), $single = false ) {
+function cptui_get_taxonomy_code( $cptui_taxonomies = [], $single = false ) {
 	if ( ! empty( $cptui_taxonomies ) ) {
 		$callback = 'cptui_register_my_taxes';
 		if ( $single ) {
@@ -226,7 +226,7 @@ function cptui_get_taxonomy_code( $cptui_taxonomies = array(), $single = false )
  *
  * @param array $taxonomy Taxonomy data to output. Optional.
  */
-function cptui_get_single_taxonomy_registery( $taxonomy = array() ) {
+function cptui_get_single_taxonomy_registery( $taxonomy = [] ) {
 
 	$post_types = "''";
 	if ( is_array( $taxonomy['object_types'] ) ) {
@@ -378,7 +378,7 @@ function cptui_get_single_taxonomy_registery( $taxonomy = array() ) {
  * @param array $cptui_post_types Array of post types to render. Optional.
  * @param bool  $single           Whether or not we are rendering a single post type. Optional. Default false.
  */
-function cptui_get_post_type_code( $cptui_post_types = array(), $single = false ) {
+function cptui_get_post_type_code( $cptui_post_types = [], $single = false ) {
 	// Whitespace very much matters here, thus why it's all flush against the left side.
 	if ( ! empty( $cptui_post_types ) ) {
 		$callback = 'cptui_register_my_cpts';
@@ -411,13 +411,13 @@ add_action( 'init', '<?php echo esc_html( $callback ); ?>' );
  *
  * @param array $post_type Post type data to output. Optional.
  */
-function cptui_get_single_post_type_registery( $post_type = array() ) {
+function cptui_get_single_post_type_registery( $post_type = [] ) {
 
 	/* This filter is documented in custom-post-type-ui/custom-post-type-ui.php */
 	$post_type['map_meta_cap'] = apply_filters( 'cptui_map_meta_cap', 'true', $post_type['name'], $post_type );
 
 	/* This filter is documented in custom-post-type-ui/custom-post-type-ui.php */
-	$user_supports_params = apply_filters( 'cptui_user_supports_params', array(), $post_type['name'], $post_type );
+	$user_supports_params = apply_filters( 'cptui_user_supports_params', [], $post_type['name'], $post_type );
 	if ( is_array( $user_supports_params ) ) {
 		$post_type['supports'] = array_merge( $post_type['supports'], $user_supports_params );
 	}
@@ -427,7 +427,7 @@ function cptui_get_single_post_type_registery( $post_type = array() ) {
 		$custom = explode( ',', $post_type['custom_supports'] );
 		foreach ( $custom as $part ) {
 			// We'll handle YARPP separately.
-			if ( in_array( $part, array( 'YARPP', 'yarpp' ), true ) ) {
+			if ( in_array( $part, [ 'YARPP', 'yarpp' ], true ) ) {
 				$yarpp = true;
 				continue;
 			}
@@ -486,7 +486,7 @@ function cptui_get_single_post_type_registery( $post_type = array() ) {
 		$taxonomies = '[ "' . implode( '", "', $post_type['taxonomies'] ) . '" ]';
 	}
 
-	if ( in_array( $post_type['query_var'], array( 'true', 'false', '0', '1' ), true ) ) {
+	if ( in_array( $post_type['query_var'], [ 'true', 'false', '0', '1' ], true ) ) {
 		$post_type['query_var'] = disp_boolean( $post_type['query_var'] );
 	}
 	if ( ! empty( $post_type['query_var_slug'] ) ) {
@@ -630,7 +630,7 @@ function cptui_get_single_post_type_registery( $post_type = array() ) {
  * @param array $postdata $_POST data as json. Optional.
  * @return mixed false on nothing to do, otherwise void.
  */
-function cptui_import_types_taxes_settings( $postdata = array() ) {
+function cptui_import_types_taxes_settings( $postdata = [] ) {
 	if ( ! isset( $postdata['cptui_post_import'] ) && ! isset( $postdata['cptui_tax_import'] ) && ! array_key_exists( 'delete', $postdata ) ) {
 		return false;
 	}
@@ -913,7 +913,7 @@ function cptui_render_getcode_section() {
 					?>
 				</h2>
 				<p><label for="cptui_post_type_get_code_<?php echo esc_attr( $post_type['name'] ); ?>"><?php esc_html_e( 'Copy/paste the code below into your functions.php file.', 'custom-post-type-ui' ); ?></label></p>
-				<textarea name="cptui_post_type_get_code_<?php echo esc_attr( $post_type['name'] ); ?>" id="cptui_post_type_get_code_<?php echo esc_attr( $post_type['name'] ); ?>" class="large-text cptui_post_type_get_code" onclick="this.focus();this.select()" onfocus="this.focus();this.select();" readonly="readonly" aria-readonly="true"><?php cptui_get_post_type_code( array( $post_type ), true ); ?></textarea>
+				<textarea name="cptui_post_type_get_code_<?php echo esc_attr( $post_type['name'] ); ?>" id="cptui_post_type_get_code_<?php echo esc_attr( $post_type['name'] ); ?>" class="large-text cptui_post_type_get_code" onclick="this.focus();this.select()" onfocus="this.focus();this.select();" readonly="readonly" aria-readonly="true"><?php cptui_get_post_type_code( [ $post_type ], true ); ?></textarea>
 				<?php
 			}
 		}
@@ -940,7 +940,7 @@ function cptui_render_getcode_section() {
 					?>
 				</h2>
 				<p><label for="cptui_tax_get_code_<?php echo esc_attr( $taxonomy['name'] ); ?>"><?php esc_html_e( 'Copy/paste the code below into your functions.php file.', 'custom-post-type-ui' ); ?></label></p>
-				<textarea name="cptui_tax_get_code_<?php echo esc_attr( $taxonomy['name'] ); ?>" id="cptui_tax_get_code_<?php echo esc_attr( $taxonomy['name'] ); ?>" class="large-text cptui_tax_get_code" onclick="this.focus();this.select()" onfocus="this.focus();this.select();" readonly="readonly" aria-readonly="true"><?php cptui_get_taxonomy_code( array( $taxonomy ), true ); ?></textarea>
+				<textarea name="cptui_tax_get_code_<?php echo esc_attr( $taxonomy['name'] ); ?>" id="cptui_tax_get_code_<?php echo esc_attr( $taxonomy['name'] ); ?>" class="large-text cptui_tax_get_code" onclick="this.focus();this.select()" onfocus="this.focus();this.select();" readonly="readonly" aria-readonly="true"><?php cptui_get_taxonomy_code( [ $taxonomy ], true ); ?></textarea>
 				<?php
 			}
 		}
@@ -967,7 +967,7 @@ function cptui_render_debuginfo_section() {
 	if ( ! empty( $_POST ) && isset( $_POST['cptui_debug_info_email'] ) && isset( $_POST['cptui_debuginfo_nonce_field'] ) ) {
 		wp_verify_nonce( 'cptui_debuginfo_nonce_field', 'cptui_debuginfo_nonce_action' );
 
-		$email_args          = array();
+		$email_args          = [];
 		$email_args['email'] = sanitize_text_field( wp_unslash( $_POST['cptui_debug_info_email'] ) );
 		$debuginfo->send_email( $email_args );
 	}
@@ -1027,7 +1027,7 @@ function cptui_do_import_types_taxes() {
 		( ! empty( $_POST['cptui_post_import'] ) && isset( $_POST['cptui_post_import'] ) ) || // phpcs:ignore WordPress.Security.NonceVerification
 		( ! empty( $_POST['cptui_tax_import'] ) && isset( $_POST['cptui_tax_import'] ) ) // phpcs:ignore WordPress.Security.NonceVerification
 	) {
-		$data              = array();
+		$data              = [];
 		$decoded_post_data = null;
 		$decoded_tax_data  = null;
 		if ( ! empty( $_POST['cptui_post_import'] ) ) {  // phpcs:ignore.

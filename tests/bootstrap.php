@@ -32,11 +32,11 @@ require_once $wp_test_dir . '/includes/functions.php';
  *
  * @see wp_tests_options
  */
-$GLOBALS['wp_tests_options'] = array(
-	'active_plugins' => array(
+$GLOBALS['wp_tests_options'] = [
+	'active_plugins' => [
 		'hello.php',
-	),
-);
+	],
+];
 
 /**
  * Run custom functionality after mu-plugins are loaded.
