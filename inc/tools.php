@@ -312,8 +312,8 @@ function cptui_get_single_taxonomy_registery( $taxonomy = [] ) {
 	?>
 
 /**
-	* Taxonomy: <?php echo esc_html( $taxonomy['label'] ); ?>.
-	*/
+* Taxonomy: <?php echo esc_html( $taxonomy['label'] ); ?>.
+*/
 
 $labels = [
 	"name" => __( "<?php echo esc_html( $taxonomy['label'] ); ?>", "<?php echo esc_html( $textdomain ); ?>" ),
