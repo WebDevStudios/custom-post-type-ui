@@ -205,15 +205,15 @@ function cptui_get_taxonomy_code( $cptui_taxonomies = [], $single = false ) {
 			$callback = 'cptui_register_my_taxes_' . str_replace( '-', '_', esc_html( $cptui_taxonomies[ $key ]['name'] ) );
 		}
 		?>
-		function <?php echo esc_html( $callback ); ?>() {
-			<?php
-			foreach ( $cptui_taxonomies as $tax ) {
-				echo cptui_get_single_taxonomy_registery( $tax ); // phpcs:ignore WordPress.Security.EscapeOutput
-			}
-			?>
-		}
-		add_action( 'init', '<?php echo esc_html( $callback ); ?>' );
-		<?php
+function <?php echo esc_html( $callback ); ?>() {
+	<?php
+	foreach ( $cptui_taxonomies as $tax ) {
+		echo cptui_get_single_taxonomy_registery( $tax ); // phpcs:ignore WordPress.Security.EscapeOutput
+	}
+	?>
+}
+add_action( 'init', '<?php echo esc_html( $callback ); ?>' );
+<?php
 	} else {
 		esc_html_e( 'No taxonomies to display at this time', 'custom-post-type-ui' );
 	}
@@ -311,61 +311,61 @@ function cptui_get_single_taxonomy_registery( $taxonomy = [] ) {
 	}
 	?>
 
-	/**
-	 * Taxonomy: <?php echo esc_html( $taxonomy['label'] ); ?>.
-	 */
+/**
+	* Taxonomy: <?php echo esc_html( $taxonomy['label'] ); ?>.
+	*/
 
-	$labels = [
-		"name" => __( "<?php echo esc_html( $taxonomy['label'] ); ?>", "<?php echo esc_html( $textdomain ); ?>" ),
-		"singular_name" => __( "<?php echo esc_html( $taxonomy['singular_label'] ); ?>", "<?php echo esc_html( $textdomain ); ?>" ),
-	<?php
-	foreach ( $taxonomy['labels'] as $key => $label ) {
-		if ( ! empty( $label ) ) {
-			echo "\t\t" . '"' . esc_html( $key ) . '" => __( "' . esc_html( $label ) . '", "' . esc_html( $textdomain ) . '" ),' . "\n";
-		}
+$labels = [
+	"name" => __( "<?php echo esc_html( $taxonomy['label'] ); ?>", "<?php echo esc_html( $textdomain ); ?>" ),
+	"singular_name" => __( "<?php echo esc_html( $taxonomy['singular_label'] ); ?>", "<?php echo esc_html( $textdomain ); ?>" ),
+<?php
+foreach ( $taxonomy['labels'] as $key => $label ) {
+	if ( ! empty( $label ) ) {
+		echo "\t\t" . '"' . esc_html( $key ) . '" => __( "' . esc_html( $label ) . '", "' . esc_html( $textdomain ) . '" ),' . "\n";
 	}
-	?>
-	];
+}
+?>
+];
 
 	<?php
 	$show_graphql = isset( $taxonomy['show_in_graphql'] ) ? (bool) $taxonomy['show_in_graphql'] : false;
 	?>
 
-	$args = [
-		"label" => __( "<?php echo esc_html( $taxonomy['label'] ); ?>", "<?php echo esc_html( $textdomain ); ?>" ),
-		"labels" => $labels,
-		"public" => <?php echo esc_html( $public ); ?>,
-		"publicly_queryable" => <?php echo esc_html( $publicly_queryable ); ?>,
-		"hierarchical" => <?php echo esc_html( $taxonomy['hierarchical'] ); ?>,
-		"show_ui" => <?php echo esc_html( disp_boolean( $taxonomy['show_ui'] ) ); ?>,
-		"show_in_menu" => <?php echo esc_html( $show_in_menu ); ?>,
-		"show_in_nav_menus" => <?php echo esc_html( $show_in_nav_menus ); ?>,
-		"query_var" => <?php echo esc_html( disp_boolean( $taxonomy['query_var'] ) ); ?>,
-		"rewrite" => <?php echo $rewrite; // phpcs:ignore. ?>,
-		"show_admin_column" => <?php echo esc_html( $taxonomy['show_admin_column'] ); ?>,
-		"show_in_rest" => <?php echo esc_html( $show_in_rest ); ?>,
-		"show_tagcloud" => <?php echo esc_html( $show_tagcloud ); ?>,
-		"rest_base" => "<?php echo esc_html( $rest_base ); ?>",
-		"rest_controller_class" => "<?php echo esc_html( $rest_controller_class ); ?>",
-		"rest_namespace" => "<?php echo $rest_namespace; // phpcs:ignore. ?>",
-		"show_in_quick_edit" => <?php echo esc_html( $show_in_quick_edit ); ?>,
-		"sort" => <?php echo esc_html( disp_boolean( $taxonomy['sort'] ) ); ?>,
-	<?php if ( $show_graphql ) : ?>
-		"show_in_graphql" => <?php echo esc_html( disp_boolean( $taxonomy['show_in_graphql'] ) ); ?>,
-		"graphql_single_name" => "<?php echo esc_html( $taxonomy['graphql_single_name'] ); ?>",
-		"graphql_plural_name" => "<?php echo esc_html( $taxonomy['graphql_plural_name'] ); ?>",
+$args = [
+	"label" => __( "<?php echo esc_html( $taxonomy['label'] ); ?>", "<?php echo esc_html( $textdomain ); ?>" ),
+	"labels" => $labels,
+	"public" => <?php echo esc_html( $public ); ?>,
+	"publicly_queryable" => <?php echo esc_html( $publicly_queryable ); ?>,
+	"hierarchical" => <?php echo esc_html( $taxonomy['hierarchical'] ); ?>,
+	"show_ui" => <?php echo esc_html( disp_boolean( $taxonomy['show_ui'] ) ); ?>,
+	"show_in_menu" => <?php echo esc_html( $show_in_menu ); ?>,
+	"show_in_nav_menus" => <?php echo esc_html( $show_in_nav_menus ); ?>,
+	"query_var" => <?php echo esc_html( disp_boolean( $taxonomy['query_var'] ) ); ?>,
+	"rewrite" => <?php echo $rewrite; // phpcs:ignore. ?>,
+	"show_admin_column" => <?php echo esc_html( $taxonomy['show_admin_column'] ); ?>,
+	"show_in_rest" => <?php echo esc_html( $show_in_rest ); ?>,
+	"show_tagcloud" => <?php echo esc_html( $show_tagcloud ); ?>,
+	"rest_base" => "<?php echo esc_html( $rest_base ); ?>",
+	"rest_controller_class" => "<?php echo esc_html( $rest_controller_class ); ?>",
+	"rest_namespace" => "<?php echo $rest_namespace; // phpcs:ignore. ?>",
+	"show_in_quick_edit" => <?php echo esc_html( $show_in_quick_edit ); ?>,
+	"sort" => <?php echo esc_html( disp_boolean( $taxonomy['sort'] ) ); ?>,
+<?php if ( $show_graphql ) : ?>
+	"show_in_graphql" => <?php echo esc_html( disp_boolean( $taxonomy['show_in_graphql'] ) ); ?>,
+	"graphql_single_name" => "<?php echo esc_html( $taxonomy['graphql_single_name'] ); ?>",
+	"graphql_plural_name" => "<?php echo esc_html( $taxonomy['graphql_plural_name'] ); ?>",
 <?php else : ?>
-		"show_in_graphql" => <?php echo esc_html( disp_boolean( false ) ); ?>,
+	"show_in_graphql" => <?php echo esc_html( disp_boolean( false ) ); ?>,
 <?php endif; ?>
-	<?php if ( ! empty( $meta_box_cb ) ) { ?>
-		"meta_box_cb" => <?php echo $meta_box_cb; // phpcs:ignore. ?>,
+<?php if ( ! empty( $meta_box_cb ) ) { ?>
+	"meta_box_cb" => <?php echo $meta_box_cb; // phpcs:ignore. ?>,
 <?php } ?>
-	<?php if ( ! empty( $default_term ) ) { ?>
-		"default_term" => <?php echo $default_term; // phpcs:ignore. ?>,
+<?php if ( ! empty( $default_term ) ) { ?>
+	"default_term" => <?php echo $default_term; // phpcs:ignore. ?>,
 <?php } ?>
-	];
-	register_taxonomy( "<?php echo esc_html( $taxonomy['name'] ); ?>", <?php echo $post_types; // phpcs:ignore. ?>, $args );
-	<?php
+];
+register_taxonomy( "<?php echo esc_html( $taxonomy['name'] ); ?>", <?php echo $post_types; // phpcs:ignore. ?>, $args );
+<?php
 }
 
 /**
@@ -389,16 +389,16 @@ function cptui_get_post_type_code( $cptui_post_types = [], $single = false ) {
 		?>
 
 function <?php echo esc_html( $callback ); ?>() {
-		<?php
-		// Space before this line reflects in textarea.
-		foreach ( $cptui_post_types as $type ) {
-			echo cptui_get_single_post_type_registery( $type ); // phpcs:ignore.
-		}
-		?>
+<?php
+	// Space before this line reflects in textarea.
+	foreach ( $cptui_post_types as $type ) {
+		echo cptui_get_single_post_type_registery( $type ); // phpcs:ignore.
+	}
+?>
 }
 
 add_action( 'init', '<?php echo esc_html( $callback ); ?>' );
-		<?php
+<?php
 	} else {
 		esc_html_e( 'No post types to display at this time', 'custom-post-type-ui' );
 	}
@@ -546,77 +546,77 @@ function cptui_get_single_post_type_registery( $post_type = [] ) {
 	}
 	?>
 
-	/**
-	 * Post Type: <?php echo esc_html( $post_type['label'] ); ?>.
-	 */
+/**
+* Post Type: <?php echo esc_html( $post_type['label'] ); ?>.
+*/
 
-	$labels = [
-		"name" => __( "<?php echo esc_html( $post_type['label'] ); ?>", "<?php echo esc_html( $textdomain ); ?>" ),
-		"singular_name" => __( "<?php echo esc_html( $post_type['singular_label'] ); ?>", "<?php echo esc_html( $textdomain ); ?>" ),
-	<?php
-	foreach ( $post_type['labels'] as $key => $label ) {
-		if ( ! empty( $label ) ) {
-			if ( 'parent' === $key && ! array_key_exists( 'parent_item_colon', $post_type['labels'] ) ) {
-				// Fix for incorrect label key. See #439.
-				echo "\t\t" . '"' . 'parent_item_colon' . '" => __( "' . $label . '", "' . $textdomain . '" ),' . "\n"; // phpcs:ignore.
-			} else {
-				echo "\t\t" . '"' . $key . '" => __( "' . $label . '", "' . $textdomain . '" ),' . "\n"; // phpcs:ignore.
-			}
+$labels = [
+	"name" => __( "<?php echo esc_html( $post_type['label'] ); ?>", "<?php echo esc_html( $textdomain ); ?>" ),
+	"singular_name" => __( "<?php echo esc_html( $post_type['singular_label'] ); ?>", "<?php echo esc_html( $textdomain ); ?>" ),
+<?php
+foreach ( $post_type['labels'] as $key => $label ) {
+	if ( ! empty( $label ) ) {
+		if ( 'parent' === $key && ! array_key_exists( 'parent_item_colon', $post_type['labels'] ) ) {
+			// Fix for incorrect label key. See #439.
+			echo "\t\t" . '"' . 'parent_item_colon' . '" => __( "' . $label . '", "' . $textdomain . '" ),' . "\n"; // phpcs:ignore.
+		} else {
+			echo "\t\t" . '"' . $key . '" => __( "' . $label . '", "' . $textdomain . '" ),' . "\n"; // phpcs:ignore.
 		}
 	}
-	?>
-	];
+}
+?>
+];
 
-	$args = [
-		"label" => __( "<?php echo esc_html( $post_type['label'] ); ?>", "<?php echo esc_html( $textdomain ); ?>" ),
-		"labels" => $labels,
-		"description" => "<?php echo esc_html( $post_type['description'] ); ?>",
-		"public" => <?php echo esc_html( disp_boolean( $post_type['public'] ) ); ?>,
-		"publicly_queryable" => <?php echo esc_html( disp_boolean( $post_type['publicly_queryable'] ) ); ?>,
-		"show_ui" => <?php echo esc_html( disp_boolean( $post_type['show_ui'] ) ); ?>,
-		"show_in_rest" => <?php echo esc_html( disp_boolean( $post_type['show_in_rest'] ) ); ?>,
-		"rest_base" => "<?php echo esc_html( $post_type['rest_base'] ); ?>",
-		"rest_controller_class" => "<?php echo $rest_controller_class; // phpcs:ignore. ?>",
-		"rest_namespace" => "<?php echo $rest_namespace; // phpcs:ignore. ?>",
-		"has_archive" => <?php echo esc_html( $has_archive ); ?>,
-		"show_in_menu" => <?php echo esc_html( $show_in_menu ); ?>,
-		"show_in_nav_menus" => <?php echo esc_html( $show_in_nav_menus ); ?>,
-		"delete_with_user" => <?php echo esc_html( $delete_with_user ); ?>,
-		"exclude_from_search" => <?php echo esc_html( disp_boolean( $post_type['exclude_from_search'] ) ); ?>,
-		"capability_type" => <?php echo esc_html( $capability_type ); ?>,
-		"map_meta_cap" => <?php echo esc_html( disp_boolean( $post_type['map_meta_cap'] ) ); ?>,
-		"hierarchical" => <?php echo esc_html( disp_boolean( $post_type['hierarchical'] ) ); ?>,
-		"can_export" => <?php echo esc_html( $can_export ); ?>,
-		"rewrite" => <?php echo $rewrite; // phpcs:ignore. ?>,
-		"query_var" => <?php echo esc_html( $post_type['query_var'] ); ?>,
-	<?php if ( ! empty( $post_type['menu_position'] ) ) { ?>
-		"menu_position" => <?php echo $post_type['menu_position']; // phpcs:ignore. ?>,
+$args = [
+	"label" => __( "<?php echo esc_html( $post_type['label'] ); ?>", "<?php echo esc_html( $textdomain ); ?>" ),
+	"labels" => $labels,
+	"description" => "<?php echo esc_html( $post_type['description'] ); ?>",
+	"public" => <?php echo esc_html( disp_boolean( $post_type['public'] ) ); ?>,
+	"publicly_queryable" => <?php echo esc_html( disp_boolean( $post_type['publicly_queryable'] ) ); ?>,
+	"show_ui" => <?php echo esc_html( disp_boolean( $post_type['show_ui'] ) ); ?>,
+	"show_in_rest" => <?php echo esc_html( disp_boolean( $post_type['show_in_rest'] ) ); ?>,
+	"rest_base" => "<?php echo esc_html( $post_type['rest_base'] ); ?>",
+	"rest_controller_class" => "<?php echo $rest_controller_class; // phpcs:ignore. ?>",
+	"rest_namespace" => "<?php echo $rest_namespace; // phpcs:ignore. ?>",
+	"has_archive" => <?php echo esc_html( $has_archive ); ?>,
+	"show_in_menu" => <?php echo esc_html( $show_in_menu ); ?>,
+	"show_in_nav_menus" => <?php echo esc_html( $show_in_nav_menus ); ?>,
+	"delete_with_user" => <?php echo esc_html( $delete_with_user ); ?>,
+	"exclude_from_search" => <?php echo esc_html( disp_boolean( $post_type['exclude_from_search'] ) ); ?>,
+	"capability_type" => <?php echo esc_html( $capability_type ); ?>,
+	"map_meta_cap" => <?php echo esc_html( disp_boolean( $post_type['map_meta_cap'] ) ); ?>,
+	"hierarchical" => <?php echo esc_html( disp_boolean( $post_type['hierarchical'] ) ); ?>,
+	"can_export" => <?php echo esc_html( $can_export ); ?>,
+	"rewrite" => <?php echo $rewrite; // phpcs:ignore. ?>,
+	"query_var" => <?php echo esc_html( $post_type['query_var'] ); ?>,
+<?php if ( ! empty( $post_type['menu_position'] ) ) { ?>
+	"menu_position" => <?php echo $post_type['menu_position']; // phpcs:ignore. ?>,
 <?php } ?>
-	<?php if ( ! empty( $post_type['menu_icon'] ) ) { ?>
-		"menu_icon" => "<?php echo esc_html( $post_type['menu_icon'] ); ?>",
+<?php if ( ! empty( $post_type['menu_icon'] ) ) { ?>
+	"menu_icon" => "<?php echo esc_html( $post_type['menu_icon'] ); ?>",
 <?php } ?>
-	<?php if ( ! empty( $post_type['register_meta_box_cb'] ) ) { ?>
-		"register_meta_box_cb" => "<?php echo $post_type['register_meta_box_cb']; // phpcs:ignore. ?>",
+<?php if ( ! empty( $post_type['register_meta_box_cb'] ) ) { ?>
+	"register_meta_box_cb" => "<?php echo $post_type['register_meta_box_cb']; // phpcs:ignore. ?>",
 <?php } ?>
-	<?php if ( ! empty( $supports ) ) { ?>
-		"supports" => <?php echo $supports; // phpcs:ignore. ?>,
+<?php if ( ! empty( $supports ) ) { ?>
+	"supports" => <?php echo $supports; // phpcs:ignore. ?>,
 <?php } ?>
-	<?php if ( ! empty( $taxonomies ) ) { ?>
-		"taxonomies" => <?php echo $taxonomies; // phpcs:ignore. ?>,
+<?php if ( ! empty( $taxonomies ) ) { ?>
+	"taxonomies" => <?php echo $taxonomies; // phpcs:ignore. ?>,
 <?php } ?>
-	<?php if ( true === $yarpp ) { ?>
-		"yarpp_support" => <?php echo disp_boolean( $yarpp ); // phpcs:ignore. ?>,
+<?php if ( true === $yarpp ) { ?>
+	"yarpp_support" => <?php echo disp_boolean( $yarpp ); // phpcs:ignore. ?>,
 <?php } ?>
-	<?php if ( $show_graphql ) : ?>
-		"show_in_graphql" => <?php echo esc_html( disp_boolean( $post_type['show_in_graphql'] ) ); ?>,
-		"graphql_single_name" => "<?php echo esc_html( $post_type['graphql_single_name'] ); ?>",
-		"graphql_plural_name" => "<?php echo esc_html( $post_type['graphql_plural_name'] ); ?>",
-	<?php else : ?>
-		"show_in_graphql" => <?php echo disp_boolean( false ); // phpcs:ignore. ?>,
+<?php if ( $show_graphql ) : ?>
+	"show_in_graphql" => <?php echo esc_html( disp_boolean( $post_type['show_in_graphql'] ) ); ?>,
+	"graphql_single_name" => "<?php echo esc_html( $post_type['graphql_single_name'] ); ?>",
+	"graphql_plural_name" => "<?php echo esc_html( $post_type['graphql_plural_name'] ); ?>",
+<?php else : ?>
+	"show_in_graphql" => <?php echo disp_boolean( false ); // phpcs:ignore. ?>,
 <?php endif; ?>
-	];
+];
 
-	register_post_type( "<?php echo esc_html( $post_type['name'] ); ?>", $args );
+register_post_type( "<?php echo esc_html( $post_type['name'] ); ?>", $args );
 	<?php
 }
 

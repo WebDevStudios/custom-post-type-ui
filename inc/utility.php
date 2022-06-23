@@ -36,8 +36,8 @@ function cptui_edit_plugin_list_links( $links ) {
 	// Add our custom links to the returned array value.
 	return array_merge(
 		array(
-			'<a href="' . admin_url( 'admin.php?page=cptui_main_menu' ) . '">' . __( 'About', 'custom-post-type-ui' ) . '</a>',
-			'<a href="' . admin_url( 'admin.php?page=cptui_support' ) . '">' . __( 'Help', 'custom-post-type-ui' ) . '</a>',
+			'<a href="' . admin_url( 'admin.php?page=cptui_main_menu' ) . '">' . esc_html__( 'About', 'custom-post-type-ui' ) . '</a>',
+			'<a href="' . admin_url( 'admin.php?page=cptui_support' ) . '">' . esc_html__( 'Help', 'custom-post-type-ui' ) . '</a>',
 		),
 		$links
 	);
@@ -380,13 +380,26 @@ function cptui_newsletter_form() {
 	?>
 
 <div class="email-octopus-form-wrapper">
-	<p><strong>Get email updates from pluginize.com about Custom Post Type UI</strong></p>
+	<?php
+		echo sprintf(
+			/* translators: Placeholders are just for HTML markup that doesn't need translated */
+			'<p><strong>%s</strong></p>',
+			esc_html__( 'Get email updates from pluginize.com about Custom Post Type UI', 'custom-post-type-ui' )
+		);
+	?>
 	<p class="email-octopus-success-message"></p>
 	<p class="email-octopus-error-message"></p>
 
 	<form method="post" action="https://emailoctopus.com/lists/2039e001-4775-11ea-be00-06b4694bee2a/members/embedded/1.3/add" class="email-octopus-form" data-sitekey="6LdYsmsUAAAAAPXVTt-ovRsPIJ_IVhvYBBhGvRV6">
 		<div class="email-octopus-form-row">
-			<label for="field_0">Email address</label>
+
+			<?php
+				echo sprintf(
+					/* translators: Placeholders are just for HTML markup that doesn't need translated */
+					'<label for="field_0">%s</label>',
+					esc_html__( 'Email address', 'custom-post-type-ui' )
+				);
+			?>
 			<input id="field_0" name="field_0" type="email" placeholder="email@domain.com" style="max-width:100%;">
 		</div>
 
@@ -401,7 +414,7 @@ function cptui_newsletter_form() {
 				echo sprintf(
 					/* translators: Placeholders are just for HTML markup that doesn't need translated */
 					'<button type="submit" class="button button-secondary">%s</button>',
-					esc_attr__( 'Subscribe', 'custom-post-type-ui' )
+					esc_html__( 'Subscribe', 'custom-post-type-ui' )
 				);
 			?>
 

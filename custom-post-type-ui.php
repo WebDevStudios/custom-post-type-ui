@@ -91,7 +91,7 @@ function cptui_make_activation_redirect() {
 	// Redirect to CPTUI about page.
 	wp_safe_redirect(
 		add_query_arg(
-			[ 'page' => 'cptui_main_menu'],
+			[ 'page' => 'cptui_main_menu' ],
 			cptui_admin_url( 'admin.php?page=cptui_main_menu' )
 		)
 	);
@@ -243,9 +243,9 @@ function cptui_add_styles() {
 	}
 
 	$min = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
-	wp_register_script( 'cptui', plugins_url( "js/cptui{$min}.js", __FILE__ ), [ 'jquery', 'jquery-ui-dialog', 'postbox'], CPTUI_VERSION, true );
-	wp_register_script( 'dashicons-picker', plugins_url( "js/dashicons-picker{$min}.js", __FILE__ ), [ 'jquery'], '1.0.0', true );
-	wp_register_style( 'cptui-css', plugins_url( "css/cptui{$min}.css", __FILE__ ), [ 'wp-jquery-ui-dialog'], CPTUI_VERSION );
+	wp_register_script( 'cptui', plugins_url( "js/cptui{$min}.js", __FILE__ ), [ 'jquery', 'jquery-ui-dialog', 'postbox' ], CPTUI_VERSION, true );
+	wp_register_script( 'dashicons-picker', plugins_url( "js/dashicons-picker{$min}.js", __FILE__ ), [ 'jquery' ], '1.0.0', true );
+	wp_register_style( 'cptui-css', plugins_url( "css/cptui{$min}.css", __FILE__ ), [ 'wp-jquery-ui-dialog' ], CPTUI_VERSION );
 }
 add_action( 'admin_enqueue_scripts', 'cptui_add_styles' );
 

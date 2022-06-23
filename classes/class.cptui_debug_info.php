@@ -233,7 +233,7 @@ class CPTUI_Debug_Info {
 			'cptui_debug_email_subject',
 			sprintf(
 				// translators: Placeholder will hold site home_url.
-				__( 'Custom Post Type UI debug information for %s', 'custom-post-type-ui' ),
+				esc_html__( 'Custom Post Type UI debug information for %s', 'custom-post-type-ui' ),
 				esc_url( home_url( '/' ) )
 			)
 		);

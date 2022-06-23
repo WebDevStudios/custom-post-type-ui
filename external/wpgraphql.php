@@ -337,7 +337,7 @@ function cptui_graphql_init() {
 				<?php
 				echo sprintf(
 					// phpcs:ignore.
-					esc_attr__( 'Custom Post Type UI has native support for WPGraphQL. Please <a href="%s">de-active</a> the "WPGraphQL for Custom Post Type UI" extension to proceed.', 'custom-post-type-ui' ),
+					esc_html__( 'Custom Post Type UI has native support for WPGraphQL. Please <a href="%s">de-active</a> the "WPGraphQL for Custom Post Type UI" extension to proceed.', 'custom-post-type-ui' ),
 					$link // phpcs:ignore.
 				);
 				?>
