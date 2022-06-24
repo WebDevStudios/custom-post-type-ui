@@ -1,7 +1,7 @@
 <?php
 
-ini_set('display_errors','on');
-error_reporting(E_ALL);
+ini_set( 'display_errors', 'on' );
+error_reporting( E_ALL );
 
 /**
  * Set `WP_TESTS_DIR` to the base directory of WordPress:
@@ -11,7 +11,7 @@ error_reporting(E_ALL);
  *
  * export WP_TESTS_DIR=/tmp/wordpress/tests
  */
-if ( ! $wp_test_dir = getenv('WP_TESTS_DIR') ) {
+if ( ! $wp_test_dir = getenv( 'WP_TESTS_DIR' ) ) {
 
 	$wp_test_dir = '/tmp/wordpress-tests-lib';
 
@@ -32,11 +32,11 @@ require_once $wp_test_dir . '/includes/functions.php';
  *
  * @see wp_tests_options
  */
-$GLOBALS['wp_tests_options'] = array(
-	'active_plugins' => array(
+$GLOBALS['wp_tests_options'] = [
+	'active_plugins' => [
 		'hello.php',
-	),
-);
+	],
+];
 
 /**
  * Run custom functionality after mu-plugins are loaded.

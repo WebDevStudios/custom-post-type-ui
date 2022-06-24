@@ -31,13 +31,13 @@ class CPTUI_GraphQL {
 	 */
 	public function init() {
 
-		// Post Types
+		// Post Types.
 		add_action( 'cptui_post_type_after_fieldsets', [ $this, 'add_graphql_post_type_settings' ], 10, 1 );
 		add_filter( 'cptui_before_update_post_type', [ $this, 'before_update_post_type' ], 10, 2 );
 		add_filter( 'cptui_pre_register_post_type', [ $this, 'add_graphql_settings_to_registry' ], 10, 3 );
 		add_filter( 'cptui_pre_save_post_type', [ $this, 'save_graphql_settings' ], 10, 2 );
 
-		// Taxonomies
+		// Taxonomies.
 		add_action( 'cptui_taxonomy_after_fieldsets', [ $this, 'add_taxonomy_graphql_settings' ], 10, 1 );
 		add_filter( 'cptui_before_update_taxonomy', [ $this, 'before_update_taxonomy' ], 10, 2 );
 		add_filter( 'cptui_pre_register_taxonomy', [ $this, 'add_graphql_settings_to_registry' ], 10, 3 );
@@ -47,35 +47,46 @@ class CPTUI_GraphQL {
 	/**
 	 * Adds the GraphQL Settings from CPT UI to the post_type and taxonomy registry args.
 	 *
-	 * @param array  $args The args for the registry
-	 * @param string $name The name of the type
-	 * @param array  $type The array that composes the Type
+	 * @param array  $args The args for the registry.
+	 * @param string $name The name of the type.
+	 * @param array  $type The array that composes the Type.
 	 *
 	 * @return array
 	 */
 	public function add_graphql_settings_to_registry( $args, $name, $type ) {
 
-		// If the type is not set to show_in_graphql, return the args as-is
+		// If the type is not set to show_in_graphql, return the args as-is.
 		if ( ! isset( $type['show_in_graphql'] ) || true !== (bool) $type['show_in_graphql'] ) {
 			return $args;
 		}
 
 		// If the type has no graphql_plural_name, return the args as-is, but
-		// add a message to the debug log for why the Type is not in the Schema
+		// add a message to the debug log for why the Type is not in the Schema.
 		if ( ! isset( $type['graphql_plural_name'] ) || empty( $type['graphql_plural_name'] ) ) {
-			graphql_debug( sprintf( __( 'The graphql_plural_name is empty for the "%s" Post Type or Taxonomy registered by Custom Post Type UI.' ), $type['name'] ) );
+			graphql_debug(
+				sprintf(
+					// phpcs:ignore.
+					esc_attr__( 'The graphql_plural_name is empty for the "%s" Post Type or Taxonomy registered by Custom Post Type UI.' ),
+					$type['name']
+					)
+				);
 
 			return $args;
 		}
 
 		// If the type has no graphql_single_name, return the args as-is, but
-		// add a message to the debug log for why the Type is not in the Schema
+		// add a message to the debug log for why the Type is not in the Schema.
 		if ( ! isset( $type['graphql_single_name'] ) || empty( $type['graphql_single_name'] ) ) {
-			graphql_debug( sprintf( __( 'The graphql_single_name is empty for the "%s" Post Type or Taxonomy registered by Custom Post Type UI.' ), $type['name'] ) );
+			graphql_debug(
+				sprintf(
+					// phpcs:ignore.
+					esc_attr__( 'The graphql_single_name is empty for the "%s" Post Type or Taxonomy registered by Custom Post Type UI.' ),
+					$type['name']
+				)
+			);
 
 			return $args;
 		}
-
 
 		$args['show_in_graphql']     = isset( $type['show_in_graphql'] ) ? (bool) $type['show_in_graphql'] : false;
 		$args['graphql_single_name'] = ! empty( $type['graphql_single_name'] ) ? $type['graphql_single_name'] : null;
@@ -125,10 +136,10 @@ class CPTUI_GraphQL {
 	/**
 	 * Add settings fields to Custom Post Type UI form
 	 *
-	 * @param cptui_admin_ui $ui Admin UI instance
+	 * @param cptui_admin_ui $ui Admin UI instance.
 	 */
 	public function add_graphql_post_type_settings( $ui ) {
-		$tab        = ( ! empty( $_GET ) && ! empty( $_GET['action'] ) && 'edit' === $_GET['action'] ) ? 'edit' : 'new';
+		$tab        = ( ! empty( $_GET ) && ! empty( $_GET['action'] ) && 'edit' === $_GET['action'] ) ? 'edit' : 'new'; // phpcs:ignore WordPress.Security.NonceVerification
 		$current    = [];
 		$name_array = 'cpt_custom_post_type';
 		if ( 'edit' === $tab ) {
@@ -140,16 +151,16 @@ class CPTUI_GraphQL {
 				}
 			}
 		}
-		echo $this->get_setting_fields( $ui, $current, $name_array );
+		echo $this->get_setting_fields( $ui, $current, $name_array ); // phpcs:ignore.
 	}
 
 	/**
 	 * Add settings fields to Custom Post Type UI form
 	 *
-	 * @param cptui_admin_ui $ui Admin UI instance
+	 * @param cptui_admin_ui $ui Admin UI instance.
 	 */
 	public function add_taxonomy_graphql_settings( $ui ) {
-		$tab        = ( ! empty( $_GET ) && ! empty( $_GET['action'] ) && 'edit' === $_GET['action'] ) ? 'edit' : 'new';
+		$tab        = ( ! empty( $_GET ) && ! empty( $_GET['action'] ) && 'edit' === $_GET['action'] ) ? 'edit' : 'new'; // phpcs:ignore WordPress.Security.NonceVerification
 		$name_array = 'cpt_custom_tax';
 		$current    = [];
 		if ( 'edit' === $tab ) {
@@ -161,13 +172,13 @@ class CPTUI_GraphQL {
 				}
 			}
 		}
-		echo $this->get_setting_fields( $ui, $current, $name_array );
+		echo $this->get_setting_fields( $ui, $current, $name_array ); // phpcs:ignore.
 	}
 
 	/**
 	 * Get the settings fields to render for the form
 	 *
-	 * @param cptui_admin_ui $ui Admin UI instance
+	 * @param cptui_admin_ui $ui Admin UI instance.
 	 * @param array          $current
 	 * @param string         $name_array
 	 */
@@ -195,7 +206,7 @@ class CPTUI_GraphQL {
 							'options' => [
 								[
 									'attr' => '0',
-									'text' => esc_attr__( 'False', 'wp-graphql-custom-post-type-ui' )
+									'text' => esc_attr__( 'False', 'wp-graphql-custom-post-type-ui' ),
 								],
 								[
 									'attr' => '1',
@@ -207,35 +218,39 @@ class CPTUI_GraphQL {
 						$selected               = ( isset( $current ) && ! empty( $current['show_in_graphql'] ) ) ? disp_boolean( $current['show_in_graphql'] ) : '';
 						$selections['selected'] = ( ! empty( $selected ) && ! empty( $current['show_in_graphql'] ) ) ? $current['show_in_graphql'] : '0';
 
+						echo $ui->get_select_input( // phpcs:ignore.
+							[
+								'namearray'  => $name_array,
+								'name'       => 'show_in_graphql',
+								'labeltext'  => esc_html__( 'Show in GraphQL', 'wp-graphql-custom-post-type-ui' ),
+								'aftertext'  => esc_html__( 'Whether or not to show data of this type in the WPGraphQL. Default: false', 'wp-graphql-custom-post-type-ui' ),
+								'selections' => $selections, // phpcs:ignore.
+								'default'    => false,
+								'required'   => true,
+							]
+						);
 
-						echo $ui->get_select_input( [
-							'namearray'  => $name_array,
-							'name'       => 'show_in_graphql',
-							'labeltext'  => esc_html__( 'Show in GraphQL', 'wp-graphql-custom-post-type-ui' ),
-							'aftertext'  => esc_html__( 'Whether or not to show data of this type in the WPGraphQL. Default: false', 'wp-graphql-custom-post-type-ui' ),
-							'selections' => $selections,
-							'default'    => false,
-							'required'   => true,
-						] );
+						echo $ui->get_text_input( // phpcs:ignore.
+							[
+								'namearray' => $name_array,
+								'name'      => 'graphql_single_name',
+								'labeltext' => esc_html__( 'GraphQL Single Name', 'wp-graphql-custom-post-type-ui' ),
+								'aftertext' => esc_attr__( 'Singular name for reference in the GraphQL API.', 'wp-graphql-custom-post-type-ui' ),
+								'textvalue' => ( isset( $current['graphql_single_name'] ) ) ? esc_attr( $current['graphql_single_name'] ) : '', // phpcs:ignore.
+								'required'  => true,
+							]
+						);
 
-
-						echo $ui->get_text_input( [
-							'namearray' => $name_array,
-							'name'      => 'graphql_single_name',
-							'labeltext' => esc_html__( 'GraphQL Single Name', 'wp-graphql-custom-post-type-ui' ),
-							'aftertext' => esc_attr__( 'Singular name for reference in the GraphQL API.', 'wp-graphql-custom-post-type-ui' ),
-							'textvalue' => ( isset( $current['graphql_single_name'] ) ) ? esc_attr( $current['graphql_single_name'] ) : '',
-							'required'  => true,
-						] );
-
-						echo $ui->get_text_input( [
-							'namearray' => $name_array,
-							'name'      => 'graphql_plural_name',
-							'labeltext' => esc_html__( 'GraphQL Plural Name', 'wp-graphql-custom-post-type-ui' ),
-							'aftertext' => esc_attr__( 'Plural name for reference in the GraphQL API.', 'wp-graphql-custom-post-type-ui' ),
-							'textvalue' => ( isset( $current['graphql_plural_name'] ) ) ? esc_attr( $current['graphql_plural_name'] ) : '',
-							'required'  => true,
-						] );
+						echo $ui->get_text_input( // phpcs:ignore.
+							[
+								'namearray' => $name_array,
+								'name'      => 'graphql_plural_name',
+								'labeltext' => esc_html__( 'GraphQL Plural Name', 'wp-graphql-custom-post-type-ui' ),
+								'aftertext' => esc_attr__( 'Plural name for reference in the GraphQL API.', 'wp-graphql-custom-post-type-ui' ),
+								'textvalue' => ( isset( $current['graphql_plural_name'] ) ) ? esc_attr( $current['graphql_plural_name'] ) : '', // phpcs:ignore.
+								'required'  => true,
+							]
+						);
 						?>
 					</table>
 				</div>
@@ -312,14 +327,25 @@ add_action( 'cptui_loaded', __NAMESPACE__ . '\cptui_graphql_init' );
 
 function cptui_graphql_init() {
 	if ( class_exists( 'WPGraphQL_CPT_UI' ) ) {
-		add_action( 'admin_notices', function () {
-			$link = trailingslashit( admin_url() ) . 'plugins.php';
-			?>
+		add_action(
+			'admin_notices',
+			function () {
+				$link = trailingslashit( admin_url() ) . 'plugins.php';
+				?>
 			<div class="notice notice-error">
-				<p><?php echo sprintf( __( 'Custom Post Type UI has native support for WPGraphQL. Please <a href="%s">de-active</a> the "WPGraphQL for Custom Post Type UI" extension to proceed.', 'custom-post-type-ui' ), $link ); ?></p>
+				<p>
+				<?php
+				echo sprintf(
+					// phpcs:ignore.
+					esc_html__( 'Custom Post Type UI has native support for WPGraphQL. Please <a href="%s">de-active</a> the "WPGraphQL for Custom Post Type UI" extension to proceed.', 'custom-post-type-ui' ),
+					$link // phpcs:ignore.
+				);
+				?>
+					</p>
 			</div>
-			<?php
-		} );
+				<?php
+			}
+		);
 
 		return;
 	}

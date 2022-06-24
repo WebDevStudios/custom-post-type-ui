@@ -8,6 +8,7 @@ class CPTUI_Admin_UI_Inputs_Test extends CPTUI_Base_Tests {
 
 	/**
 	 * Our Admin UI object instance.
+	 *
 	 * @var string
 	 */
 	public $ui = '';
@@ -123,15 +124,15 @@ class CPTUI_Admin_UI_Inputs_Test extends CPTUI_Base_Tests {
 			</td>
 		</tr>';
 
-		$args = array(
+		$args = [
 			'namearray' => 'name_array',
-			'name' => 'name',
-			'rows' => '4',
-			'cols' => '40',
+			'name'      => 'name',
+			'rows'      => '4',
+			'cols'      => '40',
 			'textvalue' => 'saved value',
 			'labeltext' => 'Description',
-			'helptext' => 'Helper text.'
-		);
+			'helptext'  => 'Helper text.',
+		];
 
 		$this->assertHTMLstringsAreEqual( $expected, $this->ui->get_textarea_input( $args ) );
 	}
@@ -151,15 +152,15 @@ class CPTUI_Admin_UI_Inputs_Test extends CPTUI_Base_Tests {
 			</td>
 		</tr>';
 
-		$args = array(
+		$args = [
 			'namearray' => 'name_array',
-			'name' => 'name',
-			'rows' => '4',
-			'cols' => '40',
+			'name'      => 'name',
+			'rows'      => '4',
+			'cols'      => '40',
 			'textvalue' => 'saved value',
 			'labeltext' => 'Description',
-			'helptext' => 'Helper text.'
-		);
+			'helptext'  => 'Helper text.',
+		];
 
 		$this->assertHTMLstringsAreEqual( $expected, $this->ui->get_text_input( $args ) );
 	}
@@ -171,22 +172,29 @@ class CPTUI_Admin_UI_Inputs_Test extends CPTUI_Base_Tests {
 	 */
 	public function test_CPTUI_Select_No_Required_No_Saved() {
 
-		$select = array(
-			'options' => array(
-				array( 'attr' => '0', 'text' => __( 'False', 'cpt-plugin' ) ),
-				array( 'attr' => '1', 'text' => __( 'True', 'cpt-plugin' ), 'default' => 'true' )
-			)
-		);
+		$select = [
+			'options' => [
+				[
+					'attr' => '0',
+					'text' => __( 'False', 'cpt-plugin' ),
+				],
+				[
+					'attr'    => '1',
+					'text'    => __( 'True', 'cpt-plugin' ),
+					'default' => 'true',
+				],
+			],
+		];
 
 		$select['selected'] = '';
-		$args = array(
-			'namearray'     => 'cpt_custom_post_type',
-			'name'          => 'public',
-			'labeltext'     => __( 'Public', 'cpt-plugin' ),
-			'aftertext'     => __( '(default: True)', 'cpt-plugin' ),
-			'helptext'      => esc_attr__( 'Whether posts of this type should be shown in the admin UI', 'cpt-plugin' ),
-			'selections'    => $select
-		);
+		$args               = [
+			'namearray'  => 'cpt_custom_post_type',
+			'name'       => 'public',
+			'labeltext'  => __( 'Public', 'cpt-plugin' ),
+			'aftertext'  => __( '(default: True)', 'cpt-plugin' ),
+			'helptext'   => esc_attr__( 'Whether posts of this type should be shown in the admin UI', 'cpt-plugin' ),
+			'selections' => $select,
+		];
 
 		$expected = '<tr valign="top">
 			<th scope="row">
@@ -212,23 +220,30 @@ class CPTUI_Admin_UI_Inputs_Test extends CPTUI_Base_Tests {
 	 */
 	public function test_CPTUI_Select_Required_No_Saved() {
 
-		$select = array(
-			'options' => array(
-				array( 'attr' => '0', 'text' => __( 'False', 'cpt-plugin' ) ),
-				array( 'attr' => '1', 'text' => __( 'True', 'cpt-plugin' ), 'default' => 'true' )
-			)
-		);
+		$select = [
+			'options' => [
+				[
+					'attr' => '0',
+					'text' => __( 'False', 'cpt-plugin' ),
+				],
+				[
+					'attr'    => '1',
+					'text'    => __( 'True', 'cpt-plugin' ),
+					'default' => 'true',
+				],
+			],
+		];
 
 		$select['selected'] = '';
-		$args = array(
-			'namearray'     => 'cpt_custom_post_type',
-			'name'          => 'public',
-			'labeltext'     => __( 'Public', 'cpt-plugin' ),
-			'aftertext'     => __( '(default: True)', 'cpt-plugin' ),
-			'helptext'      => esc_attr__( 'Whether posts of this type should be shown in the admin UI', 'cpt-plugin' ),
-			'selections'    => $select,
-			'required'      => true
-		);
+		$args               = [
+			'namearray'  => 'cpt_custom_post_type',
+			'name'       => 'public',
+			'labeltext'  => __( 'Public', 'cpt-plugin' ),
+			'aftertext'  => __( '(default: True)', 'cpt-plugin' ),
+			'helptext'   => esc_attr__( 'Whether posts of this type should be shown in the admin UI', 'cpt-plugin' ),
+			'selections' => $select,
+			'required'   => true,
+		];
 
 		$expected = '<tr valign="top">
 			<th scope="row">
@@ -254,22 +269,29 @@ class CPTUI_Admin_UI_Inputs_Test extends CPTUI_Base_Tests {
 	 */
 	public function test_CPTUI_Select_No_Required_True_Saved() {
 
-		$select = array(
-			'options' => array(
-				array( 'attr' => '0', 'text' => __( 'False', 'cpt-plugin' ) ),
-				array( 'attr' => '1', 'text' => __( 'True', 'cpt-plugin' ), 'default' => 'true' )
-			)
-		);
+		$select = [
+			'options' => [
+				[
+					'attr' => '0',
+					'text' => __( 'False', 'cpt-plugin' ),
+				],
+				[
+					'attr'    => '1',
+					'text'    => __( 'True', 'cpt-plugin' ),
+					'default' => 'true',
+				],
+			],
+		];
 
 		$select['selected'] = '1';
-		$args = array(
-			'namearray'     => 'cpt_custom_post_type',
-			'name'          => 'public',
-			'labeltext'     => __( 'Public', 'cpt-plugin' ),
-			'aftertext'     => __( '(default: True)', 'cpt-plugin' ),
-			'helptext'      => esc_attr__( 'Whether posts of this type should be shown in the admin UI', 'cpt-plugin' ),
-			'selections'    => $select,
-		);
+		$args = [
+			'namearray'  => 'cpt_custom_post_type',
+			'name'       => 'public',
+			'labeltext'  => __( 'Public', 'cpt-plugin' ),
+			'aftertext'  => __( '(default: True)', 'cpt-plugin' ),
+			'helptext'   => esc_attr__( 'Whether posts of this type should be shown in the admin UI', 'cpt-plugin' ),
+			'selections' => $select,
+		];
 
 		$expected = '<tr valign="top">
 			<th scope="row">
@@ -295,22 +317,29 @@ class CPTUI_Admin_UI_Inputs_Test extends CPTUI_Base_Tests {
 	 */
 	public function test_CPTUI_Select_No_Required_False_Saved() {
 
-		$select = array(
-			'options' => array(
-				array( 'attr' => '0', 'text' => __( 'False', 'cpt-plugin' ) ),
-				array( 'attr' => '1', 'text' => __( 'True', 'cpt-plugin' ), 'default' => 'true' )
-			)
-		);
+		$select = [
+			'options' => [
+				[
+					'attr' => '0',
+					'text' => __( 'False', 'cpt-plugin' ),
+				],
+				[
+					'attr'    => '1',
+					'text'    => __( 'True', 'cpt-plugin' ),
+					'default' => 'true',
+				],
+			],
+		];
 
 		$select['selected'] = '0';
-		$args = array(
-			'namearray'     => 'cpt_custom_post_type',
-			'name'          => 'public',
-			'labeltext'     => __( 'Public', 'cpt-plugin' ),
-			'aftertext'     => __( '(default: True)', 'cpt-plugin' ),
-			'helptext'      => esc_attr__( 'Whether posts of this type should be shown in the admin UI', 'cpt-plugin' ),
-			'selections'    => $select,
-		);
+		$args               = [
+			'namearray'  => 'cpt_custom_post_type',
+			'name'       => 'public',
+			'labeltext'  => __( 'Public', 'cpt-plugin' ),
+			'aftertext'  => __( '(default: True)', 'cpt-plugin' ),
+			'helptext'   => esc_attr__( 'Whether posts of this type should be shown in the admin UI', 'cpt-plugin' ),
+			'selections' => $select,
+		];
 
 		$expected = '<tr valign="top">
 			<th scope="row">
@@ -334,20 +363,29 @@ class CPTUI_Admin_UI_Inputs_Test extends CPTUI_Base_Tests {
 	 */
 	public function test_CPTUI_Select_Non_Bool_No_Option() {
 
-		$select = array();
-		$select['options'] = array();
+		$select = [];
+		$select['options'] = [];
 
-		$select['options'][] = array( 'attr' => '', 'text' => '--' );
-		$select['options'][] = array( 'attr' => 'movie', 'text' => 'Movies' );
-		$select['options'][] = array( 'attr' => 'tv_show', 'text' => 'TV Show' );
+		$select['options'][] = [
+			'attr' => '',
+			'text' => '--',
+		];
+		$select['options'][] = [
+			'attr' => 'movie',
+			'text' => 'Movies',
+		];
+		$select['options'][] = [
+			'attr' => 'tv_show',
+			'text' => 'TV Show',
+		];
 
 		$select['selected'] = '';
-		$args = array(
-			'namearray'     => 'cptui_selected_post_type',
-			'name'          => 'post_type',
-			'selections'    => $select,
-			'wrap'          => false
-		);
+		$args               = [
+			'namearray'  => 'cptui_selected_post_type',
+			'name'       => 'post_type',
+			'selections' => $select,
+			'wrap'       => false,
+		];
 
 		$expected = '<select id="post_type" name="cptui_selected_post_type[post_type]">
 			<option value="">--</option>
@@ -363,20 +401,29 @@ class CPTUI_Admin_UI_Inputs_Test extends CPTUI_Base_Tests {
 	 */
 	public function test_CPTUI_Select_Non_Bool_First_Option() {
 
-		$select = array();
-		$select['options'] = array();
+		$select            = [];
+		$select['options'] = [];
 
-		$select['options'][] = array( 'attr' => '', 'text' => '--' );
-		$select['options'][] = array( 'attr' => 'movie', 'text' => 'Movies' );
-		$select['options'][] = array( 'attr' => 'tv_show', 'text' => 'TV Show' );
+		$select['options'][] = [
+			'attr' => '',
+			'text' => '--',
+		];
+		$select['options'][] = [
+			'attr' => 'movie',
+			'text' => 'Movies',
+		];
+		$select['options'][] = [
+			'attr' => 'tv_show',
+			'text' => 'TV Show',
+		];
 
 		$select['selected'] = 'movie';
-		$args = array(
-			'namearray'     => 'cptui_selected_post_type',
-			'name'          => 'post_type',
-			'selections'    => $select,
-			'wrap'          => false
-		);
+		$args               = [
+			'namearray'  => 'cptui_selected_post_type',
+			'name'       => 'post_type',
+			'selections' => $select,
+			'wrap'       => false,
+		];
 
 		$expected = '<select id="post_type" name="cptui_selected_post_type[post_type]">
 			<option value="">--</option>
@@ -392,20 +439,29 @@ class CPTUI_Admin_UI_Inputs_Test extends CPTUI_Base_Tests {
 	 */
 	public function test_CPTUI_Select_Non_Bool_Second_Option() {
 
-		$select = array();
-		$select['options'] = array();
+		$select            = [];
+		$select['options'] = [];
 
-		$select['options'][] = array( 'attr' => '', 'text' => '--' );
-		$select['options'][] = array( 'attr' => 'movie', 'text' => 'Movies' );
-		$select['options'][] = array( 'attr' => 'tv_show', 'text' => 'TV Show' );
+		$select['options'][] = [
+			'attr' => '',
+			'text' => '--',
+		];
+		$select['options'][] = [
+			'attr' => 'movie',
+			'text' => 'Movies',
+		];
+		$select['options'][] = [
+			'attr' => 'tv_show',
+			'text' => 'TV Show',
+		];
 
 		$select['selected'] = 'tv_show';
-		$args = array(
-			'namearray'     => 'cptui_selected_post_type',
-			'name'          => 'post_type',
-			'selections'    => $select,
-			'wrap'          => false
-		);
+		$args               = [
+			'namearray'  => 'cptui_selected_post_type',
+			'name'       => 'post_type',
+			'selections' => $select,
+			'wrap'       => false,
+		];
 
 		$expected = '<select id="post_type" name="cptui_selected_post_type[post_type]">
 			<option value="">--</option>
@@ -416,15 +472,29 @@ class CPTUI_Admin_UI_Inputs_Test extends CPTUI_Base_Tests {
 		$this->assertHTMLstringsAreEqual( $expected, $this->ui->get_select_input( $args ) );
 	}
 
-	public function providertest_something()
-	{
-		return array(
-			array('This string will be sluggified', 'this-string-will-be-sluggified'),
-			array('THIS STRING WILL BE SLUGGIFIED', 'this-string-will-be-sluggified'),
-			array('This1 string2 will3 be 44 sluggified10', 'this1-string2-will3-be-44-sluggified10'),
-			array('This! @string#$ %$will ()be "sluggified', 'this-string-will-be-sluggified'),
-			array("Tänk efter nu – förr'n vi föser dig bort", 'tank-efter-nu-forrn-vi-foser-dig-bort'),
-			array('', ''),
-		);
+	public function providertest_something() {
+		return [
+			[
+				'This string will be sluggified',
+				'this-string-will-be-sluggified',
+			],
+			[
+				'THIS STRING WILL BE SLUGGIFIED',
+				'this-string-will-be-sluggified',
+			],
+			[
+				'This1 string2 will3 be 44 sluggified10',
+				'this1-string2-will3-be-44-sluggified10',
+			],
+			[
+				'This! @string#$ %$will ()be "sluggified',
+				'this-string-will-be-sluggified',
+			],
+			[
+				"Tänk efter nu – förr'n vi föser dig bort",
+				'tank-efter-nu-forrn-vi-foser-dig-bort',
+			],
+			[ '', '' ],
+		];
 	}
 }

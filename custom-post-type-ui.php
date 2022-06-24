@@ -24,6 +24,9 @@
  */
 
 // phpcs:disable WebDevStudios.All.RequireAuthor
+// phpcs:set WordPress.WP.I18n check_translator_comments false
+
+
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
@@ -241,7 +244,7 @@ function cptui_add_styles() {
 
 	$min = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 	wp_register_script( 'cptui', plugins_url( "js/cptui{$min}.js", __FILE__ ), [ 'jquery', 'jquery-ui-dialog', 'postbox' ], CPTUI_VERSION, true );
-	wp_register_script( 'dashicons-picker', plugins_url( "js/dashicons-picker{$min}.js", __FILE__ ), [ 'jquery'], '1.0.0', true );
+	wp_register_script( 'dashicons-picker', plugins_url( "js/dashicons-picker{$min}.js", __FILE__ ), [ 'jquery' ], '1.0.0', true );
 	wp_register_style( 'cptui-css', plugins_url( "css/cptui{$min}.css", __FILE__ ), [ 'wp-jquery-ui-dialog' ], CPTUI_VERSION );
 }
 add_action( 'admin_enqueue_scripts', 'cptui_add_styles' );
@@ -405,7 +408,7 @@ function cptui_register_single_post_type( $post_type = [] ) {
 				$labels[ $key ] = $label;
 			}
 		} elseif ( empty( $label ) && in_array( $key, $preserved, true ) ) {
-			$singular_or_plural = ( in_array( $key, array_keys( $preserved_labels['post_types']['plural'] ) ) ) ? 'plural' : 'singular';
+			$singular_or_plural = ( in_array( $key, array_keys( $preserved_labels['post_types']['plural'] ) ) ) ? 'plural' : 'singular'; // phpcs:ignore.
 			$label_plurality    = ( 'plural' === $singular_or_plural ) ? $post_type['label'] : $post_type['singular_label'];
 			$labels[ $key ]     = sprintf( $preserved_labels['post_types'][ $singular_or_plural ][ $key ], $label_plurality );
 		}
@@ -433,7 +436,7 @@ function cptui_register_single_post_type( $post_type = [] ) {
 		}
 	}
 
-	$menu_icon = ! empty( $post_type['menu_icon'] ) ? $post_type['menu_icon'] : null;
+	$menu_icon            = ! empty( $post_type['menu_icon'] ) ? $post_type['menu_icon'] : null;
 	$register_meta_box_cb = ! empty( $post_type['register_meta_box_cb'] ) ? $post_type['register_meta_box_cb'] : null;
 
 	if ( in_array( $post_type['query_var'], [ 'true', 'false', '0', '1' ], true ) ) {
@@ -658,7 +661,7 @@ function cptui_register_single_taxonomy( $taxonomy = [] ) {
 		if ( ! empty( $label ) ) {
 			$labels[ $key ] = $label;
 		} elseif ( empty( $label ) && in_array( $key, $preserved, true ) ) {
-			$singular_or_plural = ( in_array( $key, array_keys( $preserved_labels['taxonomies']['plural'] ) ) ) ? 'plural' : 'singular';
+			$singular_or_plural = ( in_array( $key, array_keys( $preserved_labels['taxonomies']['plural'] ) ) ) ? 'plural' : 'singular'; // phpcs:ignore.
 			$label_plurality    = ( 'plural' === $singular_or_plural ) ? $taxonomy['label'] : $taxonomy['singular_label'];
 			$labels[ $key ]     = sprintf( $preserved_labels['taxonomies'][ $singular_or_plural ][ $key ], $label_plurality );
 		}
@@ -736,7 +739,7 @@ function cptui_register_single_taxonomy( $taxonomy = [] ) {
 	}
 	$default_term = null;
 	if ( ! empty( $taxonomy['default_term'] ) ) {
-		$term_parts = explode(',', $taxonomy['default_term'] );
+		$term_parts = explode( ',', $taxonomy['default_term'] );
 		if ( ! empty( $term_parts[0] ) ) {
 			$default_term['name'] = trim( $term_parts[0] );
 		}
@@ -829,9 +832,9 @@ function cptui_settings_tab_menu( $page = 'post_types' ) {
 	}
 
 	printf(
-		$tmpl,
-		$tabs['page_title'],
-		$tab_output
+		$tmpl, // phpcs:ignore.
+		$tabs['page_title'], // phpcs:ignore.
+		$tab_output // phpcs:ignore.
 	);
 }
 
@@ -854,7 +857,7 @@ function cptui_convert_settings() {
 
 	$retval = '';
 
-	if ( false === get_option( 'cptui_post_types' ) && ( $post_types = get_option( 'cpt_custom_post_types' ) ) ) {
+	if ( false === get_option( 'cptui_post_types' ) && ( $post_types = get_option( 'cpt_custom_post_types' ) ) ) { // phpcs:ignore.
 
 		$new_post_types = [];
 		foreach ( $post_types as $type ) {
@@ -872,7 +875,7 @@ function cptui_convert_settings() {
 		$retval = update_option( 'cptui_post_types', $new_post_types );
 	}
 
-	if ( false === get_option( 'cptui_taxonomies' ) && ( $taxonomies = get_option( 'cpt_custom_tax_types' ) ) ) {
+	if ( false === get_option( 'cptui_taxonomies' ) && ( $taxonomies = get_option( 'cpt_custom_tax_types' ) ) ) { // phpcs:ignore.
 
 		$new_taxonomies = [];
 		foreach ( $taxonomies as $tax ) {
@@ -915,7 +918,7 @@ function cptui_admin_notices( $action = '', $object_type = '', $success = true, 
 	$object_type = esc_attr( $object_type );
 
 	$messagewrapstart = '<div id="message" class="' . implode( ' ', $class ) . '"><p>';
-	$message = '';
+	$message          = '';
 
 	$messagewrapend = '</p></div>';
 
@@ -1072,7 +1075,7 @@ function cptui_get_preserved_labels() {
 				'new_item'     => __( 'New %s', 'custom-post-type-ui' ),
 				'view_item'    => __( 'View %s', 'custom-post-type-ui' ),
 			],
-			'plural' => [
+			'plural'   => [
 				'view_items'         => __( 'View %s', 'custom-post-type-ui' ),
 				'all_items'          => __( 'All %s', 'custom-post-type-ui' ),
 				'search_items'       => __( 'Search %s', 'custom-post-type-ui' ),
@@ -1089,7 +1092,7 @@ function cptui_get_preserved_labels() {
 				'add_new_item'      => __( 'Add new %s', 'custom-post-type-ui' ),
 				'new_item_name'     => __( 'New %s name', 'custom-post-type-ui' ),
 			],
-			'plural' => [
+			'plural'   => [
 				'search_items'               => __( 'Search %s', 'custom-post-type-ui' ),
 				'popular_items'              => __( 'Popular %s', 'custom-post-type-ui' ),
 				'all_items'                  => __( 'All %s', 'custom-post-type-ui' ),
