@@ -401,6 +401,7 @@ function cptui_manage_post_types() {
 								if ( isset( $current['description'] ) ) {
 									$current['description'] = stripslashes_deep( $current['description'] );
 								}
+
 								echo $ui->get_textarea_input( // phpcs:ignore.
 									[
 										'namearray' => 'cpt_custom_post_type',
