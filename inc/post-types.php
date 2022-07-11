@@ -408,7 +408,7 @@ function cptui_manage_post_types() {
 										'name'      => 'description',
 										'rows'      => '4',
 										'cols'      => '40',
-										'textvalue' => isset( $current['description'] ) ? $current['description'] : '', // phpcs:ignore.
+										'textvalue' => isset( $current['description'] ) ? esc_textarea( $current['description'] ) : '', // phpcs:ignore.
 										'labeltext' => esc_html__( 'Post Type Description', 'custom-post-type-ui' ),
 										'helptext'  => esc_html__( 'Perhaps describe what your custom post type is used for?', 'custom-post-type-ui' ),
 									]
