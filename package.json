@@ -1,6 +1,6 @@
 {
   "name": "custom-post-type-ui",
-  "version": "1.12.0",
+  "version": "1.13.0",
   "description": "Custom Post Type UI",
   "main": "index.js",
   "directories": {
@@ -20,7 +20,7 @@
     "styles:compile": "node-sass src/scss/cptui-styles.scss -o build/ --source-map true",
     "styles:compress": "node-sass src/scss/cptui-styles.scss build/cptui-styles.min.css -o build/ --output-style compressed",
     "uglify": "uglifyjs src/js/cptui-scripts.js -m -c --source-map -o build/cptui-scripts.min.js && uglifyjs src/js/dashicons-picker.js -m -c --source-map -o build/dashicons-picker.min.js",
-    "create:release": "mkdirp release-build/custom-post-type-ui && cp -R classes css external images inc js readme.txt LICENSE custom-post-type-ui.php release-build/custom-post-type-ui"
+    "create:release": "mkdirp release-build/custom-post-type-ui && cp -R build classes external images inc readme.txt LICENSE custom-post-type-ui.php release-build/custom-post-type-ui"
   },
   "devDependencies": {
     "@wordpress/eslint-plugin": "^12.2.0",
