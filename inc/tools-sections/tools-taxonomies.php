@@ -129,6 +129,7 @@ function cptui_get_single_taxonomy_registery( $taxonomy = [] ) {
 		$textdomain = 'custom-post-type-ui';
 	}
 	?>
+
 	/**
 	 * Taxonomy: <?php echo esc_html( $taxonomy['label'] ); ?>.
 	 */
