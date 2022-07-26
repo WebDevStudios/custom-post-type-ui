@@ -3,8 +3,8 @@ require_once( 'CPTUI-Base-Tests.php' );
 
 class CPTUI_Utility extends CPTUI_Base_Tests {
 
-	public $post_type_array = array();
-	public $taxonomy_array = array();
+	public $post_type_array = [];
+	public $taxonomy_array = [];
 
 	/**
 	 * Set up
@@ -199,7 +199,7 @@ class CPTUI_Utility extends CPTUI_Base_Tests {
 
 		// Test without filters.
 		$reserved = cptui_reserved_post_types();
-		$defaults = array(
+		$defaults = [
 			'post',
 			'page',
 			'attachment',
@@ -208,7 +208,7 @@ class CPTUI_Utility extends CPTUI_Base_Tests {
 			'action',
 			'order',
 			'theme',
-		);
+		];
 
 		$this->assertNotEmpty( $reserved );
 		foreach ( $defaults as $default ) {
@@ -220,10 +220,10 @@ class CPTUI_Utility extends CPTUI_Base_Tests {
 		$this->assertNotContains( 'reserved_string_slug', $reserved );
 
 		// Add filter to get custom slugs array.
-		add_filter( 'cptui_reserved_post_types', array( $this, 'add_reserved_post_types_array' ) );
+		add_filter( 'cptui_reserved_post_types', [ $this, 'add_reserved_post_types_array' ] );
 		// Fetch new value with the custom slugs added.
 		$reserved = cptui_reserved_post_types();
-		remove_filter( 'cptui_reserved_post_types', array( $this, 'add_reserved_post_types_array' ) );
+		remove_filter( 'cptui_reserved_post_types', [ $this, 'add_reserved_post_types_array' ] );
 
 		// Need to re-test these to make sure they persist.
 		$this->assertNotEmpty( $reserved );
@@ -234,10 +234,10 @@ class CPTUI_Utility extends CPTUI_Base_Tests {
 		$this->assertContains( 'reserved_slug', $reserved );
 
 		// Add filters to get custom slugs string.
-		add_filter( 'cptui_reserved_post_types', array( $this, 'add_reserved_post_types_string' ) );
+		add_filter( 'cptui_reserved_post_types', [ $this, 'add_reserved_post_types_string' ] );
 		// Fetch new value with the custom slugs added.
 		$reserved = cptui_reserved_post_types();
-		remove_filter( 'cptui_reserved_post_types', array( $this, 'add_reserved_post_types_string' ) );
+		remove_filter( 'cptui_reserved_post_types', [ $this, 'add_reserved_post_types_string' ] );
 
 		// Need to re-test these to make sure they persist.
 		$this->assertNotEmpty( $reserved );
@@ -264,11 +264,11 @@ class CPTUI_Utility extends CPTUI_Base_Tests {
 		$mismatched = 'non-matched-slug';
 		$matched    = 'matched-slug';
 		wp_insert_post(
-			array(
+			[
 				'post_title' => 'My Slug',
 				'post_name' => 'matched-slug',
 				'post_type' => 'page',
-			)
+			]
 		);
 
 		$this->assertFalse( cptui_check_page_slugs( $mismatched ) );
@@ -319,8 +319,8 @@ class CPTUI_Utility extends CPTUI_Base_Tests {
 	 * @param array $slugs Default empty array from filter.
 	 * @return array Array of custom slugs to add
 	 */
-	public function add_reserved_post_types_array( $slugs = array() ) {
-		return array( 'reserved_slug' );
+	public function add_reserved_post_types_array( $slugs = [] ) {
+		return [ 'reserved_slug' ];
 	}
 
 	/**
@@ -329,7 +329,7 @@ class CPTUI_Utility extends CPTUI_Base_Tests {
 	 * @param array $slugs Default empty array from filter.
 	 * @return string Slug to add to array.
 	 */
-	public function add_reserved_post_types_string( $slugs = array() ) {
+	public function add_reserved_post_types_string( $slugs = [] ) {
 		return 'reserved_string_slug';
 	}
 }

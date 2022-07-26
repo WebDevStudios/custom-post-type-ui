@@ -294,7 +294,9 @@ class cptui_admin_ui {
 	 */
 	public function get_select_input( $args = [] ) {
 		$defaults = $this->get_default_input_parameters(
-			[ 'selections' => [] ]
+			[
+				'selections' => [],
+			]
 		);
 
 		$args = wp_parse_args( $args, $defaults );
@@ -536,7 +538,7 @@ class cptui_admin_ui {
 	public function get_button( $args = [] ) {
 		$value   = '';
 		$classes = isset( $args['classes'] ) ? $args['classes'] : '';
-		$value .= '<input id="' . $args['id'] . '" class="button ' . $classes . '" type="button" value="' . $args['textvalue'] . '" />';
+		$value  .= '<input id="' . $args['id'] . '" class="button ' . $classes . '" type="button" value="' . $args['textvalue'] . '" />';
 
 		return $value;
 	}

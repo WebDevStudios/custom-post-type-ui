@@ -81,7 +81,15 @@ function cptui_settings() {
 		do_action( 'cptui_main_page_before_changelog' );
 		?>
 
-		<h2><?php printf( esc_html__( "What's new in version %s", 'custom-post-type-ui' ), CPTUI_VERSION ); ?></h2>
+		<h2>
+			<?php
+			printf(
+			// translators: Placeholder will hold the plugin version.
+				esc_html__( "What's new in version %s", 'custom-post-type-ui' ),
+				esc_html( CPTUI_VERSION )
+			);
+			?>
+		</h2>
 		<div class="changelog about-integrations">
 			<div class="cptui-feature feature-section col three-col">
 				<div class="col">
@@ -114,6 +122,7 @@ function cptui_settings() {
  * @since 1.4.0
  */
 function cptui_pluginize_content() {
+	// translators: Placeholder will hold the name of the author of the plugin.
 	echo '<h1>' . sprintf( esc_html__( 'More from %s', 'custom-post-type-ui' ), 'WebDevStudios' ) . '</h1>';
 	echo '<div class="wdspromos-about">';
 	$ads = cptui_get_ads();
@@ -131,7 +140,7 @@ function cptui_pluginize_content() {
 			printf(
 				'<p><a href="%s">%s</a></p>',
 				esc_url( $ad['url'] ),
-				$the_ad
+				$the_ad // phpcs:ignore
 			);
 		}
 	}
