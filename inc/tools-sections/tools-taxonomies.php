@@ -22,20 +22,22 @@ function cptui_get_taxonomy_code( $cptui_taxonomies = [], $single = false ) {
 			$key      = key( $cptui_taxonomies );
 			$callback = 'cptui_register_my_taxes_' . str_replace( '-', '_', esc_html( $cptui_taxonomies[ $key ]['name'] ) );
 		}
+		ob_start();
 		?>
-		function <?php echo esc_html( $callback ); ?>() {
-		<?php
-		foreach ( $cptui_taxonomies as $tax ) {
-			echo cptui_get_single_taxonomy_registery( $tax );
-		} ?>
-		}
-		add_action( 'init', '<?php echo esc_html( $callback ); ?>' );
-		<?php
+function <?php echo esc_html( $callback ); ?>() {
+<?php
+	foreach ( $cptui_taxonomies as $tax ) {
+		echo cptui_get_single_taxonomy_registery( $tax );
+	}
+?>
+}
+add_action( 'init', '<?php echo esc_html( $callback ); ?>' );
+<?php
 	} else {
 		esc_html_e( 'No taxonomies to display at this time', 'custom-post-type-ui' );
 	}
 }
-
+echo trim( ob_get_clean() );
 /**
  * Create output for single taxonomy to be ready for copy/paste from Get Code.
  *
@@ -127,21 +129,20 @@ function cptui_get_single_taxonomy_registery( $taxonomy = [] ) {
 		$textdomain = 'custom-post-type-ui';
 	}
 	?>
-
 	/**
-	* Taxonomy: <?php echo esc_html( $taxonomy['label'] ); ?>.
-	*/
+	 * Taxonomy: <?php echo esc_html( $taxonomy['label'] ); ?>.
+	 */
 
 	$labels = [
-	"name" => __( "<?php echo esc_html( $taxonomy['label'] ); ?>", "<?php echo esc_html( $textdomain ); ?>" ),
-	"singular_name" => __( "<?php echo esc_html( $taxonomy['singular_label'] ); ?>", "<?php echo esc_html( $textdomain ); ?>" ),
-	<?php
-	foreach ( $taxonomy['labels'] as $key => $label ) {
-		if ( ! empty( $label ) ) {
-			echo "\t\t" . '"' . esc_html( $key ) . '" => __( "' . esc_html( $label ) . '", "' . esc_html( $textdomain ) . '" ),' . "\n";
-		}
+		"name" => esc_html__( "<?php echo esc_html( $taxonomy['label'] ); ?>", "<?php echo esc_html( $textdomain ); ?>" ),
+		"singular_name" => esc_html__( "<?php echo esc_html( $taxonomy['singular_label'] ); ?>", "<?php echo esc_html( $textdomain ); ?>" ),
+<?php
+foreach ( $taxonomy['labels'] as $key => $label ) {
+	if ( ! empty( $label ) ) {
+		echo "\t\t" . '"' . esc_html( $key ) . '" => esc_html__( "' . esc_html( $label ) . '", "' . esc_html( $textdomain ) . '" ),' . "\n";
 	}
-	?>
+}
+?>
 	];
 
 	<?php
@@ -149,38 +150,38 @@ function cptui_get_single_taxonomy_registery( $taxonomy = [] ) {
 	?>
 
 	$args = [
-	"label" => __( "<?php echo $taxonomy['label']; ?>", "<?php echo $textdomain; ?>" ),
-	"labels" => $labels,
-	"public" => <?php echo $public; ?>,
-	"publicly_queryable" => <?php echo $publicly_queryable; ?>,
-	"hierarchical" => <?php echo $taxonomy['hierarchical']; ?>,
-	"show_ui" => <?php echo disp_boolean( $taxonomy['show_ui'] ); ?>,
-	"show_in_menu" => <?php echo $show_in_menu; ?>,
-	"show_in_nav_menus" => <?php echo $show_in_nav_menus; ?>,
-	"query_var" => <?php echo disp_boolean( $taxonomy['query_var'] ); ?>,
-	"rewrite" => <?php echo $rewrite; ?>,
-	"show_admin_column" => <?php echo $taxonomy['show_admin_column']; ?>,
-	"show_in_rest" => <?php echo $show_in_rest; ?>,
-	"show_tagcloud" => <?php echo $show_tagcloud; ?>,
-	"rest_base" => "<?php echo $rest_base; ?>",
-	"rest_controller_class" => "<?php echo $rest_controller_class; ?>",
-	"rest_namespace" => "<?php echo $rest_namespace; ?>",
-	"show_in_quick_edit" => <?php echo $show_in_quick_edit; ?>,
-	"sort" => <?php echo disp_boolean( $taxonomy['sort'] ); ?>,
-	<?php if ( $show_graphql ) : ?>
+		"label" => esc_html__( "<?php echo $taxonomy['label']; ?>", "<?php echo $textdomain; ?>" ),
+		"labels" => $labels,
+		"public" => <?php echo $public; ?>,
+		"publicly_queryable" => <?php echo $publicly_queryable; ?>,
+		"hierarchical" => <?php echo $taxonomy['hierarchical']; ?>,
+		"show_ui" => <?php echo disp_boolean( $taxonomy['show_ui'] ); ?>,
+		"show_in_menu" => <?php echo $show_in_menu; ?>,
+		"show_in_nav_menus" => <?php echo $show_in_nav_menus; ?>,
+		"query_var" => <?php echo disp_boolean( $taxonomy['query_var'] ); ?>,
+		"rewrite" => <?php echo $rewrite; ?>,
+		"show_admin_column" => <?php echo $taxonomy['show_admin_column']; ?>,
+		"show_in_rest" => <?php echo $show_in_rest; ?>,
+		"show_tagcloud" => <?php echo $show_tagcloud; ?>,
+		"rest_base" => "<?php echo $rest_base; ?>",
+		"rest_controller_class" => "<?php echo $rest_controller_class; ?>",
+		"rest_namespace" => "<?php echo $rest_namespace; ?>",
+		"show_in_quick_edit" => <?php echo $show_in_quick_edit; ?>,
+		"sort" => <?php echo disp_boolean( $taxonomy['sort'] ); ?>,
+<?php if ( $show_graphql ) : ?>
 		"show_in_graphql" => <?php echo disp_boolean( $taxonomy['show_in_graphql'] ); ?>,
 		"graphql_single_name" => "<?php echo esc_html( $taxonomy['graphql_single_name'] ); ?>",
 		"graphql_plural_name" => "<?php echo esc_html( $taxonomy['graphql_plural_name'] ); ?>",
-	<?php else: ?>
+<?php else: ?>
 		"show_in_graphql" => <?php echo disp_boolean( false ); ?>,
-	<?php endif; ?>
-	<?php if ( ! empty( $meta_box_cb ) ) { ?>
+<?php endif; ?>
+<?php if ( ! empty( $meta_box_cb ) ) { ?>
 		"meta_box_cb" => <?php echo $meta_box_cb; ?>,
-	<?php } ?>
-	<?php if ( ! empty( $default_term ) ) { ?>
+<?php } ?>
+<?php if ( ! empty( $default_term ) ) { ?>
 		"default_term" => <?php echo $default_term; ?>,
-	<?php } ?>
+<?php } ?>
 	];
 	register_taxonomy( "<?php echo esc_html( $taxonomy['name'] ); ?>", <?php echo $post_types; ?>, $args );
-	<?php
+<?php
 }
