@@ -1467,6 +1467,20 @@ function cptui_manage_post_types() {
 
 							echo $ui->get_p( esc_html__( 'Use the "None" option to explicitly set "supports" to false.', 'custom-post-type-ui' ) ); // phpcs:ignore.
 
+							echo $ui->get_p( esc_html__( 'Featured images and Post Formats need theme support added, to be used.', 'custom-post-type-ui' ) ); // phpcs:ignore.
+
+							echo $ui->get_p(
+								sprintf(
+									'<a href="%s" target="_blank" rel="noopener">%s</a><br/><a href="%s" target="_blank" rel="noopener">%s</a>',
+									esc_url( 'https://developer.wordpress.org/reference/functions/add_theme_support/#post-thumbnails' ),
+									/* translators: Link text for WordPress Developer site. */
+									esc_html__( 'Theme support for featured images', 'custom-post-type-ui' ),
+									esc_url( 'https://wordpress.org/support/article/post-formats/' ),
+									/* translators: Link text for WordPress Developer site. */
+									esc_html__( 'Theme support for post formats', 'custom-post-type-ui' )
+								)
+							);
+
 							echo $ui->get_th_end() . $ui->get_td_start() . $ui->get_fieldset_start(); // phpcs:ignore.
 
 							echo $ui->get_legend_start() . esc_html__( 'Post type options', 'custom-post-type-ui' ) . $ui->get_legend_end(); // phpcs:ignore.
