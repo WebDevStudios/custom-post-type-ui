@@ -2048,6 +2048,47 @@ function cptui_process_post_type() {
 add_action( 'init', 'cptui_process_post_type', 8 );
 
 /**
+ * Handle the deletion of post type data from within the CPTUI Listings page.
+ *
+ * @since 1.4.0
+ */
+function cptui_listings_delete_post_type() {
+
+	if ( wp_doing_ajax() ) {
+		return;
+	}
+
+	if ( ! is_admin() ) {
+		return;
+	}
+
+
+
+	if ( 'cptui_listings' !== $_GET['page'] || empty( $_GET['post_type'] ) || 'delete_post_type' !== $_GET['action'] || ! wp_verify_nonce( $_GET['_wpnonce'], 'accept_delete' ) ) {
+		return;
+	}
+
+	$post_type['name'] = ( ! empty( $_GET['post_type'] ) ) ? sanitize_text_field( $_GET['post_type'] ) : '';
+	$result            = cptui_delete_post_type( $post_type );
+
+	if ( $result ) {
+		if ( is_callable( "cptui_{$result}_admin_notice" ) ) {
+			add_action( 'admin_notices', "cptui_{$result}_admin_notice" );
+		}
+
+		wp_safe_redirect(
+			add_query_arg(
+				[ 'page' => 'cptui_listings' ],
+				cptui_admin_url( 'admin.php?page=cptui_listings' )
+			)
+		);
+		exit();
+	}
+
+}
+add_action( 'init', 'cptui_listings_delete_post_type', 99 );
+
+/**
  * Handle the conversion of post type posts.
  *
  * This function came to be because we needed to convert AFTER registration.

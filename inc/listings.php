@@ -33,6 +33,19 @@ function cptui_listings_assets() {
 	}
 
 	wp_enqueue_style( 'cptui-css' );
+	wp_enqueue_script( 'cptui-listings-delete' );
+
+	$core                  = get_post_types( [ '_builtin' => true ] );
+	$public                = get_post_types( [ '_builtin' => false, 'public' => true ] );
+	$private               = get_post_types( [ '_builtin' => false, 'public' => false ] );
+	$registered_post_types = array_merge( $core, $public, $private );
+
+	wp_localize_script( 'cptui-listings-delete', 'cptui_type_data',
+		[
+			'confirm'             => esc_html__( 'Are you sure you want to delete this? Deleting will NOT remove created content.', 'custom-post-type-ui' ),
+			'existing_post_types' => $registered_post_types,
+		]
+	);
 }
 add_action( 'admin_enqueue_scripts', 'cptui_listings_assets' );
 
@@ -145,7 +158,8 @@ function cptui_listings() {
 								<?php
 								printf(
 									'<a href="%s">%s</a><br/>
-									<a href="%s">%s</a><br/>',
+									<a href="%s">%s</a><br/>
+									<a href="%s" class="cptui-listings-delete-bottom">%s</a><br/>',
 									esc_attr( $post_type_link_url ),
 									sprintf(
 										/* translators: %s: Post type slug */
@@ -154,7 +168,9 @@ function cptui_listings() {
 										esc_html( $post_type )
 									),
 									esc_attr( admin_url( 'admin.php?page=cptui_tools&action=get_code#' . $post_type ) ),
-									esc_html__( 'Get code', 'custom-post-type-ui' )
+									esc_html__( 'Get code', 'custom-post-type-ui' ),
+									esc_attr( wp_nonce_url( admin_url( 'admin.php?page=cptui_listings&action=delete_post_type&post_type=' . $post_type ), 'accept_delete' ) ),
+									esc_html__( 'Delete Post Type', 'custom-post-type-ui' )
 								);
 
 								if ( $archive ) {

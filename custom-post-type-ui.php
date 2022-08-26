@@ -243,6 +243,7 @@ function cptui_add_styles() {
 	wp_register_script( 'cptui', plugins_url( "js/cptui{$min}.js", __FILE__ ), [ 'jquery', 'jquery-ui-dialog', 'postbox' ], CPTUI_VERSION, true );
 	wp_register_script( 'dashicons-picker', plugins_url( "js/dashicons-picker{$min}.js", __FILE__ ), [ 'jquery'], '1.0.0', true );
 	wp_register_style( 'cptui-css', plugins_url( "css/cptui{$min}.css", __FILE__ ), [ 'wp-jquery-ui-dialog' ], CPTUI_VERSION );
+	wp_register_script( 'cptui-listings-delete', plugins_url( "js/cptui-delete{$min}.js", __FILE__ ), [ 'jquery', 'jquery-ui-dialog', 'postbox' ], CPTUI_VERSION, true );
 }
 add_action( 'admin_enqueue_scripts', 'cptui_add_styles' );
 
