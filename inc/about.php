@@ -93,10 +93,14 @@ function cptui_settings() {
 		<div class="changelog about-integrations">
 			<div class="cptui-feature feature-section col three-col">
 				<div class="col">
-					<h2><?php esc_html_e( 'Auto-selection of "page attributes" for post types', 'custom-post-type-ui' ); ?></h2>
-					<p><?php esc_html_e( 'When setting a post type to be hierarchical, you also want to make sure you have `page_attributes` selected in the "Supports" section to set hierarchy. We do not force this, if you want to still turn it off, but this helps prevent potentially missing this setting.', 'custom-post-type-ui' ); ?></p>
-					<h2><?php esc_html_e( 'More post type and taxonomy settings', 'custom-post-type-ui' ); ?></h2>
-					<p><?php esc_html_e( 'We have updated the available settings to include the `rest_namespace` field as well as `register_meta_box_cb` for post types.', 'custom-post-type-ui' ); ?></p>
+					<h2><?php esc_html_e( 'Post type descriptions', 'custom-post-type-ui' ); ?></h2>
+					<p><?php esc_html_e( 'We have updated a number of details around the post type description field. First we addressed issues with the Tools area when descriptions included quotes. Second we fixed an issue around stripping HTML from the field from previous security updates.', 'custom-post-type-ui' ); ?></p>
+					<h2><?php esc_html_e( 'Miscellaneous code cleanup and separation.', 'custom-post-type-ui' ); ?></h2>
+					<p><?php esc_html_e( 'Largely under the hood, but we have done some separation of our code and done more to help ensure code quality.', 'custom-post-type-ui' ); ?></p>
+					<h2><?php esc_html_e( 'Branding.', 'custom-post-type-ui' ); ?></h2>
+					<p><?php esc_html_e( 'We updated our branding for the plugin. Both within our UI but also on WordPress.org', 'custom-post-type-ui' ); ?></p>
+					<h2><?php esc_html_e( 'Miscellaneous.', 'custom-post-type-ui' ); ?></h2>
+					<p><?php esc_html_e( 'Added notes about some post type features also needing theme support declared for them to work. Fixed a pluralization issue with our UI and forms.', 'custom-post-type-ui' ); ?></p>
 				</div>
 			</div>
 		</div>
