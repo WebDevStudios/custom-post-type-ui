@@ -51,7 +51,7 @@ class cptui_admin_ui {
 	 * Return an opening `<th>` tag.
 	 *
 	 * @since 1.0.0
-	 * @since NEXT Added attributes parameter.
+	 * @since 1.13.0 Added attributes parameter.
 	 *
 	 * @param array $atts Array of attributes to add to the tag.
 	 * @return string $value Opening `<th>` tag with attributes.
@@ -79,7 +79,7 @@ class cptui_admin_ui {
 	 * Return an opening `<td>` tag.
 	 *
 	 * @since 1.0.0
-	 * @since NEXT Added attributes parameter.
+	 * @since 1.13.0 Added attributes parameter.
 	 *
 	 * @param array $atts Array of attributes to add to the tag.
 	 * @return string $value Opening `<td>` tag.
@@ -108,7 +108,7 @@ class cptui_admin_ui {
 	 *
 	 * @since 1.2.0
 	 * @since 1.3.0 Added $args parameter.
-	 * @since NEXT Added $atts parameter
+	 * @since 1.13.0 Added $atts parameter
 	 *
 	 * @param array $args Array of arguments.
 	 * @param array $atts Array of custom attributes for the tag.
@@ -624,7 +624,7 @@ class cptui_admin_ui {
 	 * @param array $attributes Array of attributes to combine.
 	 *
 	 * @return string
-	 * @since NEXT
+	 * @since 1.13.0
 	 */
 	public function get_custom_attributes( $attributes = [] ) {
 		$formatted = [];
