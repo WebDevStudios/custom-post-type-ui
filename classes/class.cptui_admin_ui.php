@@ -22,7 +22,7 @@ class cptui_admin_ui {
 	 * Return an opening `<tr>` tag.
 	 *
 	 * @since 1.0.0
-	 * @since NEXT Added attributes parameter
+	 * @since 1.13.0 Added attributes parameter
 	 *
 	 * @param array $atts Array of custom attributes to add to the tag.
 	 * @return string $value Opening `<tr>` tag with attributes.
