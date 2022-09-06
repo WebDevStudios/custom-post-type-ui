@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## 1.10.2 - 2022-01-28
+* Updated: Confirmed compatibility with WordPress 5.9
+
+## 1.10.1 - 2021-12-07
+* Added: Filter to our PHP Global sanitization function for Extended usage.
+
+## 1.10.0 - 2021-10-04
+* Added: Dashicon picker with popup. - Props arshidkv12
+* Added: Tag Cloud widget support for custom taxonomies.
+* Added: Filters that allow developers to override the data fetched from our options, if they choose to.
+* Added: Ability to clear all filled in label values.
+* Fixed: Hardened up various parts of our code to ensure security.
+* Fixed: Incorrectly referenced variable from post types instead of taxonomies, for the rest_controller_class property.
+
 ## [1.9.2] - 2021-06-16 =
 ### Added
 - Added: "date" as a reserved taxonomy slug.
