@@ -36,6 +36,9 @@ Custom Post Type UI development is managed on GitHub, with official releases pub
 
 == Changelog ==
 
+= 1.13.1 - 2022-09-08 =
+* Fixed: Various issues caused by a misplaced output for `ob_get_clean()` outside of function.
+
 = 1.13.0 - 2022-09-07 =
 * Added: Notes regarding featured image and post format support also needing `add_theme_support` to work.
 * Fixed: Issues around double quotes and JSON export with the post type description field
@@ -74,6 +77,9 @@ Custom Post Type UI development is managed on GitHub, with official releases pub
 * Fixed: PHP warnings around foreach loops in cptui_published_post_format_fix()
 
 == Upgrade Notice ==
+
+= 1.13.1 - 2022-09-08 =
+* Fixed: Various issues caused by a misplaced output for `ob_get_clean()` outside of function.
 
 = 1.13.0 - 2022-09-07 =
 * Added: Notes regarding featured image and post format support also needing `add_theme_support` to work.
