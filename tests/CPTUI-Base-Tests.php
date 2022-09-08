@@ -36,14 +36,14 @@ abstract class CPTUI_Base_Tests extends WP_UnitTestCase {
 	}
 
 	public function normalize_string( $string ) {
-		return trim( preg_replace( array(
+		return trim( preg_replace( [
 			'/[\t\n\r]/', // Remove tabs and newlines
 			'/\s{2,}/', // Replace repeating spaces with one space
 			'/> </', // Remove spaces between carats
-		), array(
+		], [
 			'',
 			' ',
 			'><',
-		), $string ) );
+		], $string ) );
 	}
 }

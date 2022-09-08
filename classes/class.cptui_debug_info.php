@@ -21,10 +21,10 @@ class CPTUI_Debug_Info {
 	 */
 	public function tab_site_info() {
 		?>
-		<p><?php _e( 'If you have sought support for Custom Post Type UI on the forums, you may be requested to send the information below to the plugin developer. Simply insert the email they provided in the input field at the bottom and click the "Send debug info" button. Only the data below will be sent to them.', 'custom-post-type-ui' ); ?></p>
+		<p><?php esc_html_e( 'If you have sought support for Custom Post Type UI on the forums, you may be requested to send the information below to the plugin developer. Simply insert the email they provided in the input field at the bottom and click the "Send debug info" button. Only the data below will be sent to them.', 'custom-post-type-ui' ); ?></p>
 		<label for="cptui_audit_textarea">
 		<textarea readonly="readonly" aria-readonly="true" id="cptui-audit-textarea" name="cptui_audit_textarea" rows="20" cols="100" class="large-text code">
-			<?php echo $this->system_status(); ?>
+			<?php echo esc_html( $this->system_status() ); ?>
 		</textarea></label>
 		<?php
 	}
@@ -44,40 +44,40 @@ class CPTUI_Debug_Info {
 		global $wpdb;
 
 		$theme_data = wp_get_theme();
-		$theme = $theme_data->Name . ' ' . $theme_data->Version;
+		$theme      = $theme_data->Name . ' ' . $theme_data->Version; // phpcs:ignore.
 
 		ob_start();
 		?>
 
 		### Begin Custom Post Type UI Debug Info ###
 
-		Multisite:                <?php echo is_multisite() ? 'Yes' . "\n" : 'No' . "\n" ?>
+		Multisite:                <?php echo is_multisite() ? 'Yes' . "\n" : 'No' . "\n"; ?>
 
-		SITE_URL:                 <?php echo site_url() . "\n"; ?>
-		HOME_URL:                 <?php echo home_url() . "\n"; ?>
+		SITE_URL:                 <?php echo esc_url( site_url() ) . "\n"; ?>
+		HOME_URL:                 <?php echo esc_url( home_url() ) . "\n"; ?>
 
-		WordPress Version:        <?php echo get_bloginfo( 'version' ) . "\n"; ?>
-		Permalink Structure:      <?php echo get_option( 'permalink_structure' ) . "\n"; ?>
-		Active Theme:             <?php echo $theme . "\n"; ?>
+		WordPress Version:        <?php echo get_bloginfo( 'version' ) . "\n"; // phpcs:ignore. ?>
+		Permalink Structure:      <?php echo get_option( 'permalink_structure' ) . "\n"; // phpcs:ignore. ?>
+		Active Theme:             <?php echo $theme . "\n"; // phpcs:ignore. ?>
 
-		Registered Post Types:    <?php echo implode( ', ', get_post_types( '', 'names' ) ) . "\n"; ?>
+		Registered Post Types:    <?php echo implode( ', ', get_post_types( '', 'names' ) ) . "\n"; // phpcs:ignore. ?>
 
 		PHP Version:              <?php echo PHP_VERSION . "\n"; ?>
-		MySQL Version:            <?php echo $wpdb->db_version() . "\n"; ?>
-		Web Server Info:          <?php echo $_SERVER['SERVER_SOFTWARE'] . "\n"; ?>
+		MySQL Version:            <?php echo $wpdb->db_version() . "\n"; // phpcs:ignore. ?>
+		Web Server Info:          <?php echo $_SERVER['SERVER_SOFTWARE'] . "\n"; // phpcs:ignore. ?>
 
-		Show On Front:            <?php echo get_option( 'show_on_front' ) . "\n" ?>
-		Page On Front:            <?php $id = get_option( 'page_on_front' );
-		echo get_the_title( $id ) . ' (#' . $id . ')' . "\n" ?>
-		Page For Posts:           <?php $id = get_option( 'page_for_posts' );
-		echo get_the_title( $id ) . ' (#' . $id . ')' . "\n" ?>
+		Show On Front:            <?php echo get_option( 'show_on_front' ) . "\n"; // phpcs:ignore. ?>
+		Page On Front:            <?php $id = get_option( 'page_on_front' ); // phpcs:ignore.
+		echo get_the_title( $id ) . ' (#' . $id . ')' . "\n"; // phpcs:ignore. ?>
+		Page For Posts:           <?php $id = get_option( 'page_for_posts' ); // phpcs:ignore.
+		echo get_the_title( $id ) . ' (#' . $id . ')' . "\n"; // phpcs:ignore. ?>
 
-		WordPress Memory Limit:   <?php echo ( $this->num_convt( WP_MEMORY_LIMIT ) / ( 1024 ) ) . 'MB'; ?><?php echo "\n"; ?>
+		WordPress Memory Limit:   <?php echo ( $this->num_convt( WP_MEMORY_LIMIT ) / ( 1024 ) ) . 'MB'; ?><?php echo "\n"; // phpcs:ignore. ?>
 
 		<?php
 		$plugins  = get_plugins();
 		$pg_count = count( $plugins );
-		echo 'TOTAL PLUGINS: ' . $pg_count . "\n\n";
+		echo 'TOTAL PLUGINS: ' . $pg_count . "\n\n"; // phpcs:ignore.
 		// MU plugins.
 		$mu_plugins = get_mu_plugins();
 
@@ -86,7 +86,7 @@ class CPTUI_Debug_Info {
 
 			foreach ( $mu_plugins as $mu_path => $mu_plugin ) {
 
-				echo "\t\t" . $mu_plugin['Name'] . ': ' . $mu_plugin['Version'] . "\n";
+				echo "\t\t" . esc_html( $mu_plugin['Name'] ) . ': ' . esc_html( $mu_plugin['Version'] ) . "\n";
 			}
 		endif;
 		// Standard plugins - active.
@@ -96,27 +96,27 @@ class CPTUI_Debug_Info {
 		$ac_count = count( $active );
 		$ic_count = $pg_count - $ac_count;
 
-		echo "\t\t" . 'ACTIVE PLUGINS: (' . $ac_count . ')' . "\n\n";
+		echo "\t\t" . 'ACTIVE PLUGINS: (' . $ac_count . ')' . "\n\n"; // phpcs:ignore.
 
 		foreach ( $plugins as $plugin_path => $plugin ) {
 			// If the plugin isn't active, don't show it.
-			if ( ! in_array( $plugin_path, $active ) ) {
+			if ( ! in_array( $plugin_path, $active, true ) ) {
 				continue;
 			}
 
-			echo "\t\t" . $plugin['Name'] . ': ' . $plugin['Version'] . "\n";
+			echo "\t\t" . esc_html( $plugin['Name'] ) . ': ' . esc_html( $plugin['Version'] ) . "\n";
 		}
 		// Standard plugins - inactive.
 		echo "\n";
-		echo "\t\t" , 'INACTIVE PLUGINS: (' . $ic_count . ')' . "\n\n";
+		echo "\t\t" , 'INACTIVE PLUGINS: (' . $ic_count . ')' . "\n\n"; // phpcs:ignore.
 
 		foreach ( $plugins as $plugin_path => $plugin ) {
 			// If the plugin isn't active, show it here.
-			if ( in_array( $plugin_path, $active ) ) {
+			if ( in_array( $plugin_path, $active, true ) ) {
 				continue;
 			}
 
-			echo "\t\t" . $plugin['Name'] . ': ' . $plugin['Version'] . "\n";
+			echo "\t\t" . esc_html( $plugin['Name'] ) . ': ' . esc_html( $plugin['Version'] ) . "\n";
 		}
 
 		// If multisite, grab network as well.
@@ -138,7 +138,7 @@ class CPTUI_Debug_Info {
 
 				$plugin = get_plugin_data( $plugin_path );
 
-				echo $plugin['Name'] . ' :' . $plugin['Version'] . "\n";
+				echo esc_html( $plugin['Name'] ) . ' :' . esc_html( $plugin['Version'] ) . "\n";
 			}
 
 		endif;
@@ -146,13 +146,13 @@ class CPTUI_Debug_Info {
 		echo "\n";
 		$cptui_post_types = cptui_get_post_type_data();
 		echo "\t\t" . 'Post Types: ' . "\n";
-		echo "\t\t" . json_encode( $cptui_post_types ) . "\n";
+		echo "\t\t" . wp_json_encode( $cptui_post_types ) . "\n";
 
 		echo "\n\n";
 
 		$cptui_taxonomies = cptui_get_taxonomy_data();
 		echo "\t\t" . 'Taxonomies: ' . "\n";
-		echo "\t\t" . json_encode( $cptui_taxonomies ) . "\n";
+		echo "\t\t" . wp_json_encode( $cptui_taxonomies ) . "\n";
 		echo "\n";
 
 		if ( has_action( 'cptui_custom_debug_info' ) ) {
@@ -229,11 +229,14 @@ class CPTUI_Debug_Info {
 		 *
 		 * @param string $value Intended email subject.
 		 */
-		$subject = apply_filters( 'cptui_debug_email_subject', sprintf(
-			// translators: Placeholder will hold site home_url.
-			__( 'Custom Post Type UI debug information for %s', 'custom-post-type-ui' ),
-			home_url( '/' )
-		) );
+		$subject = apply_filters(
+			'cptui_debug_email_subject',
+			sprintf(
+				// translators: Placeholder will hold site home_url.
+				esc_html__( 'Custom Post Type UI debug information for %s', 'custom-post-type-ui' ),
+				esc_url( home_url( '/' ) )
+			)
+		);
 
 		$result = wp_mail( $args['email'], $subject, $message );
 

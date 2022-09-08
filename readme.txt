@@ -3,8 +3,8 @@ Contributors: webdevstudios, pluginize, tw2113, vegasgeek, modemlooper, williams
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3084056
 Tags: custom post types, CPT, CMS, post, types, post type, taxonomy, tax, custom, content types, post types
 Requires at least: 5.9
-Tested up to: 6.0
-Stable tag: 1.12.1
+Tested up to: 6.0.2
+Stable tag: 1.13.0
 License: GPL-2.0+
 Requires PHP: 5.6
 
@@ -36,6 +36,14 @@ Custom Post Type UI development is managed on GitHub, with official releases pub
 
 == Changelog ==
 
+= 1.13.0 - TBD =
+* Added: Notes regarding featured image and post format support also needing `add_theme_support` to work.
+* Fixed: Issues around double quotes and JSON export with the post type description field
+* Fixed: Issues around HTML markup being removed from post type description field stemming from 1.10.x release
+* Fixed: Pluralization issue with our UI for some field labels
+* Updated: Code separation and quality cleanup.
+* Updated: Plugin branding.
+
 = 1.12.1 - 2022-05-16 =
 * Fixed: JSON decoding issues around WP-CLI import.
 
@@ -64,23 +72,17 @@ Custom Post Type UI development is managed on GitHub, with official releases pub
 * Added: Notes around taxonomy "hierarchical" option regarding category vs tag behavior.
 * Updated: Reserved post type slugs from recent WordPress releases.
 * Fixed: PHP warnings around foreach loops in cptui_published_post_format_fix()
-
-= 1.10.2 - 2022-01-28 =
-* Updated: Confirmed compatibility with WordPress 5.9
-
-= 1.10.1 - 2021-12-07 =
-* Added: Filter to our PHP Global sanitization function for Extended usage.
-
-= 1.10.0 - 2021-10-04 =
-* Added: Dashicon picker with popup. - Props arshidkv12
-* Added: Tag Cloud widget support for custom taxonomies.
-* Added: Filters that allow developers to override the data fetched from our options, if they choose to.
-* Added: Ability to clear all filled in label values.
-* Fixed: Hardened up various parts of our code to ensure security.
-* Fixed: Incorrectly referenced variable from post types instead of taxonomies, for the rest_controller_class property.
 
 == Upgrade Notice ==
 
+= 1.13.0 - TBD =
+* Added: Notes regarding featured image and post format support also needing `add_theme_support` to work.
+* Fixed: Issues around double quotes and JSON export with the post type description field
+* Fixed: Issues around HTML markup being removed from post type description field stemming from 1.10.x release
+* Fixed: Pluralization issue with our UI for some field labels
+* Updated: Code separation and quality cleanup.
+* Updated: Plugin branding.
+
 = 1.12.1 - 2022-05-16 =
 * Fixed: JSON decoding issues around WP-CLI import.
 
@@ -109,20 +111,6 @@ Custom Post Type UI development is managed on GitHub, with official releases pub
 * Added: Notes around taxonomy "hierarchical" option regarding category vs tag behavior.
 * Updated: Reserved post type slugs from recent WordPress releases.
 * Fixed: PHP warnings around foreach loops in cptui_published_post_format_fix()
-
-= 1.10.2 - 2022-01-28 =
-* Updated: Confirmed compatibility with WordPress 5.9
-
-= 1.10.1 - 2021-12-07 =
-* Added: Filter to our PHP Global sanitization function for Extended usage.
-
-= 1.10.0 - 2021-10-04 =
-* Added: Dashicon picker with popup. - Props arshidkv12
-* Added: Tag Cloud widget support for custom taxonomies.
-* Added: Filters that allow developers to override the data fetched from our options, if they choose to.
-* Added: Ability to clear all filled in label values.
-* Fixed: Hardened up various parts of our code to ensure security.
-* Fixed: Incorrectly referenced variable from post types instead of taxonomies, for the rest_controller_class property.
 
 == Installation ==
 

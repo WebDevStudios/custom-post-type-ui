@@ -22,11 +22,18 @@ class cptui_admin_ui {
 	 * Return an opening `<tr>` tag.
 	 *
 	 * @since 1.0.0
+	 * @since 1.13.0 Added attributes parameter
 	 *
+	 * @param array $atts Array of custom attributes to add to the tag.
 	 * @return string $value Opening `<tr>` tag with attributes.
 	 */
-	public function get_tr_start() {
-		return '<tr valign="top">';
+	public function get_tr_start( $atts = [] ) {
+
+		$atts_str = '';
+		if ( ! empty( $atts ) ) {
+			$atts_str = ' ' . $this->get_custom_attributes( $atts );
+		}
+		return '<tr' . $atts_str . '>';
 	}
 
 	/**
@@ -44,11 +51,17 @@ class cptui_admin_ui {
 	 * Return an opening `<th>` tag.
 	 *
 	 * @since 1.0.0
+	 * @since 1.13.0 Added attributes parameter.
 	 *
+	 * @param array $atts Array of attributes to add to the tag.
 	 * @return string $value Opening `<th>` tag with attributes.
 	 */
-	public function get_th_start() {
-		return '<th scope="row">';
+	public function get_th_start( $atts = [] ) {
+		$atts_str = '';
+		if ( ! empty( $atts ) ) {
+			$atts_str = ' ' . $this->get_custom_attributes( $atts );
+		}
+		return "<th scope=\"row\"{$atts_str}>";
 	}
 
 	/**
@@ -66,11 +79,17 @@ class cptui_admin_ui {
 	 * Return an opening `<td>` tag.
 	 *
 	 * @since 1.0.0
+	 * @since 1.13.0 Added attributes parameter.
 	 *
+	 * @param array $atts Array of attributes to add to the tag.
 	 * @return string $value Opening `<td>` tag.
 	 */
-	public function get_td_start() {
-		return '<td>';
+	public function get_td_start( $atts = [] ) {
+		$atts_str = '';
+		if ( ! empty( $atts ) ) {
+			$atts_str = ' ' . $this->get_custom_attributes( $atts );
+		}
+		return "<td{$atts_str}>";
 	}
 
 	/**
@@ -89,11 +108,13 @@ class cptui_admin_ui {
 	 *
 	 * @since 1.2.0
 	 * @since 1.3.0 Added $args parameter.
+	 * @since 1.13.0 Added $atts parameter
 	 *
 	 * @param array $args Array of arguments.
+	 * @param array $atts Array of custom attributes for the tag.
 	 * @return string $value Opening `<fieldset>` tag.
 	 */
-	public function get_fieldset_start( $args = [] ) {
+	public function get_fieldset_start( $args = [], $atts = [] ) {
 		$fieldset = '<fieldset';
 
 		if ( ! empty( $args['id'] ) ) {
@@ -107,6 +128,10 @@ class cptui_admin_ui {
 
 		if ( ! empty( $args['aria-expanded'] ) ) {
 			$fieldset .= ' aria-expanded="' . $args['aria-expanded'] . '"';
+		}
+
+		if ( ! empty( $atts ) ) {
+			$fieldset .= ' ' . $this->get_custom_attributes( $atts );
 		}
 
 		$fieldset .= ' tabindex="0">';
@@ -132,8 +157,12 @@ class cptui_admin_ui {
 	 *
 	 * @return string
 	 */
-	public function get_legend_start() {
-		return '<legend class="screen-reader-text">';
+	public function get_legend_start( $atts = [] ) {
+		$atts_str = '';
+		if ( ! empty( $atts ) ) {
+			$atts_str = ' ' . $this->get_custom_attributes( $atts );
+		}
+		return "<legend class=\"screen-reader-text\"{$atts_str}>";
 	}
 
 	/**
@@ -294,7 +323,9 @@ class cptui_admin_ui {
 	 */
 	public function get_select_input( $args = [] ) {
 		$defaults = $this->get_default_input_parameters(
-			[ 'selections' => [] ]
+			[
+				'selections' => [],
+			]
 		);
 
 		$args = wp_parse_args( $args, $defaults );
@@ -536,7 +567,7 @@ class cptui_admin_ui {
 	public function get_button( $args = [] ) {
 		$value   = '';
 		$classes = isset( $args['classes'] ) ? $args['classes'] : '';
-		$value .= '<input id="' . $args['id'] . '" class="button ' . $classes . '" type="button" value="' . $args['textvalue'] . '" />';
+		$value  .= '<input id="' . $args['id'] . '" class="button ' . $classes . '" type="button" value="' . $args['textvalue'] . '" />';
 
 		return $value;
 	}
@@ -585,5 +616,24 @@ class cptui_admin_ui {
 			],
 			(array) $additions
 		);
+	}
+
+	/**
+	 * Return combined attributes string.
+	 *
+	 * @param array $attributes Array of attributes to combine.
+	 *
+	 * @return string
+	 * @since 1.13.0
+	 */
+	public function get_custom_attributes( $attributes = [] ) {
+		$formatted = [];
+		if ( ! empty( $attributes ) ) {
+			foreach ( $attributes as $key => $attribute ) {
+				$formatted[] = "$key=\"$attribute\"";
+			}
+		}
+
+		return implode( ' ', $formatted );
 	}
 }

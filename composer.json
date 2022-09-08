@@ -18,23 +18,21 @@
     "docs": "http://docs.pluginize.com/"
   },
   "config": {
-    "sort-order": true
+    "sort-order": true,
+    "platform": {
+      "php": "5.6"
+    }
   },
   "minimum-stability": "dev",
   "prefer-stable": true,
   "require": {
-    "php": "^5.6|^7",
-    "composer/installers": "~1.0",
-    "roave/security-advisories": "dev-master"
+    "composer/installers": "^1.11.0"
   },
   "require-dev": {
-    "php": "^5.6|^7.0",
     "brain/monkey": "^2.0",
-    "dealerdirect/phpcodesniffer-composer-installer": "^0.4.3",
-    "johnbillion/php-docs-standards": "~1.0",
-    "phpunit/phpunit": "^5.7",
-    "sirbrillig/phpcs-variable-analysis": "^2.0",
-    "wimg/php-compatibility": "^8.0.1",
+    "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1",
+    "phpcompatibility/phpcompatibility-wp": "^2.1.1",
+    "wp-cli/wp-cli-bundle": "^2.5.0",
     "wp-coding-standards/wpcs": "^2.3.0"
   }
 }
