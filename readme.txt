@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: custom post types, CPT, CMS, post, types, post type, taxonomy, tax, custom, content types, post types
 Requires at least: 5.9
 Tested up to: 6.0.2
-Stable tag: 1.13.0
+Stable tag: 1.13.1
 License: GPL-2.0+
 Requires PHP: 5.6
 
