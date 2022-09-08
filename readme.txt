@@ -36,7 +36,7 @@ Custom Post Type UI development is managed on GitHub, with official releases pub
 
 == Changelog ==
 
-= 1.13.0 - TBD =
+= 1.13.0 - 2022-09-07 =
 * Added: Notes regarding featured image and post format support also needing `add_theme_support` to work.
 * Fixed: Issues around double quotes and JSON export with the post type description field
 * Fixed: Issues around HTML markup being removed from post type description field stemming from 1.10.x release
