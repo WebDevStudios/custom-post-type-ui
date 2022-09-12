@@ -197,7 +197,7 @@ add_action( 'plugins_loaded', 'cptui_loaded' );
  *
  * @internal
  */
-function cptui_create_submenus() {
+function cptui_includes() {
 	require_once plugin_dir_path( __FILE__ ) . 'inc/about.php';
 	require_once plugin_dir_path( __FILE__ ) . 'inc/utility.php';
 	require_once plugin_dir_path( __FILE__ ) . 'inc/post-types.php';
@@ -214,7 +214,7 @@ function cptui_create_submenus() {
 		require_once plugin_dir_path( __FILE__ ) . 'inc/wp-cli.php';
 	}
 }
-add_action( 'cptui_loaded', 'cptui_create_submenus' );
+add_action( 'cptui_loaded', 'cptui_includes' );
 
 /**
  * Fire our CPTUI init hook.
