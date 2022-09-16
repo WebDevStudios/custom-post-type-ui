@@ -53,19 +53,60 @@ function save_local_taxonomy_data( $data = [] ) {
 		return;
 	}
 
-	$theme_dir = local_json_get_dirname();
-	$blog_id   = '';
-
-	if ( is_multisite() ) {
-		$blog_id = '_' . get_current_blog_id();
-	}
+	$json_path = get_current_site_type_tax_json_file_name( 'taxonomy' );
 
 	$cptui_taxonomies = get_option( 'cptui_taxonomies', [] );
 	$content          = json_encode( $cptui_taxonomies );
-	file_put_contents( $theme_dir . "/cptui_taxonomy_data{$blog_id}.json", $content );
+	file_put_contents( $json_path, $content );
 }
 add_action( 'cptui_after_update_taxonomy', __NAMESPACE__ . '\save_local_taxonomy_data' );
 add_action( 'cptui_after_delete_taxonomy', __NAMESPACE__ . '\save_local_taxonomy_data' );
+
+function load_local_post_type_data( $data = [], $existing_cpts = [] ) {
+
+	// We want to prefer database copy first, in case of editing content.
+	if ( ! empty( $existing_cpts ) ) {
+		return $existing_cpts;
+	}
+
+	$loaded = load_local_cptui_data( get_current_site_type_tax_json_file_name( 'post_type' ) );
+
+	if ( false === $loaded ) {
+		return $data;
+	}
+
+	$data_new = json_decode( $loaded, true );
+
+	if ( $data_new ) {
+		return $data_new;
+	}
+
+	return $data;
+}
+add_filter( 'cptui_post_types_override', __NAMESPACE__ . '\load_local_post_type_data', 10, 2 );
+
+function load_local_taxonomies_data( $data = [], $existing_taxes = [] ) {
+
+	// We want to prefer database copy first, in case of editing content.
+	if ( ! empty( $existing_taxes ) ) {
+		return $existing_taxes;
+	}
+
+	$loaded = load_local_cptui_data( get_current_site_type_tax_json_file_name( 'taxonomy' ) );
+
+	if ( false === $loaded ) {
+		return $data;
+	}
+
+	$data_new = json_decode( $loaded, true );
+
+	if ( $data_new ) {
+		return $data_new;
+	}
+
+	return $data;
+}
+add_filter( 'cptui_taxonomies_override', __NAMESPACE__ . '\load_local_taxonomies_data', 10, 2 );
 
 /**
  * Check if `cptui_data` is a directory and writable, thus enabled.
