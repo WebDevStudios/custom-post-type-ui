@@ -37,13 +37,12 @@ function save_local_post_type_data( $data = [] ) {
 		$blog_id = '_' . get_current_blog_id();
 	}
 
-	if ( array_key_exists( 'cpt_custom_post_type', $data ) ) {
-		$cptui_post_types = get_option( 'cptui_post_types', [] );
-		$content          = json_encode( $cptui_post_types );
-		file_put_contents( $theme_dir . "/cptui_post_type_data{$blog_id}.json", $content );
-	}
+	$cptui_post_types = get_option( 'cptui_post_types', [] );
+	$content          = json_encode( $cptui_post_types );
+	file_put_contents( $theme_dir . "/cptui_post_type_data{$blog_id}.json", $content );
 }
 add_action( 'cptui_after_update_post_type', __NAMESPACE__ . '\save_local_post_type_data' );
+add_action( 'cptui_after_delete_post_type', __NAMESPACE__ . '\save_local_post_type_data' );
 
 /**
  * Save taxonomy data to local JSON file if enabled and able.
@@ -65,13 +64,12 @@ function save_local_taxonomy_data( $data = [] ) {
 		$blog_id = '_' . get_current_blog_id();
 	}
 
-	if ( array_key_exists( 'cpt_custom_tax', $data ) ) {
-		$cptui_taxonomies = get_option( 'cptui_taxonomies', [] );
-		$content          = json_encode( $cptui_taxonomies );
-		file_put_contents( $theme_dir . "/cptui_taxonomy_data{$blog_id}.json", $content );
-	}
+	$cptui_taxonomies = get_option( 'cptui_taxonomies', [] );
+	$content          = json_encode( $cptui_taxonomies );
+	file_put_contents( $theme_dir . "/cptui_taxonomy_data{$blog_id}.json", $content );
 }
 add_action( 'cptui_after_update_taxonomy', __NAMESPACE__ . '\save_local_taxonomy_data' );
+add_action( 'cptui_after_delete_taxonomy', __NAMESPACE__ . '\save_local_taxonomy_data' );
 
 /**
  * Check if `cptui_data` is a directory and writable, thus enabled.
