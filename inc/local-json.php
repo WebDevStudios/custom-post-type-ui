@@ -49,6 +49,7 @@ add_action( 'cptui_after_delete_post_type', __NAMESPACE__ . '\save_local_post_ty
  * @param $data
  */
 function save_local_taxonomy_data( $data = [] ) {
+
 	if ( ! local_json_is_enabled() ) {
 		return;
 	}
@@ -63,6 +64,10 @@ add_action( 'cptui_after_update_taxonomy', __NAMESPACE__ . '\save_local_taxonomy
 add_action( 'cptui_after_delete_taxonomy', __NAMESPACE__ . '\save_local_taxonomy_data' );
 
 function load_local_post_type_data( $data = [], $existing_cpts = [] ) {
+
+	if ( ! local_json_is_enabled() ) {
+		return $data;
+	}
 
 	// We want to prefer database copy first, in case of editing content.
 	if ( ! empty( $existing_cpts ) ) {
@@ -86,6 +91,10 @@ function load_local_post_type_data( $data = [], $existing_cpts = [] ) {
 add_filter( 'cptui_post_types_override', __NAMESPACE__ . '\load_local_post_type_data', 10, 2 );
 
 function load_local_taxonomies_data( $data = [], $existing_taxes = [] ) {
+
+	if ( ! local_json_is_enabled() ) {
+		return $data;
+	}
 
 	// We want to prefer database copy first, in case of editing content.
 	if ( ! empty( $existing_taxes ) ) {
