@@ -204,6 +204,7 @@ function cptui_create_submenus() {
 	require_once plugin_dir_path( __FILE__ ) . 'inc/taxonomies.php';
 	require_once plugin_dir_path( __FILE__ ) . 'inc/listings.php';
 	require_once plugin_dir_path( __FILE__ ) . 'inc/tools.php';
+	require_once plugin_dir_path( __FILE__ ) . 'inc/local-json.php';
 	require_once plugin_dir_path( __FILE__ ) . 'inc/tools-sections/tools-post-types.php';
 	require_once plugin_dir_path( __FILE__ ) . 'inc/tools-sections/tools-taxonomies.php';
 	require_once plugin_dir_path( __FILE__ ) . 'inc/tools-sections/tools-get-code.php';
