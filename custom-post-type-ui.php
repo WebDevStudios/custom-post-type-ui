@@ -266,10 +266,12 @@ function cptui_create_custom_post_types() {
 	 * Filters an override array of post type data to be registered instead of our saved option.
 	 *
 	 * @since 1.10.0
+	 * @since 1.14.0 Added $cpts as secondary argument.
 	 *
 	 * @param array $value Default override value.
+	 * @param array $cpts Existing CPTUI data.
 	 */
-	$cpts_override = apply_filters( 'cptui_post_types_override', [] );
+	$cpts_override = apply_filters( 'cptui_post_types_override', [], $cpts );
 
 	if ( empty( $cpts ) && empty( $cpts_override ) ) {
 		return;
@@ -570,10 +572,12 @@ function cptui_create_custom_taxonomies() {
 	 * Filters an override array of taxonomy data to be registered instead of our saved option.
 	 *
 	 * @since 1.10.0
+	 * @since 1.14.0 Added $taxes as secondary argument
 	 *
 	 * @param array $value Default override value.
+	 * @param array $taxes Existing CPTUI data.
 	 */
-	$taxes_override = apply_filters( 'cptui_taxonomies_override', [] );
+	$taxes_override = apply_filters( 'cptui_taxonomies_override', [], $taxes );
 
 	if ( empty( $taxes ) && empty( $taxes_override ) ) {
 		return;
