@@ -30,16 +30,12 @@ function save_local_post_type_data( $data = [] ) {
 	if ( ! local_json_is_enabled() ) {
 		return;
 	}
-	$theme_dir = local_json_get_dirname();
-	$blog_id   = '';
 
-	if ( is_multisite() ) {
-		$blog_id = '_' . get_current_blog_id();
-	}
+	$json_path = get_current_site_type_tax_json_file_name( 'post_type' );
 
 	$cptui_post_types = get_option( 'cptui_post_types', [] );
 	$content          = json_encode( $cptui_post_types );
-	file_put_contents( $theme_dir . "/cptui_post_type_data{$blog_id}.json", $content );
+	file_put_contents( $json_path, $content );
 }
 add_action( 'cptui_after_update_post_type', __NAMESPACE__ . '\save_local_post_type_data' );
 add_action( 'cptui_after_delete_post_type', __NAMESPACE__ . '\save_local_post_type_data' );
@@ -107,3 +103,21 @@ function local_json_is_writable_admin_notice() {
 	}
 }
 add_action( 'admin_init', __NAMESPACE__ . '\local_json_is_writable_admin_notice' );
+
+function get_current_site_type_tax_json_file_name( $content_type ) {
+	$theme_dir = local_json_get_dirname();
+	$blog_id   = '';
+
+	if ( is_multisite() ) {
+		$blog_id = '_' . get_current_blog_id();
+	}
+	return $theme_dir . "/cptui_{$content_type}_data{$blog_id}.json";
+}
+
+function load_local_cptui_data( $file_name = '' ) {
+	if ( empty( $file_name ) ) {
+		return false;
+	}
+
+	return file_get_contents( $file_name );
+}
