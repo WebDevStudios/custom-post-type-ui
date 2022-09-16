@@ -738,6 +738,17 @@ function cptui_nonce_fail_admin_notice() {
 }
 
 /**
+ * Local JSON folder not writable callback
+ * @since 1.14.0
+ */
+function cptui_local_json_not_writable_admin_notice() {
+	echo cptui_admin_notices_helper( // phpcs:ignore WordPress.Security.EscapeOutput
+		esc_html__( 'A "cptui_data" folder exists in your active theme but the server cannot write to it. Please check folder permissions.', 'custom-post-type-ui' ),
+		false
+	);
+}
+
+/**
  * Returns error message for if trying to register existing post type.
  *
  * @since 1.4.0
