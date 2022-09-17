@@ -144,9 +144,18 @@ add_filter( 'cptui_get_taxonomy_data', __NAMESPACE__ . '\local_get_taxonomy_data
  * @return bool
  */
 function local_json_is_enabled() {
-	$dirname = local_json_get_dirname();
+	$dirpath = local_json_get_dirpath();
 
-	return ( is_dir( $dirname ) && is_writable( $dirname ) );
+	$is_enabled = ( is_dir( $dirpath ) && is_writable( $dirpath ) );
+
+	/**
+	 * Filters the `$is_enabled value for local JSON status.
+	 *
+	 * @since 1.14.0
+	 *
+	 * @oaram bool $is_enabled Whether or not the folder exists and is writeable.
+	 */
+	return apply_filters( 'cptui_local_json_is_enabled', $is_enabled );
 }
 
 /**
@@ -155,8 +164,16 @@ function local_json_is_enabled() {
  * @since 1.14.0
  * @return string
  */
-function local_json_get_dirname() {
-	return get_stylesheet_directory() . '/cptui_data';
+function local_json_get_dirpath() {
+
+	/**
+	 * Filters the server directory path to the intended folder in active theme.
+	 *
+	 * @since 1.14.0
+	 *
+	 * @param string $value Path to the folder in the active theme.
+	 */
+	return apply_filters( 'cptui_local_json_dirpath', get_stylesheet_directory() . '/cptui_data' );
 }
 
 /**
@@ -164,18 +181,18 @@ function local_json_get_dirname() {
  * @since 1.14.0
  */
 function local_json_is_writable_admin_notice() {
-	$dirname = local_json_get_dirname();
-	if ( ! is_dir( $dirname ) ) {
+	$dirpath = local_json_get_dirpath();
+	if ( ! is_dir( $dirpath ) ) {
 		return;
 	}
-	if ( ! is_writable( $dirname ) ) {
+	if ( ! is_writable( $dirpath ) ) {
 		add_action( 'admin_notices', "cptui_local_json_not_writable_admin_notice" );
 	}
 }
 add_action( 'admin_init', __NAMESPACE__ . '\local_json_is_writable_admin_notice' );
 
 function get_current_site_type_tax_json_file_name( $content_type ) {
-	$theme_dir = local_json_get_dirname();
+	$theme_dir = local_json_get_dirpath();
 	$blog_id   = '';
 
 	if ( is_multisite() ) {
