@@ -198,7 +198,18 @@ function get_current_site_type_tax_json_file_name( $content_type ) {
 	if ( is_multisite() ) {
 		$blog_id = '_' . get_current_blog_id();
 	}
-	return $theme_dir . "/cptui_{$content_type}_data{$blog_id}.json";
+	$full_path = $theme_dir . "/cptui_{$content_type}_data{$blog_id}.json";
+
+	/**
+	 * Filters the full path including file for chosen content type for current site.
+	 *
+	 * @since 1.14.0
+	 *
+	 * @param string $full_path Full server path including file name.
+	 * @param string $content_type Whether or not we are fetching post type or taxonomy
+	 * @param string $blog_id Current site ID, with underscore prefix.
+	 */
+	return apply_filters( 'cptui_current_site_type_tax_json_file_name', $full_path, $content_type, $blog_id );
 }
 
 function load_local_cptui_data( $file_name = '' ) {
