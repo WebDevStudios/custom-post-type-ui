@@ -117,6 +117,26 @@ function load_local_taxonomies_data( $data = [], $existing_taxes = [] ) {
 }
 add_filter( 'cptui_taxonomies_override', __NAMESPACE__ . '\load_local_taxonomies_data', 10, 2 );
 
+function local_get_post_type_data( $cpts = [], $current_site_id = 0 ) {
+
+	if ( ! local_json_is_enabled() ) {
+		return $cpts;
+	}
+
+	return $cpts;
+}
+add_filter( 'cptui_get_post_type_data', __NAMESPACE__ . '\local_get_post_type_data', 10, 2 );
+
+function local_get_taxonomy_data( $taxes = [], $current_site_id = 0 ) {
+
+	if ( ! local_json_is_enabled() ) {
+		return $taxes;
+	}
+
+	return $taxes;
+}
+add_filter( 'cptui_get_taxonomy_data', __NAMESPACE__ . '\local_get_taxonomy_data', 10, 2 );
+
 /**
  * Check if `cptui_data` is a directory and writable, thus enabled.
  *
