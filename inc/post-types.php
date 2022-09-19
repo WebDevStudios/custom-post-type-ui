@@ -2062,8 +2062,6 @@ function cptui_listings_delete_post_type() {
 		return;
 	}
 
-
-
 	if ( 'cptui_listings' !== $_GET['page'] || empty( $_GET['post_type'] ) || 'delete_post_type' !== $_GET['action'] || ! wp_verify_nonce( $_GET['_wpnonce'], 'accept_delete' ) ) {
 		return;
 	}

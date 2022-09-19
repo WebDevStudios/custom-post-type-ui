@@ -1430,6 +1430,45 @@ function cptui_delete_taxonomy( $data = [] ) {
 }
 
 /**
+ * Handle the deletion of taxonomy data from within the CPTUI Listings page.
+ *
+ * @since 1.13.0
+ */
+function cptui_listings_delete_taxonomy() {
+
+	if ( wp_doing_ajax() ) {
+		return;
+	}
+
+	if ( ! is_admin() ) {
+		return;
+	}
+
+	if ( 'cptui_listings' !== $_GET['page'] || empty( $_GET['taxonomy'] ) || 'delete_taxonomy' !== $_GET['action'] || ! wp_verify_nonce( $_GET['_wpnonce'], 'accept_delete_taxonomy' ) ) {
+		return;
+	}
+
+	$taxonomy['name'] = ( ! empty( $_GET['taxonomy'] ) ) ? sanitize_text_field( $_GET['taxonomy'] ) : '';
+	$result            = cptui_delete_taxonomy( $taxonomy );
+
+	if ( $result ) {
+		if ( is_callable( "cptui_{$result}_admin_notice" ) ) {
+			add_action( 'admin_notices', "cptui_{$result}_admin_notice" );
+		}
+
+		wp_safe_redirect(
+			add_query_arg(
+				[ 'page' => 'cptui_listings' ],
+				cptui_admin_url( 'admin.php?page=cptui_listings' )
+			)
+		);
+		exit();
+	}
+
+}
+add_action( 'init', 'cptui_listings_delete_taxonomy	' );
+
+/**
  * Add to or update our CPTUI option with new data.
  *
  * @since 1.0.0

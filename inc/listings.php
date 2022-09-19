@@ -44,6 +44,7 @@ function cptui_listings_assets() {
 		[
 			'confirm'             => esc_html__( 'Are you sure you want to delete this? Deleting will NOT remove created content.', 'custom-post-type-ui' ),
 			'existing_post_types' => $registered_post_types,
+			'confirm_taxonomy'             => esc_html__( 'Are you sure you want to delete this? Deleting will NOT remove created content.', 'custom-post-type-ui' ),
 		]
 	);
 }
@@ -375,7 +376,9 @@ function cptui_listings() {
 									<?php
 									printf(
 										'<a href="%s">%s</a><br/>
-										<a href="%s">%s</a>',
+										<a href="%s">%s</a><br/>
+										<a href="%s" class="cptui-taxonomy-delete-bottom">%s</a><br/>',
+
 										esc_attr( $taxonomy_link_url ),
 										sprintf(
 											/* translators: %s: Taxonomy slug */
@@ -384,8 +387,11 @@ function cptui_listings() {
 											esc_html( $taxonomy )
 										),
 										esc_attr( admin_url( 'admin.php?page=cptui_tools&action=get_code#' . $taxonomy ) ),
-										esc_html__( 'Get code', 'custom-post-type-ui' )
+										esc_html__( 'Get code', 'custom-post-type-ui' ),
+										esc_attr( wp_nonce_url( admin_url( 'admin.php?page=cptui_listings&action=delete_taxonomy&taxonomy=' . $taxonomy ), 'accept_delete_taxonomy' ) ),
+										esc_html__( 'Delete Taxonomy', 'custom-post-type-ui' )
 									);
+
 									?>
 								</td>
 								<td>
