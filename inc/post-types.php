@@ -2069,6 +2069,12 @@ function cptui_listings_delete_post_type() {
 	$post_type['name'] = ( ! empty( $_GET['post_type'] ) ) ? sanitize_text_field( $_GET['post_type'] ) : '';
 	$result            = cptui_delete_post_type( $post_type );
 
+	// echo "<pre>";
+	// print_r($result);
+	// print_r($result);
+	// echo "</pre>";
+	// die();
+
 	if ( $result ) {
 		if ( is_callable( "cptui_{$result}_admin_notice" ) ) {
 			add_action( 'admin_notices', "cptui_{$result}_admin_notice" );

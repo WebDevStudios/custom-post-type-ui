@@ -1466,7 +1466,7 @@ function cptui_listings_delete_taxonomy() {
 	}
 
 }
-add_action( 'init', 'cptui_listings_delete_taxonomy	' );
+add_action( 'init', 'cptui_listings_delete_taxonomy' );
 
 /**
  * Add to or update our CPTUI option with new data.
