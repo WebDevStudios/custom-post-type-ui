@@ -123,6 +123,23 @@ function local_get_post_type_data( $cpts = [], $current_site_id = 0 ) {
 		return $cpts;
 	}
 
+	$current_screen = get_current_screen();
+	if ( ! is_object( $current_screen ) || 'cpt-ui_page_cptui_tools' === $current_screen->base ) {
+		return $cpts;
+	}
+
+	$loaded = load_local_cptui_data( get_current_site_type_tax_json_file_name( 'post_type' ) );
+
+	if ( false === $loaded ) {
+		return $cpts;
+	}
+
+	$cpts_new = json_decode( $loaded, true );
+
+	if ( $cpts_new ) {
+		return $cpts_new;
+	}
+
 	return $cpts;
 }
 add_filter( 'cptui_get_post_type_data', __NAMESPACE__ . '\local_get_post_type_data', 10, 2 );
@@ -131,6 +148,23 @@ function local_get_taxonomy_data( $taxes = [], $current_site_id = 0 ) {
 
 	if ( ! local_json_is_enabled() ) {
 		return $taxes;
+	}
+
+	$current_screen = get_current_screen();
+	if ( ! is_object( $current_screen ) || 'cpt-ui_page_cptui_tools' === $current_screen->base ) {
+		return $taxes;
+	}
+
+	$loaded = load_local_cptui_data( get_current_site_type_tax_json_file_name( 'taxonomy' ) );
+
+	if ( false === $loaded ) {
+		return $taxes;
+	}
+
+	$data_new = json_decode( $loaded, true );
+
+	if ( $data_new ) {
+		return $data_new;
 	}
 
 	return $taxes;
@@ -213,9 +247,88 @@ function get_current_site_type_tax_json_file_name( $content_type ) {
 }
 
 function load_local_cptui_data( $file_name = '' ) {
-	if ( empty( $file_name ) ) {
+	if ( empty( $file_name ) || ! file_exists( $file_name ) ) {
 		return false;
 	}
 
-	return file_get_contents( $file_name );
+	$data = file_get_contents( $file_name );
+	if ( false === $data ) {
+		return false;
+	}
+
+	return $data;
 }
+
+function local_post_type_listings_note() {
+
+	if ( ! local_json_is_enabled() ) {
+		return;
+	}
+
+	$db_types = get_option( 'cptui_post_types', [] );
+	$loaded = load_local_cptui_data( get_current_site_type_tax_json_file_name( 'post_type' ) );
+
+	if ( ! empty( $db_types ) || false === $loaded ) {
+		return;
+	}
+
+	printf(
+		'<h3>%s</h3>',
+		esc_html__( 'These post types were loaded via local JSON in your active theme.', 'custom-post-type-ui' )
+	);
+}
+add_action( 'cptui_before_post_type_listing', __NAMESPACE__ . '\local_post_type_listings_note' );
+
+function local_taxonomy_listings_note() {
+
+	if ( ! local_json_is_enabled() ) {
+		return;
+	}
+
+	$db_taxes = get_option( 'cptui_taxonomies', [] );
+	$loaded   = load_local_cptui_data( get_current_site_type_tax_json_file_name( 'taxonomy' ) );
+
+	if ( ! empty( $db_taxes ) || false === $loaded ) {
+		return;
+	}
+
+	printf(
+		'<h3>%s</h3>',
+		esc_html__( 'These taxonomies were loaded via local JSON in your active theme.', 'custom-post-type-ui' )
+	);
+}
+add_action( 'cptui_before_taxonomy_listing', __NAMESPACE__ . '\local_taxonomy_listings_note' );
+
+function local_post_type_tools_export_message( $orig_text ) {
+
+	if ( ! local_json_is_enabled() ) {
+		return $orig_text;
+	}
+
+	$db_types = get_option( 'cptui_post_types', [] );
+	$loaded    = load_local_cptui_data( get_current_site_type_tax_json_file_name( 'post_type' ) );
+
+	if ( ! empty( $db_types ) || false === $loaded ) {
+		return $orig_text;
+	}
+
+	return esc_html__( 'Post types are registered with local JSON.', 'custom-post-type-ui' );
+}
+add_filter( 'cptui_no_post_types_registered_message', __NAMESPACE__ . '\local_post_type_tools_export_message' );
+
+function local_taxonomy_tools_export_message( $orig_text ) {
+
+	if ( ! local_json_is_enabled() ) {
+		return $orig_text;
+	}
+
+	$db_taxes = get_option( 'cptui_taxonomies', [] );
+	$loaded   = load_local_cptui_data( get_current_site_type_tax_json_file_name( 'taxonomy' ) );
+
+	if ( ! empty( $db_taxes ) || false === $loaded ) {
+		return $orig_text;
+	}
+
+	return esc_html__( 'Taxonomies are registered with local JSON.', 'custom-post-type-ui' );
+}
+add_filter( 'cptui_no_taxonomies_registered_message', __NAMESPACE__ . '\local_taxonomy_tools_export_message' );
