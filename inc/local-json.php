@@ -123,9 +123,12 @@ function local_get_post_type_data( $cpts = [], $current_site_id = 0 ) {
 		return $cpts;
 	}
 
-	$current_screen = get_current_screen();
-	if ( ! is_object( $current_screen ) || 'cpt-ui_page_cptui_tools' === $current_screen->base ) {
-		return $cpts;
+	if ( function_exists( 'get_current_screen' ) ) {
+		$current_screen = \get_current_screen();
+
+		if ( ! is_object( $current_screen ) || 'cpt-ui_page_cptui_tools' === $current_screen->base ) {
+			return $cpts;
+		}
 	}
 
 	$loaded = load_local_cptui_data( get_current_site_type_tax_json_file_name( 'post_type' ) );
@@ -150,9 +153,12 @@ function local_get_taxonomy_data( $taxes = [], $current_site_id = 0 ) {
 		return $taxes;
 	}
 
-	$current_screen = get_current_screen();
-	if ( ! is_object( $current_screen ) || 'cpt-ui_page_cptui_tools' === $current_screen->base ) {
-		return $taxes;
+	if ( function_exists( 'get_current_screen' ) ) {
+		$current_screen = \get_current_screen();
+
+		if ( ! is_object( $current_screen ) || 'cpt-ui_page_cptui_tools' === $current_screen->base ) {
+			return $taxes;
+		}
 	}
 
 	$loaded = load_local_cptui_data( get_current_site_type_tax_json_file_name( 'taxonomy' ) );
