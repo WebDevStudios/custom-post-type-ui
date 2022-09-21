@@ -395,7 +395,10 @@ function cptui_render_posttypes_taxonomies_section() {
 						}
 						$content = wp_json_encode( $cptui_post_types );
 					} else {
-						$content = esc_html__( 'No post types registered yet.', 'custom-post-type-ui' );
+						$content = apply_filters(
+							'cptui_no_post_types_registered_message',
+							esc_html__( 'No post types registered yet.', 'custom-post-type-ui' )
+						);
 					}
 					?>
 					<textarea title="<?php esc_attr_e( 'To copy the system info, click below then press Ctrl + C (PC) or Cmd + C (Mac).', 'custom-post-type-ui' ); ?>" onclick="this.focus();this.select();" onfocus="this.focus();this.select();" readonly="readonly" aria-readonly="true" class="cptui_post_import" id="cptui_post_export" name="cptui_post_export"><?php echo $content; // phpcs:ignore. ?></textarea>
@@ -437,7 +440,10 @@ function cptui_render_posttypes_taxonomies_section() {
 						}
 						$content = wp_json_encode( $cptui_taxonomies );
 					} else {
-						$content = esc_html__( 'No taxonomies registered yet.', 'custom-post-type-ui' );
+						$content = apply_filters(
+							'cptui_no_taxonomies_registered_message',
+							esc_html__( 'No taxonomies registered yet.', 'custom-post-type-ui' )
+						);
 					}
 					?>
 					<textarea title="<?php esc_attr_e( 'To copy the system info, click below then press Ctrl + C (PC) or Cmd + C (Mac).', 'custom-post-type-ui' ); ?>" onclick="this.focus();this.select()" onfocus="this.focus();this.select();" readonly="readonly" aria-readonly="true" class="cptui_tax_import" id="cptui_tax_export" name="cptui_tax_export"><?php echo $content; // phpcs:ignore WordPress.Security.EscapeOutput ?></textarea>
