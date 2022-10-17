@@ -178,7 +178,7 @@ function local_get_taxonomy_data( $taxes = [], $current_site_id = 0 ) {
 add_filter( 'cptui_get_taxonomy_data', __NAMESPACE__ . '\local_get_taxonomy_data', 10, 2 );
 
 /**
- * Check if `cptui_data` is a directory and writable, thus enabled.
+ * Check if `cptui-json` is a directory and writable, thus enabled.
  *
  * @since 1.14.0
  * @return bool
@@ -213,11 +213,11 @@ function local_json_get_dirpath() {
 	 *
 	 * @param string $value Path to the folder in the active theme.
 	 */
-	return apply_filters( 'cptui_local_json_dirpath', get_stylesheet_directory() . '/cptui_data' );
+	return apply_filters( 'cptui_local_json_dirpath', get_stylesheet_directory() . '/cptui-json' );
 }
 
 /**
- * Potentially add an admin notice about `cptui_data` not being writeable.
+ * Potentially add an admin notice about `cptui-json` not being writeable.
  * @since 1.14.0
  */
 function local_json_is_writable_admin_notice() {
