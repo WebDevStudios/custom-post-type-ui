@@ -31,10 +31,10 @@ function save_local_post_type_data( $data = [] ) {
 		return;
 	}
 
-	$json_path = get_current_site_type_tax_json_file_name( 'post_type' );
-
-	$cptui_post_types = get_option( 'cptui_post_types', [] );
-	$content          = json_encode( $cptui_post_types );
+	$json_path            = get_specific_type_tax_file_name( 'post_type', $data['cpt_custom_post_type']['name'] );
+	$cptui_post_types     = get_option( 'cptui_post_types', [] );
+	$individual_post_type = $cptui_post_types[ $data['cpt_custom_post_type']['name'] ];
+	$content              = json_encode( $individual_post_type );
 	file_put_contents( $json_path, $content );
 }
 add_action( 'cptui_after_update_post_type', __NAMESPACE__ . '\save_local_post_type_data' );
@@ -54,10 +54,10 @@ function save_local_taxonomy_data( $data = [] ) {
 		return;
 	}
 
-	$json_path = get_current_site_type_tax_json_file_name( 'taxonomy' );
-
-	$cptui_taxonomies = get_option( 'cptui_taxonomies', [] );
-	$content          = json_encode( $cptui_taxonomies );
+	$json_path           = get_specific_type_tax_file_name( 'taxonomy', $data['cpt_custom_tax']['name'] );
+	$cptui_taxonomies    = get_option( 'cptui_taxonomies', [] );
+	$individual_taxonomy = $cptui_taxonomies[ $data['cpt_custom_tax']['name'] ];
+	$content             = json_encode( $individual_taxonomy );
 	file_put_contents( $json_path, $content );
 }
 add_action( 'cptui_after_update_taxonomy', __NAMESPACE__ . '\save_local_taxonomy_data' );
@@ -74,19 +74,13 @@ function load_local_post_type_data( $data = [], $existing_cpts = [] ) {
 		return $existing_cpts;
 	}
 
-	$loaded = load_local_cptui_data( get_current_site_type_tax_json_file_name( 'post_type' ) );
+	$data_new = local_combine_post_types();
 
-	if ( false === $loaded ) {
+	if ( empty( $data_new ) ) {
 		return $data;
 	}
 
-	$data_new = json_decode( $loaded, true );
-
-	if ( $data_new ) {
-		return $data_new;
-	}
-
-	return $data;
+	return $data_new;
 }
 add_filter( 'cptui_post_types_override', __NAMESPACE__ . '\load_local_post_type_data', 10, 2 );
 
@@ -101,19 +95,13 @@ function load_local_taxonomies_data( $data = [], $existing_taxes = [] ) {
 		return $existing_taxes;
 	}
 
-	$loaded = load_local_cptui_data( get_current_site_type_tax_json_file_name( 'taxonomy' ) );
+	$data_new = local_combine_taxonomies();
 
-	if ( false === $loaded ) {
+	if ( empty( $data_new ) ) {
 		return $data;
 	}
 
-	$data_new = json_decode( $loaded, true );
-
-	if ( $data_new ) {
-		return $data_new;
-	}
-
-	return $data;
+	return $data_new;
 }
 add_filter( 'cptui_taxonomies_override', __NAMESPACE__ . '\load_local_taxonomies_data', 10, 2 );
 
@@ -126,24 +114,24 @@ function local_get_post_type_data( $cpts = [], $current_site_id = 0 ) {
 	if ( function_exists( 'get_current_screen' ) ) {
 		$current_screen = \get_current_screen();
 
-		if ( ! is_object( $current_screen ) || 'cpt-ui_page_cptui_tools' === $current_screen->base ) {
+		if (
+			! is_object( $current_screen ) ||
+			(
+				'cpt-ui_page_cptui_tools' === $current_screen->base &&
+				empty( $_GET['action'] )
+			)
+		) {
 			return $cpts;
 		}
 	}
 
-	$loaded = load_local_cptui_data( get_current_site_type_tax_json_file_name( 'post_type' ) );
+	$data_new = local_combine_post_types();
 
-	if ( false === $loaded ) {
+	if ( empty( $data_new ) ) {
 		return $cpts;
 	}
 
-	$cpts_new = json_decode( $loaded, true );
-
-	if ( $cpts_new ) {
-		return $cpts_new;
-	}
-
-	return $cpts;
+	return $data_new;
 }
 add_filter( 'cptui_get_post_type_data', __NAMESPACE__ . '\local_get_post_type_data', 10, 2 );
 
@@ -156,24 +144,21 @@ function local_get_taxonomy_data( $taxes = [], $current_site_id = 0 ) {
 	if ( function_exists( 'get_current_screen' ) ) {
 		$current_screen = \get_current_screen();
 
-		if ( ! is_object( $current_screen ) || 'cpt-ui_page_cptui_tools' === $current_screen->base ) {
+		if ( ! is_object( $current_screen ) ||
+			'cpt-ui_page_cptui_tools' === $current_screen->base &&
+			$_GET['action'] === 'taxonomies'
+		) {
 			return $taxes;
 		}
 	}
 
-	$loaded = load_local_cptui_data( get_current_site_type_tax_json_file_name( 'taxonomy' ) );
+	$data_new = local_combine_taxonomies();
 
-	if ( false === $loaded ) {
+	if ( empty( $data_new ) ) {
 		return $taxes;
 	}
 
-	$data_new = json_decode( $loaded, true );
-
-	if ( $data_new ) {
-		return $data_new;
-	}
-
-	return $taxes;
+	return $data_new;
 }
 add_filter( 'cptui_get_taxonomy_data', __NAMESPACE__ . '\local_get_taxonomy_data', 10, 2 );
 
@@ -231,14 +216,14 @@ function local_json_is_writable_admin_notice() {
 }
 add_action( 'admin_init', __NAMESPACE__ . '\local_json_is_writable_admin_notice' );
 
-function get_current_site_type_tax_json_file_name( $content_type ) {
+function get_current_site_type_tax_json_file_name( $content_type = '', $content_slug = '' ) {
 	$theme_dir = local_json_get_dirpath();
 	$blog_id   = '';
 
 	if ( is_multisite() ) {
 		$blog_id = '_' . get_current_blog_id();
 	}
-	$full_path = $theme_dir . "/cptui_{$content_type}_data{$blog_id}.json";
+	$full_path = $theme_dir . "/cptui_{$content_type}_{$content_slug}_data{$blog_id}.json";
 
 	/**
 	 * Filters the full path including file for chosen content type for current site.
@@ -247,22 +232,85 @@ function get_current_site_type_tax_json_file_name( $content_type ) {
 	 *
 	 * @param string $full_path Full server path including file name.
 	 * @param string $content_type Whether or not we are fetching post type or taxonomy
+	 * @param string $content_slug The slug of the content type being managed.
 	 * @param string $blog_id Current site ID, with underscore prefix.
 	 */
-	return apply_filters( 'cptui_current_site_type_tax_json_file_name', $full_path, $content_type, $blog_id );
+	return apply_filters( 'cptui_current_site_type_tax_json_file_name', $full_path, $content_type, $content_slug, $blog_id );
 }
 
-function load_local_cptui_data( $file_name = '' ) {
-	if ( empty( $file_name ) || ! file_exists( $file_name ) ) {
-		return false;
+function get_specific_type_tax_file_name( $content_type = '', $content_slug = '' ) {
+	$theme_dir = local_json_get_dirpath();
+	$blog_id   = '';
+
+	if ( is_multisite() ) {
+		$blog_id = '_' . get_current_blog_id();
+	}
+	$full_path = $theme_dir . "/cptui_{$content_type}_{$content_slug}_data{$blog_id}.json";
+
+	/**
+	 * Filters the full path including file for chosen content type for current site.
+	 *
+	 * @param string $full_path    Full server path including file name.
+	 * @param string $content_type Whether or not we are fetching post type or taxonomy
+	 * @param string $content_slug The slug of the content type being managed.
+	 * @param string $blog_id      Current site ID, with underscore prefix.
+	 *
+	 * @since 1.14.0
+	 */
+	return apply_filters( 'cptui_specific_type_tax_file_name', $full_path, $content_type, $content_slug, $blog_id );
+}
+
+function local_has_post_types() {
+	if ( ! local_json_is_enabled() ) {
+		return;
 	}
 
-	$data = file_get_contents( $file_name );
-	if ( false === $data ) {
-		return false;
+	$maybe_post_types = local_combine_post_types();
+	return ! empty( $maybe_post_types );
+}
+
+function local_has_taxonomies() {
+	if ( ! local_json_is_enabled() ) {
+		return;
 	}
 
-	return $data;
+	$maybe_taxonomies = local_combine_taxonomies();
+	return ! empty( $maybe_taxonomies );
+}
+
+function local_combine_post_types() {
+	$post_types = [];
+	foreach ( new \DirectoryIterator( local_json_get_dirpath() ) as $fileInfo ) {
+		if ( $fileInfo->isDot() ) {
+			continue;
+		}
+		if ( false === strpos( $fileInfo->getFilename(), 'post_type' ) ) {
+			continue;
+		}
+
+		$content = file_get_contents( $fileInfo->getPathname() );
+		$content_decoded = json_decode( $content, true );
+		$post_types[ $content_decoded['name'] ] = $content_decoded;
+	}
+	return $post_types;
+}
+
+function local_combine_taxonomies() {
+	$taxonomies = [];
+	foreach ( new \DirectoryIterator( local_json_get_dirpath() ) as $fileInfo ) {
+		if ( $fileInfo->isDot() ) {
+			continue;
+		}
+		if ( false === strpos( $fileInfo->getFilename(), 'taxonomy' ) ) {
+			continue;
+		}
+
+		$content                                = file_get_contents( $fileInfo->getPathname() );
+		$content_decoded                        = json_decode( $content, true );
+		$taxonomies[ $content_decoded['name'] ] = $content_decoded;
+	}
+
+	return $taxonomies;
 }
 
 function local_post_type_listings_note() {
@@ -272,7 +320,7 @@ function local_post_type_listings_note() {
 	}
 
 	$db_types = get_option( 'cptui_post_types', [] );
-	$loaded = load_local_cptui_data( get_current_site_type_tax_json_file_name( 'post_type' ) );
+	$loaded = local_has_post_types();
 
 	if ( ! empty( $db_types ) || false === $loaded ) {
 		return;
@@ -292,7 +340,7 @@ function local_taxonomy_listings_note() {
 	}
 
 	$db_taxes = get_option( 'cptui_taxonomies', [] );
-	$loaded   = load_local_cptui_data( get_current_site_type_tax_json_file_name( 'taxonomy' ) );
+	$loaded   = local_has_taxonomies();
 
 	if ( ! empty( $db_taxes ) || false === $loaded ) {
 		return;
@@ -312,7 +360,7 @@ function local_post_type_tools_export_message( $orig_text ) {
 	}
 
 	$db_types = get_option( 'cptui_post_types', [] );
-	$loaded    = load_local_cptui_data( get_current_site_type_tax_json_file_name( 'post_type' ) );
+	$loaded   = local_has_post_types();
 
 	if ( ! empty( $db_types ) || false === $loaded ) {
 		return $orig_text;
@@ -329,7 +377,7 @@ function local_taxonomy_tools_export_message( $orig_text ) {
 	}
 
 	$db_taxes = get_option( 'cptui_taxonomies', [] );
-	$loaded   = load_local_cptui_data( get_current_site_type_tax_json_file_name( 'taxonomy' ) );
+	$loaded   = local_has_taxonomies();
 
 	if ( ! empty( $db_taxes ) || false === $loaded ) {
 		return $orig_text;
