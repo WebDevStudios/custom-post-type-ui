@@ -381,6 +381,7 @@ function cptui_render_posttypes_taxonomies_section() {
 
 						<p>
 							<input class="button button-primary" type="submit" value="<?php esc_attr_e( 'Import', 'custom-post-type-ui' ); ?>" />
+							<input class="button button-secondary" id="cptui_import_post_types_json" name="cptui_import_post_types_json" type="submit" value="<?php esc_attr_e( 'Import Local JSON', 'custom-post-type-ui' ); ?>" />
 						</p>
 						<?php wp_nonce_field( 'cptui_typetaximport_nonce_action', 'cptui_typetaximport_nonce_field' ); ?>
 					</form>
@@ -426,6 +427,7 @@ function cptui_render_posttypes_taxonomies_section() {
 
 						<p>
 							<input class="button button-primary" type="submit" value="<?php esc_attr_e( 'Import', 'custom-post-type-ui' ); ?>" />
+							<input class="button button-secondary" id="cptui_import_taxonomies_json" name="cptui_import_taxonomies_json" type="submit" value="<?php esc_attr_e( 'Import Local JSON', 'custom-post-type-ui' ); ?>" />
 						</p>
 						<?php wp_nonce_field( 'cptui_typetaximport_nonce_action', 'cptui_typetaximport_nonce_field' ); ?>
 					</form>
