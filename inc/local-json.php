@@ -325,46 +325,6 @@ function local_combine_taxonomies() {
 	return $taxonomies;
 }
 
-function local_post_type_listings_note() {
-
-	if ( ! local_json_is_enabled() ) {
-		return;
-	}
-
-	$db_types = get_option( 'cptui_post_types', [] );
-	$loaded = local_has_post_types();
-
-	if ( ! empty( $db_types ) || false === $loaded ) {
-		return;
-	}
-
-	printf(
-		'<h3>%s</h3>',
-		esc_html__( 'These post types were loaded via local JSON in your active theme.', 'custom-post-type-ui' )
-	);
-}
-add_action( 'cptui_before_post_type_listing', __NAMESPACE__ . '\local_post_type_listings_note' );
-
-function local_taxonomy_listings_note() {
-
-	if ( ! local_json_is_enabled() ) {
-		return;
-	}
-
-	$db_taxes = get_option( 'cptui_taxonomies', [] );
-	$loaded   = local_has_taxonomies();
-
-	if ( ! empty( $db_taxes ) || false === $loaded ) {
-		return;
-	}
-
-	printf(
-		'<h3>%s</h3>',
-		esc_html__( 'These taxonomies were loaded via local JSON in your active theme.', 'custom-post-type-ui' )
-	);
-}
-add_action( 'cptui_before_taxonomy_listing', __NAMESPACE__ . '\local_taxonomy_listings_note' );
-
 function local_post_type_tools_export_message( $orig_text ) {
 
 	if ( ! local_json_is_enabled() ) {
