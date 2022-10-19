@@ -111,6 +111,7 @@ function cptui_listings() {
 				<tbody>
 				<?php
 				$counter = 1;
+				$db_post_type_keys = array_keys( get_option( 'cptui_post_types', [] ) );
 				foreach ( $post_types as $post_type => $post_type_settings ) {
 
 					$rowclass = ( 0 === $counter % 2 ) ? '' : 'alternate';
@@ -168,7 +169,12 @@ function cptui_listings() {
 									?>
 								<a href="<?php echo esc_attr( get_post_type_archive_link( $post_type ) ); ?>"><?php esc_html_e( 'View frontend archive', 'custom-post-type-ui' ); ?></a><br/>
 								<?php } ?>
-								<a class="cptui-delete-post-type" href="<?php echo esc_url( cptui_get_delete_listing_link( 'post_type', $post_type ) ); ?>"><?php esc_html_e( 'Delete', 'custom-post-type-ui' ); ?></a>
+
+								<?php if ( in_array( $post_type, $db_post_type_keys, true ) ) { ?>
+									<a class="cptui-delete-post-type" href="<?php echo esc_url( cptui_get_delete_listing_link( 'post_type', $post_type ) ); ?>"><?php esc_html_e( "Delete from database", 'custom-post-type-ui' ); ?></a>
+								<?php } else { ?>
+									<p><?php esc_html_e( 'Loaded via Local JSON', 'custom-post-type-ui' ); ?></p>
+								<?php } ?>
 							</td>
 							<td>
 								<?php
@@ -332,6 +338,7 @@ function cptui_listings() {
 					<tbody>
 					<?php
 					$counter = 1;
+					$db_taxonomy_keys = array_keys( get_option( 'cptui_taxonomies', [] ) );
 					foreach ( $taxonomies as $taxonomy => $taxonomy_settings ) {
 
 						$rowclass = ( 0 === $counter % 2 ) ? '' : 'alternate';
@@ -379,7 +386,11 @@ function cptui_listings() {
 										esc_html__( 'Get code', 'custom-post-type-ui' )
 									);
 									?><br/>
-									<a class="cptui-delete-taxonomy" href="<?php echo esc_url( cptui_get_delete_listing_link( 'taxonomy', $taxonomy ) ); ?>"><?php esc_html_e( 'Delete', 'custom-post-type-ui' ); ?></a>
+									<?php if ( in_array( $taxonomy, $db_taxonomy_keys, true ) ) { ?>
+										<a class="cptui-delete-taxonomy" href="<?php echo esc_url( cptui_get_delete_listing_link( 'taxonomy', $taxonomy ) ); ?>"><?php esc_html_e( 'Delete from database', 'custom-post-type-ui' ); ?></a>
+									<?php } else { ?>
+										<p><?php esc_html_e( 'Loaded via Local JSON', 'custom-post-type-ui' ); ?></p>
+									<?php } ?>
 								</td>
 								<td>
 									<?php
