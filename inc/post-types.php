@@ -1884,10 +1884,11 @@ function cptui_get_current_post_type( $post_type_deleted = false ) {
  *
  * @internal
  *
- * @param array $data $_POST values. Optional.
+ * @param array $data                     $_POST values. Optional.
+ * @param bool  $bypass_after_delete_hook Whether or not to run after delete hook. Optional.
  * @return bool|string False on failure, string on success.
  */
-function cptui_delete_post_type( $data = [] ) {
+function cptui_delete_post_type( $data = [], $bypass_after_delete_hook = false ) {
 
 	// Pass double data into last function despite matching values.
 	if ( is_string( $data ) && cptui_get_post_type_exists( $data, $data ) ) {
@@ -1929,14 +1930,17 @@ function cptui_delete_post_type( $data = [] ) {
 		}
 	}
 
-	/**
-	 * Fires after a post type is deleted from our saved options.
-	 *
-	 * @since 1.0.0
-	 *
-	 * @param array $data Array of post type data that was deleted.
-	 */
-	do_action( 'cptui_after_delete_post_type', $data );
+	if ( false === $bypass_after_delete_hook ) {
+
+		/**
+		 * Fires after a post type is deleted from our saved options.
+		 *
+		 * @param array $data Array of post type data that was deleted.
+		 *
+		 * @since 1.0.0
+		 */
+		do_action( 'cptui_after_delete_post_type', $data );
+	}
 
 	// Used to help flush rewrite rules on init.
 	set_transient( 'cptui_flush_rewrite_rules', 'true', 5 * 60 );

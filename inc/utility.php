@@ -606,7 +606,17 @@ function cptui_get_object_from_post_global() {
 		}
 	}
 
-	return esc_html__( 'Object', 'custom-post-type-ui' );
+	/**
+	 * Filter the value used for `cptui_get_object_from_post_global` text
+	 *
+	 * @since 1.14.0
+	 *
+	 * @oaram string $value Default object text if post type or taxonomy not available.
+	 */
+	return apply_filters(
+		'cptui_get_object_from_post_global',
+		esc_html__( 'Object', 'custom-post-type-ui' )
+	);
 }
 
 /**
@@ -1012,4 +1022,26 @@ function cptui_get_add_new_link( $content_type = '' ) {
 	}
 
 	return cptui_admin_url( 'admin.php?page=cptui_manage_' . $content_type );
+}
+
+/**
+ * Construct a URL to use to delete a post type or taxonomy.
+ *
+ * @since 1.14.0
+ *
+ * @param $content_type The content type being deleted. `post_type` or `taxonomy`
+ * @param $content_type_slug The slug of the specific content type being deleted.
+ *
+ * @return string $value. The constructed URL.
+ */
+function cptui_get_delete_listing_link( $content_type, $content_type_slug ) {
+	return add_query_arg(
+		[
+			'delete_' . $content_type_slug => wp_create_nonce(
+				'do_delete_' . $content_type_slug
+			),
+			'delete_' . $content_type      => esc_attr( $content_type_slug )
+		],
+		admin_url( 'admin.php?page=cptui_listings' )
+	);
 }
