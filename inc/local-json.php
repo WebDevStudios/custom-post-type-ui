@@ -288,6 +288,12 @@ function local_combine_post_types() {
 			continue;
 		}
 
+		$file_site_id = local_get_site_id_from_json_file( $fileInfo->getFilename() );
+		$site_id      = get_current_blog_id();
+		if ( $file_site_id !== $site_id ) {
+			continue;
+		}
+
 		$content = file_get_contents( $fileInfo->getPathname() );
 		$content_decoded = json_decode( $content, true );
 		$post_types[ $content_decoded['name'] ] = $content_decoded;
@@ -302,6 +308,12 @@ function local_combine_taxonomies() {
 			continue;
 		}
 		if ( false === strpos( $fileInfo->getFilename(), 'taxonomy' ) ) {
+			continue;
+		}
+
+		$file_site_id = local_get_site_id_from_json_file( $fileInfo->getFilename() );
+		$site_id      = get_current_blog_id();
+		if ( $file_site_id !== $site_id ) {
 			continue;
 		}
 
@@ -386,3 +398,7 @@ function local_taxonomy_tools_export_message( $orig_text ) {
 	return esc_html__( 'Taxonomies are registered with local JSON.', 'custom-post-type-ui' );
 }
 add_filter( 'cptui_no_taxonomies_registered_message', __NAMESPACE__ . '\local_taxonomy_tools_export_message' );
+
+function local_get_site_id_from_json_file( $filename = '' ) {
+	return (int) substr( basename( $filename, '.json' ), - 1 );
+}
