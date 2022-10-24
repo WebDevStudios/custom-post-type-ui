@@ -38,7 +38,6 @@ function save_local_post_type_data( $data = [] ) {
 	file_put_contents( $json_path, $content );
 }
 add_action( 'cptui_after_update_post_type', __NAMESPACE__ . '\save_local_post_type_data' );
-add_action( 'cptui_after_delete_post_type', __NAMESPACE__ . '\save_local_post_type_data' );
 
 /**
  * Save taxonomy data to local JSON file if enabled and able.
@@ -61,7 +60,28 @@ function save_local_taxonomy_data( $data = [] ) {
 	file_put_contents( $json_path, $content );
 }
 add_action( 'cptui_after_update_taxonomy', __NAMESPACE__ . '\save_local_taxonomy_data' );
-add_action( 'cptui_after_delete_taxonomy', __NAMESPACE__ . '\save_local_taxonomy_data' );
+
+function delete_local_post_type_data( $data = [] ) {
+
+	if ( ! local_json_is_enabled() ) {
+		return;
+	}
+
+	$json_path = get_specific_type_tax_file_name( 'post_type', $data['name'] );
+	unlink( $json_path );
+}
+#add_action( 'cptui_after_delete_post_type', __NAMESPACE__ . '\delete_local_post_type_data' );
+
+function delete_local_taxonomy_data( $data = [] ) {
+
+	if ( ! local_json_is_enabled() ) {
+		return;
+	}
+
+	$json_path = get_specific_type_tax_file_name( 'post_type', $data['name'] );
+	unlink( $json_path );
+}
+#add_action( 'cptui_after_delete_taxonomy', __NAMESPACE__ . '\delete_local_taxonomy_data' );
 
 function load_local_post_type_data( $data = [], $existing_cpts = [] ) {
 
@@ -70,9 +90,9 @@ function load_local_post_type_data( $data = [], $existing_cpts = [] ) {
 	}
 
 	// We want to prefer database copy first, in case of editing content.
-	if ( ! empty( $existing_cpts ) ) {
-		return $existing_cpts;
-	}
+	//if ( ! empty( $existing_cpts ) ) {
+	//	return $existing_cpts;
+	//}
 
 	$data_new = local_combine_post_types();
 
@@ -80,7 +100,7 @@ function load_local_post_type_data( $data = [], $existing_cpts = [] ) {
 		return $data;
 	}
 
-	return $data_new;
+	return array_merge( $data_new, $existing_cpts );
 }
 add_filter( 'cptui_post_types_override', __NAMESPACE__ . '\load_local_post_type_data', 10, 2 );
 
