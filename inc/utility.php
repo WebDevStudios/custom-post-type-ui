@@ -360,7 +360,7 @@ function cptui_products_sidebar() {
 		}
 		printf(
 			'<p><a href="%s">%s</a></p>',
-			'https://pluginize.com/plugins/custom-post-type-ui-extended/ref/pluginizeaff/?campaign=cptui-sidebar-remove',
+			'https://pluginize.com/plugins/custom-post-type-ui-extended/',
 			esc_html__( 'Remove these ads?', 'custom-post-type-ui' )
 		);
 	}
