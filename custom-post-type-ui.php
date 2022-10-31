@@ -932,27 +932,27 @@ function cptui_admin_notices( $action = '', $object_type = '', $success = true, 
 
 	if ( 'add' === $action ) {
 		if ( $success ) {
-			$message .= sprintf( __( '%s has been successfully added', 'custom-post-type-ui' ), $object_type );
+			$message .= sprintf( __( '%s has been successfully added.', 'custom-post-type-ui' ), $object_type );
 		} else {
-			$message .= sprintf( __( '%s has failed to be added', 'custom-post-type-ui' ), $object_type );
+			$message .= sprintf( __( '%s has failed to be added.', 'custom-post-type-ui' ), $object_type );
 		}
 	} elseif ( 'update' === $action ) {
 		if ( $success ) {
-			$message .= sprintf( __( '%s has been successfully updated', 'custom-post-type-ui' ), $object_type );
+			$message .= sprintf( __( '%s has been successfully updated.', 'custom-post-type-ui' ), $object_type );
 		} else {
-			$message .= sprintf( __( '%s has failed to be updated', 'custom-post-type-ui' ), $object_type );
+			$message .= sprintf( __( '%s has failed to be updated.', 'custom-post-type-ui' ), $object_type );
 		}
 	} elseif ( 'delete' === $action ) {
 		if ( $success ) {
-			$message .= sprintf( __( '%s has been successfully deleted', 'custom-post-type-ui' ), $object_type );
+			$message .= sprintf( __( '%s has been successfully deleted.', 'custom-post-type-ui' ), $object_type );
 		} else {
-			$message .= sprintf( __( '%s has failed to be deleted', 'custom-post-type-ui' ), $object_type );
+			$message .= sprintf( __( '%s has failed to be deleted.', 'custom-post-type-ui' ), $object_type );
 		}
 	} elseif ( 'import' === $action ) {
 		if ( $success ) {
-			$message .= sprintf( __( '%s has been successfully imported', 'custom-post-type-ui' ), $object_type );
+			$message .= sprintf( __( '%s has been successfully imported.', 'custom-post-type-ui' ), $object_type );
 		} else {
-			$message .= sprintf( __( '%s has failed to be imported', 'custom-post-type-ui' ), $object_type );
+			$message .= sprintf( __( '%s has failed to be imported.', 'custom-post-type-ui' ), $object_type );
 		}
 	} elseif ( 'error' === $action ) {
 		if ( ! empty( $custom ) ) {
