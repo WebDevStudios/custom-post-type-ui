@@ -173,7 +173,7 @@ function cptui_listings() {
 								<?php if ( in_array( $post_type, $db_post_type_keys, true ) ) { ?>
 									<a class="cptui-delete-post-type delete" href="<?php echo esc_url( cptui_get_delete_listing_link( 'post_type', $post_type ) ); ?>"><?php esc_html_e( "Delete from database", 'custom-post-type-ui' ); ?></a>
 								<?php } else { ?>
-									<p><?php esc_html_e( 'Loaded via Local JSON', 'custom-post-type-ui' ); ?></p>
+									<a href="<?php echo esc_url( cptui_get_impoort_listing_link( 'post_type', $post_type ) ); ?>"><?php esc_html_e( 'Import from Local JSON', 'custom-post-type-ui' ); ?></a>
 								<?php } ?>
 							</td>
 							<td>
@@ -389,7 +389,7 @@ function cptui_listings() {
 									<?php if ( in_array( $taxonomy, $db_taxonomy_keys, true ) ) { ?>
 										<a class="cptui-delete-taxonomy delete" href="<?php echo esc_url( cptui_get_delete_listing_link( 'taxonomy', $taxonomy ) ); ?>"><?php esc_html_e( 'Delete from database', 'custom-post-type-ui' ); ?></a>
 									<?php } else { ?>
-										<p><?php esc_html_e( 'Loaded via Local JSON', 'custom-post-type-ui' ); ?></p>
+										<a href="<?php echo esc_url( cptui_get_impoort_listing_link( 'taxonomy', $taxonomy ) ); ?>"><?php esc_html_e( 'Import from Local JSON', 'custom-post-type-ui' ); ?></a>
 									<?php } ?>
 								</td>
 								<td>
@@ -592,3 +592,67 @@ function cptui_listings_delete_post_type_or_taxonomy() {
 	}
 }
 add_action( 'admin_init', 'cptui_listings_delete_post_type_or_taxonomy', 8 );
+
+/**
+ * Handle the import of individual content types from within the CPTUI Listings page.
+ *
+ * @since 1.14.0
+ */
+function cptui_listings_import_post_type_or_taxonomy() {
+
+	if ( wp_doing_ajax() ) {
+		return;
+	}
+
+	if ( empty( $_GET['page'] ) || 'cptui_listings' !== $_GET['page'] ) {
+		return;
+	}
+
+	$result = false;
+	$values = [];
+	if ( ! empty( $_GET['import_post_type'] ) ) {
+		$post_type = filter_input( INPUT_GET, 'import_post_type', FILTER_SANITIZE_FULL_SPECIAL_CHARS );
+		if ( ! wp_verify_nonce( $_GET[ 'import_' . $post_type ], 'do_import_' . $post_type ) ) {
+			return;
+		}
+		$values['post_type'] = $post_type;
+		$content = file_get_contents( CPTUI\get_specific_type_tax_file_name( 'post_type', $post_type ) );
+		$content_decoded = json_decode( $content, true );
+		$database_content = cptui_get_post_type_data();
+		$database_content[ $post_type ] = $content_decoded;
+		update_option( 'cptui_post_types', $database_content );
+	}
+
+	if ( ! empty( $_GET['import_taxonomy'] ) ) {
+		$taxonomy = filter_input( INPUT_GET, 'import_taxonomy', FILTER_SANITIZE_FULL_SPECIAL_CHARS );
+		if ( ! wp_verify_nonce( $_GET[ 'import_' . $taxonomy ], 'do_import_' . $taxonomy ) ) {
+			return;
+		}
+		$values['taxonomy'] = $taxonomy;
+		$content = file_get_contents( CPTUI\get_specific_type_tax_file_name( 'taxonomy', $taxonomy ) );
+		$content_decoded = json_decode( $content, true );
+		$database_content = cptui_get_taxonomy_data();
+		$database_content[ $taxonomy ] = $content_decoded;
+		update_option( 'cptui_taxonomies', $database_content );
+	}
+
+	if ( $result ) {
+		add_filter(
+			'cptui_get_object_from_post_global',
+			function ( $orig_value ) use ( $values ) {
+				if ( ! empty( $values['post_type'] ) ) {
+					return $values['post_type'];
+				}
+				if ( ! empty( $values['taxonomy'] ) ) {
+					return $values['taxonomy'];
+				}
+
+				return $orig_value;
+			}
+		);
+		if ( is_callable( "cptui_{$result}_admin_notice" ) ) {
+			add_action( 'admin_notices', "cptui_{$result}_admin_notice" );
+		}
+	}
+}
+add_action( 'admin_init', 'cptui_listings_import_post_type_or_taxonomy', 8 );
