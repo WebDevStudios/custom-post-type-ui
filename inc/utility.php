@@ -1029,8 +1029,8 @@ function cptui_get_add_new_link( $content_type = '' ) {
  *
  * @since 1.14.0
  *
- * @param $content_type The content type being deleted. `post_type` or `taxonomy`
- * @param $content_type_slug The slug of the specific content type being deleted.
+ * @param string $content_type The content type being deleted. `post_type` or `taxonomy`
+ * @param string $content_type_slug The slug of the specific content type being deleted.
  *
  * @return string $value. The constructed URL.
  */
