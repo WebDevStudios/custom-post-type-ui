@@ -1045,3 +1045,26 @@ function cptui_get_delete_listing_link( $content_type, $content_type_slug ) {
 		admin_url( 'admin.php?page=cptui_listings' )
 	);
 }
+
+/**
+ * Construct a URL to use to import a post type or taxonomy.
+ *
+ * @since 1.14.0
+ *
+ * @param string $content_type      The content type being imported. `post_type` or `taxonomy`
+ * @param string $content_type_slug The slug of the specific content type being imported.
+ *
+ * @return string $value. The constructed URL.
+ *
+ */
+function cptui_get_impoort_listing_link( $content_type, $content_type_slug ) {
+	return add_query_arg(
+		[
+			'import_' . $content_type_slug => wp_create_nonce(
+				'do_import_' . $content_type_slug
+			),
+			'import_' . $content_type      => esc_attr( $content_type_slug )
+		],
+		admin_url( 'admin.php?page=cptui_listings' )
+	);
+}
