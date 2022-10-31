@@ -186,6 +186,7 @@ add_filter( 'cptui_get_taxonomy_data', __NAMESPACE__ . '\local_get_taxonomy_data
  * Check if `cptui-json` is a directory and writable, thus enabled.
  *
  * @since 1.14.0
+ *
  * @return bool
  */
 function local_json_is_enabled() {
@@ -207,6 +208,7 @@ function local_json_is_enabled() {
  * Return our intended local JSON folder server path.
  *
  * @since 1.14.0
+ *
  * @return string
  */
 function local_json_get_dirpath() {
@@ -223,6 +225,7 @@ function local_json_get_dirpath() {
 
 /**
  * Potentially add an admin notice about `cptui-json` not being writeable.
+ *
  * @since 1.14.0
  */
 function local_json_is_writable_admin_notice() {
@@ -236,6 +239,15 @@ function local_json_is_writable_admin_notice() {
 }
 add_action( 'admin_init', __NAMESPACE__ . '\local_json_is_writable_admin_notice' );
 
+/**
+ * Retrieve full JSON file path for a specified content type.
+ *
+ * @since 1.14.0
+ *
+ * @param string $content_type Content type, Either "post_type" or "taxonomy".
+ * @param string $content_slug Slug for the desired content type.
+ * @return mixed|null
+ */
 function get_specific_type_tax_file_name( $content_type = '', $content_slug = '' ) {
 	$theme_dir = local_json_get_dirpath();
 	$blog_id   = '1';
@@ -258,6 +270,13 @@ function get_specific_type_tax_file_name( $content_type = '', $content_slug = ''
 	return apply_filters( 'cptui_specific_type_tax_file_name', $full_path, $content_type, $content_slug, $blog_id );
 }
 
+/**
+ * Whether or not there's some post types in local JSON.
+ *
+ * @since 1.14.0
+ *
+ * @return bool|void
+ */
 function local_has_post_types() {
 	if ( ! local_json_is_enabled() ) {
 		return;
@@ -267,6 +286,13 @@ function local_has_post_types() {
 	return ! empty( $maybe_post_types );
 }
 
+/**
+ * Whether or not there's some taxonomies in local JSON.
+ *
+ * @since 1.14.0
+ *
+ * @return bool|void
+ */
 function local_has_taxonomies() {
 	if ( ! local_json_is_enabled() ) {
 		return;
@@ -276,6 +302,13 @@ function local_has_taxonomies() {
 	return ! empty( $maybe_taxonomies );
 }
 
+/**
+ * Iterates and combines all local post type JSON files into one array.
+ *
+ * @since 1.14.0
+ *
+ * @return array
+ */
 function local_combine_post_types() {
 	$post_types = [];
 	foreach ( new \DirectoryIterator( local_json_get_dirpath() ) as $fileInfo ) {
@@ -299,6 +332,13 @@ function local_combine_post_types() {
 	return $post_types;
 }
 
+/**
+ * Iteratesand combines all local taxonomy JSON files into one array.
+ *
+ * @since 1.14.0
+ *
+ * @return array
+ */
 function local_combine_taxonomies() {
 	$taxonomies = [];
 	foreach ( new \DirectoryIterator( local_json_get_dirpath() ) as $fileInfo ) {
@@ -323,6 +363,14 @@ function local_combine_taxonomies() {
 	return $taxonomies;
 }
 
+/**
+ * Filters the text used when there are no post types registered in database.
+ *
+ * @since 1.14.0
+ *
+ * @param string $orig_text Original text for the messaging.
+ * @return mixed|string
+ */
 function local_post_type_tools_export_message( $orig_text ) {
 
 	if ( ! local_json_is_enabled() ) {
@@ -340,6 +388,14 @@ function local_post_type_tools_export_message( $orig_text ) {
 }
 add_filter( 'cptui_no_post_types_registered_message', __NAMESPACE__ . '\local_post_type_tools_export_message' );
 
+/**
+ * Filters the text used when there are no taxonomies registered in database.
+ *
+ * @since 1.14.0
+ *
+ * @param string $orig_text Original text for the messaging.
+ * @return mixed|string
+ */
 function local_taxonomy_tools_export_message( $orig_text ) {
 
 	if ( ! local_json_is_enabled() ) {
@@ -357,6 +413,14 @@ function local_taxonomy_tools_export_message( $orig_text ) {
 }
 add_filter( 'cptui_no_taxonomies_registered_message', __NAMESPACE__ . '\local_taxonomy_tools_export_message' );
 
+/**
+ * Extracts the site ID from a local JSON file name.
+ *
+ * @since 1.14.0
+ *
+ * @param string $filename File name used for extraction.
+ * @return int
+ */
 function local_get_site_id_from_json_file( $filename = '' ) {
 	return (int) substr( basename( $filename, '.json' ), - 1 );
 }

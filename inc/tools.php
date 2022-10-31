@@ -554,6 +554,7 @@ add_action( 'init', 'cptui_do_import_types_taxes', 8 );
 
 /**
  * Handle the import of transferred post types and taxonomies.
+ *
  * @since 1.5.0
  */
 function cptui_do_import_types_taxes_json() {
