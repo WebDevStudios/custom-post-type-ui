@@ -149,7 +149,7 @@ function cptui_listings() {
 							$edit_path          = 'admin.php?page=cptui_manage_post_types&action=edit&cptui_post_type=' . $post_type;
 							$post_type_link_url = is_network_admin() ? network_admin_url( $edit_path ) : admin_url( $edit_path );
 							?>
-							<td>
+							<td class="plugins">
 								<?php
 								printf(
 									'<a href="%s">%s</a><br/>
@@ -171,7 +171,7 @@ function cptui_listings() {
 								<?php } ?>
 
 								<?php if ( in_array( $post_type, $db_post_type_keys, true ) ) { ?>
-									<a class="cptui-delete-post-type" href="<?php echo esc_url( cptui_get_delete_listing_link( 'post_type', $post_type ) ); ?>"><?php esc_html_e( "Delete from database", 'custom-post-type-ui' ); ?></a>
+									<a class="cptui-delete-post-type delete" href="<?php echo esc_url( cptui_get_delete_listing_link( 'post_type', $post_type ) ); ?>"><?php esc_html_e( "Delete from database", 'custom-post-type-ui' ); ?></a>
 								<?php } else { ?>
 									<p><?php esc_html_e( 'Loaded via Local JSON', 'custom-post-type-ui' ); ?></p>
 								<?php } ?>
@@ -370,7 +370,7 @@ function cptui_listings() {
 								$edit_path         = 'admin.php?page=cptui_manage_taxonomies&action=edit&cptui_taxonomy=' . $taxonomy;
 								$taxonomy_link_url = is_network_admin() ? network_admin_url( $edit_path ) : admin_url( $edit_path );
 								?>
-								<td>
+								<td class="plugins">
 									<?php
 									printf(
 										'<a href="%s">%s</a><br/>
@@ -387,7 +387,7 @@ function cptui_listings() {
 									);
 									?><br/>
 									<?php if ( in_array( $taxonomy, $db_taxonomy_keys, true ) ) { ?>
-										<a class="cptui-delete-taxonomy" href="<?php echo esc_url( cptui_get_delete_listing_link( 'taxonomy', $taxonomy ) ); ?>"><?php esc_html_e( 'Delete from database', 'custom-post-type-ui' ); ?></a>
+										<a class="cptui-delete-taxonomy delete" href="<?php echo esc_url( cptui_get_delete_listing_link( 'taxonomy', $taxonomy ) ); ?>"><?php esc_html_e( 'Delete from database', 'custom-post-type-ui' ); ?></a>
 									<?php } else { ?>
 										<p><?php esc_html_e( 'Loaded via Local JSON', 'custom-post-type-ui' ); ?></p>
 									<?php } ?>
