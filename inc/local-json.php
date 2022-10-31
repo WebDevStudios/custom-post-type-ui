@@ -236,28 +236,6 @@ function local_json_is_writable_admin_notice() {
 }
 add_action( 'admin_init', __NAMESPACE__ . '\local_json_is_writable_admin_notice' );
 
-function get_current_site_type_tax_json_file_name( $content_type = '', $content_slug = '' ) {
-	$theme_dir = local_json_get_dirpath();
-	$blog_id   = '';
-
-	if ( is_multisite() ) {
-		$blog_id = '_' . get_current_blog_id();
-	}
-	$full_path = $theme_dir . "/cptui_{$content_type}_{$content_slug}_data{$blog_id}.json";
-
-	/**
-	 * Filters the full path including file for chosen content type for current site.
-	 *
-	 * @since 1.14.0
-	 *
-	 * @param string $full_path Full server path including file name.
-	 * @param string $content_type Whether or not we are fetching post type or taxonomy
-	 * @param string $content_slug The slug of the content type being managed.
-	 * @param string $blog_id Current site ID, with underscore prefix.
-	 */
-	return apply_filters( 'cptui_current_site_type_tax_json_file_name', $full_path, $content_type, $content_slug, $blog_id );
-}
-
 function get_specific_type_tax_file_name( $content_type = '', $content_slug = '' ) {
 	$theme_dir = local_json_get_dirpath();
 	$blog_id   = '';
