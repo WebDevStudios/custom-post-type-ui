@@ -589,6 +589,13 @@ function cptui_listings_delete_post_type_or_taxonomy() {
 		if ( is_callable( "cptui_{$result}_admin_notice" ) ) {
 			add_action( 'admin_notices', "cptui_{$result}_admin_notice" );
 		}
+
+		wp_safe_redirect(
+			add_query_arg(
+				[ 'page' => 'cptui_listings' ],
+				cptui_admin_url( 'admin.php?page=cptui_listings' )
+			)
+		);
 	}
 }
 add_action( 'admin_init', 'cptui_listings_delete_post_type_or_taxonomy', 8 );
@@ -620,7 +627,7 @@ function cptui_listings_import_post_type_or_taxonomy() {
 		$content_decoded = json_decode( $content, true );
 		$database_content = cptui_get_post_type_data();
 		$database_content[ $post_type ] = $content_decoded;
-		update_option( 'cptui_post_types', $database_content );
+		$result = update_option( 'cptui_post_types', $database_content );
 	}
 
 	if ( ! empty( $_GET['import_taxonomy'] ) ) {
@@ -633,7 +640,7 @@ function cptui_listings_import_post_type_or_taxonomy() {
 		$content_decoded = json_decode( $content, true );
 		$database_content = cptui_get_taxonomy_data();
 		$database_content[ $taxonomy ] = $content_decoded;
-		update_option( 'cptui_taxonomies', $database_content );
+		$result = update_option( 'cptui_taxonomies', $database_content );
 	}
 
 	if ( $result ) {
@@ -653,6 +660,13 @@ function cptui_listings_import_post_type_or_taxonomy() {
 		if ( is_callable( "cptui_{$result}_admin_notice" ) ) {
 			add_action( 'admin_notices', "cptui_{$result}_admin_notice" );
 		}
+
+		wp_safe_redirect(
+			add_query_arg(
+				[ 'page' => 'cptui_listings' ],
+				cptui_admin_url( 'admin.php?page=cptui_listings' )
+			)
+		);
 	}
 }
 add_action( 'admin_init', 'cptui_listings_import_post_type_or_taxonomy', 8 );
