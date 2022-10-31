@@ -383,7 +383,7 @@ function cptui_render_posttypes_taxonomies_section() {
 							<input class="button button-primary" type="submit" value="<?php esc_attr_e( 'Import', 'custom-post-type-ui' ); ?>" />
 
 							<?php
-							if ( CPTUI\local_json_is_enabled() && CPTUI\local_has_taxonomies() ) {
+							if ( CPTUI\local_json_is_enabled() && CPTUI\local_has_post_types() ) {
 								?>
 								<input class="button button-secondary" id="cptui_import_post_types_json" name="cptui_import_post_types_json" type="submit" value="<?php esc_attr_e( 'Import Local JSON', 'custom-post-type-ui' ); ?>" />
 								<input id="cptui_import_post_types_json_hidden" name="cptui_import_post_types_json_hidden" type="hidden" value="do-import-json" />
