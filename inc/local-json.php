@@ -238,7 +238,7 @@ add_action( 'admin_init', __NAMESPACE__ . '\local_json_is_writable_admin_notice'
 
 function get_specific_type_tax_file_name( $content_type = '', $content_slug = '' ) {
 	$theme_dir = local_json_get_dirpath();
-	$blog_id   = '';
+	$blog_id   = '1';
 
 	if ( is_multisite() ) {
 		$blog_id = '_' . get_current_blog_id();
