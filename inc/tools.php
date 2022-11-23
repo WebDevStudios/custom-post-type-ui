@@ -381,6 +381,15 @@ function cptui_render_posttypes_taxonomies_section() {
 
 						<p>
 							<input class="button button-primary" type="submit" value="<?php esc_attr_e( 'Import', 'custom-post-type-ui' ); ?>" />
+
+							<?php
+							if ( CPTUI\local_json_is_enabled() && CPTUI\local_has_post_types() ) {
+								?>
+								<input class="button button-secondary" id="cptui_import_post_types_json" name="cptui_import_post_types_json" type="submit" value="<?php esc_attr_e( 'Import Local JSON', 'custom-post-type-ui' ); ?>" />
+								<input id="cptui_import_post_types_json_hidden" name="cptui_import_post_types_json_hidden" type="hidden" value="do-import-json" />
+								<?php
+							}
+							?>
 						</p>
 						<?php wp_nonce_field( 'cptui_typetaximport_nonce_action', 'cptui_typetaximport_nonce_field' ); ?>
 					</form>
@@ -395,7 +404,10 @@ function cptui_render_posttypes_taxonomies_section() {
 						}
 						$content = wp_json_encode( $cptui_post_types );
 					} else {
-						$content = esc_html__( 'No post types registered yet.', 'custom-post-type-ui' );
+						$content = apply_filters(
+							'cptui_no_post_types_registered_message',
+							esc_html__( 'No post types registered yet.', 'custom-post-type-ui' )
+						);
 					}
 					?>
 					<textarea title="<?php esc_attr_e( 'To copy the system info, click below then press Ctrl + C (PC) or Cmd + C (Mac).', 'custom-post-type-ui' ); ?>" onclick="this.focus();this.select();" onfocus="this.focus();this.select();" readonly="readonly" aria-readonly="true" class="cptui_post_import" id="cptui_post_export" name="cptui_post_export"><?php echo $content; // phpcs:ignore. ?></textarea>
@@ -423,6 +435,15 @@ function cptui_render_posttypes_taxonomies_section() {
 
 						<p>
 							<input class="button button-primary" type="submit" value="<?php esc_attr_e( 'Import', 'custom-post-type-ui' ); ?>" />
+
+							<?php
+							if ( CPTUI\local_json_is_enabled() && CPTUI\local_has_taxonomies() ) {
+							?>
+								<input class="button button-secondary" id="cptui_import_taxonomies_json" name="cptui_import_taxonomies_json" type="submit" value="<?php esc_attr_e( 'Import Local JSON', 'custom-post-type-ui' ); ?>" />
+								<input id="cptui_import_taxonomies_json_hidden" name="cptui_import_taxonomies_json_hidden" type="hidden" value="do-import-json" />
+							<?php
+							}
+							?>
 						</p>
 						<?php wp_nonce_field( 'cptui_typetaximport_nonce_action', 'cptui_typetaximport_nonce_field' ); ?>
 					</form>
@@ -437,7 +458,10 @@ function cptui_render_posttypes_taxonomies_section() {
 						}
 						$content = wp_json_encode( $cptui_taxonomies );
 					} else {
-						$content = esc_html__( 'No taxonomies registered yet.', 'custom-post-type-ui' );
+						$content = apply_filters(
+							'cptui_no_taxonomies_registered_message',
+							esc_html__( 'No taxonomies registered yet.', 'custom-post-type-ui' )
+						);
 					}
 					?>
 					<textarea title="<?php esc_attr_e( 'To copy the system info, click below then press Ctrl + C (PC) or Cmd + C (Mac).', 'custom-post-type-ui' ); ?>" onclick="this.focus();this.select()" onfocus="this.focus();this.select();" readonly="readonly" aria-readonly="true" class="cptui_tax_import" id="cptui_tax_export" name="cptui_tax_export"><?php echo $content; // phpcs:ignore WordPress.Security.EscapeOutput ?></textarea>
@@ -527,3 +551,49 @@ function cptui_do_import_types_taxes() {
 	}
 }
 add_action( 'init', 'cptui_do_import_types_taxes', 8 );
+
+/**
+ * Handle the import of transferred post types and taxonomies.
+ *
+ * @since 1.5.0
+ */
+function cptui_do_import_types_taxes_json() {
+	if ( empty( $_POST ) ) {
+		return;
+	}
+
+	if (
+		empty( $_POST['cptui_import_post_types_json'] ) &&
+		empty( $_POST['cptui_import_taxonomies_json'] )
+	) {
+		return;
+	}
+
+	if (
+		( ! empty( $_POST['cptui_import_post_types_json_hidden'] ) && 'do-import-json' === $_POST['cptui_import_post_types_json_hidden'] ) || // phpcs:ignore WordPress.Security.NonceVerification
+		( ! empty( $_POST['cptui_import_taxonomies_json_hidden'] ) && 'do-import-json' === $_POST['cptui_import_taxonomies_json_hidden'] )
+	) {
+		$data              = [];
+		$decoded_post_data = null;
+		$decoded_tax_data  = null;
+
+		if ( ! empty( $_POST['cptui_import_post_types_json'] ) ) {  // phpcs:ignore.
+			$decoded_post_data = CPTUI\local_combine_post_types();
+		}
+
+		if ( ! empty( $_POST['cptui_import_taxonomies_json'] ) ) {  // phpcs:ignore.
+			$decoded_tax_data = CPTUI\local_combine_taxonomies(); // phpcs:ignore.
+		}
+
+		if ( null !== $decoded_post_data ) {
+			$data['cptui_post_import'] = $decoded_post_data;
+		}
+		if ( null !== $decoded_tax_data ) {
+			$data['cptui_tax_import'] = $decoded_tax_data;
+		}
+
+		$success = cptui_import_types_taxes_settings( $data );
+		add_action( 'admin_notices', "cptui_{$success}_admin_notice" );
+	}
+}
+add_action( 'init', 'cptui_do_import_types_taxes_json', 8 );

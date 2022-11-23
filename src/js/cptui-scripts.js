@@ -288,4 +288,26 @@ postboxes.add_postbox_toggles(pagenow);
 		});
 	});
 
+	// Confirm our deletions from CPTUI Listings
+	$('.cptui-delete-post-type, .cptui-delete-taxonomy').on('click tap', function(e) {
+		e.preventDefault();
+		let msg = '';
+		let href = $(this).attr('href');
+		if (typeof cptui_listings_data !== 'undefined') {
+			msg = cptui_listings_data.confirm;
+		}
+		let submit_delete_warning = $('<div class="cptui-submit-delete-dialog">' + msg + '</div>').appendTo('.cptui-listings').dialog({
+			'dialogClass': 'wp-dialog',
+			'modal'      : true,
+			'autoOpen'   : true,
+			'buttons'    : {
+				"OK"    : function () {
+					window.location.href = href;
+				},
+				"Cancel": function () {
+					$(this).dialog('close');
+				}
+			}
+		});
+	});
 })(jQuery);

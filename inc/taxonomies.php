@@ -1479,13 +1479,16 @@ function cptui_get_current_taxonomy( $taxonomy_deleted = false ) {
  * Delete our custom taxonomy from the array of taxonomies.
  *
  * @since 1.0.0
+ * @since 1.14.0 Added `$bypass_after_delete_hook` parameter
  *
  * @internal
  *
- * @param array $data The $_POST values. Optional.
+ * @param array $data                     The $_POST values. Optional.
+ * @param bool  $bypass_after_delete_hook Whether or not to run after delete hook. Optional.
+ *
  * @return bool|string False on failure, string on success.
  */
-function cptui_delete_taxonomy( $data = [] ) {
+function cptui_delete_taxonomy( $data = [], $bypass_after_delete_hook = false ) {
 
 	if ( is_string( $data ) && taxonomy_exists( $data ) ) {
 		$slug         = $data;
@@ -1528,14 +1531,17 @@ function cptui_delete_taxonomy( $data = [] ) {
 	}
 	delete_option( "default_term_{$data['name']}" );
 
-	/**
-	 * Fires after a taxonomy is deleted from our saved options.
-	 *
-	 * @since 1.0.0
-	 *
-	 * @param array $data Array of taxonomy data that was deleted.
-	 */
-	do_action( 'cptui_after_delete_taxonomy', $data );
+	if ( false === $bypass_after_delete_hook ) {
+
+		/**
+		 * Fires after a taxonomy is deleted from our saved options.
+		 *
+		 * @param array $data Array of taxonomy data that was deleted.
+		 *
+		 * @since 1.0.0
+		 */
+		do_action( 'cptui_after_delete_taxonomy', $data );
+	}
 
 	// Used to help flush rewrite rules on init.
 	set_transient( 'cptui_flush_rewrite_rules', 'true', 5 * 60 );

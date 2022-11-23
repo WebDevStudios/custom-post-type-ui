@@ -606,7 +606,17 @@ function cptui_get_object_from_post_global() {
 		}
 	}
 
-	return esc_html__( 'Object', 'custom-post-type-ui' );
+	/**
+	 * Filter the value used for `cptui_get_object_from_post_global` text
+	 *
+	 * @since 1.14.0
+	 *
+	 * @oaram string $value Default object text if post type or taxonomy not available.
+	 */
+	return apply_filters(
+		'cptui_get_object_from_post_global',
+		esc_html__( 'Object', 'custom-post-type-ui' )
+	);
 }
 
 /**
@@ -618,7 +628,7 @@ function cptui_add_success_admin_notice() {
 	echo cptui_admin_notices_helper( // phpcs:ignore WordPress.Security.EscapeOutput
 		sprintf(
 			/* translators: Placeholders are just for HTML markup that doesn't need translated */
-			esc_html__( '%s has been successfully added', 'custom-post-type-ui' ),
+			esc_html__( '%s has been successfully added.', 'custom-post-type-ui' ),
 			cptui_get_object_from_post_global()
 		)
 	);
@@ -633,7 +643,7 @@ function cptui_add_fail_admin_notice() {
 	echo cptui_admin_notices_helper( // phpcs:ignore WordPress.Security.EscapeOutput
 		sprintf(
 			/* translators: Placeholders are just for HTML markup that doesn't need translated */
-			esc_html__( '%s has failed to be added', 'custom-post-type-ui' ),
+			esc_html__( '%s has failed to be added.', 'custom-post-type-ui' ),
 			cptui_get_object_from_post_global()
 		),
 		false
@@ -649,7 +659,7 @@ function cptui_update_success_admin_notice() {
 	echo cptui_admin_notices_helper( // phpcs:ignore WordPress.Security.EscapeOutput
 		sprintf(
 			/* translators: Placeholders are just for HTML markup that doesn't need translated */
-			esc_html__( '%s has been successfully updated', 'custom-post-type-ui' ),
+			esc_html__( '%s has been successfully updated.', 'custom-post-type-ui' ),
 			cptui_get_object_from_post_global()
 		)
 	);
@@ -664,7 +674,7 @@ function cptui_update_fail_admin_notice() {
 	echo cptui_admin_notices_helper( // phpcs:ignore WordPress.Security.EscapeOutput
 		sprintf(
 			/* translators: Placeholders are just for HTML markup that doesn't need translated */
-			esc_html__( '%s has failed to be updated', 'custom-post-type-ui' ),
+			esc_html__( '%s has failed to be updated.', 'custom-post-type-ui' ),
 			cptui_get_object_from_post_global()
 		),
 		false
@@ -680,7 +690,7 @@ function cptui_delete_success_admin_notice() {
 	echo cptui_admin_notices_helper( // phpcs:ignore WordPress.Security.EscapeOutput
 		sprintf(
 			/* translators: Placeholders are just for HTML markup that doesn't need translated */
-			esc_html__( '%s has been successfully deleted', 'custom-post-type-ui' ),
+			esc_html__( '%s has been successfully deleted.', 'custom-post-type-ui' ),
 			cptui_get_object_from_post_global()
 		)
 	);
@@ -695,7 +705,7 @@ function cptui_delete_fail_admin_notice() {
 	echo cptui_admin_notices_helper( // phpcs:ignore WordPress.Security.EscapeOutput
 		sprintf(
 			/* translators: Placeholders are just for HTML markup that doesn't need translated */
-			esc_html__( '%s has failed to be deleted', 'custom-post-type-ui' ),
+			esc_html__( '%s has failed to be deleted.', 'custom-post-type-ui' ),
 			cptui_get_object_from_post_global()
 		),
 		false
@@ -720,7 +730,7 @@ function cptui_import_success_admin_notice() {
  */
 function cptui_import_fail_admin_notice() {
 	echo cptui_admin_notices_helper( // phpcs:ignore WordPress.Security.EscapeOutput
-		esc_html__( 'Invalid data provided', 'custom-post-type-ui' ),
+		esc_html__( 'Invalid data provided.', 'custom-post-type-ui' ),
 		false
 	);
 }
@@ -732,7 +742,18 @@ function cptui_import_fail_admin_notice() {
  */
 function cptui_nonce_fail_admin_notice() {
 	echo cptui_admin_notices_helper( // phpcs:ignore WordPress.Security.EscapeOutput
-		esc_html__( 'Nonce failed verification', 'custom-post-type-ui' ),
+		esc_html__( 'Nonce failed verification.', 'custom-post-type-ui' ),
+		false
+	);
+}
+
+/**
+ * Local JSON folder not writable callback
+ * @since 1.14.0
+ */
+function cptui_local_json_not_writable_admin_notice() {
+	echo cptui_admin_notices_helper( // phpcs:ignore WordPress.Security.EscapeOutput
+		esc_html__( 'A "cptui_data" folder exists in your active theme but the server cannot write to it. Please check folder permissions.', 'custom-post-type-ui' ),
 		false
 	);
 }
@@ -815,7 +836,7 @@ function cptui_slug_matches_page() {
  */
 function cptui_slug_has_quotes() {
 	return sprintf(
-		esc_html__( 'Please do not use quotes in post type/taxonomy names or rewrite slugs', 'custom-post-type-ui' ),
+		esc_html__( 'Please do not use quotes in post type/taxonomy names or rewrite slugs.', 'custom-post-type-ui' ),
 		cptui_get_object_from_post_global()
 	);
 }
@@ -1001,4 +1022,49 @@ function cptui_get_add_new_link( $content_type = '' ) {
 	}
 
 	return cptui_admin_url( 'admin.php?page=cptui_manage_' . $content_type );
+}
+
+/**
+ * Construct a URL to use to delete a post type or taxonomy.
+ *
+ * @since 1.14.0
+ *
+ * @param string $content_type The content type being deleted. `post_type` or `taxonomy`
+ * @param string $content_type_slug The slug of the specific content type being deleted.
+ *
+ * @return string $value. The constructed URL.
+ */
+function cptui_get_delete_listing_link( $content_type, $content_type_slug ) {
+	return add_query_arg(
+		[
+			'delete_' . $content_type_slug => wp_create_nonce(
+				'do_delete_' . $content_type_slug
+			),
+			'delete_' . $content_type      => esc_attr( $content_type_slug )
+		],
+		admin_url( 'admin.php?page=cptui_listings' )
+	);
+}
+
+/**
+ * Construct a URL to use to import a post type or taxonomy.
+ *
+ * @since 1.14.0
+ *
+ * @param string $content_type      The content type being imported. `post_type` or `taxonomy`
+ * @param string $content_type_slug The slug of the specific content type being imported.
+ *
+ * @return string $value. The constructed URL.
+ *
+ */
+function cptui_get_impoort_listing_link( $content_type, $content_type_slug ) {
+	return add_query_arg(
+		[
+			'import_' . $content_type_slug => wp_create_nonce(
+				'do_import_' . $content_type_slug
+			),
+			'import_' . $content_type      => esc_attr( $content_type_slug )
+		],
+		admin_url( 'admin.php?page=cptui_listings' )
+	);
 }

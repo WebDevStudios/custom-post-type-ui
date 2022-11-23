@@ -204,6 +204,7 @@ function cptui_create_submenus() {
 	require_once plugin_dir_path( __FILE__ ) . 'inc/taxonomies.php';
 	require_once plugin_dir_path( __FILE__ ) . 'inc/listings.php';
 	require_once plugin_dir_path( __FILE__ ) . 'inc/tools.php';
+	require_once plugin_dir_path( __FILE__ ) . 'inc/local-json.php';
 	require_once plugin_dir_path( __FILE__ ) . 'inc/tools-sections/tools-post-types.php';
 	require_once plugin_dir_path( __FILE__ ) . 'inc/tools-sections/tools-taxonomies.php';
 	require_once plugin_dir_path( __FILE__ ) . 'inc/tools-sections/tools-get-code.php';
@@ -265,10 +266,12 @@ function cptui_create_custom_post_types() {
 	 * Filters an override array of post type data to be registered instead of our saved option.
 	 *
 	 * @since 1.10.0
+	 * @since 1.14.0 Added $cpts as secondary argument.
 	 *
 	 * @param array $value Default override value.
+	 * @param array $cpts Existing CPTUI data.
 	 */
-	$cpts_override = apply_filters( 'cptui_post_types_override', [] );
+	$cpts_override = apply_filters( 'cptui_post_types_override', [], $cpts );
 
 	if ( empty( $cpts ) && empty( $cpts_override ) ) {
 		return;
@@ -569,10 +572,12 @@ function cptui_create_custom_taxonomies() {
 	 * Filters an override array of taxonomy data to be registered instead of our saved option.
 	 *
 	 * @since 1.10.0
+	 * @since 1.14.0 Added $taxes as secondary argument
 	 *
 	 * @param array $value Default override value.
+	 * @param array $taxes Existing CPTUI data.
 	 */
-	$taxes_override = apply_filters( 'cptui_taxonomies_override', [] );
+	$taxes_override = apply_filters( 'cptui_taxonomies_override', [], $taxes );
 
 	if ( empty( $taxes ) && empty( $taxes_override ) ) {
 		return;
@@ -927,27 +932,27 @@ function cptui_admin_notices( $action = '', $object_type = '', $success = true, 
 
 	if ( 'add' === $action ) {
 		if ( $success ) {
-			$message .= sprintf( __( '%s has been successfully added', 'custom-post-type-ui' ), $object_type );
+			$message .= sprintf( __( '%s has been successfully added.', 'custom-post-type-ui' ), $object_type );
 		} else {
-			$message .= sprintf( __( '%s has failed to be added', 'custom-post-type-ui' ), $object_type );
+			$message .= sprintf( __( '%s has failed to be added.', 'custom-post-type-ui' ), $object_type );
 		}
 	} elseif ( 'update' === $action ) {
 		if ( $success ) {
-			$message .= sprintf( __( '%s has been successfully updated', 'custom-post-type-ui' ), $object_type );
+			$message .= sprintf( __( '%s has been successfully updated.', 'custom-post-type-ui' ), $object_type );
 		} else {
-			$message .= sprintf( __( '%s has failed to be updated', 'custom-post-type-ui' ), $object_type );
+			$message .= sprintf( __( '%s has failed to be updated.', 'custom-post-type-ui' ), $object_type );
 		}
 	} elseif ( 'delete' === $action ) {
 		if ( $success ) {
-			$message .= sprintf( __( '%s has been successfully deleted', 'custom-post-type-ui' ), $object_type );
+			$message .= sprintf( __( '%s has been successfully deleted.', 'custom-post-type-ui' ), $object_type );
 		} else {
-			$message .= sprintf( __( '%s has failed to be deleted', 'custom-post-type-ui' ), $object_type );
+			$message .= sprintf( __( '%s has failed to be deleted.', 'custom-post-type-ui' ), $object_type );
 		}
 	} elseif ( 'import' === $action ) {
 		if ( $success ) {
-			$message .= sprintf( __( '%s has been successfully imported', 'custom-post-type-ui' ), $object_type );
+			$message .= sprintf( __( '%s has been successfully imported.', 'custom-post-type-ui' ), $object_type );
 		} else {
-			$message .= sprintf( __( '%s has failed to be imported', 'custom-post-type-ui' ), $object_type );
+			$message .= sprintf( __( '%s has failed to be imported.', 'custom-post-type-ui' ), $object_type );
 		}
 	} elseif ( 'error' === $action ) {
 		if ( ! empty( $custom ) ) {
