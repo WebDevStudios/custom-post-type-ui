@@ -145,7 +145,7 @@ function load_local_taxonomies_data( $data = [], $existing_taxes = [] ) {
 		return $data;
 	}
 
-	return $data_new;
+	return array_merge( $data_new, $existing_taxes );
 }
 add_filter( 'cptui_taxonomies_override', __NAMESPACE__ . '\load_local_taxonomies_data', 10, 2 );
 
