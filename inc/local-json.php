@@ -92,7 +92,7 @@ function delete_local_taxonomy_data( $data = [] ) {
 		return;
 	}
 
-	$json_path = get_specific_type_tax_file_name( 'post_type', $data['name'] );
+	$json_path = get_specific_type_tax_file_name( 'taxonomy', $data['name'] );
 	unlink( $json_path );
 }
 #add_action( 'cptui_after_delete_taxonomy', __NAMESPACE__ . '\delete_local_taxonomy_data' );
