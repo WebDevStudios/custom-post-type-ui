@@ -113,11 +113,6 @@ function load_local_post_type_data( $data = [], $existing_cpts = [] ) {
 		return $data;
 	}
 
-	// We want to prefer database copy first, in case of editing content.
-	//if ( ! empty( $existing_cpts ) ) {
-	//	return $existing_cpts;
-	//}
-
 	$data_new = local_combine_post_types();
 
 	if ( empty( $data_new ) ) {
@@ -142,11 +137,6 @@ function load_local_taxonomies_data( $data = [], $existing_taxes = [] ) {
 
 	if ( ! local_json_is_enabled() ) {
 		return $data;
-	}
-
-	// We want to prefer database copy first, in case of editing content.
-	if ( ! empty( $existing_taxes ) ) {
-		return $existing_taxes;
 	}
 
 	$data_new = local_combine_taxonomies();
