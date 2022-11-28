@@ -77,7 +77,7 @@ function delete_local_post_type_data( $data = [] ) {
 	$json_path = get_specific_type_tax_file_name( 'post_type', $data['name'] );
 	unlink( $json_path );
 }
-#add_action( 'cptui_after_delete_post_type', __NAMESPACE__ . '\delete_local_post_type_data' );
+add_action( 'cptui_after_delete_post_type', __NAMESPACE__ . '\delete_local_post_type_data' );
 
 /**
  * Delete a loca JSON copy of a taxonomy.
@@ -95,7 +95,7 @@ function delete_local_taxonomy_data( $data = [] ) {
 	$json_path = get_specific_type_tax_file_name( 'taxonomy', $data['name'] );
 	unlink( $json_path );
 }
-#add_action( 'cptui_after_delete_taxonomy', __NAMESPACE__ . '\delete_local_taxonomy_data' );
+add_action( 'cptui_after_delete_taxonomy', __NAMESPACE__ . '\delete_local_taxonomy_data' );
 
 /**
  * Combine local and existing database copies of post type data.
