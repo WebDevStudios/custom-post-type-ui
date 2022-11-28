@@ -61,6 +61,13 @@ function save_local_taxonomy_data( $data = [] ) {
 }
 add_action( 'cptui_after_update_taxonomy', __NAMESPACE__ . '\save_local_taxonomy_data' );
 
+/**
+ * Delete a local JSON copy of a post type.
+ *
+ * @since 1.14.0
+ *
+ * @param $data
+ */
 function delete_local_post_type_data( $data = [] ) {
 
 	if ( ! local_json_is_enabled() ) {
@@ -72,6 +79,13 @@ function delete_local_post_type_data( $data = [] ) {
 }
 #add_action( 'cptui_after_delete_post_type', __NAMESPACE__ . '\delete_local_post_type_data' );
 
+/**
+ * Delete a loca JSON copy of a taxonomy.
+ *
+ * @since 1.14.0
+ *
+ * @param $data
+ */
 function delete_local_taxonomy_data( $data = [] ) {
 
 	if ( ! local_json_is_enabled() ) {
@@ -83,6 +97,16 @@ function delete_local_taxonomy_data( $data = [] ) {
 }
 #add_action( 'cptui_after_delete_taxonomy', __NAMESPACE__ . '\delete_local_taxonomy_data' );
 
+/**
+ * Combine local and existing database copies of post type data.
+ *
+ * @since 1.14.0
+ *
+ * @param array $data          The version of the post types to ultimately register.
+ * @param array $existing_cpts Existing post types from the database.
+ *
+ * @return array|mixed
+ */
 function load_local_post_type_data( $data = [], $existing_cpts = [] ) {
 
 	if ( ! local_json_is_enabled() ) {
@@ -104,6 +128,16 @@ function load_local_post_type_data( $data = [], $existing_cpts = [] ) {
 }
 add_filter( 'cptui_post_types_override', __NAMESPACE__ . '\load_local_post_type_data', 10, 2 );
 
+/**
+ * Combine local and existing database copies of taxonomy data.
+ *
+ * @since 1.14.0
+ *
+ * @param array $data           The version of the taxonomies to ultimately register.
+ * @param array $existing_taxes Existing taxonomy data from the database.
+ *
+ * @return array|mixed
+ */
 function load_local_taxonomies_data( $data = [], $existing_taxes = [] ) {
 
 	if ( ! local_json_is_enabled() ) {
