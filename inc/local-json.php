@@ -163,6 +163,9 @@ function local_get_post_type_data( $cpts = [], $current_site_id = 0 ) {
 			(
 				'cpt-ui_page_cptui_tools' === $current_screen->base &&
 				empty( $_GET['action'] )
+			) ||
+			(
+				'cpt-ui_page_cptui_manage_post_types' === $current_screen->base
 			)
 		) {
 			return $cpts;
