@@ -3,8 +3,8 @@ Contributors: webdevstudios, pluginize, tw2113, vegasgeek, modemlooper, williams
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3084056
 Tags: custom post types, CPT, CMS, post, types, post type, taxonomy, tax, custom, content types, post types
 Requires at least: 5.9
-Tested up to: 6.0.2
-Stable tag: 1.13.1
+Tested up to: 6.1.1
+Stable tag: 1.13.2
 License: GPL-2.0+
 Requires PHP: 5.6
 
@@ -35,6 +35,11 @@ Custom Post Type UI development is managed on GitHub, with official releases pub
 5. Help/support screen.
 
 == Changelog ==
+
+= 1.13.2 - 2022-11-29 =
+* Fixed: Removed forcing of underscores in place of dashes for taxonomy slugs. Yay!
+* Updated: tested up to WP 6.1.1
+* Updated: Documentation links in wordpress.org FAQ section.
 
 = 1.13.1 - 2022-09-08 =
 * Fixed: Various issues caused by a misplaced output for `ob_get_clean()` outside of function.
@@ -77,6 +82,11 @@ Custom Post Type UI development is managed on GitHub, with official releases pub
 * Fixed: PHP warnings around foreach loops in cptui_published_post_format_fix()
 
 == Upgrade Notice ==
+
+= 1.13.2 - 2022-11-29 =
+* Fixed: Removed forcing of underscores in place of dashes for taxonomy slugs. Yay!
+* Updated: tested up to WP 6.1.1
+* Updated: Documentation links in wordpress.org FAQ section.
 
 = 1.13.1 - 2022-09-08 =
 * Fixed: Various issues caused by a misplaced output for `ob_get_clean()` outside of function.
@@ -142,7 +152,4 @@ That's it! Now you can easily start creating custom post types and taxonomies in
 == Frequently Asked Questions ==
 
 #### User documentation
-Please see http://docs.pluginize.com/category/126-custom-post-type-ui
-
-#### Code/API documentation
-Please see http://codex.pluginize.com/cptui/
+Please see https://docs.pluginize.com/tutorials/custom-post-type-ui/
