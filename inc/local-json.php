@@ -191,9 +191,16 @@ function local_get_taxonomy_data( $taxes = [], $current_site_id = 0 ) {
 	if ( function_exists( 'get_current_screen' ) ) {
 		$current_screen = \get_current_screen();
 
-		if ( ! is_object( $current_screen ) ||
-			'cpt-ui_page_cptui_tools' === $current_screen->base &&
-			$_GET['action'] === 'taxonomies'
+		if (
+			! is_object( $current_screen ) ||
+			(
+				'cpt-ui_page_cptui_tools' === $current_screen->base &&
+				$_GET['action'] === 'taxonomies'
+			) ||
+			(
+				'cpt-ui_page_cptui_manage_taxonomies' === $current_screen->base
+			)
+
 		) {
 			return $taxes;
 		}
