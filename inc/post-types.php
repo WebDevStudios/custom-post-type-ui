@@ -2030,6 +2030,10 @@ function cptui_update_post_type( $data = [] ) {
 		$data['cpt_supports'] = [];
 	}
 
+	if ( empty( $data['cpt_labels'] ) || ! is_array( $data['cpt_labels'] ) ) {
+		$data['cpt_labels'] = [];
+	}
+
 	foreach ( $data['cpt_labels'] as $key => $label ) {
 		if ( empty( $label ) ) {
 			unset( $data['cpt_labels'][ $key ] );
