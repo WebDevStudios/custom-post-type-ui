@@ -161,13 +161,6 @@ function cptui_support() {
 								<a href="https://wordpress.org/support/topic/custom-post-type-and-visual-composer-grid-block?replies=11#post-7111458" target="_blank" rel="noopener">https://wordpress.org/support/topic/custom-post-type-and-visual-composer-grid-block?replies=11#post-7111458</a>
 							</div>
 						</li>
-						<li>
-							<span tabindex="0" class="question" aria-controls="q14" aria-expanded="false"><?php esc_html_e( 'Why can I not use dashes in post type or taxonomy slugs?', 'custom-post-type-ui' ); ?></span>
-
-							<div class="answer" id="q14"><?php esc_html_e( 'Custom Post Type UI tries to make smart choices for our users, and forcing underscores is one of them. Please see the tutorial at the following URL for how to get dashes in your permalink urls while continuing to use underscores for the actual slug.', 'custom-post-type-ui' ); ?>
-								<a href="http://docs.pluginize.com/article/135-dashes-in-post-type-taxonomy-slugs-for-url-seo" target="_blank" rel="noopener">http://docs.pluginize.com/article/135-dashes-in-post-type-taxonomy-slugs-for-url-seo</a>
-							</div>
-						</li>
 					</ol>
 				</td>
 			</tr>
@@ -176,8 +169,8 @@ function cptui_support() {
 					<h2><?php esc_html_e( 'Front-end Display', 'custom-post-type-ui' ); ?></h2>
 					<ol id="questions_front">
 						<li>
-							<span tabindex="0" class="question" aria-controls="q15" aria-expanded="false"><?php esc_html_e( 'What template files should I edit to alter my post type display?', 'custom-post-type-ui' ); ?></span>
-							<div class="answer" id="q15">
+							<span tabindex="0" class="question" aria-controls="q14" aria-expanded="false"><?php esc_html_e( 'What template files should I edit to alter my post type display?', 'custom-post-type-ui' ); ?></span>
+							<div class="answer" id="q14">
 								<?php
 								printf(
 									/* translators: Placeholders are just for HTML markup that doesn't need translated */
@@ -189,8 +182,8 @@ function cptui_support() {
 							</div>
 						</li>
 						<li>
-							<span tabindex="0" class="question" aria-controls="q16" aria-expanded="false"><?php esc_html_e( 'How do I display my custom post type on my site?', 'custom-post-type-ui' ); ?></span>
-							<div class="answer" id="q16">
+							<span tabindex="0" class="question" aria-controls="q15" aria-expanded="false"><?php esc_html_e( 'How do I display my custom post type on my site?', 'custom-post-type-ui' ); ?></span>
+							<div class="answer" id="q15">
 								<?php
 								printf(
 									/* translators: Placeholders are just for HTML markup that doesn't need translated */
@@ -206,8 +199,8 @@ function cptui_support() {
 							</div>
 						</li>
 						<li>
-							<span tabindex="0" class="question" aria-controls="q17" aria-expanded="false"><?php esc_html_e( 'I have added categories and tags to my custom post type, but they do not appear in the archives.', 'custom-post-type-ui' ); ?></span>
-							<div class="answer" id="q17">
+							<span tabindex="0" class="question" aria-controls="q16" aria-expanded="false"><?php esc_html_e( 'I have added categories and tags to my custom post type, but they do not appear in the archives.', 'custom-post-type-ui' ); ?></span>
+							<div class="answer" id="q16">
 								<?php
 								printf(
 									/* translators: Placeholders are just for HTML markup that doesn't need translated */
@@ -218,8 +211,8 @@ function cptui_support() {
 								</div>
 						</li>
 						<li>
-							<span tabindex="0" class="question" aria-controls="q18" aria-expanded="false"><?php esc_html_e( 'How do I add custom post type support for custom templates selection like pages have?', 'custom-post-type-ui' ); ?></span>
-							<div class="answer" id="q18">
+							<span tabindex="0" class="question" aria-controls="q17" aria-expanded="false"><?php esc_html_e( 'How do I add custom post type support for custom templates selection like pages have?', 'custom-post-type-ui' ); ?></span>
+							<div class="answer" id="q17">
 								<?php
 								printf(
 									/* translators: Placeholders are just for HTML markup that doesn't need translated */
@@ -231,8 +224,8 @@ function cptui_support() {
 							</div>
 						</li>
 						<li>
-							<span tabindex="0" class="question" aria-controls="q19" aria-expanded="false"><?php esc_html_e( 'Why are my post types not showing in taxonomy term archives?', 'custom-post-type-ui' ); ?></span>
-							<div class="answer" id="q19">
+							<span tabindex="0" class="question" aria-controls="q18" aria-expanded="false"><?php esc_html_e( 'Why are my post types not showing in taxonomy term archives?', 'custom-post-type-ui' ); ?></span>
+							<div class="answer" id="q18">
 								<?php
 								esc_html_e( 'If you have set "exclude from search" to True for the pot type, this would be why. If you need the post types in the archives, but still want to exclude them from search, it is recommended to use the "pre_get_posts" hook to unset the post type from considered types.', 'custom-post-type-ui' );
 								?>
@@ -244,8 +237,8 @@ function cptui_support() {
 					<h2><?php esc_html_e( 'Advanced', 'custom-post-type-ui' ); ?></h2>
 					<ol id="questions_advanced">
 						<li>
-							<span tabindex="0" class="question" aria-controls="q20" aria-expanded="false"><?php esc_html_e( 'How do I add custom metaboxes to my post type?', 'custom-post-type-ui' ); ?></span>
-							<div class="answer" id="q20">
+							<span tabindex="0" class="question" aria-controls="q19" aria-expanded="false"><?php esc_html_e( 'How do I add custom metaboxes to my post type?', 'custom-post-type-ui' ); ?></span>
+							<div class="answer" id="q19">
 								<?php
 								printf(
 									/* translators: Placeholders are just for HTML markup that doesn't need translated */
@@ -256,8 +249,8 @@ function cptui_support() {
 							</div>
 						</li>
 						<li>
-							<span tabindex="0" class="question" aria-controls="q21" aria-expanded="false"><?php esc_html_e( 'How do I add a newly registered taxonomy to a post type that already exists?', 'custom-post-type-ui' ); ?></span>
-							<div class="answer" id="q21">
+							<span tabindex="0" class="question" aria-controls="q20" aria-expanded="false"><?php esc_html_e( 'How do I add a newly registered taxonomy to a post type that already exists?', 'custom-post-type-ui' ); ?></span>
+							<div class="answer" id="q20">
 								<?php
 								printf(
 									/* translators: Placeholders are just for HTML markup that doesn't need translated */
@@ -268,8 +261,8 @@ function cptui_support() {
 							</div>
 						</li>
 						<li>
-							<span tabindex="0" class="question" aria-controls="q22" aria-expanded="false"><?php esc_html_e( 'Post relationships?', 'custom-post-type-ui' ); ?></span>
-							<div class="answer" id="q22">
+							<span tabindex="0" class="question" aria-controls="q21" aria-expanded="false"><?php esc_html_e( 'Post relationships?', 'custom-post-type-ui' ); ?></span>
+							<div class="answer" id="q21">
 								<?php
 								printf(
 									/* translators: Placeholders are just for HTML markup that doesn't need translated */
@@ -284,8 +277,8 @@ function cptui_support() {
 								</div>
 						</li>
 						<li>
-							<span tabindex="0" class="question" aria-controls="q23" aria-expanded="false"><?php esc_html_e( 'Is there any function reference list?', 'custom-post-type-ui' ); ?></span>
-							<div class="answer" id="q23">
+							<span tabindex="0" class="question" aria-controls="q22" aria-expanded="false"><?php esc_html_e( 'Is there any function reference list?', 'custom-post-type-ui' ); ?></span>
+							<div class="answer" id="q22">
 							<?php
 							printf(
 								/* translators: Placeholders are just for HTML markup that doesn't need translated */
@@ -296,8 +289,8 @@ function cptui_support() {
 							</div>
 						</li>
 						<li>
-							<span tabindex="0" class="question" aria-controls="q24" aria-expanded="false"><?php esc_html_e( 'How do I filter the "enter title here" text in the post editor screen?', 'custom-post-type-ui' ); ?></span>
-							<div class="answer" id="q24"><p><?php esc_html_e( 'Change text inside the post/page editor title field. Should be able to adapt as necessary.', 'custom-post-type-ui' ); ?></p>
+							<span tabindex="0" class="question" aria-controls="q23" aria-expanded="false"><?php esc_html_e( 'How do I filter the "enter title here" text in the post editor screen?', 'custom-post-type-ui' ); ?></span>
+							<div class="answer" id="q23"><p><?php esc_html_e( 'Change text inside the post/page editor title field. Should be able to adapt as necessary.', 'custom-post-type-ui' ); ?></p>
 <pre><code>function my_custom_title_text( $title ){
 	global $post;
 	if ( 'ENTER POST TYPE SLUG HERE' == $post->post_type )
