@@ -2469,7 +2469,6 @@ function cptui_filtered_post_type_post_global() {
 	);
 
 	$items_string = array_merge( $default_strings, $third_party_items_strings );
-
 	foreach ( $items_string as $item ) {
 		$second_result = filter_input( INPUT_POST, $item, FILTER_SANITIZE_FULL_SPECIAL_CHARS );
 		if ( $second_result ) {
