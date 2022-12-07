@@ -2058,14 +2058,20 @@ add_filter( 'cptui_taxonomy_slug_exists', 'cptui_updated_taxonomy_slug_exists', 
 function cptui_filtered_taxonomy_post_global() {
 	$filtered_data = [];
 
-	foreach (
-		[
-			'cpt_custom_tax',
-			'cpt_tax_labels',
-			'cpt_post_types',
-			'update_taxonomy',
-		 ] as $item
-	) {
+	$default_arrays = [
+		'cpt_custom_tax',
+		'cpt_tax_labels',
+		'cpt_post_types',
+		'update_taxonomy',
+	];
+
+	$third_party_items_arrays = apply_filters(
+		'cptui_filtered_taxonomy_post_global_arrays',
+		(array) [] // phpcs:ignore.
+	);
+
+	$items_arrays = array_merge( $default_arrays, $third_party_items_arrays );
+	foreach ( $items_arrays as $item ) {
 		$first_result = filter_input( INPUT_POST, $item, FILTER_SANITIZE_FULL_SPECIAL_CHARS, FILTER_REQUIRE_ARRAY );
 
 		if ( $first_result ) {
@@ -2073,12 +2079,18 @@ function cptui_filtered_taxonomy_post_global() {
 		}
 	}
 
-	foreach (
-		[
-			'tax_original',
-			'cpt_tax_status',
-		 ] as $item
-	) {
+	$default_strings = [
+		'tax_original',
+		'cpt_tax_status',
+	];
+
+	$third_party_items_strings = apply_filters(
+		'cptui_filtered_taxonomy_post_global_strings',
+		(array) [] // phpcs:ignore.
+	);
+
+	$items_strings = array_merge( $default_strings, $third_party_items_strings );
+	foreach ( $items_strings as $item ) {
 		$second_result = filter_input( INPUT_POST, $item, FILTER_SANITIZE_FULL_SPECIAL_CHARS );
 		if ( $second_result ) {
 			$filtered_data[ $item ] = $second_result;
