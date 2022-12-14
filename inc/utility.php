@@ -593,14 +593,14 @@ function cptui_admin_notices_helper( $message = '', $success = true ) {
  */
 function cptui_get_object_from_post_global() {
 	if ( isset( $_POST['cpt_custom_post_type']['name'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification
-		$type_item = filter_input( INPUT_POST, 'cpt_custom_post_type', FILTER_SANITIZE_STRING, FILTER_REQUIRE_ARRAY );
+		$type_item = filter_input( INPUT_POST, 'cpt_custom_post_type', FILTER_SANITIZE_FULL_SPECIAL_CHARS, FILTER_REQUIRE_ARRAY );
 		if ( $type_item ) {
 			return sanitize_text_field( $type_item['name'] );
 		}
 	}
 
 	if ( isset( $_POST['cpt_custom_tax']['name'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification
-		$tax_item = filter_input( INPUT_POST, 'cpt_custom_tax', FILTER_SANITIZE_STRING, FILTER_REQUIRE_ARRAY );
+		$tax_item = filter_input( INPUT_POST, 'cpt_custom_tax', FILTER_SANITIZE_FULL_SPECIAL_CHARS, FILTER_REQUIRE_ARRAY );
 		if ( $tax_item ) {
 			return sanitize_text_field( $tax_item['name'] );
 		}

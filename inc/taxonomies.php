@@ -1976,7 +1976,7 @@ function cptui_process_taxonomy() {
 		} elseif ( isset( $_POST['cpt_delete'] ) ) {
 			check_admin_referer( 'cptui_addedit_taxonomy_nonce_action', 'cptui_addedit_taxonomy_nonce_field' );
 
-			$filtered_data = filter_input( INPUT_POST, 'cpt_custom_tax', FILTER_SANITIZE_STRING, FILTER_REQUIRE_ARRAY );
+			$filtered_data = filter_input( INPUT_POST, 'cpt_custom_tax', FILTER_SANITIZE_FULL_SPECIAL_CHARS, FILTER_REQUIRE_ARRAY );
 			$result        = cptui_delete_taxonomy( $filtered_data );
 			add_filter( 'cptui_taxonomy_deleted', '__return_true' );
 		}
@@ -2016,8 +2016,8 @@ function cptui_do_convert_taxonomy_terms() {
 	if ( apply_filters( 'cptui_convert_taxonomy_terms', false ) ) {
 		check_admin_referer( 'cptui_addedit_taxonomy_nonce_action', 'cptui_addedit_taxonomy_nonce_field' );
 
-		$original = filter_input( INPUT_POST, 'tax_original', FILTER_SANITIZE_STRING );
-		$new      = filter_input( INPUT_POST, 'cpt_custom_tax', FILTER_SANITIZE_STRING, FILTER_REQUIRE_ARRAY );
+		$original = filter_input( INPUT_POST, 'tax_original', FILTER_SANITIZE_FULL_SPECIAL_CHARS );
+		$new      = filter_input( INPUT_POST, 'cpt_custom_tax', FILTER_SANITIZE_FULL_SPECIAL_CHARS, FILTER_REQUIRE_ARRAY );
 
 		// Return early if either fails to successfully validate.
 		if ( ! $original || ! $new ) {
