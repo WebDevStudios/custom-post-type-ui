@@ -2045,8 +2045,9 @@ function cptui_update_post_type( $data = [] ) {
 		}
 	}
 
-	if ( empty( $data['cpt_custom_post_type']['menu_icon'] ) ) {
-		$data['cpt_custom_post_type']['menu_icon'] = null;
+	$menu_icon = trim( $data['cpt_custom_post_type']['menu_icon'] );
+	if ( '' === $data['cpt_custom_post_type']['menu_icon'] ) {
+		$menu_icon = null;
 	}
 
 	$register_meta_box_cb = trim( $data['cpt_custom_post_type']['register_meta_box_cb'] );
@@ -2081,7 +2082,6 @@ function cptui_update_post_type( $data = [] ) {
 	$query_var_slug        = trim( $data['cpt_custom_post_type']['query_var_slug'] );
 	$menu_position         = trim( $data['cpt_custom_post_type']['menu_position'] );
 	$show_in_menu_string   = trim( $data['cpt_custom_post_type']['show_in_menu_string'] );
-	$menu_icon             = trim( $data['cpt_custom_post_type']['menu_icon'] );
 	$custom_supports       = trim( $data['cpt_custom_post_type']['custom_supports'] );
 	$enter_title_here      = trim( $data['cpt_custom_post_type']['enter_title_here'] );
 
