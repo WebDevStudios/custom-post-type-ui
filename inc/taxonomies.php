@@ -1620,6 +1620,10 @@ function cptui_update_taxonomy( $data = [] ) {
 		return 'error';
 	}
 
+	if ( empty( $data['cpt_tax_labels'] ) || ! is_array( $data['cpt_tax_labels'] ) ) {
+		$data['cpt_tax_labels'] = [];
+	}
+
 	foreach ( $data['cpt_tax_labels'] as $key => $label ) {
 		if ( empty( $label ) ) {
 			unset( $data['cpt_tax_labels'][ $key ] );
