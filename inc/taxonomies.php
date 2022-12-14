@@ -2073,7 +2073,6 @@ function cptui_filtered_taxonomy_post_global() {
 	$items_arrays = array_merge( $default_arrays, $third_party_items_arrays );
 	foreach ( $items_arrays as $item ) {
 		$first_result = filter_input( INPUT_POST, $item, FILTER_SANITIZE_FULL_SPECIAL_CHARS, FILTER_REQUIRE_ARRAY );
-		$first_result = filter_input( INPUT_POST, $item, FILTER_SANITIZE_FULL_SPECIAL_CHARS, FILTER_REQUIRE_ARRAY );
 
 		if ( $first_result ) {
 			$filtered_data[ $item ] = $first_result;
