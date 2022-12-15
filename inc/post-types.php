@@ -2030,6 +2030,10 @@ function cptui_update_post_type( $data = [] ) {
 		$data['cpt_supports'] = [];
 	}
 
+	if ( empty( $data['cpt_labels'] ) || ! is_array( $data['cpt_labels'] ) ) {
+		$data['cpt_labels'] = [];
+	}
+
 	foreach ( $data['cpt_labels'] as $key => $label ) {
 		if ( empty( $label ) ) {
 			unset( $data['cpt_labels'][ $key ] );
@@ -2045,8 +2049,9 @@ function cptui_update_post_type( $data = [] ) {
 		}
 	}
 
-	if ( empty( $data['cpt_custom_post_type']['menu_icon'] ) ) {
-		$data['cpt_custom_post_type']['menu_icon'] = null;
+	$menu_icon = trim( $data['cpt_custom_post_type']['menu_icon'] );
+	if ( '' === $data['cpt_custom_post_type']['menu_icon'] ) {
+		$menu_icon = null;
 	}
 
 	$register_meta_box_cb = trim( $data['cpt_custom_post_type']['register_meta_box_cb'] );
@@ -2081,7 +2086,6 @@ function cptui_update_post_type( $data = [] ) {
 	$query_var_slug        = trim( $data['cpt_custom_post_type']['query_var_slug'] );
 	$menu_position         = trim( $data['cpt_custom_post_type']['menu_position'] );
 	$show_in_menu_string   = trim( $data['cpt_custom_post_type']['show_in_menu_string'] );
-	$menu_icon             = trim( $data['cpt_custom_post_type']['menu_icon'] );
 	$custom_supports       = trim( $data['cpt_custom_post_type']['custom_supports'] );
 	$enter_title_here      = trim( $data['cpt_custom_post_type']['enter_title_here'] );
 
@@ -2347,7 +2351,7 @@ function cptui_process_post_type() {
 		} elseif ( isset( $_POST['cpt_delete'] ) ) {
 			check_admin_referer( 'cptui_addedit_post_type_nonce_action', 'cptui_addedit_post_type_nonce_field' );
 
-			$filtered_data = filter_input( INPUT_POST, 'cpt_custom_post_type', FILTER_SANITIZE_STRING, FILTER_REQUIRE_ARRAY );
+			$filtered_data = filter_input( INPUT_POST, 'cpt_custom_post_type', FILTER_SANITIZE_FULL_SPECIAL_CHARS, FILTER_REQUIRE_ARRAY );
 			$result        = cptui_delete_post_type( $filtered_data );
 			add_filter( 'cptui_post_type_deleted', '__return_true' );
 		}
@@ -2390,8 +2394,8 @@ function cptui_do_convert_post_type_posts() {
 	if ( apply_filters( 'cptui_convert_post_type_posts', false ) ) {
 		check_admin_referer( 'cptui_addedit_post_type_nonce_action', 'cptui_addedit_post_type_nonce_field' );
 
-		$original = filter_input( INPUT_POST, 'cpt_original', FILTER_SANITIZE_STRING );
-		$new      = filter_input( INPUT_POST, 'cpt_custom_post_type', FILTER_SANITIZE_STRING, FILTER_REQUIRE_ARRAY );
+		$original = filter_input( INPUT_POST, 'cpt_original', FILTER_SANITIZE_FULL_SPECIAL_CHARS );
+		$new      = filter_input( INPUT_POST, 'cpt_custom_post_type', FILTER_SANITIZE_FULL_SPECIAL_CHARS, FILTER_REQUIRE_ARRAY );
 
 		// Return early if either fails to successfully validate.
 		if ( ! $original || ! $new ) {
@@ -2451,7 +2455,7 @@ function cptui_filtered_post_type_post_global() {
 
 	$items_arrays = array_merge( $default_arrays, $third_party_items_arrays );
 	foreach ( $items_arrays as $item ) {
-		$first_result = filter_input( INPUT_POST, $item, FILTER_SANITIZE_STRING, FILTER_REQUIRE_ARRAY );
+		$first_result = filter_input( INPUT_POST, $item, FILTER_SANITIZE_FULL_SPECIAL_CHARS, FILTER_REQUIRE_ARRAY );
 
 		if ( $first_result ) {
 			$filtered_data[ $item ] = $first_result;
@@ -2471,7 +2475,7 @@ function cptui_filtered_post_type_post_global() {
 	$items_string = array_merge( $default_strings, $third_party_items_strings );
 
 	foreach ( $items_string as $item ) {
-		$second_result = filter_input( INPUT_POST, $item, FILTER_SANITIZE_STRING );
+		$second_result = filter_input( INPUT_POST, $item, FILTER_SANITIZE_FULL_SPECIAL_CHARS );
 		if ( $second_result ) {
 			$filtered_data[ $item ] = $second_result;
 		}
