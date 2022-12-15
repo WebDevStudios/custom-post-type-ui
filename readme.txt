@@ -36,7 +36,7 @@ Custom Post Type UI development is managed on GitHub, with official releases pub
 
 == Changelog ==
 
-= 1.13.3 - TBD =
+= 1.13.3 - 2022-12-15 =
 * Fixed: Multiple PHP8 compatibility notices and warnings.
 * Fixed: "Invalid argument for foreach" based notices around labels.
 * Updated: Added taxonomy PHP global sanitization for 3rd party parameters.
@@ -88,7 +88,7 @@ Custom Post Type UI development is managed on GitHub, with official releases pub
 
 == Upgrade Notice ==
 
-= 1.13.3 - TBD =
+= 1.13.3 - 2022-12-15 =
 * Fixed: Multiple PHP8 compatibility notices and warnings.
 * Fixed: "Invalid argument for foreach" based notices around labels.
 * Updated: Added taxonomy PHP global sanitization for 3rd party parameters.
