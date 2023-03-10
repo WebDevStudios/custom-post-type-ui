@@ -260,6 +260,15 @@ postboxes.add_postbox_toggles(pagenow);
 			var newval = $( el ).data( 'label' );
 			var plurality = $( el ).data( 'plurality' );
 			if ( 'undefined' !== newval ) {
+				// Custom placeholders that allow for changing plurality for some languages,
+				// away from how we have slightly hardcoded thigns.
+				if ( newval.includes('{{plural}}') ) {
+					newval = newval.replace(/{{plural}}/gi, plural);
+				}
+				if (newval.includes('{{singular}}')) {
+					newval = newval.replace(/{{singular}}/gi, singular);
+				}
+
 				// "slug" is our placeholder from the labels.
 				if ( 'plural' === plurality ) {
 					newval = newval.replace(/item/gi, plural);
