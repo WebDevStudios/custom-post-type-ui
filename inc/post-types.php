@@ -423,7 +423,7 @@ function cptui_manage_post_types() {
 										'textvalue' => isset( $current['labels']['menu_name'] ) ? esc_attr( $current['labels']['menu_name'] ) : '', // phpcs:ignore.
 										'aftertext' => esc_html__( '(e.g. My Movies)', 'custom-post-type-ui' ),
 										'data'      => [
-											/* translators: Used for autofill */
+											/* translators: Used for autofill. Use "{{plural}}" and "{{singular}}" custom placeholders in place of %s if you need to specify a different plurality. This label's default is plural */
 											'label'     => sprintf( esc_attr__( 'My %s', 'custom-post-type-ui' ), 'item' ),
 											'plurality' => 'plural',
 										],
@@ -439,7 +439,7 @@ function cptui_manage_post_types() {
 										'textvalue' => isset( $current['labels']['all_items'] ) ? esc_attr( $current['labels']['all_items'] ) : '', // phpcs:ignore.
 										'aftertext' => esc_html__( '(e.g. All Movies)', 'custom-post-type-ui' ),
 										'data'      => [
-											/* translators: Used for autofill */
+											/* translators: Used for autofill. Use "{{plural}}" and "{{singular}}" custom placeholders in place of %s if you need to specify a different plurality. This label's default is plural */
 											'label'     => sprintf( esc_attr__( 'All %s', 'custom-post-type-ui' ), 'item' ),
 											'plurality' => 'plural',
 										],
@@ -455,7 +455,7 @@ function cptui_manage_post_types() {
 										'textvalue' => isset( $current['labels']['add_new'] ) ? esc_attr( $current['labels']['add_new'] ) : '', // phpcs:ignore.
 										'aftertext' => esc_html__( '(e.g. Add New)', 'custom-post-type-ui' ),
 										'data'      => [
-											/* translators: Used for autofill */
+											/* translators: Used for autofill. Use "{{plural}}" and "{{singular}}" custom placeholders in place of %s if you need to specify a different plurality. This label's default is plural */
 											'label'     => esc_attr__( 'Add new', 'custom-post-type-ui' ),
 											'plurality' => 'plural',
 										],
@@ -471,7 +471,7 @@ function cptui_manage_post_types() {
 										'textvalue' => isset( $current['labels']['add_new_item'] ) ? esc_attr( $current['labels']['add_new_item'] ) : '', // phpcs:ignore.
 										'aftertext' => esc_html__( '(e.g. Add New Movie)', 'custom-post-type-ui' ),
 										'data'      => [
-											/* translators: Used for autofill */
+											/* translators: Used for autofill. Use "{{plural}}" and "{{singular}}" custom placeholders in place of %s if you need to specify a different plurality. This label's default is singular */
 											'label'     => sprintf( esc_attr__( 'Add new %s', 'custom-post-type-ui' ), 'item' ),
 											'plurality' => 'singular',
 										],
@@ -487,7 +487,7 @@ function cptui_manage_post_types() {
 										'textvalue' => isset( $current['labels']['edit_item'] ) ? esc_attr( $current['labels']['edit_item'] ) : '', // phpcs:ignore.
 										'aftertext' => esc_html__( '(e.g. Edit Movie)', 'custom-post-type-ui' ),
 										'data'      => [
-											/* translators: Used for autofill */
+											/* translators: Used for autofill. Use "{{plural}}" and "{{singular}}" custom placeholders in place of %s if you need to specify a different plurality. This label's default is singular */
 											'label'     => sprintf( esc_attr__( 'Edit %s', 'custom-post-type-ui' ), 'item' ),
 											'plurality' => 'singular',
 										],
@@ -503,7 +503,7 @@ function cptui_manage_post_types() {
 										'textvalue' => isset( $current['labels']['new_item'] ) ? esc_attr( $current['labels']['new_item'] ) : '', // phpcs:ignore.
 										'aftertext' => esc_html__( '(e.g. New Movie)', 'custom-post-type-ui' ),
 										'data'      => [
-											/* translators: Used for autofill */
+											/* translators: Used for autofill. Use "{{plural}}" and "{{singular}}" custom placeholders in place of %s if you need to specify a different plurality. This label's default is singular */
 											'label'     => sprintf( esc_attr__( 'New %s', 'custom-post-type-ui' ), 'item' ),
 											'plurality' => 'singular',
 										],
@@ -519,7 +519,7 @@ function cptui_manage_post_types() {
 										'textvalue' => isset( $current['labels']['view_item'] ) ? esc_attr( $current['labels']['view_item'] ) : '', // phpcs:ignore.
 										'aftertext' => esc_html__( '(e.g. View Movie)', 'custom-post-type-ui' ),
 										'data'      => [
-											/* translators: Used for autofill */
+											/* translators: Used for autofill. Use "{{plural}}" and "{{singular}}" custom placeholders in place of %s if you need to specify a different plurality. This label's default is singular */
 											'label'     => sprintf( esc_attr__( 'View %s', 'custom-post-type-ui' ), 'item' ),
 											'plurality' => 'singular',
 										],
@@ -535,7 +535,7 @@ function cptui_manage_post_types() {
 										'textvalue' => isset( $current['labels']['view_items'] ) ? esc_attr( $current['labels']['view_items'] ) : '', // phpcs:ignore.
 										'aftertext' => esc_html__( '(e.g. View Movies)', 'custom-post-type-ui' ),
 										'data'      => [
-											/* translators: Used for autofill */
+											/* translators: Used for autofill. Use "{{plural}}" and "{{singular}}" custom placeholders in place of %s if you need to specify a different plurality. This label's default is plural */
 											'label'     => sprintf( esc_attr__( 'View %s', 'custom-post-type-ui' ), 'item' ),
 											'plurality' => 'plural',
 										],
@@ -551,7 +551,7 @@ function cptui_manage_post_types() {
 										'textvalue' => isset( $current['labels']['search_items'] ) ? esc_attr( $current['labels']['search_items'] ) : '', // phpcs:ignore.
 										'aftertext' => esc_html__( '(e.g. Search Movies)', 'custom-post-type-ui' ),
 										'data'      => [
-											/* translators: Used for autofill */
+											/* translators: Used for autofill. Use "{{plural}}" and "{{singular}}" custom placeholders in place of %s if you need to specify a different plurality. This label's default is plural */
 											'label'     => sprintf( esc_attr__( 'Search %s', 'custom-post-type-ui' ), 'item' ),
 											'plurality' => 'plural',
 										],
@@ -567,7 +567,7 @@ function cptui_manage_post_types() {
 										'textvalue' => isset( $current['labels']['not_found'] ) ? esc_attr( $current['labels']['not_found'] ) : '', // phpcs:ignore.
 										'aftertext' => esc_html__( '(e.g. No Movies found)', 'custom-post-type-ui' ),
 										'data'      => [
-											/* translators: Used for autofill */
+											/* translators: Used for autofill. Use "{{plural}}" and "{{singular}}" custom placeholders in place of %s if you need to specify a different plurality. This label's default is plural */
 											'label'     => sprintf( esc_attr__( 'No %s found', 'custom-post-type-ui' ), 'item' ),
 											'plurality' => 'plural',
 										],
@@ -583,7 +583,7 @@ function cptui_manage_post_types() {
 										'textvalue' => isset( $current['labels']['not_found_in_trash'] ) ? esc_attr( $current['labels']['not_found_in_trash'] ) : '', // phpcs:ignore.
 										'aftertext' => esc_html__( '(e.g. No Movies found in Trash)', 'custom-post-type-ui' ),
 										'data'      => [
-											/* translators: Used for autofill */
+											/* translators: Used for autofill. Use "{{plural}}" and "{{singular}}" custom placeholders in place of %s if you need to specify a different plurality. This label's default is plural */
 											'label'     => sprintf( esc_attr__( 'No %s found in trash', 'custom-post-type-ui' ), 'item' ),
 											'plurality' => 'plural',
 										],
@@ -600,7 +600,7 @@ function cptui_manage_post_types() {
 										'textvalue' => isset( $current['labels']['parent'] ) ? esc_attr( $current['labels']['parent'] ) : '', // phpcs:ignore.
 										'aftertext' => esc_html__( '(e.g. Parent Movie:)', 'custom-post-type-ui' ),
 										'data'      => [
-											/* translators: Used for autofill */
+											/* translators: Used for autofill. Use "{{plural}}" and "{{singular}}" custom placeholders in place of %s if you need to specify a different plurality. This label's default is singular */
 											'label'     => sprintf( esc_attr__( 'Parent %s:', 'custom-post-type-ui' ), 'item' ),
 											'plurality' => 'singular',
 										],
@@ -616,7 +616,7 @@ function cptui_manage_post_types() {
 										'textvalue' => isset( $current['labels']['featured_image'] ) ? esc_attr( $current['labels']['featured_image'] ) : '', // phpcs:ignore.
 										'aftertext' => esc_html__( '(e.g. Featured image for this movie)', 'custom-post-type-ui' ),
 										'data'      => [
-											/* translators: Used for autofill */
+											/* translators: Used for autofill. Use "{{plural}}" and "{{singular}}" custom placeholders in place of %s if you need to specify a different plurality. This label's default is singular */
 											'label'     => sprintf( esc_attr__( 'Featured image for this %s', 'custom-post-type-ui' ), 'item' ),
 											'plurality' => 'singular',
 										],
@@ -632,7 +632,7 @@ function cptui_manage_post_types() {
 										'textvalue' => isset( $current['labels']['set_featured_image'] ) ? esc_attr( $current['labels']['set_featured_image'] ) : '', // phpcs:ignore.
 										'aftertext' => esc_html__( '(e.g. Set featured image for this movie)', 'custom-post-type-ui' ),
 										'data'      => [
-											/* translators: Used for autofill */
+											/* translators: Used for autofill. Use "{{plural}}" and "{{singular}}" custom placeholders in place of %s if you need to specify a different plurality. This label's default is singular */
 											'label'     => sprintf( esc_attr__( 'Set featured image for this %s', 'custom-post-type-ui' ), 'item' ),
 											'plurality' => 'singular',
 										],
@@ -648,7 +648,7 @@ function cptui_manage_post_types() {
 										'textvalue' => isset( $current['labels']['remove_featured_image'] ) ? esc_attr( $current['labels']['remove_featured_image'] ) : '', // phpcs:ignore.
 										'aftertext' => esc_html__( '(e.g. Remove featured image for this movie)', 'custom-post-type-ui' ),
 										'data'      => [
-											/* translators: Used for autofill */
+											/* translators: Used for autofill. Use "{{plural}}" and "{{singular}}" custom placeholders in place of %s if you need to specify a different plurality. This label's default is singular */
 											'label'     => sprintf( esc_attr__( 'Remove featured image for this %s', 'custom-post-type-ui' ), 'item' ),
 											'plurality' => 'singular',
 										],
@@ -664,7 +664,7 @@ function cptui_manage_post_types() {
 										'textvalue' => isset( $current['labels']['use_featured_image'] ) ? esc_attr( $current['labels']['use_featured_image'] ) : '', // phpcs:ignore.
 										'aftertext' => esc_html__( '(e.g. Use as featured image for this movie)', 'custom-post-type-ui' ),
 										'data'      => [
-											/* translators: Used for autofill */
+											/* translators: Used for autofill. Use "{{plural}}" and "{{singular}}" custom placeholders in place of %s if you need to specify a different plurality. This label's default is singular */
 											'label'     => sprintf( esc_attr__( 'Use as featured image for this %s', 'custom-post-type-ui' ), 'item' ),
 											'plurality' => 'singular',
 										],
@@ -680,7 +680,7 @@ function cptui_manage_post_types() {
 										'textvalue' => isset( $current['labels']['archives'] ) ? esc_attr( $current['labels']['archives'] ) : '', // phpcs:ignore.
 										'aftertext' => esc_html__( '(e.g. Movie archives)', 'custom-post-type-ui' ),
 										'data'      => [
-											/* translators: Used for autofill */
+											/* translators: Used for autofill. Use "{{plural}}" and "{{singular}}" custom placeholders in place of %s if you need to specify a different plurality. This label's default is singular */
 											'label'     => sprintf( esc_attr__( '%s archives', 'custom-post-type-ui' ), 'item' ),
 											'plurality' => 'singular',
 										],
@@ -696,7 +696,7 @@ function cptui_manage_post_types() {
 										'textvalue' => isset( $current['labels']['insert_into_item'] ) ? esc_attr( $current['labels']['insert_into_item'] ) : '', // phpcs:ignore.
 										'aftertext' => esc_html__( '(e.g. Insert into movie)', 'custom-post-type-ui' ),
 										'data'      => [
-											/* translators: Used for autofill */
+											/* translators: Used for autofill. Use "{{plural}}" and "{{singular}}" custom placeholders in place of %s if you need to specify a different plurality. This label's default is singular */
 											'label'     => sprintf( esc_attr__( 'Insert into %s', 'custom-post-type-ui' ), 'item' ),
 											'plurality' => 'singular',
 										],
@@ -712,7 +712,7 @@ function cptui_manage_post_types() {
 										'textvalue' => isset( $current['labels']['uploaded_to_this_item'] ) ? esc_attr( $current['labels']['uploaded_to_this_item'] ) : '', // phpcs:ignore.
 										'aftertext' => esc_html__( '(e.g. Uploaded to this movie)', 'custom-post-type-ui' ),
 										'data'      => [
-											/* translators: Used for autofill */
+											/* translators: Used for autofill. Use "{{plural}}" and "{{singular}}" custom placeholders in place of %s if you need to specify a different plurality. This label's default is singular */
 											'label'     => sprintf( esc_attr__( 'Upload to this %s', 'custom-post-type-ui' ), 'item' ),
 											'plurality' => 'singular',
 										],
@@ -728,7 +728,7 @@ function cptui_manage_post_types() {
 										'textvalue' => isset( $current['labels']['filter_items_list'] ) ? esc_attr( $current['labels']['filter_items_list'] ) : '', // phpcs:ignore.
 										'aftertext' => esc_html__( '(e.g. Filter movies list)', 'custom-post-type-ui' ),
 										'data'      => [
-											/* translators: Used for autofill */
+											/* translators: Used for autofill. Use "{{plural}}" and "{{singular}}" custom placeholders in place of %s if you need to specify a different plurality. This label's default is plural */
 											'label'     => sprintf( esc_attr__( 'Filter %s list', 'custom-post-type-ui' ), 'item' ),
 											'plurality' => 'plural',
 										],
@@ -744,7 +744,7 @@ function cptui_manage_post_types() {
 										'textvalue' => isset( $current['labels']['items_list_navigation'] ) ? esc_attr( $current['labels']['items_list_navigation'] ) : '', // phpcs:ignore.
 										'aftertext' => esc_html__( '(e.g. Movies list navigation)', 'custom-post-type-ui' ),
 										'data'      => [
-											/* translators: Used for autofill */
+											/* translators: Used for autofill. Use "{{plural}}" and "{{singular}}" custom placeholders in place of %s if you need to specify a different plurality. This label's default is plural */
 											'label'     => sprintf( esc_attr__( '%s list navigation', 'custom-post-type-ui' ), 'item' ),
 											'plurality' => 'plural',
 										],
@@ -760,7 +760,7 @@ function cptui_manage_post_types() {
 										'textvalue' => isset( $current['labels']['items_list'] ) ? esc_attr( $current['labels']['items_list'] ) : '', // phpcs:ignore.
 										'aftertext' => esc_html__( '(e.g. Movies list)', 'custom-post-type-ui' ),
 										'data'      => [
-											/* translators: Used for autofill */
+											/* translators: Used for autofill. Use "{{plural}}" and "{{singular}}" custom placeholders in place of %s if you need to specify a different plurality. This label's default is plural */
 											'label'     => sprintf( esc_attr__( '%s list', 'custom-post-type-ui' ), 'item' ),
 											'plurality' => 'plural',
 										],
@@ -776,7 +776,7 @@ function cptui_manage_post_types() {
 										'textvalue' => isset( $current['labels']['attributes'] ) ? esc_attr( $current['labels']['attributes'] ) : '', // phpcs:ignore.
 										'aftertext' => esc_html__( '(e.g. Movies Attributes)', 'custom-post-type-ui' ),
 										'data'      => [
-											/* translators: Used for autofill */
+											/* translators: Used for autofill. Use "{{plural}}" and "{{singular}}" custom placeholders in place of %s if you need to specify a different plurality. This label's default is plural */
 											'label'     => sprintf( esc_attr__( '%s attributes', 'custom-post-type-ui' ), 'item' ),
 											'plurality' => 'plural',
 										],
@@ -792,7 +792,7 @@ function cptui_manage_post_types() {
 										'textvalue' => isset( $current['labels']['name_admin_bar'] ) ? esc_attr( $current['labels']['name_admin_bar'] ) : '', // phpcs:ignore.
 										'aftertext' => esc_html__( '(e.g. Movie)', 'custom-post-type-ui' ),
 										'data'      => [
-											/* translators: Used for autofill */
+											/* translators: Used for autofill. Use "{{plural}}" and "{{singular}}" custom placeholders in place of %s if you need to specify a different plurality. This label's default is singular */
 											'label'     => 'item', // not localizing because it's so isolated.
 											'plurality' => 'singular',
 										],
@@ -808,7 +808,7 @@ function cptui_manage_post_types() {
 										'textvalue' => isset( $current['labels']['item_published'] ) ? esc_attr( $current['labels']['item_published'] ) : '', // phpcs:ignore.
 										'aftertext' => esc_html__( '(e.g. Movie published)', 'custom-post-type-ui' ),
 										'data'      => [
-											/* translators: Used for autofill */
+											/* translators: Used for autofill. Use "{{plural}}" and "{{singular}}" custom placeholders in place of %s if you need to specify a different plurality. This label's default is singular */
 											'label'     => sprintf( esc_attr__( '%s published', 'custom-post-type-ui' ), 'item' ),
 											'plurality' => 'singular',
 										],
@@ -824,7 +824,7 @@ function cptui_manage_post_types() {
 										'textvalue' => isset( $current['labels']['item_published_privately'] ) ? esc_attr( $current['labels']['item_published_privately'] ) : '', // phpcs:ignore.
 										'aftertext' => esc_html__( '(e.g. Movie published privately.)', 'custom-post-type-ui' ),
 										'data'      => [
-											/* translators: Used for autofill */
+											/* translators: Used for autofill. Use "{{plural}}" and "{{singular}}" custom placeholders in place of %s if you need to specify a different plurality. This label's default is singular */
 											'label'     => sprintf( esc_attr__( '%s published privately.', 'custom-post-type-ui' ), 'item' ),
 											'plurality' => 'singular',
 										],
@@ -840,7 +840,7 @@ function cptui_manage_post_types() {
 										'textvalue' => isset( $current['labels']['item_reverted_to_draft'] ) ? esc_attr( $current['labels']['item_reverted_to_draft'] ) : '', // phpcs:ignore.
 										'aftertext' => esc_html__( '(e.g. Movie reverted to draft)', 'custom-post-type-ui' ),
 										'data'      => [
-											/* translators: Used for autofill */
+											/* translators: Used for autofill. Use "{{plural}}" and "{{singular}}" custom placeholders in place of %s if you need to specify a different plurality. This label's default is singular */
 											'label'     => sprintf( esc_attr__( '%s reverted to draft.', 'custom-post-type-ui' ), 'item' ),
 											'plurality' => 'singular',
 										],
@@ -856,7 +856,7 @@ function cptui_manage_post_types() {
 										'textvalue' => isset( $current['labels']['item_scheduled'] ) ? esc_attr( $current['labels']['item_scheduled'] ) : '', // phpcs:ignore.
 										'aftertext' => esc_html__( '(e.g. Movie scheduled)', 'custom-post-type-ui' ),
 										'data'      => [
-											/* translators: Used for autofill */
+											/* translators: Used for autofill. Use "{{plural}}" and "{{singular}}" custom placeholders in place of %s if you need to specify a different plurality. This label's default is singular */
 											'label'     => sprintf( esc_attr__( '%s scheduled', 'custom-post-type-ui' ), 'item' ),
 											'plurality' => 'singular',
 										],
@@ -872,7 +872,7 @@ function cptui_manage_post_types() {
 										'textvalue' => isset( $current['labels']['item_updated'] ) ? esc_attr( $current['labels']['item_updated'] ) : '', // phpcs:ignore.
 										'aftertext' => esc_html__( '(e.g. Movie updated)', 'custom-post-type-ui' ),
 										'data'      => [
-											/* translators: Used for autofill */
+											/* translators: Used for autofill. Use "{{plural}}" and "{{singular}}" custom placeholders in place of %s if you need to specify a different plurality. This label's default is singular */
 											'label'     => sprintf( esc_attr__( '%s updated.', 'custom-post-type-ui' ), 'item' ),
 											'plurality' => 'singular',
 										],
@@ -888,7 +888,7 @@ function cptui_manage_post_types() {
 										'textvalue' => isset( $current['enter_title_here'] ) ? esc_attr( $current['enter_title_here'] ) : '', // phpcs:ignore.
 										'aftertext' => esc_html__( '(e.g. Add Movie)', 'custom-post-type-ui' ),
 										'data'      => [
-											/* translators: Used for autofill */
+											/* translators: Used for autofill. Use "{{plural}}" and "{{singular}}" custom placeholders in place of %s if you need to specify a different plurality. This label's default is singular */
 											'label'     => sprintf( esc_attr__( 'Add %s', 'custom-post-type-ui' ), 'item' ),
 											'plurality' => 'singular',
 										],
