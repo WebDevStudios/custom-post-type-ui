@@ -480,6 +480,7 @@ function cptui_manage_taxonomies() {
 									'labeltext' => esc_html__( 'Menu Name', 'custom-post-type-ui' ),
 									'helptext'  => esc_html__( 'Custom admin menu name for your taxonomy.', 'custom-post-type-ui' ),
 									'data'      => [
+										/* translators: Used for autofill. Use "{{plural}}" and "{{singular}}" custom placeholders in place of %s if you need to specify a different plurality. This label's default is plural */
 										'label'     => 'item', // Not localizing because it's isolated.
 										'plurality' => 'plural',
 									],
@@ -495,7 +496,7 @@ function cptui_manage_taxonomies() {
 									'labeltext' => esc_html__( 'All Items', 'custom-post-type-ui' ),
 									'helptext'  => esc_html__( 'Used as tab text when showing all terms for hierarchical taxonomy while editing post.', 'custom-post-type-ui' ),
 									'data'      => [
-										/* translators: Used for autofill */
+										/* translators: Used for autofill. Use "{{plural}}" and "{{singular}}" custom placeholders in place of %s if you need to specify a different plurality. This label's default is plural */
 										'label'     => sprintf( esc_attr__( 'All %s', 'custom-post-type-ui' ), 'item' ),
 										'plurality' => 'plural',
 									],
@@ -511,7 +512,7 @@ function cptui_manage_taxonomies() {
 									'labeltext' => esc_html__( 'Edit Item', 'custom-post-type-ui' ),
 									'helptext'  => esc_html__( 'Used at the top of the term editor screen for an existing taxonomy term.', 'custom-post-type-ui' ),
 									'data'      => [
-										/* translators: Used for autofill */
+										/* translators: Used for autofill. Use "{{plural}}" and "{{singular}}" custom placeholders in place of %s if you need to specify a different plurality. This label's default is singular */
 										'label'     => sprintf( esc_attr__( 'Edit %s', 'custom-post-type-ui' ), 'item' ),
 										'plurality' => 'singular',
 									],
@@ -527,7 +528,7 @@ function cptui_manage_taxonomies() {
 									'labeltext' => esc_html__( 'View Item', 'custom-post-type-ui' ),
 									'helptext'  => esc_html__( 'Used in the admin bar when viewing editor screen for an existing taxonomy term.', 'custom-post-type-ui' ),
 									'data'      => [
-										/* translators: Used for autofill */
+										/* translators: Used for autofill. Use "{{plural}}" and "{{singular}}" custom placeholders in place of %s if you need to specify a different plurality. This label's default is singular */
 										'label'     => sprintf( esc_attr__( 'View %s', 'custom-post-type-ui' ), 'item' ),
 										'plurality' => 'singular',
 									],
@@ -543,7 +544,7 @@ function cptui_manage_taxonomies() {
 									'labeltext' => esc_html__( 'Update Item Name', 'custom-post-type-ui' ),
 									'helptext'  => esc_html__( 'Custom taxonomy label. Used in the admin menu for displaying taxonomies.', 'custom-post-type-ui' ),
 									'data'      => [
-										/* translators: Used for autofill */
+										/* translators: Used for autofill. Use "{{plural}}" and "{{singular}}" custom placeholders in place of %s if you need to specify a different plurality. This label's default is singular */
 										'label'     => sprintf( esc_attr__( 'Update %s name', 'custom-post-type-ui' ), 'item' ),
 										'plurality' => 'singular',
 									],
@@ -559,7 +560,7 @@ function cptui_manage_taxonomies() {
 									'labeltext' => esc_html__( 'Add New Item', 'custom-post-type-ui' ),
 									'helptext'  => esc_html__( 'Used at the top of the term editor screen and button text for a new taxonomy term.', 'custom-post-type-ui' ),
 									'data'      => [
-										/* translators: Used for autofill */
+										/* translators: Used for autofill. Use "{{plural}}" and "{{singular}}" custom placeholders in place of %s if you need to specify a different plurality. This label's default is singular */
 										'label'     => sprintf( esc_attr__( 'Add new %s', 'custom-post-type-ui' ), 'item' ),
 										'plurality' => 'singular',
 									],
@@ -575,7 +576,7 @@ function cptui_manage_taxonomies() {
 									'labeltext' => esc_html__( 'New Item Name', 'custom-post-type-ui' ),
 									'helptext'  => esc_html__( 'Custom taxonomy label. Used in the admin menu for displaying taxonomies.', 'custom-post-type-ui' ),
 									'data'      => [
-										/* translators: Used for autofill */
+										/* translators: Used for autofill. Use "{{plural}}" and "{{singular}}" custom placeholders in place of %s if you need to specify a different plurality. This label's default is singular */
 										'label'     => sprintf( esc_attr__( 'New %s name', 'custom-post-type-ui' ), 'item' ),
 										'plurality' => 'singular',
 									],
@@ -591,7 +592,7 @@ function cptui_manage_taxonomies() {
 									'labeltext' => esc_html__( 'Parent Item', 'custom-post-type-ui' ),
 									'helptext'  => esc_html__( 'Custom taxonomy label. Used in the admin menu for displaying taxonomies.', 'custom-post-type-ui' ),
 									'data'      => [
-										/* translators: Used for autofill */
+										/* translators: Used for autofill. Use "{{plural}}" and "{{singular}}" custom placeholders in place of %s if you need to specify a different plurality. This label's default is singular */
 										'label'     => sprintf( esc_attr__( 'Parent %s', 'custom-post-type-ui' ), 'item' ),
 										'plurality' => 'singular',
 									],
@@ -607,7 +608,7 @@ function cptui_manage_taxonomies() {
 									'labeltext' => esc_html__( 'Parent Item Colon', 'custom-post-type-ui' ),
 									'helptext'  => esc_html__( 'Custom taxonomy label. Used in the admin menu for displaying taxonomies.', 'custom-post-type-ui' ),
 									'data'      => [
-										/* translators: Used for autofill */
+										/* translators: Used for autofill. Use "{{plural}}" and "{{singular}}" custom placeholders in place of %s if you need to specify a different plurality. This label's default is singular */
 										'label'     => sprintf( esc_attr__( 'Parent %s:', 'custom-post-type-ui' ), 'item' ),
 										'plurality' => 'singular',
 									],
@@ -623,7 +624,7 @@ function cptui_manage_taxonomies() {
 									'labeltext' => esc_html__( 'Search Items', 'custom-post-type-ui' ),
 									'helptext'  => esc_html__( 'Custom taxonomy label. Used in the admin menu for displaying taxonomies.', 'custom-post-type-ui' ),
 									'data'      => [
-										/* translators: Used for autofill */
+										/* translators: Used for autofill. Use "{{plural}}" and "{{singular}}" custom placeholders in place of %s if you need to specify a different plurality. This label's default is plural */
 										'label'     => sprintf( esc_attr__( 'Search %s', 'custom-post-type-ui' ), 'item' ),
 										'plurality' => 'plural',
 									],
@@ -639,7 +640,7 @@ function cptui_manage_taxonomies() {
 									'labeltext' => esc_html__( 'Popular Items', 'custom-post-type-ui' ),
 									'helptext'  => esc_html__( 'Custom taxonomy label. Used in the admin menu for displaying taxonomies.', 'custom-post-type-ui' ),
 									'data'      => [
-										/* translators: Used for autofill */
+										/* translators: Used for autofill. Use "{{plural}}" and "{{singular}}" custom placeholders in place of %s if you need to specify a different plurality. This label's default is plural */
 										'label'     => sprintf( esc_attr__( 'Popular %s', 'custom-post-type-ui' ), 'item' ),
 										'plurality' => 'plural',
 									],
@@ -655,7 +656,7 @@ function cptui_manage_taxonomies() {
 									'labeltext' => esc_html__( 'Separate Items with Commas', 'custom-post-type-ui' ),
 									'helptext'  => esc_html__( 'Custom taxonomy label. Used in the admin menu for displaying taxonomies.', 'custom-post-type-ui' ),
 									'data'      => [
-										/* translators: Used for autofill */
+										/* translators: Used for autofill. Use "{{plural}}" and "{{singular}}" custom placeholders in place of %s if you need to specify a different plurality. This label's default is plural */
 										'label'     => sprintf( esc_attr__( 'Separate %s with commas', 'custom-post-type-ui' ), 'item' ),
 										'plurality' => 'plural',
 									],
@@ -671,7 +672,7 @@ function cptui_manage_taxonomies() {
 									'labeltext' => esc_html__( 'Add or Remove Items', 'custom-post-type-ui' ),
 									'helptext'  => esc_html__( 'Custom taxonomy label. Used in the admin menu for displaying taxonomies.', 'custom-post-type-ui' ),
 									'data'      => [
-										/* translators: Used for autofill */
+										/* translators: Used for autofill. Use "{{plural}}" and "{{singular}}" custom placeholders in place of %s if you need to specify a different plurality. This label's default is plural */
 										'label'     => sprintf( esc_attr__( 'Add or remove %s', 'custom-post-type-ui' ), 'item' ),
 										'plurality' => 'plural',
 									],
@@ -687,7 +688,7 @@ function cptui_manage_taxonomies() {
 									'labeltext' => esc_html__( 'Choose From Most Used', 'custom-post-type-ui' ),
 									'helptext'  => esc_attr__( 'The text displayed via clicking ‘Choose from the most used items’ in the taxonomy meta box when no items are available.', 'custom-post-type-ui' ),
 									'data'      => [
-										/* translators: Used for autofill */
+										/* translators: Used for autofill. Use "{{plural}}" and "{{singular}}" custom placeholders in place of %s if you need to specify a different plurality. This label's default is plural */
 										'label'     => sprintf( esc_attr__( 'Choose from the most used %s', 'custom-post-type-ui' ), 'item' ),
 										'plurality' => 'plural',
 									],
@@ -703,7 +704,7 @@ function cptui_manage_taxonomies() {
 									'labeltext' => esc_html__( 'Not found', 'custom-post-type-ui' ),
 									'helptext'  => esc_html__( 'Used when indicating that there are no terms in the given taxonomy within the meta box and taxonomy list table.', 'custom-post-type-ui' ),
 									'data'      => [
-										/* translators: Used for autofill */
+										/* translators: Used for autofill. Use "{{plural}}" and "{{singular}}" custom placeholders in place of %s if you need to specify a different plurality. This label's default is plural */
 										'label'     => sprintf( esc_attr__( 'No %s found', 'custom-post-type-ui' ), 'item' ),
 										'plurality' => 'plural',
 									],
@@ -719,7 +720,7 @@ function cptui_manage_taxonomies() {
 									'labeltext' => esc_html__( 'No terms', 'custom-post-type-ui' ),
 									'helptext'  => esc_attr__( 'Used when indicating that there are no terms in the given taxonomy associated with an object.', 'custom-post-type-ui' ),
 									'data'      => [
-										/* translators: Used for autofill */
+										/* translators: Used for autofill. Use "{{plural}}" and "{{singular}}" custom placeholders in place of %s if you need to specify a different plurality. This label's default is plural */
 										'label'     => sprintf( esc_attr__( 'No %s', 'custom-post-type-ui' ), 'item' ),
 										'plurality' => 'plural',
 									],
@@ -735,7 +736,7 @@ function cptui_manage_taxonomies() {
 									'labeltext' => esc_html__( 'Items List Navigation', 'custom-post-type-ui' ),
 									'helptext'  => esc_attr__( 'Screen reader text for the pagination heading on the term listing screen.', 'custom-post-type-ui' ),
 									'data'      => [
-										/* translators: Used for autofill */
+										/* translators: Used for autofill. Use "{{plural}}" and "{{singular}}" custom placeholders in place of %s if you need to specify a different plurality. This label's default is plural */
 										'label'     => sprintf( esc_attr__( '%s list navigation', 'custom-post-type-ui' ), 'item' ),
 										'plurality' => 'plural',
 									],
@@ -751,7 +752,7 @@ function cptui_manage_taxonomies() {
 									'labeltext' => esc_html__( 'Items List', 'custom-post-type-ui' ),
 									'helptext'  => esc_attr__( 'Screen reader text for the items list heading on the term listing screen.', 'custom-post-type-ui' ),
 									'data'      => [
-										/* translators: Used for autofill */
+										/* translators: Used for autofill. Use "{{plural}}" and "{{singular}}" custom placeholders in place of %s if you need to specify a different plurality. This label's default is plural */
 										'label'     => sprintf( esc_attr__( '%s list', 'custom-post-type-ui' ), 'item' ),
 										'plurality' => 'plural',
 									],
@@ -767,7 +768,7 @@ function cptui_manage_taxonomies() {
 									'labeltext' => esc_html__( 'Back to Items', 'custom-post-type-ui' ),
 									'helptext'  => esc_attr__( 'The text displayed after a term has been updated for a link back to main index.', 'custom-post-type-ui' ),
 									'data'      => [
-										/* translators: Used for autofill */
+										/* translators: Used for autofill. Use "{{plural}}" and "{{singular}}" custom placeholders in place of %s if you need to specify a different plurality. This label's default is plural */
 										'label'     => sprintf( esc_attr__( 'Back to %s', 'custom-post-type-ui' ), 'item' ),
 										'plurality' => 'plural',
 									],
@@ -783,7 +784,7 @@ function cptui_manage_taxonomies() {
 									'labeltext' => esc_html__( 'Term Name Field Description', 'custom-post-type-ui' ),
 									'helptext'  => esc_attr__( 'Description for the Name field on Edit Tags screen.', 'custom-post-type-ui' ),
 									'data'      => [
-										/* translators: Used for autofill */
+										/* translators: Used for autofill. Use "{{plural}}" and "{{singular}}" custom placeholders in place of %s if you need to specify a different plurality. This label's default is singular */
 										'label'     => sprintf( esc_attr__( 'The name is how it appears on your site.', 'custom-post-type-ui' ), 'item' ),
 										'plurality' => 'singular',
 									],
@@ -799,7 +800,7 @@ function cptui_manage_taxonomies() {
 									'labeltext' => esc_html__( 'Term Parent Field Description', 'custom-post-type-ui' ),
 									'helptext'  => esc_attr__( 'Description for the Parent field on Edit Tags screen.', 'custom-post-type-ui' ),
 									'data'      => [
-										/* translators: Used for autofill */
+										/* translators: Used for autofill. Use "{{plural}}" and "{{singular}}" custom placeholders in place of %s if you need to specify a different plurality. This label's default is singular */
 										'label'     => sprintf( esc_attr__( 'Assign a parent term to create a hierarchy. The term Jazz, for example, would be the parent of Bebop and Big Band.', 'custom-post-type-ui' ), 'item' ),
 										'plurality' => 'singular',
 									],
@@ -815,7 +816,7 @@ function cptui_manage_taxonomies() {
 									'labeltext' => esc_html__( 'Term Slug Field Description', 'custom-post-type-ui' ),
 									'helptext'  => esc_attr__( 'Description for the Slug field on Edit Tags screen. ', 'custom-post-type-ui' ),
 									'data'      => [
-										/* translators: Used for autofill */
+										/* translators: Used for autofill. Use "{{plural}}" and "{{singular}}" custom placeholders in place of %s if you need to specify a different plurality. This label's default is singular */
 										'label'     => sprintf( esc_attr__( 'The "slug" is the URL-friendly version of the name. It is usually all lowercase and contains only letters, numbers, and hyphens.', 'custom-post-type-ui' ), 'item' ),
 										'plurality' => 'singular',
 									],
@@ -831,7 +832,7 @@ function cptui_manage_taxonomies() {
 									'labeltext' => esc_html__( 'Term Description Field Description', 'custom-post-type-ui' ),
 									'helptext'  => esc_attr__( 'Description for the Description field on Edit Tags screen.', 'custom-post-type-ui' ),
 									'data'      => [
-										/* translators: Used for autofill */
+										/* translators: Used for autofill. Use "{{plural}}" and "{{singular}}" custom placeholders in place of %s if you need to specify a different plurality. This label's default is plural */
 										'label'     => sprintf( esc_attr__( 'The description is not prominent by default; however, some themes may show it.', 'custom-post-type-ui' ), 'item' ),
 										'plurality' => 'plural',
 									],
