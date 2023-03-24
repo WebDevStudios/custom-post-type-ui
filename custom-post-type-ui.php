@@ -21,6 +21,8 @@
  * Text Domain: custom-post-type-ui
  * Domain Path: /languages
  * License: GPL-2.0+
+ * Requires at least: 5.9
+ * Requires PHP: 5.6
  */
 
 // phpcs:disable WebDevStudios.All.RequireAuthor
