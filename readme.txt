@@ -36,6 +36,11 @@ Custom Post Type UI development is managed on GitHub, with official releases pub
 
 == Changelog ==
 
+= 1.13.5 - TBD =
+* Fixed: Security issue in CPTUI Debug Info screen.
+* Fixed: Added `empty()` check for `can_export` parameters.
+* Updated: Changed textdomain loading from `plugins_loaded` to `init`.
+
 = 1.13.4 - 2022-12-16 =
 * Fixed: Character encoding issue on CPTUI setting save in conjunction with PHP8 compatibility.
 
@@ -90,6 +95,11 @@ Custom Post Type UI development is managed on GitHub, with official releases pub
 * Fixed: PHP warnings around foreach loops in cptui_published_post_format_fix()
 
 == Upgrade Notice ==
+
+= 1.13.5 - TBD =
+* Fixed: Security issue in CPTUI Debug Info screen.
+* Fixed: Added `empty()` check for `can_export` parameters.
+* Updated: Changed textdomain loading from `plugins_loaded` to `init`.
 
 = 1.13.4 - 2022-12-16 =
 * Fixed: Character encoding issue on CPTUI setting save in conjunction with PHP8 compatibility.
