@@ -20,11 +20,11 @@ function cptui_render_debuginfo_section() {
 	wp_nonce_field( 'cptui_debuginfo_nonce_action', 'cptui_debuginfo_nonce_field' );
 
 	if ( ! empty( $_POST ) && isset( $_POST['cptui_debug_info_email'] ) && isset( $_POST['cptui_debuginfo_nonce_field'] ) ) {
-		wp_verify_nonce( 'cptui_debuginfo_nonce_field', 'cptui_debuginfo_nonce_action' );
-
-		$email_args          = [];
-		$email_args['email'] = sanitize_text_field( $_POST['cptui_debug_info_email'] );
-		$debuginfo->send_email( $email_args );
+		if ( wp_verify_nonce( 'cptui_debuginfo_nonce_field', 'cptui_debuginfo_nonce_action' ) ) {
+			$email_args          = [];
+			$email_args['email'] = sanitize_text_field( $_POST['cptui_debug_info_email'] );
+			$debuginfo->send_email( $email_args );
+		}
 	}
 
 	echo '<p><label for="cptui_debug_info_email">' . esc_html__( 'Please provide an email address to send debug information to: ', 'custom-post-type-ui' ) . '</label><input type="email" id="cptui_debug_info_email" name="cptui_debug_info_email" value="" /></p>';
