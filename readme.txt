@@ -1,14 +1,14 @@
 === Custom Post Type UI ===
 Contributors: webdevstudios, pluginize, tw2113, vegasgeek, modemlooper, williamsba1
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3084056
-Tags: custom post types, CPT, CMS, post, types, post type, taxonomy, tax, custom, content types, post types
+Tags: custom post types, post type, taxonomy, content types, CPT, CMS, post, types, custom
 Requires at least: 5.9
 Tested up to: 6.2
 Stable tag: 1.13.5
 License: GPL-2.0+
 Requires PHP: 5.6
 
-Admin UI for creating custom post types and custom taxonomies for WordPress
+Admin UI for creating custom content types like post types and taxonomies
 
 == Description ==
 
