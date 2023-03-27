@@ -1223,7 +1223,7 @@ function cptui_manage_post_types() {
 								],
 							];
 
-							$selected           = isset( $current ) ? disp_boolean( $current['can_export'] ) : '';
+							$selected           = ( isset( $current ) && ! empty( $current['can_export'] ) ) ? disp_boolean( $current['can_export'] ) : '';
 							$select['selected'] = ! empty( $selected ) ? $current['can_export'] : '';
 							echo $ui->get_select_input( // phpcs:ignore.
 								[
