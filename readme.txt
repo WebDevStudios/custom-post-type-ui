@@ -36,7 +36,7 @@ Custom Post Type UI development is managed on GitHub, with official releases pub
 
 == Changelog ==
 
-= 1.13.5 - TBD =
+= 1.13.5 - 2023-03-27 =
 * Fixed: Security issue in CPTUI Debug Info screen.
 * Fixed: Added `empty()` check for `can_export` parameters.
 * Updated: Changed textdomain loading from `plugins_loaded` to `init`.
@@ -96,7 +96,7 @@ Custom Post Type UI development is managed on GitHub, with official releases pub
 
 == Upgrade Notice ==
 
-= 1.13.5 - TBD =
+= 1.13.5 - 2023-03-27 =
 * Fixed: Security issue in CPTUI Debug Info screen.
 * Fixed: Added `empty()` check for `can_export` parameters.
 * Updated: Changed textdomain loading from `plugins_loaded` to `init`.
