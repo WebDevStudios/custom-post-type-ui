@@ -513,9 +513,9 @@ function cptui_default_ads( $ads = [] ) {
 	];
 
 	$ads[] = [
-		'url'   => 'https://maintainn.com/?utm_source=Pluginize-v2&utm_medium=Plugin-Sidebar&utm_campaign=CPTUI',
-		'image' => plugin_dir_url( __DIR__ ) . 'images/wds_ads/maintainn.png',
-		'text'  => 'Maintainn product ad',
+		'url'   => 'https://pluginize.com/plugins/wp-search-with-algolia-pro/?utm_source=cptui-sidebar&utm_medium=text&utm_campaign=wp-search-with-algolia-pro',
+		'image' => plugin_dir_url( __DIR__ ) . 'images/wds_ads/wp-search-with-algolia-pro.png',
+		'text'  => 'WP Search with Algolia Pro product ad',
 	];
 
 	return $ads;
