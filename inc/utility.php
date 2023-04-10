@@ -495,25 +495,25 @@ function cptui_get_ads() {
  */
 function cptui_default_ads( $ads = [] ) {
 	$ads[] = [
-		'url'   => 'https://pluginize.com/plugins/custom-post-type-ui-extended/',
+		'url'   => 'https://pluginize.com/plugins/custom-post-type-ui-extended/?utm_source=cptui-sidebar&utm_medium=text&utm_campaign=cptui',
 		'image' => plugin_dir_url( __DIR__ ) . 'images/wds_ads/cptui-extended.png',
 		'text'  => 'Custom Post Type UI Extended product ad',
 	];
 
 	$ads[] = [
-		'url'   => 'https://pluginize.com/plugins/instago/',
+		'url'   => 'https://pluginize.com/plugins/instago/?utm_source=cptui-sidebar&utm_medium=text&utm_campaign=instago',
 		'image' => plugin_dir_url( __DIR__ ) . 'images/wds_ads/instago.png',
 		'text'  => 'InstaGo product ad',
 	];
 
 	$ads[] = [
-		'url'   => 'https://pluginize.com/plugins/buddypages/',
+		'url'   => 'https://pluginize.com/plugins/buddypages/?utm_source=cptui-sidebar&utm_medium=text&utm_campaign=buddypages',
 		'image' => plugin_dir_url( __DIR__ ) . 'images/wds_ads/buddypages.png',
 		'text'  => 'BuddyPages product ad',
 	];
 
 	$ads[] = [
-		'url'   => 'https://pluginize.com/plugins/wp-search-with-algolia-pro/',
+		'url'   => 'https://pluginize.com/plugins/wp-search-with-algolia-pro/?utm_source=cptui-sidebar&utm_medium=text&utm_campaign=wp-search-with-algolia-pro',
 		'image' => plugin_dir_url( __DIR__ ) . 'images/wds_ads/wp-search-with-algolia-pro.png',
 		'text'  => 'WP Search with Algolia Pro product ad',
 	];
