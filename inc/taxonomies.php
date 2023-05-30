@@ -1914,6 +1914,10 @@ function cptui_check_existing_taxonomy_slugs( $slug_exists = false, $taxonomy_sl
 		return $slug_exists;
 	}
 
+	if ( ! is_array( $taxonomies ) ) {
+		return $slug_exists;
+	}
+
 	// Check if CPTUI has already registered this slug.
 	if ( array_key_exists( strtolower( $taxonomy_slug ), $taxonomies ) ) { // phpcs:ignore.
 		return true;

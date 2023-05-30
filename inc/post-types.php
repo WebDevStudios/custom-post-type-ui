@@ -2266,6 +2266,10 @@ function cptui_check_existing_post_type_slugs( $slug_exists = false, $post_type_
 		return $slug_exists;
 	}
 
+	if ( ! is_array( $post_types ) ) {
+		return $slug_exists;
+	}
+
 	// Check if CPTUI has already registered this slug.
 	if ( array_key_exists( strtolower( $post_type_slug ), $post_types ) ) {
 		return true;
