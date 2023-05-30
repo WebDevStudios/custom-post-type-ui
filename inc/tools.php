@@ -58,28 +58,28 @@ function cptui_tools_tabs( $tabs = [], $current_page = '' ) {
 		$tabs['page_title']         = get_admin_page_title();
 		$tabs['tabs']               = [];
 		$tabs['tabs']['post_types'] = [
-			'text'          => __( 'Post Types', 'custom-post-type-ui' ),
+			'text'          => esc_html__( 'Post Types', 'custom-post-type-ui' ),
 			'classes'       => $classes,
 			'url'           => cptui_admin_url( 'admin.php?page=cptui_' . $current_page ),
 			'aria-selected' => 'false',
 		];
 
 		$tabs['tabs']['taxonomies'] = [
-			'text'          => __( 'Taxonomies', 'custom-post-type-ui' ),
+			'text'          => esc_html__( 'Taxonomies', 'custom-post-type-ui' ),
 			'classes'       => $classes,
 			'url'           => esc_url( add_query_arg( [ 'action' => 'taxonomies' ], cptui_admin_url( 'admin.php?page=cptui_' . $current_page ) ) ),
 			'aria-selected' => 'false',
 		];
 
 		$tabs['tabs']['get_code'] = [
-			'text'          => __( 'Get Code', 'custom-post-type-ui' ),
+			'text'          => esc_html__( 'Get Code', 'custom-post-type-ui' ),
 			'classes'       => $classes,
 			'url'           => esc_url( add_query_arg( [ 'action' => 'get_code' ], cptui_admin_url( 'admin.php?page=cptui_' . $current_page ) ) ),
 			'aria-selected' => 'false',
 		];
 
 		$tabs['tabs']['debuginfo'] = [
-			'text'          => __( 'Debug Info', 'custom-post-type-ui' ),
+			'text'          => esc_html__( 'Debug Info', 'custom-post-type-ui' ),
 			'classes'       => $classes,
 			'url'           => esc_url( add_query_arg( [ 'action' => 'debuginfo' ], cptui_admin_url( 'admin.php?page=cptui_' . $current_page ) ) ),
 			'aria-selected' => 'false',
