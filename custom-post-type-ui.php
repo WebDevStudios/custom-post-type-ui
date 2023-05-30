@@ -291,6 +291,9 @@ function cptui_create_custom_post_types() {
 	if ( is_array( $cpts ) ) {
 		foreach ( $cpts as $post_type ) {
 
+			if ( ! is_string( $post_type['name'] ) ) {
+				$post_type['name'] = (string) $post_type['name'];
+			}
 			/**
 			 * Filters whether or not to skip registration of the current iterated post type.
 			 *
@@ -594,6 +597,10 @@ function cptui_create_custom_taxonomies() {
 
 	if ( is_array( $taxes ) ) {
 		foreach ( $taxes as $tax ) {
+
+			if ( ! is_string( $tax['name'] ) ) {
+				$tax['name'] = (string) $tax['name'];
+			}
 			/**
 			 * Filters whether or not to skip registration of the current iterated taxonomy.
 			 *
