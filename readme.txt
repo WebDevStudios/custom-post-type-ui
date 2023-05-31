@@ -40,6 +40,7 @@ Custom Post Type UI development is managed on GitHub, with official releases pub
 * Fixed: Prevent PHP errors for dynamic WordPress hooks.
 * Fixed: Prevent PHP errors from array_key_exist() checks on non arrays.
 * Updated: Removed Maintainn graphic and added WP Search with Algolia Pro graphic.
+* Updated: Fixed a lot of text escaping for translation-ready content.
 
 = 1.13.5 - 2023-03-27 =
 * Fixed: Security issue in CPTUI Debug Info screen.
@@ -105,6 +106,7 @@ Custom Post Type UI development is managed on GitHub, with official releases pub
 * Fixed: Prevent PHP errors for dynamic WordPress hooks.
 * Fixed: Prevent PHP errors from array_key_exist() checks on non arrays.
 * Updated: Removed Maintainn graphic and added WP Search with Algolia Pro graphic.
+* Updated: Fixed a lot of text escaping for translation-ready content.
 
 = 1.13.5 - 2023-03-27 =
 * Fixed: Security issue in CPTUI Debug Info screen.
