@@ -36,7 +36,7 @@ Custom Post Type UI development is managed on GitHub, with official releases pub
 
 == Changelog ==
 
-= 1.13.6 - TBD =
+= 1.13.6 - 2023-05-30 =
 * Fixed: Prevent PHP errors for dynamic WordPress hooks.
 * Fixed: Prevent PHP errors from array_key_exist() checks on non arrays.
 * Updated: Removed Maintainn graphic and added WP Search with Algolia Pro graphic.
@@ -101,7 +101,7 @@ Custom Post Type UI development is managed on GitHub, with official releases pub
 
 == Upgrade Notice ==
 
-= 1.13.6 - TBD =
+= 1.13.6 - 2023-05-30 =
 * Fixed: Prevent PHP errors for dynamic WordPress hooks.
 * Fixed: Prevent PHP errors from array_key_exist() checks on non arrays.
 * Updated: Removed Maintainn graphic and added WP Search with Algolia Pro graphic.
