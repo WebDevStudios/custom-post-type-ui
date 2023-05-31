@@ -16,7 +16,7 @@
  * Plugin URI: https://github.com/WebDevStudios/custom-post-type-ui/
  * Description: Admin UI panel for registering custom post types and taxonomies in WordPress
  * Author: WebDevStudios
- * Version: 1.13.5
+ * Version: 1.13.6
  * Author URI: https://webdevstudios.com/
  * Text Domain: custom-post-type-ui
  * Domain Path: /languages
@@ -33,8 +33,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'CPT_VERSION', '1.13.5' ); // Left for legacy purposes.
-define( 'CPTUI_VERSION', '1.13.5' );
+define( 'CPT_VERSION', '1.13.6' ); // Left for legacy purposes.
+define( 'CPTUI_VERSION', '1.13.6' );
 define( 'CPTUI_WP_VERSION', get_bloginfo( 'version' ) );
 
 /**
@@ -143,12 +143,12 @@ function cptui_plugin_menu() {
 	$capability  = apply_filters( 'cptui_required_capabilities', 'manage_options' );
 	$parent_slug = 'cptui_main_menu';
 
-	add_menu_page( __( 'Custom Post Types', 'custom-post-type-ui' ), __( 'CPT UI', 'custom-post-type-ui' ), $capability, $parent_slug, 'cptui_settings', cptui_menu_icon() );
-	add_submenu_page( $parent_slug, __( 'Add/Edit Post Types', 'custom-post-type-ui' ), __( 'Add/Edit Post Types', 'custom-post-type-ui' ), $capability, 'cptui_manage_post_types', 'cptui_manage_post_types' );
-	add_submenu_page( $parent_slug, __( 'Add/Edit Taxonomies', 'custom-post-type-ui' ), __( 'Add/Edit Taxonomies', 'custom-post-type-ui' ), $capability, 'cptui_manage_taxonomies', 'cptui_manage_taxonomies' );
-	add_submenu_page( $parent_slug, __( 'Registered Types and Taxes', 'custom-post-type-ui' ), __( 'Registered Types/Taxes', 'custom-post-type-ui' ), $capability, 'cptui_listings', 'cptui_listings' );
-	add_submenu_page( $parent_slug, __( 'Custom Post Type UI Tools', 'custom-post-type-ui' ), __( 'Tools', 'custom-post-type-ui' ), $capability, 'cptui_tools', 'cptui_tools' );
-	add_submenu_page( $parent_slug, __( 'Help/Support', 'custom-post-type-ui' ), __( 'Help/Support', 'custom-post-type-ui' ), $capability, 'cptui_support', 'cptui_support' );
+	add_menu_page( esc_html__( 'Custom Post Types', 'custom-post-type-ui' ), esc_html__( 'CPT UI', 'custom-post-type-ui' ), $capability, $parent_slug, 'cptui_settings', cptui_menu_icon() );
+	add_submenu_page( $parent_slug, esc_html__( 'Add/Edit Post Types', 'custom-post-type-ui' ), esc_html__( 'Add/Edit Post Types', 'custom-post-type-ui' ), $capability, 'cptui_manage_post_types', 'cptui_manage_post_types' );
+	add_submenu_page( $parent_slug, esc_html__( 'Add/Edit Taxonomies', 'custom-post-type-ui' ), esc_html__( 'Add/Edit Taxonomies', 'custom-post-type-ui' ), $capability, 'cptui_manage_taxonomies', 'cptui_manage_taxonomies' );
+	add_submenu_page( $parent_slug, esc_html__( 'Registered Types and Taxes', 'custom-post-type-ui' ), esc_html__( 'Registered Types/Taxes', 'custom-post-type-ui' ), $capability, 'cptui_listings', 'cptui_listings' );
+	add_submenu_page( $parent_slug, esc_html__( 'Custom Post Type UI Tools', 'custom-post-type-ui' ), esc_html__( 'Tools', 'custom-post-type-ui' ), $capability, 'cptui_tools', 'cptui_tools' );
+	add_submenu_page( $parent_slug, esc_html__( 'Help/Support', 'custom-post-type-ui' ), esc_html__( 'Help/Support', 'custom-post-type-ui' ), $capability, 'cptui_support', 'cptui_support' );
 
 	/**
 	 * Fires after the default submenu pages.
@@ -162,7 +162,7 @@ function cptui_plugin_menu() {
 
 	// Remove the default one so we can add our customized version.
 	remove_submenu_page( $parent_slug, 'cptui_main_menu' );
-	add_submenu_page( $parent_slug, __( 'About CPT UI', 'custom-post-type-ui' ), __( 'About CPT UI', 'custom-post-type-ui' ), $capability, 'cptui_main_menu', 'cptui_settings' );
+	add_submenu_page( $parent_slug, esc_html__( 'About CPT UI', 'custom-post-type-ui' ), esc_html__( 'About CPT UI', 'custom-post-type-ui' ), $capability, 'cptui_main_menu', 'cptui_settings' );
 }
 add_action( 'admin_menu', 'cptui_plugin_menu' );
 
@@ -291,6 +291,9 @@ function cptui_create_custom_post_types() {
 	if ( is_array( $cpts ) ) {
 		foreach ( $cpts as $post_type ) {
 
+			if ( ! is_string( $post_type['name'] ) ) {
+				$post_type['name'] = (string) $post_type['name'];
+			}
 			/**
 			 * Filters whether or not to skip registration of the current iterated post type.
 			 *
@@ -594,6 +597,10 @@ function cptui_create_custom_taxonomies() {
 
 	if ( is_array( $taxes ) ) {
 		foreach ( $taxes as $tax ) {
+
+			if ( ! is_string( $tax['name'] ) ) {
+				$tax['name'] = (string) $tax['name'];
+			}
 			/**
 			 * Filters whether or not to skip registration of the current iterated taxonomy.
 			 *
@@ -821,7 +828,7 @@ function cptui_settings_tab_menu( $page = 'post_types' ) {
 		return '';
 	}
 
-	$tmpl = '<h1>%s</h1><nav class="nav-tab-wrapper wp-clearfix" aria-label="Secondary menu">%s</nav>';
+	$tmpl = '<h1>%s</h1><nav class="nav-tab-wrapper wp-clearfix" aria-label="%s">%s</nav>';
 
 	$tab_output = '';
 	foreach ( $tabs['tabs'] as $tab ) {
@@ -837,6 +844,7 @@ function cptui_settings_tab_menu( $page = 'post_types' ) {
 	printf(
 		$tmpl, // phpcs:ignore.
 		$tabs['page_title'], // phpcs:ignore.
+		esc_attr__( 'Secondary menu', 'custom-post-type-ui' ), // phpcs:ignore
 		$tab_output // phpcs:ignore.
 	);
 }
@@ -927,27 +935,27 @@ function cptui_admin_notices( $action = '', $object_type = '', $success = true, 
 
 	if ( 'add' === $action ) {
 		if ( $success ) {
-			$message .= sprintf( __( '%s has been successfully added', 'custom-post-type-ui' ), $object_type );
+			$message .= sprintf( esc_html__( '%s has been successfully added', 'custom-post-type-ui' ), $object_type );
 		} else {
-			$message .= sprintf( __( '%s has failed to be added', 'custom-post-type-ui' ), $object_type );
+			$message .= sprintf( esc_html__( '%s has failed to be added', 'custom-post-type-ui' ), $object_type );
 		}
 	} elseif ( 'update' === $action ) {
 		if ( $success ) {
-			$message .= sprintf( __( '%s has been successfully updated', 'custom-post-type-ui' ), $object_type );
+			$message .= sprintf( esc_html__( '%s has been successfully updated', 'custom-post-type-ui' ), $object_type );
 		} else {
-			$message .= sprintf( __( '%s has failed to be updated', 'custom-post-type-ui' ), $object_type );
+			$message .= sprintf( esc_html__( '%s has failed to be updated', 'custom-post-type-ui' ), $object_type );
 		}
 	} elseif ( 'delete' === $action ) {
 		if ( $success ) {
-			$message .= sprintf( __( '%s has been successfully deleted', 'custom-post-type-ui' ), $object_type );
+			$message .= sprintf( esc_html__( '%s has been successfully deleted', 'custom-post-type-ui' ), $object_type );
 		} else {
-			$message .= sprintf( __( '%s has failed to be deleted', 'custom-post-type-ui' ), $object_type );
+			$message .= sprintf( esc_html__( '%s has failed to be deleted', 'custom-post-type-ui' ), $object_type );
 		}
 	} elseif ( 'import' === $action ) {
 		if ( $success ) {
-			$message .= sprintf( __( '%s has been successfully imported', 'custom-post-type-ui' ), $object_type );
+			$message .= sprintf( esc_html__( '%s has been successfully imported', 'custom-post-type-ui' ), $object_type );
 		} else {
-			$message .= sprintf( __( '%s has failed to be imported', 'custom-post-type-ui' ), $object_type );
+			$message .= sprintf( esc_html__( '%s has failed to be imported', 'custom-post-type-ui' ), $object_type );
 		}
 	} elseif ( 'error' === $action ) {
 		if ( ! empty( $custom ) ) {
@@ -1031,29 +1039,29 @@ function cptui_get_preserved_label( $type = '', $key = '', $plural = '', $singul
 
 	$preserved_labels = [
 		'post_types' => [
-			'add_new_item'       => sprintf( __( 'Add new %s', 'custom-post-type-ui' ), $singular ),
-			'edit_item'          => sprintf( __( 'Edit %s', 'custom-post-type-ui' ), $singular ),
-			'new_item'           => sprintf( __( 'New %s', 'custom-post-type-ui' ), $singular ),
-			'view_item'          => sprintf( __( 'View %s', 'custom-post-type-ui' ), $singular ),
-			'view_items'         => sprintf( __( 'View %s', 'custom-post-type-ui' ), $plural ),
-			'all_items'          => sprintf( __( 'All %s', 'custom-post-type-ui' ), $plural ),
-			'search_items'       => sprintf( __( 'Search %s', 'custom-post-type-ui' ), $plural ),
-			'not_found'          => sprintf( __( 'No %s found.', 'custom-post-type-ui' ), $plural ),
-			'not_found_in_trash' => sprintf( __( 'No %s found in trash.', 'custom-post-type-ui' ), $plural ),
+			'add_new_item'       => sprintf( esc_html__( 'Add new %s', 'custom-post-type-ui' ), $singular ),
+			'edit_item'          => sprintf( esc_html__( 'Edit %s', 'custom-post-type-ui' ), $singular ),
+			'new_item'           => sprintf( esc_html__( 'New %s', 'custom-post-type-ui' ), $singular ),
+			'view_item'          => sprintf( esc_html__( 'View %s', 'custom-post-type-ui' ), $singular ),
+			'view_items'         => sprintf( esc_html__( 'View %s', 'custom-post-type-ui' ), $plural ),
+			'all_items'          => sprintf( esc_html__( 'All %s', 'custom-post-type-ui' ), $plural ),
+			'search_items'       => sprintf( esc_html__( 'Search %s', 'custom-post-type-ui' ), $plural ),
+			'not_found'          => sprintf( esc_html__( 'No %s found.', 'custom-post-type-ui' ), $plural ),
+			'not_found_in_trash' => sprintf( esc_html__( 'No %s found in trash.', 'custom-post-type-ui' ), $plural ),
 		],
 		'taxonomies' => [
-			'search_items'               => sprintf( __( 'Search %s', 'custom-post-type-ui' ), $plural ),
-			'popular_items'              => sprintf( __( 'Popular %s', 'custom-post-type-ui' ), $plural ),
-			'all_items'                  => sprintf( __( 'All %s', 'custom-post-type-ui' ), $plural ),
-			'parent_item'                => sprintf( __( 'Parent %s', 'custom-post-type-ui' ), $singular ),
-			'parent_item_colon'          => sprintf( __( 'Parent %s:', 'custom-post-type-ui' ), $singular ),
-			'edit_item'                  => sprintf( __( 'Edit %s', 'custom-post-type-ui' ), $singular ),
-			'update_item'                => sprintf( __( 'Update %s', 'custom-post-type-ui' ), $singular ),
-			'add_new_item'               => sprintf( __( 'Add new %s', 'custom-post-type-ui' ), $singular ),
-			'new_item_name'              => sprintf( __( 'New %s name', 'custom-post-type-ui' ), $singular ),
-			'separate_items_with_commas' => sprintf( __( 'Separate %s with commas', 'custom-post-type-ui' ), $plural ),
-			'add_or_remove_items'        => sprintf( __( 'Add or remove %s', 'custom-post-type-ui' ), $plural ),
-			'choose_from_most_used'      => sprintf( __( 'Choose from the most used %s', 'custom-post-type-ui' ), $plural ),
+			'search_items'               => sprintf( esc_html__( 'Search %s', 'custom-post-type-ui' ), $plural ),
+			'popular_items'              => sprintf( esc_html__( 'Popular %s', 'custom-post-type-ui' ), $plural ),
+			'all_items'                  => sprintf( esc_html__( 'All %s', 'custom-post-type-ui' ), $plural ),
+			'parent_item'                => sprintf( esc_html__( 'Parent %s', 'custom-post-type-ui' ), $singular ),
+			'parent_item_colon'          => sprintf( esc_html__( 'Parent %s:', 'custom-post-type-ui' ), $singular ),
+			'edit_item'                  => sprintf( esc_html__( 'Edit %s', 'custom-post-type-ui' ), $singular ),
+			'update_item'                => sprintf( esc_html__( 'Update %s', 'custom-post-type-ui' ), $singular ),
+			'add_new_item'               => sprintf( esc_html__( 'Add new %s', 'custom-post-type-ui' ), $singular ),
+			'new_item_name'              => sprintf( esc_html__( 'New %s name', 'custom-post-type-ui' ), $singular ),
+			'separate_items_with_commas' => sprintf( esc_html__( 'Separate %s with commas', 'custom-post-type-ui' ), $plural ),
+			'add_or_remove_items'        => sprintf( esc_html__( 'Add or remove %s', 'custom-post-type-ui' ), $plural ),
+			'choose_from_most_used'      => sprintf( esc_html__( 'Choose from the most used %s', 'custom-post-type-ui' ), $plural ),
 		],
 	];
 
@@ -1073,35 +1081,35 @@ function cptui_get_preserved_labels() {
 	return [
 		'post_types' => [
 			'singular' => [
-				'add_new_item' => __( 'Add new %s', 'custom-post-type-ui' ),
-				'edit_item'    => __( 'Edit %s', 'custom-post-type-ui' ),
-				'new_item'     => __( 'New %s', 'custom-post-type-ui' ),
-				'view_item'    => __( 'View %s', 'custom-post-type-ui' ),
+				'add_new_item' => esc_html__( 'Add new %s', 'custom-post-type-ui' ),
+				'edit_item'    => esc_html__( 'Edit %s', 'custom-post-type-ui' ),
+				'new_item'     => esc_html__( 'New %s', 'custom-post-type-ui' ),
+				'view_item'    => esc_html__( 'View %s', 'custom-post-type-ui' ),
 			],
 			'plural'   => [
-				'view_items'         => __( 'View %s', 'custom-post-type-ui' ),
-				'all_items'          => __( 'All %s', 'custom-post-type-ui' ),
-				'search_items'       => __( 'Search %s', 'custom-post-type-ui' ),
-				'not_found'          => __( 'No %s found.', 'custom-post-type-ui' ),
-				'not_found_in_trash' => __( 'No %s found in trash.', 'custom-post-type-ui' ),
+				'view_items'         => esc_html__( 'View %s', 'custom-post-type-ui' ),
+				'all_items'          => esc_html__( 'All %s', 'custom-post-type-ui' ),
+				'search_items'       => esc_html__( 'Search %s', 'custom-post-type-ui' ),
+				'not_found'          => esc_html__( 'No %s found.', 'custom-post-type-ui' ),
+				'not_found_in_trash' => esc_html__( 'No %s found in trash.', 'custom-post-type-ui' ),
 			],
 		],
 		'taxonomies' => [
 			'singular' => [
-				'parent_item'       => __( 'Parent %s', 'custom-post-type-ui' ),
-				'parent_item_colon' => __( 'Parent %s:', 'custom-post-type-ui' ),
-				'edit_item'         => __( 'Edit %s', 'custom-post-type-ui' ),
-				'update_item'       => __( 'Update %s', 'custom-post-type-ui' ),
-				'add_new_item'      => __( 'Add new %s', 'custom-post-type-ui' ),
-				'new_item_name'     => __( 'New %s name', 'custom-post-type-ui' ),
+				'parent_item'       => esc_html__( 'Parent %s', 'custom-post-type-ui' ),
+				'parent_item_colon' => esc_html__( 'Parent %s:', 'custom-post-type-ui' ),
+				'edit_item'         => esc_html__( 'Edit %s', 'custom-post-type-ui' ),
+				'update_item'       => esc_html__( 'Update %s', 'custom-post-type-ui' ),
+				'add_new_item'      => esc_html__( 'Add new %s', 'custom-post-type-ui' ),
+				'new_item_name'     => esc_html__( 'New %s name', 'custom-post-type-ui' ),
 			],
 			'plural'   => [
-				'search_items'               => __( 'Search %s', 'custom-post-type-ui' ),
-				'popular_items'              => __( 'Popular %s', 'custom-post-type-ui' ),
-				'all_items'                  => __( 'All %s', 'custom-post-type-ui' ),
-				'separate_items_with_commas' => __( 'Separate %s with commas', 'custom-post-type-ui' ),
-				'add_or_remove_items'        => __( 'Add or remove %s', 'custom-post-type-ui' ),
-				'choose_from_most_used'      => __( 'Choose from the most used %s', 'custom-post-type-ui' ),
+				'search_items'               => esc_html__( 'Search %s', 'custom-post-type-ui' ),
+				'popular_items'              => esc_html__( 'Popular %s', 'custom-post-type-ui' ),
+				'all_items'                  => esc_html__( 'All %s', 'custom-post-type-ui' ),
+				'separate_items_with_commas' => esc_html__( 'Separate %s with commas', 'custom-post-type-ui' ),
+				'add_or_remove_items'        => esc_html__( 'Add or remove %s', 'custom-post-type-ui' ),
+				'choose_from_most_used'      => esc_html__( 'Choose from the most used %s', 'custom-post-type-ui' ),
 			],
 		],
 	];

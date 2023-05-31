@@ -3,8 +3,8 @@ Contributors: webdevstudios, pluginize, tw2113, vegasgeek, modemlooper, williams
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3084056
 Tags: custom post types, post type, taxonomy, content types, CPT, CMS, post, types, custom
 Requires at least: 5.9
-Tested up to: 6.2
-Stable tag: 1.13.5
+Tested up to: 6.2.2
+Stable tag: 1.13.6
 License: GPL-2.0+
 Requires PHP: 5.6
 
@@ -35,6 +35,12 @@ Custom Post Type UI development is managed on GitHub, with official releases pub
 5. Help/support screen.
 
 == Changelog ==
+
+= 1.13.6 - 2023-05-30 =
+* Fixed: Prevent PHP errors for dynamic WordPress hooks.
+* Fixed: Prevent PHP errors from array_key_exist() checks on non arrays.
+* Updated: Removed Maintainn graphic and added WP Search with Algolia Pro graphic.
+* Updated: Fixed a lot of text escaping for translation-ready content.
 
 = 1.13.5 - 2023-03-27 =
 * Fixed: Security issue in CPTUI Debug Info screen.
@@ -95,6 +101,12 @@ Custom Post Type UI development is managed on GitHub, with official releases pub
 * Fixed: PHP warnings around foreach loops in cptui_published_post_format_fix()
 
 == Upgrade Notice ==
+
+= 1.13.6 - 2023-05-30 =
+* Fixed: Prevent PHP errors for dynamic WordPress hooks.
+* Fixed: Prevent PHP errors from array_key_exist() checks on non arrays.
+* Updated: Removed Maintainn graphic and added WP Search with Algolia Pro graphic.
+* Updated: Fixed a lot of text escaping for translation-ready content.
 
 = 1.13.5 - 2023-03-27 =
 * Fixed: Security issue in CPTUI Debug Info screen.

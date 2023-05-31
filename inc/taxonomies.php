@@ -412,7 +412,7 @@ function cptui_manage_taxonomies() {
 								 * @param string $value Text to use for the button.
 								 */
 								?>
-								<input type="submit" class="button-secondary cptui-delete-top" name="cpt_delete" id="cpt_submit_delete" value="<?php echo esc_attr( apply_filters( 'cptui_taxonomy_submit_delete', __( 'Delete Taxonomy', 'custom-post-type-ui' ) ) ); ?>" />
+								<input type="submit" class="button-secondary cptui-delete-top" name="cpt_delete" id="cpt_submit_delete" value="<?php echo esc_attr( apply_filters( 'cptui_taxonomy_submit_delete', esc_attr__( 'Delete Taxonomy', 'custom-post-type-ui' ) ) ); ?>" />
 							<?php } else { ?>
 								<?php
 
@@ -1345,7 +1345,7 @@ function cptui_manage_taxonomies() {
 					 * @param string $value Text to use for the button.
 					 */
 					?>
-					<input type="submit" class="button-secondary cptui-delete-bottom" name="cpt_delete" id="cpt_submit_delete" value="<?php echo esc_attr( apply_filters( 'cptui_taxonomy_submit_delete', __( 'Delete Taxonomy', 'custom-post-type-ui' ) ) ); ?>" />
+					<input type="submit" class="button-secondary cptui-delete-bottom" name="cpt_delete" id="cpt_submit_delete" value="<?php echo esc_attr( apply_filters( 'cptui_taxonomy_submit_delete', esc_attr__( 'Delete Taxonomy', 'custom-post-type-ui' ) ) ); ?>" />
 				<?php } else { ?>
 					<?php
 
@@ -1911,6 +1911,10 @@ function cptui_check_existing_taxonomy_slugs( $slug_exists = false, $taxonomy_sl
 
 	// If true, then we'll already have a conflict, let's not re-process.
 	if ( true === $slug_exists ) {
+		return $slug_exists;
+	}
+
+	if ( ! is_array( $taxonomies ) ) {
 		return $slug_exists;
 	}
 
