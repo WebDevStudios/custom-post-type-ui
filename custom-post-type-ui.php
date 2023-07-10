@@ -14,7 +14,7 @@
 /**
  * Plugin Name: Custom Post Type UI
  * Plugin URI: https://github.com/WebDevStudios/custom-post-type-ui/
- * Description: Admin UI panel for registering custom post types and taxonomies in WordPress
+ * Description: Admin UI panel for registering custom post types and taxonomies
  * Author: WebDevStudios
  * Version: 1.13.7
  * Author URI: https://webdevstudios.com/
