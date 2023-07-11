@@ -36,7 +36,7 @@ Custom Post Type UI development is managed on GitHub, with official releases pub
 
 == Changelog ==
 
-= 1.13.7 - TBD =
+= 1.13.7 - 2023-07-11 =
 * Fixed: "themes" marked as reserved taxonomy slug. Causes issues with featured image metabox.
 * Fixed: PHP notice around `sort` parameter.
 
@@ -106,7 +106,7 @@ Custom Post Type UI development is managed on GitHub, with official releases pub
 
 == Upgrade Notice ==
 
-= 1.13.7 - TBD =
+= 1.13.7 - 2023-07-11 =
 * Fixed: "themes" marked as reserved taxonomy slug. Causes issues with featured image metabox.
 * Fixed: PHP notice around `sort` parameter.
 
