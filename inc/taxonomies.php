@@ -1829,6 +1829,7 @@ function cptui_reserved_taxonomies() {
 		'term',
 		'terms',
 		'theme',
+		'themes',
 		'title',
 		'type',
 		'types',
