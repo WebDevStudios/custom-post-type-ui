@@ -153,6 +153,13 @@ function cptui_manage_taxonomies() {
 
 	<?php
 	/**
+	 * Fires immediately after wrap div started on all of the cptui admin pages.
+	 *
+	 * @since 1.13.8
+	 */
+	do_action( 'cptui_inside_wrap' );
+
+	/**
 	 * Fires right inside the wrap div for the taxonomy editor screen.
 	 *
 	 * @since 1.3.0

@@ -49,6 +49,12 @@ add_action( 'admin_enqueue_scripts', 'cptui_support_enqueue_scripts' );
  */
 function cptui_support() {
 	echo '<div class="wrap cptui-support">';
+		/**
+		 * Fires immediately after wrap div started on all of the cptui admin pages.
+		 *
+		 * @since 1.13.8
+		 */
+		do_action( 'cptui_inside_wrap' );
 
 		/**
 		 * Fires at the top of the FAQ/Support page.

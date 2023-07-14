@@ -47,6 +47,12 @@ function cptui_settings() {
 	?>
 	<div class="wrap about-wrap">
 		<?php
+		/**
+		 * Fires immediately after wrap div started on all of the cptui admin pages.
+		 *
+		 * @since 1.13.8
+		 */
+		do_action( 'cptui_inside_wrap' );
 
 		/**
 		 * Fires inside and at the top of the wrapper for the main plugin landing page.
