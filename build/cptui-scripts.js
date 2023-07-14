@@ -284,4 +284,18 @@ postboxes.add_postbox_toggles(pagenow);
             $(el).val("");
         });
     });
+    var back_to_top_btn = $(".cptui-back-to-top");
+    $(window).scroll(function() {
+        if ($(window).scrollTop() > 300) {
+            back_to_top_btn.addClass("show");
+        } else {
+            back_to_top_btn.removeClass("show");
+        }
+    });
+    back_to_top_btn.on("click", function(e) {
+        e.preventDefault();
+        $("html, body").animate({
+            scrollTop: 0
+        }, "300");
+    });
 })(jQuery);

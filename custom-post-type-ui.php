@@ -1114,3 +1114,16 @@ function cptui_get_preserved_labels() {
 		],
 	];
 }
+
+
+/**
+ * Add "Back to top" button on admin pages.
+ *
+ * @since 1.14.0
+ */
+function cptui_inside_wrap_callback() {
+	?>
+	<a class="button button-secondary cptui-back-to-top" href="#"><?php esc_html_e( 'Back to top', 'custom-post-type-ui' ); ?> &uarr;</a>
+	<?php
+}
+add_action( 'cptui_inside_wrap', 'cptui_inside_wrap_callback' );

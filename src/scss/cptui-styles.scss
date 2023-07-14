@@ -395,6 +395,21 @@ $max-tablet: "screen and (max-width: 768px)";
 	}
 }
 
+.cptui-back-to-top {
+	position: fixed;
+	bottom: 30px;
+	right: 20px;
+	z-index: 10;
+	transition: 0.25s all ease-in-out;
+	opacity: 0;
+	visibility: hidden;
+
+	&.show{
+		opacity: 1;
+		visibility: visible;
+	}
+}
+
 @media #{$min-tablet} {
 	.cptui-badge {
 		margin-top: -42px;

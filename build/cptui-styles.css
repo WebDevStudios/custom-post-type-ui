@@ -310,6 +310,18 @@
     font-size: 12px;
     width: 140px; }
 
+.cptui-back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 20px;
+  z-index: 10;
+  transition: 0.25s all ease-in-out;
+  opacity: 0;
+  visibility: hidden; }
+  .cptui-back-to-top.show {
+    opacity: 1;
+    visibility: visible; }
+
 @media screen and (min-width: 769px) {
   .cptui-badge {
     margin-top: -42px;
