@@ -143,7 +143,7 @@ function cptui_tools() {
 	/**
 	 * Fires immediately after wrap div started on all of the cptui admin pages.
 	 *
-	 * @since 1.13.8
+	 * @since 1.14.0
 	 */
 	do_action( 'cptui_inside_wrap' );
 

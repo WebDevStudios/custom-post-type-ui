@@ -1119,7 +1119,7 @@ function cptui_get_preserved_labels() {
 /**
  * Add "Back to top" button on admin pages.
  *
- * @since 1.13.8
+ * @since 1.14.0
  */
 function cptui_inside_wrap_callback() {
 	?>
