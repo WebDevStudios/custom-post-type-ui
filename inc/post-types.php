@@ -229,7 +229,7 @@ function cptui_manage_post_types() {
 	<form class="posttypesui" method="post" action="<?php echo esc_url( cptui_get_post_form_action( $ui ) ); ?>">
 		<div class="postbox-container">
 		<div id="poststuff">
-			<div class="cptui-section postbox">
+			<div id="cptui_panel_pt_basic_settings" class="cptui-section postbox">
 				<div class="postbox-header">
 					<h2 class="hndle ui-sortable-handle">
 						<span><?php esc_html_e( 'Basic settings', 'custom-post-type-ui' ); ?></span>
@@ -388,7 +388,7 @@ function cptui_manage_post_types() {
 					</div>
 				</div>
 			</div>
-			<div class="cptui-section cptui-labels postbox">
+			<div id="cptui_panel_pt_additional_labels" class="cptui-section cptui-labels postbox">
 				<div class="postbox-header">
 					<h2 class="hndle ui-sortable-handle">
 						<span><?php esc_html_e( 'Additional labels', 'custom-post-type-ui' ); ?></span>
@@ -907,7 +907,7 @@ function cptui_manage_post_types() {
 					</div>
 				</div>
 			</div>
-			<div class="cptui-section cptui-settings postbox">
+			<div id="cptui_panel_pt_advanced_settings" class="cptui-section cptui-settings postbox">
 				<div class="postbox-header">
 					<h2 class="hndle ui-sortable-handle">
 						<span><?php esc_html_e( 'Settings', 'custom-post-type-ui' ); ?></span>
