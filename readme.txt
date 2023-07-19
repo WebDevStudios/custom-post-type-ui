@@ -111,6 +111,11 @@ Custom Post Type UI development is managed on GitHub, with official releases pub
 
 == Upgrade Notice ==
 
+= 1.14.0 - TBD =
+* Added: "Scroll to top" links in CPTUI pages. Props @aslamatwebdevstudios
+* Added: Remembers toggled states for CPTUI settings panels. Props @aslamatwebdevstudios
+* Updated: Notes about slugs for both post types and taxonomies.
+
 = 1.13.7 - 2023-07-11 =
 * Fixed: "themes" marked as reserved taxonomy slug. Causes issues with featured image metabox.
 * Fixed: PHP notice around `sort` parameter.
