@@ -1777,7 +1777,11 @@ function cptui_manage_post_types() {
 					 */
 				?>
 					<input type="submit" class="button-primary" name="cpt_submit" value="<?php echo esc_attr( apply_filters( 'cptui_post_type_submit_add', esc_attr__( 'Add Post Type', 'custom-post-type-ui' ) ) ); ?>" />
-			<?php } ?>
+				<?php
+			}
+				$ajax_nonce = wp_create_nonce( 'closedpostboxes' );
+			?>
+			<input type="hidden" id="closedpostboxesnonce" value="<?php echo esc_attr( $ajax_nonce ); ?>" />
 			</p>
 		</div>
 	</form>
