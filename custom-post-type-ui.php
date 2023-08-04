@@ -16,7 +16,7 @@
  * Plugin URI: https://github.com/WebDevStudios/custom-post-type-ui/
  * Description: Admin UI panel for registering custom post types and taxonomies
  * Author: WebDevStudios
- * Version: 1.13.7
+ * Version: 1.14.0
  * Author URI: https://webdevstudios.com/
  * Text Domain: custom-post-type-ui
  * Domain Path: /languages
@@ -33,8 +33,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'CPT_VERSION', '1.13.7' ); // Left for legacy purposes.
-define( 'CPTUI_VERSION', '1.13.7' );
+define( 'CPT_VERSION', '1.14.0' ); // Left for legacy purposes.
+define( 'CPTUI_VERSION', '1.14.0' );
 define( 'CPTUI_WP_VERSION', get_bloginfo( 'version' ) );
 
 /**
