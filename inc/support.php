@@ -148,7 +148,7 @@ function cptui_support() {
 						</li>
 						<li>
 							<span tabindex="0" class="question" aria-controls="q10" aria-expanded="false"><?php esc_html_e( 'I changed my custom post type or taxonomy slug and now I have duplicates shown. How do I remove the duplicate?', 'custom-post-type-ui' ); ?></span>
-							<div class="answer" id="q10"><?php esc_html_e( 'Renaming the slug for a post type or taxonomy creates a new entry in our saved option which gets registered as its own post type or taxonomy. Since the settings will be mirrored from the previous slug, you will just need to delete the previous version\'s entry.', 'custom-post-type-ui' ); ?> <a href="https://wordpress.org/plugins/post-type-switcher/" target="_blank" rel="noopener">https://wordpress.org/plugins/post-type-switcher/</a></div>
+							<div class="answer" id="q10"><?php esc_html_e( 'Renaming the slug for a post type or taxonomy creates a new entry in our saved option which gets registered as its own post type or taxonomy. Since the settings will be mirrored from the previous slug, you will just need to delete the previous version\'s entry.', 'custom-post-type-ui' ); ?></div>
 						</li>
 						<li>
 							<span tabindex="0" class="question" aria-controls="q11" aria-expanded="false"><?php esc_html_e( 'I have added post thumbnail and/or post format support to my post type, but those do not appear when adding a post type post.', 'custom-post-type-ui' ); ?></span>
