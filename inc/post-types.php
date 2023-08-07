@@ -330,13 +330,15 @@ function cptui_manage_post_types() {
 							<a href="#" id="auto-clear"><?php esc_html_e( 'Clear labels', 'custom-post-type-ui' ); ?></a>
 								<?php
 							echo $ui->get_td_end() . $ui->get_tr_end(); // phpcs:ignore.
-							echo $ui->get_tr_start() . $ui->get_th_start() . esc_html__( 'I\'m trying to migrate things in to CPTUI, let me save this', 'custom-post-type-ui' ) . $ui->get_th_end(); // phpcs:ignore.
-							echo $ui->get_td_start(); // phpcs:ignore.
+							if ( empty( $_GET['action'] ) ||  'edit' !== $_GET['action'] ) { // phpcs:ignore.
+								echo $ui->get_tr_start() . $ui->get_th_start() . esc_html__( 'I\'m trying to migrate things in to CPTUI, let me save this', 'custom-post-type-ui' ) . $ui->get_th_end(); // phpcs:ignore.
+								echo $ui->get_td_start(); // phpcs:ignore.
+									?>
+									<input type="checkbox" name="cpt_override_validation" value="1" id="override_validation" />
+									<?php
+								echo $ui->get_td_end() . $ui->get_tr_end(); // phpcs:ignore.
+								}
 								?>
-								<input type="checkbox" name="cpt_override_validation" value=1 id="override_validation" />
-							<?php
-							echo $ui->get_td_end() . $ui->get_tr_end(); // phpcs:ignore.
-							?>
 						</table>
 						<p class="submit">
 						<?php
@@ -2430,7 +2432,7 @@ add_action( 'init', 'cptui_do_convert_post_type_posts' );
 /**
  * Handles slug_exist checks for cases of editing an existing post type.
  *
- * @since 1.5.3
+ * @since NEXT
  *
  * @param bool   $slug_exists    Current status for exist checks.
  * @param string $post_type_slug Post type slug being processed.
@@ -2452,7 +2454,7 @@ add_filter( 'cptui_post_type_slug_exists', 'cptui_updated_post_type_slug_exists'
 /**
  * Ignores the slug validation for an existing CPT if the override checkbox was previously selected.
  *
- * @since 1.14.0
+ * @since NEXT
  *
  * @param bool   $slug_exists    Current status for exist checks.
  * @param string $post_type_slug Post type slug being processed.
