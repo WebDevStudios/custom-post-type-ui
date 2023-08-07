@@ -140,6 +140,12 @@ function cptui_tools() {
 	}
 
 	echo '<div class="wrap">';
+	/**
+	 * Fires immediately after wrap div started on all of the cptui admin pages.
+	 *
+	 * @since 1.14.0
+	 */
+	do_action( 'cptui_inside_wrap' );
 
 	/**
 	 * Fires right inside the wrap div for the import/export pages.

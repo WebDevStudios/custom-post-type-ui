@@ -3,8 +3,8 @@ Contributors: webdevstudios, pluginize, tw2113, williamsba1
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3084056
 Tags: custom post types, post type, taxonomy, content types, CPT, CMS, post, types, custom
 Requires at least: 5.9
-Tested up to: 6.2.2
-Stable tag: 1.13.7
+Tested up to: 6.3.0
+Stable tag: 1.14.0
 License: GPL-2.0+
 Requires PHP: 5.6
 
@@ -12,15 +12,11 @@ Admin UI for creating custom content types like post types and taxonomies
 
 == Description ==
 
-Custom Post Type UI provides an easy to use interface for registering and managing custom post types and taxonomies for your website.
+Custom Post Type UI provides an easy-to-use interface for registering and managing custom post types and taxonomies for your website.
 
 = Custom Post Type UI Extended =
 
-CPTUI helps create custom content types, but displaying that content can be a whole new challenge. We created [Custom Post Type UI Extended](https://pluginize.com/product/custom-post-type-ui-extended/?utm_source=cptui-desription&utm_medium=text&utm_campaign=wporg) to help with displaying your crafted content. [View our Layouts page](https://pluginize.com/cpt-ui-extended-features/?utm_source=cptui-description-examples&utm_medium=text&utm_campaign=wporg) to see available layout examples with Custom Post Type UI Extended.
-
-Beginning with version 1.7.0, Custom Post Type UI Extended has properly moved in to the Block editor experience and is working to get all the layouts available in the new "Custom Post Type UI Block". It's now even easier to start showing your content with the existing and future layouts available with Custom Post Type UI Extended.
-
-[Pluginize](https://pluginize.com/?utm_source=cptui&utm_medium=text&utm_campaign=wporg) was launched in 2016 by [WebDevStudios](https://webdevstudios.com/) to promote, support, and house all of their [WordPress products](https://pluginize.com/shop/?utm_source=cptui-&utm_medium=text&utm_campaign=wporg). Pluginize is not only [creating new products for WordPress, like CPTUI Extended](https://pluginize.com/product/custom-post-type-ui-extended/?utm_source=cptui&utm_medium=text&utm_campaign=wporg), but also provides ongoing support and development for WordPress community favorites like [CMB2](https://wordpress.org/plugins/cmb2/) and more.
+CPTUI helps create custom content types, but displaying that content can be a whole new challenge. [Custom Post Type UI Extended](https://pluginize.com/plugins/custom-post-type-ui-extended/?utm_source=cptui-desription&utm_medium=text&utm_campaign=wporg) was created to help with displaying your crafted content. [View our Layouts page](https://pluginize.com/cpt-ui-extended-features/?utm_source=cptui-description-examples&utm_medium=text&utm_campaign=wporg) to see available layout examples with Custom Post Type UI Extended.
 
 = Plugin development =
 
@@ -35,6 +31,12 @@ Custom Post Type UI development is managed on GitHub, with official releases pub
 5. Help/support screen.
 
 == Changelog ==
+
+= 1.14.0 - 2023-08-07 =
+* Added: "Scroll to top" links in CPTUI pages. Props @aslamatwebdevstudios
+* Added: Remembers toggled states for CPTUI settings panels. Props @aslamatwebdevstudios and @ramsesdelr
+* Updated: Notes about slugs for both post types and taxonomies.
+* Updated: Support/FAQ section with more accurate links.
 
 = 1.13.7 - 2023-07-11 =
 * Fixed: "themes" marked as reserved taxonomy slug. Causes issues with featured image metabox.
@@ -105,6 +107,12 @@ Custom Post Type UI development is managed on GitHub, with official releases pub
 * Fixed: PHP warnings around foreach loops in cptui_published_post_format_fix()
 
 == Upgrade Notice ==
+
+= 1.14.0 - 2023-08-07 =
+* Added: "Scroll to top" links in CPTUI pages. Props @aslamatwebdevstudios
+* Added: Remembers toggled states for CPTUI settings panels. Props @aslamatwebdevstudios and @ramsesdelr
+* Updated: Notes about slugs for both post types and taxonomies.
+* Updated: Support/FAQ section with more accurate links.
 
 = 1.13.7 - 2023-07-11 =
 * Fixed: "themes" marked as reserved taxonomy slug. Causes issues with featured image metabox.

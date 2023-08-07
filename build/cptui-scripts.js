@@ -284,4 +284,34 @@ postboxes.add_postbox_toggles(pagenow);
             $(el).val("");
         });
     });
+    var back_to_top_btn = $(".cptui-back-to-top");
+    $(window).scroll(function() {
+        if ($(window).scrollTop() > 300) {
+            back_to_top_btn.addClass("show");
+        } else {
+            back_to_top_btn.removeClass("show");
+        }
+    });
+    back_to_top_btn.on("click", function(e) {
+        e.preventDefault();
+        $("html, body").animate({
+            scrollTop: 0
+        }, "300");
+    });
+    var all_panels = [ "#cptui_panel_pt_basic_settings", "#cptui_panel_pt_additional_labels", "#cptui_panel_pt_advanced_settings", "#cptui_panel_tax_basic_settings", "#cptui_panel_tax_additional_labels", "#cptui_panel_tax_advanced_settings" ];
+    $(all_panels).each(function(index, element) {
+        var panel_id = $(element).attr("id");
+        if (!localStorage.getItem(panel_id) || localStorage.getItem(panel_id) === null) {
+            $("#" + panel_id).removeClass("closed");
+        } else {
+            $("#" + panel_id).addClass("closed");
+        }
+        $(element).find(".postbox-header").on("click", function(e) {
+            if (!localStorage.getItem(panel_id)) {
+                localStorage.setItem(panel_id, 1);
+            } else {
+                localStorage.removeItem(panel_id);
+            }
+        });
+    });
 })(jQuery);

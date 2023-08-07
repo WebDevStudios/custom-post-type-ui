@@ -153,6 +153,13 @@ function cptui_manage_taxonomies() {
 
 	<?php
 	/**
+	 * Fires immediately after wrap div started on all of the cptui admin pages.
+	 *
+	 * @since 1.14.0
+	 */
+	do_action( 'cptui_inside_wrap' );
+
+	/**
 	 * Fires right inside the wrap div for the taxonomy editor screen.
 	 *
 	 * @since 1.3.0
@@ -227,7 +234,7 @@ function cptui_manage_taxonomies() {
 	<form class="taxonomiesui" method="post" action="<?php echo esc_url( cptui_get_post_form_action( $ui ) ); ?>">
 		<div class="postbox-container">
 		<div id="poststuff">
-			<div class="cptui-section postbox">
+			<div id="cptui_panel_tax_basic_settings" class="cptui-section postbox">
 				<div class="postbox-header">
 					<h2 class="hndle ui-sortable-handle">
 						<span><?php esc_html_e( 'Basic settings', 'custom-post-type-ui' ); ?></span>
@@ -267,7 +274,7 @@ function cptui_manage_taxonomies() {
 							);
 
 							echo '<p class="cptui-slug-details">';
-							esc_html_e( 'Slugs should only contain alphanumeric, latin characters. Underscores should be used in place of spaces. Set "Custom Rewrite Slug" field to make slug use dashes for URLs.', 'custom-post-type-ui' );
+							esc_html_e( 'Slugs may only contain lowercase alphanumeric characters, dashes, and underscores.', 'custom-post-type-ui' );
 							echo '</p>';
 
 							if ( 'edit' === $tab ) {
@@ -431,7 +438,7 @@ function cptui_manage_taxonomies() {
 								<input type="hidden" name="tax_original" id="tax_original" value="<?php echo esc_attr( $current['name'] ); ?>" />
 								<?php
 							}
-
+							wp_nonce_field( 'closedpostboxes', 'closedpostboxesnonce' );
 							// Used to check and see if we should prevent duplicate slugs.
 							?>
 							<input type="hidden" name="cpt_tax_status" id="cpt_tax_status" value="<?php echo esc_attr( $tab ); ?>" />
@@ -439,7 +446,7 @@ function cptui_manage_taxonomies() {
 					</div>
 				</div>
 			</div>
-			<div class="cptui-section cptui-labels postbox">
+			<div id="cptui_panel_tax_additional_labels" class="cptui-section cptui-labels postbox">
 				<div class="postbox-header">
 					<h2 class="hndle ui-sortable-handle">
 						<span><?php esc_html_e( 'Additional labels', 'custom-post-type-ui' ); ?></span>
@@ -842,7 +849,7 @@ function cptui_manage_taxonomies() {
 					</div>
 				</div>
 			</div>
-			<div class="cptui-section cptui-settings postbox">
+			<div id="cptui_panel_tax_advanced_settings" class="cptui-section cptui-settings postbox">
 				<div class="postbox-header">
 					<h2 class="hndle ui-sortable-handle">
 						<span><?php esc_html_e( 'Settings', 'custom-post-type-ui' ); ?></span>
