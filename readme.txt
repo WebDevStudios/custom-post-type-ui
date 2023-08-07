@@ -32,10 +32,11 @@ Custom Post Type UI development is managed on GitHub, with official releases pub
 
 == Changelog ==
 
-= 1.14.0 - TBD =
+= 1.14.0 - 2023-08-07 =
 * Added: "Scroll to top" links in CPTUI pages. Props @aslamatwebdevstudios
-* Added: Remembers toggled states for CPTUI settings panels. Props @aslamatwebdevstudios
+* Added: Remembers toggled states for CPTUI settings panels. Props @aslamatwebdevstudios and @ramsesdelr
 * Updated: Notes about slugs for both post types and taxonomies.
+* Updated: Support/FAQ section with more accurate links.
 
 = 1.13.7 - 2023-07-11 =
 * Fixed: "themes" marked as reserved taxonomy slug. Causes issues with featured image metabox.
@@ -107,10 +108,11 @@ Custom Post Type UI development is managed on GitHub, with official releases pub
 
 == Upgrade Notice ==
 
-= 1.14.0 - TBD =
+= 1.14.0 - 2023-08-07 =
 * Added: "Scroll to top" links in CPTUI pages. Props @aslamatwebdevstudios
-* Added: Remembers toggled states for CPTUI settings panels. Props @aslamatwebdevstudios
+* Added: Remembers toggled states for CPTUI settings panels. Props @aslamatwebdevstudios and @ramsesdelr
 * Updated: Notes about slugs for both post types and taxonomies.
+* Updated: Support/FAQ section with more accurate links.
 
 = 1.13.7 - 2023-07-11 =
 * Fixed: "themes" marked as reserved taxonomy slug. Causes issues with featured image metabox.
