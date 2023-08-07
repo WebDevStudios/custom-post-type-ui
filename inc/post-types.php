@@ -2450,9 +2450,9 @@ function cptui_updated_post_type_slug_exists( $slug_exists, $post_type_slug = ''
 add_filter( 'cptui_post_type_slug_exists', 'cptui_updated_post_type_slug_exists', 11, 3 );
 
 /**
- * Handles slug_exist checks for cases of editing an existing post type.
+ * Ignores the slug validation for an existing CPT if the override checkbox was previously selected.
  *
- * @since 1.5.3
+ * @since 1.14.0
  *
  * @param bool   $slug_exists    Current status for exist checks.
  * @param string $post_type_slug Post type slug being processed.
