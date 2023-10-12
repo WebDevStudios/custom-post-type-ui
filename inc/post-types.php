@@ -1636,6 +1636,19 @@ function cptui_manage_post_types() {
 
 							echo $ui->get_check_input( // phpcs:ignore.
 								[
+									'checkvalue' => 'slug',
+									'checked'    => ( ! empty( $current['supports'] ) && is_array( $current['supports'] ) && in_array( 'slug', $current['supports'] ) ) ? 'true' : 'false', // phpcs:ignore.
+									'name'       => 'slug',
+									'namearray'  => 'cpt_supports',
+									'textvalue'  => 'slug',
+									'labeltext'  => esc_html__( 'Slugs / Permalink (post_name field)', 'custom-post-type-ui' ),
+									'default'    => true,
+									'wrap'       => false,
+								]
+							);
+
+							echo $ui->get_check_input( // phpcs:ignore.
+								[
 									'checkvalue' => 'post-formats',
 									'checked'    => ( ! empty( $current['supports'] ) && is_array( $current['supports'] ) && in_array( 'post-formats', $current['supports'] ) ) ? 'true' : 'false', // phpcs:ignore.
 									'name'       => 'post-formats',
