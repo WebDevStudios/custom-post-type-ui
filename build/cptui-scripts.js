@@ -79,8 +79,9 @@ postboxes.add_postbox_toggles(pagenow);
             }
         }
         var $slugexists = $("#slugexists");
+        var $override_validation = $("#override_validation").is(":checked");
         if (typeof cptui_type_data != "undefined") {
-            if (cptui_type_data.existing_post_types.hasOwnProperty(value) && value !== original_slug) {
+            if (cptui_type_data.existing_post_types.hasOwnProperty(value) && value !== original_slug && $override_validation == false) {
                 $slugexists.removeClass("hidemessage");
             } else {
                 $slugexists.addClass("hidemessage");
