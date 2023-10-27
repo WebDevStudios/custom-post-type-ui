@@ -2,11 +2,11 @@
 Contributors: webdevstudios, pluginize, tw2113, williamsba1
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3084056
 Tags: custom post types, post type, taxonomy, content types, CPT, CMS, post, types, custom
-Requires at least: 5.9
+Requires at least: 6.3
 Tested up to: 6.3.0
-Stable tag: 1.14.0
+Stable tag: 1.15.0
 License: GPL-2.0+
-Requires PHP: 5.6
+Requires PHP: 7.4
 
 Admin UI for creating custom content types like post types and taxonomies
 
