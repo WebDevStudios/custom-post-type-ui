@@ -1197,6 +1197,11 @@ function cptui_manage_post_types() {
 								]
 							);
 
+							echo $ui->get_tr_start() . $ui->get_th_start(); // phpcs:ignore.
+							echo $ui->get_label( 'hierarchical', esc_html__( 'Hierarchical', 'custom-post-type-ui' ) ); // phpcs:ignore.
+							echo $ui->get_p( esc_html__( '"False" behaves like posts, "True" behaves like pages.', 'custom-post-type-ui' ) ); // phpcs:ignore.
+							echo $ui->get_th_end() . $ui->get_td_start();
+
 							$select = [
 								'options' => [
 									[
@@ -1220,8 +1225,10 @@ function cptui_manage_post_types() {
 									'labeltext'  => esc_html__( 'Hierarchical', 'custom-post-type-ui' ),
 									'aftertext'  => esc_html__( '(default: false) Whether or not the post type can have parent-child relationships. At least one published content item is needed in order to select a parent.', 'custom-post-type-ui' ),
 									'selections' => $select, // phpcs:ignore.
+									'wrap' => false,
 								]
 							);
+							echo $ui->get_td_end() . $ui->get_tr_end(); // phpcs:ignore.
 
 							$select = [
 								'options' => [
