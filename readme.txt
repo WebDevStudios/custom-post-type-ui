@@ -34,7 +34,7 @@ Custom Post Type UI development is managed on GitHub, with official releases pub
 
 = 1.15.0 - TBD =
 * Updated: confirmed compatibility with WordPress 6.4.
-* Added: Checkbox to indicate you intend to migrate a post type into CPTUI in event of matching slugs.
+* Added: Checkbox to indicate you intend to migrate a post type into CPTUI in event of matching slugs. Props @ramsesdelr
 
 = 1.14.0 - 2023-08-07 =
 * Added: "Scroll to top" links in CPTUI pages. Props @aslamatwebdevstudios
