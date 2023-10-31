@@ -863,6 +863,23 @@ function cptui_manage_post_types() {
 
 								echo $ui->get_text_input( // phpcs:ignore.
 									[
+										'labeltext' => esc_html__( 'Item Trashed', 'custom-post-type-ui' ),
+										'helptext'  => esc_html__( 'Used when an item is moved to Trash. Default "Post trashed." / "Page trashed."', 'custom-post-type-ui' ),
+										'namearray' => 'cpt_labels',
+										'name'      => 'item_trashed',
+										'textvalue' => isset( $current['labels']['item_trashed'] ) ? esc_attr( $current['labels']['item_trashed'] ) : '',
+										// phpcs:ignore.
+										'aftertext' => esc_html__( '(e.g. Movie trashed.)', 'custom-post-type-ui' ),
+										'data'      => [
+											/* translators: Used for autofill */
+											'label'     => sprintf( esc_attr__( '%s trashed.', 'custom-post-type-ui' ), 'item' ),
+											'plurality' => 'singular',
+										],
+									]
+								);
+
+								echo $ui->get_text_input( // phpcs:ignore.
+									[
 										'labeltext' => esc_html__( 'Item Scheduled', 'custom-post-type-ui' ),
 										'helptext'  => esc_html__( 'Used in the editor notice after scheduling a post to be published at a later date. Default "Post scheduled." / "Page scheduled."', 'custom-post-type-ui' ),
 										'namearray' => 'cpt_labels',
