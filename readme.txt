@@ -33,8 +33,11 @@ Custom Post Type UI development is managed on GitHub, with official releases pub
 == Changelog ==
 
 = 1.15.0 - TBD =
-* Updated: confirmed compatibility with WordPress 6.4.
 * Added: Checkbox to indicate you intend to migrate a post type into CPTUI in event of matching slugs. Props @ramsesdelr
+* Added: "item_trashed" post type label support from WordPress 6.3
+* Updated: confirmed compatibility with WordPress 6.4.
+* Updated: PHP8 compatibility.
+* Updated: Minimum WordPress version to version 6.3, minimum PHP version to 7.4.
 
 = 1.14.0 - 2023-08-07 =
 * Added: "Scroll to top" links in CPTUI pages. Props @aslamatwebdevstudios
