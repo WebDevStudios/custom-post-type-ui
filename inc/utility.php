@@ -1013,7 +1013,15 @@ function cptui_post_thumbnail_theme_support() {
 
 	$supported = [];
 	foreach ( $post_types as $post_type ) {
-		if ( in_array( 'thumbnail', $post_type['supports'] ) ) {
+		if ( empty( $post_type['supports'] ) ) {
+			continue;
+		}
+		if (
+			// Some way, somehow, null can end up saved in the supports spot.
+			// Lets check for an array first.
+			is_array( $post_type['supports'] ) &&
+			in_array( 'thumbnail', $post_type['supports'] )
+		) {
 			$supported[] = $post_type['name'];
 		}
 	}
