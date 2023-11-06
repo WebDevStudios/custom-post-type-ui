@@ -32,7 +32,7 @@ Custom Post Type UI development is managed on GitHub, with official releases pub
 
 == Changelog ==
 
-= 1.15.0 - TBD =
+= 1.15.0 - 2023-11-06 =
 * Added: Checkbox to indicate you intend to migrate a post type into CPTUI in event of matching slugs. Props @ramsesdelr
 * Added: "item_trashed" post type label support from WordPress 6.3
 * Updated: confirmed compatibility with WordPress 6.4.
@@ -115,7 +115,7 @@ Custom Post Type UI development is managed on GitHub, with official releases pub
 
 == Upgrade Notice ==
 
-= 1.15.0 - TBD =
+= 1.15.0 - 2023-11-06 =
 * Added: Checkbox to indicate you intend to migrate a post type into CPTUI in event of matching slugs. Props @ramsesdelr
 * Added: "item_trashed" post type label support from WordPress 6.3
 * Updated: confirmed compatibility with WordPress 6.4.
