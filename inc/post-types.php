@@ -2456,7 +2456,7 @@ add_action( 'init', 'cptui_do_convert_post_type_posts' );
 /**
  * Handles slug_exist checks for cases of editing an existing post type.
  *
- * @since 1.15.0
+ * @since 1.5.3
  *
  * @param bool   $slug_exists    Current status for exist checks.
  * @param string $post_type_slug Post type slug being processed.
