@@ -2456,7 +2456,7 @@ add_action( 'init', 'cptui_do_convert_post_type_posts' );
 /**
  * Handles slug_exist checks for cases of editing an existing post type.
  *
- * @since NEXT
+ * @since 1.15.0
  *
  * @param bool   $slug_exists    Current status for exist checks.
  * @param string $post_type_slug Post type slug being processed.
@@ -2478,7 +2478,7 @@ add_filter( 'cptui_post_type_slug_exists', 'cptui_updated_post_type_slug_exists'
 /**
  * Ignores the slug validation for an existing CPT if the override checkbox was previously selected.
  *
- * @since NEXT
+ * @since 1.15.0
  *
  * @param bool   $slug_exists    Current status for exist checks.
  * @param string $post_type_slug Post type slug being processed.

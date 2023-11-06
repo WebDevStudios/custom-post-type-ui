@@ -429,7 +429,7 @@ function cptui_newsletter_form() {
  * Add our Email Octopus scripts and stylesheet.
  *
  * @author Scott Anderson <scott.anderson@webdevstudios.com>
- * @since  NEXT
+ * @since  1.7.3
  */
 function enqueue_email_octopus_assets() {
 
