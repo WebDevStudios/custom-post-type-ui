@@ -100,11 +100,19 @@ $max-tablet: "screen and (max-width: 768px)";
 	margin-bottom: 10px;
 	resize: vertical;
 	width: 100%;
+
+	:dir(rtl) & {
+		direction: ltr;
+	}
 }
 .cptui_post_type_get_code,
 .cptui_tax_get_code {
 	height: 300px;
 	resize: vertical;
+
+	:dir(rtl) & {
+		direction: ltr;
+	}
 }
 .about-wrap {
 	.cptui-feature {
