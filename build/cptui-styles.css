@@ -81,11 +81,17 @@
   margin-bottom: 10px;
   resize: vertical;
   width: 100%; }
+  :dir(rtl) .cptui_post_import, :dir(rtl)
+  .cptui_tax_import {
+    direction: ltr; }
 
 .cptui_post_type_get_code,
 .cptui_tax_get_code {
   height: 300px;
   resize: vertical; }
+  :dir(rtl) .cptui_post_type_get_code, :dir(rtl)
+  .cptui_tax_get_code {
+    direction: ltr; }
 
 .about-wrap .cptui-feature {
   overflow: visible !important;
