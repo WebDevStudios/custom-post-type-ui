@@ -261,12 +261,14 @@ $max-tablet: "screen and (max-width: 768px)";
 	margin-left: 20px;
 	margin-top: 10px;
 	width: 275px;
+
+	:dir(rtl) & {
+		float: left;
+		margin-left: 0;
+		margin-right: 20px;
+	}
 }
-:dir(rtl) .wdspromos {
-	float: left;
-	margin-left: 0;
-	margin-right: 20px;
-}
+
 .wdspromos-about {
 	display: -ms-flexbox;
 	display: -webkit-flex;
