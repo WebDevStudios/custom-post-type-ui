@@ -68,6 +68,11 @@ $max-tablet: "screen and (max-width: 768px)";
 			position: absolute;
 			-webkit-font-smoothing: antialiased;
 		}
+		:dir(rtl) &:before {
+			content: "\f141";
+			margin-left: 0;
+			margin-right: -25px;
+		}
 		&.active:before {
 			content: "\f140";
 		}
@@ -95,11 +100,19 @@ $max-tablet: "screen and (max-width: 768px)";
 	margin-bottom: 10px;
 	resize: vertical;
 	width: 100%;
+
+	:dir(rtl) & {
+		direction: ltr;
+	}
 }
 .cptui_post_type_get_code,
 .cptui_tax_get_code {
 	height: 300px;
 	resize: vertical;
+
+	:dir(rtl) & {
+		direction: ltr;
+	}
 }
 .about-wrap {
 	.cptui-feature {
@@ -248,7 +261,14 @@ $max-tablet: "screen and (max-width: 768px)";
 	margin-left: 20px;
 	margin-top: 10px;
 	width: 275px;
+
+	:dir(rtl) & {
+		float: left;
+		margin-left: 0;
+		margin-right: 20px;
+	}
 }
+
 .wdspromos-about {
 	display: -ms-flexbox;
 	display: -webkit-flex;

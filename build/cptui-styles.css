@@ -52,6 +52,10 @@
     margin-left: -25px;
     position: absolute;
     -webkit-font-smoothing: antialiased; }
+  :dir(rtl) .cptui-support #support .question:before {
+    content: "\f141";
+    margin-left: 0;
+    margin-right: -25px; }
   .cptui-support #support .question.active:before {
     content: "\f140"; }
 
@@ -77,11 +81,17 @@
   margin-bottom: 10px;
   resize: vertical;
   width: 100%; }
+  :dir(rtl) .cptui_post_import, :dir(rtl)
+  .cptui_tax_import {
+    direction: ltr; }
 
 .cptui_post_type_get_code,
 .cptui_tax_get_code {
   height: 300px;
   resize: vertical; }
+  :dir(rtl) .cptui_post_type_get_code, :dir(rtl)
+  .cptui_tax_get_code {
+    direction: ltr; }
 
 .about-wrap .cptui-feature {
   overflow: visible !important;
@@ -199,6 +209,10 @@
   margin-left: 20px;
   margin-top: 10px;
   width: 275px; }
+  :dir(rtl) .wdspromos {
+    float: left;
+    margin-left: 0;
+    margin-right: 20px; }
 
 .wdspromos-about {
   display: -ms-flexbox;
