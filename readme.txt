@@ -32,7 +32,7 @@ Custom Post Type UI development is managed on GitHub, with official releases pub
 
 == Changelog ==
 
-= 1.15.1 - TBD =
+= 1.15.1 - 2023-11-08 =
 * Fixed: Fixed up some Right-to-Left language styling issues.
 * Fixed: Fixing forgot to update about page and some PHP constants for CPTUI version.
 
