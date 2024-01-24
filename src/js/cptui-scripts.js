@@ -110,8 +110,8 @@ postboxes.add_postbox_toggles(pagenow);
 		let answer = next(question, 'div');
 		answer.style.display = 'none';
 
-		['click','keydown'].forEach((theEvent) => {
-			question.addEventListener( theEvent, (e) => {
+		['click', 'keydown'].forEach((theEvent) => {
+			question.addEventListener(theEvent, (e) => {
 				// Helps with accessibility and keyboard navigation.
 				if (e.type === 'keydown' && e.keyCode !== 32 && e.keyCode !== 13) {
 					return;
@@ -120,7 +120,7 @@ postboxes.add_postbox_toggles(pagenow);
 				state = !state;
 				answer.style.display = state ? 'block' : 'none';
 				e.currentTarget.classList.toggle('active')
-				e.currentTarget.setAttribute('aria-expanded', state.toString() );
+				e.currentTarget.setAttribute('aria-expanded', state.toString());
 				e.currentTarget.focus();
 			});
 		});
