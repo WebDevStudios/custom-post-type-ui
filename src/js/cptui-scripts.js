@@ -302,15 +302,19 @@ postboxes.add_postbox_toggles(pagenow);
 		} );
 	});
 
-	$('#auto-clear').on( 'click tap', function(e) {
-		e.preventDefault();
+	let autoClear = document.querySelector('#auto-clear');
+	if ( autoClear ) {
+		['click', 'tap'].forEach((eventName, index) => {
+			autoClear.addEventListener(eventName, (e) => {
+				e.preventDefault();
 
-		var fields = $('.cptui-labels input[type="text"]');
-
-		$(fields).each( function( i, el ) {
-			$(el).val('');
+				const fields = document.querySelectorAll('.cptui-labels input[type="text"]');
+				Array.from(fields).forEach( field => {
+					field.value = '';
+				});
+			})
 		});
-	});
+	}
 
 	/**
 	 * "Back to top" button functionalioty
