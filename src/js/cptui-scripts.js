@@ -39,13 +39,25 @@ postboxes.add_postbox_toggles(pagenow);
 	}
 
 	// Switch to newly selected post type or taxonomy automatically.
-	$('#post_type').on('change',function(){
-		$('#cptui_select_post_type').submit();
-	});
+	const postTypeDropdown = document.querySelector('#post_type');
+	const taxonomyDropdown = document.querySelector('#taxonomy');
 
-	$('#taxonomy').on('change',function(){
-		$( '#cptui_select_taxonomy' ).submit();
-	});
+	if (postTypeDropdown) {
+		postTypeDropdown.addEventListener('change', () => {
+			const postTypeSelectPostType = document.querySelector('#cptui_select_post_type');
+			if (postTypeSelectPostType) {
+				postTypeSelectPostType.submit();
+			}
+		})
+	}
+	if (taxonomyDropdown) {
+		taxonomyDropdown.addEventListener('change', () => {
+			const taxonomySelectPostType = document.querySelector('#cptui_select_taxonomy');
+			if (taxonomySelectPostType) {
+				taxonomySelectPostType.submit();
+			}
+		})
+	}
 
 	// Confirm our deletions
 	$('.cptui-delete-top, .cptui-delete-bottom').on('click',function(e) {
