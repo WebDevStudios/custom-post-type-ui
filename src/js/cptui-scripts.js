@@ -1,6 +1,9 @@
 /**
  * Add collapseable boxes to our editor screens.
  */
+
+'use strict';
+
 postboxes.add_postbox_toggles(pagenow);
 
 /**
