@@ -146,7 +146,7 @@ postboxes.add_postbox_toggles(pagenow);
 
 	// Replace diacritic characters with latin characters.
 	function replaceDiacritics(s) {
-		var diacritics = [
+		const diacritics = [
 			/[\300-\306]/g, /[\340-\346]/g,  // A, a
 			/[\310-\313]/g, /[\350-\353]/g,  // E, e
 			/[\314-\317]/g, /[\354-\357]/g,  // I, i
@@ -156,9 +156,9 @@ postboxes.add_postbox_toggles(pagenow);
 			/[\307]/g, /[\347]/g  // C, c
 		];
 
-		var chars = ['A', 'a', 'E', 'e', 'I', 'i', 'O', 'o', 'U', 'u', 'N', 'n', 'C', 'c'];
+		let chars = ['A', 'a', 'E', 'e', 'I', 'i', 'O', 'o', 'U', 'u', 'N', 'n', 'C', 'c'];
 
-		for (var i = 0; i < diacritics.length; i++) {
+		for (let i = 0; i < diacritics.length; i++) {
 			s = s.replace(diacritics[i], chars[i]);
 		}
 
