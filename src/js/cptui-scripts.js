@@ -129,44 +129,47 @@ postboxes.add_postbox_toggles(pagenow);
 	});
 
 	// Switch spaces for underscores on our slug fields.
-	$('#name').on('keyup',function(e){
-		var value, original_value;
-		value = original_value = $(this).val();
-		if ( e.keyCode !== 9 && e.keyCode !== 37 && e.keyCode !== 38 && e.keyCode !== 39 && e.keyCode !== 40 ) {
+	nameField.addEventListener('keyup', (e) => {
+		let value, original_value;
+
+		value = original_value = e.currentTarget.value;
+		let keys = ['Tab', 'ArrowLeft', 'ArrowUp', 'ArrowRight', 'ArrowDown'];
+		if (!keys.includes(e.code)) {
 			value = value.replace(/ /g, "_");
 			value = value.toLowerCase();
 			value = replaceDiacritics(value);
 			value = transliterate(value);
 			value = replaceSpecialCharacters(value);
-			if ( value !== original_value ) {
-				$(this).prop('value', value);
+			if (value !== original_value) {
+				e.currentTarget.value = value;
 			}
 		}
 
 		//Displays a message if slug changes.
-		if(typeof original_slug !== 'undefined') {
-			var $slugchanged = $('#slugchanged');
-			if(value != original_slug) {
-				$slugchanged.removeClass('hidemessage');
+		if (typeof original_slug !== 'undefined') {
+			let slugchanged = document.querySelector('#slugchanged');
+			if (value !== original_slug) {
+				slugchanged.classList.remove('hidemessage');
 			} else {
-				$slugchanged.addClass('hidemessage');
+				slugchanged.classList.add('hidemessage');
 			}
 		}
 
-		var $slugexists          = $('#slugexists');
-		var $override_validation = $('#override_validation').is(":checked");
-		if ( typeof cptui_type_data != 'undefined' ) {
-			if (cptui_type_data.existing_post_types.hasOwnProperty(value) && value !== original_slug && $override_validation == false ) {
-				$slugexists.removeClass('hidemessage');
+		let slugexists = document.querySelector('#slugexists');
+		let override = document.querySelector('#override_validation');
+		let override_validation = (override) ? override.check : false;
+		if (typeof cptui_type_data != 'undefined') {
+			if (cptui_type_data.existing_post_types.hasOwnProperty(value) && value !== original_slug && override_validation === false) {
+				slugexists.classList.remove('hidemessage');
 			} else {
-				$slugexists.addClass('hidemessage');
+				slugexists.classList.add('hidemessage');
 			}
 		}
-		if ( typeof cptui_tax_data != 'undefined' ) {
+		if (typeof cptui_tax_data != 'undefined') {
 			if (cptui_tax_data.existing_taxonomies.hasOwnProperty(value) && value !== original_slug) {
-				$slugexists.removeClass('hidemessage');
+				slugexists.classList.remove('hidemessage');
 			} else {
-				$slugexists.addClass('hidemessage');
+				slugexists.classList.add('hidemessage');
 			}
 		}
 	});
