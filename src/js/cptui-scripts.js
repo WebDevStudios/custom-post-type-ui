@@ -285,7 +285,6 @@ postboxes.add_postbox_toggles(pagenow);
 				let no_cpt_chosen_warning = document.createElement('div');
 				no_cpt_chosen_warning.classList.add('cptui-taxonomy-empty-types-dialog');
 				no_cpt_chosen_warning.innerHTML = cptui_tax_data.no_associated_type;
-				console.log(no_cpt_chosen_warning);
 				postStuff.append( no_cpt_chosen_warning );
 
 				$(no_cpt_chosen_warning).dialog({
@@ -297,7 +296,7 @@ postboxes.add_postbox_toggles(pagenow);
 							$(this).dialog('close');
 						}
 					}
-				})
+				});
 			}
 		});
 	} );
