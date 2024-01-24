@@ -251,21 +251,36 @@ postboxes.add_postbox_toggles(pagenow);
 		$('#menu_icon_preview').html(composePreviewContent(value));
 	});
 
-	$('.cptui-taxonomy-submit').on('click',function(e){
-		if ( $('.cptui-table :checkbox:checked').length == 0 ) {
-			e.preventDefault();
-			var no_associated_type_warning = $('<div class="cptui-taxonomy-empty-types-dialog">' + cptui_tax_data.no_associated_type + '</div>').appendTo('#poststuff').dialog({
-				'dialogClass'   : 'wp-dialog',
-				'modal'         : true,
-				'autoOpen'      : true,
-				'buttons'       : {
-					"OK": function() {
-						$(this).dialog('close');
+	// Handles checking if a post type has been chosen or not when adding/saving a taxonomy.
+	// Post type associations are a required attribute.
+	const taxSubmit = document.querySelectorAll('.cptui-taxonomy-submit');
+	Array.from(taxSubmit).forEach( (element,i) => {
+		element.addEventListener('click', (e) => {
+			// putting inside event listener to check every time clicked. Defining outside lost re-checking.
+			let taxCPTChecked = document.querySelectorAll('#cptui_panel_tax_basic_settings input[type="checkbox"]:checked');
+			if ( taxCPTChecked.length === 0 ) {
+				e.preventDefault();
+
+				let postStuff = document.querySelector('#poststuff');
+				let no_cpt_chosen_warning = document.createElement('div');
+				no_cpt_chosen_warning.classList.add('cptui-taxonomy-empty-types-dialog');
+				no_cpt_chosen_warning.innerHTML = cptui_tax_data.no_associated_type;
+				console.log(no_cpt_chosen_warning);
+				postStuff.append( no_cpt_chosen_warning );
+
+				$(no_cpt_chosen_warning).dialog({
+					'dialogClass': 'wp-dialog',
+					'modal'      : true,
+					'autoOpen'   : true,
+					'buttons'    : {
+						"OK": function () {
+							$(this).dialog('close');
+						}
 					}
-				}
-			});
-		}
-	});
+				})
+			}
+		});
+	} );
 
 	$('#auto-populate').on( 'click tap', function(e){
 		e.preventDefault();
