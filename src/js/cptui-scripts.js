@@ -8,12 +8,20 @@ postboxes.add_postbox_toggles(pagenow);
  */
 (function($) {
 
-	$('#cptui_select_post_type_submit').hide();
-	$('#cptui_select_taxonomy_submit').hide();
+	let original_slug;
+
+	const cptSelectSubmit = document.querySelector('#cptui_select_post_type_submit');
+	if (cptSelectSubmit) {
+		cptSelectSubmit.style.display = 'none';
+	}
+	const taxSelectSubmit = document.querySelector('#cptui_select_taxonomy_submit');
+	if (taxSelectSubmit) {
+		taxSelectSubmit.style.display = 'none';
+	}
 
 	if ('edit' === getParameterByName('action')) {
 		// Store our original slug on page load for edit checking.
-		var original_slug = $('#name').val();
+		original_slug = document.querySelector('#name').value;
 	}
 
 	// Automatically toggle the "page attributes" checkbox if
