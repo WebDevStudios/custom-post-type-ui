@@ -330,27 +330,32 @@ postboxes.add_postbox_toggles(pagenow);
 	});
 
 	// Toggle Panels State
-	var all_panels = [ "#cptui_panel_pt_basic_settings", "#cptui_panel_pt_additional_labels", "#cptui_panel_pt_advanced_settings", "#cptui_panel_tax_basic_settings", "#cptui_panel_tax_additional_labels", "#cptui_panel_tax_advanced_settings" ];
-	$(all_panels).each(function (index, element) {
-		var panel_id = $(element).attr('id');
+	const all_panels = ["#cptui_panel_pt_basic_settings", "#cptui_panel_pt_additional_labels", "#cptui_panel_pt_advanced_settings", "#cptui_panel_tax_basic_settings", "#cptui_panel_tax_additional_labels", "#cptui_panel_tax_advanced_settings"];
+	all_panels.forEach((element, index) => {
+		let panel_id_item = document.querySelector(element);
+		let panel_id;
+		if (panel_id_item) {
+			panel_id = panel_id_item.getAttribute('id');
+			let panel = document.querySelector('#' + panel_id);
 
-		// check default state on page load
-		if ( !localStorage.getItem(panel_id) || localStorage.getItem(panel_id) === null ) {
-			$("#" + panel_id).removeClass('closed');
-		}
-		else{
-			$("#" + panel_id).addClass('closed');
-		}
+			// check default state on page load
+			if (!localStorage.getItem(panel_id) || localStorage.getItem(panel_id) === null) {
+				panel.classList.remove('closed');
+			} else {
+				panel.classList.add('closed');
+			}
 
-		// change state on click/toggle
-		$(element).find(".postbox-header").on('click', function (e) {
-			if ( !localStorage.getItem(panel_id) ) {
-				localStorage.setItem(panel_id, 1);
-			}
-			else{
-				localStorage.removeItem(panel_id);
-			}
-		});
+			let postbox = panel_id_item.querySelectorAll('.postbox-header');
+			Array.from(postbox).forEach((el, i) => {
+				el.addEventListener('click', (e) => {
+					if (!localStorage.getItem(panel_id)) {
+						localStorage.setItem(panel_id, '1');
+					} else {
+						localStorage.removeItem(panel_id);
+					}
+				})
+			});
+		}
 	});
 
 })(jQuery);
