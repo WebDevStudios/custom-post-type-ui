@@ -9,6 +9,8 @@ postboxes.add_postbox_toggles(pagenow);
 (function($) {
 
 	let original_slug;
+	let _custom_media;
+	let _orig_send_attachment;
 
 	const cptSelectSubmit = document.querySelector('#cptui_select_post_type_submit');
 	if (cptSelectSubmit) {
@@ -203,9 +205,9 @@ postboxes.add_postbox_toggles(pagenow);
 		}).join("");
 	}
 
-	if ( undefined != wp.media ) {
-		var _custom_media = true,
-			_orig_send_attachment = wp.media.editor.send.attachment;
+	if ( undefined !== wp.media ) {
+		_custom_media = true;
+		_orig_send_attachment = wp.media.editor.send.attachment;
 	}
 
 	function getParameterByName(name, url) {
