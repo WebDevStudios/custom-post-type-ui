@@ -14,6 +14,7 @@ postboxes.add_postbox_toggles(pagenow);
 	let original_slug;
 	let _custom_media;
 	let _orig_send_attachment;
+	let nameField = document.querySelector('#name');
 
 	const cptSelectSubmit = document.querySelector('#cptui_select_post_type_submit');
 	if (cptSelectSubmit) {
@@ -26,7 +27,7 @@ postboxes.add_postbox_toggles(pagenow);
 
 	if ('edit' === getParameterByName('action')) {
 		// Store our original slug on page load for edit checking.
-		original_slug = document.querySelector('#name').value;
+		original_slug = nameField.value;
 	}
 
 	// Automatically toggle the "page attributes" checkbox if
@@ -308,7 +309,7 @@ postboxes.add_postbox_toggles(pagenow);
 			autoPopulate.addEventListener(eventName, (e) => {
 				e.preventDefault();
 
-				let slug = document.querySelector('#name').value;
+				let slug = nameField.value;
 				let plural = document.querySelector('#label').value;
 				let singular = document.querySelector('#singular_label').value;
 				let fields = document.querySelectorAll('.cptui-labels input[type="text"]');
