@@ -90,19 +90,39 @@ postboxes.add_postbox_toggles(pagenow);
 	});
 
 	// Toggles help/support accordions.
-	$('#support .question').each(function() {
-		var tis = $(this), state = false, answer = tis.next('div').slideUp();
-		tis.on('click keydown',function(e) {
-			// Helps with accessibility and keyboard navigation.
-			if(e.type==='keydown' && e.keyCode!==32 && e.keyCode!==13) {
-				return;
+	const supportQuestions = document.querySelectorAll('#support .question');
+	Array.from(supportQuestions).forEach(function (question, index) {
+		let next = function (elem, selector) {
+			let nextElem = elem.nextElementSibling;
+
+			if (!selector) {
+				return nextElem;
 			}
-			e.preventDefault();
-			state = !state;
-			answer.slideToggle(state);
-			tis.toggleClass('active',state);
-			tis.attr('aria-expanded', state.toString() );
-			tis.focus();
+
+			if (nextElem && nextElem.matches(selector)) {
+				return nextElem;
+			}
+
+			return null;
+		};
+
+		let state = false;
+		let answer = next(question, 'div');
+		answer.style.display = 'none';
+
+		['click','keydown'].forEach((theEvent) => {
+			question.addEventListener( theEvent, (e) => {
+				// Helps with accessibility and keyboard navigation.
+				if (e.type === 'keydown' && e.keyCode !== 32 && e.keyCode !== 13) {
+					return;
+				}
+				e.preventDefault();
+				state = !state;
+				answer.style.display = state ? 'block' : 'none';
+				e.currentTarget.classList.toggle('active')
+				e.currentTarget.setAttribute('aria-expanded', state.toString() );
+				e.currentTarget.focus();
+			});
 		});
 	});
 
