@@ -65,24 +65,25 @@ postboxes.add_postbox_toggles(pagenow);
 	}
 
 	// Confirm our deletions
-	$('.cptui-delete-top, .cptui-delete-bottom').on('click',function(e) {
+	// LEAVE AS JQUERY FOR THE MOMENT. "OK" CONFERMIATION NOT WORKING WITH CONVERTED VERSION.
+	$('.cptui-delete-top, .cptui-delete-bottom').on('click', function (e) {
 		e.preventDefault();
-		var msg = '';
+		let msg = '';
 		if (typeof cptui_type_data !== 'undefined') {
 			msg = cptui_type_data.confirm;
 		} else if (typeof cptui_tax_data !== 'undefined') {
 			msg = cptui_tax_data.confirm;
 		}
 		var submit_delete_warning = $('<div class="cptui-submit-delete-dialog">' + msg + '</div>').appendTo('#poststuff').dialog({
-			'dialogClass'   : 'wp-dialog',
-			'modal'         : true,
-			'autoOpen'      : true,
-			'buttons'       : {
-				"OK": function() {
-					var form = $(e.target).closest('form');
+			'dialogClass': 'wp-dialog',
+			'modal'      : true,
+			'autoOpen'   : true,
+			'buttons'    : {
+				"OK"    : function () {
+					$(this).dialog('close');
 					$(e.target).off('click').click();
 				},
-				"Cancel": function() {
+				"Cancel": function () {
 					$(this).dialog('close');
 				}
 			}
