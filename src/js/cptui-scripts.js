@@ -248,10 +248,6 @@ postboxes.add_postbox_toggles(pagenow);
 		$('#menu_icon_preview').html(composePreviewContent(value));
 	});
 
-	$('.cptui-help').on('click',function(e){
-		e.preventDefault();
-	});
-
 	$('.cptui-taxonomy-submit').on('click',function(e){
 		if ( $('.cptui-table :checkbox:checked').length == 0 ) {
 			e.preventDefault();
