@@ -26,14 +26,17 @@ postboxes.add_postbox_toggles(pagenow);
 
 	// Automatically toggle the "page attributes" checkbox if
 	// setting a hierarchical post type.
-	$('#hierarchical').on('change', function() {
-		let hierarchical = $(this).val();
-		if ('1' === hierarchical) {
-			$('#page-attributes').prop('checked', true);
-		} else {
-			$('#page-attributes').prop('checked', false);
-		}
-	});
+	const hierarchicalSetting = document.querySelector('#hierarchical');
+	if ( hierarchicalSetting ) {
+		hierarchicalSetting.addEventListener('change', (e) => {
+			let pageAttributesCheck = document.querySelector('#page-attributes');
+			if (e.currentTarget && e.currentTarget.value === '1') {
+				pageAttributesCheck.checked = true;
+			} else {
+				pageAttributesCheck.checked = false;
+			}
+		});
+	}
 
 	// Switch to newly selected post type or taxonomy automatically.
 	$('#post_type').on('change',function(){
