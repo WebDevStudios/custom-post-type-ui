@@ -302,40 +302,49 @@ postboxes.add_postbox_toggles(pagenow);
 		});
 	} );
 
-	$('#auto-populate').on( 'click tap', function(e){
-		e.preventDefault();
+	let autoPopulate = document.querySelector('#auto-populate');
+	if (autoPopulate) {
+		['click', 'tap'].forEach((eventName, index) => {
+			autoPopulate.addEventListener(eventName, (e) => {
+				e.preventDefault();
 
-		var slug     = $('#name').val();
-		var plural   = $('#label').val();
-		var singular = $('#singular_label').val();
-		var fields   = $('.cptui-labels input[type="text"]');
+				let slug = document.querySelector('#name').value;
+				let plural = document.querySelector('#label').value;
+				let singular = document.querySelector('#singular_label').value;
+				let fields = document.querySelectorAll('.cptui-labels input[type="text"]');
 
-		if ( '' === slug ) {
-			return;
-		}
-		if ( '' === plural ) {
-			plural = slug;
-		}
-		if ( '' === singular ) {
-			singular = slug;
-		}
-
-		$(fields).each( function( i, el ) {
-			var newval = $( el ).data( 'label' );
-			var plurality = $( el ).data( 'plurality' );
-			if ( 'undefined' !== newval ) {
-				// "slug" is our placeholder from the labels.
-				if ( 'plural' === plurality ) {
-					newval = newval.replace(/item/gi, plural);
-				} else {
-					newval = newval.replace(/item/gi, singular);
+				if ('' === slug) {
+					return;
 				}
-				if ( $( el ).val() === '' ) {
-					$(el).val(newval);
+
+				if ('' === plural) {
+					plural = slug;
 				}
-			}
-		} );
-	});
+
+				if ('' === singular) {
+					singular = slug;
+				}
+
+				Array.from(fields).forEach(field => {
+					let newval = field.getAttribute('data-label');
+					let plurality = field.getAttribute('data-plurality');
+					if (typeof newval !== 'undefined') {
+						// "slug" is our placeholder from the labels.
+						if ('plural' === plurality) {
+							newval = newval.replace(/item/gi, plural);
+						} else {
+							// using an else statement because we do not
+							// want to mutate the original string by default.
+							newval = newval.replace(/item/gi, singular);
+						}
+						if (field.value === '') {
+							field.value = newval;
+						}
+					}
+				});
+			})
+		});
+	}
 
 	let autoClear = document.querySelector('#auto-clear');
 	if ( autoClear ) {
