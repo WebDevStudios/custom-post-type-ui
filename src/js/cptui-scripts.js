@@ -27,7 +27,7 @@ postboxes.add_postbox_toggles(pagenow);
 	// Automatically toggle the "page attributes" checkbox if
 	// setting a hierarchical post type.
 	$('#hierarchical').on('change', function() {
-		var hierarchical = $(this).val();
+		let hierarchical = $(this).val();
 		if ('1' === hierarchical) {
 			$('#page-attributes').prop('checked', true);
 		} else {
