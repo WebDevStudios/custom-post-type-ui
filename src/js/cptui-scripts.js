@@ -174,16 +174,20 @@ postboxes.add_postbox_toggles(pagenow);
 
 	function composePreviewContent(value) {
 
-		var re = /(http|https):\/\/[\w-]+(\.[\w-]+)+([\w.,@?^=%&:\/~+#-]*[\w@?^=%&\/~+#-])?/;
-		var is_url = re.test(value);
+		const re = /(http|https):\/\/[\w-]+(\.[\w-]+)+([\w.,@?^=%&:\/~+#-]*[\w@?^=%&\/~+#-])?/;
+		const isURL = re.test(value);
 
 		if (!value) {
 			return '';
 		} else if (0 === value.indexOf('dashicons-')) {
-			return $('<div class="dashicons-before"><br></div>').addClass(htmlEncode(value));
-		} else if ( is_url ) {
-			var imgsrc = encodeURI(value);
-			var theimg = document.createElement('IMG');
+			const dashDiv = document.createElement('div');
+			dashDiv.classList.add('dashicons-before');
+			dashDiv.innerHTML = '<br/>';
+			dashDiv.classList.add(htmlEncode(value));
+			return dashDiv;
+		} else if (isURL) {
+			const imgsrc = encodeURI(value);
+			const theimg = document.createElement('IMG');
 			theimg.src = imgsrc;
 			return theimg;
 		}
