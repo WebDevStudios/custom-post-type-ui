@@ -351,13 +351,13 @@ postboxes.add_postbox_toggles(pagenow);
 	}
 
 	let autoClear = document.querySelector('#auto-clear');
-	if ( autoClear ) {
+	if (autoClear) {
 		['click', 'tap'].forEach((eventName, index) => {
 			autoClear.addEventListener(eventName, (e) => {
 				e.preventDefault();
 
 				const fields = document.querySelectorAll('.cptui-labels input[type="text"]');
-				Array.from(fields).forEach( field => {
+				Array.from(fields).forEach(field => {
 					field.value = '';
 				});
 			})
