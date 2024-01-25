@@ -367,18 +367,22 @@ postboxes.add_postbox_toggles(pagenow);
 	/**
 	 * "Back to top" button functionalioty
 	 */
-	var back_to_top_btn = $('.cptui-back-to-top');
-	$(window).scroll(function() {
-		if ($(window).scrollTop() > 300) {
-			back_to_top_btn.addClass('show');
+	const back_to_top_btn = document.querySelector('.cptui-back-to-top');
+	document.addEventListener('scroll', () => {
+		console.log('scrolled');
+		if (window.scrollY > 300) {
+			back_to_top_btn.classList.add('show');
 		} else {
-			back_to_top_btn.removeClass('show');
+			back_to_top_btn.classList.remove('show');
 		}
 	});
 
-	back_to_top_btn.on('click', function(e) {
+	back_to_top_btn.addEventListener('click', (e) => {
 		e.preventDefault();
-		$('html, body').animate({scrollTop:0}, '300');
+		window.scrollTo({
+			top     : 0,
+			behavior: "smooth"
+		})
 	});
 
 	// Toggle Panels State
