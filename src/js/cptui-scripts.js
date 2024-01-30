@@ -279,32 +279,24 @@ postboxes.add_postbox_toggles(pagenow);
 	// Handles checking if a post type has been chosen or not when adding/saving a taxonomy.
 	// Post type associations are a required attribute.
 	const taxSubmit = document.querySelectorAll('.cptui-taxonomy-submit');
+	const taxSubmitSelectCPTDialog = document.querySelector('#cptui-select-post-type-confirm');
 	Array.from(taxSubmit).forEach( (element,i) => {
 		element.addEventListener('click', (e) => {
 			// putting inside event listener to check every time clicked. Defining outside lost re-checking.
 			let taxCPTChecked = document.querySelectorAll('#cptui_panel_tax_basic_settings input[type="checkbox"]:checked');
 			if ( taxCPTChecked.length === 0 ) {
 				e.preventDefault();
-
-				let postStuff = document.querySelector('#poststuff');
-				let no_cpt_chosen_warning = document.createElement('div');
-				no_cpt_chosen_warning.classList.add('cptui-taxonomy-empty-types-dialog');
-				no_cpt_chosen_warning.innerHTML = cptui_tax_data.no_associated_type;
-				postStuff.append( no_cpt_chosen_warning );
-
-				$(no_cpt_chosen_warning).dialog({
-					'dialogClass': 'wp-dialog',
-					'modal'      : true,
-					'autoOpen'   : true,
-					'buttons'    : {
-						"OK": function () {
-							$(this).dialog('close');
-						}
-					}
-				});
+				taxSubmitSelectCPTDialog.showModal();
 			}
 		});
 	} );
+	let taxSubmitSelectCPTConfirmCloseBtn = document.querySelector('#cptui-select-post-type-confirm-close');
+	if (taxSubmitSelectCPTConfirmCloseBtn) {
+		taxSubmitSelectCPTConfirmCloseBtn.addEventListener('click', (e) => {
+			e.preventDefault();
+			taxSubmitSelectCPTDialog.close();
+		});
+	}
 
 	let autoPopulate = document.querySelector('#auto-populate');
 	if (autoPopulate) {
@@ -369,7 +361,6 @@ postboxes.add_postbox_toggles(pagenow);
 	 */
 	const back_to_top_btn = document.querySelector('.cptui-back-to-top');
 	document.addEventListener('scroll', () => {
-		console.log('scrolled');
 		if (window.scrollY > 300) {
 			back_to_top_btn.classList.add('show');
 		} else {
