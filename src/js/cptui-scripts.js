@@ -65,9 +65,59 @@ postboxes.add_postbox_toggles(pagenow);
 		})
 	}
 
+
+
+
+
+   // NOT DONE
+
+
+	/*['.cptui-delete-top', '.cptui-delete-bottom'].forEach( (element,index) => {
+		let theDialog = document.querySelector('#cptui-content-type-delete');
+		let theelement = document.querySelector(element);
+		theelement.addEventListener('click', async (e) => {
+			e.preventDefault();
+			const doPerformAction = await confirm();
+			if ( doPerformAction ) {
+				let thing = document.querySelector('#cpt_submit_delete');
+				console.log(thing);
+				thing.click();
+				thing.submit();
+				theDialog.close();
+			} else {
+				theDialog.close();
+			}
+		});
+	});
+
+	let closeBtnConfirm = document.querySelector('.cptui-confirm-deny-delete button');
+	let closeBtnDeny = document.querySelector('#cptui-content-type-deny-delete');
+	function confirm() {
+		return new Promise((resolve, reject) => {
+			document.querySelector('#cptui-content-type-delete').showModal();
+			closeBtnConfirm.focus();
+
+			closeBtnConfirm.addEventListener("click", () => {
+				resolve(true);
+				document.querySelector('#cptui-content-type-delete').close()
+			});
+			closeBtnDeny.addEventListener("click", () => {
+				resolve(false);
+				document.querySelector('#cptui-content-type-delete').close()
+			});
+		});
+	}*/
+
+
+
+
+
+
+
+
 	// Confirm our deletions
 	// LEAVE AS JQUERY FOR THE MOMENT. "OK" CONFERMIATION NOT WORKING WITH CONVERTED VERSION.
-	$('.cptui-delete-top, .cptui-delete-bottom').on('click', function (e) {
+	/*$('.cptui-delete-top, .cptui-delete-bottom').on('click', function (e) {
 		e.preventDefault();
 		let msg = '';
 		if (typeof cptui_type_data !== 'undefined') {
@@ -89,7 +139,7 @@ postboxes.add_postbox_toggles(pagenow);
 				}
 			}
 		});
-	});
+	});*/
 
 	// Toggles help/support accordions.
 	const supportQuestions = document.querySelectorAll('#support .question');
@@ -270,11 +320,25 @@ postboxes.add_postbox_toggles(pagenow);
 		return false;
 	});
 
-	$('#menu_icon').on('change', function () {
+	// NOT DONE
+	/*const menuIcon = document.querySelector('#menu_icon');
+	if (menuIcon) {
+		menuIcon.addEventListener('input', (e) => {
+			let value = e.currentTarget.value.trim();
+			console.log(value);
+			let menuIconPreview = document.querySelector('#menu_icon_preview');
+			console.log(menuIconPreview);
+			if (menuIconPreview) {
+				console.log(composePreviewContent(value));
+				menuIconPreview.innerHTML = composePreviewContent(value);
+			}
+		});
+	}*/
+	/*$('#menu_icon').on('change', function () {
 		var value = $(this).val();
 		value = value.trim();
 		$('#menu_icon_preview').html(composePreviewContent(value));
-	});
+	});*/
 
 	// Handles checking if a post type has been chosen or not when adding/saving a taxonomy.
 	// Post type associations are a required attribute.
