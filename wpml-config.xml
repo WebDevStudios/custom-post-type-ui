@@ -1,0 +1,13 @@
+<wpml-config>
+	<admin-texts>
+		<key name="cptui_*">
+			<key name="*">
+				<key name="label"/>
+				<key name="singular_label"/>
+				<key name="labels">
+					<key name="*"/>
+				</key>
+			</key>
+		</key>
+	</admin-texts>
+</wpml-config>
