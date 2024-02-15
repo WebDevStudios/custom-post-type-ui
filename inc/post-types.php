@@ -61,6 +61,7 @@ function cptui_post_type_enqueue_scripts() {
 		[
 			'confirm'             => esc_html__( 'Are you sure you want to delete this? Deleting will NOT remove created content.', 'custom-post-type-ui' ),
 			'existing_post_types' => $registered_post_types,
+			'dashicon_search_text' => esc_html__( 'Search', 'custom-post-type-ui' ),
 		]
 	);
 }
