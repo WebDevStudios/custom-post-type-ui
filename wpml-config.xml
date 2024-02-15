@@ -7,6 +7,10 @@
 				<key name="labels">
 					<key name="*"/>
 				</key>
+				<key name="description"/>
+				<key name="has_archive_string"/>
+				<key name="rewrite_slug"/>
+				<key name="enter_title_here"/>
 			</key>
 		</key>
 	</admin-texts>
