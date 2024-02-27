@@ -1,5 +1,7 @@
 # Custom Post Type UI
 
+[![WebDevStudios. Your Success is Our Mission.](https://webdevstudios.com/wp-content/uploads/2024/02/wds-banner.png)](https://webdevstudios.com/contact/)
+
 Admin UI for creating custom post types and custom taxonomies for WordPress
 
 Core Developers:
@@ -9,7 +11,6 @@ Core Developers:
 * [Brad Williams](https://github.com/williamsba)
 * [WebDevStudios](https://github.com/webdevstudios)
 
-<a href="https://webdevstudios.com/contact/"><img src="https://webdevstudios.com/wp-content/uploads/2018/04/wds-github-banner.png" alt="WebDevStudios. WordPress for big brands."></a>
 
 ## Description
 
