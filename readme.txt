@@ -3,8 +3,8 @@ Contributors: webdevstudios, pluginize, tw2113, williamsba1
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3084056
 Tags: custom post types, post type, taxonomy, content types, CPT, CMS, post, types, custom
 Requires at least: 6.3
-Tested up to: 6.4
-Stable tag: 1.15.1
+Tested up to: 6.5
+Stable tag: 1.15.2
 License: GPL-2.0+
 Requires PHP: 7.4
 
@@ -31,6 +31,9 @@ Custom Post Type UI development is managed on GitHub, with official releases pub
 5. Help/support screen.
 
 == Changelog ==
+
+= 1.15.2 - TBD =
+* Updated: tested up to WP 6.5
 
 = 1.15.1 - 2023-11-08 =
 * Fixed: Fixed up some Right-to-Left language styling issues.
