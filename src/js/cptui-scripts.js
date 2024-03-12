@@ -151,8 +151,9 @@ postboxes.add_postbox_toggles(pagenow);
 		['click', 'keydown'].forEach((theEvent) => {
 			question.addEventListener(theEvent, (e) => {
 				// Helps with accessibility and keyboard navigation.
-				if (e.type === 'keydown' && e.keyCode !== 32 && e.keyCode !== 13) {
-					return;
+				let keys = ['Space', 'Enter'];
+				if ( ! keys.includes(e.code) ) {
+					return
 				}
 				e.preventDefault();
 				state = !state;
