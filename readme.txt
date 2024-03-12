@@ -34,6 +34,8 @@ Custom Post Type UI development is managed on GitHub, with official releases pub
 
 = 1.16.0 - TBD =
 * Added: Added a wpml-config.xml file.
+* Updated: Added "search_terms" to disallowed taxonomy list.
+* Updated: Began converting our javascript away from jQuery dependency.
 * Updated: tested up to WP 6.5
 
 = 1.15.1 - 2023-11-08 =
@@ -122,6 +124,16 @@ Custom Post Type UI development is managed on GitHub, with official releases pub
 * Fixed: PHP warnings around foreach loops in cptui_published_post_format_fix()
 
 == Upgrade Notice ==
+
+= 1.16.0 - TBD =
+* Added: Added a wpml-config.xml file.
+* Updated: Added "search_terms" to disallowed taxonomy list.
+* Updated: Began converting our javascript away from jQuery dependency.
+* Updated: tested up to WP 6.5
+
+= 1.15.1 - 2023-11-08 =
+* Fixed: Fixed up some Right-to-Left language styling issues.
+* Fixed: Fixing forgot to update about page and some PHP constants for CPTUI version.
 
 = 1.15.0 - 2023-11-06 =
 * Added: Checkbox to indicate you intend to migrate a post type into CPTUI in event of matching slugs. Props @ramsesdelr
