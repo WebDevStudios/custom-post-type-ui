@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: custom post types, post type, taxonomy, content types, CPT, CMS, post, types, custom
 Requires at least: 6.3
 Tested up to: 6.5
-Stable tag: 1.15.2
+Stable tag: 1.16.0
 License: GPL-2.0+
 Requires PHP: 7.4
 
@@ -32,7 +32,7 @@ Custom Post Type UI development is managed on GitHub, with official releases pub
 
 == Changelog ==
 
-= 1.15.2 - TBD =
+= 1.16.0 - TBD =
 * Added: Added a wpml-config.xml file.
 * Updated: tested up to WP 6.5
 
