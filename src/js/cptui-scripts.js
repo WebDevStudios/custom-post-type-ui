@@ -152,7 +152,7 @@ postboxes.add_postbox_toggles(pagenow);
 			question.addEventListener(theEvent, (e) => {
 				// Helps with accessibility and keyboard navigation.
 				let keys = ['Space', 'Enter'];
-				if ( ! keys.includes(e.code) ) {
+				if (e.type === 'keydown' && !keys.includes(e.code)) {
 					return
 				}
 				e.preventDefault();
