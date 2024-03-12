@@ -65,13 +65,7 @@ postboxes.add_postbox_toggles(pagenow);
 		})
 	}
 
-
-
-
-
-   // NOT DONE
-
-
+	// NOT DONE
 	/*['.cptui-delete-top', '.cptui-delete-bottom'].forEach( (element,index) => {
 		let theDialog = document.querySelector('#cptui-content-type-delete');
 		let theelement = document.querySelector(element);
@@ -108,16 +102,8 @@ postboxes.add_postbox_toggles(pagenow);
 		});
 	}*/
 
-
-
-
-
-
-
-
 	// Confirm our deletions
-	// LEAVE AS JQUERY FOR THE MOMENT. "OK" CONFERMIATION NOT WORKING WITH CONVERTED VERSION.
-	/*$('.cptui-delete-top, .cptui-delete-bottom').on('click', function (e) {
+	$('.cptui-delete-top, .cptui-delete-bottom').on('click', function (e) {
 		e.preventDefault();
 		let msg = '';
 		if (typeof cptui_type_data !== 'undefined') {
@@ -139,7 +125,7 @@ postboxes.add_postbox_toggles(pagenow);
 				}
 			}
 		});
-	});*/
+	});
 
 	// Toggles help/support accordions.
 	const supportQuestions = document.querySelectorAll('#support .question');
