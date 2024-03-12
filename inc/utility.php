@@ -1039,7 +1039,7 @@ function cptui_add_dialog_missing_post_type_confirm() {
 	</dialog>
 <?php
 }
-add_action( 'cptui_taxonomy_after_fieldsets', 'cptui_add_dialog_missing_post_type_confirm' );
+#add_action( 'cptui_taxonomy_after_fieldsets', 'cptui_add_dialog_missing_post_type_confirm' );
 
 function cptui_add_dialog_delete_content_type_confirm() {
 	?>
@@ -1052,5 +1052,5 @@ function cptui_add_dialog_delete_content_type_confirm() {
 	</dialog>
 	<?php
 }
-add_action( 'cptui_post_type_after_fieldsets', 'cptui_add_dialog_delete_content_type_confirm' );
-add_action( 'cptui_taxonomy_after_fieldsets', 'cptui_add_dialog_delete_content_type_confirm' );
+#add_action( 'cptui_post_type_after_fieldsets', 'cptui_add_dialog_delete_content_type_confirm' );
+#add_action( 'cptui_taxonomy_after_fieldsets', 'cptui_add_dialog_delete_content_type_confirm' );
