@@ -321,11 +321,11 @@ postboxes.add_postbox_toggles(pagenow);
 			}
 		});
 	}*/
-	/*$('#menu_icon').on('change', function () {
+	$('#menu_icon').on('change', function () {
 		var value = $(this).val();
 		value = value.trim();
 		$('#menu_icon_preview').html(composePreviewContent(value));
-	});*/
+	});
 
 	// Handles checking if a post type has been chosen or not when adding/saving a taxonomy.
 	// Post type associations are a required attribute.
