@@ -88,7 +88,7 @@ postboxes.add_postbox_toggles(pagenow);
         [ "click", "keydown" ].forEach(theEvent => {
             question.addEventListener(theEvent, e => {
                 let keys = [ "Space", "Enter" ];
-                if (!keys.includes(e.code)) {
+                if (e.type === "keydown" && !keys.includes(e.code)) {
                     return;
                 }
                 e.preventDefault();
@@ -100,46 +100,48 @@ postboxes.add_postbox_toggles(pagenow);
             });
         });
     });
-    nameField.addEventListener("keyup", e => {
-        let value, original_value;
-        value = original_value = e.currentTarget.value;
-        let keys = [ "Tab", "ArrowLeft", "ArrowUp", "ArrowRight", "ArrowDown" ];
-        if (!keys.includes(e.code)) {
-            value = value.replace(/ /g, "_");
-            value = value.toLowerCase();
-            value = replaceDiacritics(value);
-            value = transliterate(value);
-            value = replaceSpecialCharacters(value);
-            if (value !== original_value) {
-                e.currentTarget.value = value;
+    if (nameField) {
+        nameField.addEventListener("keyup", e => {
+            let value, original_value;
+            value = original_value = e.currentTarget.value;
+            let keys = [ "Tab", "ArrowLeft", "ArrowUp", "ArrowRight", "ArrowDown" ];
+            if (!keys.includes(e.code)) {
+                value = value.replace(/ /g, "_");
+                value = value.toLowerCase();
+                value = replaceDiacritics(value);
+                value = transliterate(value);
+                value = replaceSpecialCharacters(value);
+                if (value !== original_value) {
+                    e.currentTarget.value = value;
+                }
             }
-        }
-        if (typeof original_slug !== "undefined") {
-            let slugchanged = document.querySelector("#slugchanged");
-            if (value !== original_slug) {
-                slugchanged.classList.remove("hidemessage");
-            } else {
-                slugchanged.classList.add("hidemessage");
+            if (typeof original_slug !== "undefined") {
+                let slugchanged = document.querySelector("#slugchanged");
+                if (value !== original_slug) {
+                    slugchanged.classList.remove("hidemessage");
+                } else {
+                    slugchanged.classList.add("hidemessage");
+                }
             }
-        }
-        let slugexists = document.querySelector("#slugexists");
-        let override = document.querySelector("#override_validation");
-        let override_validation = override ? override.check : false;
-        if (typeof cptui_type_data != "undefined") {
-            if (cptui_type_data.existing_post_types.hasOwnProperty(value) && value !== original_slug && override_validation === false) {
-                slugexists.classList.remove("hidemessage");
-            } else {
-                slugexists.classList.add("hidemessage");
+            let slugexists = document.querySelector("#slugexists");
+            let override = document.querySelector("#override_validation");
+            let override_validation = override ? override.check : false;
+            if (typeof cptui_type_data != "undefined") {
+                if (cptui_type_data.existing_post_types.hasOwnProperty(value) && value !== original_slug && override_validation === false) {
+                    slugexists.classList.remove("hidemessage");
+                } else {
+                    slugexists.classList.add("hidemessage");
+                }
             }
-        }
-        if (typeof cptui_tax_data != "undefined") {
-            if (cptui_tax_data.existing_taxonomies.hasOwnProperty(value) && value !== original_slug) {
-                slugexists.classList.remove("hidemessage");
-            } else {
-                slugexists.classList.add("hidemessage");
+            if (typeof cptui_tax_data != "undefined") {
+                if (cptui_tax_data.existing_taxonomies.hasOwnProperty(value) && value !== original_slug) {
+                    slugexists.classList.remove("hidemessage");
+                } else {
+                    slugexists.classList.add("hidemessage");
+                }
             }
-        }
-    });
+        });
+    }
     function replaceDiacritics(s) {
         const diacritics = [ /[\300-\306]/g, /[\340-\346]/g, /[\310-\313]/g, /[\350-\353]/g, /[\314-\317]/g, /[\354-\357]/g, /[\322-\330]/g, /[\362-\370]/g, /[\331-\334]/g, /[\371-\374]/g, /[\321]/g, /[\361]/g, /[\307]/g, /[\347]/g ];
         let chars = [ "A", "a", "E", "e", "I", "i", "O", "o", "U", "u", "N", "n", "C", "c" ];
