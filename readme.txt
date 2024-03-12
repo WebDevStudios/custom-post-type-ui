@@ -33,6 +33,7 @@ Custom Post Type UI development is managed on GitHub, with official releases pub
 == Changelog ==
 
 = 1.15.2 - TBD =
+* Added: Added a wpml-config.xml file.
 * Updated: tested up to WP 6.5
 
 = 1.15.1 - 2023-11-08 =
