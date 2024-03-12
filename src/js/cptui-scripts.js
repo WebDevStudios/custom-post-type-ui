@@ -111,7 +111,7 @@ postboxes.add_postbox_toggles(pagenow);
 		} else if (typeof cptui_tax_data !== 'undefined') {
 			msg = cptui_tax_data.confirm;
 		}
-		var submit_delete_warning = $('<div class="cptui-submit-delete-dialog">' + msg + '</div>').appendTo('#poststuff').dialog({
+		let submit_delete_warning = $('<div class="cptui-submit-delete-dialog">' + msg + '</div>').appendTo('#poststuff').dialog({
 			'dialogClass': 'wp-dialog',
 			'modal'      : true,
 			'autoOpen'   : true,
