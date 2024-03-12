@@ -15,6 +15,10 @@ postboxes.add_postbox_toggles(pagenow);
     if (taxSelectSubmit) {
         taxSelectSubmit.style.display = "none";
     }
+    const autoLabels = document.querySelector("#autolabels");
+    if (autoLabels) {
+        autoLabels.style.display = "table-row";
+    }
     if ("edit" === getParameterByName("action")) {
         original_slug = nameField.value;
     }
