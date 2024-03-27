@@ -415,13 +415,15 @@ postboxes.add_postbox_toggles(pagenow);
 	 * "Back to top" button functionalioty
 	 */
 	const back_to_top_btn = document.querySelector('.cptui-back-to-top');
-	document.addEventListener('scroll', () => {
-		if (window.scrollY > 300) {
-			back_to_top_btn.classList.add('show');
-		} else {
-			back_to_top_btn.classList.remove('show');
-		}
-	});
+	if (back_to_top_btn) {
+		document.addEventListener('scroll', () => {
+			if (window.scrollY > 300) {
+				back_to_top_btn.classList.add('show');
+			} else {
+				back_to_top_btn.classList.remove('show');
+			}
+		});
+	}
 
 	back_to_top_btn.addEventListener('click', (e) => {
 		e.preventDefault();
