@@ -16,7 +16,9 @@ postboxes.add_postbox_toggles(pagenow);
         taxSelectSubmit.style.display = "none";
     }
     if ("edit" === getParameterByName("action")) {
-        original_slug = nameField.value;
+        if (nameField) {
+            original_slug = nameField.value;
+        }
     }
     const hierarchicalSetting = document.querySelector("#hierarchical");
     if (hierarchicalSetting) {
@@ -264,8 +266,8 @@ postboxes.add_postbox_toggles(pagenow);
     }
     $("#cptui_choose_icon").on("click", function(e) {
         e.preventDefault();
-        var button = $(this);
-        var id = jQuery("#menu_icon").attr("id");
+        let button = $(this);
+        let id = jQuery("#menu_icon").attr("id");
         _custom_media = true;
         wp.media.editor.send.attachment = function(props, attachment) {
             if (_custom_media) {
@@ -348,33 +350,44 @@ postboxes.add_postbox_toggles(pagenow);
         });
     }
     const back_to_top_btn = document.querySelector(".cptui-back-to-top");
-    document.addEventListener("scroll", () => {
+    if (back_to_top_btn) {
+        document.addEventListener("scroll", () => {
+            cptuiDebounce(backToTop, 500);
+        });
+        back_to_top_btn.addEventListener("click", e => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+    }
+    function backToTop() {
+        console.log("yo");
         if (window.scrollY > 300) {
             back_to_top_btn.classList.add("show");
         } else {
             back_to_top_btn.classList.remove("show");
         }
-    });
-    back_to_top_btn.addEventListener("click", e => {
-        e.preventDefault();
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-    });
+    }
+    function cptuiDebounce(method, delay) {
+        clearTimeout(method._tId);
+        method._tId = setTimeout(function() {
+            method();
+        }, delay);
+    }
     const all_panels = [ "#cptui_panel_pt_basic_settings", "#cptui_panel_pt_additional_labels", "#cptui_panel_pt_advanced_settings", "#cptui_panel_tax_basic_settings", "#cptui_panel_tax_additional_labels", "#cptui_panel_tax_advanced_settings" ];
     all_panels.forEach((element, index) => {
-        let panel_id_item = document.querySelector(element);
-        let panel_id;
+        const panel_id_item = document.querySelector(element);
         if (panel_id_item) {
-            panel_id = panel_id_item.getAttribute("id");
-            let panel = document.querySelector("#" + panel_id);
+            const panel_id = panel_id_item.getAttribute("id");
+            const panel = document.querySelector("#" + panel_id);
             if (!localStorage.getItem(panel_id) || localStorage.getItem(panel_id) === null) {
                 panel.classList.remove("closed");
             } else {
                 panel.classList.add("closed");
             }
-            let postbox = panel_id_item.querySelectorAll(".postbox-header");
+            const postbox = panel_id_item.querySelectorAll(".postbox-header");
             Array.from(postbox).forEach((el, i) => {
                 el.addEventListener("click", e => {
                     if (!localStorage.getItem(panel_id)) {
