@@ -417,11 +417,7 @@ postboxes.add_postbox_toggles(pagenow);
 	const back_to_top_btn = document.querySelector('.cptui-back-to-top');
 	if (back_to_top_btn) {
 		document.addEventListener('scroll', () => {
-			if (window.scrollY > 300) {
-				back_to_top_btn.classList.add('show');
-			} else {
-				back_to_top_btn.classList.remove('show');
-			}
+			cptuiDebounce(backToTop, 500);
 		});
 
 		back_to_top_btn.addEventListener('click', (e) => {
@@ -431,6 +427,21 @@ postboxes.add_postbox_toggles(pagenow);
 				behavior: "smooth"
 			})
 		});
+	}
+
+	function backToTop() {
+		if (window.scrollY > 300) {
+			back_to_top_btn.classList.add('show');
+		} else {
+			back_to_top_btn.classList.remove('show');
+		}
+	}
+
+	function cptuiDebounce(method, delay) {
+		clearTimeout(method._tId);
+		method._tId = setTimeout(function () {
+			method();
+		}, delay);
 	}
 
 	// Toggle Panels State
