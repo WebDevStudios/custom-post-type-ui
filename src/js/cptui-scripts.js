@@ -26,8 +26,10 @@ postboxes.add_postbox_toggles(pagenow);
 	}
 
 	if ('edit' === getParameterByName('action')) {
-		// Store our original slug on page load for edit checking.
-		original_slug = nameField.value;
+		if ( nameField ) {
+			// Store our original slug on page load for edit checking.
+			original_slug = nameField.value;
+		}
 	}
 
 	// Automatically toggle the "page attributes" checkbox if
