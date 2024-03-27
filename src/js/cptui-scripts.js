@@ -423,15 +423,15 @@ postboxes.add_postbox_toggles(pagenow);
 				back_to_top_btn.classList.remove('show');
 			}
 		});
-	}
 
-	back_to_top_btn.addEventListener('click', (e) => {
-		e.preventDefault();
-		window.scrollTo({
-			top     : 0,
-			behavior: "smooth"
-		})
-	});
+		back_to_top_btn.addEventListener('click', (e) => {
+			e.preventDefault();
+			window.scrollTo({
+				top     : 0,
+				behavior: "smooth"
+			})
+		});
+	}
 
 	// Toggle Panels State
 	const all_panels = ["#cptui_panel_pt_basic_settings", "#cptui_panel_pt_additional_labels", "#cptui_panel_pt_advanced_settings", "#cptui_panel_tax_basic_settings", "#cptui_panel_tax_additional_labels", "#cptui_panel_tax_advanced_settings"];
