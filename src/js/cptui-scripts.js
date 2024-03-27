@@ -293,11 +293,11 @@ postboxes.add_postbox_toggles(pagenow);
 		return decodeURIComponent(results[2].replace(/\+/g, " "));
 	}
 
-	$('#cptui_choose_icon').on('click',function(e){
+	$('#cptui_choose_icon').on('click', function (e) {
 		e.preventDefault();
 
-		var button = $(this);
-		var id = jQuery('#menu_icon').attr('id');
+		let button = $(this);
+		let id = jQuery('#menu_icon').attr('id');
 		_custom_media = true;
 		wp.media.editor.send.attachment = function (props, attachment) {
 			if (_custom_media) {
