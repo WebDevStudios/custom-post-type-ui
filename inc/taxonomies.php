@@ -1817,6 +1817,7 @@ function cptui_reserved_taxonomies() {
 		'robots',
 		's',
 		'search',
+		'search_terms',
 		'second',
 		'sentence',
 		'showposts',
