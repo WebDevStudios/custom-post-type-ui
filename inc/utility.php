@@ -1030,3 +1030,27 @@ function cptui_post_thumbnail_theme_support() {
 	}
 }
 add_action( 'after_setup_theme', 'cptui_post_thumbnail_theme_support' );
+
+function cptui_add_dialog_missing_post_type_confirm() {
+?>
+	<dialog id="cptui-select-post-type-confirm">
+		<p><?php esc_html_e( 'Please select a post type to associate with.', 'custom-post-type-ui' ); ?></p>
+		<button id="cptui-select-post-type-confirm-close" class="confirm button-secondary" type="button"><?php esc_html_e( 'OK', 'custom-post-type-ui' ); ?></button>
+	</dialog>
+<?php
+}
+add_action( 'cptui_taxonomy_after_fieldsets', 'cptui_add_dialog_missing_post_type_confirm' );
+
+function cptui_add_dialog_delete_content_type_confirm() {
+	?>
+	<dialog id="cptui-content-type-delete" class="wp-core-ui">
+		<p><?php esc_html_e( 'Are you sure you want to delete this? Deleting will NOT remove created content.', 'custom-post-type-ui' ); ?></p>
+		<div class="cptui-confirm-deny-delete">
+			<button id="cptui-content-type-confirm-delete" class="confirm button-secondary" type="button"><?php esc_html_e( 'OK', 'custom-post-type-ui' ); ?></button>
+			<button id="cptui-content-type-deny-delete" class="confirm button-secondary" type="button"><?php esc_html_e( 'Cancel', 'custom-post-type-ui' ); ?></button>
+		</div>
+	</dialog>
+	<?php
+}
+#add_action( 'cptui_post_type_after_fieldsets', 'cptui_add_dialog_delete_content_type_confirm' );
+#add_action( 'cptui_taxonomy_after_fieldsets', 'cptui_add_dialog_delete_content_type_confirm' );
