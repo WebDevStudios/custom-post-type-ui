@@ -363,7 +363,6 @@ postboxes.add_postbox_toggles(pagenow);
         });
     }
     function backToTop() {
-        console.log("yo");
         if (window.scrollY > 300) {
             back_to_top_btn.classList.add("show");
         } else {
