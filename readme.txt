@@ -32,7 +32,7 @@ Custom Post Type UI development is managed on GitHub, with official releases pub
 
 == Changelog ==
 
-= 1.16.0 - TBD =
+= 1.16.0 - 2024-04-08 =
 * Added: Added a wpml-config.xml file.
 * Updated: Added "search_terms" to disallowed taxonomy list.
 * Updated: Began converting our javascript away from jQuery dependency.
@@ -125,7 +125,7 @@ Custom Post Type UI development is managed on GitHub, with official releases pub
 
 == Upgrade Notice ==
 
-= 1.16.0 - TBD =
+= 1.16.0 - 2024-04-08 =
 * Added: Added a wpml-config.xml file.
 * Updated: Added "search_terms" to disallowed taxonomy list.
 * Updated: Began converting our javascript away from jQuery dependency.
