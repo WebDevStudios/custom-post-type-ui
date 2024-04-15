@@ -25,6 +25,11 @@ postboxes.add_postbox_toggles(pagenow);
 		taxSelectSubmit.style.display = 'none';
 	}
 
+	const autoLabels = document.querySelector('#autolabels');
+	if (autoLabels) {
+		autoLabels.style.display = 'table-row';
+	}
+
 	if ('edit' === getParameterByName('action')) {
 		if ( nameField ) {
 			// Store our original slug on page load for edit checking.
