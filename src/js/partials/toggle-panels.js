@@ -1,5 +1,7 @@
 'use strict';
 
+postboxes.add_postbox_toggles(pagenow);
+
 (() => {
 	// Toggle Panels State
 	const all_panels = ["#cptui_panel_pt_basic_settings", "#cptui_panel_pt_additional_labels", "#cptui_panel_pt_advanced_settings", "#cptui_panel_tax_basic_settings", "#cptui_panel_tax_additional_labels", "#cptui_panel_tax_advanced_settings"];
