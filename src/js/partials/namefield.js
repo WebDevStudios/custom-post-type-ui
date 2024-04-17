@@ -11,7 +11,7 @@ import { getParameterByName, replaceDiacritics, transliterate, replaceSpecialCha
 			original_slug = nameField.value;
 		}
 	}
-console.log(nameField);
+
 	if (nameField) {
 		// Switch spaces for underscores on our slug fields.
 		nameField.addEventListener('keyup', (e) => {
