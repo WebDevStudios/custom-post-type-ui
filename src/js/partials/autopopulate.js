@@ -1,7 +1,9 @@
 'use strict';
 
 (() => {
+	let nameField = document.querySelector('#name');
 	let autoPopulate = document.querySelector('#auto-populate');
+
 	if (autoPopulate) {
 		['click', 'tap'].forEach((eventName, index) => {
 			autoPopulate.addEventListener(eventName, (e) => {
