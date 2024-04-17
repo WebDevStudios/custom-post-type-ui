@@ -1,247 +1,6 @@
 /******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
-
-/***/ "./src/js/cptui-scripts.js":
-/*!*********************************!*\
-  !*** ./src/js/cptui-scripts.js ***!
-  \*********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _partials_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./partials/utils */ "./src/js/partials/utils.js");
-/**
- * Add collapseable boxes to our editor screens.
- */
-
-
-
-
-postboxes.add_postbox_toggles(pagenow);
-
-/**
- * The rest of our customizations.
- */
-(function ($) {
-  let original_slug;
-  let _custom_media;
-  let _orig_send_attachment;
-  let nameField = document.querySelector('#name');
-  const cptSelectSubmit = document.querySelector('#cptui_select_post_type_submit');
-  if (cptSelectSubmit) {
-    cptSelectSubmit.style.display = 'none';
-  }
-  const taxSelectSubmit = document.querySelector('#cptui_select_taxonomy_submit');
-  if (taxSelectSubmit) {
-    taxSelectSubmit.style.display = 'none';
-  }
-  if ('edit' === (0,_partials_utils__WEBPACK_IMPORTED_MODULE_0__.getParameterByName)('action')) {
-    if (nameField) {
-      // Store our original slug on page load for edit checking.
-      original_slug = nameField.value;
-    }
-  }
-
-  // NOT DONE
-  /*['.cptui-delete-top', '.cptui-delete-bottom'].forEach( (element,index) => {
-  	let theDialog = document.querySelector('#cptui-content-type-delete');
-  	let theelement = document.querySelector(element);
-  	theelement.addEventListener('click', async (e) => {
-  		e.preventDefault();
-  		const doPerformAction = await confirm();
-  		if ( doPerformAction ) {
-  			let thing = document.querySelector('#cpt_submit_delete');
-  			console.log(thing);
-  			thing.click();
-  			thing.submit();
-  			theDialog.close();
-  		} else {
-  			theDialog.close();
-  		}
-  	});
-  });
-  	let closeBtnConfirm = document.querySelector('.cptui-confirm-deny-delete button');
-  let closeBtnDeny = document.querySelector('#cptui-content-type-deny-delete');
-  function confirm() {
-  	return new Promise((resolve, reject) => {
-  		document.querySelector('#cptui-content-type-delete').showModal();
-  		closeBtnConfirm.focus();
-  			closeBtnConfirm.addEventListener("click", () => {
-  			resolve(true);
-  			document.querySelector('#cptui-content-type-delete').close()
-  		});
-  		closeBtnDeny.addEventListener("click", () => {
-  			resolve(false);
-  			document.querySelector('#cptui-content-type-delete').close()
-  		});
-  	});
-  }*/
-
-  // Confirm our deletions
-  $('.cptui-delete-top, .cptui-delete-bottom').on('click', function (e) {
-    e.preventDefault();
-    let msg = '';
-    if (typeof cptui_type_data !== 'undefined') {
-      msg = cptui_type_data.confirm;
-    } else if (typeof cptui_tax_data !== 'undefined') {
-      msg = cptui_tax_data.confirm;
-    }
-    let submit_delete_warning = $('<div class="cptui-submit-delete-dialog">' + msg + '</div>').appendTo('#poststuff').dialog({
-      'dialogClass': 'wp-dialog',
-      'modal': true,
-      'autoOpen': true,
-      'buttons': {
-        "OK": function () {
-          $(this).dialog('close');
-          $(e.target).off('click').click();
-        },
-        "Cancel": function () {
-          $(this).dialog('close');
-        }
-      }
-    });
-  });
-  if (undefined !== wp.media) {
-    _custom_media = true;
-    _orig_send_attachment = wp.media.editor.send.attachment;
-  }
-  $('#cptui_choose_icon').on('click', function (e) {
-    e.preventDefault();
-    let button = $(this);
-    let id = jQuery('#menu_icon').attr('id');
-    _custom_media = true;
-    wp.media.editor.send.attachment = function (props, attachment) {
-      if (_custom_media) {
-        $("#" + id).val(attachment.url).change();
-      } else {
-        return _orig_send_attachment.apply(this, [props, attachment]);
-      }
-    };
-    wp.media.editor.open(button);
-    return false;
-  });
-
-  // NOT DONE
-  /*const menuIcon = document.querySelector('#menu_icon');
-  if (menuIcon) {
-  	menuIcon.addEventListener('input', (e) => {
-  		let value = e.currentTarget.value.trim();
-  		console.log(value);
-  		let menuIconPreview = document.querySelector('#menu_icon_preview');
-  		console.log(menuIconPreview);
-  		if (menuIconPreview) {
-  			console.log(composePreviewContent(value));
-  			menuIconPreview.innerHTML = composePreviewContent(value);
-  		}
-  	});
-  }*/
-  $('#menu_icon').on('change', function () {
-    var value = $(this).val();
-    value = value.trim();
-    $('#menu_icon_preview').html(composePreviewContent(value));
-  });
-})(jQuery);
-
-/***/ }),
-
-/***/ "./src/js/dashicons-picker.js":
-/*!************************************!*\
-  !*** ./src/js/dashicons-picker.js ***!
-  \************************************/
-/***/ (() => {
-
-/**
- * Dashicons Picker
- *
- * Based on: https://github.com/bradvin/dashicons-picker/
- */
-
-(function ($) {
-  'use strict';
-
-  /**
-   *
-   * @returns {void}
-   */
-  $.fn.dashiconsPicker = function () {
-    /**
-     * Dashicons, in CSS order
-     *
-     * @type Array
-     */
-    var icons = ['menu', 'admin-site', 'dashboard', 'admin-media', 'admin-page', 'admin-comments', 'admin-appearance', 'admin-plugins', 'admin-users', 'admin-tools', 'admin-settings', 'admin-network', 'admin-generic', 'admin-home', 'admin-collapse', 'filter', 'admin-customizer', 'admin-multisite', 'admin-links', 'format-links', 'admin-post', 'format-standard', 'format-image', 'format-gallery', 'format-audio', 'format-video', 'format-chat', 'format-status', 'format-aside', 'format-quote', 'welcome-write-blog', 'welcome-edit-page', 'welcome-add-page', 'welcome-view-site', 'welcome-widgets-menus', 'welcome-comments', 'welcome-learn-more', 'image-crop', 'image-rotate', 'image-rotate-left', 'image-rotate-right', 'image-flip-vertical', 'image-flip-horizontal', 'image-filter', 'undo', 'redo', 'editor-bold', 'editor-italic', 'editor-ul', 'editor-ol', 'editor-quote', 'editor-alignleft', 'editor-aligncenter', 'editor-alignright', 'editor-insertmore', 'editor-spellcheck', 'editor-distractionfree', 'editor-expand', 'editor-contract', 'editor-kitchensink', 'editor-underline', 'editor-justify', 'editor-textcolor', 'editor-paste-word', 'editor-paste-text', 'editor-removeformatting', 'editor-video', 'editor-customchar', 'editor-outdent', 'editor-indent', 'editor-help', 'editor-strikethrough', 'editor-unlink', 'editor-rtl', 'editor-break', 'editor-code', 'editor-paragraph', 'editor-table', 'align-left', 'align-right', 'align-center', 'align-none', 'lock', 'unlock', 'calendar', 'calendar-alt', 'visibility', 'hidden', 'post-status', 'edit', 'post-trash', 'trash', 'sticky', 'external', 'arrow-up', 'arrow-down', 'arrow-left', 'arrow-right', 'arrow-up-alt', 'arrow-down-alt', 'arrow-left-alt', 'arrow-right-alt', 'arrow-up-alt2', 'arrow-down-alt2', 'arrow-left-alt2', 'arrow-right-alt2', 'leftright', 'sort', 'randomize', 'list-view', 'excerpt-view', 'grid-view', 'hammer', 'art', 'migrate', 'performance', 'universal-access', 'universal-access-alt', 'tickets', 'nametag', 'clipboard', 'heart', 'megaphone', 'schedule', 'wordpress', 'wordpress-alt', 'pressthis', 'update', 'screenoptions', 'cart', 'feedback', 'cloud', 'translation', 'tag', 'category', 'archive', 'tagcloud', 'text', 'media-archive', 'media-audio', 'media-code', 'media-default', 'media-document', 'media-interactive', 'media-spreadsheet', 'media-text', 'media-video', 'playlist-audio', 'playlist-video', 'controls-play', 'controls-pause', 'controls-forward', 'controls-skipforward', 'controls-back', 'controls-skipback', 'controls-repeat', 'controls-volumeon', 'controls-volumeoff', 'yes', 'no', 'no-alt', 'plus', 'plus-alt', 'plus-alt2', 'minus', 'dismiss', 'marker', 'star-filled', 'star-half', 'star-empty', 'flag', 'info', 'warning', 'share', 'share1', 'share-alt', 'share-alt2', 'twitter', 'rss', 'email', 'email-alt', 'facebook', 'facebook-alt', 'networking', 'googleplus', 'location', 'location-alt', 'camera', 'images-alt', 'images-alt2', 'video-alt', 'video-alt2', 'video-alt3', 'vault', 'shield', 'shield-alt', 'sos', 'search', 'slides', 'analytics', 'chart-pie', 'chart-bar', 'chart-line', 'chart-area', 'groups', 'businessman', 'id', 'id-alt', 'products', 'awards', 'forms', 'testimonial', 'portfolio', 'book', 'book-alt', 'download', 'upload', 'backup', 'clock', 'lightbulb', 'microphone', 'desktop', 'tablet', 'smartphone', 'phone', 'smiley', 'index-card', 'carrot', 'building', 'store', 'album', 'palmtree', 'tickets-alt', 'money', 'thumbs-up', 'thumbs-down', 'layout', 'align-pull-left', 'align-pull-right', 'block-default', 'cloud-saved', 'cloud-upload', 'columns', 'cover-image', 'embed-audio', 'embed-generic', 'embed-photo', 'embed-post', 'embed-video', 'exit', 'html', 'info-outline', 'insert-after', 'insert-before', 'insert', 'remove', 'shortcode', 'table-col-after', 'table-col-before', 'table-col-delete', 'table-row-after', 'table-row-before', 'table-row-delete', 'saved', 'amazon', 'google', 'linkedin', 'pinterest', 'podio', 'reddit', 'spotify', 'twitch', 'whatsapp', 'xing', 'youtube', 'database-add', 'database-export', 'database-import', 'database-remove', 'database-view', 'database', 'bell', 'airplane', 'car', 'calculator', 'ames', 'printer', 'beer', 'coffee', 'drumstick', 'food', 'bank', 'hourglass', 'money-alt', 'open-folder', 'pdf', 'pets', 'privacy', 'superhero', 'superhero-alt', 'edit-page', 'fullscreen-alt', 'fullscreen-exit-alt'];
-    return this.each(function () {
-      var button = $(this),
-        offsetTop,
-        offsetLeft;
-      button.on('click.dashiconsPicker', function (e) {
-        offsetTop = $(e.currentTarget).offset().top;
-        offsetLeft = $(e.currentTarget).offset().left;
-        createPopup(button);
-      });
-      function createPopup(button) {
-        var target = $('#menu_icon'),
-          preview = $(button.data('preview')),
-          popup = $('<div class="dashicon-picker-container">' + '<div class="dashicon-picker-control"></div>' + '<ul class="dashicon-picker-list"></ul>' + '</div>').css({
-            'top': offsetTop,
-            'left': offsetLeft
-          }),
-          list = popup.find('.dashicon-picker-list');
-        for (var i in icons) {
-          if (icons.hasOwnProperty(i)) {
-            list.append('<li data-icon="' + icons[i] + '"><a href="#" title="' + icons[i] + '"><span class="dashicons dashicons-' + icons[i] + '"></span></a></li>');
-          }
-        }
-        $('a', list).on('click', function (e) {
-          e.preventDefault();
-          var title = $(this).attr('title');
-          target.val('dashicons-' + title).change();
-          preview.prop('class', 'dashicons').addClass('dashicons-' + title);
-          removePopup();
-        });
-        var control = popup.find('.dashicon-picker-control');
-        control.html('<a data-direction="back" href="#">' + '<span class="dashicons dashicons-arrow-left-alt2"></span></a>' + '<input type="text" class="" placeholder="Search" />' + '<a data-direction="forward" href="#"><span class="dashicons dashicons-arrow-right-alt2"></span></a>');
-        $('a', control).on('click', function (e) {
-          e.preventDefault();
-          if ($(this).data('direction') === 'back') {
-            $('li:gt(' + (icons.length - 26) + ')', list).prependTo(list);
-          } else {
-            $('li:lt(25)', list).appendTo(list);
-          }
-        });
-        popup.appendTo('body').show();
-        $('input', control).on('keyup', function (e) {
-          var search = $(this).val();
-          if (search === '') {
-            $('li:lt(25)', list).show();
-          } else {
-            $('li', list).each(function () {
-              if ($(this).data('icon').toLowerCase().indexOf(search.toLowerCase()) !== -1) {
-                $(this).show();
-              } else {
-                $(this).hide();
-              }
-            });
-          }
-        });
-        $(document).on('mouseup.dashicons-picker', function (e) {
-          if (!popup.is(e.target) && popup.has(e.target).length === 0) {
-            removePopup();
-          }
-        });
-      }
-      function removePopup() {
-        $('.dashicon-picker-container').remove();
-        $(document).off('.dashicons-picker');
-      }
-    });
-  };
-  $(function () {
-    $('.dashicons-picker').dashiconsPicker();
-  });
-})(jQuery);
-
-/***/ }),
 
 /***/ "./src/js/partials/autopopulate.js":
 /*!*****************************************!*\
@@ -249,10 +8,10 @@ postboxes.add_postbox_toggles(pagenow);
   \*****************************************/
 /***/ (() => {
 
-"use strict";
 
 
 (() => {
+  let nameField = document.querySelector('#name');
   let autoPopulate = document.querySelector('#auto-populate');
   if (autoPopulate) {
     ['click', 'tap'].forEach((eventName, index) => {
@@ -313,7 +72,6 @@ postboxes.add_postbox_toggles(pagenow);
   \***************************************/
 /***/ (() => {
 
-"use strict";
 
 
 (() => {
@@ -346,7 +104,6 @@ postboxes.add_postbox_toggles(pagenow);
   \****************************************/
 /***/ (() => {
 
-"use strict";
 
 
 (() => {
@@ -380,13 +137,231 @@ postboxes.add_postbox_toggles(pagenow);
 
 /***/ }),
 
+/***/ "./src/js/partials/confirm-delete.js":
+/*!*******************************************!*\
+  !*** ./src/js/partials/confirm-delete.js ***!
+  \*******************************************/
+/***/ (() => {
+
+
+
+($ => {
+  // NOT DONE
+  /*['.cptui-delete-top', '.cptui-delete-bottom'].forEach( (element,index) => {
+  	let theDialog = document.querySelector('#cptui-content-type-delete');
+  	let theelement = document.querySelector(element);
+  	theelement.addEventListener('click', async (e) => {
+  		e.preventDefault();
+  		const doPerformAction = await confirm();
+  		if ( doPerformAction ) {
+  			let thing = document.querySelector('#cpt_submit_delete');
+  			console.log(thing);
+  			thing.click();
+  			thing.submit();
+  			theDialog.close();
+  		} else {
+  			theDialog.close();
+  		}
+  	});
+  });
+  	let closeBtnConfirm = document.querySelector('.cptui-confirm-deny-delete button');
+  let closeBtnDeny = document.querySelector('#cptui-content-type-deny-delete');
+  function confirm() {
+  	return new Promise((resolve, reject) => {
+  		document.querySelector('#cptui-content-type-delete').showModal();
+  		closeBtnConfirm.focus();
+  			closeBtnConfirm.addEventListener("click", () => {
+  			resolve(true);
+  			document.querySelector('#cptui-content-type-delete').close()
+  		});
+  		closeBtnDeny.addEventListener("click", () => {
+  			resolve(false);
+  			document.querySelector('#cptui-content-type-delete').close()
+  		});
+  	});
+  }*/
+
+  // Confirm our deletions
+  $('.cptui-delete-top, .cptui-delete-bottom').on('click', function (e) {
+    e.preventDefault();
+    let msg = '';
+    if (typeof cptui_type_data !== 'undefined') {
+      msg = cptui_type_data.confirm;
+    } else if (typeof cptui_tax_data !== 'undefined') {
+      msg = cptui_tax_data.confirm;
+    }
+    let submit_delete_warning = $('<div class="cptui-submit-delete-dialog">' + msg + '</div>').appendTo('#poststuff').dialog({
+      'dialogClass': 'wp-dialog',
+      'modal': true,
+      'autoOpen': true,
+      'buttons': {
+        "OK": function () {
+          $(this).dialog('close');
+          $(e.target).off('click').click();
+        },
+        "Cancel": function () {
+          $(this).dialog('close');
+        }
+      }
+    });
+  });
+})(jQuery);
+
+/***/ }),
+
+/***/ "./src/js/partials/hide-submit.js":
+/*!****************************************!*\
+  !*** ./src/js/partials/hide-submit.js ***!
+  \****************************************/
+/***/ (() => {
+
+
+
+(() => {
+  const cptSelectSubmit = document.querySelector('#cptui_select_post_type_submit');
+  if (cptSelectSubmit) {
+    cptSelectSubmit.style.display = 'none';
+  }
+  const taxSelectSubmit = document.querySelector('#cptui_select_taxonomy_submit');
+  if (taxSelectSubmit) {
+    taxSelectSubmit.style.display = 'none';
+  }
+})();
+
+/***/ }),
+
+/***/ "./src/js/partials/menu-icon.js":
+/*!**************************************!*\
+  !*** ./src/js/partials/menu-icon.js ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils */ "./src/js/partials/utils.js");
+
+
+
+($ => {
+  let _custom_media;
+  let _orig_send_attachment;
+  if (undefined !== wp.media) {
+    _custom_media = true;
+    _orig_send_attachment = wp.media.editor.send.attachment;
+  }
+  $('#cptui_choose_icon').on('click', function (e) {
+    e.preventDefault();
+    let button = $(this);
+    let id = jQuery('#menu_icon').attr('id');
+    _custom_media = true;
+    wp.media.editor.send.attachment = function (props, attachment) {
+      if (_custom_media) {
+        $("#" + id).val(attachment.url).change();
+      } else {
+        return _orig_send_attachment.apply(this, [props, attachment]);
+      }
+    };
+    wp.media.editor.open(button);
+    return false;
+  });
+
+  // NOT DONE
+  /*const menuIcon = document.querySelector('#menu_icon');
+  if (menuIcon) {
+  	menuIcon.addEventListener('input', (e) => {
+  		let value = e.currentTarget.value.trim();
+  		console.log(value);
+  		let menuIconPreview = document.querySelector('#menu_icon_preview');
+  		console.log(menuIconPreview);
+  		if (menuIconPreview) {
+  			console.log(composePreviewContent(value));
+  			menuIconPreview.innerHTML = composePreviewContent(value);
+  		}
+  	});
+  }*/
+  $('#menu_icon').on('change', function () {
+    var value = $(this).val();
+    value = value.trim();
+    $('#menu_icon_preview').html((0,_utils__WEBPACK_IMPORTED_MODULE_0__.composePreviewContent)(value));
+  });
+})(jQuery);
+
+/***/ }),
+
+/***/ "./src/js/partials/namefield.js":
+/*!**************************************!*\
+  !*** ./src/js/partials/namefield.js ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils */ "./src/js/partials/utils.js");
+
+
+
+(() => {
+  let nameField = document.querySelector('#name');
+  let original_slug;
+  if ('edit' === (0,_utils__WEBPACK_IMPORTED_MODULE_0__.getParameterByName)('action')) {
+    if (nameField) {
+      // Store our original slug on page load for edit checking.
+      original_slug = nameField.value;
+    }
+  }
+  if (nameField) {
+    // Switch spaces for underscores on our slug fields.
+    nameField.addEventListener('keyup', e => {
+      let value, original_value;
+      value = original_value = e.currentTarget.value;
+      let keys = ['Tab', 'ArrowLeft', 'ArrowUp', 'ArrowRight', 'ArrowDown'];
+      if (!keys.includes(e.code)) {
+        value = value.replace(/ /g, "_");
+        value = value.toLowerCase();
+        value = (0,_utils__WEBPACK_IMPORTED_MODULE_0__.replaceDiacritics)(value);
+        value = (0,_utils__WEBPACK_IMPORTED_MODULE_0__.transliterate)(value);
+        value = (0,_utils__WEBPACK_IMPORTED_MODULE_0__.replaceSpecialCharacters)(value);
+        if (value !== original_value) {
+          e.currentTarget.value = value;
+        }
+      }
+
+      //Displays a message if slug changes.
+      if (typeof original_slug !== 'undefined') {
+        let slugchanged = document.querySelector('#slugchanged');
+        if (value !== original_slug) {
+          slugchanged.classList.remove('hidemessage');
+        } else {
+          slugchanged.classList.add('hidemessage');
+        }
+      }
+      let slugexists = document.querySelector('#slugexists');
+      let override = document.querySelector('#override_validation');
+      let override_validation = override ? override.check : false;
+      if (typeof cptui_type_data != 'undefined') {
+        if (cptui_type_data.existing_post_types.hasOwnProperty(value) && value !== original_slug && override_validation === false) {
+          slugexists.classList.remove('hidemessage');
+        } else {
+          slugexists.classList.add('hidemessage');
+        }
+      }
+      if (typeof cptui_tax_data != 'undefined') {
+        if (cptui_tax_data.existing_taxonomies.hasOwnProperty(value) && value !== original_slug) {
+          slugexists.classList.remove('hidemessage');
+        } else {
+          slugexists.classList.add('hidemessage');
+        }
+      }
+    });
+  }
+})();
+
+/***/ }),
+
 /***/ "./src/js/partials/support-toggles.js":
 /*!********************************************!*\
   !*** ./src/js/partials/support-toggles.js ***!
   \********************************************/
 /***/ (() => {
 
-"use strict";
 
 
 (() => {
@@ -432,7 +407,6 @@ postboxes.add_postbox_toggles(pagenow);
   \***************************************************/
 /***/ (() => {
 
-"use strict";
 
 
 (() => {
@@ -467,7 +441,6 @@ postboxes.add_postbox_toggles(pagenow);
   \************************************************/
 /***/ (() => {
 
-"use strict";
 
 
 (() => {
@@ -494,9 +467,9 @@ postboxes.add_postbox_toggles(pagenow);
   \******************************************/
 /***/ (() => {
 
-"use strict";
 
 
+postboxes.add_postbox_toggles(pagenow);
 (() => {
   // Toggle Panels State
   const all_panels = ["#cptui_panel_pt_basic_settings", "#cptui_panel_pt_additional_labels", "#cptui_panel_pt_advanced_settings", "#cptui_panel_tax_basic_settings", "#cptui_panel_tax_additional_labels", "#cptui_panel_tax_advanced_settings"];
@@ -534,7 +507,6 @@ postboxes.add_postbox_toggles(pagenow);
   \**********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   composePreviewContent: () => (/* binding */ composePreviewContent),
@@ -752,31 +724,33 @@ const cyrillic = {
 /******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be in strict mode.
+// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
-"use strict";
 /*!*************************!*\
   !*** ./src/js/cptui.js ***!
   \*************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _partials_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./partials/utils */ "./src/js/partials/utils.js");
-/* harmony import */ var _partials_toggle_hierarchical__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./partials/toggle-hierarchical */ "./src/js/partials/toggle-hierarchical.js");
-/* harmony import */ var _partials_toggle_hierarchical__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_partials_toggle_hierarchical__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _partials_autoswitch__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./partials/autoswitch */ "./src/js/partials/autoswitch.js");
-/* harmony import */ var _partials_autoswitch__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_partials_autoswitch__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _partials_support_toggles__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./partials/support-toggles */ "./src/js/partials/support-toggles.js");
-/* harmony import */ var _partials_support_toggles__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_partials_support_toggles__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _partials_tax_required_post_type__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./partials/tax-required-post-type */ "./src/js/partials/tax-required-post-type.js");
-/* harmony import */ var _partials_tax_required_post_type__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_partials_tax_required_post_type__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _partials_autopopulate__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./partials/autopopulate */ "./src/js/partials/autopopulate.js");
-/* harmony import */ var _partials_autopopulate__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_partials_autopopulate__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _partials_back_to_top__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./partials/back-to-top */ "./src/js/partials/back-to-top.js");
-/* harmony import */ var _partials_back_to_top__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_partials_back_to_top__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _partials_toggle_panels__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./partials/toggle-panels */ "./src/js/partials/toggle-panels.js");
-/* harmony import */ var _partials_toggle_panels__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_partials_toggle_panels__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var _cptui_scripts__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./cptui-scripts */ "./src/js/cptui-scripts.js");
-/* harmony import */ var _dashicons_picker__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./dashicons-picker */ "./src/js/dashicons-picker.js");
-/* harmony import */ var _dashicons_picker__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_dashicons_picker__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _partials_hide_submit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./partials/hide-submit */ "./src/js/partials/hide-submit.js");
+/* harmony import */ var _partials_hide_submit__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_partials_hide_submit__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _partials_toggle_hierarchical__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./partials/toggle-hierarchical */ "./src/js/partials/toggle-hierarchical.js");
+/* harmony import */ var _partials_toggle_hierarchical__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_partials_toggle_hierarchical__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _partials_autoswitch__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./partials/autoswitch */ "./src/js/partials/autoswitch.js");
+/* harmony import */ var _partials_autoswitch__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_partials_autoswitch__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _partials_confirm_delete__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./partials/confirm-delete */ "./src/js/partials/confirm-delete.js");
+/* harmony import */ var _partials_confirm_delete__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_partials_confirm_delete__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _partials_support_toggles__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./partials/support-toggles */ "./src/js/partials/support-toggles.js");
+/* harmony import */ var _partials_support_toggles__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_partials_support_toggles__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _partials_namefield__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./partials/namefield */ "./src/js/partials/namefield.js");
+/* harmony import */ var _partials_menu_icon__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./partials/menu-icon */ "./src/js/partials/menu-icon.js");
+/* harmony import */ var _partials_tax_required_post_type__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./partials/tax-required-post-type */ "./src/js/partials/tax-required-post-type.js");
+/* harmony import */ var _partials_tax_required_post_type__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_partials_tax_required_post_type__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _partials_autopopulate__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./partials/autopopulate */ "./src/js/partials/autopopulate.js");
+/* harmony import */ var _partials_autopopulate__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_partials_autopopulate__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _partials_back_to_top__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./partials/back-to-top */ "./src/js/partials/back-to-top.js");
+/* harmony import */ var _partials_back_to_top__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_partials_back_to_top__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _partials_toggle_panels__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./partials/toggle-panels */ "./src/js/partials/toggle-panels.js");
+/* harmony import */ var _partials_toggle_panels__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_partials_toggle_panels__WEBPACK_IMPORTED_MODULE_11__);
 
 
 
@@ -787,6 +761,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+//import './dashicons-picker';
 })();
 
 /******/ })()
