@@ -4,5 +4,6 @@ module.exports = {
 	...defaultConfig,
 	entry: {
 		cptui: './src/js/cptui.js',
+		dashiconsPicker: './src/js/dashicons-picker'
 	}
 };
