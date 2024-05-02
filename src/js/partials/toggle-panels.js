@@ -1,9 +1,16 @@
 'use strict';
 
+/*
+ * This file handles storing the panel state for the post type and taxonomy edit screens.
+ *
+ * The open/closed state gets stored into localstorage and is remembered on future page refreshes.
+ */
+
 postboxes.add_postbox_toggles(pagenow);
 
 (() => {
-	// Toggle Panels State
+	// Toggle Panels State.
+	// @todo. Localize the list of panel selectors so that we can filter in the CPTUI-Extended panel without hardcoding here.
 	const all_panels = ["#cptui_panel_pt_basic_settings", "#cptui_panel_pt_additional_labels", "#cptui_panel_pt_advanced_settings", "#cptui_panel_tax_basic_settings", "#cptui_panel_tax_additional_labels", "#cptui_panel_tax_advanced_settings"];
 	all_panels.forEach((element, index) => {
 		const panel_id_item = document.querySelector(element);
