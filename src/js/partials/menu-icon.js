@@ -2,6 +2,12 @@
 
 import {composePreviewContent} from './utils';
 
+/*
+ * This file handles setting the menu icon preview for a given post type.
+ *
+ * @todo Finish converting away from jQuery.
+ */
+
 (($) => {
 	let _custom_media;
 	let _orig_send_attachment;
