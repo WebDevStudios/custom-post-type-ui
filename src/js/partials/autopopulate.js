@@ -1,5 +1,10 @@
 'use strict';
 
+/*
+ * This file handles the automatic population as well as the automatic clearing of the label
+ * fields, based on the provided singular and plural label values.
+ */
+
 (() => {
 	let nameField = document.querySelector('#name');
 	let autoPopulate = document.querySelector('#auto-populate');
