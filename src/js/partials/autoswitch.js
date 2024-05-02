@@ -1,5 +1,10 @@
 'use strict';
 
+/*
+ * This file handles automatically switching to a chosen content type when selecting from the
+ * dropdown listing.
+ */
+
 (() => {
 	// Switch to newly selected post type or taxonomy automatically.
 	const postTypeDropdown = document.querySelector('#post_type');
