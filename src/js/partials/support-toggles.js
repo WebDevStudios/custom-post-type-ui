@@ -1,5 +1,11 @@
 'use strict';
 
+/*
+ * This file handles accordian behavior on the Supports page with the various question/answer panels.
+ *
+ * The functionality includes keyboard and accessibility functionality to help those who need it.
+ */
+
 (() => {
 // Toggles help/support accordions.
 	const supportQuestions = document.querySelectorAll('#support .question');
