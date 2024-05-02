@@ -1,5 +1,11 @@
 'use strict';
 
+/*
+ * This file handles the back to top functionality as the user scrolls, for quick return to top.
+ *
+ * This includes some debouncing to prevent excessive scroll event listening.
+ */
+
 (() => {
 	const back_to_top_btn = document.querySelector('.cptui-back-to-top');
 	if (back_to_top_btn) {
