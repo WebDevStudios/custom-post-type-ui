@@ -1,5 +1,6 @@
 'use strict';
 
+// Retrieve URL parameters by requested parameter name.
 export function getParameterByName(name, url) {
 	if (!url) url = window.location.href;
 	name = name.replace(/[\[\]]/g, "\\$&");
@@ -10,18 +11,22 @@ export function getParameterByName(name, url) {
 	return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 
+// Split, translate cyrillic characters, and then re-join the final result.
 export function transliterate(word) {
 	return word.split('').map(function (char) {
 		return cyrillic[char] || char;
 	}).join("");
 }
 
+//Character encode special characters.
 export function htmlEncode(str) {
 	return String(str).replace(/[^-\w. ]/gi, function (c) {
 		return '&#' + c.charCodeAt(0) + ';';
 	});
 }
 
+// Constructs miniture versions of uploaded media for admnin menu icon usage,
+// or displays the rendered dashicon.
 export function composePreviewContent(value) {
 	const re = /(http|https):\/\/[\w-]+(\.[\w-]+)+([\w.,@?^=%&:\/~+#-]*[\w@?^=%&\/~+#-])?/;
 	const isURL = re.test(value);
@@ -63,11 +68,14 @@ export function replaceDiacritics(s) {
 	return s;
 }
 
+// Converts non-alphanumeric or space characters to an underscore. Should ignore dashes, to allow
+// using dashes in slugs.
 export function replaceSpecialCharacters(s) {
 	s = s.replace(/[^a-z0-9\s-]/gi, '_');
 	return s;
 }
 
+// List of available cyrillic characters and the value to translate to.
 export const cyrillic = {
 	"Ё": "YO",
 	"Й": "I",
