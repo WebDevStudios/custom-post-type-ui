@@ -1,6 +1,20 @@
 'use strict';
 import { getParameterByName, replaceDiacritics, transliterate, replaceSpecialCharacters } from './utils'
 
+/*
+ * This file handles all of the normalization of the name/slug field for a post type
+ * or taxonomy being registered.
+ *
+ * That way we are only allowing latin characters and dashes/underscores.
+ *
+ * It also shows a hidden alert if the slug has been changed in some way when editing an existing
+ * content type.
+ *
+ * Lastly it will also show a warning if the attempted slug has already been registered elsewhere,
+ * to help avoid clashes. The only exception is if the checkbox is checked indicating that the user
+ * is trying to convert TO using CPTUI, and the conflicting slug elsewhere will be removed soon.
+ */
+
 (() => {
 	let nameField = document.querySelector('#name');
 	let original_slug;
