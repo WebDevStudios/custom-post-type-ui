@@ -7,6 +7,10 @@
 
 
 
+/*
+ * This file handles the automatic population as well as the automatic clearing of the label
+ * fields, based on the provided singular and plural label values.
+ */
 (() => {
   let nameField = document.querySelector('#name');
   let autoPopulate = document.querySelector('#auto-populate');
@@ -68,6 +72,10 @@
 
 
 
+/*
+ * This file handles automatically switching to a chosen content type when selecting from the
+ * dropdown listing.
+ */
 (() => {
   // Switch to newly selected post type or taxonomy automatically.
   const postTypeDropdown = document.querySelector('#post_type');
@@ -97,6 +105,11 @@
 
 
 
+/*
+ * This file handles the back to top functionality as the user scrolls, for quick return to top.
+ *
+ * This includes some debouncing to prevent excessive scroll event listening.
+ */
 (() => {
   const back_to_top_btn = document.querySelector('.cptui-back-to-top');
   if (back_to_top_btn) {
@@ -133,6 +146,11 @@
 
 
 
+/*
+ * This file handles confirming the deletion of a content type before continuing.
+ *
+ * @todo Finish converting away from jQuery.
+ */
 ($ => {
   // NOT DONE
   /*['.cptui-delete-top', '.cptui-delete-bottom'].forEach( (element,index) => {
@@ -202,6 +220,12 @@
 
 
 
+/*
+ * This file visually removes the submit button to change content type being edited.
+ *
+ * If by chance javascript is disabled or somehow breaking, the button would show by default,
+ * preventing issues with switching content types.
+ */
 (() => {
   const cptSelectSubmit = document.querySelector('#cptui_select_post_type_submit');
   if (cptSelectSubmit) {
@@ -220,6 +244,11 @@
 
 
 
+/*
+ * This file handles accordian behavior on the Supports page with the various question/answer panels.
+ *
+ * The functionality includes keyboard and accessibility functionality to help those who need it.
+ */
 (() => {
   // Toggles help/support accordions.
   const supportQuestions = document.querySelectorAll('#support .question');
@@ -262,6 +291,13 @@
 
 
 
+/*
+ * This file provides a dialog box to alert the user that at least one post type must be chosen
+ * before they can save a taxonomy.
+ *
+ * This was added because taxonomies need to have a post type, meanwhile post types do NOT need
+ * to have a taxonomy.
+ */
 (() => {
   // Handles checking if a post type has been chosen or not when adding/saving a taxonomy.
   // Post type associations are a required attribute.
@@ -293,6 +329,13 @@
 
 
 
+/*
+ * This file handles automatically toggling the "Page attributes" option in the "Supports" section
+ * when a user chooses to have their post type be hierarchical.
+ *
+ * The purpose is to help ensure that the "parent" and "template" metabox option shows up by default,
+ * but we do not force that to remain checked. The user can still toggle it off after the fact.
+ */
 (() => {
   // Automatically toggle the "page attributes" checkbox if
   // setting a hierarchical post type.
@@ -316,9 +359,15 @@
 
 
 
+/*
+ * This file handles storing the panel state for the post type and taxonomy edit screens.
+ *
+ * The open/closed state gets stored into localstorage and is remembered on future page refreshes.
+ */
 postboxes.add_postbox_toggles(pagenow);
 (() => {
-  // Toggle Panels State
+  // Toggle Panels State.
+  // @todo. Localize the list of panel selectors so that we can filter in the CPTUI-Extended panel without hardcoding here.
   const all_panels = ["#cptui_panel_pt_basic_settings", "#cptui_panel_pt_additional_labels", "#cptui_panel_pt_advanced_settings", "#cptui_panel_tax_basic_settings", "#cptui_panel_tax_additional_labels", "#cptui_panel_tax_advanced_settings"];
   all_panels.forEach((element, index) => {
     const panel_id_item = document.querySelector(element);
@@ -382,6 +431,7 @@ var __webpack_exports__ = {};
 ;// CONCATENATED MODULE: ./src/js/partials/utils.js
 
 
+// Retrieve URL parameters by requested parameter name.
 function getParameterByName(name, url) {
   if (!url) url = window.location.href;
   name = name.replace(/[\[\]]/g, "\\$&");
@@ -391,16 +441,23 @@ function getParameterByName(name, url) {
   if (!results[2]) return '';
   return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
+
+// Split, translate cyrillic characters, and then re-join the final result.
 function transliterate(word) {
   return word.split('').map(function (char) {
     return cyrillic[char] || char;
   }).join("");
 }
+
+//Character encode special characters.
 function htmlEncode(str) {
   return String(str).replace(/[^-\w. ]/gi, function (c) {
     return '&#' + c.charCodeAt(0) + ';';
   });
 }
+
+// Constructs miniture versions of uploaded media for admnin menu icon usage,
+// or displays the rendered dashicon.
 function composePreviewContent(value) {
   const re = /(http|https):\/\/[\w-]+(\.[\w-]+)+([\w.,@?^=%&:\/~+#-]*[\w@?^=%&\/~+#-])?/;
   const isURL = re.test(value);
@@ -443,10 +500,15 @@ function replaceDiacritics(s) {
   }
   return s;
 }
+
+// Converts non-alphanumeric or space characters to an underscore. Should ignore dashes, to allow
+// using dashes in slugs.
 function replaceSpecialCharacters(s) {
   s = s.replace(/[^a-z0-9\s-]/gi, '_');
   return s;
 }
+
+// List of available cyrillic characters and the value to translate to.
 const cyrillic = {
   "Ё": "YO",
   "Й": "I",
@@ -529,6 +591,21 @@ var support_toggles = __webpack_require__(339);
 
 
 
+
+/*
+ * This file handles all of the normalization of the name/slug field for a post type
+ * or taxonomy being registered.
+ *
+ * That way we are only allowing latin characters and dashes/underscores.
+ *
+ * It also shows a hidden alert if the slug has been changed in some way when editing an existing
+ * content type.
+ *
+ * Lastly it will also show a warning if the attempted slug has already been registered elsewhere,
+ * to help avoid clashes. The only exception is if the checkbox is checked indicating that the user
+ * is trying to convert TO using CPTUI, and the conflicting slug elsewhere will be removed soon.
+ */
+
 (() => {
   let nameField = document.querySelector('#name');
   let original_slug;
@@ -587,6 +664,13 @@ var support_toggles = __webpack_require__(339);
 ;// CONCATENATED MODULE: ./src/js/partials/menu-icon.js
 
 
+
+
+/*
+ * This file handles setting the menu icon preview for a given post type.
+ *
+ * @todo Finish converting away from jQuery.
+ */
 
 ($ => {
   let _custom_media;
