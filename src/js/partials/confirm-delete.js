@@ -1,5 +1,11 @@
 'use strict';
 
+/*
+ * This file handles confirming the deletion of a content type before continuing.
+ *
+ * @todo Finish converting away from jQuery.
+ */
+
 (($) => {
 	// NOT DONE
 	/*['.cptui-delete-top', '.cptui-delete-bottom'].forEach( (element,index) => {
