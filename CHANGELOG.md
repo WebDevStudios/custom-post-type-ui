@@ -7,6 +7,35 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## 1.12.1 - 2022-05-16
+* Fixed: JSON decoding issues around WP-CLI import.
+
+## 1.12.0 - 2022-05-09
+* Added: Tested on WordPress 6.0.
+* Added: Auto-check, but not force, "page-attributes" when setting a post type as hierarchical.
+* Added: "rest_namespace" parameters for both post types and taxonomies.
+* Added: "register_meta_box_cb" parameter for post types.
+* Fixed: undefined index notices for "can_export".
+* Updated: list of reserved taxonomy names with more that are considered reserved.
+* Updated: readme descriptions and screenshots.
+
+## 1.11.2 - 2022-03-21
+* Fixed: Unintended reuse of `$delete_with_user` variable and `can_export` option. Props @bogutskyy
+* Fixed: PHP notices around `sort` array index.
+
+## 1.11.1 - 2022-03-18
+* Fixed: Errors and warnings around array_key_exists() and bool values
+
+## 1.11.0 - 2022-03-17
+* Added: "sort" argument for taxonomies.
+* Added: "can export" argument for post types
+* Added: New taxonomy labels from WordPress 5.9
+* Added: Custom option to set "Enter title here" value for post types.
+* Added: Notes around "exclude from search" argument for post types and taxonomy term archives.
+* Added: Notes around taxonomy "hierarchical" option regarding category vs tag behavior.
+* Updated: Reserved post type slugs from recent WordPress releases.
+* Fixed: PHP warnings around foreach loops in cptui_published_post_format_fix()
+
 ## 1.10.2 - 2022-01-28
 * Updated: Confirmed compatibility with WordPress 5.9
 
