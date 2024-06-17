@@ -1,6 +1,6 @@
 {
   "name": "custom-post-type-ui",
-  "version": "1.16.0",
+  "version": "1.17.0",
   "description": "Custom Post Type UI",
   "main": "index.js",
   "directories": {
@@ -9,9 +9,10 @@
   "scripts": {
     "start": "wp-scripts start",
     "dev": "wp-scripts start",
-    "watch": "wp-scripts start",
-    "build": "run-s styles uglify",
-    "build:release": "run-s styles uglify create:release",
+    "watch": "wp-scripts start --config webpack.config.js",
+    "buildjs": "wp-scripts build --config webpack.config.js",
+    "build": "run-s buildjs uglify styles",
+    "build:release": "run-s build create:release",
     "lint:css": "wp-scripts lint-style 'src/scss/*.scss'",
     "lint:js": "wp-scripts lint-js src/js/**",
     "lint:php": "./vendor/bin/phpcs --standard=./.phpcs.xml.dist --extensions=php ./ --ignore='./build/*,./node_modules/*,./vendor/*'",
@@ -19,7 +20,7 @@
     "styles": "run-s styles:compile styles:compress",
     "styles:compile": "node-sass src/scss/cptui-styles.scss -o build/ --source-map true",
     "styles:compress": "node-sass src/scss/cptui-styles.scss build/cptui-styles.min.css -o build/ --output-style compressed",
-    "uglify": "uglifyjs src/js/cptui-scripts.js -b -o build/cptui-scripts.js && uglifyjs src/js/cptui-scripts.js -m -c --source-map -o build/cptui-scripts.min.js && uglifyjs src/js/dashicons-picker.js -b -o build/dashicons-picker.js && uglifyjs src/js/dashicons-picker.js -m -c --source-map -o build/dashicons-picker.min.js",
+    "uglify": "uglifyjs build/cptui.js -m -c --source-map -o build/cptui.min.js && uglifyjs build/dashiconsPicker.js -m -c --source-map -o build/dashiconsPicker.min.js",
     "create:release": "mkdirp release-build/custom-post-type-ui && cp -R build classes external images inc readme.txt LICENSE custom-post-type-ui.php wpml-config.xml release-build/custom-post-type-ui"
   },
   "devDependencies": {
@@ -30,7 +31,7 @@
     "css-mqpacker": "^7.0.0",
     "cssnano": "^6",
     "ignore-emit-webpack-plugin": "^2.0.6",
-    "mini-css-extract-plugin": "^2.6.0",
+    "mini-css-extract-plugin": "^2.9.0",
     "node-sass": "^9",
     "npm-run-all": "^4.1.5",
     "postcss": "^8.4.12",

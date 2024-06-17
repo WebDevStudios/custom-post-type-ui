@@ -16,12 +16,12 @@
  * Plugin URI: https://github.com/WebDevStudios/custom-post-type-ui/
  * Description: Admin UI panel for registering custom post types and taxonomies
  * Author: WebDevStudios
- * Version: 1.16.0
+ * Version: 1.17.0
  * Author URI: https://webdevstudios.com/
  * Text Domain: custom-post-type-ui
  * Domain Path: /languages
  * License: GPL-2.0+
- * Requires at least: 6.3
+ * Requires at least: 6.5
  * Requires PHP: 7.4
  */
 
@@ -33,8 +33,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'CPT_VERSION', '1.16.0' ); // Left for legacy purposes.
-define( 'CPTUI_VERSION', '1.16.0' );
+define( 'CPT_VERSION', '1.17.0' ); // Left for legacy purposes.
+define( 'CPTUI_VERSION', '1.17.0' );
 define( 'CPTUI_WP_VERSION', get_bloginfo( 'version' ) );
 
 /**
@@ -246,8 +246,8 @@ function cptui_add_styles() {
 		return;
 	}
 	$min = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
-	wp_register_script( 'cptui', plugins_url( "build/cptui-scripts{$min}.js", __FILE__ ), [ 'jquery', 'jquery-ui-dialog', 'postbox' ], CPTUI_VERSION, true );
-	wp_register_script( 'dashicons-picker', plugins_url( "build/dashicons-picker{$min}.js", __FILE__ ), [ 'jquery'], '1.0.0', true );
+	wp_register_script( 'cptui', plugins_url( "build/cptui{$min}.js", __FILE__ ), [ 'jquery', 'jquery-ui-dialog', 'postbox' ], CPTUI_VERSION, true );
+	wp_register_script( 'dashicons-picker', plugins_url( "build/dashiconsPicker{$min}.js", __FILE__ ), [ 'jquery'], '1.0.0', true );
 	wp_register_style( 'cptui-css', plugins_url( "build/cptui-styles{$min}.css", __FILE__ ), [ 'wp-jquery-ui-dialog' ], CPTUI_VERSION );
 }
 add_action( 'admin_enqueue_scripts', 'cptui_add_styles' );

@@ -322,7 +322,7 @@ function cptui_manage_post_types() {
 							$link_text = ( 'new' === $tab ) ?
 								esc_html__( 'Populate additional labels based on chosen labels', 'custom-post-type-ui' ) :
 								esc_html__( 'Populate missing labels based on chosen labels', 'custom-post-type-ui' );
-							echo $ui->get_tr_end(); // phpcs:ignore.
+							echo $ui->get_tr_start( [ 'id' => 'autolabels', 'style' => 'display:none;' ] ); // phpcs:ignore.
 							echo $ui->get_th_start() . esc_html__( 'Auto-populate labels', 'custom-post-type-ui' ) . $ui->get_th_end(); // phpcs:ignore.
 							echo $ui->get_td_start(); // phpcs:ignore.
 						?>
@@ -2219,27 +2219,28 @@ function cptui_update_post_type( $data = [] ) {
 function cptui_reserved_post_types() {
 
 	$reserved = [
-		'post',
-		'page',
-		'attachment',
-		'revision',
-		'nav_menu_item',
 		'action',
-		'order',
-		'theme',
-		'themes',
-		'fields',
+		'attachment',
+		'author',
 		'custom_css',
 		'customize_changeset',
-		'author',
-		'post_type',
+		'fields',
+		'nav_menu_item',
 		'oembed_cache',
+		'order',
+		'page',
+		'post',
+		'post_type',
+		'revision',
+		'sidebars',
+		'theme',
+		'themes',
 		'user_request',
 		'wp_block',
-		'wp_template',
-		'wp_template_part',
 		'wp_global_styles',
 		'wp_navigation',
+		'wp_template',
+		'wp_template_part',
 	];
 
 	/**
