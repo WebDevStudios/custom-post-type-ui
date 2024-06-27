@@ -3,8 +3,8 @@ Contributors: webdevstudios, pluginize, tw2113, williamsba1
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3084056
 Tags: custom post types, post type, taxonomy, content types, types
 Requires at least: 6.5
-Tested up to: 6.5
-Stable tag: 1.17.0
+Tested up to: 6.5.5
+Stable tag: 1.17.1
 License: GPL-2.0+
 Requires PHP: 7.4
 
@@ -31,6 +31,9 @@ Custom Post Type UI development is managed on GitHub, with official releases pub
 5. Help/support screen.
 
 == Changelog ==
+
+= 1.17.1 - 2024-06-27 =
+* Fixed: Missed re-showing of autolabel fill links for js enabled browsers.
 
 = 1.17.0 - 2024-06-17 =
 * Added: "sidebars" as a reserved slug for post types.
@@ -100,6 +103,9 @@ Custom Post Type UI development is managed on GitHub, with official releases pub
 * Updated: Plugin branding.
 
 == Upgrade Notice ==
+
+= 1.17.1 - 2024-06-27 =
+* Fixed: Missed re-showing of autolabel fill links for js enabled browsers.
 
 = 1.17.0 - 2024-06-17 =
 * Added: "sidebars" as a reserved slug for post types.
