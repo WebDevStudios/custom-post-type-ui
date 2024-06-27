@@ -32,6 +32,9 @@ Custom Post Type UI development is managed on GitHub, with official releases pub
 
 == Changelog ==
 
+= 1.17.1 - 2024-06-27 =
+* Fixed: Missed re-showing of autolabel fill links for js enabled browsers.
+
 = 1.17.0 - 2024-06-17 =
 * Added: "sidebars" as a reserved slug for post types.
 * Added: Blueprint for trying Custom Post Type UI on wordpress.org before installation.
@@ -100,6 +103,9 @@ Custom Post Type UI development is managed on GitHub, with official releases pub
 * Updated: Plugin branding.
 
 == Upgrade Notice ==
+
+= 1.17.1 - 2024-06-27 =
+* Fixed: Missed re-showing of autolabel fill links for js enabled browsers.
 
 = 1.17.0 - 2024-06-17 =
 * Added: "sidebars" as a reserved slug for post types.
