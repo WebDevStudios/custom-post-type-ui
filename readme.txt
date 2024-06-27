@@ -3,8 +3,8 @@ Contributors: webdevstudios, pluginize, tw2113, williamsba1
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3084056
 Tags: custom post types, post type, taxonomy, content types, types
 Requires at least: 6.5
-Tested up to: 6.5
-Stable tag: 1.17.0
+Tested up to: 6.5.5
+Stable tag: 1.17.1
 License: GPL-2.0+
 Requires PHP: 7.4
 
