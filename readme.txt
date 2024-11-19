@@ -32,7 +32,7 @@ Custom Post Type UI development is managed on GitHub, with official releases pub
 
 == Changelog ==
 
-= 1.17.2 - TBD =
+= 1.17.2 - 2024-11-19 =
 * Fixed: PHP warnings around empty description variables from tools page.
 * Updated: Confirmed compatibility with WordPress 6.7
 
@@ -108,7 +108,7 @@ Custom Post Type UI development is managed on GitHub, with official releases pub
 
 == Upgrade Notice ==
 
-= 1.17.2 - TBD =
+= 1.17.2 - 2024-11-19 =
 * Fixed: PHP warnings around empty description variables from tools page.
 * Updated: Confirmed compatibility with WordPress 6.7
 
