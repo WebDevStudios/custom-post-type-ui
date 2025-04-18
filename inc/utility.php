@@ -1011,6 +1011,10 @@ function cptui_get_add_new_link( $content_type = '' ) {
 function cptui_post_thumbnail_theme_support() {
 	$post_types = cptui_get_post_type_data();
 
+	if ( empty( $post_types ) || ! is_array( $post_types ) ) {
+		return;
+	}
+
 	$supported = [];
 	foreach ( $post_types as $post_type ) {
 		if ( empty( $post_type['supports'] ) ) {
