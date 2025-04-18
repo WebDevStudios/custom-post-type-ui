@@ -21,7 +21,16 @@ function cptui_get_post_type_code( $cptui_post_types = [], $single = false ) {
 		$callback = 'cptui_register_my_cpts';
 		if ( $single ) {
 			$key      = key( $cptui_post_types );
-			$callback = 'cptui_register_my_cpts_' . str_replace( '-', '_', esc_html( $cptui_post_types[ $key ]['name'] ) );
+			$callback = 'cptui_register_my_cpts_unknown'; // new fallback
+			if ( ! empty( $cptui_post_types[ $key ]['name'] ) ) {
+				// If we have a name value.
+				$suffix = esc_html( $cptui_post_types[ $key ]['name'] );
+
+				// if somehow our escaping is returning a null value.
+				if ( ! empty( $suffix ) ) {
+					$callback = 'cptui_register_my_cpts_' . str_replace( '-', '_', $suffix );
+				}
+			}
 		}
 ?>
 
