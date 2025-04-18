@@ -32,6 +32,12 @@ Custom Post Type UI development is managed on GitHub, with official releases pub
 
 == Changelog ==
 
+= 1.17.3 - TBD =
+* Fixed: PHP notices around foreach loops in cptui_post_thumbnail_theme_support().
+* Fixed: PHP notices around empty variable values with get code section.
+* Fixed: PHP notices around false values with taxonomy listings with post type registration.
+* Updated: Confirmed compatibility with WordPress 6.8
+
 = 1.17.2 - 2024-11-19 =
 * Fixed: PHP warnings around empty description variables from tools page.
 * Updated: Confirmed compatibility with WordPress 6.7
@@ -66,48 +72,15 @@ Custom Post Type UI development is managed on GitHub, with official releases pub
 * Added: Remembers toggled states for CPTUI settings panels. Props @aslamatwebdevstudios and @ramsesdelr
 * Updated: Notes about slugs for both post types and taxonomies.
 * Updated: Support/FAQ section with more accurate links.
-
-= 1.13.7 - 2023-07-11 =
-* Fixed: "themes" marked as reserved taxonomy slug. Causes issues with featured image metabox.
-* Fixed: PHP notice around `sort` parameter.
-
-= 1.13.6 - 2023-05-30 =
-* Fixed: Prevent PHP errors for dynamic WordPress hooks.
-* Fixed: Prevent PHP errors from array_key_exist() checks on non arrays.
-* Updated: Removed Maintainn graphic and added WP Search with Algolia Pro graphic.
-* Updated: Fixed a lot of text escaping for translation-ready content.
-
-= 1.13.5 - 2023-03-27 =
-* Fixed: Security issue in CPTUI Debug Info screen.
-* Fixed: Added `empty()` check for `can_export` parameters.
-* Updated: Changed textdomain loading from `plugins_loaded` to `init`.
-
-= 1.13.4 - 2022-12-16 =
-* Fixed: Character encoding issue on CPTUI setting save in conjunction with PHP8 compatibility.
-
-= 1.13.3 - 2022-12-15 =
-* Fixed: Multiple PHP8 compatibility notices and warnings.
-* Fixed: "Invalid argument for foreach" based notices around labels.
-* Updated: Added taxonomy PHP global sanitization for 3rd party parameters.
-
-= 1.13.2 - 2022-11-29 =
-* Fixed: Removed forcing of underscores in place of dashes for taxonomy slugs. Yay!
-* Updated: tested up to WP 6.1.1
-* Updated: Documentation links in wordpress.org FAQ section.
-
-= 1.13.1 - 2022-09-08 =
-* Fixed: Various issues caused by a misplaced output for `ob_get_clean()` outside of function.
-
-= 1.13.0 - 2022-09-07 =
-* Added: Notes regarding featured image and post format support also needing `add_theme_support` to work.
-* Fixed: Issues around double quotes and JSON export with the post type description field
-* Fixed: Issues around HTML markup being removed from post type description field stemming from 1.10.x release
-* Fixed: Pluralization issue with our UI for some field labels
-* Updated: Code separation and quality cleanup.
-* Updated: Plugin branding.
 
 == Upgrade Notice ==
 
+= 1.17.3 - TBD =
+* Fixed: PHP notices around foreach loops in cptui_post_thumbnail_theme_support().
+* Fixed: PHP notices around empty variable values with get code section.
+* Fixed: PHP notices around false values with taxonomy listings with post type registration.
+* Updated: Confirmed compatibility with WordPress 6.8
+
 = 1.17.2 - 2024-11-19 =
 * Fixed: PHP warnings around empty description variables from tools page.
 * Updated: Confirmed compatibility with WordPress 6.7
@@ -142,45 +115,6 @@ Custom Post Type UI development is managed on GitHub, with official releases pub
 * Added: Remembers toggled states for CPTUI settings panels. Props @aslamatwebdevstudios and @ramsesdelr
 * Updated: Notes about slugs for both post types and taxonomies.
 * Updated: Support/FAQ section with more accurate links.
-
-= 1.13.7 - 2023-07-11 =
-* Fixed: "themes" marked as reserved taxonomy slug. Causes issues with featured image metabox.
-* Fixed: PHP notice around `sort` parameter.
-
-= 1.13.6 - 2023-05-30 =
-* Fixed: Prevent PHP errors for dynamic WordPress hooks.
-* Fixed: Prevent PHP errors from array_key_exist() checks on non arrays.
-* Updated: Removed Maintainn graphic and added WP Search with Algolia Pro graphic.
-* Updated: Fixed a lot of text escaping for translation-ready content.
-
-= 1.13.5 - 2023-03-27 =
-* Fixed: Security issue in CPTUI Debug Info screen.
-* Fixed: Added `empty()` check for `can_export` parameters.
-* Updated: Changed textdomain loading from `plugins_loaded` to `init`.
-
-= 1.13.4 - 2022-12-16 =
-* Fixed: Character encoding issue on CPTUI setting save in conjunction with PHP8 compatibility.
-
-= 1.13.3 - 2022-12-15 =
-* Fixed: Multiple PHP8 compatibility notices and warnings.
-* Fixed: "Invalid argument for foreach" based notices around labels.
-* Updated: Added taxonomy PHP global sanitization for 3rd party parameters.
-
-= 1.13.2 - 2022-11-29 =
-* Fixed: Removed forcing of underscores in place of dashes for taxonomy slugs. Yay!
-* Updated: tested up to WP 6.1.1
-* Updated: Documentation links in wordpress.org FAQ section.
-
-= 1.13.1 - 2022-09-08 =
-* Fixed: Various issues caused by a misplaced output for `ob_get_clean()` outside of function.
-
-= 1.13.0 - 2022-09-07 =
-* Added: Notes regarding featured image and post format support also needing `add_theme_support` to work.
-* Fixed: Issues around double quotes and JSON export with the post type description field
-* Fixed: Issues around HTML markup being removed from post type description field stemming from 1.10.x release
-* Fixed: Pluralization issue with our UI for some field labels
-* Updated: Code separation and quality cleanup.
-* Updated: Plugin branding.
 
 == Installation ==
 
