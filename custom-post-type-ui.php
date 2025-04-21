@@ -16,7 +16,7 @@
  * Plugin URI: https://github.com/WebDevStudios/custom-post-type-ui/
  * Description: Admin UI panel for registering custom post types and taxonomies
  * Author: WebDevStudios
- * Version: 1.17.2
+ * Version: 1.17.3
  * Author URI: https://webdevstudios.com/
  * Text Domain: custom-post-type-ui
  * Domain Path: /languages
@@ -33,8 +33,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'CPT_VERSION', '1.17.2' ); // Left for legacy purposes.
-define( 'CPTUI_VERSION', '1.17.2' );
+define( 'CPT_VERSION', '1.17.3' ); // Left for legacy purposes.
+define( 'CPTUI_VERSION', '1.17.3' );
 define( 'CPTUI_WP_VERSION', get_bloginfo( 'version' ) );
 
 /**
@@ -246,9 +246,9 @@ function cptui_add_styles() {
 		return;
 	}
 	$min = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
-	wp_register_script( 'cptui', plugins_url( "build/cptui{$min}.js", __FILE__ ), [ 'jquery', 'jquery-ui-dialog', 'postbox' ], CPTUI_VERSION, true );
-	wp_register_script( 'dashicons-picker', plugins_url( "build/dashiconsPicker{$min}.js", __FILE__ ), [ 'jquery'], '1.0.0', true );
-	wp_register_style( 'cptui-css', plugins_url( "build/cptui-styles{$min}.css", __FILE__ ), [ 'wp-jquery-ui-dialog' ], CPTUI_VERSION );
+	wp_register_script( 'cptui', plugins_url( "build/cptui$min.js", __FILE__ ), [ 'jquery', 'jquery-ui-dialog', 'postbox' ], CPTUI_VERSION, true );
+	wp_register_script( 'dashicons-picker', plugins_url( "build/dashiconsPicker$min.js", __FILE__ ), [ 'jquery'], '1.0.0', true );
+	wp_register_style( 'cptui-css', plugins_url( "build/cptui-styles$min.css", __FILE__ ), [ 'wp-jquery-ui-dialog' ], CPTUI_VERSION );
 }
 add_action( 'admin_enqueue_scripts', 'cptui_add_styles' );
 
@@ -333,7 +333,7 @@ function cptui_create_custom_post_types() {
 	 */
 	do_action( 'cptui_post_register_post_types', $cpts );
 }
-add_action( 'init', 'cptui_create_custom_post_types', 10 ); // Leave on standard init for legacy purposes.
+add_action( 'init', 'cptui_create_custom_post_types' ); // Leave on standard init for legacy purposes.
 
 /**
  * Helper function to register the actual post_type.
@@ -345,7 +345,7 @@ add_action( 'init', 'cptui_create_custom_post_types', 10 ); // Leave on standard
  * @param array $post_type Post type array to register. Optional.
  * @return null Result of register_post_type.
  */
-function cptui_register_single_post_type( $post_type = [] ) {
+function cptui_register_single_post_type( array $post_type = [] ) {
 
 	/**
 	 * Filters the map_meta_cap value.
@@ -652,7 +652,7 @@ add_action( 'init', 'cptui_create_custom_taxonomies', 9 );  // Leave on standard
  * @param array $taxonomy Taxonomy array to register. Optional.
  * @return null Result of register_taxonomy.
  */
-function cptui_register_single_taxonomy( $taxonomy = [] ) {
+function cptui_register_single_taxonomy( array $taxonomy = [] ) {
 
 	$labels = [
 		'name'          => $taxonomy['label'],
@@ -670,7 +670,7 @@ function cptui_register_single_taxonomy( $taxonomy = [] ) {
 
 		if ( ! empty( $label ) ) {
 			$labels[ $key ] = $label;
-		} elseif ( empty( $label ) && in_array( $key, $preserved, true ) ) {
+		} elseif ( in_array( $key, $preserved, true ) ) {
 			$singular_or_plural = ( in_array( $key, array_keys( $preserved_labels['taxonomies']['plural'] ) ) ) ? 'plural' : 'singular'; // phpcs:ignore.
 			$label_plurality    = ( 'plural' === $singular_or_plural ) ? $taxonomy['label'] : $taxonomy['singular_label'];
 			$labels[ $key ]     = sprintf( $preserved_labels['taxonomies'][ $singular_or_plural ][ $key ], $label_plurality );
@@ -812,7 +812,7 @@ function cptui_register_single_taxonomy( $taxonomy = [] ) {
  * @param string $page Whether it's the CPT or Taxonomy page. Optional. Default "post_types".
  * @return string
  */
-function cptui_settings_tab_menu( $page = 'post_types' ) {
+function cptui_settings_tab_menu( string $page = 'post_types' ) {
 
 	/**
 	 * Filters the tabs to render on a given page.
@@ -863,7 +863,7 @@ function cptui_settings_tab_menu( $page = 'post_types' ) {
 function cptui_convert_settings() {
 
 	if ( wp_doing_ajax() ) {
-		return;
+		return false;
 	}
 
 	$retval = '';
@@ -921,7 +921,7 @@ add_action( 'admin_init', 'cptui_convert_settings' );
  * @param string $custom       Custom message if necessary. Optional. Default empty string.
  * @return bool|string false on no message, else HTML div with our notice message.
  */
-function cptui_admin_notices( $action = '', $object_type = '', $success = true, $custom = '' ) {
+function cptui_admin_notices( string $action = '', string $object_type = '', bool $success = true, string $custom = '' ) {
 
 	$class       = [];
 	$class[]     = $success ? 'updated' : 'error';
@@ -990,7 +990,7 @@ function cptui_admin_notices( $action = '', $object_type = '', $success = true, 
  * @param string $type Type to return. Either 'post_types' or 'taxonomies'. Optional. Default empty string.
  * @return array Array of keys needing preservered for the requested type.
  */
-function cptui_get_preserved_keys( $type = '' ) {
+function cptui_get_preserved_keys( string $type = '' ) {
 
 	$preserved_labels = [
 		'post_types' => [
@@ -1035,7 +1035,7 @@ function cptui_get_preserved_keys( $type = '' ) {
  * @param string $singular Singular verbiage for the requested label and type. Optional. Default empty string.
  * @return string Internationalized default label.
  */
-function cptui_get_preserved_label( $type = '', $key = '', $plural = '', $singular = '' ) {
+function cptui_get_preserved_label( string $type = '', string $key = '', string $plural = '', string $singular = '' ) {
 
 	$preserved_labels = [
 		'post_types' => [

@@ -1740,20 +1740,27 @@ function cptui_manage_post_types() {
 							$add_taxes = apply_filters( 'cptui_get_taxonomies_for_post_types', get_taxonomies( $args, 'objects' ), $args );
 							unset( $add_taxes['nav_menu'], $add_taxes['post_format'] );
 							foreach ( $add_taxes as $add_tax ) {
-
-								$core_label = in_array( $add_tax->name, [ 'category', 'post_tag' ], true ) ? esc_html__( '(WP Core)', 'custom-post-type-ui' ) : '';
-								echo $ui->get_check_input( // phpcs:ignore.
-									[
-										'checkvalue' => esc_attr( $add_tax->name ),
-										'checked'    => ( ! empty( $current['taxonomies'] ) && is_array( $current['taxonomies'] ) && in_array( $add_tax->name, $current['taxonomies'] ) ) ? 'true' : 'false', // phpcs:ignore.
-										'name'       => esc_attr( $add_tax->name ),
-										'namearray'  => 'cpt_addon_taxes',
-										'textvalue'  => esc_attr( $add_tax->name ),
-										'labeltext'  => $add_tax->label . ' ' . $core_label, // phpcs:ignore.
-										'helptext'   => sprintf( esc_attr__( 'Adds %s support', 'custom-post-type-ui' ), $add_tax->label ), // phpcs:ignore.
-										'wrap'       => false,
-									]
-								);
+								if ( false !== $add_tax ) {
+									$core_label = in_array( $add_tax->name, [
+										'category',
+										'post_tag'
+									], true ) ? esc_html__( '(WP Core)', 'custom-post-type-ui' ) : '';
+									echo $ui->get_check_input( // phpcs:ignore.
+										[
+											'checkvalue' => esc_attr( $add_tax->name ),
+											'checked'    => ( ! empty( $current['taxonomies'] ) && is_array( $current['taxonomies'] ) && in_array( $add_tax->name, $current['taxonomies'] ) ) ? 'true' : 'false',
+											// phpcs:ignore.
+											'name'       => esc_attr( $add_tax->name ),
+											'namearray'  => 'cpt_addon_taxes',
+											'textvalue'  => esc_attr( $add_tax->name ),
+											'labeltext'  => $add_tax->label . ' ' . $core_label,
+											// phpcs:ignore.
+											'helptext'   => sprintf( esc_attr__( 'Adds %s support', 'custom-post-type-ui' ), $add_tax->label ),
+											// phpcs:ignore.
+											'wrap'       => false,
+										]
+									);
+								}
 							}
 							echo $ui->get_fieldset_end() . $ui->get_td_end() . $ui->get_tr_end(); // phpcs:ignore.
 							?>

@@ -16,11 +16,21 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 1.2.0 Added $cptui_taxonomies parameter.
  */
 function cptui_get_taxonomy_code( $cptui_taxonomies = [], $single = false ) {
+	// Whitespace very much matters here, thus why it's all flush against the left side.
 	if ( ! empty( $cptui_taxonomies ) ) {
 		$callback = 'cptui_register_my_taxes';
 		if ( $single ) {
 			$key      = key( $cptui_taxonomies );
-			$callback = 'cptui_register_my_taxes_' . str_replace( '-', '_', esc_html( $cptui_taxonomies[ $key ]['name'] ) );
+			$callback = 'cptui_register_my_taxes_unknown'; // new fallback
+			if ( ! empty( $cptui_taxonomies[ $key ]['name'] ) ) {
+				// If we have a name value.
+				$suffix = esc_html( $cptui_taxonomies[ $key ]['name'] );
+
+				// if somehow our escaping is returning a null value.
+				if ( ! empty( $suffix ) ) {
+					$callback = 'cptui_register_my_taxes_' . str_replace( '-', '_', $suffix );
+				}
+			}
 		}
 		ob_start();
 		?>
