@@ -32,7 +32,7 @@ Custom Post Type UI development is managed on GitHub, with official releases pub
 
 == Changelog ==
 
-= 1.17.3 - TBD =
+= 1.17.3 - 2025-04-21 =
 * Fixed: PHP notices around foreach loops in cptui_post_thumbnail_theme_support().
 * Fixed: PHP notices around empty variable values with get code section.
 * Fixed: PHP notices around false values with taxonomy listings with post type registration.
