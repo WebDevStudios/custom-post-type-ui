@@ -926,6 +926,23 @@ function cptui_manage_post_types() {
 									]
 								);
 
+								echo $ui->get_text_input( // phpcs:ignore.
+									[
+										'labeltext' => esc_html__( 'Template name', 'custom-post-type-ui' ),
+										'helptext'  => esc_html__( 'Use by the site editor to display on the templates/add new template screens.', 'custom-post-type-ui' ),
+										'namearray' => 'cpt_labels',
+										'name'      => 'template_name',
+										'textvalue' => isset( $current['labels']['template_name'] ) ? esc_attr( $current['labels']['template_name'] ) : '',
+										// phpcs:ignore.
+										'aftertext' => esc_html__( '(e.g. "Single item: Movie")', 'custom-post-type-ui' ),
+										'data'      => [
+											/* translators: Used for autofill */
+											'label'     => sprintf( esc_attr__( 'Single item: %s', 'custom-post-type-ui' ), 'item' ),
+											'plurality' => 'singular',
+										],
+									]
+								);
+
 								?>
 						</table>
 					</div>

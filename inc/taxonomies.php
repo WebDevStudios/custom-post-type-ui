@@ -844,6 +844,23 @@ function cptui_manage_taxonomies() {
 									],
 								]
 							);
+
+							echo $ui->get_text_input( // phpcs:ignore.
+								[
+									'namearray' => 'cpt_tax_labels',
+									'name'      => 'template_name',
+									'textvalue' => isset( $current['labels']['template_name'] ) ? esc_attr( $current['labels']['template_name'] ) : null,
+									// phpcs:ignore.
+									'aftertext' => esc_html__( '(e.g. "Category Archives")', 'custom-post-type-ui' ),
+									'labeltext' => esc_html__( 'Template name', 'custom-post-type-ui' ),
+									'helptext'  => esc_attr__( 'Use by the site editor to display on the templates/add new template screens.', 'custom-post-type-ui' ),
+									'data'      => [
+										/* translators: Used for autofill */
+										'label'     => sprintf( esc_attr__( '%s Archives', 'custom-post-type-ui' ), 'item' ),
+										'plurality' => 'singular',
+									],
+								]
+							);
 							?>
 						</table>
 					</div>
