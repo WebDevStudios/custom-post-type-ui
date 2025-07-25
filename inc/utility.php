@@ -431,13 +431,7 @@ function cptui_newsletter_form() {
  * @author Scott Anderson <scott.anderson@webdevstudios.com>
  * @since  1.7.3
  */
-function enqueue_email_octopus_assets() {
-
-	$current_screen = get_current_screen();
-
-	if ( ! is_object( $current_screen ) ) {
-		return;
-	}
+function enqueue_email_octopus_assets( $hook ) {
 
 	$screens = [
 		'toplevel_page_cptui_main_menu',
@@ -445,7 +439,7 @@ function enqueue_email_octopus_assets() {
 		'cpt-ui_page_cptui_manage_taxonomies',
 	];
 
-	if ( ! in_array( $current_screen->base, $screens, true ) ) {
+	if ( ! in_array( $hook, $screens, true ) ) {
 		return;
 	}
 

@@ -23,11 +23,9 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @internal
  */
-function cptui_post_type_enqueue_scripts() {
+function cptui_post_type_enqueue_scripts( $hook ) {
 
-	$current_screen = get_current_screen();
-
-	if ( ! is_object( $current_screen ) || 'cpt-ui_page_cptui_manage_post_types' !== $current_screen->base ) {
+	if ( 'cpt-ui_page_cptui_manage_post_types' !== $hook ) {
 		return;
 	}
 

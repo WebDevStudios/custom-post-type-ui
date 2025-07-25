@@ -21,10 +21,9 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since 1.6.0
  */
-function cptui_listings_assets() {
-	$current_screen = get_current_screen();
+function cptui_listings_assets( $hook ) {
 
-	if ( ! is_object( $current_screen ) || 'cpt-ui_page_cptui_listings' !== $current_screen->base ) {
+	if ( 'cpt-ui_page_cptui_listings' !== $hook ) {
 		return;
 	}
 
