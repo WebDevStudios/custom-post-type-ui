@@ -23,11 +23,9 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @internal
  */
-function cptui_post_type_enqueue_scripts() {
+function cptui_post_type_enqueue_scripts( $hook ) {
 
-	$current_screen = get_current_screen();
-
-	if ( ! is_object( $current_screen ) || 'cpt-ui_page_cptui_manage_post_types' !== $current_screen->base ) {
+	if ( 'cpt-ui_page_cptui_manage_post_types' !== $hook ) {
 		return;
 	}
 
@@ -331,7 +329,7 @@ function cptui_manage_post_types() {
 								<?php
 							echo $ui->get_td_end() . $ui->get_tr_end(); // phpcs:ignore.
 							if ( empty( $_GET['action'] ) ||  'edit' !== $_GET['action'] ) { // phpcs:ignore.
-								echo $ui->get_tr_start() . $ui->get_th_start() . esc_html__( 'I\'m trying to migrate things in to CPTUI, let me save this', 'custom-post-type-ui' ) . $ui->get_th_end(); // phpcs:ignore.
+								echo $ui->get_tr_start() . $ui->get_th_start() . $ui->get_label( 'override_validation', esc_html__( 'I\'m trying to migrate things in to CPTUI, let me save this', 'custom-post-type-ui' ) ) . $ui->get_th_end(); // phpcs:ignore.
 								echo $ui->get_td_start(); // phpcs:ignore.
 									?>
 									<input type="checkbox" name="cpt_override_validation" value="1" id="override_validation" />
@@ -926,6 +924,23 @@ function cptui_manage_post_types() {
 									]
 								);
 
+								echo $ui->get_text_input( // phpcs:ignore.
+									[
+										'labeltext' => esc_html__( 'Template name', 'custom-post-type-ui' ),
+										'helptext'  => esc_html__( 'Use by the site editor to display on the templates/add new template screens.', 'custom-post-type-ui' ),
+										'namearray' => 'cpt_labels',
+										'name'      => 'template_name',
+										'textvalue' => isset( $current['labels']['template_name'] ) ? esc_attr( $current['labels']['template_name'] ) : '',
+										// phpcs:ignore.
+										'aftertext' => esc_html__( '(e.g. "Single item: Movie")', 'custom-post-type-ui' ),
+										'data'      => [
+											/* translators: Used for autofill */
+											'label'     => sprintf( esc_attr__( 'Single item: %s', 'custom-post-type-ui' ), 'item' ),
+											'plurality' => 'singular',
+										],
+									]
+								);
+
 								?>
 						</table>
 					</div>
@@ -1439,7 +1454,7 @@ function cptui_manage_post_types() {
 									'namearray'      => 'cpt_custom_post_type',
 									'name'           => 'show_in_menu_string',
 									'textvalue'      => isset( $current['show_in_menu_string'] ) ? esc_attr( $current['show_in_menu_string'] ) : '', // phpcs:ignore.
-									'helptext'       => esc_attr__( 'The top-level admin menu page file name for which the post type should be in the sub menu of.', 'custom-post-type-ui' ),
+									'helptext'       => $ui->get_label( 'show_in_menu_string', esc_attr__( 'The top-level admin menu page file name for which the post type should be in the sub menu of.', 'custom-post-type-ui' ) ),
 									'helptext_after' => true,
 									'wrap'           => false,
 								]
@@ -1513,7 +1528,7 @@ function cptui_manage_post_types() {
 									esc_url( 'https://developer.wordpress.org/reference/functions/add_theme_support/#post-thumbnails' ),
 									/* translators: Link text for WordPress Developer site. */
 									esc_html__( 'Theme support for featured images', 'custom-post-type-ui' ),
-									esc_url( 'https://wordpress.org/support/article/post-formats/' ),
+									esc_url( 'https://developer.wordpress.org/advanced-administration/wordpress/post-formats/' ),
 									/* translators: Link text for WordPress Developer site. */
 									esc_html__( 'Theme support for post formats', 'custom-post-type-ui' )
 								)
@@ -1694,7 +1709,7 @@ function cptui_manage_post_types() {
 							echo $ui->get_fieldset_end() . $ui->get_td_end() . $ui->get_tr_end(); // phpcs:ignore.
 
 							echo $ui->get_tr_start() . $ui->get_th_start() . '<label for="custom_supports">' . esc_html__( 'Custom "Supports"', 'custom-post-type-ui' ) . '</label>'; // phpcs:ignore.
-							echo $ui->get_p( sprintf( esc_html__( 'Use this input to register custom "supports" values, separated by commas. Learn about this at %s', 'custom-post-type-ui' ), '<a href="http://docs.pluginize.com/article/28-third-party-support-upon-registration" target="_blank" rel="noopener">' . esc_html__( 'Custom "Supports"', 'custom-post-type-ui' ) . '</a>' ) ); // phpcs:ignore.
+							echo $ui->get_p( sprintf( esc_html__( 'Use this input to register custom "supports" values, separated by commas. Learn about this at %s', 'custom-post-type-ui' ), '<a href="https://docs.pluginize.com/article/third-party-support-upon-registration/" target="_blank" rel="noopener">' . esc_html__( 'Custom "Supports"', 'custom-post-type-ui' ) . '</a>' ) ); // phpcs:ignore.
 							echo $ui->get_th_end() . $ui->get_td_start(); // phpcs:ignore.
 							echo $ui->get_text_input( // phpcs:ignore.
 								[

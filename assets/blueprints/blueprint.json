@@ -1,27 +1,24 @@
 {
-    "landingPage": "\/wp-admin\/admin.php?page=cptui_main_menu",
-    "preferredVersions": {
-        "php": "7.4",
-        "wp": "6.5"
-    },
-    "phpExtensionBundles": [
-        "kitchen-sink"
-    ],
-    "steps": [
-        {
-            "step": "login",
-            "username": "admin",
-            "password": "password"
-        },
-        {
-            "step": "installPlugin",
-            "pluginZipFile": {
-                "resource": "wordpress.org/plugins",
-                "slug": "custom-post-type-ui"
-            },
-            "options": {
-                "activate": true
-            }
-        }
+  "$schema": "https://playground.wordpress.net/blueprint-schema.json",
+  "meta": {
+    "title": "Custom Post Type UI",
+    "description": "Blueprint that runs Custom Post Type UI",
+    "author": "WebDevStudios",
+    "categories": [
+      "Content",
+      "CPT",
+      "Taxonomy"
     ]
+  },
+  "landingPage": "\/wp-admin\/admin.php?page=cptui_main_menu",
+  "preferredVersions": {
+    "php": "7.4",
+    "wp": "6.8"
+  },
+  "phpExtensionBundles": [
+    "kitchen-sink"
+  ],
+  "login": true,
+  "plugins": ["custom-post-type-ui"],
+  "steps": []
 }

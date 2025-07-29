@@ -16,7 +16,7 @@
  * Plugin URI: https://github.com/WebDevStudios/custom-post-type-ui/
  * Description: Admin UI panel for registering custom post types and taxonomies
  * Author: WebDevStudios
- * Version: 1.17.3
+ * Version: 1.18.0
  * Author URI: https://webdevstudios.com/
  * Text Domain: custom-post-type-ui
  * Domain Path: /languages
@@ -33,8 +33,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'CPT_VERSION', '1.17.3' ); // Left for legacy purposes.
-define( 'CPTUI_VERSION', '1.17.3' );
+define( 'CPT_VERSION', '1.18.0' ); // Left for legacy purposes.
+define( 'CPTUI_VERSION', '1.18.0' );
 define( 'CPTUI_WP_VERSION', get_bloginfo( 'version' ) );
 
 /**
@@ -1081,10 +1081,11 @@ function cptui_get_preserved_labels() {
 	return [
 		'post_types' => [
 			'singular' => [
-				'add_new_item' => esc_html__( 'Add new %s', 'custom-post-type-ui' ),
-				'edit_item'    => esc_html__( 'Edit %s', 'custom-post-type-ui' ),
-				'new_item'     => esc_html__( 'New %s', 'custom-post-type-ui' ),
-				'view_item'    => esc_html__( 'View %s', 'custom-post-type-ui' ),
+				'add_new_item'  => esc_html__( 'Add new %s', 'custom-post-type-ui' ),
+				'edit_item'     => esc_html__( 'Edit %s', 'custom-post-type-ui' ),
+				'new_item'      => esc_html__( 'New %s', 'custom-post-type-ui' ),
+				'view_item'     => esc_html__( 'View %s', 'custom-post-type-ui' ),
+				'template_name' => esc_html__( 'Single item: %s', 'custom-post-type-ui' ),
 			],
 			'plural'   => [
 				'view_items'         => esc_html__( 'View %s', 'custom-post-type-ui' ),
@@ -1102,6 +1103,7 @@ function cptui_get_preserved_labels() {
 				'update_item'       => esc_html__( 'Update %s', 'custom-post-type-ui' ),
 				'add_new_item'      => esc_html__( 'Add new %s', 'custom-post-type-ui' ),
 				'new_item_name'     => esc_html__( 'New %s name', 'custom-post-type-ui' ),
+				'template_name'     => esc_html__( '%s Archives', 'custom-post-type-ui' ),
 			],
 			'plural'   => [
 				'search_items'               => esc_html__( 'Search %s', 'custom-post-type-ui' ),

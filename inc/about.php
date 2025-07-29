@@ -21,10 +21,9 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since 1.6.0
  */
-function cptui_about_assets() {
-	$current_screen = get_current_screen();
+function cptui_about_assets( $hook ) {
 
-	if ( ! is_object( $current_screen ) || 'toplevel_page_cptui_main_menu' !== $current_screen->base ) {
+	if ( 'toplevel_page_cptui_main_menu' !== $hook ) {
 		return;
 	}
 
@@ -144,7 +143,7 @@ function cptui_pluginize_content() {
 
 			// Escaping $the_ad breaks the html.
 			printf(
-				'<p><a href="%s">%s</a></p>',
+				'<p><a href="%s" target="_blank">%s</a></p>',
 				esc_url( $ad['url'] ),
 				$the_ad // phpcs:ignore
 			);

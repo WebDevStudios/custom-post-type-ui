@@ -2,9 +2,9 @@
 Contributors: webdevstudios, pluginize, tw2113, williamsba1
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3084056
 Tags: custom post types, post type, taxonomy, content types, types
-Requires at least: 6.5
-Tested up to: 6.8
-Stable tag: 1.17.3
+Requires at least: 6.6
+Tested up to: 6.8.2
+Stable tag: 1.18.0
 License: GPL-2.0+
 Requires PHP: 7.4
 
@@ -31,6 +31,12 @@ Custom Post Type UI development is managed on GitHub, with official releases pub
 5. Help/support screen.
 
 == Changelog ==
+
+= 1.18.0 - 2025-07-29 =
+* Added: "template_name" label support.
+* Fixed: Typo in "games" Dashicon classname.
+* Updated: CPTUI "ad" graphics. Added ThemeSwitcher Pro.
+* Updated: touched up some label usage for post type registration screen.
 
 = 1.17.3 - 2025-04-21 =
 * Fixed: PHP notices around foreach loops in cptui_post_thumbnail_theme_support().
