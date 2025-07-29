@@ -331,7 +331,7 @@ function cptui_manage_post_types() {
 								<?php
 							echo $ui->get_td_end() . $ui->get_tr_end(); // phpcs:ignore.
 							if ( empty( $_GET['action'] ) ||  'edit' !== $_GET['action'] ) { // phpcs:ignore.
-								echo $ui->get_tr_start() . $ui->get_th_start() . esc_html__( 'I\'m trying to migrate things in to CPTUI, let me save this', 'custom-post-type-ui' ) . $ui->get_th_end(); // phpcs:ignore.
+								echo $ui->get_tr_start() . $ui->get_th_start() . $ui->get_label( 'override_validation', esc_html__( 'I\'m trying to migrate things in to CPTUI, let me save this', 'custom-post-type-ui' ) ) . $ui->get_th_end(); // phpcs:ignore.
 								echo $ui->get_td_start(); // phpcs:ignore.
 									?>
 									<input type="checkbox" name="cpt_override_validation" value="1" id="override_validation" />
