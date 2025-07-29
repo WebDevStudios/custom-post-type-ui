@@ -33,6 +33,7 @@ Custom Post Type UI development is managed on GitHub, with official releases pub
 == Changelog ==
 
 = 1.18.0 - TBD =
+* Fixed: Typo in "games" Dashicon classname.
 * Updated: CPTUI "ad" graphics. Added ThemeSwitcher Pro.
 * Updated: touched up some label usage for post type registration screen.
 
