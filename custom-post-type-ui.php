@@ -1081,10 +1081,11 @@ function cptui_get_preserved_labels() {
 	return [
 		'post_types' => [
 			'singular' => [
-				'add_new_item' => esc_html__( 'Add new %s', 'custom-post-type-ui' ),
-				'edit_item'    => esc_html__( 'Edit %s', 'custom-post-type-ui' ),
-				'new_item'     => esc_html__( 'New %s', 'custom-post-type-ui' ),
-				'view_item'    => esc_html__( 'View %s', 'custom-post-type-ui' ),
+				'add_new_item'  => esc_html__( 'Add new %s', 'custom-post-type-ui' ),
+				'edit_item'     => esc_html__( 'Edit %s', 'custom-post-type-ui' ),
+				'new_item'      => esc_html__( 'New %s', 'custom-post-type-ui' ),
+				'view_item'     => esc_html__( 'View %s', 'custom-post-type-ui' ),
+				'template_name' => esc_html__( 'Single item: %s', 'custom-post-type-ui' ),
 			],
 			'plural'   => [
 				'view_items'         => esc_html__( 'View %s', 'custom-post-type-ui' ),
@@ -1102,6 +1103,7 @@ function cptui_get_preserved_labels() {
 				'update_item'       => esc_html__( 'Update %s', 'custom-post-type-ui' ),
 				'add_new_item'      => esc_html__( 'Add new %s', 'custom-post-type-ui' ),
 				'new_item_name'     => esc_html__( 'New %s name', 'custom-post-type-ui' ),
+				'template_name'     => esc_html__( '%s Archives', 'custom-post-type-ui' ),
 			],
 			'plural'   => [
 				'search_items'               => esc_html__( 'Search %s', 'custom-post-type-ui' ),
