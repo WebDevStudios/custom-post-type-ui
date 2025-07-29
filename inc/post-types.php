@@ -1513,7 +1513,7 @@ function cptui_manage_post_types() {
 									esc_url( 'https://developer.wordpress.org/reference/functions/add_theme_support/#post-thumbnails' ),
 									/* translators: Link text for WordPress Developer site. */
 									esc_html__( 'Theme support for featured images', 'custom-post-type-ui' ),
-									esc_url( 'https://wordpress.org/support/article/post-formats/' ),
+									esc_url( 'https://developer.wordpress.org/advanced-administration/wordpress/post-formats/' ),
 									/* translators: Link text for WordPress Developer site. */
 									esc_html__( 'Theme support for post formats', 'custom-post-type-ui' )
 								)
