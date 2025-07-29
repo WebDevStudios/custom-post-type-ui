@@ -303,7 +303,7 @@
 			'airplane',
 			'car',
 			'calculator',
-			'ames',
+			'games',
 			'printer',
 			'beer',
 			'coffee',
