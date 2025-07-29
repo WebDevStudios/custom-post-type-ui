@@ -331,7 +331,7 @@ function cptui_manage_post_types() {
 								<?php
 							echo $ui->get_td_end() . $ui->get_tr_end(); // phpcs:ignore.
 							if ( empty( $_GET['action'] ) ||  'edit' !== $_GET['action'] ) { // phpcs:ignore.
-								echo $ui->get_tr_start() . $ui->get_th_start() . esc_html__( 'I\'m trying to migrate things in to CPTUI, let me save this', 'custom-post-type-ui' ) . $ui->get_th_end(); // phpcs:ignore.
+								echo $ui->get_tr_start() . $ui->get_th_start() . $ui->get_label( 'override_validation', esc_html__( 'I\'m trying to migrate things in to CPTUI, let me save this', 'custom-post-type-ui' ) ) . $ui->get_th_end(); // phpcs:ignore.
 								echo $ui->get_td_start(); // phpcs:ignore.
 									?>
 									<input type="checkbox" name="cpt_override_validation" value="1" id="override_validation" />
@@ -1439,7 +1439,7 @@ function cptui_manage_post_types() {
 									'namearray'      => 'cpt_custom_post_type',
 									'name'           => 'show_in_menu_string',
 									'textvalue'      => isset( $current['show_in_menu_string'] ) ? esc_attr( $current['show_in_menu_string'] ) : '', // phpcs:ignore.
-									'helptext'       => esc_attr__( 'The top-level admin menu page file name for which the post type should be in the sub menu of.', 'custom-post-type-ui' ),
+									'helptext'       => $ui->get_label( 'show_in_menu_string', esc_attr__( 'The top-level admin menu page file name for which the post type should be in the sub menu of.', 'custom-post-type-ui' ) ),
 									'helptext_after' => true,
 									'wrap'           => false,
 								]
@@ -1694,7 +1694,7 @@ function cptui_manage_post_types() {
 							echo $ui->get_fieldset_end() . $ui->get_td_end() . $ui->get_tr_end(); // phpcs:ignore.
 
 							echo $ui->get_tr_start() . $ui->get_th_start() . '<label for="custom_supports">' . esc_html__( 'Custom "Supports"', 'custom-post-type-ui' ) . '</label>'; // phpcs:ignore.
-							echo $ui->get_p( sprintf( esc_html__( 'Use this input to register custom "supports" values, separated by commas. Learn about this at %s', 'custom-post-type-ui' ), '<a href="http://docs.pluginize.com/article/28-third-party-support-upon-registration" target="_blank" rel="noopener">' . esc_html__( 'Custom "Supports"', 'custom-post-type-ui' ) . '</a>' ) ); // phpcs:ignore.
+							echo $ui->get_p( sprintf( esc_html__( 'Use this input to register custom "supports" values, separated by commas. Learn about this at %s', 'custom-post-type-ui' ), '<a href="https://docs.pluginize.com/article/third-party-support-upon-registration/" target="_blank" rel="noopener">' . esc_html__( 'Custom "Supports"', 'custom-post-type-ui' ) . '</a>' ) ); // phpcs:ignore.
 							echo $ui->get_th_end() . $ui->get_td_start(); // phpcs:ignore.
 							echo $ui->get_text_input( // phpcs:ignore.
 								[
