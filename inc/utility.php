@@ -353,7 +353,7 @@ function cptui_products_sidebar() {
 
 			// Escaping $the_ad breaks the html.
 			printf(
-				'<p><a href="%s">%s</a></p>',
+				'<p><a href="%s" target="_blank">%s</a></p>',
 				esc_url( $ad['url'] ),
 				$the_ad // phpcs:ignore WordPress.Security.EscapeOutput
 			);
@@ -501,21 +501,21 @@ function cptui_default_ads( $ads = [] ) {
 	];
 
 	$ads[] = [
-		'url'   => 'https://pluginize.com/plugins/instago/?utm_source=cptui-sidebar&utm_medium=text&utm_campaign=instago',
-		'image' => plugin_dir_url( __DIR__ ) . 'images/wds_ads/instago.png',
-		'text'  => 'InstaGo product ad',
-	];
-
-	$ads[] = [
-		'url'   => 'https://pluginize.com/plugins/buddypages/?utm_source=cptui-sidebar&utm_medium=text&utm_campaign=buddypages',
-		'image' => plugin_dir_url( __DIR__ ) . 'images/wds_ads/buddypages.png',
-		'text'  => 'BuddyPages product ad',
+		'url'   => 'https://themeswitcher.com/?utm_source=cptui-sidebar&utm_medium=text&utm_campaign=themeswitcher-pro',
+		'image' => plugin_dir_url( __DIR__ ) . 'images/wds_ads/themeswitcher-pro.png',
+		'text'  => 'ThemeSwitcher Pro Plugin Ad',
 	];
 
 	$ads[] = [
 		'url'   => 'https://pluginize.com/plugins/wp-search-with-algolia-pro/?utm_source=cptui-sidebar&utm_medium=text&utm_campaign=wp-search-with-algolia-pro',
 		'image' => plugin_dir_url( __DIR__ ) . 'images/wds_ads/wp-search-with-algolia-pro.png',
 		'text'  => 'WP Search with Algolia Pro product ad',
+	];
+
+	$ads[] = [
+		'url'   => 'https://pluginize.com/plugins/buddypages/?utm_source=cptui-sidebar&utm_medium=text&utm_campaign=buddypages',
+		'image' => plugin_dir_url( __DIR__ ) . 'images/wds_ads/buddypages.png',
+		'text'  => 'BuddyPages product ad',
 	];
 
 	return $ads;
@@ -543,7 +543,7 @@ function cptui_randomize_ads( $ads = [] ) {
 
 	return array_merge( $new_order, $ads );
 }
-add_filter( 'cptui_ads', 'cptui_randomize_ads', 11 );
+//add_filter( 'cptui_ads', 'cptui_randomize_ads', 11 );
 
 /**
  * Secondary admin notices function for use with admin_notices hook.

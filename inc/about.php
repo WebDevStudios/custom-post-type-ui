@@ -144,7 +144,7 @@ function cptui_pluginize_content() {
 
 			// Escaping $the_ad breaks the html.
 			printf(
-				'<p><a href="%s">%s</a></p>',
+				'<p><a href="%s" target="_blank">%s</a></p>',
 				esc_url( $ad['url'] ),
 				$the_ad // phpcs:ignore
 			);
