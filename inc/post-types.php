@@ -2135,10 +2135,14 @@ function cptui_update_post_type( $data = [] ) {
 		$singular_label = htmlspecialchars( stripslashes( $singular_label ), ENT_QUOTES );
 	}
 
-	// We are handling this special because we can't accurately get to exclude the description index
-	// in the cptui_filtered_post_type_post_global() function. So we clean this up from the $_POST
-	// global afterwards here.
-	$description = wp_kses_post( stripslashes_deep( $_POST['cpt_custom_post_type']['description'] ) );
+	$description = '';
+	if ( ! empty( $_POST['cpt_custom_post_type']['description'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Missing Nonce verification handled before function invoction.
+
+		// We are handling this special because we can't accurately get to exclude the description index
+		// in the cptui_filtered_post_type_post_global() function. So we clean this up from the $_POST
+		// global afterwards here.
+		$description = wp_kses_post( stripslashes_deep( $_POST['cpt_custom_post_type']['description'] ) ); // phpcs:ignore WordPress.Security.NonceVerification.Missing Nonce verification handled before function invoction.
+	}
 
 	$name                  = trim( $data['cpt_custom_post_type']['name'] );
 	$rest_base             = trim( $data['cpt_custom_post_type']['rest_base'] );
