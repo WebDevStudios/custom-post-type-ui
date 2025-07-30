@@ -188,11 +188,11 @@ class CPTUI_GraphQL {
 			<div class="postbox-header">
 
 				<h2 class="hndle ui-sortable-handle">
-					<span><?php esc_html_e( 'WPGraphQL', 'wp-graphql-custom-post-type-ui' ); ?></span>
+					<span><?php esc_html_e( 'WPGraphQL', 'custom-post-type-ui' ); ?></span>
 				</h2>
 				<div class="handle-actions hide-if-no-js">
 					<button type="button" class="handlediv">
-						<span class="screen-reader-text"><?php esc_html_e( 'Toggle panel: GraphQL Settings', 'wp-graphql-custom-post-type-ui' ); ?></span>
+						<span class="screen-reader-text"><?php esc_html_e( 'Toggle panel: GraphQL Settings', 'custom-post-type-ui' ); ?></span>
 						<span class="toggle-indicator" aria-hidden="true"></span>
 					</button>
 				</div>
@@ -206,11 +206,11 @@ class CPTUI_GraphQL {
 							'options' => [
 								[
 									'attr' => '0',
-									'text' => esc_attr__( 'False', 'wp-graphql-custom-post-type-ui' ),
+									'text' => esc_attr__( 'False', 'custom-post-type-ui' ),
 								],
 								[
 									'attr' => '1',
-									'text' => esc_attr__( 'True', 'wp-graphql-custom-post-type-ui' ),
+									'text' => esc_attr__( 'True', 'custom-post-type-ui' ),
 								],
 							],
 						];
@@ -222,8 +222,8 @@ class CPTUI_GraphQL {
 							[
 								'namearray'  => $name_array,
 								'name'       => 'show_in_graphql',
-								'labeltext'  => esc_html__( 'Show in GraphQL', 'wp-graphql-custom-post-type-ui' ),
-								'aftertext'  => esc_html__( 'Whether or not to show data of this type in the WPGraphQL. Default: false', 'wp-graphql-custom-post-type-ui' ),
+								'labeltext'  => esc_html__( 'Show in GraphQL', 'custom-post-type-ui' ),
+								'aftertext'  => esc_html__( 'Whether or not to show data of this type in the WPGraphQL. Default: false', 'custom-post-type-ui' ),
 								'selections' => $selections, // phpcs:ignore.
 								'default'    => false,
 								'required'   => true,
@@ -234,8 +234,8 @@ class CPTUI_GraphQL {
 							[
 								'namearray' => $name_array,
 								'name'      => 'graphql_single_name',
-								'labeltext' => esc_html__( 'GraphQL Single Name', 'wp-graphql-custom-post-type-ui' ),
-								'aftertext' => esc_attr__( 'Singular name for reference in the GraphQL API.', 'wp-graphql-custom-post-type-ui' ),
+								'labeltext' => esc_html__( 'GraphQL Single Name', 'custom-post-type-ui' ),
+								'aftertext' => esc_attr__( 'Singular name for reference in the GraphQL API.', 'custom-post-type-ui' ),
 								'textvalue' => ( isset( $current['graphql_single_name'] ) ) ? esc_attr( $current['graphql_single_name'] ) : '', // phpcs:ignore.
 								'required'  => true,
 							]
@@ -245,8 +245,8 @@ class CPTUI_GraphQL {
 							[
 								'namearray' => $name_array,
 								'name'      => 'graphql_plural_name',
-								'labeltext' => esc_html__( 'GraphQL Plural Name', 'wp-graphql-custom-post-type-ui' ),
-								'aftertext' => esc_attr__( 'Plural name for reference in the GraphQL API.', 'wp-graphql-custom-post-type-ui' ),
+								'labeltext' => esc_html__( 'GraphQL Plural Name', 'custom-post-type-ui' ),
+								'aftertext' => esc_attr__( 'Plural name for reference in the GraphQL API.', 'custom-post-type-ui' ),
 								'textvalue' => ( isset( $current['graphql_plural_name'] ) ) ? esc_attr( $current['graphql_plural_name'] ) : '', // phpcs:ignore.
 								'required'  => true,
 							]
