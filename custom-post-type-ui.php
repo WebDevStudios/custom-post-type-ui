@@ -111,18 +111,6 @@ function cptui_deactivation() {
 register_deactivation_hook( __FILE__, 'cptui_deactivation' );
 
 /**
- * Register our text domain.
- *
- * @since 0.8.0
- *
- * @internal
- */
-function cptui_load_textdomain() {
-	load_plugin_textdomain( 'custom-post-type-ui' );
-}
-add_action( 'init', 'cptui_load_textdomain' );
-
-/**
  * Load our main menu.
  *
  * Submenu items added in version 1.1.0
