@@ -2136,12 +2136,11 @@ function cptui_update_post_type( $data = [] ) {
 	}
 
 	$description = '';
-	if ( ! empty( $_POST['cpt_custom_post_type']['description'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Missing Nonce verification handled before function invoction.
-
+	if ( ! empty( $_POST['cpt_custom_post_type']['description'] ) ) {
 		// We are handling this special because we can't accurately get to exclude the description index
 		// in the cptui_filtered_post_type_post_global() function. So we clean this up from the $_POST
 		// global afterwards here.
-		$description = wp_kses_post( stripslashes_deep( $_POST['cpt_custom_post_type']['description'] ) ); // phpcs:ignore WordPress.Security.NonceVerification.Missing Nonce verification handled before function invoction.
+		$description = wp_kses_post( stripslashes_deep( $_POST['cpt_custom_post_type']['description'] ) );
 	}
 
 	$name                  = trim( $data['cpt_custom_post_type']['name'] );
