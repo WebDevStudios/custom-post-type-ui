@@ -220,7 +220,7 @@ class CPTUI_GraphQL {
 
 						echo $ui->get_select_input( // phpcs:ignore.
 							[
-								'namearray'  => $name_array,
+								'namearray'  => esc_attr( $name_array ),
 								'name'       => 'show_in_graphql',
 								'labeltext'  => esc_html__( 'Show in GraphQL', 'custom-post-type-ui' ),
 								'aftertext'  => esc_html__( 'Whether or not to show data of this type in the WPGraphQL. Default: false', 'custom-post-type-ui' ),
@@ -232,7 +232,7 @@ class CPTUI_GraphQL {
 
 						echo $ui->get_text_input( // phpcs:ignore.
 							[
-								'namearray' => $name_array,
+								'namearray' => esc_attr( $name_array ),
 								'name'      => 'graphql_single_name',
 								'labeltext' => esc_html__( 'GraphQL Single Name', 'custom-post-type-ui' ),
 								'aftertext' => esc_attr__( 'Singular name for reference in the GraphQL API.', 'custom-post-type-ui' ),
@@ -243,7 +243,7 @@ class CPTUI_GraphQL {
 
 						echo $ui->get_text_input( // phpcs:ignore.
 							[
-								'namearray' => $name_array,
+								'namearray' => esc_attr( $name_array ),
 								'name'      => 'graphql_plural_name',
 								'labeltext' => esc_html__( 'GraphQL Plural Name', 'custom-post-type-ui' ),
 								'aftertext' => esc_attr__( 'Plural name for reference in the GraphQL API.', 'custom-post-type-ui' ),
@@ -337,8 +337,8 @@ function cptui_graphql_init() {
 				<?php
 				echo sprintf(
 					// phpcs:ignore.
-					esc_html__( 'Custom Post Type UI has native support for WPGraphQL. Please <a href="%s">de-active</a> the "WPGraphQL for Custom Post Type UI" extension to proceed.', 'custom-post-type-ui' ),
-					$link // phpcs:ignore.
+					esc_html__( 'Custom Post Type UI has native support for WPGraphQL. Please <a href="%s">de-activate</a> the "WPGraphQL for Custom Post Type UI" extension to proceed.', 'custom-post-type-ui' ),
+					esc_url( $link )
 				);
 				?>
 					</p>
