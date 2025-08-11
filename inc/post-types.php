@@ -779,7 +779,7 @@ function cptui_manage_post_types() {
 									]
 								);
 
-								echo $ui->get_text_input( // phpcs:ignore.Z
+								echo $ui->get_text_input( // phpcs:ignore.
 									[
 										'labeltext' => esc_html__( 'Attributes', 'custom-post-type-ui' ),
 										'helptext'  => esc_html__( 'Used for the title of the post attributes meta box.', 'custom-post-type-ui' ),
@@ -1768,7 +1768,7 @@ function cptui_manage_post_types() {
 											'name'       => esc_attr( $add_tax->name ),
 											'namearray'  => 'cpt_addon_taxes',
 											'textvalue'  => esc_attr( $add_tax->name ),
-											'labeltext'  => $add_tax->label . ' ' . $core_label,
+											'labeltext'  => esc_html( $add_tax->label . ' ' . $core_label ),
 											// phpcs:ignore.
 											'helptext'   => sprintf( esc_attr__( 'Adds %s support', 'custom-post-type-ui' ), $add_tax->label ),
 											// phpcs:ignore.
