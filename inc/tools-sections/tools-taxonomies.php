@@ -37,7 +37,7 @@ function cptui_get_taxonomy_code( $cptui_taxonomies = [], $single = false ) {
 function <?php echo esc_html( $callback ); ?>() {
 <?php
 	foreach ( $cptui_taxonomies as $tax ) {
-		echo cptui_get_single_taxonomy_registery( $tax );
+		cptui_get_single_taxonomy_registery( $tax );
 	}
 ?>
 }

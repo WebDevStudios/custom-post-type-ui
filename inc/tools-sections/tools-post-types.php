@@ -38,7 +38,7 @@ function <?php echo esc_html( $callback ); ?>() {
 <?php
 // Space before this line reflects in textarea.
 		foreach ( $cptui_post_types as $type ) {
-			echo cptui_get_single_post_type_registery( $type );
+			cptui_get_single_post_type_registery( $type );
 		}
 ?>
 }
