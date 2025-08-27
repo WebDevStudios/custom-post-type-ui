@@ -46,7 +46,7 @@ add_action( 'init', '<?php echo esc_html( $callback ); ?>' );
 	} else {
 		esc_html_e( 'No taxonomies to display at this time', 'custom-post-type-ui' );
 	}
-	echo trim( ob_get_clean() );
+	echo esc_html( trim( ob_get_clean() ) );
 }
 
 /**
