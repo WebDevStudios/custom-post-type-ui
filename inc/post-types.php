@@ -2138,7 +2138,7 @@ function cptui_update_post_type( $data = [] ) {
 	// We are handling this special because we can't accurately get to exclude the description index
 	// in the cptui_filtered_post_type_post_global() function. So we clean this up from the $_POST
 	// global afterwards here.
-	$description = wp_kses_post( stripslashes_deep( $_POST['cpt_custom_post_type']['description'] ) );
+	$description = cptui_get_saved_description();
 
 	$name                  = trim( $data['cpt_custom_post_type']['name'] );
 	$rest_base             = trim( $data['cpt_custom_post_type']['rest_base'] );
@@ -2584,3 +2584,20 @@ function cptui_custom_enter_title_here( $text, $post ) {
 	return $cptui_obj['enter_title_here'];
 }
 add_filter( 'enter_title_here', 'cptui_custom_enter_title_here', 10, 2 );
+
+/**
+ * Get saved description value with added nonce check for extra security.
+ *
+ * @since 1.18.1
+ * @return string
+ */
+function cptui_get_saved_description() {
+	if ( empty( $_POST['cpt_custom_post_type']['description'] ) ) {
+		return '';
+	}
+
+	if ( ! empty( $_POST['cptui_select_post_type_nonce_field'] ) ) {
+		check_admin_referer( 'cptui_select_post_type_nonce_action', 'cptui_select_post_type_nonce_field' );
+	}
+	return wp_kses_post( stripslashes_deep( $_POST['cpt_custom_post_type']['description'] ) );
+}
