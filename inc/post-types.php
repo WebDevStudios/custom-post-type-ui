@@ -1232,7 +1232,7 @@ function cptui_manage_post_types() {
 							echo $ui->get_tr_start() . $ui->get_th_start(); // phpcs:ignore.
 							echo $ui->get_label( 'hierarchical', esc_html__( 'Hierarchical', 'custom-post-type-ui' ) ); // phpcs:ignore.
 							echo $ui->get_p( esc_html__( '"False" behaves like posts, "True" behaves like pages.', 'custom-post-type-ui' ) ); // phpcs:ignore.
-							echo $ui->get_th_end() . $ui->get_td_start();
+							echo $ui->get_th_end() . $ui->get_td_start(); // phpcs:ignore.
 
 							$select = [
 								'options' => [
@@ -1454,7 +1454,7 @@ function cptui_manage_post_types() {
 									'namearray'      => 'cpt_custom_post_type',
 									'name'           => 'show_in_menu_string',
 									'textvalue'      => isset( $current['show_in_menu_string'] ) ? esc_attr( $current['show_in_menu_string'] ) : '', // phpcs:ignore.
-									'helptext'       => $ui->get_label( 'show_in_menu_string', esc_attr__( 'The top-level admin menu page file name for which the post type should be in the sub menu of.', 'custom-post-type-ui' ) ),
+									'helptext'       => $ui->get_label( 'show_in_menu_string', esc_attr__( 'The top-level admin menu page file name for which the post type should be in the sub menu of.', 'custom-post-type-ui' ) ), // phpcs:ignore.
 									'helptext_after' => true,
 									'wrap'           => false,
 								]
@@ -1522,7 +1522,7 @@ function cptui_manage_post_types() {
 
 							echo $ui->get_p( esc_html__( 'Featured images and Post Formats need theme support added, to be used.', 'custom-post-type-ui' ) ); // phpcs:ignore.
 
-							echo $ui->get_p(
+							echo $ui->get_p( // phpcs:ignore.
 								sprintf(
 									'<a href="%s" target="_blank" rel="noopener">%s</a><br/><a href="%s" target="_blank" rel="noopener">%s</a>',
 									esc_url( 'https://developer.wordpress.org/reference/functions/add_theme_support/#post-thumbnails' ),
