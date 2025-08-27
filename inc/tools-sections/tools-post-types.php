@@ -32,8 +32,8 @@ function cptui_get_post_type_code( $cptui_post_types = [], $single = false ) {
 				}
 			}
 		}
-?>
-
+		ob_start();
+		?>
 function <?php echo esc_html( $callback ); ?>() {
 <?php
 // Space before this line reflects in textarea.
@@ -42,12 +42,12 @@ function <?php echo esc_html( $callback ); ?>() {
 		}
 ?>
 }
-
 add_action( 'init', '<?php echo esc_html( $callback ); ?>' );
 <?php
 	} else {
 		esc_html_e( 'No post types to display at this time', 'custom-post-type-ui' );
 	}
+	echo esc_html( trim( ob_get_clean() ) );
 }
 
 /**
