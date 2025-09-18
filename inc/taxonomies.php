@@ -734,6 +734,22 @@ function cptui_manage_taxonomies() {
 							echo $ui->get_text_input( // phpcs:ignore.
 								[
 									'namearray' => 'cpt_tax_labels',
+									'name'      => 'filter_by_item',
+									'textvalue' => isset( $current['labels']['filter_by_item'] ) ? esc_attr( $current['labels']['filter_by_item'] ) : null, // phpcs:ignore.
+									'aftertext' => esc_html__( '(e.g. Filter by actor)', 'custom-post-type-ui' ),
+									'labeltext' => esc_html__( 'Filter by Category', 'custom-post-type-ui' ),
+									'helptext'  => esc_attr__( 'This label is only used for hierarchical taxonomies.', 'custom-post-type-ui' ),
+									'data'      => [
+										/* translators: Used for autofill */
+										'label'     => sprintf( esc_attr__( 'Filter by %s', 'custom-post-type-ui' ), 'item' ),
+										'plurality' => 'singular',
+									],
+								]
+							);
+
+							echo $ui->get_text_input( // phpcs:ignore.
+								[
+									'namearray' => 'cpt_tax_labels',
 									'name'      => 'items_list_navigation',
 									'textvalue' => isset( $current['labels']['items_list_navigation'] ) ? esc_attr( $current['labels']['items_list_navigation'] ) : null, // phpcs:ignore.
 									'aftertext' => esc_html__( '(e.g. Actors list navigation)', 'custom-post-type-ui' ),
