@@ -133,11 +133,11 @@ function cptui_footer( $original = '' ) {
 			)
 		)
 	) . ' - ' .
-	esc_attr__( 'Follow on Twitter:', 'custom-post-type-ui' ) .
+	esc_attr__( 'Follow on X:', 'custom-post-type-ui' ) .
 	sprintf(
 		// translators: Placeholders are just for HTML markup that doesn't need translated.
 		' %s',
-		'<a href="https://twitter.com/webdevstudios" target="_blank" rel="noopener">WebDevStudios</a>'
+		'<a href="https://x.com/webdevstudios">WebDevStudios</a>'
 	);
 }
 add_filter( 'admin_footer_text', 'cptui_footer' );
