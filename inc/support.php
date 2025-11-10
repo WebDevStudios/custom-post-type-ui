@@ -257,7 +257,7 @@ function cptui_support() {
 								<?php
 								printf(
 									/* translators: Placeholders are just for HTML markup that doesn't need translated */
-									esc_html__( 'We recommend the %4$sPosts 2 Posts%5$s plugin.', 'custom-post-type-ui' ),
+									esc_html__( 'We recommend the %1$sPosts 2 Posts%2$s plugin.', 'custom-post-type-ui' ),
 									'<a href="https://wordpress.org/plugins/posts-to-posts/">',
 									'</a>'
 								);
