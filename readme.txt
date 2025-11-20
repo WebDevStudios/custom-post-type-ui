@@ -32,7 +32,7 @@ Custom Post Type UI development is managed on GitHub, with official releases pub
 
 == Changelog ==
 
-= 1.18.1 - TBD =
+= 1.18.1 - 2025-11-20 =
 * Fixed: Potential authorization access issues around content type modification.
 * Fixed: JS issue regarding warning user when changing content type slugs.
 * Updated: Revised "new tab" and 'rel="noopener"' link behavior and attributes.
