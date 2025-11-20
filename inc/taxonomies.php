@@ -377,9 +377,9 @@ function cptui_manage_taxonomies() {
 										],
 										true
 									) ? esc_html__( '(WP Core)', 'custom-post-type-ui' ) : '';
-									echo $ui->get_check_input( // phpcs:ignore.
+									echo $ui->get_check_input( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 										[
-											'checkvalue' => $post_type->name,
+											'checkvalue' => esc_attr( $post_type->name ),
 											'checked'    => ( ! empty( $current['object_types'] ) && is_array( $current['object_types'] ) && in_array( $post_type->name, $current['object_types'], true ) ) ? 'true' : 'false', // phpcs:ignore.
 											'name'       => esc_attr( $post_type->name ),
 											'namearray'  => 'cpt_post_types',

@@ -22,7 +22,7 @@ function cptui_render_debuginfo_section() {
 	if ( ! empty( $_POST ) && isset( $_POST['cptui_debug_info_email'] ) && isset( $_POST['cptui_debuginfo_nonce_field'] ) ) {
 		if ( wp_verify_nonce( 'cptui_debuginfo_nonce_field', 'cptui_debuginfo_nonce_action' ) ) {
 			$email_args          = [];
-			$email_args['email'] = sanitize_text_field( $_POST['cptui_debug_info_email'] );
+			$email_args['email'] = sanitize_text_field( wp_unslash( $_POST['cptui_debug_info_email'] ) );
 			$debuginfo->send_email( $email_args );
 		}
 	}

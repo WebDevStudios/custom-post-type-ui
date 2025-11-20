@@ -31,6 +31,7 @@ function cptui_render_getcode_section() {
 			<h2 id="<?php echo esc_attr( $post_type['name'] ); ?>">
 				<?php
 				$type = ! empty( $post_type['label'] ) ? esc_html( $post_type['label'] ) : esc_html( $post_type['name'] );
+				// translators: placeholder will hold post type name.
 				printf( esc_html__( '%s Post Type', 'custom-post-type-ui' ), esc_html( $type ) ); ?></h2>
 			<p>
 				<label for="cptui_post_type_get_code_<?php echo esc_attr( $post_type['name'] ); ?>"><?php esc_html_e( 'Copy/paste the code below into your functions.php file.', 'custom-post-type-ui' ); ?></label>
@@ -56,6 +57,7 @@ function cptui_render_getcode_section() {
 			<h2 id="<?php echo esc_attr( $taxonomy['name'] ); ?>">
 				<?php
 				$tax = ! empty( $taxonomy['label'] ) ? esc_html( $taxonomy['label'] ) : esc_html( $taxonomy['name'] );
+				// translators: placeholder will hold taxonomy name.
 				printf( esc_html__( '%s Taxonomy', 'custom-post-type-ui' ), esc_html( $tax ) );
 				?>
 			</h2>

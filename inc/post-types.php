@@ -795,7 +795,7 @@ function cptui_manage_post_types() {
 									]
 								);
 
-								echo $ui->get_text_input( // phpcs:ignore.Z
+								echo $ui->get_text_input( // phpcs:ignore.
 									[
 										'labeltext' => esc_html__( 'Attributes', 'custom-post-type-ui' ),
 										'helptext'  => esc_html__( 'Used for the title of the post attributes meta box.', 'custom-post-type-ui' ),
@@ -1248,7 +1248,7 @@ function cptui_manage_post_types() {
 							echo $ui->get_tr_start() . $ui->get_th_start(); // phpcs:ignore.
 							echo $ui->get_label( 'hierarchical', esc_html__( 'Hierarchical', 'custom-post-type-ui' ) ); // phpcs:ignore.
 							echo $ui->get_p( esc_html__( '"False" behaves like posts, "True" behaves like pages.', 'custom-post-type-ui' ) ); // phpcs:ignore.
-							echo $ui->get_th_end() . $ui->get_td_start();
+							echo $ui->get_th_end() . $ui->get_td_start(); // phpcs:ignore.
 
 							$select = [
 								'options' => [
@@ -1470,7 +1470,7 @@ function cptui_manage_post_types() {
 									'namearray'      => 'cpt_custom_post_type',
 									'name'           => 'show_in_menu_string',
 									'textvalue'      => isset( $current['show_in_menu_string'] ) ? esc_attr( $current['show_in_menu_string'] ) : '', // phpcs:ignore.
-									'helptext'       => $ui->get_label( 'show_in_menu_string', esc_attr__( 'The top-level admin menu page file name for which the post type should be in the sub menu of.', 'custom-post-type-ui' ) ),
+									'helptext'       => $ui->get_label( 'show_in_menu_string', esc_attr__( 'The top-level admin menu page file name for which the post type should be in the sub menu of.', 'custom-post-type-ui' ) ), // phpcs:ignore.
 									'helptext_after' => true,
 									'wrap'           => false,
 								]
@@ -1538,7 +1538,7 @@ function cptui_manage_post_types() {
 
 							echo $ui->get_p( esc_html__( 'Featured images and Post Formats need theme support added, to be used.', 'custom-post-type-ui' ) ); // phpcs:ignore.
 
-							echo $ui->get_p(
+							echo $ui->get_p( // phpcs:ignore.
 								sprintf(
 									'<a href="%s" target="_blank" rel="noopener">%s</a><br/><a href="%s" target="_blank" rel="noopener">%s</a>',
 									esc_url( 'https://developer.wordpress.org/reference/functions/add_theme_support/#post-thumbnails' ),
@@ -1784,7 +1784,7 @@ function cptui_manage_post_types() {
 											'name'       => esc_attr( $add_tax->name ),
 											'namearray'  => 'cpt_addon_taxes',
 											'textvalue'  => esc_attr( $add_tax->name ),
-											'labeltext'  => $add_tax->label . ' ' . $core_label,
+											'labeltext'  => esc_html( $add_tax->label . ' ' . $core_label ),
 											// phpcs:ignore.
 											'helptext'   => sprintf( esc_attr__( 'Adds %s support', 'custom-post-type-ui' ), $add_tax->label ),
 											// phpcs:ignore.
@@ -2154,7 +2154,7 @@ function cptui_update_post_type( $data = [] ) {
 	// We are handling this special because we can't accurately get to exclude the description index
 	// in the cptui_filtered_post_type_post_global() function. So we clean this up from the $_POST
 	// global afterwards here.
-	$description = wp_kses_post( stripslashes_deep( $_POST['cpt_custom_post_type']['description'] ) );
+	$description = cptui_get_saved_description();
 
 	$name                  = trim( $data['cpt_custom_post_type']['name'] );
 	$rest_base             = trim( $data['cpt_custom_post_type']['rest_base'] );
@@ -2600,3 +2600,20 @@ function cptui_custom_enter_title_here( $text, $post ) {
 	return $cptui_obj['enter_title_here'];
 }
 add_filter( 'enter_title_here', 'cptui_custom_enter_title_here', 10, 2 );
+
+/**
+ * Get saved description value with added nonce check for extra security.
+ *
+ * @since 1.18.1
+ * @return string
+ */
+function cptui_get_saved_description() {
+	if ( empty( $_POST['cpt_custom_post_type']['description'] ) ) {
+		return '';
+	}
+
+	if ( ! empty( $_POST['cptui_select_post_type_nonce_field'] ) ) {
+		check_admin_referer( 'cptui_select_post_type_nonce_action', 'cptui_select_post_type_nonce_field' );
+	}
+	return wp_kses_post( stripslashes_deep( $_POST['cpt_custom_post_type']['description'] ) );
+}
