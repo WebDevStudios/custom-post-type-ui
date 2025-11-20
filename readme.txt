@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: custom post types, post type, taxonomy, content types, types
 Requires at least: 6.6
 Tested up to: 6.8.2
-Stable tag: 1.18.0
+Stable tag: 1.18.1
 License: GPL-2.0+
 Requires PHP: 7.4
 
