@@ -2399,6 +2399,10 @@ function cptui_check_page_slugs( $post_type_slug = '' ) {
  */
 function cptui_process_post_type() {
 
+	if ( ! current_user_can( 'manage_options' ) ) {
+		return;
+	}
+
 	if ( wp_doing_ajax() ) {
 		return;
 	}
