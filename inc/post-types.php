@@ -1398,7 +1398,7 @@ function cptui_manage_post_types() {
 										'custom-post-type-ui'
 									),
 									sprintf(
-										'<a href="https://developer.wordpress.org/reference/functions/register_post_type/#menu_position" target="_blank" rel="noopener">%s</a>',
+										'<a href="https://developer.wordpress.org/reference/functions/register_post_type/#menu_position" target="_blank">%s</a>',
 										esc_html__( 'Available options', 'custom-post-type-ui' )
 									)
 								)
@@ -1475,7 +1475,7 @@ function cptui_manage_post_types() {
 									'aftertext' => esc_attr__( '(Full URL for icon or Dashicon class)', 'custom-post-type-ui' ),
 									'helptext'  => sprintf(
 										esc_html__( 'Image URL or %sDashicon class name%s to use for icon. Custom image should be 20px by 20px.', 'custom-post-type-ui' ), // phpcs:ignore.
-										'<a href="https://developer.wordpress.org/resource/dashicons/" target="_blank" rel="noopener">',
+										'<a href="https://developer.wordpress.org/resource/dashicons/" target="_blank">',
 										'</a>'
 									),
 									'wrap'      => false,
@@ -1524,7 +1524,7 @@ function cptui_manage_post_types() {
 
 							echo $ui->get_p(
 								sprintf(
-									'<a href="%s" target="_blank" rel="noopener">%s</a><br/><a href="%s" target="_blank" rel="noopener">%s</a>',
+									'<a href="%s" target="_blank">%s</a><br/><a href="%s" target="_blank">%s</a>',
 									esc_url( 'https://developer.wordpress.org/reference/functions/add_theme_support/#post-thumbnails' ),
 									/* translators: Link text for WordPress Developer site. */
 									esc_html__( 'Theme support for featured images', 'custom-post-type-ui' ),
@@ -1709,7 +1709,7 @@ function cptui_manage_post_types() {
 							echo $ui->get_fieldset_end() . $ui->get_td_end() . $ui->get_tr_end(); // phpcs:ignore.
 
 							echo $ui->get_tr_start() . $ui->get_th_start() . '<label for="custom_supports">' . esc_html__( 'Custom "Supports"', 'custom-post-type-ui' ) . '</label>'; // phpcs:ignore.
-							echo $ui->get_p( sprintf( esc_html__( 'Use this input to register custom "supports" values, separated by commas. Learn about this at %s', 'custom-post-type-ui' ), '<a href="https://docs.pluginize.com/article/third-party-support-upon-registration/" target="_blank" rel="noopener">' . esc_html__( 'Custom "Supports"', 'custom-post-type-ui' ) . '</a>' ) ); // phpcs:ignore.
+							echo $ui->get_p( sprintf( esc_html__( 'Use this input to register custom "supports" values, separated by commas. Learn about this at %s', 'custom-post-type-ui' ), '<a href="https://docs.pluginize.com/article/third-party-support-upon-registration/" target="_blank">' . esc_html__( 'Custom "Supports"', 'custom-post-type-ui' ) . '</a>' ) ); // phpcs:ignore.
 							echo $ui->get_th_end() . $ui->get_td_start(); // phpcs:ignore.
 							echo $ui->get_text_input( // phpcs:ignore.
 								[
@@ -2398,6 +2398,10 @@ function cptui_check_page_slugs( $post_type_slug = '' ) {
  * @since 1.4.0
  */
 function cptui_process_post_type() {
+
+	if ( ! current_user_can( 'manage_options' ) ) {
+		return;
+	}
 
 	if ( wp_doing_ajax() ) {
 		return;
