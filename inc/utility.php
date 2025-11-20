@@ -112,16 +112,16 @@ function cptui_footer( $original = '' ) {
 		esc_attr__( '%1$s version %2$s by %3$s', 'custom-post-type-ui' ),
 		esc_attr__( 'Custom Post Type UI', 'custom-post-type-ui' ),
 		CPTUI_VERSION,
-		'<a href="https://webdevstudios.com" target="_blank" rel="noopener">WebDevStudios</a>'
+		'<a href="https://webdevstudios.com">WebDevStudios</a>'
 	) . ' - ' .
 	sprintf(
 		// translators: Placeholders are just for HTML markup that doesn't need translated.
-		'<a href="http://wordpress.org/support/plugin/custom-post-type-ui" target="_blank" rel="noopener">%s</a>',
+		'<a href="https://wordpress.org/support/plugin/custom-post-type-ui">%s</a>',
 		esc_attr__( 'Support forums', 'custom-post-type-ui' )
 	) . ' - ' .
 	sprintf(
 		// translators: Placeholders are just for HTML markup that doesn't need translated.
-		'<a href="https://wordpress.org/plugins/custom-post-type-ui/reviews/" target="_blank" rel="noopener">%s</a>',
+		'<a href="https://wordpress.org/plugins/custom-post-type-ui/reviews/">%s</a>',
 		sprintf(
 			// translators: Placeholder will hold `<abbr>` tag for CPTUI.
 			esc_attr__( 'Review %s', 'custom-post-type-ui' ),
@@ -133,11 +133,11 @@ function cptui_footer( $original = '' ) {
 			)
 		)
 	) . ' - ' .
-	esc_attr__( 'Follow on Twitter:', 'custom-post-type-ui' ) .
+	esc_attr__( 'Follow on X:', 'custom-post-type-ui' ) .
 	sprintf(
 		// translators: Placeholders are just for HTML markup that doesn't need translated.
 		' %s',
-		'<a href="https://twitter.com/webdevstudios" target="_blank" rel="noopener">WebDevStudios</a>'
+		'<a href="https://x.com/webdevstudios">WebDevStudios</a>'
 	);
 }
 add_filter( 'admin_footer_text', 'cptui_footer' );
