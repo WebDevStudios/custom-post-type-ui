@@ -86,26 +86,6 @@ function cptui_settings() {
 		do_action( 'cptui_main_page_before_changelog' );
 		?>
 
-		<h2>
-			<?php
-			printf(
-			// translators: Placeholder will hold the plugin version.
-				esc_html__( "What's new in version %s", 'custom-post-type-ui' ),
-				esc_html( CPTUI_VERSION )
-			);
-			?>
-		</h2>
-		<div class="changelog about-integrations">
-			<div class="cptui-feature feature-section col three-col">
-				<div class="col">
-					<h2><?php esc_html_e( 'Post type migration support', 'custom-post-type-ui' ); ?></h2>
-					<p><?php esc_html_e( 'If you are trying to move post types into CPTUI, you can now mark as such to prevent slug conflicts notices.', 'custom-post-type-ui' ); ?></p>
-					<h2><?php esc_html_e( 'Moved to minimum of WordPress 6.3.', 'custom-post-type-ui' ); ?></h2>
-					<p><?php esc_html_e( 'The move to require WordPress 6.3 allowed for adding "item_trashed" label support.', 'custom-post-type-ui' ); ?></p>
-				</div>
-			</div>
-		</div>
-
 		<div class="extranotes">
 			<?php
 

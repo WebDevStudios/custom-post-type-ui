@@ -141,7 +141,7 @@ function cptui_support() {
 						<li>
 							<span tabindex="0" class="question" aria-controls="q9" aria-expanded="false"><?php esc_html_e( 'I changed my custom post type name and now I can not get to my posts. How do I get them back?', 'custom-post-type-ui' ); ?></span>
 							<div class="answer" id="q9"><?php esc_html_e( 'You can either change the custom post type name back to the original name or try the Post Type Switcher plugin', 'custom-post-type-ui' ); ?>
-								<a href="https://wordpress.org/plugins/post-type-switcher/" target="_blank" rel="noopener">https://wordpress.org/plugins/post-type-switcher/</a>
+								<a href="https://wordpress.org/plugins/post-type-switcher/">https://wordpress.org/plugins/post-type-switcher/</a>
 							</div>
 						</li>
 						<li>
@@ -150,7 +150,7 @@ function cptui_support() {
 						</li>
 						<li>
 							<span tabindex="0" class="question" aria-controls="q11" aria-expanded="false"><?php esc_html_e( 'I have added post thumbnail and/or post format support to my post type, but those do not appear when adding a post type post.', 'custom-post-type-ui' ); ?></span>
-							<div class="answer" id="q11"><?php esc_html_e( 'Make sure your theme has post "post-thumbnails" theme support enabled.', 'custom-post-type-ui' ); ?> <a href="https://developer.wordpress.org/reference/functions/add_theme_support/" target="_blank" rel="noopener">https://developer.wordpress.org/reference/functions/add_theme_support/</a></div>
+							<div class="answer" id="q11"><?php esc_html_e( 'Make sure your theme has post "post-thumbnails" theme support enabled.', 'custom-post-type-ui' ); ?> <a href="https://developer.wordpress.org/reference/functions/add_theme_support/">https://developer.wordpress.org/reference/functions/add_theme_support/</a></div>
 						</li>
 					</ol>
 				</td>
@@ -166,7 +166,7 @@ function cptui_support() {
 								printf(
 									/* translators: Placeholders are just for HTML markup that doesn't need translated */
 									esc_html__( 'Please visit the %1$sTemplate Hierarchy%2$s page on the WordPress codex for details about available templates.', 'custom-post-type-ui' ),
-									'<a href="https://developer.wordpress.org/themes/basics/template-hierarchy/" target="_blank" rel="noopener">',
+									'<a href="https://developer.wordpress.org/themes/basics/template-hierarchy/">',
 									'</a>'
 								);
 								?>
@@ -184,7 +184,7 @@ function cptui_support() {
 										'https://pluginize.com/plugins/custom-post-type-ui-extended/?utm_source=faq&utm_medium=text&utm_campaign=cptui',
 										'Custom Post Type UI Extended'
 									),
-									'<a href="https://developer.wordpress.org/reference/classes/wp_query/" target="_blank" rel="noopener">WP_Query</a>'
+									'<a href="https://developer.wordpress.org/reference/classes/wp_query/">WP_Query</a>'
 								);
 								?>
 							</div>
@@ -196,7 +196,7 @@ function cptui_support() {
 								printf(
 									/* translators: Placeholders are just for HTML markup that doesn't need translated */
 									esc_html__( 'You will need to add your newly created post type to the types that the category and tag archives query for. You can see a tutorial on how to do that at %s. You can also get this functionality via UI with a purchase of CPTUI-Extended', 'custom-post-type-ui' ),
-									'<a href="https://docs.pluginize.com/article/post-types-in-category-tag-archives/" target="_blank" rel="noopener">https://docs.pluginize.com/article/post-types-in-category-tag-archives/</a>'
+									'<a href="https://docs.pluginize.com/article/post-types-in-category-tag-archives/">https://docs.pluginize.com/article/post-types-in-category-tag-archives/</a>'
 								);
 								?>
 								</div>
@@ -208,7 +208,7 @@ function cptui_support() {
 								printf(
 									/* translators: Placeholders are just for HTML markup that doesn't need translated */
 									esc_html__( 'Please visit the %1$sPost Type Templates in 4.7%2$s post on the Make WordPress Core blog for details about setting templates for multiple post types.', 'custom-post-type-ui' ),
-									'<a href="https://make.wordpress.org/core/2016/11/03/post-type-templates-in-4-7/" target="_blank" rel="noopener">',
+									'<a href="https://make.wordpress.org/core/2016/11/03/post-type-templates-in-4-7/">',
 									'</a>'
 								);
 								?>
@@ -234,7 +234,7 @@ function cptui_support() {
 								printf(
 									/* translators: Placeholders are just for HTML markup that doesn't need translated */
 									esc_html__( 'We recommend checking out %s, the latest iteration of "CMB2". Both are supported by WebDevStudios.', 'custom-post-type-ui' ),
-									'<a href="https://wordpress.org/plugins/cmb2/" target="_blank" rel="noopener">CMB2</a>'
+									'<a href="https://wordpress.org/plugins/cmb2/">CMB2</a>'
 								);
 								?>
 							</div>
@@ -246,7 +246,7 @@ function cptui_support() {
 								printf(
 									/* translators: Placeholders are just for HTML markup that doesn't need translated */
 									esc_html__( 'Check out the %s function for documentation and usage examples.', 'custom-post-type-ui' ),
-									'<a href="https://developer.wordpress.org/reference/functions/register_taxonomy_for_object_type/" target="_blank" rel="noopener">register_taxonomy_for_object_type()</a>'
+									'<a href="https://developer.wordpress.org/reference/functions/register_taxonomy_for_object_type/">register_taxonomy_for_object_type()</a>'
 								);
 								?>
 							</div>
@@ -257,11 +257,8 @@ function cptui_support() {
 								<?php
 								printf(
 									/* translators: Placeholders are just for HTML markup that doesn't need translated */
-									esc_html__( '%1$s has an excellent %2$spost%3$s introducing users to the %4$sPosts 2 Posts%5$s plugin that should be a good start.', 'custom-post-type-ui' ),
-									'Pippin Williamson',
-									'<a href="https://pippinsplugins.com/introduction-posts-2-posts-plugin/" target="_blank" rel="noopener">',
-									'</a>',
-									'<a href="https://wordpress.org/plugins/posts-to-posts/" target="_blank" rel="noopener">',
+									esc_html__( 'We recommend the %1$sPosts 2 Posts%2$s plugin.', 'custom-post-type-ui' ),
+									'<a href="https://wordpress.org/plugins/posts-to-posts/">',
 									'</a>'
 								);
 								?>
@@ -287,7 +284,7 @@ add_filter( 'enter_title_here', 'my_custom_title_text' );
 								printf(
 									/* translators: Placeholders are just for HTML markup that doesn't need translated */
 									esc_html__( 'We recommend %s for some extended customization and addition of extra fields regarding roles and capabilities.', 'custom-post-type-ui' ),
-									'<a href="https://github.com/tw2113/custom-post-type-ui-capabilities" target="_blank" rel="noopener">Custom Post Type UI Capabilities on GitHub</a>'
+									'<a href="https://github.com/tw2113/custom-post-type-ui-capabilities">Custom Post Type UI Capabilities on GitHub</a>'
 								);
 								?>
 									</p>

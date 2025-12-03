@@ -56,7 +56,7 @@ import { getParameterByName, replaceDiacritics, transliterate, replaceSpecialCha
 
 			let slugexists = document.querySelector('#slugexists');
 			let override = document.querySelector('#override_validation');
-			let override_validation = (override) ? override.check : false;
+			let override_validation = (override) ? override.checked : false;
 			if (typeof cptui_type_data != 'undefined') {
 				if (cptui_type_data.existing_post_types.hasOwnProperty(value) && value !== original_slug && override_validation === false) {
 					slugexists.classList.remove('hidemessage');
