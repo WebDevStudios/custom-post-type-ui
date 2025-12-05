@@ -176,11 +176,11 @@ class CPTUI_Admin_UI_Inputs_Test extends CPTUI_Base_Tests {
 			'options' => [
 				[
 					'attr' => '0',
-					'text' => __( 'False', 'cpt-plugin' ),
+					'text' => __( 'False', 'custom-post-type-ui' ),
 				],
 				[
 					'attr'    => '1',
-					'text'    => __( 'True', 'cpt-plugin' ),
+					'text'    => __( 'True', 'custom-post-type-ui' ),
 					'default' => 'true',
 				],
 			],
@@ -190,9 +190,9 @@ class CPTUI_Admin_UI_Inputs_Test extends CPTUI_Base_Tests {
 		$args               = [
 			'namearray'  => 'cpt_custom_post_type',
 			'name'       => 'public',
-			'labeltext'  => __( 'Public', 'cpt-plugin' ),
-			'aftertext'  => __( '(default: True)', 'cpt-plugin' ),
-			'helptext'   => esc_attr__( 'Whether posts of this type should be shown in the admin UI', 'cpt-plugin' ),
+			'labeltext'  => __( 'Public', 'custom-post-type-ui' ),
+			'aftertext'  => __( '(default: True)', 'custom-post-type-ui' ),
+			'helptext'   => esc_attr__( 'Whether posts of this type should be shown in the admin UI', 'custom-post-type-ui' ),
 			'selections' => $select,
 		];
 
@@ -224,11 +224,11 @@ class CPTUI_Admin_UI_Inputs_Test extends CPTUI_Base_Tests {
 			'options' => [
 				[
 					'attr' => '0',
-					'text' => __( 'False', 'cpt-plugin' ),
+					'text' => __( 'False', 'custom-post-type-ui' ),
 				],
 				[
 					'attr'    => '1',
-					'text'    => __( 'True', 'cpt-plugin' ),
+					'text'    => __( 'True', 'custom-post-type-ui' ),
 					'default' => 'true',
 				],
 			],
@@ -238,9 +238,9 @@ class CPTUI_Admin_UI_Inputs_Test extends CPTUI_Base_Tests {
 		$args               = [
 			'namearray'  => 'cpt_custom_post_type',
 			'name'       => 'public',
-			'labeltext'  => __( 'Public', 'cpt-plugin' ),
-			'aftertext'  => __( '(default: True)', 'cpt-plugin' ),
-			'helptext'   => esc_attr__( 'Whether posts of this type should be shown in the admin UI', 'cpt-plugin' ),
+			'labeltext'  => __( 'Public', 'custom-post-type-ui' ),
+			'aftertext'  => __( '(default: True)', 'custom-post-type-ui' ),
+			'helptext'   => esc_attr__( 'Whether posts of this type should be shown in the admin UI', 'custom-post-type-ui' ),
 			'selections' => $select,
 			'required'   => true,
 		];
@@ -273,11 +273,11 @@ class CPTUI_Admin_UI_Inputs_Test extends CPTUI_Base_Tests {
 			'options' => [
 				[
 					'attr' => '0',
-					'text' => __( 'False', 'cpt-plugin' ),
+					'text' => __( 'False', 'custom-post-type-ui' ),
 				],
 				[
 					'attr'    => '1',
-					'text'    => __( 'True', 'cpt-plugin' ),
+					'text'    => __( 'True', 'custom-post-type-ui' ),
 					'default' => 'true',
 				],
 			],
@@ -287,9 +287,9 @@ class CPTUI_Admin_UI_Inputs_Test extends CPTUI_Base_Tests {
 		$args = [
 			'namearray'  => 'cpt_custom_post_type',
 			'name'       => 'public',
-			'labeltext'  => __( 'Public', 'cpt-plugin' ),
-			'aftertext'  => __( '(default: True)', 'cpt-plugin' ),
-			'helptext'   => esc_attr__( 'Whether posts of this type should be shown in the admin UI', 'cpt-plugin' ),
+			'labeltext'  => __( 'Public', 'custom-post-type-ui' ),
+			'aftertext'  => __( '(default: True)', 'custom-post-type-ui' ),
+			'helptext'   => esc_attr__( 'Whether posts of this type should be shown in the admin UI', 'custom-post-type-ui' ),
 			'selections' => $select,
 		];
 
@@ -321,11 +321,11 @@ class CPTUI_Admin_UI_Inputs_Test extends CPTUI_Base_Tests {
 			'options' => [
 				[
 					'attr' => '0',
-					'text' => __( 'False', 'cpt-plugin' ),
+					'text' => __( 'False', 'custom-post-type-ui' ),
 				],
 				[
 					'attr'    => '1',
-					'text'    => __( 'True', 'cpt-plugin' ),
+					'text'    => __( 'True', 'custom-post-type-ui' ),
 					'default' => 'true',
 				],
 			],
@@ -335,9 +335,9 @@ class CPTUI_Admin_UI_Inputs_Test extends CPTUI_Base_Tests {
 		$args               = [
 			'namearray'  => 'cpt_custom_post_type',
 			'name'       => 'public',
-			'labeltext'  => __( 'Public', 'cpt-plugin' ),
-			'aftertext'  => __( '(default: True)', 'cpt-plugin' ),
-			'helptext'   => esc_attr__( 'Whether posts of this type should be shown in the admin UI', 'cpt-plugin' ),
+			'labeltext'  => __( 'Public', 'custom-post-type-ui' ),
+			'aftertext'  => __( '(default: True)', 'custom-post-type-ui' ),
+			'helptext'   => esc_attr__( 'Whether posts of this type should be shown in the admin UI', 'custom-post-type-ui' ),
 			'selections' => $select,
 		];
 
