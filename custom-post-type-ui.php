@@ -16,10 +16,9 @@
  * Plugin URI: https://github.com/WebDevStudios/custom-post-type-ui/
  * Description: Admin UI panel for registering custom post types and taxonomies
  * Author: WebDevStudios
- * Version: 1.18.1
+ * Version: 1.18.2
  * Author URI: https://webdevstudios.com/
  * Text Domain: custom-post-type-ui
- * Domain Path: /languages
  * License: GPL-2.0+
  * Requires at least: 6.6
  * Requires PHP: 7.4
@@ -33,8 +32,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'CPT_VERSION', '1.18.1' ); // Left for legacy purposes.
-define( 'CPTUI_VERSION', '1.18.1' );
+define( 'CPT_VERSION', '1.18.2' ); // Left for legacy purposes.
+define( 'CPTUI_VERSION', '1.18.2' );
 define( 'CPTUI_WP_VERSION', get_bloginfo( 'version' ) );
 
 /**
@@ -109,18 +108,6 @@ function cptui_deactivation() {
 	flush_rewrite_rules();
 }
 register_deactivation_hook( __FILE__, 'cptui_deactivation' );
-
-/**
- * Register our text domain.
- *
- * @since 0.8.0
- *
- * @internal
- */
-function cptui_load_textdomain() {
-	load_plugin_textdomain( 'custom-post-type-ui' );
-}
-add_action( 'init', 'cptui_load_textdomain' );
 
 /**
  * Load our main menu.
@@ -935,26 +922,34 @@ function cptui_admin_notices( string $action = '', string $object_type = '', boo
 
 	if ( 'add' === $action ) {
 		if ( $success ) {
+			// translators: placeholder holds content name.
 			$message .= sprintf( esc_html__( '%s has been successfully added', 'custom-post-type-ui' ), $object_type );
 		} else {
+			// translators: placeholder holds content name.
 			$message .= sprintf( esc_html__( '%s has failed to be added', 'custom-post-type-ui' ), $object_type );
 		}
 	} elseif ( 'update' === $action ) {
 		if ( $success ) {
+			// translators: placeholder holds content name.
 			$message .= sprintf( esc_html__( '%s has been successfully updated', 'custom-post-type-ui' ), $object_type );
 		} else {
+			// translators: placeholder holds content name.
 			$message .= sprintf( esc_html__( '%s has failed to be updated', 'custom-post-type-ui' ), $object_type );
 		}
 	} elseif ( 'delete' === $action ) {
 		if ( $success ) {
+			// translators: placeholder holds content name.
 			$message .= sprintf( esc_html__( '%s has been successfully deleted', 'custom-post-type-ui' ), $object_type );
 		} else {
+			// translators: placeholder holds content name.
 			$message .= sprintf( esc_html__( '%s has failed to be deleted', 'custom-post-type-ui' ), $object_type );
 		}
 	} elseif ( 'import' === $action ) {
 		if ( $success ) {
+			// translators: placeholder holds content name.
 			$message .= sprintf( esc_html__( '%s has been successfully imported', 'custom-post-type-ui' ), $object_type );
 		} else {
+			// translators: placeholder holds content name.
 			$message .= sprintf( esc_html__( '%s has failed to be imported', 'custom-post-type-ui' ), $object_type );
 		}
 	} elseif ( 'error' === $action ) {
@@ -1039,28 +1034,49 @@ function cptui_get_preserved_label( string $type = '', string $key = '', string 
 
 	$preserved_labels = [
 		'post_types' => [
+			// translators: placeholder holds content label.
 			'add_new_item'       => sprintf( esc_html__( 'Add new %s', 'custom-post-type-ui' ), $singular ),
+			// translators: placeholder holds content label.
 			'edit_item'          => sprintf( esc_html__( 'Edit %s', 'custom-post-type-ui' ), $singular ),
+			// translators: placeholder holds content label.
 			'new_item'           => sprintf( esc_html__( 'New %s', 'custom-post-type-ui' ), $singular ),
+			// translators: placeholder holds content label.
 			'view_item'          => sprintf( esc_html__( 'View %s', 'custom-post-type-ui' ), $singular ),
+			// translators: placeholder holds content label.
 			'view_items'         => sprintf( esc_html__( 'View %s', 'custom-post-type-ui' ), $plural ),
+			// translators: placeholder holds content label.
 			'all_items'          => sprintf( esc_html__( 'All %s', 'custom-post-type-ui' ), $plural ),
+			// translators: placeholder holds content label.
 			'search_items'       => sprintf( esc_html__( 'Search %s', 'custom-post-type-ui' ), $plural ),
+			// translators: placeholder holds content label.
 			'not_found'          => sprintf( esc_html__( 'No %s found.', 'custom-post-type-ui' ), $plural ),
+			// translators: placeholder holds content label.
 			'not_found_in_trash' => sprintf( esc_html__( 'No %s found in trash.', 'custom-post-type-ui' ), $plural ),
 		],
 		'taxonomies' => [
+			// translators: placeholder holds content label.
 			'search_items'               => sprintf( esc_html__( 'Search %s', 'custom-post-type-ui' ), $plural ),
+			// translators: placeholder holds content label.
 			'popular_items'              => sprintf( esc_html__( 'Popular %s', 'custom-post-type-ui' ), $plural ),
+			// translators: placeholder holds content label.
 			'all_items'                  => sprintf( esc_html__( 'All %s', 'custom-post-type-ui' ), $plural ),
+			// translators: placeholder holds content label.
 			'parent_item'                => sprintf( esc_html__( 'Parent %s', 'custom-post-type-ui' ), $singular ),
+			// translators: placeholder holds content label.
 			'parent_item_colon'          => sprintf( esc_html__( 'Parent %s:', 'custom-post-type-ui' ), $singular ),
+			// translators: placeholder holds content label.
 			'edit_item'                  => sprintf( esc_html__( 'Edit %s', 'custom-post-type-ui' ), $singular ),
+			// translators: placeholder holds content label.
 			'update_item'                => sprintf( esc_html__( 'Update %s', 'custom-post-type-ui' ), $singular ),
+			// translators: placeholder holds content label.
 			'add_new_item'               => sprintf( esc_html__( 'Add new %s', 'custom-post-type-ui' ), $singular ),
+			// translators: placeholder holds content label.
 			'new_item_name'              => sprintf( esc_html__( 'New %s name', 'custom-post-type-ui' ), $singular ),
+			// translators: placeholder holds content label.
 			'separate_items_with_commas' => sprintf( esc_html__( 'Separate %s with commas', 'custom-post-type-ui' ), $plural ),
+			// translators: placeholder holds content label.
 			'add_or_remove_items'        => sprintf( esc_html__( 'Add or remove %s', 'custom-post-type-ui' ), $plural ),
+			// translators: placeholder holds content label.
 			'choose_from_most_used'      => sprintf( esc_html__( 'Choose from the most used %s', 'custom-post-type-ui' ), $plural ),
 		],
 	];
@@ -1081,36 +1097,59 @@ function cptui_get_preserved_labels() {
 	return [
 		'post_types' => [
 			'singular' => [
+				// translators: placeholder holds content label.
 				'add_new_item'  => esc_html__( 'Add new %s', 'custom-post-type-ui' ),
+				// translators: placeholder holds content label.
 				'edit_item'     => esc_html__( 'Edit %s', 'custom-post-type-ui' ),
+				// translators: placeholder holds content label.
 				'new_item'      => esc_html__( 'New %s', 'custom-post-type-ui' ),
+				// translators: placeholder holds content label.
 				'view_item'     => esc_html__( 'View %s', 'custom-post-type-ui' ),
+				// translators: placeholder holds content label.
 				'template_name' => esc_html__( 'Single item: %s', 'custom-post-type-ui' ),
 			],
 			'plural'   => [
+				// translators: placeholder holds content label.
 				'view_items'         => esc_html__( 'View %s', 'custom-post-type-ui' ),
+				// translators: placeholder holds content label.
 				'all_items'          => esc_html__( 'All %s', 'custom-post-type-ui' ),
+				// translators: placeholder holds content label.
 				'search_items'       => esc_html__( 'Search %s', 'custom-post-type-ui' ),
+				// translators: placeholder holds content label.
 				'not_found'          => esc_html__( 'No %s found.', 'custom-post-type-ui' ),
+				// translators: placeholder holds content label.
 				'not_found_in_trash' => esc_html__( 'No %s found in trash.', 'custom-post-type-ui' ),
 			],
 		],
 		'taxonomies' => [
 			'singular' => [
+				// translators: placeholder holds content label.
 				'parent_item'       => esc_html__( 'Parent %s', 'custom-post-type-ui' ),
+				// translators: placeholder holds content label.
 				'parent_item_colon' => esc_html__( 'Parent %s:', 'custom-post-type-ui' ),
+				// translators: placeholder holds content label.
 				'edit_item'         => esc_html__( 'Edit %s', 'custom-post-type-ui' ),
+				// translators: placeholder holds content label.
 				'update_item'       => esc_html__( 'Update %s', 'custom-post-type-ui' ),
+				// translators: placeholder holds content label.
 				'add_new_item'      => esc_html__( 'Add new %s', 'custom-post-type-ui' ),
+				// translators: placeholder holds content label.
 				'new_item_name'     => esc_html__( 'New %s name', 'custom-post-type-ui' ),
+				// translators: placeholder holds content label.
 				'template_name'     => esc_html__( '%s Archives', 'custom-post-type-ui' ),
 			],
 			'plural'   => [
+				// translators: placeholder holds content label.
 				'search_items'               => esc_html__( 'Search %s', 'custom-post-type-ui' ),
+				// translators: placeholder holds content label.
 				'popular_items'              => esc_html__( 'Popular %s', 'custom-post-type-ui' ),
+				// translators: placeholder holds content label.
 				'all_items'                  => esc_html__( 'All %s', 'custom-post-type-ui' ),
+				// translators: placeholder holds content label.
 				'separate_items_with_commas' => esc_html__( 'Separate %s with commas', 'custom-post-type-ui' ),
+				// translators: placeholder holds content label.
 				'add_or_remove_items'        => esc_html__( 'Add or remove %s', 'custom-post-type-ui' ),
+				// translators: placeholder holds content label.
 				'choose_from_most_used'      => esc_html__( 'Choose from the most used %s', 'custom-post-type-ui' ),
 			],
 		],

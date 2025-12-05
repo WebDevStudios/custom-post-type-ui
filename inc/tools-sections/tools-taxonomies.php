@@ -37,7 +37,7 @@ function cptui_get_taxonomy_code( $cptui_taxonomies = [], $single = false ) {
 function <?php echo esc_html( $callback ); ?>() {
 <?php
 	foreach ( $cptui_taxonomies as $tax ) {
-		echo cptui_get_single_taxonomy_registery( $tax );
+		cptui_get_single_taxonomy_registery( $tax );
 	}
 ?>
 }
@@ -46,7 +46,7 @@ add_action( 'init', '<?php echo esc_html( $callback ); ?>' );
 	} else {
 		esc_html_e( 'No taxonomies to display at this time', 'custom-post-type-ui' );
 	}
-	echo trim( ob_get_clean() );
+	echo esc_html( trim( ob_get_clean() ) );
 }
 
 /**
@@ -163,38 +163,38 @@ foreach ( $taxonomy['labels'] as $key => $label ) {
 	?>
 
 	$args = [
-		"label" => esc_html__( "<?php echo $taxonomy['label']; ?>", "<?php echo $textdomain; ?>" ),
+		"label" => esc_html__( "<?php echo esc_html( $taxonomy['label'] ); ?>", "<?php echo esc_html( $textdomain ); ?>" ),
 		"labels" => $labels,
-		"public" => <?php echo $public; ?>,
-		"publicly_queryable" => <?php echo $publicly_queryable; ?>,
-		"hierarchical" => <?php echo $taxonomy['hierarchical']; ?>,
-		"show_ui" => <?php echo disp_boolean( $taxonomy['show_ui'] ); ?>,
-		"show_in_menu" => <?php echo $show_in_menu; ?>,
-		"show_in_nav_menus" => <?php echo $show_in_nav_menus; ?>,
-		"query_var" => <?php echo disp_boolean( $taxonomy['query_var'] ); ?>,
-		"rewrite" => <?php echo $rewrite; ?>,
-		"show_admin_column" => <?php echo $taxonomy['show_admin_column']; ?>,
-		"show_in_rest" => <?php echo $show_in_rest; ?>,
-		"show_tagcloud" => <?php echo $show_tagcloud; ?>,
-		"rest_base" => "<?php echo $rest_base; ?>",
-		"rest_controller_class" => "<?php echo $rest_controller_class; ?>",
-		"rest_namespace" => "<?php echo $rest_namespace; ?>",
-		"show_in_quick_edit" => <?php echo $show_in_quick_edit; ?>,
-		"sort" => <?php echo $sort; ?>,
+		"public" => <?php echo esc_html( $public ); ?>,
+		"publicly_queryable" => <?php echo esc_html( $publicly_queryable ); ?>,
+		"hierarchical" => <?php echo esc_html( $taxonomy['hierarchical'] ); ?>,
+		"show_ui" => <?php echo disp_boolean( esc_html( $taxonomy['show_ui'] ) ); ?>,
+		"show_in_menu" => <?php echo esc_html( $show_in_menu ); ?>,
+		"show_in_nav_menus" => <?php echo esc_html( $show_in_nav_menus ); ?>,
+		"query_var" => <?php echo disp_boolean( esc_html( $taxonomy['query_var'] ) ); ?>,
+		"rewrite" => <?php echo esc_html( $rewrite ); ?>,
+		"show_admin_column" => <?php echo esc_html( $taxonomy['show_admin_column'] ); ?>,
+		"show_in_rest" => <?php echo esc_html( $show_in_rest ); ?>,
+		"show_tagcloud" => <?php echo esc_html( $show_tagcloud ); ?>,
+		"rest_base" => "<?php echo esc_html( $rest_base ); ?>",
+		"rest_controller_class" => "<?php echo esc_html( $rest_controller_class ); ?>",
+		"rest_namespace" => "<?php echo esc_html( $rest_namespace ); ?>",
+		"show_in_quick_edit" => <?php echo esc_html( $show_in_quick_edit ); ?>,
+		"sort" => <?php echo esc_html( $sort ); ?>,
 <?php if ( $show_graphql ) : ?>
-		"show_in_graphql" => <?php echo disp_boolean( $taxonomy['show_in_graphql'] ); ?>,
+		"show_in_graphql" => <?php echo disp_boolean( esc_html( $taxonomy['show_in_graphql'] ) ); ?>,
 		"graphql_single_name" => "<?php echo esc_html( $taxonomy['graphql_single_name'] ); ?>",
 		"graphql_plural_name" => "<?php echo esc_html( $taxonomy['graphql_plural_name'] ); ?>",
 <?php else: ?>
-		"show_in_graphql" => <?php echo disp_boolean( false ); ?>,
+		"show_in_graphql" => <?php echo esc_html( disp_boolean( false ) ); ?>,
 <?php endif; ?>
 <?php if ( ! empty( $meta_box_cb ) ) { ?>
-		"meta_box_cb" => <?php echo $meta_box_cb; ?>,
+		"meta_box_cb" => <?php echo esc_html( $meta_box_cb ); ?>,
 <?php } ?>
 <?php if ( ! empty( $default_term ) ) { ?>
-		"default_term" => <?php echo $default_term; ?>,
+		"default_term" => <?php echo esc_html( $default_term ); ?>,
 <?php } ?>
 	];
-	register_taxonomy( "<?php echo esc_html( $taxonomy['name'] ); ?>", <?php echo $post_types; ?>, $args );
+	register_taxonomy( "<?php echo esc_html( $taxonomy['name'] ); ?>", <?php echo esc_html( $post_types ); ?>, $args );
 <?php
 }

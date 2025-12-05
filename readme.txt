@@ -3,8 +3,8 @@ Contributors: webdevstudios, pluginize, tw2113, williamsba1
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3084056
 Tags: custom post types, post type, taxonomy, content types, types
 Requires at least: 6.6
-Tested up to: 6.8.2
-Stable tag: 1.18.1
+Tested up to: 6.9
+Stable tag: 1.18.2
 License: GPL-2.0+
 Requires PHP: 7.4
 
@@ -31,6 +31,11 @@ Custom Post Type UI development is managed on GitHub, with official releases pub
 5. Help/support screen.
 
 == Changelog ==
+
+= 1.18.2 - 2025-12-05 =
+* Fixed: Security issue around Get Code functionality.
+* Fixed: Potential security issue around post type descriptions.
+* Updated: various internationalization details.
 
 = 1.18.1 - 2025-11-20 =
 * Fixed: Potential authorization access issues around content type modification.
@@ -88,7 +93,7 @@ Custom Post Type UI development is managed on GitHub, with official releases pub
 == Upgrade Notice ==
 
 = 1.18.1 =
-Security fixes, javascript touchups, CPTUI about screen cleanup.
+Security fixes, internationalization details.
 
 == Installation ==
 
