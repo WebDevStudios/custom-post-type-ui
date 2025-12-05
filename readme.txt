@@ -32,7 +32,7 @@ Custom Post Type UI development is managed on GitHub, with official releases pub
 
 == Changelog ==
 
-= 1.18.2 - TBD =
+= 1.18.2 - 2025-12-05 =
 * Fixed: Security issue around Get Code functionality.
 * Fixed: Potential security issue around post type descriptions.
 * Updated: various internationalization details.
@@ -93,7 +93,7 @@ Custom Post Type UI development is managed on GitHub, with official releases pub
 == Upgrade Notice ==
 
 = 1.18.1 =
-Security fixes, javascript touchups, CPTUI about screen cleanup.
+Security fixes, internationalization details.
 
 == Installation ==
 
