@@ -303,6 +303,72 @@ postboxes.add_postbox_toggles(pagenow);
 
 /***/ }),
 
+/***/ 698:
+/***/ (() => {
+
+
+
+/*
+ * This file handles setting the menu icon preview for a given post type.
+ */
+(() => {
+  let _custom_media;
+  let _orig_send_attachment;
+  if (undefined !== wp.media) {
+    _custom_media = true;
+    _orig_send_attachment = wp.media.editor.send.attachment;
+  }
+
+  // Trigger the modal and load our icons.
+  const icons = cptuiIconPicker.iconsJSON;
+  const iconPicker = new IconPicker('#cptui_choose_dashicon', {
+    theme: 'default',
+    iconSource: [{
+      key: 'dashicons',
+      prefix: 'dashicons-',
+      url: icons
+    }],
+    closeOnSelect: true
+  });
+  const menuIconField = document.querySelector('#menu_icon');
+  const menuIconPreview = document.querySelector('#menu_icon_preview');
+  const regIcon = document.querySelector('#cptui_choose_icon');
+  const dashIcon = document.querySelector('#cptui_choose_dashicon');
+  const origText = dashIcon.value;
+  iconPicker.on('select', icon => {
+    menuIconField.value = icon.value;
+    menuIconPreview.innerHTML = '';
+    let div = document.createElement('div');
+    div.classList.add('dashicons', icon.value);
+    menuIconPreview.insertAdjacentElement('afterbegin', div);
+  });
+  iconPicker.on('hide', () => {
+    dashIcon.value = origText;
+  });
+  if (regIcon) {
+    regIcon.addEventListener('click', e => {
+      e.preventDefault();
+      let button = e.currentTarget;
+      _custom_media = true;
+      wp.media.editor.send.attachment = function (props, attachment) {
+        if (_custom_media) {
+          menuIconField.value = attachment.url;
+          menuIconPreview.innerHTML = '';
+          let img = document.createElement('img');
+          img.src = attachment.url;
+          menuIconPreview.insertAdjacentElement('afterbegin', img);
+        } else {
+          return _orig_send_attachment.apply(this, [props, attachment]);
+        }
+      };
+      wp.media.editor.open(button);
+      return false;
+    });
+  }
+})();
+
+/***/ }),
+
 /***/ 706:
 /***/ (() => {
 
@@ -661,60 +727,8 @@ var support_toggles = __webpack_require__(194);
     });
   }
 })();
-;// ./src/js/partials/menu-icon.js
-
-
-
-
-/*
- * This file handles setting the menu icon preview for a given post type.
- *
- * @todo Finish converting away from jQuery.
- */
-
-($ => {
-  let _custom_media;
-  let _orig_send_attachment;
-  if (undefined !== wp.media) {
-    _custom_media = true;
-    _orig_send_attachment = wp.media.editor.send.attachment;
-  }
-  $('#cptui_choose_icon').on('click', function (e) {
-    e.preventDefault();
-    let button = $(this);
-    let id = jQuery('#menu_icon').attr('id');
-    _custom_media = true;
-    wp.media.editor.send.attachment = function (props, attachment) {
-      if (_custom_media) {
-        $("#" + id).val(attachment.url).change();
-      } else {
-        return _orig_send_attachment.apply(this, [props, attachment]);
-      }
-    };
-    wp.media.editor.open(button);
-    return false;
-  });
-
-  // NOT DONE
-  /*const menuIcon = document.querySelector('#menu_icon');
-  if (menuIcon) {
-  	menuIcon.addEventListener('input', (e) => {
-  		let value = e.currentTarget.value.trim();
-  		console.log(value);
-  		let menuIconPreview = document.querySelector('#menu_icon_preview');
-  		console.log(menuIconPreview);
-  		if (menuIconPreview) {
-  			console.log(composePreviewContent(value));
-  			menuIconPreview.innerHTML = composePreviewContent(value);
-  		}
-  	});
-  }*/
-  $('#menu_icon').on('change', function () {
-    var value = $(this).val();
-    value = value.trim();
-    $('#menu_icon_preview').html(composePreviewContent(value));
-  });
-})(jQuery);
+// EXTERNAL MODULE: ./src/js/partials/menu-icon.js
+var menu_icon = __webpack_require__(698);
 // EXTERNAL MODULE: ./src/js/partials/tax-required-post-type.js
 var tax_required_post_type = __webpack_require__(376);
 // EXTERNAL MODULE: ./src/js/partials/autopopulate.js
@@ -736,8 +750,6 @@ var toggle_panels = __webpack_require__(213);
 
 
 
-
-//import './dashicons-picker';
 /******/ })()
 ;
 //# sourceMappingURL=cptui.js.map
