@@ -23,6 +23,13 @@
 			url   : icons
 		}],
 		closeOnSelect: true,
+		i18n: {
+			'input:placeholder': cptuiIconPicker.iconsPlaceholder,
+			'text:title'       : cptuiIconPicker.iconsTitle,
+			'text:empty'       : cptuiIconPicker.iconsEmpty,
+			'text:loading'     : cptuiIconPicker.iconsLoading,
+			'btn:save'         : cptuiIconPicker.iconsSave
+		}
 	});
 
 	const menuIconField = document.querySelector('#menu_icon');
