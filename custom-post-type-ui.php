@@ -239,9 +239,14 @@ function cptui_add_styles() {
 	wp_register_script( 'cptui', plugins_url( "build/cptui$min.js", __FILE__ ), [ 'jquery', 'jquery-ui-dialog', 'postbox', 'icon-picker' ], CPTUI_VERSION, true );
 	wp_register_style( 'cptui-css', plugins_url( "build/cptui-styles$min.css", __FILE__ ), [ 'wp-jquery-ui-dialog', 'icon-picker' ], CPTUI_VERSION );
 
-	wp_localize_script( 'icon-picker', 'cptuiIconPicker', array(
-		'iconsJSON' => plugins_url( 'build/dashicons.json', __FILE__ ),
-	) );
+	wp_localize_script( 'icon-picker', 'cptuiIconPicker', [
+		'iconsJSON'        => plugins_url( 'build/dashicons.json', __FILE__ ),
+		'iconsPlaceholder' => esc_attr__( 'Search icon &hellip;', 'custom-post-type-ui' ),
+		'iconsTitle'       => esc_attr__( 'Select icon', 'custom-post-type-ui' ),
+		'iconsEmpty'       => esc_attr__( 'No results found &hellip;', 'custom-post-type-ui' ),
+		'iconsLoading'     => esc_attr__( 'Loading &hellip;', 'custom-post-type-ui' ),
+		'iconsSave'        => esc_attr__( 'Save', 'custom-post-type-ui' ),
+	] );
 }
 add_action( 'admin_enqueue_scripts', 'cptui_add_styles' );
 
