@@ -10,4 +10,3 @@ import './partials/tax-required-post-type';
 import './partials/autopopulate';
 import './partials/back-to-top';
 import './partials/toggle-panels';
-import './partials/icon-picker';
