@@ -626,7 +626,7 @@ function cptui_get_object_from_post_global() {
  * @since 1.4.0
  */
 function cptui_add_success_admin_notice() {
-	echo cptui_admin_notices_helper( // phpcs:ignore WordPress.Security.EscapeOutput
+	cptui_admin_notices_helper( // phpcs:ignore WordPress.Security.EscapeOutput
 		sprintf(
 			/* translators: Placeholders are just for HTML markup that doesn't need translated */
 			esc_html__( '%s has been successfully added', 'custom-post-type-ui' ),
@@ -641,7 +641,7 @@ function cptui_add_success_admin_notice() {
  * @since 1.4.0
  */
 function cptui_add_fail_admin_notice() {
-	echo cptui_admin_notices_helper( // phpcs:ignore WordPress.Security.EscapeOutput
+	cptui_admin_notices_helper( // phpcs:ignore WordPress.Security.EscapeOutput
 		sprintf(
 			/* translators: Placeholders are just for HTML markup that doesn't need translated */
 			esc_html__( '%s has failed to be added', 'custom-post-type-ui' ),
@@ -657,7 +657,7 @@ function cptui_add_fail_admin_notice() {
  * @since 1.4.0
  */
 function cptui_update_success_admin_notice() {
-	echo cptui_admin_notices_helper( // phpcs:ignore WordPress.Security.EscapeOutput
+	cptui_admin_notices_helper( // phpcs:ignore WordPress.Security.EscapeOutput
 		sprintf(
 			/* translators: Placeholders are just for HTML markup that doesn't need translated */
 			esc_html__( '%s has been successfully updated', 'custom-post-type-ui' ),
@@ -672,7 +672,7 @@ function cptui_update_success_admin_notice() {
  * @since 1.4.0
  */
 function cptui_update_fail_admin_notice() {
-	echo cptui_admin_notices_helper( // phpcs:ignore WordPress.Security.EscapeOutput
+	cptui_admin_notices_helper( // phpcs:ignore WordPress.Security.EscapeOutput
 		sprintf(
 			/* translators: Placeholders are just for HTML markup that doesn't need translated */
 			esc_html__( '%s has failed to be updated', 'custom-post-type-ui' ),
@@ -688,7 +688,7 @@ function cptui_update_fail_admin_notice() {
  * @since 1.4.0
  */
 function cptui_delete_success_admin_notice() {
-	echo cptui_admin_notices_helper( // phpcs:ignore WordPress.Security.EscapeOutput
+	cptui_admin_notices_helper( // phpcs:ignore WordPress.Security.EscapeOutput
 		sprintf(
 			/* translators: Placeholders are just for HTML markup that doesn't need translated */
 			esc_html__( '%s has been successfully deleted', 'custom-post-type-ui' ),
@@ -703,7 +703,7 @@ function cptui_delete_success_admin_notice() {
  * @since 1.4.0
  */
 function cptui_delete_fail_admin_notice() {
-	echo cptui_admin_notices_helper( // phpcs:ignore WordPress.Security.EscapeOutput
+	cptui_admin_notices_helper( // phpcs:ignore WordPress.Security.EscapeOutput
 		sprintf(
 			/* translators: Placeholders are just for HTML markup that doesn't need translated */
 			esc_html__( '%s has failed to be deleted', 'custom-post-type-ui' ),
@@ -719,7 +719,7 @@ function cptui_delete_fail_admin_notice() {
  * @since 1.5.0
  */
 function cptui_import_success_admin_notice() {
-	echo cptui_admin_notices_helper( // phpcs:ignore WordPress.Security.EscapeOutput
+	cptui_admin_notices_helper( // phpcs:ignore WordPress.Security.EscapeOutput
 		esc_html__( 'Successfully imported data.', 'custom-post-type-ui' )
 	);
 }
@@ -730,7 +730,7 @@ function cptui_import_success_admin_notice() {
  * @since 1.5.0
  */
 function cptui_import_fail_admin_notice() {
-	echo cptui_admin_notices_helper( // phpcs:ignore WordPress.Security.EscapeOutput
+	cptui_admin_notices_helper( // phpcs:ignore WordPress.Security.EscapeOutput
 		esc_html__( 'Invalid data provided', 'custom-post-type-ui' ),
 		false
 	);
@@ -742,7 +742,7 @@ function cptui_import_fail_admin_notice() {
  * @since 1.7.4
  */
 function cptui_nonce_fail_admin_notice() {
-	echo cptui_admin_notices_helper( // phpcs:ignore WordPress.Security.EscapeOutput
+	cptui_admin_notices_helper( // phpcs:ignore WordPress.Security.EscapeOutput
 		esc_html__( 'Nonce failed verification', 'custom-post-type-ui' ),
 		false
 	);
@@ -837,7 +837,7 @@ function cptui_slug_has_quotes() {
  * @since 1.4.0
  */
 function cptui_error_admin_notice() {
-	echo cptui_admin_notices_helper( // phpcs:ignore WordPress.Security.EscapeOutput
+	cptui_admin_notices_helper( // phpcs:ignore WordPress.Security.EscapeOutput
 		apply_filters( 'cptui_custom_error_message', '' ),
 		false
 	);
