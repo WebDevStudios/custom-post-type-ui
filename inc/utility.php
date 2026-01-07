@@ -1069,3 +1069,159 @@ function cptui_add_dialog_delete_content_type_confirm() {
 }
 #add_action( 'cptui_post_type_after_fieldsets', 'cptui_add_dialog_delete_content_type_confirm' );
 #add_action( 'cptui_taxonomy_after_fieldsets', 'cptui_add_dialog_delete_content_type_confirm' );
+
+/**
+ * Output a CPTUI-Extended upsell message for use with admin notifications in "Add new ..." tab.
+ *
+ * @since NEXT
+ *
+ * @return string
+ */
+function cptui_add_new_extended_upsell_messaging() {
+	return sprintf(
+		// translators: Placeholder will hold the name of the plugin and a link to Pluginize.
+		esc_attr__( '%1$s helps you display custom post types with blocks, shortcodes, and templates — without writing code. Explore %2$s', 'custom-post-type-ui' ),
+		'CPTUI-Extended',
+		'<a href="https://pluginize.com/plugins/custom-post-type-ui-extended/">CPTUI Extended</a>'
+	);
+}
+
+/**
+ * Output a CPTUI-Extended upsell message for use with admin notifications in WP_List_Table views.
+ *
+ * @since NEXT
+ *
+ * @param string $post_type_slug
+ *
+ * @return string;
+ */
+function cptui_post_type_list_extended_upsell_messaging( $post_type_slug ) {
+	return sprintf(
+		// translators: Placeholder will hold the name of the plugin, a link to Pluginize, and a dismiss link.
+		esc_attr__( '%1$s lets you display this post type using blocks, shortcodes, and templates — no custom code needed. Display with %2$s &mdash; %3$s', 'custom-post-type-ui' ),
+		'CPTUI-Extended',
+		'<a href="https://pluginize.com/plugins/custom-post-type-ui-extended/">CPTUI Extended</a>',
+		sprintf(
+			'<a href="%1$s">%2$s</a>',
+			esc_url( add_query_arg( [ 'cptui-action' => 'cptui-dismiss', 'cptui-dismiss-nonce' => wp_create_nonce( 'cptui-dismiss-nonce' ) ], admin_url( 'edit.php?post_type=' . $post_type_slug ) ) ),
+			esc_html__( 'Dismiss', 'custom-post-type-ui' )
+		)
+	);
+}
+
+/**
+ * Conditionally output an admin notification for our CPTUI-Extended upsell.
+ *
+ * @since NEXT
+ */
+function cptui_extended_upsell_notification() {
+
+	if ( ! current_user_can( 'manage_options' ) ) {
+		return;
+	}
+
+	if ( wp_doing_ajax() ) {
+		return;
+	}
+
+	// If CPTUI-Extended already exists and is active.
+	if ( class_exists( 'CPTUI_Extended' ) ) {
+		return;
+	}
+
+	$screen = get_current_screen();
+	// our Add new content type tabs.
+	if (
+		is_object( $screen ) &&
+		(
+			in_array(
+				$screen->base,
+				[ 'cpt-ui_page_cptui_manage_post_types', 'cpt-ui_page_cptui_manage_taxonomies' ],
+				true
+			) &&
+			empty( $_GET['action'] )
+		)
+	) {
+		cptui_admin_notices_helper(
+			cptui_add_new_extended_upsell_messaging(),
+			false,
+			'warning'
+		);
+	}
+
+	$public = get_post_types(
+		[
+			'_builtin' => false,
+			'public'   => true,
+		]
+	);
+
+	if ( $screen->base === 'edit' && ! empty( $_GET['post_type'] ) && in_array( $_GET['post_type'], $public, true ) ) {
+		$dismissals = get_option( 'cptui-user-dismissed-extended-upsell', [] );
+		if ( ! empty( $dismissals ) ) {
+			$user_id = get_current_user_id();
+			if ( 'true' === $dismissals[ 'user_id_' . $user_id ] ) {
+				return;
+			}
+		}
+		cptui_admin_notices_helper(
+			cptui_post_type_list_extended_upsell_messaging( sanitize_text_field( $_GET['post_type'] ) ),
+			false,
+			'warning'
+		);
+	}
+}
+add_action( 'admin_notices', 'cptui_extended_upsell_notification', 11 );
+
+/**
+ * Mark upsell as dismissed for current user.
+ *
+ * @since NEXT
+ */
+function cptui_handle_upsell_dismissal() {
+	if ( ! current_user_can( 'manage_options' ) ) {
+		return;
+	}
+
+	if ( wp_doing_ajax() ) {
+		return;
+	}
+
+	if ( empty( $_GET['cptui-dismiss-nonce'] ) ) {
+		return;
+	}
+
+	if ( ! wp_verify_nonce( $_GET['cptui-dismiss-nonce'], 'cptui-dismiss-nonce' ) ) {
+		return;
+	}
+
+	$dismissed                          = get_option( 'cptui-user-dismissed-extended-upsell', [] );
+	$user_id                            = get_current_user_id();
+	$dismissed[ 'user_id_' . $user_id ] = 'true';
+	update_option( 'cptui-user-dismissed-extended-upsell', $dismissed );
+}
+add_action( 'admin_init', 'cptui_handle_upsell_dismissal' );
+
+/**
+ * Clear our upsell option dismissal upon plugin upgrade.
+ *
+ * @since NEXT
+ *
+ * @param $upgrader_object
+ * @param $options
+ */
+function cptui_clear_upsell_dismissed_cache( $upgrader_object, $options ) {
+	// If an update has taken place and the updated type is plugins and the plugins element exists
+	if (
+		'update' === $options['action'] &&
+		'plugin' === $options['type'] &&
+		! empty( $options['plugins'] )
+	) {
+		foreach ( $options['plugins'] as $plugin ) {
+			if ( $plugin === 'custom-post-type-ui/custom-post-type-ui.php' ) {
+				delete_option( 'cptui-user-dismissed-extended-upsell' );
+			}
+		}
+	}
+}
+add_action( 'upgrader_process_complete', 'cptui_clear_upsell_dismissed_cache', 10, 2 );
