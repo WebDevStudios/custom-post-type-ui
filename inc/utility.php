@@ -554,11 +554,6 @@ function cptui_admin_notices_helper( $message = '', $success = true, $success_ov
 	$class   = [];
 	$class[] = $success ? 'updated' : 'error';
 
-	$type = $success ? 'success' : 'error';
-	if ( ! empty( $success_override_type ) ) {
-		$type = $success_override_type;
-	}
-
 	$messagewrapstart = '<div id="message" class="' . implode( ' ', $class ) . '"><p>';
 	$messagewrapend = '</p></div>';
 
@@ -582,6 +577,11 @@ function cptui_admin_notices_helper( $message = '', $success = true, $success_ov
 		'',
 		esc_html__( 'No filter replacement. Deprecated', 'custom-post-type-ui' )
 	);
+
+	$type = $success ? 'success' : 'error';
+	if ( ! empty( $success_override_type ) ) {
+		$type = $success_override_type;
+	}
 
 	wp_admin_notice(
 		$message,
