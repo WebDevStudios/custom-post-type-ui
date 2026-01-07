@@ -548,32 +548,49 @@ function cptui_randomize_ads( $ads = [] ) {
  *
  * @param string $message Message to use in admin notice. Optional. Default empty string.
  * @param bool   $success Whether or not a success. Optional. Default true.
- * @return mixed
  */
-function cptui_admin_notices_helper( $message = '', $success = true ) {
+function cptui_admin_notices_helper( $message = '', $success = true, $success_override_type = false ) {
 
 	$class   = [];
 	$class[] = $success ? 'updated' : 'error';
-	$class[] = 'notice is-dismissible';
+
+	$type = $success ? 'success' : 'error';
+	if ( ! empty( $success_override_type ) ) {
+		$type = $success_override_type;
+	}
 
 	$messagewrapstart = '<div id="message" class="' . implode( ' ', $class ) . '"><p>';
-
 	$messagewrapend = '</p></div>';
-
-	$action = '';
 
 	/**
 	 * Filters the custom admin notice for CPTUI.
 	 *
-	 * @since 1.0.0
+	 * @deprecated
 	 *
 	 * @param string $value            Complete HTML output for notice.
 	 * @param string $action           Action whose message is being generated.
 	 * @param string $message          The message to be displayed.
 	 * @param string $messagewrapstart Beginning wrap HTML.
 	 * @param string $messagewrapend   Ending wrap HTML.
+	 *
+	 * @since 1.0.0
 	 */
-	return apply_filters( 'cptui_admin_notice', $messagewrapstart . $message . $messagewrapend, $action, $message, $messagewrapstart, $messagewrapend );
+	$notice = apply_filters_deprecated(
+		'cptui_admin_notice',
+		[ $messagewrapstart . $message . $messagewrapend, '', $message, $messagewrapstart, $messagewrapend ],
+		'1.19.0',
+		'',
+		esc_html__( 'No filter replacement. Deprecated', 'custom-post-type-ui' )
+	);
+
+	wp_admin_notice(
+		$message,
+		[
+			'id'          => 'cptui-message',
+			'type'        => $type,
+			'dismissible' => true,
+		]
+	);
 }
 
 /**
