@@ -1073,7 +1073,7 @@ function cptui_add_dialog_delete_content_type_confirm() {
 /**
  * Output a CPTUI-Extended upsell message for use with admin notifications in "Add new ..." tab.
  *
- * @since NEXT
+ * @since 1.18.3
  *
  * @return string
  */
@@ -1089,7 +1089,7 @@ function cptui_add_new_extended_upsell_messaging() {
 /**
  * Output a CPTUI-Extended upsell message for use with admin notifications in WP_List_Table views.
  *
- * @since NEXT
+ * @since 1.18.3
  *
  * @param string $post_type_slug
  *
@@ -1112,7 +1112,7 @@ function cptui_post_type_list_extended_upsell_messaging( $post_type_slug ) {
 /**
  * Conditionally output an admin notification for our CPTUI-Extended upsell.
  *
- * @since NEXT
+ * @since 1.18.3
  */
 function cptui_extended_upsell_notification() {
 
@@ -1176,7 +1176,7 @@ add_action( 'admin_notices', 'cptui_extended_upsell_notification', 11 );
 /**
  * Mark upsell as dismissed for current user.
  *
- * @since NEXT
+ * @since 1.18.3
  */
 function cptui_handle_upsell_dismissal() {
 	if ( ! current_user_can( 'manage_options' ) ) {
@@ -1205,7 +1205,7 @@ add_action( 'admin_init', 'cptui_handle_upsell_dismissal' );
 /**
  * Clear our upsell option dismissal upon plugin upgrade.
  *
- * @since NEXT
+ * @since 1.18.3
  *
  * @param $upgrader_object
  * @param $options
