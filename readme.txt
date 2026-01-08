@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: custom post types, post type, taxonomy, content types, types
 Requires at least: 6.6
 Tested up to: 6.9
-Stable tag: 1.18.2
+Stable tag: 1.18.3
 License: GPL-2.0+
 Requires PHP: 7.4
 
@@ -31,6 +31,10 @@ Custom Post Type UI development is managed on GitHub, with official releases pub
 5. Help/support screen.
 
 == Changelog ==
+
+= 1.18.3 - 2026-01-08 =
+* Fixed: Remove double escaping in tools section, for some output.
+* Added: Dismissable upsell notifications for CPTUI-Extended.
 
 = 1.18.2 - 2025-12-05 =
 * Fixed: Security issue around Get Code functionality.
@@ -92,8 +96,8 @@ Custom Post Type UI development is managed on GitHub, with official releases pub
 
 == Upgrade Notice ==
 
-= 1.18.1 =
-Security fixes, internationalization details.
+= 1.18.3 =
+* Misc code cleanup and some upsell details for premium products.
 
 == Installation ==
 

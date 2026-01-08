@@ -1,6 +1,6 @@
 {
   "name": "custom-post-type-ui",
-  "version": "1.18.1",
+  "version": "1.18.3",
   "description": "Custom Post Type UI",
   "main": "index.js",
   "directories": {
