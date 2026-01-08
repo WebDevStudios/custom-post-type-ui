@@ -264,6 +264,6 @@ function cptui_get_single_post_type_registery( $post_type = [] ) {
 <?php endif; ?>
 	];
 
-	register_post_type( "<?php echo esc_html( esc_html( $post_type['name'] ) ); ?>", $args );
+	register_post_type( "<?php echo esc_html( $post_type['name'] ); ?>", $args );
 <?php
 }

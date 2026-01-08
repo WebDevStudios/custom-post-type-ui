@@ -2593,7 +2593,7 @@ add_filter( 'enter_title_here', 'cptui_custom_enter_title_here', 10, 2 );
 /**
  * Get saved description value with added nonce check for extra security.
  *
- * @since NEXT
+ * @since 1.18.2
  *
  * @return string
  */
