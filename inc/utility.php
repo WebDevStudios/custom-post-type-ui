@@ -1082,7 +1082,7 @@ function cptui_add_new_extended_upsell_messaging() {
 		// translators: Placeholder will hold the name of the plugin and a link to Pluginize.
 		esc_attr__( '%1$s helps you display custom post types with blocks, shortcodes, and templates — without writing code. Explore %2$s', 'custom-post-type-ui' ),
 		'CPTUI-Extended',
-		'<a href="https://pluginize.com/plugins/custom-post-type-ui-extended/">CPTUI Extended</a>'
+		'<a href="https://pluginize.com/plugins/custom-post-type-ui-extended/?utm_source=cptui-admin-notice&utm_medium=plugin&utm_campaign=cptui" target="_blank">CPTUI Extended</a>'
 	);
 }
 
@@ -1100,7 +1100,7 @@ function cptui_post_type_list_extended_upsell_messaging( $post_type_slug ) {
 		// translators: Placeholder will hold the name of the plugin, a link to Pluginize, and a dismiss link.
 		esc_attr__( '%1$s lets you display this post type using blocks, shortcodes, and templates — no custom code needed. Display with %2$s &mdash; %3$s', 'custom-post-type-ui' ),
 		'CPTUI-Extended',
-		'<a href="https://pluginize.com/plugins/custom-post-type-ui-extended/">CPTUI Extended</a>',
+		'<a href="https://pluginize.com/plugins/custom-post-type-ui-extended/?utm_source=cptui-list-notice&utm_medium=plugin&utm_campaign=cptui" target="_blank">CPTUI Extended</a>',
 		sprintf(
 			'<a href="%1$s">%2$s</a>',
 			esc_url( add_query_arg( [ 'cptui-action' => 'cptui-dismiss', 'cptui-dismiss-nonce' => wp_create_nonce( 'cptui-dismiss-nonce' ) ], admin_url( 'edit.php?post_type=' . $post_type_slug ) ) ),
