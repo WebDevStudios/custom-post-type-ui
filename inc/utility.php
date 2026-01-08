@@ -573,7 +573,7 @@ function cptui_admin_notices_helper( $message = '', $success = true, $success_ov
 	$notice = apply_filters_deprecated(
 		'cptui_admin_notice',
 		[ $messagewrapstart . $message . $messagewrapend, '', $message, $messagewrapstart, $messagewrapend ],
-		'1.19.0',
+		'1.18.3',
 		'',
 		esc_html__( 'No filter replacement. Deprecated', 'custom-post-type-ui' )
 	);
