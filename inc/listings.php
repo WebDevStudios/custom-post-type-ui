@@ -246,7 +246,7 @@ function cptui_listings() {
 								<p>
 									<?php
 									printf(
-										'<a href="https://developer.wordpress.org/themes/basics/template-hierarchy/">%s</a>',
+										'<a href="https://developer.wordpress.org/themes/classic-themes/basics/template-hierarchy/">%s</a>',
 										esc_html__( 'Template hierarchy Theme Handbook', 'custom-post-type-ui' )
 									);
 									?>
@@ -434,7 +434,7 @@ function cptui_listings() {
 									<p>
 										<?php
 										printf(
-											'<a href="https://developer.wordpress.org/themes/basics/template-hierarchy/">%s</a>',
+											'<a href="https://developer.wordpress.org/themes/classic-themes/basics/template-hierarchy/">%s</a>',
 											esc_html__( 'Template hierarchy Theme Handbook', 'custom-post-type-ui' )
 										);
 										?>
