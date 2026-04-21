@@ -54,10 +54,27 @@ function cptui_tools_tabs( $tabs = [], $current_page = '' ) {
 	if ( 'tools' === $current_page ) {
 		$classes = [ 'nav-tab' ];
 
-		$tabs['page_title']         = get_admin_page_title();
+		$page_title = esc_html( get_admin_page_title() );
+		$tabs['page_title'] = '';
+		if ( empty( $_GET['action'] ) ) {
+			$tabs['page_title'] .= esc_html__( 'Post types', 'custom-post-type-ui' ) . ' - ' . $page_title;
+		}
+
+		if ( ! empty( $_GET['action'] ) && 'taxonomies' === sanitize_text_field( $_GET['action'] ) ) {
+			$tabs['page_title'] .= esc_html__( 'Taxonomies', 'custom-post-type-ui' ) . ' - ' . $page_title;
+		}
+
+		if ( ! empty( $_GET['action'] ) && 'get_code' === sanitize_text_field( $_GET['action'] ) ) {
+			$tabs['page_title'] .= esc_html__( 'Get code', 'custom-post-type-ui' ) . ' - ' . $page_title;
+		}
+
+		if ( ! empty( $_GET['action'] ) && 'debuginfo' === sanitize_text_field( $_GET['action'] ) ) {
+			$tabs['page_title'] .= esc_html__( 'Debug info', 'custom-post-type-ui' ) . ' - ' . $page_title;
+		}
+
 		$tabs['tabs']               = [];
 		$tabs['tabs']['post_types'] = [
-			'text'          => esc_html__( 'Post Types', 'custom-post-type-ui' ),
+			'text'          => esc_html__( 'Post types', 'custom-post-type-ui' ),
 			'classes'       => $classes,
 			'url'           => cptui_admin_url( 'admin.php?page=cptui_' . $current_page ),
 			'aria-selected' => 'false',
@@ -71,14 +88,14 @@ function cptui_tools_tabs( $tabs = [], $current_page = '' ) {
 		];
 
 		$tabs['tabs']['get_code'] = [
-			'text'          => esc_html__( 'Get Code', 'custom-post-type-ui' ),
+			'text'          => esc_html__( 'Get code', 'custom-post-type-ui' ),
 			'classes'       => $classes,
 			'url'           => esc_url( add_query_arg( [ 'action' => 'get_code' ], cptui_admin_url( 'admin.php?page=cptui_' . $current_page ) ) ),
 			'aria-selected' => 'false',
 		];
 
 		$tabs['tabs']['debuginfo'] = [
-			'text'          => esc_html__( 'Debug Info', 'custom-post-type-ui' ),
+			'text'          => esc_html__( 'Debug info', 'custom-post-type-ui' ),
 			'classes'       => $classes,
 			'url'           => esc_url( add_query_arg( [ 'action' => 'debuginfo' ], cptui_admin_url( 'admin.php?page=cptui_' . $current_page ) ) ),
 			'aria-selected' => 'false',
