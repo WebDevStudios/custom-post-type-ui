@@ -32,6 +32,11 @@ Custom Post Type UI development is managed on GitHub, with official releases pub
 
 == Changelog ==
 
+= 1.19.0 - TBD =
+* Fixed: PHP notices from upsell notification display check.
+* Updated: Various capitalization for CPTUI Submenu labels
+* Updated: developer.wordpress.org URLs that had redirects.
+
 = 1.18.3 - 2026-01-08 =
 * Fixed: Remove double escaping in tools section, for some output.
 * Added: Dismissable upsell notifications for CPTUI-Extended.
@@ -96,8 +101,8 @@ Custom Post Type UI development is managed on GitHub, with official releases pub
 
 == Upgrade Notice ==
 
-= 1.18.3 =
-* Misc code cleanup and some upsell details for premium products.
+= 1.19.0 =
+* Fill in a general statement.
 
 == Installation ==
 
