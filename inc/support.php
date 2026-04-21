@@ -166,7 +166,7 @@ function cptui_support() {
 								printf(
 									/* translators: Placeholders are just for HTML markup that doesn't need translated */
 									esc_html__( 'Please visit the %1$sTemplate Hierarchy%2$s page on the WordPress codex for details about available templates.', 'custom-post-type-ui' ),
-									'<a href="https://developer.wordpress.org/themes/basics/template-hierarchy/">',
+									'<a href="https://developer.wordpress.org/themes/classic-themes/basics/template-hierarchy/">',
 									'</a>'
 								);
 								?>
