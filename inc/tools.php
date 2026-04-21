@@ -54,7 +54,24 @@ function cptui_tools_tabs( $tabs = [], $current_page = '' ) {
 	if ( 'tools' === $current_page ) {
 		$classes = [ 'nav-tab' ];
 
-		$tabs['page_title']         = get_admin_page_title();
+		$page_title = esc_html( get_admin_page_title() );
+		$tabs['page_title'] = '';
+		if ( empty( $_GET['action'] ) ) {
+			$tabs['page_title'] .= esc_html__( 'Post types', 'custom-post-type-ui' ) . ' - ' . $page_title;
+		}
+
+		if ( ! empty( $_GET['action'] ) && 'taxonomies' === sanitize_text_field( $_GET['action'] ) ) {
+			$tabs['page_title'] .= esc_html__( 'Taxonomies', 'custom-post-type-ui' ) . ' - ' . $page_title;
+		}
+
+		if ( ! empty( $_GET['action'] ) && 'get_code' === sanitize_text_field( $_GET['action'] ) ) {
+			$tabs['page_title'] .= esc_html__( 'Get code', 'custom-post-type-ui' ) . ' - ' . $page_title;
+		}
+
+		if ( ! empty( $_GET['action'] ) && 'debuginfo' === sanitize_text_field( $_GET['action'] ) ) {
+			$tabs['page_title'] .= esc_html__( 'Debug info', 'custom-post-type-ui' ) . ' - ' . $page_title;
+		}
+
 		$tabs['tabs']               = [];
 		$tabs['tabs']['post_types'] = [
 			'text'          => esc_html__( 'Post Types', 'custom-post-type-ui' ),
