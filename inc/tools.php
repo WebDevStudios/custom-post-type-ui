@@ -71,14 +71,14 @@ function cptui_tools_tabs( $tabs = [], $current_page = '' ) {
 		];
 
 		$tabs['tabs']['get_code'] = [
-			'text'          => esc_html__( 'Get Code', 'custom-post-type-ui' ),
+			'text'          => esc_html__( 'Get code', 'custom-post-type-ui' ),
 			'classes'       => $classes,
 			'url'           => esc_url( add_query_arg( [ 'action' => 'get_code' ], cptui_admin_url( 'admin.php?page=cptui_' . $current_page ) ) ),
 			'aria-selected' => 'false',
 		];
 
 		$tabs['tabs']['debuginfo'] = [
-			'text'          => esc_html__( 'Debug Info', 'custom-post-type-ui' ),
+			'text'          => esc_html__( 'Debug info', 'custom-post-type-ui' ),
 			'classes'       => $classes,
 			'url'           => esc_url( add_query_arg( [ 'action' => 'debuginfo' ], cptui_admin_url( 'admin.php?page=cptui_' . $current_page ) ) ),
 			'aria-selected' => 'false',
