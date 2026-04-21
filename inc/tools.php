@@ -74,7 +74,7 @@ function cptui_tools_tabs( $tabs = [], $current_page = '' ) {
 
 		$tabs['tabs']               = [];
 		$tabs['tabs']['post_types'] = [
-			'text'          => esc_html__( 'Post Types', 'custom-post-type-ui' ),
+			'text'          => esc_html__( 'Post types', 'custom-post-type-ui' ),
 			'classes'       => $classes,
 			'url'           => cptui_admin_url( 'admin.php?page=cptui_' . $current_page ),
 			'aria-selected' => 'false',
