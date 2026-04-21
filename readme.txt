@@ -33,6 +33,7 @@ Custom Post Type UI development is managed on GitHub, with official releases pub
 == Changelog ==
 
 = 1.19.0 - TBD =
+* Added: Support for "Filter by category" and "Filter by date" labels. Thanks aloMalbarez
 * Fixed: PHP notices from upsell notification display check.
 * Updated: Various capitalization for CPTUI Submenu labels
 * Updated: developer.wordpress.org URLs that had redirects.
