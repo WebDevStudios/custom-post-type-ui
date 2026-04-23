@@ -32,11 +32,12 @@ Custom Post Type UI development is managed on GitHub, with official releases pub
 
 == Changelog ==
 
-= 1.19.0 - TBD =
+= 1.19.0 - 2026-04-23 =
 * Added: Support for "Filter by category" and "Filter by date" labels. Thanks aloMalbarez
 * Fixed: PHP notices from upsell notification display check.
 * Updated: Various capitalization for CPTUI Submenu labels
 * Updated: developer.wordpress.org URLs that had redirects.
+* Updated: jQuery-less Dashicon picker.
 
 = 1.18.3 - 2026-01-08 =
 * Fixed: Remove double escaping in tools section, for some output.
@@ -103,7 +104,7 @@ Custom Post Type UI development is managed on GitHub, with official releases pub
 == Upgrade Notice ==
 
 = 1.19.0 =
-* Fill in a general statement.
+* Some new content type labels, jQuery-less Dashicon picker, PHP notices, and capitalization updates.
 
 == Installation ==
 
