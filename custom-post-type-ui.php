@@ -234,9 +234,19 @@ function cptui_add_styles() {
 		return;
 	}
 	$min = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
-	wp_register_script( 'cptui', plugins_url( "build/cptui$min.js", __FILE__ ), [ 'jquery', 'jquery-ui-dialog', 'postbox' ], CPTUI_VERSION, true );
-	wp_register_script( 'dashicons-picker', plugins_url( "build/dashiconsPicker$min.js", __FILE__ ), [ 'jquery'], '1.0.0', true );
-	wp_register_style( 'cptui-css', plugins_url( "build/cptui-styles$min.css", __FILE__ ), [ 'wp-jquery-ui-dialog' ], CPTUI_VERSION );
+	wp_register_script( 'icon-picker', plugins_url( "build/vanilla-icon-picker/dist/icon-picker.min.js", __FILE__ ), [], '1.4.2', true );
+	wp_register_style( 'icon-picker', plugins_url( "build/vanilla-icon-picker/dist/themes/default.min.css", __FILE__ ), [], '1.4.2' );
+	wp_register_script( 'cptui', plugins_url( "build/cptui$min.js", __FILE__ ), [ 'jquery', 'jquery-ui-dialog', 'postbox', 'icon-picker' ], CPTUI_VERSION, true );
+	wp_register_style( 'cptui-css', plugins_url( "build/cptui-styles$min.css", __FILE__ ), [ 'wp-jquery-ui-dialog', 'icon-picker' ], CPTUI_VERSION );
+
+	wp_localize_script( 'icon-picker', 'cptuiIconPicker', [
+		'iconsJSON'        => plugins_url( 'build/dashicons.json', __FILE__ ),
+		'iconsPlaceholder' => esc_attr__( 'Search icon &hellip;', 'custom-post-type-ui' ),
+		'iconsTitle'       => esc_attr__( 'Select icon', 'custom-post-type-ui' ),
+		'iconsEmpty'       => esc_attr__( 'No results found &hellip;', 'custom-post-type-ui' ),
+		'iconsLoading'     => esc_attr__( 'Loading &hellip;', 'custom-post-type-ui' ),
+		'iconsSave'        => esc_attr__( 'Save', 'custom-post-type-ui' ),
+	] );
 }
 add_action( 'admin_enqueue_scripts', 'cptui_add_styles' );
 

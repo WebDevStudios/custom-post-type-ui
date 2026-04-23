@@ -35,7 +35,6 @@ function cptui_post_type_enqueue_scripts( $hook ) {
 
 	wp_enqueue_media();
 	wp_enqueue_script( 'cptui' );
-	wp_enqueue_script( 'dashicons-picker' );
 	wp_enqueue_style( 'cptui-css' );
 
 	$core                  = get_post_types( [ '_builtin' => true ] );
