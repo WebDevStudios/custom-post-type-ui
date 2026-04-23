@@ -1,0 +1,926 @@
+{
+	"prefix": "dashicons",
+	"info": {
+		"name": "WordPress Dashicons",
+		"total": 302,
+		"height": 32,
+		"displayHeight": 16,
+		"palette": false
+	},
+	"lastModified": 1756960781,
+  "iconFormat": "markup",
+	"icons": {
+    "menu": {
+      "body": "<span class=\"dashicons dashicons-menu\"></span>"
+    },
+    "dashboard": {
+      "body": "<span class=\"dashicons dashicons-dashboard\"></span>"
+    },
+    "filter": {
+      "body": "<span class=\"dashicons dashicons-filter\"></span>"
+    },
+    "admin-site": {
+      "body": "<span class=\"dashicons dashicons-admin-site\"></span>"
+    },
+    "admin-media": {
+      "body": "<span class=\"dashicons dashicons-admin-media\"></span>"
+    },
+    "admin-page": {
+      "body": "<span class=\"dashicons dashicons-admin-page\"></span>"
+    },
+    "admin-comments": {
+      "body": "<span class=\"dashicons dashicons-admin-comments\"></span>"
+    },
+    "admin-appearance": {
+      "body": "<span class=\"dashicons dashicons-admin-appearance\"></span>"
+    },
+    "admin-plugins": {
+      "body": "<span class=\"dashicons dashicons-admin-plugins\"></span>"
+    },
+    "admin-users": {
+      "body": "<span class=\"dashicons dashicons-admin-users\"></span>"
+    },
+    "admin-tools": {
+      "body": "<span class=\"dashicons dashicons-admin-tools\"></span>"
+    },
+    "admin-settings": {
+      "body": "<span class=\"dashicons dashicons-admin-settings\"></span>"
+    },
+    "admin-network": {
+      "body": "<span class=\"dashicons dashicons-admin-network\"></span>"
+    },
+    "admin-generic": {
+      "body": "<span class=\"dashicons dashicons-admin-generic\"></span>"
+    },
+    "admin-home": {
+      "body": "<span class=\"dashicons dashicons-admin-home\"></span>"
+    },
+    "admin-collapse": {
+      "body": "<span class=\"dashicons dashicons-admin-collapse\"></span>"
+    },
+    "admin-customizer": {
+      "body": "<span class=\"dashicons dashicons-admin-customizer\"></span>"
+    },
+    "admin-multisite": {
+      "body": "<span class=\"dashicons dashicons-admin-multisite\"></span>"
+    },
+    "admin-links": {
+      "body": "<span class=\"dashicons dashicons-admin-links\"></span>"
+    },
+    "admin-post": {
+      "body": "<span class=\"dashicons dashicons-admin-post\"></span>"
+    },
+    "format-links": {
+      "body": "<span class=\"dashicons dashicons-format-links\"></span>"
+    },
+    "format-standard": {
+      "body": "<span class=\"dashicons dashicons-format-standard\"></span>"
+    },
+    "format-image": {
+      "body": "<span class=\"dashicons dashicons-format-image\"></span>"
+    },
+    "format-gallery": {
+      "body": "<span class=\"dashicons dashicons-format-gallery\"></span>"
+    },
+    "format-audio": {
+      "body": "<span class=\"dashicons dashicons-format-audio\"></span>"
+    },
+    "format-video": {
+      "body": "<span class=\"dashicons dashicons-format-video\"></span>"
+    },
+    "format-chat": {
+      "body": "<span class=\"dashicons dashicons-format-chat\"></span>"
+    },
+    "format-status": {
+      "body": "<span class=\"dashicons dashicons-format-status\"></span>"
+    },
+    "format-aside": {
+      "body": "<span class=\"dashicons dashicons-format-aside\"></span>"
+    },
+    "format-quote": {
+      "body": "<span class=\"dashicons dashicons-format-quote\"></span>"
+    },
+    "welcome-write-blog": {
+      "body": "<span class=\"dashicons dashicons-welcome-write-blog\"></span>"
+    },
+    "welcome-edit-page": {
+      "body": "<span class=\"dashicons dashicons-welcome-edit-page\"></span>"
+    },
+    "welcome-add-page": {
+      "body": "<span class=\"dashicons dashicons-welcome-add-page\"></span>"
+    },
+    "welcome-view-site": {
+      "body": "<span class=\"dashicons dashicons-welcome-view-site\"></span>"
+    },
+    "welcome-widgets-menus": {
+      "body": "<span class=\"dashicons dashicons-welcome-widgets-menus\"></span>"
+    },
+    "welcome-comments": {
+      "body": "<span class=\"dashicons dashicons-welcome-comments\"></span>"
+    },
+    "welcome-learn-more": {
+      "body": "<span class=\"dashicons dashicons-welcome-learn-more\"></span>"
+    },
+    "image-crop": {
+      "body": "<span class=\"dashicons dashicons-image-crop\"></span>"
+    },
+    "image-rotate": {
+      "body": "<span class=\"dashicons dashicons-image-rotate\"></span>"
+    },
+    "image-rotate-left": {
+      "body": "<span class=\"dashicons dashicons-image-rotate-left\"></span>"
+    },
+    "image-rotate-right": {
+      "body": "<span class=\"dashicons dashicons-image-rotate-right\"></span>"
+    },
+    "image-flip-vertical": {
+      "body": "<span class=\"dashicons dashicons-image-flip-vertical\"></span>"
+    },
+    "image-flip-horizontal": {
+      "body": "<span class=\"dashicons dashicons-image-flip-horizontal\"></span>"
+    },
+    "image-filter": {
+      "body": "<span class=\"dashicons dashicons-image-filter\"></span>"
+    },
+    "undo": {
+      "body": "<span class=\"dashicons dashicons-undo\"></span>"
+    },
+    "redo": {
+      "body": "<span class=\"dashicons dashicons-redo\"></span>"
+    },
+    "editor-bold": {
+      "body": "<span class=\"dashicons dashicons-editor-bold\"></span>"
+    },
+    "editor-italic": {
+      "body": "<span class=\"dashicons dashicons-editor-italic\"></span>"
+    },
+    "editor-ul": {
+      "body": "<span class=\"dashicons dashicons-editor-ul\"></span>"
+    },
+    "editor-ol": {
+      "body": "<span class=\"dashicons dashicons-editor-ol\"></span>"
+    },
+    "editor-quote": {
+      "body": "<span class=\"dashicons dashicons-editor-quote\"></span>"
+    },
+    "editor-alignleft": {
+      "body": "<span class=\"dashicons dashicons-editor-alignleft\"></span>"
+    },
+    "editor-aligncenter": {
+      "body": "<span class=\"dashicons dashicons-editor-aligncenter\"></span>"
+    },
+    "editor-alignright": {
+      "body": "<span class=\"dashicons dashicons-editor-alignright\"></span>"
+    },
+    "editor-insertmore": {
+      "body": "<span class=\"dashicons dashicons-editor-insertmore\"></span>"
+    },
+    "editor-spellcheck": {
+      "body": "<span class=\"dashicons dashicons-editor-spellcheck\"></span>"
+    },
+    "editor-distractionfree": {
+      "body": "<span class=\"dashicons dashicons-editor-distractionfree\"></span>"
+    },
+    "editor-expand": {
+      "body": "<span class=\"dashicons dashicons-editor-expand\"></span>"
+    },
+    "editor-contract": {
+      "body": "<span class=\"dashicons dashicons-editor-contract\"></span>"
+    },
+    "editor-kitchensink": {
+      "body": "<span class=\"dashicons dashicons-editor-kitchensink\"></span>"
+    },
+    "editor-underline": {
+      "body": "<span class=\"dashicons dashicons-editor-underline\"></span>"
+    },
+    "editor-justify": {
+      "body": "<span class=\"dashicons dashicons-editor-justify\"></span>"
+    },
+    "editor-textcolor": {
+      "body": "<span class=\"dashicons dashicons-editor-textcolor\"></span>"
+    },
+    "editor-paste-word": {
+      "body": "<span class=\"dashicons dashicons-editor-paste-word\"></span>"
+    },
+    "editor-paste-text": {
+      "body": "<span class=\"dashicons dashicons-editor-paste-text\"></span>"
+    },
+    "editor-removeformatting": {
+      "body": "<span class=\"dashicons dashicons-editor-removeformatting\"></span>"
+    },
+    "editor-video": {
+      "body": "<span class=\"dashicons dashicons-editor-video\"></span>"
+    },
+    "editor-customchar": {
+      "body": "<span class=\"dashicons dashicons-editor-customchar\"></span>"
+    },
+    "editor-outdent": {
+      "body": "<span class=\"dashicons dashicons-editor-outdent\"></span>"
+    },
+    "editor-indent": {
+      "body": "<span class=\"dashicons dashicons-editor-indent\"></span>"
+    },
+    "editor-help": {
+      "body": "<span class=\"dashicons dashicons-editor-help\"></span>"
+    },
+    "editor-strikethrough": {
+      "body": "<span class=\"dashicons dashicons-editor-strikethrough\"></span>"
+    },
+    "editor-unlink": {
+      "body": "<span class=\"dashicons dashicons-editor-unlink\"></span>"
+    },
+    "editor-rtl": {
+      "body": "<span class=\"dashicons dashicons-editor-rtl\"></span>"
+    },
+    "editor-break": {
+      "body": "<span class=\"dashicons dashicons-editor-break\"></span>"
+    },
+    "editor-code": {
+      "body": "<span class=\"dashicons dashicons-editor-code\"></span>"
+    },
+    "editor-paragraph": {
+      "body": "<span class=\"dashicons dashicons-editor-paragraph\"></span>"
+    },
+    "editor-table": {
+      "body": "<span class=\"dashicons dashicons-editor-table\"></span>"
+    },
+    "align-left": {
+      "body": "<span class=\"dashicons dashicons-align-left\"></span>"
+    },
+    "align-right": {
+      "body": "<span class=\"dashicons dashicons-align-right\"></span>"
+    },
+    "align-center": {
+      "body": "<span class=\"dashicons dashicons-align-center\"></span>"
+    },
+    "align-none": {
+      "body": "<span class=\"dashicons dashicons-align-none\"></span>"
+    },
+    "lock": {
+      "body": "<span class=\"dashicons dashicons-lock\"></span>"
+    },
+    "unlock": {
+      "body": "<span class=\"dashicons dashicons-unlock\"></span>"
+    },
+    "calendar": {
+      "body": "<span class=\"dashicons dashicons-calendar\"></span>"
+    },
+    "calendar-alt": {
+      "body": "<span class=\"dashicons dashicons-calendar-alt\"></span>"
+    },
+    "visibility": {
+      "body": "<span class=\"dashicons dashicons-visibility\"></span>"
+    },
+    "hidden": {
+      "body": "<span class=\"dashicons dashicons-hidden\"></span>"
+    },
+    "post-status": {
+      "body": "<span class=\"dashicons dashicons-post-status\"></span>"
+    },
+    "post-trash": {
+      "body": "<span class=\"dashicons dashicons-post-trash\"></span>"
+    },
+    "trash": {
+      "body": "<span class=\"dashicons dashicons-trash\"></span>"
+    },
+    "sticky": {
+      "body": "<span class=\"dashicons dashicons-sticky\"></span>"
+    },
+    "external": {
+      "body": "<span class=\"dashicons dashicons-external\"></span>"
+    },
+    "arrow-up": {
+      "body": "<span class=\"dashicons dashicons-arrow-up\"></span>"
+    },
+    "arrow-down": {
+      "body": "<span class=\"dashicons dashicons-arrow-down\"></span>"
+    },
+    "arrow-left": {
+      "body": "<span class=\"dashicons dashicons-arrow-left\"></span>"
+    },
+    "arrow-right": {
+      "body": "<span class=\"dashicons dashicons-arrow-right\"></span>"
+    },
+    "arrow-up-alt": {
+      "body": "<span class=\"dashicons dashicons-arrow-up-alt\"></span>"
+    },
+    "arrow-down-alt": {
+      "body": "<span class=\"dashicons dashicons-arrow-down-alt\"></span>"
+    },
+    "arrow-left-alt": {
+      "body": "<span class=\"dashicons dashicons-arrow-left-alt\"></span>"
+    },
+    "arrow-right-alt": {
+      "body": "<span class=\"dashicons dashicons-arrow-right-alt\"></span>"
+    },
+    "arrow-up-alt2": {
+      "body": "<span class=\"dashicons dashicons-arrow-up-alt2\"></span>"
+    },
+    "arrow-down-alt2": {
+      "body": "<span class=\"dashicons dashicons-arrow-down-alt2\"></span>"
+    },
+    "arrow-left-alt2": {
+      "body": "<span class=\"dashicons dashicons-arrow-left-alt2\"></span>"
+    },
+    "arrow-right-alt2": {
+      "body": "<span class=\"dashicons dashicons-arrow-right-alt2\"></span>"
+    },
+    "leftright": {
+      "body": "<span class=\"dashicons dashicons-leftright\"></span>"
+    },
+    "sort": {
+      "body": "<span class=\"dashicons dashicons-sort\"></span>"
+    },
+    "randomize": {
+      "body": "<span class=\"dashicons dashicons-randomize\"></span>"
+    },
+    "list-view": {
+      "body": "<span class=\"dashicons dashicons-list-view\"></span>"
+    },
+    "excerpt-view": {
+      "body": "<span class=\"dashicons dashicons-excerpt-view\"></span>"
+    },
+    "grid-view": {
+      "body": "<span class=\"dashicons dashicons-grid-view\"></span>"
+    },
+    "hammer": {
+      "body": "<span class=\"dashicons dashicons-hammer\"></span>"
+    },
+    "art": {
+      "body": "<span class=\"dashicons dashicons-art\"></span>"
+    },
+    "migrate": {
+      "body": "<span class=\"dashicons dashicons-migrate\"></span>"
+    },
+    "performance": {
+      "body": "<span class=\"dashicons dashicons-performance\"></span>"
+    },
+    "universal-access": {
+      "body": "<span class=\"dashicons dashicons-universal-access\"></span>"
+    },
+    "universal-access-alt": {
+      "body": "<span class=\"dashicons dashicons-universal-access-alt\"></span>"
+    },
+    "tickets": {
+      "body": "<span class=\"dashicons dashicons-tickets\"></span>"
+    },
+    "nametag": {
+      "body": "<span class=\"dashicons dashicons-nametag\"></span>"
+    },
+    "clipboard": {
+      "body": "<span class=\"dashicons dashicons-clipboard\"></span>"
+    },
+    "heart": {
+      "body": "<span class=\"dashicons dashicons-heart\"></span>"
+    },
+    "megaphone": {
+      "body": "<span class=\"dashicons dashicons-megaphone\"></span>"
+    },
+    "schedule": {
+      "body": "<span class=\"dashicons dashicons-schedule\"></span>"
+    },
+    "wordpress": {
+      "body": "<span class=\"dashicons dashicons-wordpress\"></span>"
+    },
+    "wordpress-alt": {
+      "body": "<span class=\"dashicons dashicons-wordpress-alt\"></span>"
+    },
+    "pressthis": {
+      "body": "<span class=\"dashicons dashicons-pressthis\"></span>"
+    },
+    "update": {
+      "body": "<span class=\"dashicons dashicons-update\"></span>"
+    },
+    "screenoptions": {
+      "body": "<span class=\"dashicons dashicons-screenoptions\"></span>"
+    },
+    "cart": {
+      "body": "<span class=\"dashicons dashicons-cart\"></span>"
+    },
+    "feedback": {
+      "body": "<span class=\"dashicons dashicons-feedback\"></span>"
+    },
+    "cloud": {
+      "body": "<span class=\"dashicons dashicons-cloud\"></span>"
+    },
+    "translation": {
+      "body": "<span class=\"dashicons dashicons-translation\"></span>"
+    },
+    "tag": {
+      "body": "<span class=\"dashicons dashicons-tag\"></span>"
+    },
+    "category": {
+      "body": "<span class=\"dashicons dashicons-category\"></span>"
+    },
+    "archive": {
+      "body": "<span class=\"dashicons dashicons-archive\"></span>"
+    },
+    "tagcloud": {
+      "body": "<span class=\"dashicons dashicons-tagcloud\"></span>"
+    },
+    "text": {
+      "body": "<span class=\"dashicons dashicons-text\"></span>"
+    },
+    "media-archive": {
+      "body": "<span class=\"dashicons dashicons-media-archive\"></span>"
+    },
+    "media-audio": {
+      "body": "<span class=\"dashicons dashicons-media-audio\"></span>"
+    },
+    "media-code": {
+      "body": "<span class=\"dashicons dashicons-media-code\"></span>"
+    },
+    "media-default": {
+      "body": "<span class=\"dashicons dashicons-media-default\"></span>"
+    },
+    "media-document": {
+      "body": "<span class=\"dashicons dashicons-media-document\"></span>"
+    },
+    "media-interactive": {
+      "body": "<span class=\"dashicons dashicons-media-interactive\"></span>"
+    },
+    "media-spreadsheet": {
+      "body": "<span class=\"dashicons dashicons-media-spreadsheet\"></span>"
+    },
+    "media-text": {
+      "body": "<span class=\"dashicons dashicons-media-text\"></span>"
+    },
+    "media-video": {
+      "body": "<span class=\"dashicons dashicons-media-video\"></span>"
+    },
+    "playlist-audio": {
+      "body": "<span class=\"dashicons dashicons-playlist-audio\"></span>"
+    },
+    "playlist-video": {
+      "body": "<span class=\"dashicons dashicons-playlist-video\"></span>"
+    },
+    "controls-play": {
+      "body": "<span class=\"dashicons dashicons-controls-play\"></span>"
+    },
+    "controls-pause": {
+      "body": "<span class=\"dashicons dashicons-controls-pause\"></span>"
+    },
+    "controls-forward": {
+      "body": "<span class=\"dashicons dashicons-controls-forward\"></span>"
+    },
+    "controls-skipforward": {
+      "body": "<span class=\"dashicons dashicons-controls-skipforward\"></span>"
+    },
+    "controls-back": {
+      "body": "<span class=\"dashicons dashicons-controls-back\"></span>"
+    },
+    "controls-skipback": {
+      "body": "<span class=\"dashicons dashicons-controls-skipback\"></span>"
+    },
+    "controls-repeat": {
+      "body": "<span class=\"dashicons dashicons-controls-repeat\"></span>"
+    },
+    "controls-volumeon": {
+      "body": "<span class=\"dashicons dashicons-controls-volumeon\"></span>"
+    },
+    "controls-volumeoff": {
+      "body": "<span class=\"dashicons dashicons-controls-volumeoff\"></span>"
+    },
+    "yes": {
+      "body": "<span class=\"dashicons dashicons-yes\"></span>"
+    },
+    "no": {
+      "body": "<span class=\"dashicons dashicons-no\"></span>"
+    },
+    "no-alt": {
+      "body": "<span class=\"dashicons dashicons-no-alt\"></span>"
+    },
+    "plus": {
+      "body": "<span class=\"dashicons dashicons-plus\"></span>"
+    },
+    "plus-alt": {
+      "body": "<span class=\"dashicons dashicons-plus-alt\"></span>"
+    },
+    "plus-alt2": {
+      "body": "<span class=\"dashicons dashicons-plus-alt2\"></span>"
+    },
+    "minus": {
+      "body": "<span class=\"dashicons dashicons-minus\"></span>"
+    },
+    "dismiss": {
+      "body": "<span class=\"dashicons dashicons-dismiss\"></span>"
+    },
+    "marker": {
+      "body": "<span class=\"dashicons dashicons-marker\"></span>"
+    },
+    "star-filled": {
+      "body": "<span class=\"dashicons dashicons-star-filled\"></span>"
+    },
+    "star-half": {
+      "body": "<span class=\"dashicons dashicons-star-half\"></span>"
+    },
+    "star-empty": {
+      "body": "<span class=\"dashicons dashicons-star-empty\"></span>"
+    },
+    "flag": {
+      "body": "<span class=\"dashicons dashicons-flag\"></span>"
+    },
+    "info": {
+      "body": "<span class=\"dashicons dashicons-info\"></span>"
+    },
+    "warning": {
+      "body": "<span class=\"dashicons dashicons-warning\"></span>"
+    },
+    "share": {
+      "body": "<span class=\"dashicons dashicons-share\"></span>"
+    },
+    "share1": {
+      "body": "<span class=\"dashicons dashicons-share1\"></span>"
+    },
+    "share-alt": {
+      "body": "<span class=\"dashicons dashicons-share-alt\"></span>"
+    },
+    "share-alt2": {
+      "body": "<span class=\"dashicons dashicons-share-alt2\"></span>"
+    },
+    "twitter": {
+      "body": "<span class=\"dashicons dashicons-twitter\"></span>"
+    },
+    "rss": {
+      "body": "<span class=\"dashicons dashicons-rss\"></span>"
+    },
+    "email": {
+      "body": "<span class=\"dashicons dashicons-email\"></span>"
+    },
+    "email-alt": {
+      "body": "<span class=\"dashicons dashicons-email-alt\"></span>"
+    },
+    "facebook": {
+      "body": "<span class=\"dashicons dashicons-facebook\"></span>"
+    },
+    "facebook-alt": {
+      "body": "<span class=\"dashicons dashicons-facebook-alt\"></span>"
+    },
+    "networking": {
+      "body": "<span class=\"dashicons dashicons-networking\"></span>"
+    },
+    "googleplus": {
+      "body": "<span class=\"dashicons dashicons-googleplus\"></span>"
+    },
+    "location": {
+      "body": "<span class=\"dashicons dashicons-location\"></span>"
+    },
+    "location-alt": {
+      "body": "<span class=\"dashicons dashicons-location-alt\"></span>"
+    },
+    "camera": {
+      "body": "<span class=\"dashicons dashicons-camera\"></span>"
+    },
+    "images-alt": {
+      "body": "<span class=\"dashicons dashicons-images-alt\"></span>"
+    },
+    "images-alt2": {
+      "body": "<span class=\"dashicons dashicons-images-alt2\"></span>"
+    },
+    "video-alt": {
+      "body": "<span class=\"dashicons dashicons-video-alt\"></span>"
+    },
+    "video-alt2": {
+      "body": "<span class=\"dashicons dashicons-video-alt2\"></span>"
+    },
+    "video-alt3": {
+      "body": "<span class=\"dashicons dashicons-video-alt3\"></span>"
+    },
+    "vault": {
+      "body": "<span class=\"dashicons dashicons-vault\"></span>"
+    },
+    "shield": {
+      "body": "<span class=\"dashicons dashicons-shield\"></span>"
+    },
+    "shield-alt": {
+      "body": "<span class=\"dashicons dashicons-shield-alt\"></span>"
+    },
+    "sos": {
+      "body": "<span class=\"dashicons dashicons-sos\"></span>"
+    },
+    "search": {
+      "body": "<span class=\"dashicons dashicons-search\"></span>"
+    },
+    "slides": {
+      "body": "<span class=\"dashicons dashicons-slides\"></span>"
+    },
+    "analytics": {
+      "body": "<span class=\"dashicons dashicons-analytics\"></span>"
+    },
+    "chart-pie": {
+      "body": "<span class=\"dashicons dashicons-chart-pie\"></span>"
+    },
+    "chart-bar": {
+      "body": "<span class=\"dashicons dashicons-chart-bar\"></span>"
+    },
+    "chart-line": {
+      "body": "<span class=\"dashicons dashicons-chart-line\"></span>"
+    },
+    "chart-area": {
+      "body": "<span class=\"dashicons dashicons-chart-area\"></span>"
+    },
+    "groups": {
+      "body": "<span class=\"dashicons dashicons-groups\"></span>"
+    },
+    "businessman": {
+      "body": "<span class=\"dashicons dashicons-businessman\"></span>"
+    },
+    "id": {
+      "body": "<span class=\"dashicons dashicons-id\"></span>"
+    },
+    "id-alt": {
+      "body": "<span class=\"dashicons dashicons-id-alt\"></span>"
+    },
+    "products": {
+      "body": "<span class=\"dashicons dashicons-products\"></span>"
+    },
+    "awards": {
+      "body": "<span class=\"dashicons dashicons-awards\"></span>"
+    },
+    "forms": {
+      "body": "<span class=\"dashicons dashicons-forms\"></span>"
+    },
+    "testimonial": {
+      "body": "<span class=\"dashicons dashicons-testimonial\"></span>"
+    },
+    "portfolio": {
+      "body": "<span class=\"dashicons dashicons-portfolio\"></span>"
+    },
+    "book": {
+      "body": "<span class=\"dashicons dashicons-book\"></span>"
+    },
+    "book-alt": {
+      "body": "<span class=\"dashicons dashicons-book-alt\"></span>"
+    },
+    "download": {
+      "body": "<span class=\"dashicons dashicons-download\"></span>"
+    },
+    "upload": {
+      "body": "<span class=\"dashicons dashicons-upload\"></span>"
+    },
+    "backup": {
+      "body": "<span class=\"dashicons dashicons-backup\"></span>"
+    },
+    "clock": {
+      "body": "<span class=\"dashicons dashicons-clock\"></span>"
+    },
+    "lightbulb": {
+      "body": "<span class=\"dashicons dashicons-lightbulb\"></span>"
+    },
+    "microphone": {
+      "body": "<span class=\"dashicons dashicons-microphone\"></span>"
+    },
+    "desktop": {
+      "body": "<span class=\"dashicons dashicons-desktop\"></span>"
+    },
+    "tablet": {
+      "body": "<span class=\"dashicons dashicons-tablet\"></span>"
+    },
+    "smartphone": {
+      "body": "<span class=\"dashicons dashicons-smartphone\"></span>"
+    },
+    "phone": {
+      "body": "<span class=\"dashicons dashicons-phone\"></span>"
+    },
+    "smiley": {
+      "body": "<span class=\"dashicons dashicons-smiley\"></span>"
+    },
+    "index-card": {
+      "body": "<span class=\"dashicons dashicons-index-card\"></span>"
+    },
+    "carrot": {
+      "body": "<span class=\"dashicons dashicons-carrot\"></span>"
+    },
+    "building": {
+      "body": "<span class=\"dashicons dashicons-building\"></span>"
+    },
+    "store": {
+      "body": "<span class=\"dashicons dashicons-store\"></span>"
+    },
+    "album": {
+      "body": "<span class=\"dashicons dashicons-album\"></span>"
+    },
+    "palmtree": {
+      "body": "<span class=\"dashicons dashicons-palmtree\"></span>"
+    },
+    "tickets-alt": {
+      "body": "<span class=\"dashicons dashicons-tickets-alt\"></span>"
+    },
+    "money": {
+      "body": "<span class=\"dashicons dashicons-money\"></span>"
+    },
+    "thumbs-up": {
+      "body": "<span class=\"dashicons dashicons-thumbs-up\"></span>"
+    },
+    "thumbs-down": {
+      "body": "<span class=\"dashicons dashicons-thumbs-down\"></span>"
+    },
+    "layout": {
+      "body": "<span class=\"dashicons dashicons-layout\"></span>"
+    },
+    "align-pull-left": {
+      "body": "<span class=\"dashicons dashicons-align-pull-left\"></span>"
+    },
+    "align-pull-right": {
+      "body": "<span class=\"dashicons dashicons-align-pull-right\"></span>"
+    },
+    "block-default": {
+      "body": "<span class=\"dashicons dashicons-block-default\"></span>"
+    },
+    "cloud-saved": {
+      "body": "<span class=\"dashicons dashicons-cloud-saved\"></span>"
+    },
+    "cloud-upload": {
+      "body": "<span class=\"dashicons dashicons-cloud-upload\"></span>"
+    },
+    "columns": {
+      "body": "<span class=\"dashicons dashicons-columns\"></span>"
+    },
+    "cover-image": {
+      "body": "<span class=\"dashicons dashicons-cover-image\"></span>"
+    },
+    "embed-audio": {
+      "body": "<span class=\"dashicons dashicons-embed-audio\"></span>"
+    },
+    "embed-generic": {
+      "body": "<span class=\"dashicons dashicons-embed-generic\"></span>"
+    },
+    "embed-photo": {
+      "body": "<span class=\"dashicons dashicons-embed-photo\"></span>"
+    },
+    "embed-post": {
+      "body": "<span class=\"dashicons dashicons-embed-post\"></span>"
+    },
+    "embed-video": {
+      "body": "<span class=\"dashicons dashicons-embed-video\"></span>"
+    },
+    "edit": {
+      "body": "<span class=\"dashicons dashicons-edit\"></span>"
+    },
+    "html": {
+      "body": "<span class=\"dashicons dashicons-html\"></span>"
+    },
+    "info-outline": {
+      "body": "<span class=\"dashicons dashicons-info-outline\"></span>"
+    },
+    "insert-after": {
+      "body": "<span class=\"dashicons dashicons-insert-after\"></span>"
+    },
+    "insert-before": {
+      "body": "<span class=\"dashicons dashicons-insert-before\"></span>"
+    },
+    "insert": {
+      "body": "<span class=\"dashicons dashicons-insert\"></span>"
+    },
+    "remove": {
+      "body": "<span class=\"dashicons dashicons-remove\"></span>"
+    },
+    "shortcode": {
+      "body": "<span class=\"dashicons dashicons-shortcode\"></span>"
+    },
+    "table-col-after": {
+      "body": "<span class=\"dashicons dashicons-table-col-after\"></span>"
+    },
+    "table-col-before": {
+      "body": "<span class=\"dashicons dashicons-table-col-before\"></span>"
+    },
+    "table-col-delete": {
+      "body": "<span class=\"dashicons dashicons-table-col-delete\"></span>"
+    },
+    "table-row-after": {
+      "body": "<span class=\"dashicons dashicons-table-row-after\"></span>"
+    },
+    "table-row-before": {
+      "body": "<span class=\"dashicons dashicons-table-row-before\"></span>"
+    },
+    "table-row-delete": {
+      "body": "<span class=\"dashicons dashicons-table-row-delete\"></span>"
+    },
+    "saved": {
+      "body": "<span class=\"dashicons dashicons-saved\"></span>"
+    },
+    "amazon": {
+      "body": "<span class=\"dashicons dashicons-amazon\"></span>"
+    },
+    "google": {
+      "body": "<span class=\"dashicons dashicons-google\"></span>"
+    },
+    "linkedin": {
+      "body": "<span class=\"dashicons dashicons-linkedin\"></span>"
+    },
+    "pinterest": {
+      "body": "<span class=\"dashicons dashicons-pinterest\"></span>"
+    },
+    "podio": {
+      "body": "<span class=\"dashicons dashicons-podio\"></span>"
+    },
+    "reddit": {
+      "body": "<span class=\"dashicons dashicons-reddit\"></span>"
+    },
+    "spotify": {
+      "body": "<span class=\"dashicons dashicons-spotify\"></span>"
+    },
+    "twitch": {
+      "body": "<span class=\"dashicons dashicons-twitch\"></span>"
+    },
+    "whatsapp": {
+      "body": "<span class=\"dashicons dashicons-whatsapp\"></span>"
+    },
+    "xing": {
+      "body": "<span class=\"dashicons dashicons-xing\"></span>"
+    },
+    "youtube": {
+      "body": "<span class=\"dashicons dashicons-youtube\"></span>"
+    },
+    "database-add": {
+      "body": "<span class=\"dashicons dashicons-database-add\"></span>"
+    },
+    "database-export": {
+      "body": "<span class=\"dashicons dashicons-database-export\"></span>"
+    },
+    "database-import": {
+      "body": "<span class=\"dashicons dashicons-database-import\"></span>"
+    },
+    "database-remove": {
+      "body": "<span class=\"dashicons dashicons-database-remove\"></span>"
+    },
+    "database-view": {
+      "body": "<span class=\"dashicons dashicons-database-view\"></span>"
+    },
+    "database": {
+      "body": "<span class=\"dashicons dashicons-database\"></span>"
+    },
+    "bell": {
+      "body": "<span class=\"dashicons dashicons-bell\"></span>"
+    },
+    "airplane": {
+      "body": "<span class=\"dashicons dashicons-airplane\"></span>"
+    },
+    "car": {
+      "body": "<span class=\"dashicons dashicons-car\"></span>"
+    },
+    "calculator": {
+      "body": "<span class=\"dashicons dashicons-calculator\"></span>"
+    },
+    "games": {
+      "body": "<span class=\"dashicons dashicons-games\"></span>"
+    },
+    "printer": {
+      "body": "<span class=\"dashicons dashicons-printer\"></span>"
+    },
+    "beer": {
+      "body": "<span class=\"dashicons dashicons-beer\"></span>"
+    },
+    "drumstick": {
+      "body": "<span class=\"dashicons dashicons-drumstick\"></span>"
+    },
+    "food": {
+      "body": "<span class=\"dashicons dashicons-food\"></span>"
+    },
+    "bank": {
+      "body": "<span class=\"dashicons dashicons-bank\"></span>"
+    },
+    "hourglass": {
+      "body": "<span class=\"dashicons dashicons-hourglass\"></span>"
+    },
+    "money-alt": {
+      "body": "<span class=\"dashicons dashicons-money-alt\"></span>"
+    },
+    "open-folder": {
+      "body": "<span class=\"dashicons dashicons-open-folder\"></span>"
+    },
+    "pdf": {
+      "body": "<span class=\"dashicons dashicons-pdf\"></span>"
+    },
+    "pets": {
+      "body": "<span class=\"dashicons dashicons-pets\"></span>"
+    },
+    "privacy": {
+      "body": "<span class=\"dashicons dashicons-privacy\"></span>"
+    },
+    "superhero": {
+      "body": "<span class=\"dashicons dashicons-superhero\"></span>"
+    },
+    "superhero-alt": {
+      "body": "<span class=\"dashicons dashicons-superhero-alt\"></span>"
+    },
+    "edit-page": {
+      "body": "<span class=\"dashicons dashicons-edit-page\"></span>"
+    },
+    "fullscreen-alt": {
+      "body": "<span class=\"dashicons dashicons-fullscreen-alt\"></span>"
+    },
+		"fullscreen-exit-alt": {
+			"body": "<span class=\"dashicons dashicons-fullscreen-exit-alt\"></span>"
+		},
+		"coffee": {
+			"body": "<span class=\"dashicons dashicons-coffee\"></span>"
+		}
+	},
+	"suffixes": {
+		"": "Regular",
+		"square": "Square"
+	},
+	"width": 448,
+	"height": 512
+}

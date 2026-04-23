@@ -1,14 +1,10 @@
 'use strict';
 
-import {composePreviewContent} from './utils';
-
 /*
  * This file handles setting the menu icon preview for a given post type.
- *
- * @todo Finish converting away from jQuery.
  */
 
-(($) => {
+(() => {
 	let _custom_media;
 	let _orig_send_attachment;
 
@@ -17,41 +13,62 @@ import {composePreviewContent} from './utils';
 		_orig_send_attachment = wp.media.editor.send.attachment;
 	}
 
-	$('#cptui_choose_icon').on('click', function (e) {
-		e.preventDefault();
-
-		let button = $(this);
-		let id = jQuery('#menu_icon').attr('id');
-		_custom_media = true;
-		wp.media.editor.send.attachment = function (props, attachment) {
-			if (_custom_media) {
-				$("#" + id).val(attachment.url).change();
-			} else {
-				return _orig_send_attachment.apply(this, [props, attachment]);
-			}
-		};
-
-		wp.media.editor.open(button);
-		return false;
+	// Trigger the modal and load our icons.
+	const icons = cptuiIconPicker.iconsJSON;
+	const iconPicker = new IconPicker('#cptui_choose_dashicon', {
+		theme        : 'default',
+		iconSource   : [{
+			key   : 'dashicons',
+			prefix: 'dashicons-',
+			url   : icons
+		}],
+		closeOnSelect: true,
+		i18n: {
+			'input:placeholder': cptuiIconPicker.iconsPlaceholder,
+			'text:title'       : cptuiIconPicker.iconsTitle,
+			'text:empty'       : cptuiIconPicker.iconsEmpty,
+			'text:loading'     : cptuiIconPicker.iconsLoading,
+			'btn:save'         : cptuiIconPicker.iconsSave
+		}
 	});
 
-	// NOT DONE
-	/*const menuIcon = document.querySelector('#menu_icon');
-	if (menuIcon) {
-		menuIcon.addEventListener('input', (e) => {
-			let value = e.currentTarget.value.trim();
-			console.log(value);
-			let menuIconPreview = document.querySelector('#menu_icon_preview');
-			console.log(menuIconPreview);
-			if (menuIconPreview) {
-				console.log(composePreviewContent(value));
-				menuIconPreview.innerHTML = composePreviewContent(value);
-			}
+	const menuIconField = document.querySelector('#menu_icon');
+	const menuIconPreview = document.querySelector('#menu_icon_preview');
+	const regIcon = document.querySelector('#cptui_choose_icon');
+	const dashIcon = document.querySelector('#cptui_choose_dashicon');
+	const origText = dashIcon.value;
+	iconPicker.on('select', (icon) => {
+		menuIconField.value = icon.value;
+		menuIconPreview.innerHTML = '';
+
+		let div = document.createElement('div');
+		div.classList.add('dashicons', icon.value);
+		menuIconPreview.insertAdjacentElement('afterbegin', div);
+	});
+	iconPicker.on('hide', () => {
+		dashIcon.value = origText;
+	})
+
+	if (regIcon) {
+		regIcon.addEventListener('click', (e) => {
+			e.preventDefault();
+
+			let button = e.currentTarget;
+			_custom_media = true;
+			wp.media.editor.send.attachment = function (props, attachment) {
+				if (_custom_media) {
+					menuIconField.value = attachment.url;
+					menuIconPreview.innerHTML = '';
+					let img = document.createElement('img');
+					img.src = attachment.url;
+					menuIconPreview.insertAdjacentElement('afterbegin', img);
+				} else {
+					return _orig_send_attachment.apply(this, [props, attachment]);
+				}
+			};
+
+			wp.media.editor.open(button);
+			return false;
 		});
-	}*/
-	$('#menu_icon').on('change', function () {
-		var value = $(this).val();
-		value = value.trim();
-		$('#menu_icon_preview').html(composePreviewContent(value));
-	});
-})(jQuery);
+	}
+})();

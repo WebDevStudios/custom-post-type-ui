@@ -16,7 +16,7 @@
  * Plugin URI: https://github.com/WebDevStudios/custom-post-type-ui/
  * Description: Admin UI panel for registering custom post types and taxonomies
  * Author: WebDevStudios
- * Version: 1.18.3
+ * Version: 1.19.0
  * Author URI: https://webdevstudios.com/
  * Text Domain: custom-post-type-ui
  * License: GPL-2.0+
@@ -32,8 +32,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'CPT_VERSION', '1.18.3' ); // Left for legacy purposes.
-define( 'CPTUI_VERSION', '1.18.3' );
+define( 'CPT_VERSION', '1.19.0' ); // Left for legacy purposes.
+define( 'CPTUI_VERSION', '1.19.0' );
 define( 'CPTUI_WP_VERSION', get_bloginfo( 'version' ) );
 
 /**
@@ -131,12 +131,12 @@ function cptui_plugin_menu() {
 	$capability  = apply_filters( 'cptui_required_capabilities', 'manage_options' );
 	$parent_slug = 'cptui_main_menu';
 
-	add_menu_page( esc_html__( 'Custom Post Types', 'custom-post-type-ui' ), esc_html__( 'CPT UI', 'custom-post-type-ui' ), $capability, $parent_slug, 'cptui_settings', cptui_menu_icon() );
-	add_submenu_page( $parent_slug, esc_html__( 'Add/Edit Post Types', 'custom-post-type-ui' ), esc_html__( 'Add/Edit Post Types', 'custom-post-type-ui' ), $capability, 'cptui_manage_post_types', 'cptui_manage_post_types' );
-	add_submenu_page( $parent_slug, esc_html__( 'Add/Edit Taxonomies', 'custom-post-type-ui' ), esc_html__( 'Add/Edit Taxonomies', 'custom-post-type-ui' ), $capability, 'cptui_manage_taxonomies', 'cptui_manage_taxonomies' );
-	add_submenu_page( $parent_slug, esc_html__( 'Registered Types and Taxes', 'custom-post-type-ui' ), esc_html__( 'Registered Types/Taxes', 'custom-post-type-ui' ), $capability, 'cptui_listings', 'cptui_listings' );
-	add_submenu_page( $parent_slug, esc_html__( 'Custom Post Type UI Tools', 'custom-post-type-ui' ), esc_html__( 'Tools', 'custom-post-type-ui' ), $capability, 'cptui_tools', 'cptui_tools' );
-	add_submenu_page( $parent_slug, esc_html__( 'Help/Support', 'custom-post-type-ui' ), esc_html__( 'Help/Support', 'custom-post-type-ui' ), $capability, 'cptui_support', 'cptui_support' );
+	add_menu_page( esc_html__( 'Custom post types', 'custom-post-type-ui' ), esc_html__( 'CPT UI', 'custom-post-type-ui' ), $capability, $parent_slug, 'cptui_settings', cptui_menu_icon() );
+	add_submenu_page( $parent_slug, esc_html__( 'Add/edit post types', 'custom-post-type-ui' ), esc_html__( 'Add/edit post types', 'custom-post-type-ui' ), $capability, 'cptui_manage_post_types', 'cptui_manage_post_types' );
+	add_submenu_page( $parent_slug, esc_html__( 'Add/edit taxonomies', 'custom-post-type-ui' ), esc_html__( 'Add/edit taxonomies', 'custom-post-type-ui' ), $capability, 'cptui_manage_taxonomies', 'cptui_manage_taxonomies' );
+	add_submenu_page( $parent_slug, esc_html__( 'Custom Post Type UI content types', 'custom-post-type-ui' ), esc_html__( 'Registered types & taxonomies', 'custom-post-type-ui' ), $capability, 'cptui_listings', 'cptui_listings' );
+	add_submenu_page( $parent_slug, esc_html__( 'Custom Post Type UI tools', 'custom-post-type-ui' ), esc_html__( 'Tools', 'custom-post-type-ui' ), $capability, 'cptui_tools', 'cptui_tools' );
+	add_submenu_page( $parent_slug, esc_html__( 'Help/support', 'custom-post-type-ui' ), esc_html__( 'Help/support', 'custom-post-type-ui' ), $capability, 'cptui_support', 'cptui_support' );
 
 	/**
 	 * Fires after the default submenu pages.
@@ -234,9 +234,19 @@ function cptui_add_styles() {
 		return;
 	}
 	$min = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
-	wp_register_script( 'cptui', plugins_url( "build/cptui$min.js", __FILE__ ), [ 'jquery', 'jquery-ui-dialog', 'postbox' ], CPTUI_VERSION, true );
-	wp_register_script( 'dashicons-picker', plugins_url( "build/dashiconsPicker$min.js", __FILE__ ), [ 'jquery'], '1.0.0', true );
-	wp_register_style( 'cptui-css', plugins_url( "build/cptui-styles$min.css", __FILE__ ), [ 'wp-jquery-ui-dialog' ], CPTUI_VERSION );
+	wp_register_script( 'icon-picker', plugins_url( "build/vanilla-icon-picker/dist/icon-picker.min.js", __FILE__ ), [], '1.4.2', true );
+	wp_register_style( 'icon-picker', plugins_url( "build/vanilla-icon-picker/dist/themes/default.min.css", __FILE__ ), [], '1.4.2' );
+	wp_register_script( 'cptui', plugins_url( "build/cptui$min.js", __FILE__ ), [ 'jquery', 'jquery-ui-dialog', 'postbox', 'icon-picker' ], CPTUI_VERSION, true );
+	wp_register_style( 'cptui-css', plugins_url( "build/cptui-styles$min.css", __FILE__ ), [ 'wp-jquery-ui-dialog', 'icon-picker' ], CPTUI_VERSION );
+
+	wp_localize_script( 'icon-picker', 'cptuiIconPicker', [
+		'iconsJSON'        => plugins_url( 'build/dashicons.json', __FILE__ ),
+		'iconsPlaceholder' => esc_attr__( 'Search icon &hellip;', 'custom-post-type-ui' ),
+		'iconsTitle'       => esc_attr__( 'Select icon', 'custom-post-type-ui' ),
+		'iconsEmpty'       => esc_attr__( 'No results found &hellip;', 'custom-post-type-ui' ),
+		'iconsLoading'     => esc_attr__( 'Loading &hellip;', 'custom-post-type-ui' ),
+		'iconsSave'        => esc_attr__( 'Save', 'custom-post-type-ui' ),
+	] );
 }
 add_action( 'admin_enqueue_scripts', 'cptui_add_styles' );
 

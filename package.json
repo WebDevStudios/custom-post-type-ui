@@ -1,6 +1,6 @@
 {
   "name": "custom-post-type-ui",
-  "version": "1.18.3",
+  "version": "1.19.0",
   "description": "Custom Post Type UI",
   "main": "index.js",
   "directories": {
@@ -11,7 +11,7 @@
     "dev": "wp-scripts start",
     "watch": "wp-scripts start --config webpack.config.js",
     "buildjs": "wp-scripts build --config webpack.config.js",
-    "build": "run-s buildjs uglify styles",
+    "build": "run-s buildjs dashicons uglify styles",
     "build:release": "run-s build create:release",
     "lint:css": "wp-scripts lint-style 'src/scss/*.scss'",
     "lint:js": "wp-scripts lint-js src/js/**",
@@ -20,8 +20,9 @@
     "styles": "run-s styles:compile styles:compress",
     "styles:compile": "sass src/scss/cptui-styles.scss build/cptui-styles.css",
     "styles:compress": "sass --style=compressed src/scss/cptui-styles.scss build/cptui-styles.min.css",
-    "uglify": "uglifyjs build/cptui.js -m -c --source-map -o build/cptui.min.js && uglifyjs build/dashiconsPicker.js -m -c --source-map -o build/dashiconsPicker.min.js",
-    "create:release": "mkdirp release-build/custom-post-type-ui && cp -R build classes external images inc readme.txt LICENSE custom-post-type-ui.php wpml-config.xml wordfence-vendor.txt release-build/custom-post-type-ui"
+    "dashicons": "cp -R src/js/dashicons.json src/vanilla-icon-picker build",
+    "uglify": "uglifyjs build/cptui.js -m -c --source-map -o build/cptui.min.js",
+    "create:release": "mkdirp release-build/custom-post-type-ui && cp -R build classes external images inc readme.txt LICENSE custom-post-type-ui.php wpml-config.xml release-build/custom-post-type-ui"
   },
   "devDependencies": {
     "@wordpress/eslint-plugin": "^22.11.0",

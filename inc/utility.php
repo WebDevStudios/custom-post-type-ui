@@ -1160,7 +1160,7 @@ function cptui_extended_upsell_notification() {
 		$dismissals = get_option( 'cptui-user-dismissed-extended-upsell', [] );
 		if ( ! empty( $dismissals ) ) {
 			$user_id = get_current_user_id();
-			if ( 'true' === $dismissals[ 'user_id_' . $user_id ] ) {
+			if ( ! empty( $dismissals[ 'user_id_' . $user_id ] ) && 'true' === $dismissals[ 'user_id_' . $user_id ] ) {
 				return;
 			}
 		}

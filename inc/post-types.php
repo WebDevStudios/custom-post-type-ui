@@ -35,7 +35,6 @@ function cptui_post_type_enqueue_scripts( $hook ) {
 
 	wp_enqueue_media();
 	wp_enqueue_script( 'cptui' );
-	wp_enqueue_script( 'dashicons-picker' );
 	wp_enqueue_style( 'cptui-css' );
 
 	$core                  = get_post_types( [ '_builtin' => true ] );
@@ -742,6 +741,23 @@ function cptui_manage_post_types() {
 										'data'      => [
 											/* translators: Used for autofill */
 											'label'     => sprintf( esc_attr__( 'Filter %s list', 'custom-post-type-ui' ), 'item' ),
+											'plurality' => 'plural',
+										],
+									]
+								);
+
+								echo $ui->get_text_input( // phpcs:ignore.
+									[
+										'labeltext' => esc_html__( 'Filter Items By Date', 'custom-post-type-ui' ),
+										'helptext'  => esc_html__( 'Label for the date filter in list tables.', 'custom-post-type-ui' ),
+										'namearray' => 'cpt_labels',
+										'name'      => 'filter_by_date',
+										'textvalue' => isset( $current['labels']['filter_by_date'] ) ? esc_attr( $current['labels']['filter_by_date'] ) : '',
+										// phpcs:ignore.
+										'aftertext' => esc_html__( '(e.g. Filter movies by date)', 'custom-post-type-ui' ),
+										'data'      => [
+											/* translators: Used for autofill */
+											'label'     => sprintf( esc_attr__( 'Filter %s by date', 'custom-post-type-ui' ), 'item' ),
 											'plurality' => 'plural',
 										],
 									]
