@@ -102,33 +102,115 @@ function cptui_settings() {
 }
 
 /**
+ * Display the prominent CPT UI Pro upgrade callout.
+ *
+ * Hooked at priority 5 so it renders above the smaller "More from WebDevStudios"
+ * ad row from cptui_pluginize_content() (priority 9).
+ *
+ * @since 1.20.0
+ */
+function cptui_pro_callout_content() {
+
+	if ( class_exists( 'CPTUI_Pro' ) ) {
+		return;
+	}
+
+	$pro_url = 'https://pluginize.com/plugins/custom-post-type-ui-pro/?utm_source=cptui-about&utm_medium=plugin&utm_campaign=cptui';
+
+	$features = [
+		[
+			'title' => esc_html__( 'Column Builder', 'custom-post-type-ui' ),
+			'desc'  => esc_html__( 'Add, remove, and reorder columns on any post type list screen — core fields, custom meta, ACF fields, and taxonomy terms. Includes per-user visibility controls.', 'custom-post-type-ui' ),
+		],
+		[
+			'title' => esc_html__( 'Advanced Filters', 'custom-post-type-ui' ),
+			'desc'  => esc_html__( 'Add dropdown filters to any post type list screen — filter by taxonomy, meta field, or custom data without writing code.', 'custom-post-type-ui' ),
+		],
+		[
+			'title' => esc_html__( 'Taxonomy List Table Controls', 'custom-post-type-ui' ),
+			'desc'  => esc_html__( 'Extend the column builder and filter system to taxonomy term list screens, not just post types.', 'custom-post-type-ui' ),
+		],
+		[
+			'title' => esc_html__( 'Shortcode Builder', 'custom-post-type-ui' ),
+			'desc'  => esc_html__( 'Display custom post type content anywhere with a visual shortcode builder. Layouts include list, grid, grid with overlay, slider, post cards, featured plus, single post, single page, single post type, and taxonomy list.', 'custom-post-type-ui' ),
+		],
+		[
+			'title' => esc_html__( 'Gutenberg Display Block', 'custom-post-type-ui' ),
+			'desc'  => esc_html__( 'A dedicated block for pulling and displaying custom post type content inside the block editor.', 'custom-post-type-ui' ),
+		],
+		[
+			'title' => esc_html__( 'Multisite / Network Support', 'custom-post-type-ui' ),
+			'desc'  => esc_html__( 'Full network admin UI for managing CPT UI settings across a multisite installation.', 'custom-post-type-ui' ),
+		],
+		[
+			'title' => esc_html__( 'Third-Party Integrations', 'custom-post-type-ui' ),
+			'desc'  => esc_html__( 'ACF fields native in the column builder, dedicated WooCommerce product and Easy Digital Downloads layouts, and Customizer-based styling for shortcode output.', 'custom-post-type-ui' ),
+		],
+		[
+			'title' => esc_html__( 'Theme Template Overrides', 'custom-post-type-ui' ),
+			'desc'  => esc_html__( 'Copy shortcode templates into your theme to fully customize the HTML output.', 'custom-post-type-ui' ),
+		],
+		[
+			'title' => esc_html__( 'Automatic Updates & Priority Support', 'custom-post-type-ui' ),
+			'desc'  => esc_html__( 'License-based updates delivered directly from Pluginize, plus access to priority support.', 'custom-post-type-ui' ),
+		],
+	];
+
+	?>
+	<section class="cptui-pro-callout" aria-labelledby="cptui-pro-callout-heading">
+		<header class="cptui-pro-callout__header">
+			<h2 id="cptui-pro-callout-heading" class="cptui-pro-callout__title">
+				<?php esc_html_e( 'Upgrade to Custom Post Type UI Pro', 'custom-post-type-ui' ); ?>
+			</h2>
+			<p class="cptui-pro-callout__tagline">
+				<?php esc_html_e( 'Unlock the full potential of your custom post types and taxonomies — display content anywhere, control list table columns and filters, and integrate with the tools you already use.', 'custom-post-type-ui' ); ?>
+			</p>
+			<p class="cptui-pro-callout__cta">
+				<a class="button button-primary button-hero" href="<?php echo esc_url( $pro_url ); ?>" target="_blank" rel="noopener">
+					<?php esc_html_e( 'Get CPT UI Pro', 'custom-post-type-ui' ); ?>
+				</a>
+			</p>
+		</header>
+
+		<ul class="cptui-pro-callout__features">
+			<?php foreach ( $features as $feature ) : ?>
+				<li class="cptui-pro-callout__feature">
+					<h3 class="cptui-pro-callout__feature-title"><?php echo esc_html( $feature['title'] ); ?></h3>
+					<p class="cptui-pro-callout__feature-desc"><?php echo esc_html( $feature['desc'] ); ?></p>
+				</li>
+			<?php endforeach; ?>
+		</ul>
+	</section>
+	<?php
+}
+add_action( 'cptui_main_page_extra_notes', 'cptui_pro_callout_content', 5 );
+
+/**
  * Display Pluginize-based content.
  *
  * @since 1.4.0
  */
 function cptui_pluginize_content() {
-	// translators: Placeholder will hold the name of the author of the plugin.
-	echo '<h1>' . sprintf( esc_html__( 'More from %s', 'custom-post-type-ui' ), 'WebDevStudios' ) . '</h1>';
-	echo '<div class="wdspromos-about">';
-	$ads = cptui_get_ads();
-	if ( ! empty( $ads ) ) {
-
-		foreach ( $ads as $ad ) {
-
-			$the_ad = sprintf(
-				'<img src="%s" alt="%s">',
-				esc_attr( $ad['image'] ),
-				esc_attr( $ad['text'] )
-			);
-
-			// Escaping $the_ad breaks the html.
-			printf(
-				'<p><a href="%s" target="_blank">%s</a></p>',
-				esc_url( $ad['url'] ),
-				$the_ad // phpcs:ignore
-			);
+	$ads = array_filter(
+		cptui_get_ads(),
+		static function ( $ad ) {
+			// Skip the hero (CPT UI Pro) — the dedicated callout above already promotes it.
+			return empty( $ad['format'] ) || 'compact' === $ad['format'];
 		}
+	);
+
+	if ( empty( $ads ) ) {
+		return;
 	}
+
+	// translators: Placeholder will hold the name of the author of the plugin.
+	echo '<h2>' . sprintf( esc_html__( 'More from %s', 'custom-post-type-ui' ), 'WebDevStudios' ) . '</h2>';
+	echo '<div class="cptui-promo-secondary cptui-promo-secondary--about">';
+	echo '<div class="cptui-promo-secondary__list">';
+	foreach ( $ads as $ad ) {
+		cptui_render_ad_compact( $ad, 'about' );
+	}
+	echo '</div>';
 	echo '</div>';
 }
 add_action( 'cptui_main_page_extra_notes', 'cptui_pluginize_content', 9 );
