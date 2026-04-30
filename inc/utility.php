@@ -509,46 +509,46 @@ function cptui_default_ads( $ads = [] ) {
 		'name'      => 'Custom Post Type UI Pro',
 		'features'  => [
 			[
-				'title'  => __( 'Gutenberg blocks for displaying CPT content', 'custom-post-type-ui' ),
-				'detail' => __( 'Query Loop, Taxonomy Filter, Single Post templates, Shortcode Builder', 'custom-post-type-ui' ),
+				'title'  => esc_html__( 'Gutenberg blocks for displaying CPT content', 'custom-post-type-ui' ),
+				'detail' => esc_html__( 'Query Loop, Taxonomy Filter, Single Post templates, Shortcode Builder', 'custom-post-type-ui' ),
 			],
 			[
-				'title' => __( 'Column Builder with drag-and-drop admin tables', 'custom-post-type-ui' ),
+				'title' => esc_html__( 'Column Builder with drag-and-drop admin tables', 'custom-post-type-ui' ),
 			],
 			[
-				'title' => __( 'Advanced Filters: taxonomy, meta, date, author, status', 'custom-post-type-ui' ),
+				'title' => esc_html__( 'Advanced Filters: taxonomy, meta, date, author, status', 'custom-post-type-ui' ),
 			],
 			[
-				'title' => __( 'Multisite & Network admin support', 'custom-post-type-ui' ),
+				'title' => esc_html__( 'Multisite & Network admin support', 'custom-post-type-ui' ),
 			],
 		],
-		'guarantee' => __( '30-day money-back guarantee', 'custom-post-type-ui' ),
+		'guarantee' => esc_html__( '30-day money-back guarantee', 'custom-post-type-ui' ),
 		'url'       => 'https://pluginize.com/plugins/custom-post-type-ui-pro/?utm_source=cptui-sidebar&utm_medium=text&utm_campaign=cptui',
-		'cta_label' => __( 'Get CPT UI Pro', 'custom-post-type-ui' ),
+		'cta_label' => esc_html__( 'Get CPT UI Pro', 'custom-post-type-ui' ),
 	];
 
 	$ads[] = [
 		'format'    => 'compact',
 		'name'      => 'ThemeSwitcher Pro',
-		'tagline'   => __( 'Run multiple themes on one WordPress site. Start creating new content with the Gutenberg block editor on your legacy WordPress site without replacing your active theme.', 'custom-post-type-ui' ),
+		'tagline'   => esc_html__( 'Run multiple themes on one WordPress site. Start creating new content with the Gutenberg block editor on your legacy WordPress site without replacing your active theme.', 'custom-post-type-ui' ),
 		'url'       => 'https://themeswitcher.com/?utm_source=cptui-sidebar&utm_medium=text&utm_campaign=themeswitcher-pro',
-		'cta_label' => __( 'Learn more', 'custom-post-type-ui' ),
+		'cta_label' => esc_html__( 'Learn more', 'custom-post-type-ui' ),
 	];
 
 	$ads[] = [
 		'format'    => 'compact',
 		'name'      => 'WP Search with Algolia Pro',
-		'tagline'   => __( 'AI-powered, lightning-fast search for WordPress. Full WooCommerce support — indexes product SKU and pricing data for both simple and variable products.', 'custom-post-type-ui' ),
+		'tagline'   => esc_html__( 'AI-powered, lightning-fast search for WordPress. Full WooCommerce support — indexes product SKU and pricing data for both simple and variable products.', 'custom-post-type-ui' ),
 		'url'       => 'https://pluginize.com/plugins/wp-search-with-algolia-pro/?utm_source=cptui-sidebar&utm_medium=text&utm_campaign=wp-search-with-algolia-pro',
-		'cta_label' => __( 'Learn more', 'custom-post-type-ui' ),
+		'cta_label' => esc_html__( 'Learn more', 'custom-post-type-ui' ),
 	];
 
 	$ads[] = [
 		'format'    => 'compact',
 		'name'      => 'WDS YouTube Video Sync for WP',
-		'tagline'   => __( 'Connect your YouTube channel and import videos as native WordPress posts — titles, descriptions, featured images, and embed-ready, with daily auto-sync or manual triggers.', 'custom-post-type-ui' ),
+		'tagline'   => esc_html__( 'Connect your YouTube channel and import videos as native WordPress posts — titles, descriptions, featured images, and embed-ready, with daily auto-sync or manual triggers.', 'custom-post-type-ui' ),
 		'url'       => 'https://pluginize.com/plugins/youtube-video-sync-for-wp/?utm_source=cptui-sidebar&utm_medium=text&utm_campaign=youtube-video-sync-for-wp',
-		'cta_label' => __( 'Learn more', 'custom-post-type-ui' ),
+		'cta_label' => esc_html__( 'Learn more', 'custom-post-type-ui' ),
 	];
 
 	return $ads;
