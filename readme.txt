@@ -30,6 +30,9 @@ Custom Post Type UI development is managed on GitHub, with official releases pub
 
 == Changelog ==
 
+= 1.19.1 - TBD =
+* Updated premium product upsells.
+
 = 1.19.0 - 2026-04-23 =
 * Added: Support for "Filter by category" and "Filter by date" labels. Thanks aloMalbarez
 * Fixed: PHP notices from upsell notification display check.
