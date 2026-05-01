@@ -67,11 +67,11 @@ function cptui_support() {
 		<?php
 		printf(
 			/* translators: Placeholders are just for HTML markup that doesn't need translated */
-			esc_html__( 'Please note that %1$s this plugin will not handle display %2$s of registered post types or taxonomies in your current theme. It simply registers them for you. To display your data, check out %3$s. %4$s to see some examples that are available with Custom Post Type UI Extended. If all else fails, visit us on the %5$s', 'custom-post-type-ui' ),
+			esc_html__( 'Please note that %1$s this plugin will not handle display %2$s of registered post types or taxonomies in your current theme. It simply registers them for you. To display your data, check out %3$s for shortcodes, blocks, layouts, and more. %4$s to see what is available with CPT UI Pro. If all else fails, visit us on the %5$s', 'custom-post-type-ui' ),
 			'<strong>',
 			'</strong>',
-			'<a href="https://pluginize.com/plugins/custom-post-type-ui-extended/?utm_source=faq&utm_medium=text&utm_campaign=cptui">' . esc_html__( 'CPTUI Extended', 'custom-post-type-ui' ) . '</a>',
-			'<a href="https://pluginize.com/cpt-ui-extended-features/?utm_source=faq-layouts&utm_medium=text&utm_campaign=cptui">' . esc_html__( 'View our Layouts page', 'custom-post-type-ui' ) . '</a>',
+			'<a href="https://pluginize.com/plugins/custom-post-type-ui-pro/?utm_source=faq&utm_medium=text&utm_campaign=cptui">' . esc_html__( 'CPT UI Pro', 'custom-post-type-ui' ) . '</a>',
+			'<a href="https://pluginize.com/plugins/custom-post-type-ui-pro/?utm_source=faq-layouts&utm_medium=text&utm_campaign=cptui">' . esc_html__( 'View our features page', 'custom-post-type-ui' ) . '</a>',
 			'<a href="https://www.wordpress.org/support/plugin/custom-post-type-ui/">' . esc_html__( 'Support Forums', 'custom-post-type-ui' ) . '</a>'
 		);
 		?>
@@ -106,8 +106,8 @@ function cptui_support() {
 									esc_html__( 'You can have them automatically removed from display via a purchased copy of %s.', 'custom-post-type-ui' ),
 									sprintf(
 										'<a href="%s">%s</a>',
-										'https://pluginize.com/plugins/custom-post-type-ui-extended/?utm_source=faq-remove&utm_medium=text&utm_campaign=cptui',
-										'Custom Post Type UI Extended'
+										'https://pluginize.com/plugins/custom-post-type-ui-pro/?utm_source=faq-remove&utm_medium=text&utm_campaign=cptui',
+										'Custom Post Type UI Pro'
 									)
 								);
 								?>
@@ -119,13 +119,13 @@ function cptui_support() {
 							</div>
 						</li>
 						<li>
-							<span tabindex="0" class="question" aria-controls="q6" aria-expanded="false"><?php esc_html_e( 'Do I still need Custom Post Type UI if I purchase and install Custom Post Type UI Extended?', 'custom-post-type-ui' ); ?></span>
-							<div class="answer" id="q6"><?php esc_html_e( 'Yes you will. The Custom Post Type UI Extended is not a replacement of the free version with added extra features. It acts based on the data made available through Custom Post Type UI', 'custom-post-type-ui' ); ?>
+							<span tabindex="0" class="question" aria-controls="q6" aria-expanded="false"><?php esc_html_e( 'Do I still need Custom Post Type UI if I purchase and install Custom Post Type UI Pro?', 'custom-post-type-ui' ); ?></span>
+							<div class="answer" id="q6"><?php esc_html_e( 'Yes you will. Custom Post Type UI Pro is not a replacement of the free version. It acts on the post types and taxonomies you register through Custom Post Type UI to add display tools, list table controls, integrations, and more.', 'custom-post-type-ui' ); ?>
 							</div>
 						</li>
 						<li>
-							<span tabindex="0" class="question" aria-controls="q7" aria-expanded="false"><?php esc_html_e( 'Does Custom Post Type UI Extended require multisite?', 'custom-post-type-ui' ); ?></span>
-							<div class="answer" id="q7"><?php esc_html_e( 'No it does not. The Shortcode builder is not multisite dependent and will work with either setup.', 'custom-post-type-ui' ); ?>
+							<span tabindex="0" class="question" aria-controls="q7" aria-expanded="false"><?php esc_html_e( 'Does Custom Post Type UI Pro require multisite?', 'custom-post-type-ui' ); ?></span>
+							<div class="answer" id="q7"><?php esc_html_e( 'No it does not. Pro works on single-site installations as well. Multisite/Network support is included as an additional feature for those who run a network of sites.', 'custom-post-type-ui' ); ?>
 							</div>
 						</li>
 					</ol>
@@ -178,11 +178,11 @@ function cptui_support() {
 								<?php
 								printf(
 									/* translators: Placeholders are just for HTML markup that doesn't need translated */
-									esc_html__( 'We encourage checking out %1$s for easily displaying post type content wherever you can utilize a shortcode. If you prefer to handle on your own, you will need to utilize the %2$s class to handle display in custom locations. If you have set the post type to have archives, the archive url should be something like "http://www.mysite.com/post-type-slug"', 'custom-post-type-ui' ),
+									esc_html__( 'We encourage checking out %1$s for easily displaying post type content with a visual Shortcode Builder, a Gutenberg display block, and theme template overrides. If you prefer to handle on your own, you will need to utilize the %2$s class to handle display in custom locations. If you have set the post type to have archives, the archive url should be something like "http://www.mysite.com/post-type-slug"', 'custom-post-type-ui' ),
 									sprintf(
 										'<a href="%s">%s</a>',
-										'https://pluginize.com/plugins/custom-post-type-ui-extended/?utm_source=faq&utm_medium=text&utm_campaign=cptui',
-										'Custom Post Type UI Extended'
+										'https://pluginize.com/plugins/custom-post-type-ui-pro/?utm_source=faq&utm_medium=text&utm_campaign=cptui',
+										'Custom Post Type UI Pro'
 									),
 									'<a href="https://developer.wordpress.org/reference/classes/wp_query/">WP_Query</a>'
 								);
@@ -195,8 +195,9 @@ function cptui_support() {
 								<?php
 								printf(
 									/* translators: Placeholders are just for HTML markup that doesn't need translated */
-									esc_html__( 'You will need to add your newly created post type to the types that the category and tag archives query for. You can see a tutorial on how to do that at %s. You can also get this functionality via UI with a purchase of CPTUI-Extended', 'custom-post-type-ui' ),
-									'<a href="https://docs.pluginize.com/article/post-types-in-category-tag-archives/">https://docs.pluginize.com/article/post-types-in-category-tag-archives/</a>'
+									esc_html__( 'You will need to add your newly created post type to the types that the category and tag archives query for. You can see a tutorial on how to do that at %1$s. You can also get this functionality via UI with a purchase of %2$s.', 'custom-post-type-ui' ),
+									'<a href="https://docs.pluginize.com/article/post-types-in-category-tag-archives/">https://docs.pluginize.com/article/post-types-in-category-tag-archives/</a>',
+									'<a href="https://pluginize.com/plugins/custom-post-type-ui-pro/?utm_source=faq&utm_medium=text&utm_campaign=cptui">CPT UI Pro</a>'
 								);
 								?>
 								</div>

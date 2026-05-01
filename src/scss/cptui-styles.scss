@@ -186,6 +186,101 @@ $max-tablet: "screen and (max-width: 768px)";
 		max-width: calc(100% - 173px);
 	}
 }
+.cptui-pro-callout {
+	background: linear-gradient(135deg, #2271b1 0%, #6a3fa0 100%);
+	border-radius: 8px;
+	box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
+	color: #fff;
+	margin: 24px 0 32px;
+	padding: 32px 36px;
+
+	&__header {
+		border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+		margin-bottom: 24px;
+		padding-bottom: 24px;
+		text-align: center;
+	}
+
+	&__title {
+		color: #fff;
+		font-size: 32px;
+		font-weight: 600;
+		line-height: 1.2;
+		margin: 0 0 12px;
+	}
+
+	&__tagline {
+		font-size: 16px;
+		line-height: 1.5;
+		margin: 0 auto 20px;
+		max-width: 720px;
+		opacity: 0.92;
+	}
+
+	&__cta {
+		margin: 0;
+
+		.button-primary.button-hero {
+			background: #fff;
+			border-color: #fff;
+			box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+			color: #2271b1;
+			font-weight: 600;
+			text-shadow: none;
+
+			&:hover,
+			&:focus {
+				background: #f6f7f7;
+				border-color: #f6f7f7;
+				color: #135e96;
+			}
+		}
+	}
+
+	&__features {
+		display: grid;
+		gap: 20px;
+		grid-template-columns: repeat(3, 1fr);
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	&__feature {
+		background: rgba(255, 255, 255, 0.08);
+		border: 1px solid rgba(255, 255, 255, 0.16);
+		border-radius: 6px;
+		margin: 0;
+		padding: 16px 18px;
+	}
+
+	&__feature-title {
+		color: #fff;
+		font-size: 15px;
+		font-weight: 600;
+		margin: 0 0 6px;
+	}
+
+	&__feature-desc {
+		font-size: 13px;
+		line-height: 1.5;
+		margin: 0;
+		opacity: 0.92;
+	}
+
+	@media #{$max-tablet} {
+		padding: 24px 20px;
+
+		&__title {
+			font-size: 24px;
+		}
+
+		&__features {
+			grid-template-columns: 1fr;
+		}
+	}
+}
+
 .email-octopus-form-row {
 	input::placeholder {
 		color: #cccccc;
@@ -269,63 +364,229 @@ $max-tablet: "screen and (max-width: 768px)";
 	}
 }
 
-.wdspromos-about {
-	display: -ms-flexbox;
-	display: -webkit-flex;
-	display: flex;
-	-webkit-flex-direction: row;
-	-ms-flex-direction: row;
-	flex-direction: row;
-	-webkit-flex-wrap: nowrap;
-	-ms-flex-wrap: nowrap;
-	flex-wrap: nowrap;
-	-webkit-justify-content: space-between;
-	-ms-flex-pack: justify;
-	justify-content: space-between;
-	-webkit-align-content: stretch;
-	align-content: stretch;
-	-webkit-align-items: flex-start;
-	-ms-flex-align: start;
-	align-items: flex-start;
-	margin: 20px 0;
+// Scoped admin promo blocks. All rules are prefixed with .cptui-promo-* so
+// they cannot bleed into core WordPress styles. Designed for the ~275px CPTUI
+// admin sidebar and the About page "More from WebDevStudios" row.
+$cptui-promo-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 
-	a:nth-child(1) {
-		-ms-flex-order: 0;
-		order: 0;
-		-webkit-flex: 0 1 auto;
-		-ms-flex: 0 1 auto;
-		flex: 0 1 auto;
-		-webkit-align-self: auto;
-		align-self: auto;
+.cptui-promo-hero,
+.cptui-promo-card,
+.cptui-promo-secondary,
+.cptui-promo-remove-ads {
+	font-family: $cptui-promo-font;
+}
+
+.cptui-promo-hero {
+	background: #fff;
+	border: 1px solid #dcdcde;
+	border-left: 4px solid #534AB7;
+	border-radius: 8px;
+	box-sizing: border-box;
+	margin: 16px 0;
+	padding: 18px;
+
+	&__badge {
+		background: #534AB7;
+		border-radius: 4px;
+		color: #fff;
+		display: inline-block;
+		font-size: 10px;
+		font-weight: 700;
+		letter-spacing: 0.12em;
+		padding: 3px 9px;
+		text-transform: uppercase;
 	}
 
-	a:nth-child(2) {
-		-ms-flex-order: 0;
-		order: 0;
-		-webkit-flex: 0 1 auto;
-		-ms-flex: 0 1 auto;
-		flex: 0 1 auto;
-		-webkit-align-self: auto;
-		align-self: auto;
+	&__title {
+		color: #1d2327;
+		font-family: $cptui-promo-font;
+		font-size: 19px;
+		font-weight: 700;
+		line-height: 1.25;
+		margin: 12px 0 14px;
 	}
 
-	a:nth-child(3) {
-		-ms-flex-order: 0;
-		order: 0;
-		-webkit-flex: 0 1 auto;
-		-ms-flex: 0 1 auto;
-		flex: 0 1 auto;
-		-webkit-align-self: auto;
-		align-self: auto;
+	&__tagline {
+		color: #50575e;
+		font-size: 12.5px;
+		line-height: 1.5;
+		margin: 0 0 14px;
 	}
-	p {
-	  padding: 0 5px;
-	  &:nth-child(1) {
-		padding-left: 0;
-	  }
-	  &:nth-child(4) {
-		padding-right: 0;
-	  }
+
+	&__features {
+		list-style: none;
+		margin: 0 0 14px;
+		padding: 0;
+
+		li {
+			color: #1d2327;
+			font-size: 12.5px;
+			line-height: 1.45;
+			margin: 0 0 10px;
+			padding-left: 24px;
+			position: relative;
+
+			&::before {
+				background: #EEEDFE;
+				border-radius: 50%;
+				color: #534AB7;
+				content: "\2713";
+				font-size: 10px;
+				font-weight: 700;
+				height: 16px;
+				left: 0;
+				line-height: 16px;
+				position: absolute;
+				text-align: center;
+				top: 1px;
+				width: 16px;
+			}
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	&__feature-title {
+		display: block;
+		font-weight: 600;
+	}
+
+	&__feature-detail {
+		color: #50575e;
+		display: block;
+		font-size: 11.5px;
+		font-weight: 400;
+		line-height: 1.4;
+		margin-top: 2px;
+	}
+
+	&__guarantee {
+		background: #EEEDFE;
+		border-radius: 4px;
+		color: #423a8f;
+		font-size: 11px;
+		font-weight: 600;
+		margin: 14px 0;
+		padding: 7px 10px;
+		text-align: center;
+	}
+
+	&__cta {
+		background: #534AB7;
+		border: 1px solid #534AB7;
+		border-radius: 4px;
+		box-sizing: border-box;
+		color: #fff;
+		display: block;
+		font-size: 13px;
+		font-weight: 600;
+		padding: 10px 16px;
+		text-align: center;
+		text-decoration: none;
+		transition: background-color 0.15s, border-color 0.15s;
+		width: 100%;
+
+		&:hover,
+		&:focus {
+			background: #3F36A0;
+			border-color: #3F36A0;
+			color: #fff;
+		}
+
+		&:focus {
+			box-shadow: 0 0 0 2px rgba(83, 74, 183, 0.35);
+			outline: none;
+		}
+	}
+}
+
+.cptui-promo-secondary {
+	margin: 24px 0;
+
+	&__heading {
+		border-top: 1px solid #c3c4c7;
+		color: #1d2327;
+		font-size: 11px;
+		font-weight: 700;
+		letter-spacing: 0.1em;
+		margin: 0 0 14px;
+		padding-top: 14px;
+		text-transform: uppercase;
+	}
+
+	&__list {
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+	}
+
+	&--about {
+		margin-bottom: 30px;
+
+		.cptui-promo-secondary__list {
+			flex-direction: row;
+			flex-wrap: wrap;
+			gap: 18px;
+		}
+
+		.cptui-promo-card {
+			flex: 1 1 220px;
+		}
+	}
+}
+
+.cptui-promo-card {
+	background: #fff;
+	border: 1px solid #c3c4c7;
+	border-left: 3px solid #2271b1;
+	border-radius: 4px;
+	box-sizing: border-box;
+	padding: 12px 14px;
+
+	&__title {
+		color: #1d2327;
+		font-size: 13.5px;
+		font-weight: 700;
+		line-height: 1.3;
+		margin: 0 0 6px;
+	}
+
+	&__tagline {
+		color: #2c3338;
+		font-size: 12px;
+		line-height: 1.5;
+		margin: 0 0 8px;
+	}
+
+	&__cta {
+		color: #2271b1;
+		font-size: 12px;
+		font-weight: 600;
+		text-decoration: none;
+
+		&:hover,
+		&:focus {
+			color: #135e96;
+			text-decoration: underline;
+		}
+	}
+}
+
+.cptui-promo-remove-ads {
+	margin: 18px 0 0;
+	text-align: center;
+
+	a {
+		color: #646970;
+		font-size: 11px;
+		text-decoration: underline;
+
+		&:hover,
+		&:focus {
+			color: #1d2327;
+		}
 	}
 }
 .no-js {
@@ -451,16 +712,9 @@ $max-tablet: "screen and (max-width: 768px)";
 	  width: 100%;
 	}
   }
-  .wdspromos-about {
-	flex-wrap: wrap;
-	p {
-	  margin: 5px auto;
-	  &:nth-child(1) {
-		padding-left: 5px;
-	  }
-	  &:nth-child(4) {
-		padding-right: 5px;
-	  }
+  .cptui-promo-secondary--about {
+	.cptui-promo-secondary__list {
+	  flex-direction: column;
 	}
   }
   .cptui-table {

@@ -106,6 +106,7 @@ add_action( 'admin_init', 'cptui_make_activation_redirect', 1 );
  */
 function cptui_deactivation() {
 	flush_rewrite_rules();
+	delete_option( 'cptui-user-dismissed-pro-upsell' );
 	delete_option( 'cptui-user-dismissed-extended-upsell' );
 }
 register_deactivation_hook( __FILE__, 'cptui_deactivation' );

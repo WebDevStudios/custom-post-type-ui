@@ -2054,6 +2054,28 @@ function cptui_update_post_type( $data = [] ) {
 		return cptui_admin_notices( 'error', '', false, esc_html__( 'Please provide a post type name', 'custom-post-type-ui' ) );
 	}
 
+	// Force the slug to lowercase. Post type slugs must be lowercase per
+	// WordPress conventions; uppercase characters break URL routing,
+	// $screen->post_type matching, HTML id generation, and the Get Code
+	// rendering on the Tools page. The JS field handler also lowercases
+	// on input, but it doesn't catch paste/autofill — this is the
+	// authoritative enforcement.
+	$data['cpt_custom_post_type']['name'] = strtolower( $data['cpt_custom_post_type']['name'] );
+
+	// If the original slug differed only in case from the new (now lowercased)
+	// slug, this is a case-only normalization, not a real rename. Track the
+	// legacy key so we can remove it from the saved option below, and align
+	// cpt_original with the new slug so the rename-detection comparison
+	// doesn't fire spuriously.
+	$cptui_legacy_slug_to_remove = null;
+	if ( ! empty( $data['cpt_original'] ) ) {
+		$original_lower = strtolower( $data['cpt_original'] );
+		if ( $original_lower !== $data['cpt_original'] && $original_lower === $data['cpt_custom_post_type']['name'] ) {
+			$cptui_legacy_slug_to_remove = $data['cpt_original'];
+			$data['cpt_original']        = $original_lower;
+		}
+	}
+
 	if ( ! empty( $data['cpt_original'] ) && $data['cpt_original'] != $data['cpt_custom_post_type']['name'] ) { // phpcs:ignore.
 		if ( ! empty( $data['update_post_types'] ) ) {
 			add_filter( 'cptui_convert_post_type_posts', '__return_true' );
@@ -2080,6 +2102,12 @@ function cptui_update_post_type( $data = [] ) {
 	}
 
 	$post_types = cptui_get_post_type_data();
+
+	// Drop any legacy capitalized slug so we don't end up with both the old
+	// and the lowercased entry in the saved option after this save.
+	if ( null !== $cptui_legacy_slug_to_remove && isset( $post_types[ $cptui_legacy_slug_to_remove ] ) ) {
+		unset( $post_types[ $cptui_legacy_slug_to_remove ] );
+	}
 
 	/**
 	 * Check if we already have a post type of that name.
