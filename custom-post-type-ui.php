@@ -669,6 +669,9 @@ function cptui_register_single_taxonomy( array $taxonomy = [] ) {
 	$preserved_labels = cptui_get_preserved_labels();
 	foreach ( $taxonomy['labels'] as $key => $label ) {
 
+		$text_name = "[cptui_taxonomies][{$taxonomy['name']}][labels]{$key}";
+		$label     = apply_filters( 'wpml_translate_single_string', $label, 'admin_texts_cptui_taxonomies', $text_name );
+
 		if ( ! empty( $label ) ) {
 			$labels[ $key ] = $label;
 		} elseif ( in_array( $key, $preserved, true ) ) {
