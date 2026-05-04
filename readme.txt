@@ -30,8 +30,10 @@ Custom Post Type UI development is managed on GitHub, with official releases pub
 
 == Changelog ==
 
-= 1.19.1 - TBD =
+= 1.19.1 - 2026-05-04 =
 * Fixed: Escaped output on get code tab when no content types registered.
+* Fixed: Force lowercase slugs on server side during save.
+* Updated: Extra WPML support for labels.
 * Updated: premium product upsells.
 
 = 1.19.0 - 2026-04-23 =
