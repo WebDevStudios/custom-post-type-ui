@@ -31,7 +31,8 @@ Custom Post Type UI development is managed on GitHub, with official releases pub
 == Changelog ==
 
 = 1.19.1 - TBD =
-* Updated premium product upsells.
+* Fixed: Escaped output on get code tab when no content types registered.
+* Updated: premium product upsells.
 
 = 1.19.0 - 2026-04-23 =
 * Added: Support for "Filter by category" and "Filter by date" labels. Thanks aloMalbarez
