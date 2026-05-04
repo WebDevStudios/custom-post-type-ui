@@ -48,7 +48,7 @@ add_action( 'init', '<?php echo esc_html( $callback ); ?>' );
 	} else {
 		esc_html_e( 'No post types to display at this time', 'custom-post-type-ui' );
 	}
-	echo esc_html( trim( ob_get_clean() ) );
+	echo trim( ob_get_clean() ); // phpcs:ignore.
 }
 
 /**

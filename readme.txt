@@ -2,11 +2,9 @@
 Contributors: webdevstudios, pluginize, tw2113, williamsba1
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3084056
 Tags: custom post types, post type, taxonomy, content types, types
-Requires at least: 6.6
 Tested up to: 7.0
-Stable tag: 1.19.0
+Stable tag: 1.19.1
 License: GPL-2.0+
-Requires PHP: 7.4
 
 Admin UI for creating custom content types like post types and taxonomies
 
@@ -31,6 +29,12 @@ Custom Post Type UI development is managed on GitHub, with official releases pub
 5. Help/support screen.
 
 == Changelog ==
+
+= 1.19.1 - 2026-05-04 =
+* Fixed: Escaped output on get code tab when no content types registered.
+* Fixed: Force lowercase slugs on server side during save.
+* Updated: Extra WPML support for labels.
+* Updated: premium product upsells.
 
 = 1.19.0 - 2026-04-23 =
 * Added: Support for "Filter by category" and "Filter by date" labels. Thanks aloMalbarez
@@ -100,11 +104,6 @@ Custom Post Type UI development is managed on GitHub, with official releases pub
 * Added: Remembers toggled states for CPTUI settings panels. Props @aslamatwebdevstudios and @ramsesdelr
 * Updated: Notes about slugs for both post types and taxonomies.
 * Updated: Support/FAQ section with more accurate links.
-
-== Upgrade Notice ==
-
-= 1.19.0 =
-* Some new content type labels, jQuery-less Dashicon picker, PHP notices, and capitalization updates.
 
 == Installation ==
 

@@ -22,7 +22,7 @@
     "styles:compress": "sass --style=compressed src/scss/cptui-styles.scss build/cptui-styles.min.css",
     "dashicons": "cp -R src/js/dashicons.json src/vanilla-icon-picker build",
     "uglify": "uglifyjs build/cptui.js -m -c --source-map -o build/cptui.min.js",
-    "create:release": "mkdirp release-build/custom-post-type-ui && cp -R build classes external images inc readme.txt LICENSE custom-post-type-ui.php wpml-config.xml release-build/custom-post-type-ui"
+    "create:release": "mkdirp release-build/custom-post-type-ui && cp -R build classes external images inc readme.txt LICENSE custom-post-type-ui.php wpml-config.xml wordfence-vendor.txt release-build/custom-post-type-ui"
   },
   "devDependencies": {
     "@wordpress/eslint-plugin": "^22.11.0",
