@@ -105,11 +105,6 @@ Custom Post Type UI development is managed on GitHub, with official releases pub
 * Updated: Notes about slugs for both post types and taxonomies.
 * Updated: Support/FAQ section with more accurate links.
 
-== Upgrade Notice ==
-
-= 1.19.0 =
-* Some new content type labels, jQuery-less Dashicon picker, PHP notices, and capitalization updates.
-
 == Installation ==
 
 = Admin Installer via search =
