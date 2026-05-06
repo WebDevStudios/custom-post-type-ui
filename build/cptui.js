@@ -318,6 +318,10 @@ postboxes.add_postbox_toggles(pagenow);
     _custom_media = true;
     _orig_send_attachment = wp.media.editor.send.attachment;
   }
+  const maybeHasPicker = document.querySelector('#cptui_choose_dashicon');
+  if (!maybeHasPicker) {
+    return;
+  }
 
   // Trigger the modal and load our icons.
   const icons = cptuiIconPicker.iconsJSON;
