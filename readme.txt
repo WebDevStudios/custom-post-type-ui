@@ -111,8 +111,7 @@ with block editor layouts, filters, and templates, check out
 [CPT UI Pro](https://pluginize.com/plugins/custom-post-type-ui-pro/?utm_source=cptui-faq&utm_medium=text&utm_campaign=wporg).
 
 = Does CPT UI Pro require this free plugin? =
-Yes. CPT UI Pro is an add-on that requires Custom Post Type UI (free) to be
-active. Your existing post type and taxonomy data carries over automatically
+No. CPT UI Pro does not require Custom Post Type UI (free), but pairs great. Your existing post type and taxonomy content integrates automatically
 — no migration needed.
 
 = Will the free plugin continue to be maintained? =
@@ -129,7 +128,7 @@ registration, config push to subsites, and per-site inheritance controls.
 * Fixed: Escaped output on get code tab when no content types registered.
 * Fixed: Force lowercase slugs on server side during save.
 * Updated: Extra WPML support for labels.
-* Updated: Premium product upsells.
+* Updated: Pro product upsells.
 
 = 1.19.0 - 2026-04-23 =
 * Added: Support for "Filter by category" and "Filter by date" labels. Thanks aloMalbarez.
@@ -140,7 +139,7 @@ registration, config push to subsites, and per-site inheritance controls.
 
 = 1.18.3 - 2026-01-08 =
 * Fixed: Remove double escaping in tools section for some output.
-* Added: Dismissable upsell notifications for CPTUI Extended.
+* Added: Dismissable upsell notifications for CPTUI Pro.
 
 = 1.18.2 - 2025-12-05 =
 * Fixed: Security issue around Get Code functionality.
