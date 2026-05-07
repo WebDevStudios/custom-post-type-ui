@@ -7,6 +7,47 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## 1.17.3 - 2025-04-21
+* Fixed: PHP notices around foreach loops in cptui_post_thumbnail_theme_support().
+* Fixed: PHP notices around empty variable values with get code section.
+* Fixed: PHP notices around false values with taxonomy listings with post type registration.
+* Updated: Confirmed compatibility with WordPress 6.8.
+
+## 1.17.2 - 2024-11-19
+* Fixed: PHP warnings around empty description variables from tools page.
+* Updated: Confirmed compatibility with WordPress 6.7.
+
+## 1.17.1 - 2024-06-27
+* Fixed: Missed re-showing of autolabel fill links for JS-enabled browsers.
+
+## 1.17.0 - 2024-06-17
+* Added: "sidebars" as a reserved slug for post types.
+* Added: Blueprint for trying Custom Post Type UI on wordpress.org before installation.
+* Updated: Reworked JavaScript files to be more modular with the build process.
+
+## 1.16.0 - 2024-04-08
+* Added: Added a wpml-config.xml file.
+* Updated: Added "search_terms" to disallowed taxonomy list.
+* Updated: Began converting JavaScript away from jQuery dependency.
+* Updated: Tested up to WordPress 6.5.
+
+## 1.15.1 - 2023-11-08
+* Fixed: Right-to-Left language styling issues.
+* Fixed: Forgot to update about page and some PHP constants for CPTUI version.
+
+## 1.15.0 - 2023-11-06
+* Added: Checkbox to indicate intent to migrate a post type into CPTUI in event of matching slugs. Props @ramsesdelr.
+* Added: "item_trashed" post type label support from WordPress 6.3.
+* Updated: Confirmed compatibility with WordPress 6.4.
+* Updated: PHP 8 compatibility.
+* Updated: Minimum WordPress version to 6.3, minimum PHP version to 7.4.
+
+## 1.14.0 - 2023-08-07
+* Added: "Scroll to top" links in CPTUI pages. Props @aslamatwebdevstudios.
+* Added: Remembers toggled states for CPTUI settings panels. Props @aslamatwebdevstudios and @ramsesdelr.
+* Updated: Notes about slugs for both post types and taxonomies.
+* Updated: Support/FAQ section with more accurate links.
+
 ## 1.13.7 - 2023-07-11
 * Fixed: "themes" marked as reserved taxonomy slug. Causes issues with featured image metabox.
 * Fixed: PHP notice around `sort` parameter.
