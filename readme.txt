@@ -3,7 +3,7 @@ Contributors: webdevstudios, pluginize, tw2113, williamsba1
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3084056
 Tags: custom post types, post type, taxonomy, content types, types
 Tested up to: 7.0
-Stable tag: 1.19.1
+Stable tag: 1.19.2
 License: GPL-2.0+
 
 Admin UI for creating custom content types like post types and taxonomies
@@ -123,6 +123,10 @@ Yes. CPT UI Pro includes dedicated multisite support with network-level
 registration, config push to subsites, and per-site inheritance controls.
 
 == Changelog ==
+
+= 1.19.2 - 2026-05-07 =
+* Fixed: JS error with changed icon picker on settings pages without an icon picker.
+* Updated: CPTUI-Extended promotion has been changed to CPTUI-Pro new addon.
 
 = 1.19.1 - 2026-05-04 =
 * Fixed: Escaped output on get code tab when no content types registered.
