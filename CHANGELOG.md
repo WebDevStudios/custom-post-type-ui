@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+* Fixed: Debug info email failing to send due to nonce field name being passed to `wp_verify_nonce()` instead of the nonce field value. Props @thisismyurl.
+* Fixed: Export textareas for post types and taxonomies outputting unescaped content; use `esc_textarea()` for correct HTML encoding. Props @thisismyurl.
 
 ## 1.17.3 - 2025-04-21
 * Fixed: PHP notices around foreach loops in cptui_post_thumbnail_theme_support().
