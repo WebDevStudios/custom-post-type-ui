@@ -419,10 +419,10 @@ function cptui_render_posttypes_taxonomies_section() {
 						}
 						$content = wp_json_encode( $cptui_post_types );
 					} else {
-						$content = esc_html__( 'No post types registered yet.', 'custom-post-type-ui' );
+						$content = __( 'No post types registered yet.', 'custom-post-type-ui' );
 					}
 					?>
-					<textarea title="<?php esc_attr_e( 'To copy the system info, click below then press Ctrl + C (PC) or Cmd + C (Mac).', 'custom-post-type-ui' ); ?>" onclick="this.focus();this.select();" onfocus="this.focus();this.select();" readonly="readonly" aria-readonly="true" class="cptui_post_import" id="cptui_post_export" name="cptui_post_export"><?php echo $content; // phpcs:ignore. ?></textarea>
+					<textarea title="<?php esc_attr_e( 'To copy the system info, click below then press Ctrl + C (PC) or Cmd + C (Mac).', 'custom-post-type-ui' ); ?>" onclick="this.focus();this.select();" onfocus="this.focus();this.select();" readonly="readonly" aria-readonly="true" class="cptui_post_import" id="cptui_post_export" name="cptui_post_export"><?php echo esc_textarea( $content ); ?></textarea>
 
 					<p>
 						<strong><?php esc_html_e( 'Use the content above to import current post types into a different WordPress site. You can also use this to simply back up your post type settings.', 'custom-post-type-ui' ); ?></strong>
@@ -463,10 +463,10 @@ function cptui_render_posttypes_taxonomies_section() {
 						}
 						$content = wp_json_encode( $cptui_taxonomies );
 					} else {
-						$content = esc_html__( 'No taxonomies registered yet.', 'custom-post-type-ui' );
+						$content = __( 'No taxonomies registered yet.', 'custom-post-type-ui' );
 					}
 					?>
-					<textarea title="<?php esc_attr_e( 'To copy the system info, click below then press Ctrl + C (PC) or Cmd + C (Mac).', 'custom-post-type-ui' ); ?>" onclick="this.focus();this.select()" onfocus="this.focus();this.select();" readonly="readonly" aria-readonly="true" class="cptui_tax_import" id="cptui_tax_export" name="cptui_tax_export"><?php echo $content; // phpcs:ignore WordPress.Security.EscapeOutput ?></textarea>
+					<textarea title="<?php esc_attr_e( 'To copy the system info, click below then press Ctrl + C (PC) or Cmd + C (Mac).', 'custom-post-type-ui' ); ?>" onclick="this.focus();this.select()" onfocus="this.focus();this.select();" readonly="readonly" aria-readonly="true" class="cptui_tax_import" id="cptui_tax_export" name="cptui_tax_export"><?php echo esc_textarea( $content ); ?></textarea>
 
 					<p>
 						<strong><?php esc_html_e( 'Use the content above to import current taxonomies into a different WordPress site. You can also use this to simply back up your taxonomy settings.', 'custom-post-type-ui' ); ?></strong>
