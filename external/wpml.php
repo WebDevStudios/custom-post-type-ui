@@ -6,27 +6,35 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 function cptui_wpml_pkg_build_post_type_package( $slug ) {
 	return [
-		'kind'      => 'CPT UI Post Type',
+		'kind'      => esc_html__( 'CPT UI Post Type', 'custom-post-type-ui' ),
 		'kind_slug' => 'cptui-post-type',
 		'name'      => $slug,
-		'title'     => 'Post Type: ' . $slug,
+		'title'     => sprintf(
+			// translators: placeholder holds content name.
+			esc_html__( 'Post Type: %s', 'custom-post-type-ui' ),
+			$slug,
+		),
 		'edit_link' => admin_url( 'admin.php?page=cptui_manage_post_types&action=edit' ),
 	];
 }
 
 function cptui_wpml_pkg_build_taxonomy_package( $slug ) {
 	return [
-		'kind'      => 'CPT UI Taxonomy',
+		'kind'      => esc_html__( 'CPT UI Taxonomy', 'custom-post-type-ui' ),
 		'kind_slug' => 'cptui-taxonomy',
 		'name'      => $slug,
-		'title'     => 'Taxonomy: ' . $slug,
+		'title'     => sprintf(
+			// translators: placeholder holds content name.
+			esc_html__( 'Taxonomy: %s', 'custom-post-type-ui' ),
+			$slug,
+		),
 		'edit_link' => admin_url( 'admin.php?page=cptui_manage_taxonomies&action=edit' ),
 	];
 }
 
 function cptui_register_string_package_kinds( $kinds ) {
-	$kinds['cptui-post-type'] = 'CPT UI Post Type';
-	$kinds['cptui-taxonomy']  = 'CPT UI Taxonomy';
+	$kinds['cptui-post-type'] = esc_html__( 'CPT UI Post Type', 'custom-post-type-ui' );
+	$kinds['cptui-taxonomy']  = esc_html__( 'CPT UI Taxonomy', 'custom-post-type-ui' );
 
 	return $kinds;
 }
@@ -43,10 +51,10 @@ function cptui_register_string_packages() {
 			$package = cptui_wpml_pkg_build_post_type_package( $cpt['name'] );
 			do_action( 'wpml_start_string_package_registration', $package );
 			if ( ! empty( $cpt['label'] ) ) {
-				do_action( 'wpml_register_string', $cpt['label'], 'name', $package, 'Name (plural)', 'LINE' );
+				do_action( 'wpml_register_string', $cpt['label'], 'name', $package, esc_html__( 'Name (plural)', 'custom-post-type-ui' ), 'LINE' );
 			}
 			if ( ! empty( $cpt['singular_label'] ) ) {
-				do_action( 'wpml_register_string', $cpt['singular_label'], 'singular_name', $package, 'Singular name', 'LINE' );
+				do_action( 'wpml_register_string', $cpt['singular_label'], 'singular_name', $package, esc_html__( 'Singular name', 'custom-post-type-ui' ), 'LINE' );
 			}
 			if ( ! empty( $cpt['labels'] ) && is_array( $cpt['labels'] ) ) {
 				foreach ( $cpt['labels'] as $key => $val ) {
@@ -66,10 +74,10 @@ function cptui_register_string_packages() {
 			$package = cptui_wpml_pkg_build_taxonomy_package( $taxonomy['name'] );
 			do_action( 'wpml_start_string_package_registration', $package );
 			if ( ! empty( $taxonomy['label'] ) ) {
-				do_action( 'wpml_register_string', $taxonomy['label'], 'name', $package, 'Name (plural)', 'LINE' );
+				do_action( 'wpml_register_string', $taxonomy['label'], 'name', $package, esc_html__( 'Name (plural)', 'custom-post-type-ui' ), 'LINE' );
 			}
 			if ( ! empty( $taxonomy['singular_label'] ) ) {
-				do_action( 'wpml_register_string', $taxonomy['singular_label'], 'singular_name', $package, 'Singular name', 'LINE' );
+				do_action( 'wpml_register_string', $taxonomy['singular_label'], 'singular_name', $package, esc_html__( 'Singular name', 'custom-post-type-ui' ), 'LINE' );
 			}
 			if ( ! empty( $taxonomy['labels'] ) && is_array( $taxonomy['labels'] ) ) {
 				foreach ( $taxonomy['labels'] as $key => $val ) {
