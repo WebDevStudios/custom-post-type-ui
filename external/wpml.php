@@ -41,10 +41,6 @@ function cptui_register_string_package_kinds( $kinds ) {
 add_filter( 'wpml_active_string_package_kinds', 'cptui_register_string_package_kinds' );
 
 function cptui_register_string_packages() {
-	if ( ! defined( 'WPML_ST_VERSION' ) ) {
-		return;
-	}
-
 	$cptui_cpts = get_option( 'cptui_post_types', [] );
 	if ( ! empty( $cptui_cpts ) ) {
 		foreach ( $cptui_cpts as $cpt ) {
