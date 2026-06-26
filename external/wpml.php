@@ -82,6 +82,15 @@ function cptui_register_taxonomy_string_packages( $data ) {
 }
 add_action( 'cptui_after_update_taxonomy', 'cptui_register_taxonomy_string_packages' );
 
+function cptui_delete_post_type_string_packages( $data ) {
+	do_action( 'wpml_delete_package', $data['name'], 'cptui-post-type' );
+}
+add_action( 'cptui_after_delete_post_type', 'cptui_delete_post_type_string_packages' );
+function cptui_delete_taxonomy_string_packages( $data ) {
+	do_action( 'wpml_delete_package', $data['name'], 'cptui-taxonomy' );
+}
+add_action( 'cptui_after_delete_taxonomy', 'cptui_delete_taxonomy_string_packages' );
+
 function cptui_wpml_apply_post_type_translations( $args, $slug, $post_type ) {
 	$package = cptui_wpml_pkg_build_post_type_package( $slug );
 	if ( ! empty( $args['labels'] ) && is_array( $args['labels'] ) ) {
