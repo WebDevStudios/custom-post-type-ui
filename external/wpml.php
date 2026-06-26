@@ -40,29 +40,24 @@ function cptui_register_string_package_kinds( $kinds ) {
 }
 add_filter( 'wpml_active_string_package_kinds', 'cptui_register_string_package_kinds' );
 
-function cptui_register_post_type_string_packages() {
-	$cptui_cpts = get_option( 'cptui_post_types', [] );
-	if ( ! empty( $cptui_cpts ) ) {
-		foreach ( $cptui_cpts as $cpt ) {
-			$package = cptui_wpml_pkg_build_post_type_package( $cpt['name'] );
-			do_action( 'wpml_start_string_package_registration', $package );
-			if ( ! empty( $cpt['label'] ) ) {
-				do_action( 'wpml_register_string', $cpt['label'], 'name', $package, esc_html__( 'Name (plural)', 'custom-post-type-ui' ), 'LINE' );
+function cptui_register_post_type_string_packages( $data ) {
+	$package = cptui_wpml_pkg_build_post_type_package( $data['name'] );
+	do_action( 'wpml_start_string_package_registration', $package );
+	if ( ! empty( $data['label'] ) ) {
+		do_action( 'wpml_register_string', $data['label'], 'name', $package, esc_html__( 'Name (plural)', 'custom-post-type-ui' ), 'LINE' );
+	}
+	if ( ! empty( $data['singular_label'] ) ) {
+		do_action( 'wpml_register_string', $data['singular_label'], 'singular_name', $package, esc_html__( 'Singular name', 'custom-post-type-ui' ), 'LINE' );
+	}
+	if ( ! empty( $data['labels'] ) && is_array( $data['labels'] ) ) {
+		foreach ( $data['labels'] as $key => $val ) {
+			if ( '' === $val ) {
+				continue;
 			}
-			if ( ! empty( $cpt['singular_label'] ) ) {
-				do_action( 'wpml_register_string', $cpt['singular_label'], 'singular_name', $package, esc_html__( 'Singular name', 'custom-post-type-ui' ), 'LINE' );
-			}
-			if ( ! empty( $cpt['labels'] ) && is_array( $cpt['labels'] ) ) {
-				foreach ( $cpt['labels'] as $key => $val ) {
-					if ( '' === $val ) {
-						continue;
-					}
-					do_action( 'wpml_register_string', $val, $key, $package, $key, 'LINE' );
-				}
-			}
-			do_action( 'wpml_delete_unused_package_strings', $package );
+			do_action( 'wpml_register_string', $val, $key, $package, $key, 'LINE' );
 		}
 	}
+	do_action( 'wpml_delete_unused_package_strings', $package );
 }
 add_action( 'cptui_after_update_post_type', 'cptui_register_post_type_string_packages' );
 
