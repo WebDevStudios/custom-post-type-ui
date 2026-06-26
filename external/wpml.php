@@ -66,6 +66,7 @@ function cptui_register_post_type_string_packages() {
 }
 add_action( 'cptui_after_update_post_type', 'cptui_register_post_type_string_packages' );
 
+function cptui_register_taxonomy_string_packages() {
 	$cptui_taxonomies = get_option( 'cptui_taxonomies', [] );
 	if ( ! empty( $cptui_taxonomies ) ) {
 		foreach ( $cptui_taxonomies as $taxonomy ) {
@@ -89,7 +90,7 @@ add_action( 'cptui_after_update_post_type', 'cptui_register_post_type_string_pac
 		}
 	}
 }
-add_action( 'wp_loaded', 'cptui_register_string_packages' );
+add_action( 'cptui_after_update_taxonomy', 'cptui_register_taxonomy_string_packages' );
 
 function cptui_wpml_apply_post_type_translations( $args, $slug, $post_type ) {
 	$package = cptui_wpml_pkg_build_post_type_package( $slug );
