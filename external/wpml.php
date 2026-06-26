@@ -61,29 +61,24 @@ function cptui_register_post_type_string_packages( $data ) {
 }
 add_action( 'cptui_after_update_post_type', 'cptui_register_post_type_string_packages' );
 
-function cptui_register_taxonomy_string_packages() {
-	$cptui_taxonomies = get_option( 'cptui_taxonomies', [] );
-	if ( ! empty( $cptui_taxonomies ) ) {
-		foreach ( $cptui_taxonomies as $taxonomy ) {
-			$package = cptui_wpml_pkg_build_taxonomy_package( $taxonomy['name'] );
-			do_action( 'wpml_start_string_package_registration', $package );
-			if ( ! empty( $taxonomy['label'] ) ) {
-				do_action( 'wpml_register_string', $taxonomy['label'], 'name', $package, esc_html__( 'Name (plural)', 'custom-post-type-ui' ), 'LINE' );
+function cptui_register_taxonomy_string_packages( $data ) {
+	$package = cptui_wpml_pkg_build_taxonomy_package( $data['name'] );
+	do_action( 'wpml_start_string_package_registration', $package );
+	if ( ! empty( $data['label'] ) ) {
+		do_action( 'wpml_register_string', $data['label'], 'name', $package, esc_html__( 'Name (plural)', 'custom-post-type-ui' ), 'LINE' );
+	}
+	if ( ! empty( $data['singular_label'] ) ) {
+		do_action( 'wpml_register_string', $data['singular_label'], 'singular_name', $package, esc_html__( 'Singular name', 'custom-post-type-ui' ), 'LINE' );
+	}
+	if ( ! empty( $data['labels'] ) && is_array( $data['labels'] ) ) {
+		foreach ( $data['labels'] as $key => $val ) {
+			if ( '' === $val ) {
+				continue;
 			}
-			if ( ! empty( $taxonomy['singular_label'] ) ) {
-				do_action( 'wpml_register_string', $taxonomy['singular_label'], 'singular_name', $package, esc_html__( 'Singular name', 'custom-post-type-ui' ), 'LINE' );
-			}
-			if ( ! empty( $taxonomy['labels'] ) && is_array( $taxonomy['labels'] ) ) {
-				foreach ( $taxonomy['labels'] as $key => $val ) {
-					if ( '' === $val ) {
-						continue;
-					}
-					do_action( 'wpml_register_string', $val, $key, $package, $key, 'LINE' );
-				}
-			}
-			do_action( 'wpml_delete_unused_package_strings', $package );
+			do_action( 'wpml_register_string', $val, $key, $package, $key, 'LINE' );
 		}
 	}
+	do_action( 'wpml_delete_unused_package_strings', $package );
 }
 add_action( 'cptui_after_update_taxonomy', 'cptui_register_taxonomy_string_packages' );
 
