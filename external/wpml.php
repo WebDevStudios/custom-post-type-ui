@@ -6,7 +6,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 function cptui_wpml_pkg_build_post_type_package( $slug ) {
 	return [
-		'kind'      => esc_html__( 'CPT UI Post Type', 'custom-post-type-ui' ),
+		'kind'      => 'CPTUI Post Type',
 		'kind_slug' => 'cptui-post-type',
 		'name'      => $slug,
 		'title'     => sprintf(
@@ -20,7 +20,7 @@ function cptui_wpml_pkg_build_post_type_package( $slug ) {
 
 function cptui_wpml_pkg_build_taxonomy_package( $slug ) {
 	return [
-		'kind'      => esc_html__( 'CPT UI Taxonomy', 'custom-post-type-ui' ),
+		'kind'      => 'CPTUI Taxonomy',
 		'kind_slug' => 'cptui-taxonomy',
 		'name'      => $slug,
 		'title'     => sprintf(
@@ -83,11 +83,11 @@ function cptui_register_taxonomy_string_packages( $data ) {
 add_action( 'cptui_after_update_taxonomy', 'cptui_register_taxonomy_string_packages' );
 
 function cptui_delete_post_type_string_packages( $data ) {
-	do_action( 'wpml_delete_package', $data['name'], 'cptui-post-type' );
+	do_action( 'wpml_delete_package', $data['name'], 'CPTUI Post Type' );
 }
 add_action( 'cptui_after_delete_post_type', 'cptui_delete_post_type_string_packages' );
 function cptui_delete_taxonomy_string_packages( $data ) {
-	do_action( 'wpml_delete_package', $data['name'], 'cptui-taxonomy' );
+	do_action( 'wpml_delete_package', $data['name'], 'CPTUI Taxonomy' );
 }
 add_action( 'cptui_after_delete_taxonomy', 'cptui_delete_taxonomy_string_packages' );
 
