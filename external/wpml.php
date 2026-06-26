@@ -127,4 +127,4 @@ function cptui_wpml_apply_taxonomy_translations( $args, $slug, $taxonomy ) {
 
 	return $args;
 }
-add_filter( 'cptui_pre_register_taxonomy', 'cptui_wpml_apply_post_type_translations', 20, 3 );
+add_filter( 'cptui_pre_register_taxonomy', 'cptui_wpml_apply_taxonomy_translations', 20, 3 );
