@@ -40,7 +40,7 @@ function cptui_register_string_package_kinds( $kinds ) {
 }
 add_filter( 'wpml_active_string_package_kinds', 'cptui_register_string_package_kinds' );
 
-function cptui_register_string_packages() {
+function cptui_register_post_type_string_packages() {
 	$cptui_cpts = get_option( 'cptui_post_types', [] );
 	if ( ! empty( $cptui_cpts ) ) {
 		foreach ( $cptui_cpts as $cpt ) {
@@ -63,6 +63,8 @@ function cptui_register_string_packages() {
 			do_action( 'wpml_delete_unused_package_strings', $package );
 		}
 	}
+}
+add_action( 'cptui_after_update_post_type', 'cptui_register_post_type_string_packages' );
 
 	$cptui_taxonomies = get_option( 'cptui_taxonomies', [] );
 	if ( ! empty( $cptui_taxonomies ) ) {
