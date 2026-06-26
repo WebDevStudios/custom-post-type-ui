@@ -104,7 +104,7 @@ function cptui_wpml_apply_post_type_translations( $args, $slug, $post_type ) {
 	}
 
 	if ( ! empty( $args['singular_label'] ) ) {
-		$args['singular_label'] = apply_filters( 'wpml_translate_string', $args['singular_label'], 'name', $package );
+		$args['singular_label'] = apply_filters( 'wpml_translate_string', $args['singular_label'], 'singular_name', $package );
 	}
 	return $args;
 }
@@ -122,7 +122,7 @@ function cptui_wpml_apply_taxonomy_translations( $args, $slug, $taxonomy ) {
 	}
 
 	if ( ! empty( $args['singular_label'] ) ) {
-		$args['singular_label'] = apply_filters( 'wpml_translate_string', $args['singular_label'], 'name', $package );
+		$args['singular_label'] = apply_filters( 'wpml_translate_string', $args['singular_label'], 'singular_name', $package );
 	}
 
 	return $args;
