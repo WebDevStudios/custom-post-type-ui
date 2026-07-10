@@ -168,6 +168,10 @@ function cptui_loaded() {
 		require_once plugin_dir_path( __FILE__ ) . 'external/wpgraphql.php';
 	}
 
+	if ( defined( 'WPML_ST_VERSION' ) ) {
+		require_once plugin_dir_path( __FILE__ ) . 'external/wpml.php';
+	}
+
 	/**
 	 * Fires upon plugins_loaded WordPress hook.
 	 *
@@ -405,9 +409,6 @@ function cptui_register_single_post_type( array $post_type = [] ) {
 	$preserved        = cptui_get_preserved_keys( 'post_types' );
 	$preserved_labels = cptui_get_preserved_labels();
 	foreach ( $post_type['labels'] as $key => $label ) {
-
-		$text_name = "[cptui_post_types][{$post_type['name']}][labels]{$key}";
-		$label     = apply_filters( 'wpml_translate_single_string', $label, 'admin_texts_cptui_post_types', $text_name );
 
 		if ( ! empty( $label ) ) {
 			if ( 'parent' === $key ) {
@@ -669,9 +670,6 @@ function cptui_register_single_taxonomy( array $taxonomy = [] ) {
 	$preserved        = cptui_get_preserved_keys( 'taxonomies' );
 	$preserved_labels = cptui_get_preserved_labels();
 	foreach ( $taxonomy['labels'] as $key => $label ) {
-
-		$text_name = "[cptui_taxonomies][{$taxonomy['name']}][labels]{$key}";
-		$label     = apply_filters( 'wpml_translate_single_string', $label, 'admin_texts_cptui_taxonomies', $text_name );
 
 		if ( ! empty( $label ) ) {
 			$labels[ $key ] = $label;
