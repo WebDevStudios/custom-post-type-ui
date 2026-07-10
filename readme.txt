@@ -127,6 +127,7 @@ registration, config push to subsites, and per-site inheritance controls.
 = 1.19.3 - TBD =
 * Fixed: Debug info email failing to send due to nonce field name being passed to `wp_verify_nonce()` instead of the nonce field value. Props @thisismyurl.
 * Fixed: Export textareas for post types and taxonomies outputting unescaped content; use `esc_textarea()` for correct HTML encoding. Props @thisismyurl.
+* Updated: Revised how we're registering strings with WPML for better performance.
 
 = 1.19.2 - 2026-05-07 =
 * Fixed: JS error with changed icon picker on settings pages without an icon picker.
