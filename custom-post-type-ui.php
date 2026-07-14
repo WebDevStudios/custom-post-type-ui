@@ -16,7 +16,7 @@
  * Plugin URI: https://github.com/WebDevStudios/custom-post-type-ui/
  * Description: Admin UI panel for registering custom post types and taxonomies
  * Author: WebDevStudios
- * Version: 1.19.2
+ * Version: 1.19.3
  * Author URI: https://webdevstudios.com/
  * Text Domain: custom-post-type-ui
  * License: GPL-2.0+
@@ -32,8 +32,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'CPT_VERSION', '1.19.2' ); // Left for legacy purposes.
-define( 'CPTUI_VERSION', '1.19.2' );
+define( 'CPT_VERSION', '1.19.3' ); // Left for legacy purposes.
+define( 'CPTUI_VERSION', '1.19.3' );
 define( 'CPTUI_WP_VERSION', get_bloginfo( 'version' ) );
 
 /**
@@ -166,6 +166,10 @@ function cptui_loaded() {
 
 	if ( class_exists( 'WPGraphQL' ) ) {
 		require_once plugin_dir_path( __FILE__ ) . 'external/wpgraphql.php';
+	}
+
+	if ( defined( 'WPML_ST_VERSION' ) ) {
+		require_once plugin_dir_path( __FILE__ ) . 'external/wpml.php';
 	}
 
 	/**
@@ -405,9 +409,6 @@ function cptui_register_single_post_type( array $post_type = [] ) {
 	$preserved        = cptui_get_preserved_keys( 'post_types' );
 	$preserved_labels = cptui_get_preserved_labels();
 	foreach ( $post_type['labels'] as $key => $label ) {
-
-		$text_name = "[cptui_post_types][{$post_type['name']}][labels]{$key}";
-		$label     = apply_filters( 'wpml_translate_single_string', $label, 'admin_texts_cptui_post_types', $text_name );
 
 		if ( ! empty( $label ) ) {
 			if ( 'parent' === $key ) {
@@ -669,9 +670,6 @@ function cptui_register_single_taxonomy( array $taxonomy = [] ) {
 	$preserved        = cptui_get_preserved_keys( 'taxonomies' );
 	$preserved_labels = cptui_get_preserved_labels();
 	foreach ( $taxonomy['labels'] as $key => $label ) {
-
-		$text_name = "[cptui_taxonomies][{$taxonomy['name']}][labels]{$key}";
-		$label     = apply_filters( 'wpml_translate_single_string', $label, 'admin_texts_cptui_taxonomies', $text_name );
 
 		if ( ! empty( $label ) ) {
 			$labels[ $key ] = $label;

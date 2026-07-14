@@ -3,7 +3,7 @@ Contributors: webdevstudios, pluginize, tw2113, williamsba1
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3084056
 Tags: custom post types, post type, taxonomy, content types, types
 Tested up to: 7.0
-Stable tag: 1.19.2
+Stable tag: 1.19.3
 License: GPL-2.0+
 
 Admin UI for creating custom content types like post types and taxonomies
@@ -123,6 +123,11 @@ Yes. CPT UI Pro includes dedicated multisite support with network-level
 registration, config push to subsites, and per-site inheritance controls.
 
 == Changelog ==
+
+= 1.19.3 - 2026-07-14 =
+* Fixed: Debug info email failing to send due to nonce field name being passed to `wp_verify_nonce()` instead of the nonce field value. Props @thisismyurl.
+* Fixed: Export textareas for post types and taxonomies outputting unescaped content; use `esc_textarea()` for correct HTML encoding. Props @thisismyurl.
+* Updated: Revised how we're registering strings with WPML for better performance.
 
 = 1.19.2 - 2026-05-07 =
 * Fixed: JS error with changed icon picker on settings pages without an icon picker.
