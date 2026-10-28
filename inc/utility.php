@@ -109,7 +109,7 @@ function cptui_footer( $original = '' ) {
 
 	return sprintf(
 		// translators: Placeholder will hold the name of the plugin, version of the plugin and a link to WebdevStudios.
-		esc_attr__( '%1$s version %2$s by %3$s', 'custom-post-type-ui' ),
+		esc_attr__( '%1$s %2$s by %3$s', 'custom-post-type-ui' ),
 		esc_attr__( 'Custom Post Type UI', 'custom-post-type-ui' ),
 		CPTUI_VERSION,
 		'<a href="https://webdevstudios.com">WebDevStudios</a>'
