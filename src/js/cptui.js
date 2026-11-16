@@ -3,7 +3,7 @@ import './partials/hide-submit';
 import './partials/toggle-hierarchical';
 import './partials/autoswitch';
 import './partials/confirm-delete';
-import './partials/support-toggles';
+import './partials/support-search';
 import './partials/namefield';
 import './partials/menu-icon';
 import './partials/tax-required-post-type';
