@@ -465,25 +465,28 @@ function cptui_get_ads() {
 function cptui_default_ads( $ads = [] ) {
 	$ads[] = [
 		'format'    => 'compact',
+		'slug'      => 'themeswitcher-pro',
 		'name'      => 'ThemeSwitcher Pro',
 		'tagline'   => esc_html__( 'Run multiple themes on one WordPress site. Start creating new content with the Gutenberg block editor on your legacy WordPress site without replacing your active theme.', 'custom-post-type-ui' ),
-		'url'       => 'https://themeswitcher.com/?utm_source=cptui-sidebar&utm_medium=text&utm_campaign=themeswitcher-pro',
+		'url'       => 'https://themeswitcher.com/?utm_source=cptui-about&utm_medium=plugin&utm_campaign=themeswitcher-pro',
 		'cta_label' => esc_html__( 'Learn more', 'custom-post-type-ui' ),
 	];
 
 	$ads[] = [
 		'format'    => 'compact',
+		'slug'      => 'wp-search-with-algolia',
 		'name'      => 'WP Search with Algolia Pro',
 		'tagline'   => esc_html__( 'AI-powered, lightning-fast search for WordPress. Full WooCommerce support — indexes product SKU and pricing data for both simple and variable products.', 'custom-post-type-ui' ),
-		'url'       => 'https://pluginize.com/plugins/wp-search-with-algolia-pro/?utm_source=cptui-sidebar&utm_medium=text&utm_campaign=wp-search-with-algolia-pro',
+		'url'       => 'https://pluginize.com/plugins/wp-search-with-algolia-pro/?utm_source=cptui-about&utm_medium=plugin&utm_campaign=wp-search-with-algolia-pro',
 		'cta_label' => esc_html__( 'Learn more', 'custom-post-type-ui' ),
 	];
 
 	$ads[] = [
 		'format'    => 'compact',
+		'slug'      => 'youtube-video-sync',
 		'name'      => 'WDS YouTube Video Sync for WP',
 		'tagline'   => esc_html__( 'Connect your YouTube channel and import videos as native WordPress posts — titles, descriptions, featured images, and embed-ready, with daily auto-sync or manual triggers.', 'custom-post-type-ui' ),
-		'url'       => 'https://pluginize.com/plugins/youtube-video-sync-for-wp/?utm_source=cptui-sidebar&utm_medium=text&utm_campaign=youtube-video-sync-for-wp',
+		'url'       => 'https://pluginize.com/plugins/youtube-video-sync-for-wp/?utm_source=cptui-about&utm_medium=plugin&utm_campaign=youtube-video-sync-for-wp',
 		'cta_label' => esc_html__( 'Learn more', 'custom-post-type-ui' ),
 	];
 
