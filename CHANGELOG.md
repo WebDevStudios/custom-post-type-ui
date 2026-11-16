@@ -15,6 +15,49 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 * Updated: The newsletter signup now uses Pluginize directly and no longer loads third-party scripts in the admin. See "External services" in this readme.
 * Added: `cptui_show_pro_promos` filter to turn off Pro promotions.
 
+## 1.19.3 - 2026-07-14
+* Fixed: Debug info email failing to send due to nonce field name being passed to `wp_verify_nonce()` instead of the nonce field value. Props @thisismyurl.
+* Fixed: Export textareas for post types and taxonomies outputting unescaped content; use `esc_textarea()` for correct HTML encoding. Props @thisismyurl.
+* Updated: Revised how we're registering strings with WPML for better performance.
+
+## 1.19.2 - 2026-05-07
+* Fixed: JS error with changed icon picker on settings pages without an icon picker.
+* Updated: CPTUI-Extended promotion has been changed to CPTUI-Pro new addon.
+
+## 1.19.1 - 2026-05-04
+* Fixed: Escaped output on get code tab when no content types registered.
+* Fixed: Force lowercase slugs on server side during save.
+* Updated: Extra WPML support for labels.
+* Updated: Pro product upsells.
+
+## 1.19.0 - 2026-04-23
+* Added: Support for "Filter by category" and "Filter by date" labels. Thanks aloMalbarez.
+* Fixed: PHP notices from upsell notification display check.
+* Updated: Various capitalization for CPTUI submenu labels.
+* Updated: developer.wordpress.org URLs that had redirects.
+* Updated: jQuery-less Dashicon picker.
+
+## 1.18.3 - 2026-01-08
+* Fixed: Remove double escaping in tools section for some output.
+* Added: Dismissable upsell notifications for CPTUI Pro.
+
+## 1.18.2 - 2025-12-05
+* Fixed: Security issue around Get Code functionality.
+* Fixed: Potential security issue around post type descriptions.
+* Updated: Various internationalization details.
+
+## 1.18.1 - 2025-11-20
+* Fixed: Potential authorization access issues around content type modification.
+* Fixed: JS issue regarding warning user when changing content type slugs.
+* Updated: Revised "new tab" and rel="noopener" link behavior and attributes.
+* Updated: Cleaned up CPTUI About screen.
+
+## 1.18.0 - 2025-07-29
+* Added: "template_name" label support.
+* Fixed: Typo in "games" Dashicon classname.
+* Updated: CPTUI admin ad graphics. Added ThemeSwitcher Pro.
+* Updated: Touched up some label usage for post type registration screen.
+
 ## 1.17.3 - 2025-04-21
 * Fixed: PHP notices around foreach loops in cptui_post_thumbnail_theme_support().
 * Fixed: PHP notices around empty variable values with get code section.
