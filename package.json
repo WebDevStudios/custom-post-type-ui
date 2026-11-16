@@ -18,8 +18,8 @@
     "lint:php": "./vendor/bin/phpcs --standard=./.phpcs.xml.dist --extensions=php ./ --ignore='./build/*,./node_modules/*,./vendor/*'",
     "packages-update": "wp-scripts packages-update",
     "styles": "run-s styles:compile styles:compress",
-    "styles:compile": "sass src/scss/cptui-styles.scss build/cptui-styles.css",
-    "styles:compress": "sass --style=compressed src/scss/cptui-styles.scss build/cptui-styles.min.css",
+    "styles:compile": "sass src/scss/cptui-styles.scss build/cptui-styles.css && sass src/scss/cptui-pro.scss build/cptui-pro.css",
+    "styles:compress": "sass --style=compressed src/scss/cptui-styles.scss build/cptui-styles.min.css && sass --style=compressed src/scss/cptui-pro.scss build/cptui-pro.min.css",
     "dashicons": "cp -R src/js/dashicons.json src/vanilla-icon-picker build",
     "uglify": "uglifyjs build/cptui.js -m -c --source-map -o build/cptui.min.js",
     "create:release": "mkdirp release-build/custom-post-type-ui && cp -R build classes external images inc readme.txt LICENSE custom-post-type-ui.php wpml-config.xml wordfence-vendor.txt release-build/custom-post-type-ui"

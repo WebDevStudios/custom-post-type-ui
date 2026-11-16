@@ -42,9 +42,23 @@ const CPTUIProPanel = () => {
 			title={ __( 'Display with CPT UI Pro', 'custom-post-type-ui' ) }
 			className="cptui-pro-panel"
 		>
+			{ config.image && (
+				<img
+					src={ config.image }
+					alt=""
+					style={ {
+						display: 'block',
+						width: '100%',
+						height: 'auto',
+						borderRadius: '4px',
+						border: '1px solid #e0e0e0',
+						marginBottom: '12px',
+					} }
+				/>
+			) }
 			<p style={ { marginTop: 0 } }>
 				{ __(
-					'CPT UI Pro adds a dedicated Gutenberg block for displaying this content anywhere on your site — pull and render this post type inside any block-editor post or page, no code required.',
+					'Show this post type on any page with the CPT UI Pro block: pick one of 13 layouts, no theme templates or code.',
 					'custom-post-type-ui'
 				) }
 			</p>
@@ -62,7 +76,7 @@ const CPTUIProPanel = () => {
 					onClick={ handleDismiss }
 					disabled={ dismissing }
 				>
-					{ __( 'Dismiss', 'custom-post-type-ui' ) }
+					{ __( 'Not now', 'custom-post-type-ui' ) }
 				</Button>
 			</div>
 		</PluginDocumentSettingPanel>

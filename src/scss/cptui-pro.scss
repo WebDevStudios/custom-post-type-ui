@@ -1,0 +1,828 @@
+// CPT UI Pro promotion styles.
+//
+// Loaded only where Pro promos appear (CPT UI screens and list screens for
+// CPT UI post types) and only while Pro is inactive. Every rule is scoped to
+// a .cptui-pro-* or .cptui-promo-hero class so nothing leaks into core.
+
+$pro: #534ab7;
+$pro-dark: #3f36a0;
+$pro-tint: #eeedfe;
+$ink: #1d2327;
+$muted: #50575e;
+$line: #dcdcde;
+$radius: 8px;
+$max-tablet: "screen and (max-width: 782px)";
+
+// Shared bits ---------------------------------------------------------------
+
+.cptui-pro-badge {
+	background: $pro-tint;
+	border-radius: 3px;
+	color: $pro;
+	display: inline-block;
+	font-size: 10px;
+	font-weight: 700;
+	letter-spacing: 0.06em;
+	line-height: 1.6;
+	padding: 0 5px;
+	text-transform: uppercase;
+	vertical-align: middle;
+}
+
+.wp-core-ui .button-primary.cptui-pro-button {
+	background: $pro;
+	border-color: $pro;
+
+	&:hover,
+	&:focus {
+		background: $pro-dark;
+		border-color: $pro-dark;
+	}
+
+	&:focus {
+		box-shadow: 0 0 0 1px #fff, 0 0 0 3px $pro;
+	}
+}
+
+.wp-core-ui .button.cptui-pro-button-secondary {
+	border-color: $pro;
+	color: $pro;
+
+	&:hover,
+	&:focus {
+		border-color: $pro-dark;
+		color: $pro-dark;
+	}
+}
+
+.cptui-pro-checklist {
+	list-style: none;
+	margin: 0 0 16px;
+	padding: 0;
+
+	li {
+		margin: 0 0 8px;
+		padding-left: 24px;
+		position: relative;
+
+		&::before {
+			background: $pro-tint;
+			border-radius: 50%;
+			color: $pro;
+			content: "\2713";
+			font-size: 10px;
+			font-weight: 700;
+			height: 16px;
+			left: 0;
+			line-height: 16px;
+			position: absolute;
+			text-align: center;
+			top: 2px;
+			width: 16px;
+		}
+	}
+}
+
+.cptui-pro-media {
+	border: 1px solid $line;
+	border-radius: 6px;
+	box-sizing: border-box;
+	display: block;
+	height: auto;
+	max-width: 100%;
+	width: 100%;
+}
+
+.cptui-pro-network {
+	background: #f6f7f7;
+	padding: 20px;
+
+	&__source {
+		background: $pro;
+		border-radius: 4px;
+		color: #fff;
+		font-weight: 600;
+		margin-bottom: 14px;
+		padding: 10px 12px;
+
+		.dashicons {
+			margin-right: 6px;
+		}
+	}
+
+	ul {
+		margin: 0;
+	}
+
+	li {
+		background: #fff;
+		border: 1px solid $line;
+		border-radius: 4px;
+		display: flex;
+		justify-content: space-between;
+		margin: 0 0 8px 24px;
+		padding: 8px 12px;
+	}
+
+	em {
+		color: #008a20;
+		font-style: normal;
+	}
+}
+
+.cptui-pro-cta-row {
+	align-items: center;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px 16px;
+	margin: 0;
+
+	&__meta {
+		color: $muted;
+		font-size: 13px;
+	}
+}
+
+// Sidebar card ----------------------------------------------------------------
+
+.cptui-promo-hero {
+	background: #fff;
+	border: 1px solid $line;
+	border-radius: $radius;
+	box-sizing: border-box;
+	margin: 16px 0;
+	padding: 18px;
+
+	&__badge {
+		background: $pro;
+		border-radius: 4px;
+		color: #fff;
+		display: inline-block;
+		font-size: 10px;
+		font-weight: 700;
+		letter-spacing: 0.1em;
+		padding: 3px 9px;
+		text-transform: uppercase;
+	}
+
+	&__title {
+		color: $ink;
+		font-size: 17px;
+		font-weight: 700;
+		line-height: 1.3;
+		margin: 12px 0;
+	}
+
+	&__shot {
+		background: none;
+		border: 0;
+		cursor: pointer;
+		display: block;
+		margin: 0 0 12px;
+		padding: 0;
+		position: relative;
+		width: 100%;
+
+		img {
+			border: 1px solid $line;
+			border-radius: 4px;
+			display: block;
+			height: auto;
+			width: 100%;
+		}
+
+		&:focus-visible {
+			outline: 2px solid $pro;
+			outline-offset: 2px;
+		}
+	}
+
+	&__play {
+		background: rgba(29, 35, 39, 0.82);
+		border-radius: 3px;
+		bottom: 8px;
+		color: #fff;
+		font-size: 11px;
+		font-weight: 600;
+		left: 8px;
+		padding: 3px 8px;
+		position: absolute;
+	}
+
+	&__shot:hover &__play,
+	&__shot:focus &__play {
+		background: $pro;
+	}
+
+	&__tagline {
+		color: $muted;
+		font-size: 12.5px;
+		line-height: 1.5;
+		margin: 0 0 10px;
+	}
+
+	&__also-heading {
+		color: $muted;
+		font-size: 11px;
+		font-weight: 600;
+		letter-spacing: 0.04em;
+		margin: 0 0 4px;
+		text-transform: uppercase;
+	}
+
+	&__also {
+		border-top: 1px solid $line;
+		list-style: none;
+		margin: 0 0 14px;
+		padding: 0;
+
+		li {
+			border-bottom: 1px solid $line;
+			margin: 0;
+		}
+	}
+
+	&__also-item {
+		align-items: center;
+		background: none;
+		border: 0;
+		color: $ink;
+		cursor: pointer;
+		display: flex;
+		gap: 10px;
+		padding: 8px 2px;
+		text-align: left;
+		width: 100%;
+
+		> .dashicons:first-child {
+			color: $pro;
+			flex: 0 0 auto;
+			font-size: 18px;
+			height: 18px;
+			width: 18px;
+		}
+
+		&:hover,
+		&:focus-visible {
+			background: $pro-tint;
+		}
+
+		&:hover .cptui-promo-hero__also-chevron,
+		&:focus-visible .cptui-promo-hero__also-chevron {
+			color: $pro;
+		}
+
+		&:focus-visible {
+			outline: 2px solid $pro;
+			outline-offset: -2px;
+		}
+	}
+
+	&__also-text {
+		display: flex;
+		flex: 1 1 auto;
+		flex-direction: column;
+		min-width: 0;
+	}
+
+	&__also-label {
+		font-size: 12.5px;
+		font-weight: 600;
+		line-height: 1.3;
+	}
+
+	&__also-short {
+		color: $muted;
+		font-size: 12px;
+		line-height: 1.35;
+	}
+
+	&__also-chevron.dashicons {
+		color: #a7aaad;
+		flex: 0 0 auto;
+		font-size: 16px;
+		height: 16px;
+		width: 16px;
+	}
+
+	// Kept for third-party "hero" ads added through the cptui_ads filter.
+	&__features {
+		list-style: none;
+		margin: 0 0 14px;
+		padding: 0;
+	}
+
+	&__feature-title {
+		display: block;
+		font-weight: 600;
+	}
+
+	&__feature-detail {
+		color: $muted;
+		display: block;
+		font-size: 11.5px;
+	}
+
+	&__cta {
+		background: $pro;
+		border: 1px solid $pro;
+		border-radius: 4px;
+		box-sizing: border-box;
+		color: #fff;
+		display: block;
+		font-size: 13px;
+		font-weight: 600;
+		padding: 10px 16px;
+		text-align: center;
+		text-decoration: none;
+		width: 100%;
+
+		&:hover,
+		&:focus {
+			background: $pro-dark;
+			border-color: $pro-dark;
+			color: #fff;
+		}
+
+		&:focus {
+			box-shadow: 0 0 0 2px rgba(83, 74, 183, 0.35);
+			outline: none;
+		}
+	}
+
+	&__guarantee {
+		color: $muted;
+		font-size: 11px;
+		margin: 8px 0 0;
+		text-align: center;
+	}
+}
+
+// Notices ---------------------------------------------------------------------
+
+.notice.cptui-pro-notice {
+	border-left-color: $pro;
+}
+
+.cptui-pro-next {
+	align-items: center;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px 24px;
+	justify-content: space-between;
+	padding: 6px 0;
+
+	p {
+		margin: 0.25em 0;
+	}
+
+	&__copy {
+		flex: 1 1 420px;
+	}
+
+	&__heading {
+		color: $ink;
+		font-size: 14px;
+		font-weight: 600;
+	}
+
+	&__actions {
+		align-items: center;
+		display: flex;
+		gap: 12px;
+	}
+
+	&__dismiss {
+		color: $muted;
+	}
+}
+
+// List table button and listings link ----------------------------------------
+
+.cptui-pro-tablenav .cptui-pro-columns-button {
+	align-items: center;
+	display: inline-flex;
+	gap: 4px;
+
+	.dashicons {
+		font-size: 16px;
+		height: 16px;
+		width: 16px;
+	}
+}
+
+.cptui-pro-inline-link.button-link {
+	color: $pro;
+	text-decoration: underline;
+}
+
+// Feature tour dialog ---------------------------------------------------------
+
+.cptui-pro-tour {
+	border: 0;
+	border-radius: $radius;
+	box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+	box-sizing: border-box;
+	color: $ink;
+	max-width: 960px;
+	padding: 0;
+	width: calc(100% - 32px);
+
+	&::backdrop {
+		background: rgba(0, 0, 0, 0.55);
+	}
+
+	&__header {
+		align-items: center;
+		border-bottom: 1px solid $line;
+		display: flex;
+		justify-content: space-between;
+		padding: 14px 20px;
+
+		h2 {
+			font-size: 18px;
+			margin: 0;
+		}
+	}
+
+	&__close {
+		background: none;
+		border: 0;
+		border-radius: 4px;
+		color: $muted;
+		cursor: pointer;
+		padding: 4px;
+
+		&:hover,
+		&:focus {
+			color: $ink;
+		}
+
+		.dashicons {
+			font-size: 24px;
+			height: 24px;
+			width: 24px;
+		}
+	}
+
+	&__tabs {
+		border-bottom: 1px solid $line;
+		display: flex;
+		gap: 4px;
+		overflow-x: auto;
+		padding: 0 20px;
+
+		button {
+			background: none;
+			border: 0;
+			border-bottom: 3px solid transparent;
+			color: $muted;
+			cursor: pointer;
+			font-size: 13px;
+			font-weight: 600;
+			padding: 12px 10px 9px;
+			white-space: nowrap;
+
+			&[aria-selected="true"] {
+				border-bottom-color: $pro;
+				color: $pro;
+			}
+
+			&:hover {
+				color: $ink;
+			}
+
+			&:focus-visible {
+				outline: 2px solid $pro;
+				outline-offset: -2px;
+			}
+		}
+	}
+
+	&__panel {
+		display: grid;
+		gap: 24px;
+		grid-template-columns: 3fr 2fr;
+		padding: 20px;
+
+		&[hidden] {
+			display: none;
+		}
+	}
+
+	&__copy {
+		h3 {
+			font-size: 20px;
+			line-height: 1.3;
+			margin: 0 0 10px;
+		}
+
+		p {
+			color: $muted;
+			font-size: 14px;
+			line-height: 1.55;
+		}
+	}
+
+	&__actions {
+		align-items: center;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 12px;
+	}
+
+	&__meta {
+		font-size: 12px !important;
+	}
+}
+
+@media #{$max-tablet} {
+	.cptui-pro-tour__panel {
+		grid-template-columns: 1fr;
+	}
+}
+
+// About page callout ----------------------------------------------------------
+
+.cptui-pro-callout {
+	background: #fff;
+	border: 1px solid $line;
+	border-radius: $radius;
+	margin: 24px 0 32px;
+	padding: 28px;
+
+	&__header {
+		margin-bottom: 20px;
+	}
+
+	&__title {
+		font-size: 24px;
+		line-height: 1.25;
+		margin: 0 0 8px;
+		text-align: left;
+	}
+
+	&__tagline {
+		color: $muted;
+		font-size: 15px;
+		margin: 0;
+		max-width: 720px;
+	}
+
+	&__features {
+		display: grid;
+		gap: 16px;
+		grid-template-columns: repeat(4, 1fr);
+		list-style: none;
+		margin: 0 0 20px;
+		padding: 0;
+	}
+
+	&__feature {
+		margin: 0;
+	}
+
+	&__card {
+		background: #f6f7f7;
+		border: 1px solid $line;
+		border-radius: 6px;
+		box-sizing: border-box;
+		cursor: pointer;
+		display: flex;
+		flex-direction: column;
+		gap: 4px;
+		height: 100%;
+		padding: 12px;
+		text-align: left;
+		width: 100%;
+
+		img {
+			aspect-ratio: 16 / 10;
+			border-radius: 4px;
+			margin-bottom: 8px;
+			object-fit: cover;
+			object-position: top left;
+			width: 100%;
+		}
+
+		&:hover,
+		&:focus-visible {
+			border-color: $pro;
+		}
+
+		&:focus-visible {
+			outline: 2px solid $pro;
+			outline-offset: 2px;
+		}
+	}
+
+	&__icon.dashicons {
+		align-items: center;
+		aspect-ratio: 16 / 10;
+		background: $pro-tint;
+		border-radius: 4px;
+		color: $pro;
+		display: flex;
+		font-size: 40px;
+		height: auto;
+		justify-content: center;
+		margin-bottom: 8px;
+		width: 100%;
+	}
+
+	&__feature-label {
+		color: $pro;
+		font-size: 11px;
+		font-weight: 700;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+	}
+
+	&__feature-title {
+		color: $ink;
+		font-size: 14px;
+		font-weight: 600;
+		line-height: 1.35;
+	}
+
+	&__footer {
+		align-items: center;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 12px 24px;
+		justify-content: space-between;
+	}
+
+	&__compare {
+		color: $pro;
+		font-weight: 600;
+	}
+}
+
+@media #{$max-tablet} {
+	.cptui-pro-callout__features {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+// Get Pro page ----------------------------------------------------------------
+
+.cptui-pro-page {
+	max-width: 1100px;
+
+	h2 {
+		color: $ink;
+	}
+
+	&__eyebrow {
+		color: $pro;
+		font-size: 12px;
+		font-weight: 700;
+		letter-spacing: 0.08em;
+		margin: 0 0 8px;
+		text-transform: uppercase;
+	}
+
+	&__hero {
+		background: #fff;
+		border: 1px solid $line;
+		border-radius: $radius;
+		margin: 20px 0;
+		padding: 36px;
+	}
+
+	&__title {
+		font-size: 30px;
+		line-height: 1.2;
+		margin: 0 0 12px;
+		max-width: 760px;
+	}
+
+	&__lead {
+		color: $muted;
+		font-size: 16px;
+		line-height: 1.55;
+		margin: 0 0 24px;
+		max-width: 760px;
+	}
+
+	&__compare-shots {
+		display: grid;
+		gap: 20px;
+		grid-template-columns: 1fr 1fr;
+		margin: 0 0 40px;
+
+		figure {
+			margin: 0;
+		}
+
+		img {
+			border: 1px solid $line;
+			border-radius: 6px;
+			display: block;
+			height: auto;
+			width: 100%;
+		}
+
+		figcaption {
+			color: $muted;
+			font-weight: 600;
+			margin-top: 8px;
+			text-align: center;
+		}
+	}
+
+	&__pillar {
+		align-items: center;
+		border-top: 1px solid $line;
+		display: grid;
+		gap: 36px;
+		grid-template-columns: 2fr 3fr;
+		padding: 36px 0;
+
+		&:nth-of-type(even) .cptui-pro-page__pillar-copy {
+			order: 2;
+		}
+
+		h2 {
+			font-size: 22px;
+			line-height: 1.3;
+			margin: 0 0 12px;
+		}
+
+		p {
+			font-size: 14px;
+			line-height: 1.55;
+		}
+	}
+
+	&__today {
+		color: $muted;
+	}
+
+	&__table {
+		border-top: 1px solid $line;
+		padding: 36px 0;
+
+		table {
+			max-width: 760px;
+		}
+
+		td:not(:first-child),
+		th:not(:first-child) {
+			text-align: center;
+			width: 25%;
+		}
+	}
+
+	&__close {
+		background: #fff;
+		border: 1px solid $line;
+		border-radius: $radius;
+		margin-bottom: 40px;
+		padding: 28px 36px;
+	}
+
+	&__trust {
+		display: grid;
+		gap: 16px;
+		grid-template-columns: repeat(3, 1fr);
+		margin: 0 0 24px;
+
+		li {
+			color: $muted;
+			margin: 0;
+		}
+
+		strong {
+			color: $ink;
+			display: block;
+		}
+	}
+}
+
+.cptui-pro-yes {
+	color: #008a20;
+	font-weight: 700;
+}
+
+.cptui-pro-no {
+	color: #a7aaad;
+}
+
+@media #{$max-tablet} {
+	.cptui-pro-page__hero,
+	.cptui-pro-page__close {
+		padding: 20px;
+	}
+
+	.cptui-pro-page__compare-shots,
+	.cptui-pro-page__pillar,
+	.cptui-pro-page__trust {
+		grid-template-columns: 1fr;
+	}
+
+	.cptui-pro-page__pillar:nth-of-type(even) .cptui-pro-page__pillar-copy {
+		order: 0;
+	}
+}
