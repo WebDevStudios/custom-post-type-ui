@@ -1,126 +1,115 @@
 === Custom Post Type UI ===
 Contributors: webdevstudios, pluginize, tw2113, williamsba1
-Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3084056
-Tags: custom post types, post type, taxonomy, content types, types
-Tested up to: 7.0
-Stable tag: 1.19.3
+Tags: custom post types, custom taxonomies, post type, taxonomy, content types
+Requires at least: 6.6
+Tested up to: 7.1
+Requires PHP: 7.4
+Stable tag: 1.19.4
 License: GPL-2.0+
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Admin UI for creating custom content types like post types and taxonomies
+Create custom post types and taxonomies from the WordPress admin, no code needed. Trusted by more than 1 million sites.
 
 == Description ==
 
-Custom Post Type UI provides an easy-to-use interface for registering and
-managing custom post types and taxonomies for your WordPress website — no
-coding required.
+Custom Post Type UI (CPT UI) gives you a simple screen for creating and managing custom post types and taxonomies, without writing code. More than 1 million WordPress sites use it to build portfolios, event listings, product catalogs, staff directories, real estate listings and any other structured content.
 
-Used by more than 1,000,000 active WordPress sites, CPTUI is the trusted
-foundation for building structured content in WordPress. Whether you are
-creating a portfolio, events calendar, product catalog, staff directory, or
-any other custom content type, CPTUI gives you the tools to define it quickly
-and correctly.
+= What you can do with CPT UI =
 
-= Ready to go further? Meet CPT UI Pro =
+* Register post types and taxonomies with the options WordPress supports, from labels and menu icons to the REST API, archives and rewrite rules.
+* Fill in every label automatically from a singular and plural name.
+* Attach taxonomies to any post type, including Posts and Pages.
+* Rename a post type and move its existing posts to the new name.
+* Copy your setup to another site with import and export.
+* Get the PHP code for any post type or taxonomy. Your content is never locked in.
+* Manage settings with WP-CLI, and use your content types with WPGraphQL and WPML.
 
-CPTUI handles registration. **CPT UI Pro** handles everything else.
+CPT UI registers your content types. How they look on your site is up to your theme, the block editor's Query Loop block, or CPT UI Pro.
 
-[CPT UI Pro](https://pluginize.com/plugins/custom-post-type-ui-pro/?utm_source=cptui-description&utm_medium=text&utm_campaign=wporg)
-is the official premium add-on built by the same WebDevStudios team that
-created and maintains this plugin. It extends CPTUI into a complete content
-operations stack — front-end display blocks, admin list table controls,
-multisite management, and a full developer API.
+= CPT UI Pro: make your content easy to run =
 
-**Front-end display tools**
+[CPT UI Pro](https://pluginize.com/plugins/custom-post-type-ui-pro/?utm_source=wporg-description&utm_medium=readme&utm_campaign=cptui) is the premium add-on from the WebDevStudios team that builds CPT UI. It works on any post type: ones made with CPT UI, registered in code, or added by other plugins. See it in screenshots 6 to 9.
 
-* Ten built-in layout options: Default, List, Single Post Type, Taxonomy
-  List, Post Slider, Post Cards, Featured Plus, Grid, and Grid With Overlay
-* Taxonomy Filter Blocks so visitors can filter content by term
-* Single Post Block Templates to control individual post output
-* Shortcode Builder for reusable, configurable display output
+**See every field without opening a post**
 
-**Admin list table management**
+* Add any core field, taxonomy or custom field as a list column, and drag to reorder.
+* ACF fields show the way people read them: images as thumbnails, users as names, dates in your format and choices as labels.
+* Filter lists by text, numbers, dates, terms, author and status.
+* Each user can show or hide columns for themselves, and taxonomy term screens get columns and filters too.
 
-* Column Builder with drag-and-drop column control for any post type
-* Advanced Filters by taxonomy, meta field, date, author, and status
-* Screen Options Panel for per-user admin table visibility
+**Give clients admin access, keep the structure to yourself**
 
-**Multisite management**
+* Choose which administrators can manage CPT UI. Everyone else never sees the menu.
+* Brand the CPT UI Pro menu with your own name and icon.
 
-* Network-level CPT registration from one central location
-* Push config to subsites to keep site structures consistent
-* Per-site inheritance control for flexible network governance
+**Show any post type on your site without templates**
 
-**Developer-focused workflow**
+* A block and shortcode with 13 layouts, including grid, slider, post cards, lists, and WooCommerce and Easy Digital Downloads products.
+* Copy any layout into your theme to change its markup.
+* Add post types to blog, category and tag archives and RSS feeds with a checkbox.
 
-* `cptui_pro_post_types` filter to merge, modify, or replace registrations
-* Auto-discovery hooks so themes and plugins can register CPTs without
-  manual setup
-* Programmatic registration API for JSON-driven or CI-driven workflows
-* Extended REST API support on top of core CPTUI REST capabilities
+**Multisite and developers**
 
+* Register post types and taxonomies once in Network Admin, and every site in the network gets them.
+* Documented hooks for columns, filters, fields and post type data.
 
-[Get CPT UI Pro at Pluginize.com](https://pluginize.com/plugins/custom-post-type-ui-pro/?utm_source=cptui-description&utm_medium=text&utm_campaign=wporg)
+Every Pro plan includes priority support from the CPT UI developers and a 30-day refund guarantee.
+
+[See everything in CPT UI Pro](https://pluginize.com/plugins/custom-post-type-ui-pro/?utm_source=wporg-description-cta&utm_medium=readme&utm_campaign=cptui)
+
+= Built by WebDevStudios =
+
+WebDevStudios has built WordPress sites since 2008, from small businesses to brands like Microsoft and the NBA. The engineers who do that client work build and maintain CPT UI, and our other plugins are on [Pluginize](https://pluginize.com/?utm_source=wporg-description&utm_medium=readme&utm_campaign=cptui).
 
 = Plugin development =
 
-Custom Post Type UI development is managed on GitHub, with official releases
-published on WordPress.org. The GitHub repo can be found at
-[https://github.com/WebDevStudios/custom-post-type-ui](https://github.com/WebDevStudios/custom-post-type-ui).
-Please use the WordPress.org support tab for potential bugs, issues, or
-enhancement ideas.
+Development happens on [GitHub](https://github.com/WebDevStudios/custom-post-type-ui), with official releases published on WordPress.org. Please use the WordPress.org support forum for bugs, questions and ideas.
 
 == Screenshots ==
 
-1. Add new post type screen and tab.
-2. Add new taxonomy screen and tab.
-3. Registered post types and taxonomies from CPTUI.
-4. Tools screen.
-5. Help/support screen.
+1. Add a post type. Fill in a slug and two labels, and CPT UI completes the rest.
+2. Add a taxonomy and attach it to any post type.
+3. Every post type and taxonomy registered with CPT UI, with links to edit them or get their code.
+4. Tools: import and export settings, get code, and debug info.
+5. Searchable help, grouped by task.
+6. CPT UI Pro (separate plugin): your custom fields as list columns, with photos, prices and filters.
+7. CPT UI Pro (separate plugin): choose, reorder and hide list columns, including ACF fields.
+8. CPT UI Pro (separate plugin): show any post type on your site with a block, using one of 13 layouts.
+9. CPT UI Pro (separate plugin): choose which administrators can manage CPT UI.
 
 == Installation ==
 
-= Admin installer via search =
-1. Visit the Add New plugin screen and search for "custom post type ui".
-2. Click the "Install Now" button.
-3. Activate the plugin.
-4. Navigate to the "CPTUI" menu.
+1. In your WordPress admin, go to Plugins and click Add New.
+2. Search for "Custom Post Type UI", then click Install Now and Activate.
+3. Open the CPT UI menu and add your first post type.
 
-= Admin installer via zip =
-1. Visit the Add New plugin screen and click the "Upload Plugin" button.
-2. Click the "Browse..." button and select the zip file from your computer.
-3. Click "Install Now" button.
-4. Once done uploading, activate Custom Post Type UI.
-
-= Manual =
-1. Upload the Custom Post Type UI folder to the plugins directory in your
-   WordPress installation.
-2. Activate the plugin.
-3. Navigate to the "CPTUI" menu.
-
-That's it! Now you can easily start creating custom post types and taxonomies
-in WordPress.
+To install from a zip file, go to Plugins, click Add New, then Upload Plugin, and choose the zip.
 
 == Frequently Asked Questions ==
 
-= Where is the user documentation? =
-Please see https://docs.pluginize.com/tutorials/custom-post-type-ui/
+= Where is the documentation? =
+See the [CPT UI documentation](https://docs.pluginize.com/tutorials/custom-post-type-ui/). The plugin's Help screen also answers the most common questions.
 
-= I registered my post types — how do I display them on the front end? =
-The free CPTUI plugin handles registration. To display your custom content
-with block editor layouts, filters, and templates, check out
-[CPT UI Pro](https://pluginize.com/plugins/custom-post-type-ui-pro/?utm_source=cptui-faq&utm_medium=text&utm_campaign=wporg).
+= How do I show my post types on my site? =
+Set "Has Archive" to True to get an archive page, or add a Query Loop block to any page and choose your post type. For ready-made layouts and no theme templates, see [CPT UI Pro](https://pluginize.com/plugins/custom-post-type-ui-pro/?utm_source=wporg-faq&utm_medium=readme&utm_campaign=cptui#display).
+
+= My post type shows "Page not found". What do I do? =
+Go to Settings, then Permalinks, and click Save Changes. WordPress rebuilds its URL rules and that fixes most 404s.
+
+= Can I stop using CPT UI and keep my post types? =
+Yes. CPT UI, then Tools, then Get Code gives you the PHP that registers each post type and taxonomy. Add it to your theme or a plugin and deactivate CPT UI. Your content is untouched.
 
 = Does CPT UI Pro require this free plugin? =
-No. CPT UI Pro does not require Custom Post Type UI (free), but pairs great. Your existing post type and taxonomy content integrates automatically
-— no migration needed.
-
-= Will the free plugin continue to be maintained? =
-Absolutely. Custom Post Type UI will always be free and actively maintained.
-CPT UI Pro is an optional add-on for users who want to go further.
+No. Pro's columns, filters, access control and display tools work on any post type. You need the free plugin only to create post types and taxonomies in the admin.
 
 = Does CPT UI Pro work with multisite? =
-Yes. CPT UI Pro includes dedicated multisite support with network-level
-registration, config push to subsites, and per-site inheritance controls.
+Yes. You can register post types and taxonomies once in Network Admin for every site, while each site can still add its own.
+
+= Does CPT UI show ads? =
+The plugin's own screens show information about CPT UI Pro and other WebDevStudios plugins. Notices can be dismissed, nothing is loaded from another site, and everything is hidden when CPT UI Pro is active. Developers can turn it off with the `cptui_show_pro_promos` filter.
+
+= Will the free plugin stay free? =
+Yes. Custom Post Type UI will always be free and actively maintained.
 
 == External services ==
 
@@ -139,6 +128,16 @@ Links to WebDevStudios products in the plugin's admin screens are ordinary links
 
 == Changelog ==
 
+= 1.19.4 - 2026-11-16 =
+* Fixed: Users given access to CPT UI through the `cptui_required_capabilities` filter can now save, delete and import post types and taxonomies.
+* Fixed: New post types are only blocked for matching a page slug when their archive URL would actually collide with that page. Archive and rewrite slugs that collide are now caught too.
+* Fixed: Browsers now load updated CPT UI scripts and styles right after an update.
+* Updated: Rebuilt the Help page with searchable answers grouped by task, corrected and new FAQs, and links to individual answers.
+* Updated: Redesigned the About page with a compact header and recommendations based on what your site runs.
+* Updated: Refreshed CPT UI Pro information, including a feature tour, a free vs Pro comparison page and notices that can be dismissed for 90 days. All of it is hidden when CPT UI Pro is active.
+* Updated: The newsletter signup now uses Pluginize directly and no longer loads third-party scripts in the admin. See "External services" in this readme.
+* Added: `cptui_show_pro_promos` filter to turn off Pro promotions.
+
 = 1.19.3 - 2026-07-14 =
 * Fixed: Debug info email failing to send due to nonce field name being passed to `wp_verify_nonce()` instead of the nonce field value. Props @thisismyurl.
 * Fixed: Export textareas for post types and taxonomies outputting unescaped content; use `esc_textarea()` for correct HTML encoding. Props @thisismyurl.
@@ -148,36 +147,9 @@ Links to WebDevStudios products in the plugin's admin screens are ordinary links
 * Fixed: JS error with changed icon picker on settings pages without an icon picker.
 * Updated: CPTUI-Extended promotion has been changed to CPTUI-Pro new addon.
 
-= 1.19.1 - 2026-05-04 =
-* Fixed: Escaped output on get code tab when no content types registered.
-* Fixed: Force lowercase slugs on server side during save.
-* Updated: Extra WPML support for labels.
-* Updated: Pro product upsells.
+See [CHANGELOG.md](https://github.com/WebDevStudios/custom-post-type-ui/blob/master/CHANGELOG.md) for older releases.
 
-= 1.19.0 - 2026-04-23 =
-* Added: Support for "Filter by category" and "Filter by date" labels. Thanks aloMalbarez.
-* Fixed: PHP notices from upsell notification display check.
-* Updated: Various capitalization for CPTUI submenu labels.
-* Updated: developer.wordpress.org URLs that had redirects.
-* Updated: jQuery-less Dashicon picker.
+== Upgrade Notice ==
 
-= 1.18.3 - 2026-01-08 =
-* Fixed: Remove double escaping in tools section for some output.
-* Added: Dismissable upsell notifications for CPTUI Pro.
-
-= 1.18.2 - 2025-12-05 =
-* Fixed: Security issue around Get Code functionality.
-* Fixed: Potential security issue around post type descriptions.
-* Updated: Various internationalization details.
-
-= 1.18.1 - 2025-11-20 =
-* Fixed: Potential authorization access issues around content type modification.
-* Fixed: JS issue regarding warning user when changing content type slugs.
-* Updated: Revised "new tab" and rel="noopener" link behavior and attributes.
-* Updated: Cleaned up CPTUI About screen.
-
-= 1.18.0 - 2025-07-29 =
-* Added: "template_name" label support.
-* Fixed: Typo in "games" Dashicon classname.
-* Updated: CPTUI admin ad graphics. Added ThemeSwitcher Pro.
-* Updated: Touched up some label usage for post type registration screen.
+= 1.19.4 =
+Fixes saving for users given CPT UI access through a custom capability, and makes the page slug check smarter. Adds a rebuilt Help page and About page.
