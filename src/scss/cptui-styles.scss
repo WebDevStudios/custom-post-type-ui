@@ -56,37 +56,6 @@ $max-tablet: "screen and (max-width: 768px)";
 	}
 }
 
-.cptui-support #support {
-	.question {
-		font-size: 18px;
-		font-weight: bold;
-		&:before {
-			content: "\f139";
-			display: inline-block;
-			font: normal 25px/1 'dashicons';
-			margin-left: -25px;
-			position: absolute;
-			-webkit-font-smoothing: antialiased;
-		}
-		:dir(rtl) &:before {
-			content: "\f141";
-			margin-left: 0;
-			margin-right: -25px;
-		}
-		&.active:before {
-			content: "\f140";
-		}
-	}
-	.answer {
-		margin: 10px 0 0 20px;
-	}
-	ol li {
-		list-style: none;
-	}
-	li {
-		position: relative;
-	}
-}
 .cptui-field-description {
 	font-style: italic;
 }
@@ -737,5 +706,214 @@ $cptui-promo-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen
 		border-bottom: 1px solid #dcdcde;
 		border-right: 0;
 		max-height: 200px;
+	}
+}
+
+// Help and support page ----------------------------------------------------
+
+.cptui-support {
+	max-width: 860px;
+
+	&__header {
+		margin: 20px 0 20px;
+
+		h1 {
+			font-size: 23px;
+			margin: 0 0 6px;
+			padding: 0;
+		}
+
+		p {
+			color: #50575e;
+			font-size: 14px;
+			margin: 0 0 16px;
+		}
+	}
+
+	&__search {
+		position: relative;
+
+		.dashicons {
+			color: #646970;
+			left: 12px;
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+		}
+
+		input[type="search"] {
+			border-radius: 6px;
+			box-sizing: border-box;
+			font-size: 15px;
+			min-height: 44px;
+			padding: 6px 12px 6px 40px;
+			width: 100%;
+		}
+	}
+
+	&__cards {
+		display: grid;
+		gap: 12px;
+		grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+		margin: 0 0 24px;
+
+		li {
+			background: #fff;
+			border: 1px solid #dcdcde;
+			border-radius: 8px;
+			display: flex;
+			flex-direction: column;
+			gap: 4px;
+			margin: 0;
+			padding: 14px 16px;
+		}
+
+		.dashicons {
+			color: #2271b1;
+		}
+
+		span:not(.dashicons) {
+			color: #50575e;
+			flex: 1 1 auto;
+		}
+
+		a {
+			font-weight: 600;
+			margin-top: 4px;
+		}
+	}
+
+	&__toc {
+		border-bottom: 1px solid #dcdcde;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 4px 18px;
+		margin: 0 0 8px;
+		padding-bottom: 12px;
+	}
+
+	&__section {
+		margin: 24px 0 0;
+		scroll-margin-top: 40px;
+
+		h2 {
+			font-size: 16px;
+			margin: 0 0 8px;
+		}
+	}
+
+	&__no-results {
+		color: #50575e;
+		font-size: 14px;
+		margin: 24px 0;
+	}
+
+	&__stuck {
+		background: #fff;
+		border: 1px solid #dcdcde;
+		border-radius: 8px;
+		margin: 32px 0;
+		padding: 16px 20px;
+
+		h2 {
+			font-size: 16px;
+			margin: 0 0 6px;
+		}
+
+		p {
+			margin: 0;
+		}
+	}
+}
+
+.cptui-faq {
+	background: #fff;
+	border: 1px solid #dcdcde;
+	border-radius: 6px;
+	margin: 0 0 8px;
+	scroll-margin-top: 40px;
+
+	summary {
+		align-items: center;
+		cursor: pointer;
+		display: flex;
+		gap: 10px;
+		list-style: none;
+		padding: 12px 14px;
+
+		&::-webkit-details-marker {
+			display: none;
+		}
+
+		&::before {
+			color: #646970;
+			content: "\f345";
+			font: normal 18px/1 dashicons;
+			transition: transform 0.15s;
+		}
+
+		:dir(rtl) &::before {
+			content: "\f341";
+		}
+
+		&:focus-visible {
+			outline: 2px solid #2271b1;
+			outline-offset: -2px;
+		}
+	}
+
+	&[open] summary::before {
+		transform: rotate(90deg);
+	}
+
+	:dir(rtl) &[open] summary::before {
+		transform: rotate(-90deg);
+	}
+
+	&__question {
+		flex: 1 1 auto;
+		font-size: 14px;
+		font-weight: 600;
+	}
+
+	&__anchor {
+		color: #a7aaad;
+		opacity: 0;
+		text-decoration: none;
+
+		&:focus,
+		&:hover {
+			color: #2271b1;
+			opacity: 1;
+		}
+	}
+
+	summary:hover &__anchor,
+	&[open] &__anchor {
+		opacity: 1;
+	}
+
+	&__answer {
+		border-top: 1px solid #f0f0f1;
+		color: #2c3338;
+		font-size: 14px;
+		line-height: 1.6;
+		padding: 4px 16px 8px 42px;
+
+		ul {
+			list-style: disc;
+			margin-left: 18px;
+		}
+
+		pre {
+			background: #f6f7f7;
+			border-radius: 4px;
+			overflow-x: auto;
+			padding: 10px 12px;
+		}
+	}
+
+	&:target {
+		border-color: #2271b1;
 	}
 }
