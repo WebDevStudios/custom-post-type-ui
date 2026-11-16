@@ -3,7 +3,7 @@ Contributors: webdevstudios, pluginize, tw2113, williamsba1
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3084056
 Tags: custom post types, post type, taxonomy, content types, types
 Tested up to: 7.0
-Stable tag: 1.19.3
+Stable tag: 1.19.4
 License: GPL-2.0+
 
 Admin UI for creating custom content types like post types and taxonomies
@@ -138,6 +138,16 @@ You can unsubscribe from any email. Pluginize [terms](https://pluginize.com/term
 Links to WebDevStudios products in the plugin's admin screens are ordinary links with UTM tracking parameters. They send nothing unless you click one, and they never load content from another site.
 
 == Changelog ==
+
+= 1.19.4 - 2026-11-16 =
+* Fixed: Users given access to CPT UI through the `cptui_required_capabilities` filter can now save, delete and import post types and taxonomies.
+* Fixed: New post types are only blocked for matching a page slug when their archive URL would actually collide with that page. Archive and rewrite slugs that collide are now caught too.
+* Fixed: Browsers now load updated CPT UI scripts and styles right after an update.
+* Updated: Rebuilt the Help page with searchable answers grouped by task, corrected and new FAQs, and links to individual answers.
+* Updated: Redesigned the About page with a compact header and recommendations based on what your site runs.
+* Updated: Refreshed CPT UI Pro information, including a feature tour, a free vs Pro comparison page and notices that can be dismissed for 90 days. All of it is hidden when CPT UI Pro is active.
+* Updated: The newsletter signup now uses Pluginize directly and no longer loads third-party scripts in the admin. See "External services" in this readme.
+* Added: `cptui_show_pro_promos` filter to turn off Pro promotions.
 
 = 1.19.3 - 2026-07-14 =
 * Fixed: Debug info email failing to send due to nonce field name being passed to `wp_verify_nonce()` instead of the nonce field value. Props @thisismyurl.

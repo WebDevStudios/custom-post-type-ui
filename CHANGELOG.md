@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## 1.19.4 - 2026-11-16
+* Fixed: Users given access to CPT UI through the `cptui_required_capabilities` filter can now save, delete and import post types and taxonomies.
+* Fixed: New post types are only blocked for matching a page slug when their archive URL would actually collide with that page. Archive and rewrite slugs that collide are now caught too.
+* Fixed: Browsers now load updated CPT UI scripts and styles right after an update.
+* Updated: Rebuilt the Help page with searchable answers grouped by task, corrected and new FAQs, and links to individual answers.
+* Updated: Redesigned the About page with a compact header and recommendations based on what your site runs.
+* Updated: Refreshed CPT UI Pro information, including a feature tour, a free vs Pro comparison page and notices that can be dismissed for 90 days. All of it is hidden when CPT UI Pro is active.
+* Updated: The newsletter signup now uses Pluginize directly and no longer loads third-party scripts in the admin. See "External services" in this readme.
+* Added: `cptui_show_pro_promos` filter to turn off Pro promotions.
+
 ## 1.17.3 - 2025-04-21
 * Fixed: PHP notices around foreach loops in cptui_post_thumbnail_theme_support().
 * Fixed: PHP notices around empty variable values with get code section.
