@@ -2027,7 +2027,7 @@ add_filter( 'cptui_taxonomy_slug_exists', 'cptui_check_existing_taxonomy_slugs',
  */
 function cptui_process_taxonomy() {
 
-	if ( ! current_user_can( 'manage_options' ) ) {
+	if ( ! current_user_can( cptui_get_required_capability() ) ) {
 		return;
 	}
 

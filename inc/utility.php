@@ -17,6 +17,27 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
+ * Get the capability required to manage CPT UI settings.
+ *
+ * Used for both the admin menu and every save, delete and import handler, so
+ * anyone who can open a CPT UI screen can also use it.
+ *
+ * @since 1.19.4
+ *
+ * @return string
+ */
+function cptui_get_required_capability() {
+	/**
+	 * Filters the required capability to manage CPTUI settings.
+	 *
+	 * @since 1.3.0
+	 *
+	 * @param string $value Capability required.
+	 */
+	return apply_filters( 'cptui_required_capabilities', 'manage_options' );
+}
+
+/**
  * Edit links that appear on installed plugins list page, for our plugin.
  *
  * @since 1.0.0
