@@ -919,16 +919,28 @@ function cptui_empty_cpt_on_taxonomy() {
  * @return string
  */
 function cptui_slug_matches_page() {
-	$slug         = cptui_get_object_from_post_global();
-	$matched_slug = get_page_by_path(
-		cptui_get_object_from_post_global()
-	);
+	$name     = cptui_get_object_from_post_global();
+	$conflict = function_exists( 'cptui_page_slug_conflict' ) ? cptui_page_slug_conflict() : '';
+	if ( '' === $conflict ) {
+		$conflict = $name;
+	}
+
+	$slug         = esc_html( $conflict );
+	$matched_slug = get_page_by_path( $conflict );
 	if ( $matched_slug instanceof WP_Post ) {
 		$slug = sprintf(
 			/* translators: Placeholders are just for HTML markup that doesn't need translated */
 			'<a href="%s">%s</a>',
-			get_edit_post_link( $matched_slug->ID ),
-			cptui_get_object_from_post_global()
+			esc_url( get_edit_post_link( $matched_slug->ID ) ),
+			esc_html( $conflict )
+		);
+	}
+
+	if ( $conflict !== $name ) {
+		return sprintf(
+			/* translators: %s: Archive slug, linked to the page that uses it. */
+			esc_html__( 'Please choose a different archive slug. %s matches an existing page slug, so the post type archive and the page would share a URL.', 'custom-post-type-ui' ),
+			$slug
 		);
 	}
 

@@ -2124,8 +2124,11 @@ function cptui_update_post_type( $data = [] ) {
 		return 'error';
 	}
 	if ( 'new' === $data['cpt_type_status'] ) {
-		$slug_as_page = cptui_check_page_slugs( $data['cpt_custom_post_type']['name'] );
-		if ( true === $slug_as_page ) {
+		// Only the archive URL can collide with a page. No archive, or an
+		// archive slug that differs from every page slug, is not a conflict.
+		$archive_slug = cptui_get_post_type_archive_slug( $data['cpt_custom_post_type'] );
+		if ( '' !== $archive_slug && true === cptui_check_page_slugs( $archive_slug ) ) {
+			cptui_page_slug_conflict( $archive_slug );
 			add_filter( 'cptui_custom_error_message', 'cptui_slug_matches_page' );
 			return 'error';
 		}
@@ -2435,6 +2438,54 @@ function cptui_check_page_slugs( $post_type_slug = '' ) {
 	}
 
 	return false;
+}
+
+/**
+ * Get the archive URL slug a post type will use.
+ *
+ * Mirrors how WordPress builds the archive permalink: the custom archive slug
+ * if set, otherwise the rewrite slug, otherwise the post type name.
+ *
+ * @since 1.19.4
+ *
+ * @param array $post_type Post type settings, as submitted or saved.
+ * @return string Archive slug, or an empty string if the post type has no archive URL.
+ */
+function cptui_get_post_type_archive_slug( $post_type = [] ) {
+	if ( empty( $post_type['has_archive'] ) || 'false' === disp_boolean( $post_type['has_archive'] ) ) {
+		return '';
+	}
+
+	if ( ! empty( $post_type['has_archive_string'] ) && '' !== trim( $post_type['has_archive_string'], " /\t\n" ) ) {
+		return trim( $post_type['has_archive_string'], " /\t\n" );
+	}
+
+	// With rewrites off, the archive is a query string URL and cannot match a page.
+	if ( isset( $post_type['rewrite'] ) && 'false' === disp_boolean( $post_type['rewrite'] ) ) {
+		return '';
+	}
+
+	if ( ! empty( $post_type['rewrite_slug'] ) && '' !== trim( $post_type['rewrite_slug'], " /\t\n" ) ) {
+		return trim( $post_type['rewrite_slug'], " /\t\n" );
+	}
+
+	return isset( $post_type['name'] ) ? (string) $post_type['name'] : '';
+}
+
+/**
+ * Store or read the slug that conflicted with an existing page during save.
+ *
+ * @since 1.19.4
+ *
+ * @param string|null $slug Slug to store. Omit to read.
+ * @return string
+ */
+function cptui_page_slug_conflict( $slug = null ) {
+	static $conflict = '';
+	if ( null !== $slug ) {
+		$conflict = (string) $slug;
+	}
+	return $conflict;
 }
 
 /**
