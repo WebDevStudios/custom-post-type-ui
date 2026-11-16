@@ -122,14 +122,7 @@ register_deactivation_hook( __FILE__, 'cptui_deactivation' );
  */
 function cptui_plugin_menu() {
 
-	/**
-	 * Filters the required capability to manage CPTUI settings.
-	 *
-	 * @since 1.3.0
-	 *
-	 * @param string $value Capability required.
-	 */
-	$capability  = apply_filters( 'cptui_required_capabilities', 'manage_options' );
+	$capability  = cptui_get_required_capability();
 	$parent_slug = 'cptui_main_menu';
 
 	add_menu_page( esc_html__( 'Custom post types', 'custom-post-type-ui' ), esc_html__( 'CPT UI', 'custom-post-type-ui' ), $capability, $parent_slug, 'cptui_settings', cptui_menu_icon() );

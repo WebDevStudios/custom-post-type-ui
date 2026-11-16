@@ -2444,7 +2444,7 @@ function cptui_check_page_slugs( $post_type_slug = '' ) {
  */
 function cptui_process_post_type() {
 
-	if ( ! current_user_can( 'manage_options' ) ) {
+	if ( ! current_user_can( cptui_get_required_capability() ) ) {
 		return;
 	}
 
@@ -2642,7 +2642,7 @@ add_filter( 'enter_title_here', 'cptui_custom_enter_title_here', 10, 2 );
  * @return string
  */
 function cptui_get_saved_description() {
-	if ( ! current_user_can( 'manage_options' ) ) {
+	if ( ! current_user_can( cptui_get_required_capability() ) ) {
 		return '';
 	}
 

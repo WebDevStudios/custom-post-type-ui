@@ -508,7 +508,10 @@ add_action( 'cptui_tools_sections', 'cptui_render_tools' );
  * @since 1.5.0
  */
 function cptui_do_import_types_taxes() {
-	 // phpcs:ignore.
+	if ( ! current_user_can( cptui_get_required_capability() ) ) {
+		return;
+	}
+
 	if ( ! empty( $_POST ) && // phpcs:ignore WordPress.Security.NonceVerification
 		( ! empty( $_POST['cptui_post_import'] ) && isset( $_POST['cptui_post_import'] ) ) || // phpcs:ignore WordPress.Security.NonceVerification
 		( ! empty( $_POST['cptui_tax_import'] ) && isset( $_POST['cptui_tax_import'] ) ) // phpcs:ignore WordPress.Security.NonceVerification
