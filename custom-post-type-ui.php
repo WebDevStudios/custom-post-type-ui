@@ -193,6 +193,7 @@ add_action( 'plugins_loaded', 'cptui_loaded' );
 function cptui_includes() {
 	require_once plugin_dir_path( __FILE__ ) . 'inc/about.php';
 	require_once plugin_dir_path( __FILE__ ) . 'inc/utility.php';
+	require_once plugin_dir_path( __FILE__ ) . 'inc/pro.php';
 	require_once plugin_dir_path( __FILE__ ) . 'inc/post-types.php';
 	require_once plugin_dir_path( __FILE__ ) . 'inc/taxonomies.php';
 	require_once plugin_dir_path( __FILE__ ) . 'inc/listings.php';
@@ -228,6 +229,19 @@ function cptui_init() {
 add_action( 'init', 'cptui_init' );
 
 /**
+ * Version string for a built asset, so browsers fetch it again whenever it is rebuilt.
+ *
+ * @since 1.19.4
+ *
+ * @param string $path Asset path relative to the plugin folder.
+ * @return string Plugin version plus the file's modification time.
+ */
+function cptui_asset_version( $path ) {
+	$file = plugin_dir_path( __FILE__ ) . ltrim( $path, '/' );
+	return file_exists( $file ) ? CPTUI_VERSION . '.' . filemtime( $file ) : CPTUI_VERSION;
+}
+
+/**
  * Enqueue CPTUI admin styles.
  *
  * @since 1.0.0
@@ -241,8 +255,8 @@ function cptui_add_styles() {
 	$min = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 	wp_register_script( 'icon-picker', plugins_url( "build/vanilla-icon-picker/dist/icon-picker.min.js", __FILE__ ), [], '1.4.2', true );
 	wp_register_style( 'icon-picker', plugins_url( "build/vanilla-icon-picker/dist/themes/default.min.css", __FILE__ ), [], '1.4.2' );
-	wp_register_script( 'cptui', plugins_url( "build/cptui$min.js", __FILE__ ), [ 'jquery', 'jquery-ui-dialog', 'postbox', 'icon-picker' ], CPTUI_VERSION, true );
-	wp_register_style( 'cptui-css', plugins_url( "build/cptui-styles$min.css", __FILE__ ), [ 'wp-jquery-ui-dialog', 'icon-picker' ], CPTUI_VERSION );
+	wp_register_script( 'cptui', plugins_url( "build/cptui$min.js", __FILE__ ), [ 'jquery', 'jquery-ui-dialog', 'postbox', 'icon-picker' ], cptui_asset_version( "build/cptui$min.js" ), true );
+	wp_register_style( 'cptui-css', plugins_url( "build/cptui-styles$min.css", __FILE__ ), [ 'wp-jquery-ui-dialog', 'icon-picker' ], cptui_asset_version( "build/cptui-styles$min.css" ) );
 
 	wp_localize_script( 'icon-picker', 'cptuiIconPicker', [
 		'iconsJSON'        => plugins_url( 'build/dashicons.json', __FILE__ ),

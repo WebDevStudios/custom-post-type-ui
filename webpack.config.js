@@ -5,6 +5,7 @@ module.exports = {
 	entry: {
 		"cptui": './src/js/cptui.js',
 		"cptui-editor": './src/js/cptui-editor.js',
+		"cptui-pro": './src/js/cptui-pro.js',
 	},
 	optimization: {
 		minimize: false

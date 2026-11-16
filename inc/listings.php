@@ -166,7 +166,18 @@ function cptui_listings() {
 								if ( $archive ) {
 									?>
 								<a href="<?php echo esc_attr( get_post_type_archive_link( $post_type ) ); ?>"><?php esc_html_e( 'View frontend archive', 'custom-post-type-ui' ); ?></a>
-								<?php } ?>
+								<?php }
+
+								/**
+								 * Fires after the action links for a post type on the listings screen.
+								 *
+								 * @since 1.19.4
+								 *
+								 * @param string $post_type          Post type slug.
+								 * @param array  $post_type_settings Post type settings.
+								 */
+								do_action( 'cptui_listings_post_type_row_actions', $post_type, $post_type_settings );
+								?>
 							</td>
 							<td>
 								<?php
