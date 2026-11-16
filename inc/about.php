@@ -200,7 +200,7 @@ function cptui_about_page_newsletter() {
 	}
 
 	?>
-	<div class='wdsoctosignup'>
+	<div class="cptui-about-newsletter">
 		<?php
 		cptui_newsletter_form();
 		?>

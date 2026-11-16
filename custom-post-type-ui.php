@@ -194,6 +194,7 @@ function cptui_includes() {
 	require_once plugin_dir_path( __FILE__ ) . 'inc/about.php';
 	require_once plugin_dir_path( __FILE__ ) . 'inc/utility.php';
 	require_once plugin_dir_path( __FILE__ ) . 'inc/pro.php';
+	require_once plugin_dir_path( __FILE__ ) . 'inc/newsletter.php';
 	require_once plugin_dir_path( __FILE__ ) . 'inc/post-types.php';
 	require_once plugin_dir_path( __FILE__ ) . 'inc/taxonomies.php';
 	require_once plugin_dir_path( __FILE__ ) . 'inc/listings.php';

@@ -122,6 +122,21 @@ CPT UI Pro is an optional add-on for users who want to go further.
 Yes. CPT UI Pro includes dedicated multisite support with network-level
 registration, config push to subsites, and per-site inheritance controls.
 
+== External services ==
+
+This plugin connects to one external service, and only when a site administrator chooses to use it.
+
+= Pluginize newsletter (FluentCRM on pluginize.com) =
+The optional "Get Custom Post Type UI updates" signup form, shown on the CPT UI screens, subscribes you to email updates about the plugin from Pluginize, the WebDevStudios plugin store.
+
+* What is sent: only the email address typed into the form.
+* When: only when an administrator clicks Subscribe. Nothing is sent when the form is displayed, and no other site or user data is included.
+* Where: a FluentCRM webhook on pluginize.com.
+
+You can unsubscribe from any email. Pluginize [terms](https://pluginize.com/terms/) and [privacy policy](https://pluginize.com/privacy/).
+
+Links to WebDevStudios products in the plugin's admin screens are ordinary links with UTM tracking parameters. They send nothing unless you click one, and they never load content from another site.
+
 == Changelog ==
 
 = 1.19.3 - 2026-07-14 =

@@ -435,3 +435,64 @@ $cptui-promo-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen
 	width: 100%;
   }
 }
+
+// Newsletter signup (sidebar and About page).
+.cptui-newsletter {
+	margin: 20px 0;
+
+	&__title,
+	&__desc {
+		margin: 0 0 6px;
+	}
+
+	&__desc {
+		color: #50575e;
+		font-size: 12px;
+	}
+
+	label {
+		display: block;
+		font-weight: 600;
+		margin: 8px 0 4px;
+	}
+
+	&__row {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 6px;
+
+		input[type="email"] {
+			flex: 1 1 160px;
+			min-width: 0;
+		}
+	}
+
+	&__hp {
+		height: 1px;
+		left: -9999px;
+		overflow: hidden;
+		position: absolute;
+		width: 1px;
+	}
+
+	&__status {
+		margin: 8px 0 0;
+
+		&:empty {
+			display: none;
+		}
+
+		&.is-success {
+			color: #008a20;
+			font-weight: 600;
+		}
+
+		&.is-error {
+			color: #d63638;
+		}
+	}
+}
+
+.cptui-about-newsletter .cptui-newsletter {
+	max-width: 420px;
+}
